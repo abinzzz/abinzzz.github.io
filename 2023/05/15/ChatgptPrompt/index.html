@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <meta name="generator" content="Hexo 5.4.2">
+
+  
+
+  
+
+  
+    <meta name="author" content="abinzzz">
+  
+
+  
+
+  
+
+  <title>ChatgptPrompt | Moon_Zzz</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@1.1.3/index.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/monokai.css">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/85/wallhaven-85kjp1.png)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          Moon_Zzz
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="/links">友链</a></li>
+        
+          <li class="navbar-list-item"><a href="/messages">留言</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">ChatgptPrompt</h1>
+          <h2 class="title-sub-wrap">
+            <strong>abinzzz</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2023-05-15T03:28:38.000Z" itemprop="datePublished">2023-05-15</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/categories/gpt/">📒 gpt</a></li>
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/tags/llm/">🏷️ llm</a></li>
+  
+    <li><a href="/tags/chatgpt-prompt/">🏷️ chatgpt prompt</a></li>
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <h1 id="Chatgpt-Prompt"><a href="#Chatgpt-Prompt" class="headerlink" title="Chatgpt Prompt"></a>Chatgpt Prompt</h1><h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>两种大语言模型：  </p>
+<ul>
+<li>Base LLM  </li>
+<li>Instruction Tuned LLM  </li>
+</ul>
+<p>Instruction Tuned LLM通常是在大量文本数据上训练过，然后使用输入输出指令来进行微调,使用rhlf进行进一步优化.<br><br><br><br><br><br></p>
+<h2 id="2-指南"><a href="#2-指南" class="headerlink" title="2.指南"></a>2.指南</h2><ul>
+<li><h3 id="①填写明确和具体的指令"><a href="#①填写明确和具体的指令" class="headerlink" title="①填写明确和具体的指令"></a>①填写明确和具体的指令</h3><p>Topic1：使用分隔符，Delimiters can be anything like: ```, “””, &lt; &gt;, <tag> </tag><br>输入： </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">You should express what you want a model to do by \ </span></span><br><span class="line"><span class="string">providing instructions that are as clear and \ </span></span><br><span class="line"><span class="string">specific as you can possibly make them. \ </span></span><br><span class="line"><span class="string">This will guide the model towards the desired output, \ </span></span><br><span class="line"><span class="string">and reduce the chances of receiving irrelevant \ </span></span><br><span class="line"><span class="string">or incorrect responses. Don&#x27;t confuse writing a \ </span></span><br><span class="line"><span class="string">clear prompt with writing a short prompt. \ </span></span><br><span class="line"><span class="string">In many cases, longer prompts provide more clarity \ </span></span><br><span class="line"><span class="string">and context for the model, which can lead to \ </span></span><br><span class="line"><span class="string">more detailed and relevant outputs.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Summarize the text delimited by triple backticks \ </span></span><br><span class="line"><span class="string">into a single sentence.</span></span><br><span class="line"><span class="string">```<span class="subst">&#123;text&#125;</span>```</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">response = get_completion(prompt)</span><br><span class="line"><span class="built_in">print</span>(response)</span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line">输出：</span><br></pre></td></tr></table></figure>
+<p>Clear and specific instructions should be provided to guide a model towards the desired output, and longer prompts can provide more clarity and context for the model, leading to more detailed and relevant outputs.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;br&gt;</span><br><span class="line">&lt;br&gt;</span><br><span class="line">&lt;br&gt;</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">Topic2：要求结构化的输出，例如JSON,HTML  </span><br><span class="line">输入：</span><br><span class="line">```python</span><br><span class="line">prompt = f&quot;&quot;&quot;</span><br><span class="line">Generate a list of three made-up book titles along \ </span><br><span class="line">with their authors and genres. </span><br><span class="line">Provide them in JSON format with the following keys: </span><br><span class="line">book_id, title, author, genre.</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">response = get_completion(prompt)</span><br><span class="line">print(response)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;book_id&quot;: 1,</span><br><span class="line">  &quot;title&quot;: &quot;The Lost City of Zorath&quot;,</span><br><span class="line">  &quot;author&quot;: &quot;Aria Blackwood&quot;,</span><br><span class="line">  &quot;genre&quot;: &quot;Fantasy&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">  &quot;book_id&quot;: 2,</span><br><span class="line">  &quot;title&quot;: &quot;The Last Survivors&quot;,</span><br><span class="line">  &quot;author&quot;: &quot;Ethan Stone&quot;,</span><br><span class="line">  &quot;genre&quot;: &quot;Science Fiction&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">  &quot;book_id&quot;: 3,</span><br><span class="line">  &quot;title&quot;: &quot;The Secret Life of Bees&quot;,</span><br><span class="line">  &quot;author&quot;: &quot;Lila Rose&quot;,</span><br><span class="line">  &quot;genre&quot;: &quot;Romance&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<br>
+<br>
+<br>
+
+<p>Topic3：请model检查是否满足条件<br>输入：我们运行这个cell，可以看到该模型能够提取指令</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">text_1 = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Making a cup of tea is easy! First, you need to get some \ </span></span><br><span class="line"><span class="string">water boiling. While that&#x27;s happening, \ </span></span><br><span class="line"><span class="string">grab a cup and put a tea bag in it. Once the water is \ </span></span><br><span class="line"><span class="string">hot enough, just pour it over the tea bag. \ </span></span><br><span class="line"><span class="string">Let it sit for a bit so the tea can steep. After a \ </span></span><br><span class="line"><span class="string">few minutes, take out the tea bag. If you \ </span></span><br><span class="line"><span class="string">like, you can add some sugar or milk to taste. \ </span></span><br><span class="line"><span class="string">And that&#x27;s it! You&#x27;ve got yourself a delicious \ </span></span><br><span class="line"><span class="string">cup of tea to enjoy.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">You will be provided with text delimited by triple quotes. </span></span><br><span class="line"><span class="string">If it contains a sequence of instructions, \ </span></span><br><span class="line"><span class="string">re-write those instructions in the following format:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Step 1 - ...</span></span><br><span class="line"><span class="string">Step 2 - …</span></span><br><span class="line"><span class="string">…</span></span><br><span class="line"><span class="string">Step N - …</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">If the text does not contain a sequence of instructions, \ </span></span><br><span class="line"><span class="string">then simply write \&quot;No steps provided.\&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">\&quot;\&quot;\&quot;<span class="subst">&#123;text_1&#125;</span>\&quot;\&quot;\&quot;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">response = get_completion(prompt)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Completion for Text 1:&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(response)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Completion for Text 1:</span><br><span class="line">Step 1 - Get some water boiling.</span><br><span class="line">Step 2 - Grab a cup and put a tea bag in it.</span><br><span class="line">Step 3 - Once the water is hot enough, pour it over the tea bag.</span><br><span class="line">Step 4 - Let it sit for a bit so the tea can steep.</span><br><span class="line">Step 5 - After a few minutes, take out the tea bag.</span><br><span class="line">Step 6 - Add some sugar or milk to taste.</span><br><span class="line">Step 7 - Enjoy your delicious cup of tea!</span><br></pre></td></tr></table></figure>
+<br>
+<br>
+<br>
+<br>
+ 
+<p>接下来使用不同的段落来尝试这个相同的提示，这段文字并不包含指示</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">text_2 = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">The sun is shining brightly today, and the birds are \</span></span><br><span class="line"><span class="string">singing. It&#x27;s a beautiful day to go for a \ </span></span><br><span class="line"><span class="string">walk in the park. The flowers are blooming, and the \ </span></span><br><span class="line"><span class="string">trees are swaying gently in the breeze. People \ </span></span><br><span class="line"><span class="string">are out and about, enjoying the lovely weather. \ </span></span><br><span class="line"><span class="string">Some are having picnics, while others are playing \ </span></span><br><span class="line"><span class="string">games or simply relaxing on the grass. It&#x27;s a \ </span></span><br><span class="line"><span class="string">perfect day to spend time outdoors and appreciate the \ </span></span><br><span class="line"><span class="string">beauty of nature.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">You will be provided with text delimited by triple  quotes. </span></span><br><span class="line"><span class="string">If it contains a sequence of instructions, \ </span></span><br><span class="line"><span class="string">re-write those instructions in the following format:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Step 1 - ...</span></span><br><span class="line"><span class="string">Step 2 - …</span></span><br><span class="line"><span class="string">…</span></span><br><span class="line"><span class="string">Step N - …</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">If the text does not contain a sequence of instructions, \ </span></span><br><span class="line"><span class="string">then simply write \&quot;No steps provided.\&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">\&quot;\&quot;\&quot;<span class="subst">&#123;text_2&#125;</span>\&quot;\&quot;\&quot;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">response = get_completion(prompt)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Completion for Text 2:&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(response)</span><br></pre></td></tr></table></figure>
+<p>输出：(我们可以看出在这段不包含指示的文字中，他确实没有输出什么)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Completion for Text 2:</span><br><span class="line">No steps provided.</span><br></pre></td></tr></table></figure>
+<br>
+<br>
+<br>
+<br>
+
+<p>Topic4：“Few-shot”提示,给模型明确且具体的例子<br>输入：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Your task is to answer in a consistent style.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;child&gt;: Teach me about patience.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;grandparent&gt;: The river that carves the deepest \ </span></span><br><span class="line"><span class="string">valley flows from a modest spring; the \ </span></span><br><span class="line"><span class="string">grandest symphony originates from a single note; \ </span></span><br><span class="line"><span class="string">the most intricate tapestry begins with a solitary thread.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;child&gt;: Teach me about resilience.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">response = get_completion(prompt)</span><br><span class="line"><span class="built_in">print</span>(response)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;grandparent&gt;: Resilience is like a tree that bends with the wind but never breaks. It is the ability to bounce back from adversity and keep moving forward, even when things get tough. Just like a tree that grows stronger with each storm it weathers, resilience is a quality that can be developed and strengthened over time.</span><br></pre></td></tr></table></figure>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ </li>
+<li><h3 id="②给模型足够的时间来思考"><a href="#②给模型足够的时间来思考" class="headerlink" title="②给模型足够的时间来思考"></a>②给模型足够的时间来思考</h3><p>一个模型因急于得出不正确的结论而出现推理错误，应该重新设计查询，要求在模型之前进行一连串的相关推理，就像一个人，你没有给他足够的时间去计算数学题，他们如果会做的话但也会犯错的.</p>
+<p>Topic1：制定完成任务所需步骤  </p>
+<p>输入：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">In a charming village, siblings Jack and Jill set out on \ </span></span><br><span class="line"><span class="string">a quest to fetch water from a hilltop \ </span></span><br><span class="line"><span class="string">well. As they climbed, singing joyfully, misfortune \ </span></span><br><span class="line"><span class="string">struck—Jack tripped on a stone and tumbled \ </span></span><br><span class="line"><span class="string">down the hill, with Jill following suit. \ </span></span><br><span class="line"><span class="string">Though slightly battered, the pair returned home to \ </span></span><br><span class="line"><span class="string">comforting embraces. Despite the mishap, \ </span></span><br><span class="line"><span class="string">their adventurous spirits remained undimmed, and they \ </span></span><br><span class="line"><span class="string">continued exploring with delight.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># example 1</span></span><br><span class="line">prompt_1 = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Perform the following actions: </span></span><br><span class="line"><span class="string">1 - Summarize the following text delimited by triple \</span></span><br><span class="line"><span class="string">backticks with 1 sentence.</span></span><br><span class="line"><span class="string">2 - Translate the summary into French.</span></span><br><span class="line"><span class="string">3 - List each name in the French summary.</span></span><br><span class="line"><span class="string">4 - Output a json object that contains the following \</span></span><br><span class="line"><span class="string">keys: french_summary, num_names.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Separate your answers with line breaks.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Text:</span></span><br><span class="line"><span class="string">```<span class="subst">&#123;text&#125;</span>```</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">response = get_completion(prompt_1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Completion for prompt 1:&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(response)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Completion for prompt 1:</span><br><span class="line">Two siblings, Jack and Jill, go on a quest to fetch water from a well on a hilltop, but misfortune strikes and they both tumble down the hill, returning home slightly battered but with their adventurous spirits undimmed.</span><br><span class="line"></span><br><span class="line">Deux frères et sœurs, Jack et Jill, partent en quête d&#x27;eau d&#x27;un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts. </span><br><span class="line"></span><br><span class="line">Noms: Jack, Jill. </span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">&quot;french_summary&quot;: &quot;Deux frères et sœurs, Jack et Jill, partent en quête d&#x27;eau d&#x27;un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts.&quot;,</span><br><span class="line">&quot;num_names&quot;: 2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来将展示另一个完成相同任务的提示,即请求指定格式输出(进一步改进输出结果)</p>
+<p>输入：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">prompt_2 = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Your task is to perform the following actions: </span></span><br><span class="line"><span class="string">1 - Summarize the following text delimited by </span></span><br><span class="line"><span class="string">  &lt;&gt; with 1 sentence.</span></span><br><span class="line"><span class="string">2 - Translate the summary into French.</span></span><br><span class="line"><span class="string">3 - List each name in the French summary.</span></span><br><span class="line"><span class="string">4 - Output a json object that contains the </span></span><br><span class="line"><span class="string">  following keys: french_summary, num_names.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Use the following format:</span></span><br><span class="line"><span class="string">Text: &lt;text to summarize&gt;</span></span><br><span class="line"><span class="string">Summary: &lt;summary&gt;</span></span><br><span class="line"><span class="string">Translation: &lt;summary translation&gt;</span></span><br><span class="line"><span class="string">Names: &lt;list of names in Italian summary&gt;</span></span><br><span class="line"><span class="string">Output JSON: &lt;json with summary and num_names&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Text: &lt;<span class="subst">&#123;text&#125;</span>&gt;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">response = get_completion(prompt_2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\nCompletion for prompt 2:&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(response)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Completion for prompt 2:</span><br><span class="line">Summary: Jack and Jill go on a quest to fetch water, but misfortune strikes and they tumble down the hill, returning home slightly battered but with their adventurous spirits undimmed. </span><br><span class="line"></span><br><span class="line">Translation: Jack et Jill partent en quête d&#x27;eau, mais la malchance frappe et ils dégringolent la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts.</span><br><span class="line"></span><br><span class="line">Names: Jack, Jill</span><br><span class="line"></span><br><span class="line">Output JSON: &#123;&quot;french_summary&quot;: &quot;Jack et Jill partent en quête d&#x27;eau, mais la malchance frappe et ils dégringolent la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts.&quot;, &quot;num_names&quot;: 2&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<br>
+<br>
+<br>
+
+<p>Topic2:在匆忙得出结论之前，指示模型自己找出解决方案</p>
+<p>输入：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Determine if the student&#x27;s solution is correct or not.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Question:</span></span><br><span class="line"><span class="string">I&#x27;m building a solar power installation and I need \</span></span><br><span class="line"><span class="string"> help working out the financials. </span></span><br><span class="line"><span class="string">- Land costs $100 / square foot</span></span><br><span class="line"><span class="string">- I can buy solar panels for $250 / square foot</span></span><br><span class="line"><span class="string">- I negotiated a contract for maintenance that will cost \ </span></span><br><span class="line"><span class="string">me a flat $100k per year, and an additional $10 / square \</span></span><br><span class="line"><span class="string">foot</span></span><br><span class="line"><span class="string">What is the total cost for the first year of operations </span></span><br><span class="line"><span class="string">as a function of the number of square feet.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Student&#x27;s Solution:</span></span><br><span class="line"><span class="string">Let x be the size of the installation in square feet.</span></span><br><span class="line"><span class="string">Costs:</span></span><br><span class="line"><span class="string">1. Land cost: 100x</span></span><br><span class="line"><span class="string">2. Solar panel cost: 250x</span></span><br><span class="line"><span class="string">3. Maintenance cost: 100,000 + 100x</span></span><br><span class="line"><span class="string">Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">response = get_completion(prompt)</span><br><span class="line"><span class="built_in">print</span>(response)</span><br></pre></td></tr></table></figure>
+
+<p>输出：(该模型只是略读了一下，同意学生的观点，但是学生的观点是错的)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The student&#x27;s solution is correct.</span><br></pre></td></tr></table></figure>
+
+
+<br>
+<br></li>
+</ul>
+<p>  我们在这个提示中告诉model,你的任务是确定学生的解决方案是否正确，要解决问题请做以下工作： </p>
+<p>  找出你自己的解决方案的问题，然后将你的解决方案与学生的解决方案进行比较，并评估学生的解决方案是否正确，当你做完这个问题之前，不要决定学生的解决方案是否正确。在真正清楚的同时，要确保你自己做的问题。</p>
+<p>  输出：(将任务分解成几个步骤，让模型有更多的时间来思考，可以帮助得到更准确地回答)<br>  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Your task is to determine if the student&#x27;s solution \</span></span><br><span class="line"><span class="string">is correct or not.</span></span><br><span class="line"><span class="string">To solve the problem do the following:</span></span><br><span class="line"><span class="string">- First, work out your own solution to the problem. </span></span><br><span class="line"><span class="string">- Then compare your solution to the student&#x27;s solution \ </span></span><br><span class="line"><span class="string">and evaluate if the student&#x27;s solution is correct or not. </span></span><br><span class="line"><span class="string">Don&#x27;t decide if the student&#x27;s solution is correct until </span></span><br><span class="line"><span class="string">you have done the problem yourself.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Use the following format:</span></span><br><span class="line"><span class="string">Question:</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">question here</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Student&#x27;s solution:</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">student<span class="string">&#x27;s solution here</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Actual solution:</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">steps to work out the solution and your solution here</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Is the student&#x27;</span>s solution the same <span class="keyword">as</span> actual solution \</span><br><span class="line">just calculated:</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">yes or no</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">Student grade:</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">correct or incorrect</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">Question:</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">I&#x27;m building a solar power installation and I need help \</span></span><br><span class="line"><span class="string">working out the financials. </span></span><br><span class="line"><span class="string">- Land costs $100 / square foot</span></span><br><span class="line"><span class="string">- I can buy solar panels for $250 / square foot</span></span><br><span class="line"><span class="string">- I negotiated a contract for maintenance that will cost \</span></span><br><span class="line"><span class="string">me a flat $100k per year, and an additional $10 / square \</span></span><br><span class="line"><span class="string">foot</span></span><br><span class="line"><span class="string">What is the total cost for the first year of operations \</span></span><br><span class="line"><span class="string">as a function of the number of square feet.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">Student<span class="string">&#x27;s solution:</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Let x be the size of the installation in square feet.</span></span><br><span class="line"><span class="string">Costs:</span></span><br><span class="line"><span class="string">1. Land cost: 100x</span></span><br><span class="line"><span class="string">2. Solar panel cost: 250x</span></span><br><span class="line"><span class="string">3. Maintenance cost: 100,000 + 100x</span></span><br><span class="line"><span class="string">Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">ctual solution:</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">response = get_completion(prompt)</span></span><br><span class="line"><span class="string">print(response)</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure></p>
+<p>  输出结果：<br>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Let x be the size of the installation in square feet.</span><br><span class="line"></span><br><span class="line">Costs:</span><br><span class="line">1. Land cost: 100x</span><br><span class="line">2. Solar panel cost: 250x</span><br><span class="line">3. Maintenance cost: 100,000 + 10x</span><br><span class="line"></span><br><span class="line">Total cost: 100x + 250x + 100,000 + 10x = 360x + 100,000</span><br><span class="line"></span><br><span class="line">Is the student&#x27;s solution the same as actual solution just calculated:</span><br><span class="line">No</span><br><span class="line"></span><br><span class="line">Student grade:</span><br><span class="line">Incorrect</span><br></pre></td></tr></table></figure><br>   <br><br>   <br><br>   <br><br>   <br><br>   <br><br>   <br><br>   <br><br>   <br><br>   <br></p>
+<ul>
+<li><h3 id="③模型的局限性"><a href="#③模型的局限性" class="headerlink" title="③模型的局限性"></a>③模型的局限性</h3><p>尽管LLM已经接触了大量的知识，在训练过程中，它并没有完全记住它所看到的信息，所以它对自己的知识边界不是很了解，这意味着他可以尝试着回答一些晦涩难懂的问题，并且编造一些东西，听起来有道理，但并不真实。</p>
+<p>以下是一个例子，Boie是一个真的公司，但产品名称是不存在的    </p>
+<p>输入：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Tell me about AeroGlide UltraSlim Smart Toothbrush by Boie</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">response = get_completion(prompt)</span><br><span class="line"><span class="built_in">print</span>(response)</span><br></pre></td></tr></table></figure>
+<p>尽管并没有这个产品，它还是像模像样的给出了回答，这是一个很危险的事情。<br>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">The AeroGlide UltraSlim Smart Toothbrush by Boie is a high-tech toothbrush that uses advanced sonic technology to provide a deep and thorough clean. It features a slim and sleek design that makes it easy to hold and maneuver, and it comes with a range of smart features that help you optimize your brushing routine.</span><br><span class="line"></span><br><span class="line">One of the key features of the AeroGlide UltraSlim Smart Toothbrush is its advanced sonic technology, which uses high-frequency vibrations to break up plaque and bacteria on your teeth and gums. This technology is highly effective at removing even the toughest stains and buildup, leaving your teeth feeling clean and refreshed.</span><br><span class="line"></span><br><span class="line">In addition to its sonic technology, the AeroGlide UltraSlim Smart Toothbrush also comes with a range of smart features that help you optimize your brushing routine. These include a built-in timer that ensures you brush for the recommended two minutes, as well as a pressure sensor that alerts you if you&#x27;re brushing too hard.</span><br><span class="line"></span><br><span class="line">Overall, the AeroGlide UltraSlim Smart Toothbrush by Boie is a highly advanced and effective toothbrush that is perfect for anyone looking to take their oral hygiene to the next level. With its advanced sonic technology and smart features, it provides a deep and thorough clean that leaves your teeth feeling fresh and healthy.</span><br></pre></td></tr></table></figure>
+<p>对于model出现这种幻觉，我们可以首先找到相关信息，然后根据相关信息回答问题</p>
+</li>
+</ul>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2023/05/12/Using-CheatEngine/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Using CheatEngine</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="https://img.wxcha.com/m00/50/19/ae80d0b19f8ec6251f96bf577767e26f.jpg?down" class="soft-size--round soft-style--box" alt="Moon_Zzz">
+    
+    
+      <h2>Moon_Zzz</h2>
+    
+    
+      <p>遇到困难？就睡大觉！</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>3</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        3
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        6
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+
+      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+    <span>CATEGORYS</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categorys-list">
+      
+        <li class="categorys-list-item">
+          <a href="/categories/STGgameAI/">
+            STGgameAI (1)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="/categories/%E5%A4%A7%E5%88%9B/">
+            大创 (1)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="/categories/gpt/">
+            gpt (1)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      <a href="/tags/AI/" style="font-size: 10px;" class="tags-cloud-0">AI</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;" class="tags-cloud-0">Deep Learning</a> <a href="/tags/ReadMemory/" style="font-size: 10px;" class="tags-cloud-0">ReadMemory</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;" class="tags-cloud-0">chatgpt prompt</a> <a href="/tags/explainer/" style="font-size: 10px;" class="tags-cloud-0">explainer</a> <a href="/tags/llm/" style="font-size: 10px;" class="tags-cloud-0">llm</a>
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="https://github.com/abinzzz/" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+      
+    </div>
+     
+    <p>&copy; 2023 <a href="/" target="_blank">abinzzz</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+
+
+  
+
+
+  <!-- Google Analytics START -->
+  <script type="text/javascript">
+    (function() {
+      if (window.location.hostname === "localhost" || window.location.hostname.startsWith("192.168")) {
+        return console.log("本地调试");
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      let script = document.createElement("script")
+
+      script.onload = function() {
+        gtag('js', new Date());
+        gtag('config', "UA-165681463-1");
+      }
+
+      script.src = "https://www.googletagmanager.com/gtag/js?id=UA-165681463-1"
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(script, s);
+    })()
+  </script>
+  <!-- Google Analytics End -->
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
