@@ -22,7 +22,7 @@
 
   
 
-  <title>Using CheatEngine | Moon_Zzz</title>
+  <title>Lime论文阅读 | Moon_Zzz</title>
 
   
 
@@ -98,20 +98,24 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">Using CheatEngine</h1>
+          <h1 class="title-wrap">Lime论文阅读</h1>
           <h2 class="title-sub-wrap">
             <strong>abinzzz</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-05-12T08:25:05.000Z" itemprop="datePublished">2023-05-12</time>
+            <time  class="article-date" datetime="2023-05-17T15:53:10.000Z" itemprop="datePublished">2023-05-17</time>
           </h2>
           <ul class="wrap-list dark">
   
-    <li><a href="/categories/STGgameAI/">📒 STGgameAI</a></li>
+    <li><a href="/categories/%E5%A4%A7%E5%88%9B/">📒 大创</a></li>
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/ReadMemory/">🏷️ ReadMemory</a></li>
+    <li><a href="/tags/AI/">🏷️ AI</a></li>
+  
+    <li><a href="/tags/explainer/">🏷️ explainer</a></li>
+  
+    <li><a href="/tags/Lime/">🏷️ Lime</a></li>
   
 </ul>
         </div>
@@ -135,12 +139,13 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="CheatEngine使用教程"><a href="#CheatEngine使用教程" class="headerlink" title="CheatEngine使用教程"></a>CheatEngine使用教程</h1><h2 id="1-选择进程"><a href="#1-选择进程" class="headerlink" title="1.选择进程"></a>1.选择进程</h2><p>   通过点击一个类似于<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/20190921150201433.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ZyZWVraW5nMTAx,size_16,color_FFFFFF,t_70">电脑显示屏</a>的按钮来选择自己调试的程序(xxx.exe).</p>
-<h2 id="2-精确值扫描-已知初始值"><a href="#2-精确值扫描-已知初始值" class="headerlink" title="2.精确值扫描(已知初始值)"></a>2.精确值扫描(已知初始值)</h2><p>   (1)将当前生命值输入到<strong>数值</strong>中<br>   (2)<strong>扫描类型</strong>=<strong>精确扫描</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;<strong>数值类型</strong>=4字节<br>   (3)点击<strong>首次扫描</strong>，会发现很多地址<br>   (4)然后改变生命值，将改变后的生命值输入到<strong>数值</strong>中，点击<strong>再次扫描</strong><br>   (5)重复上一步，直到只剩下一个地址，这个地址就是生命值的地址</p>
-<h2 id="3-未知的初始值与减少的数值"><a href="#3-未知的初始值与减少的数值" class="headerlink" title="3.未知的初始值与减少的数值"></a>3.未知的初始值与减少的数值</h2><h3 id="从上一次扫描中退出要点新的扫描"><a href="#从上一次扫描中退出要点新的扫描" class="headerlink" title="从上一次扫描中退出要点新的扫描"></a>从上一次扫描中退出要点<strong>新的扫描</strong></h3><p>   (1)<strong>扫描类型</strong>=<strong>未知初始值</strong><br>   (2)点击<strong>首次扫描</strong>，会发现很多地址<br>   (3)然后减少生命值，<strong>扫描类型</strong>=减少的数值，点击<strong>再次扫描</strong><br>   (4)重复上一步，直到只剩下一个地址  </p>
-<h2 id="4-单精度与双精度"><a href="#4-单精度与双精度" class="headerlink" title="4.单精度与双精度"></a>4.单精度与双精度</h2><p><em>这么做是为了给菜鸟制造一些麻烦，让他们没那么容易修改游戏</em><br>(1)选择<strong>精确扫描</strong>或者<strong>未知初始值</strong><br>(2)<strong>数据类型</strong>=<strong>单浮点</strong>/<strong>双浮点</strong><br>(3)然后减少生命值，<strong>扫描类型</strong>=减少的数值，点击<strong>再次扫描</strong><br>(4)重复上一步，直到只剩下一个地址  </p>
-<h2 id="5-代码查找"><a href="#5-代码查找" class="headerlink" title="5.代码查找"></a>5.代码查找</h2><p><em>某些游戏开始的时候，数据会存储在与上次不同的地方，甚至游戏过程中数据的位置也会改变</em><br>(1)首先要找到这个数值当前的存储地址<br>(2)右键地址，点击<strong>找出是什么改写了这个地址</strong><br>(3)改变数值，然后窗口内会弹出一些汇编代码<br>(4)选中代码，点击<strong>replace</strong>，替换为什么也不做的代码(nop)<br>(5)这样当程序读到它的时候，将什么也不做</p>
-<h2 id="6-指针"><a href="#6-指针" class="headerlink" title="6.指针"></a>6.指针</h2><p>(1)找到数值的存储地址，点击<strong>找出是什么改写了这个地址</strong><br>(2)<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/d53b269a6b3e405ca29a4d755210bac4.png">改变数值，就可以看到汇编代码，点击<strong>详情信息</strong>会告诉你指令运行发生了什么,rdx就是取地址里的内容</a><br>(3)<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/74ac0e0df82e40d383c5b8ac876bf1aa.png">使用十六进制去搜索该数值的存储地址，发现有变绿色的，点击<strong>手动添加地址</strong>,将激活打×,指针指向的地址和数值都不会改变</a>  </p>
+        <ul>
+<li><p>交叉验证：<br>&nbsp;&nbsp;交叉验证（Cross-validation）是一种用于评估机器学习模型性能的统计方法。它的目的是通过在数据集上进行多次的训练和测试来估计模型的泛化能力，即对新数据的预测能力。</p>
+<p>&nbsp;&nbsp;在交叉验证中，将数据集划分为训练集和测试集，然后使用训练集对模型进行训练，再利用测试集评估模型的性能。为了准确评估模型的泛化能力，交叉验证将这个过程重复多次，每次使用不同的数据划分方式。</p>
+</li>
+</ul>
+<p>&nbsp;&nbsp;期刊：KDD 2016<br>&nbsp;&nbsp;LIME：解释任何机器学习模型预测结果的方法。使用可解释特征训练可解释模型，在特定的局部线性邻域拟合元模型(可解释性特征)</p>
+<h1 id="一-摘要"><a href="#一-摘要" class="headerlink" title="一.摘要"></a>一.摘要</h1><p>机器学习模型现在仍然主要是黑匣子。理解背后原因可以将不可信的模型转化为可信的模型。</p>
 
       </section>
 
@@ -153,8 +158,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/05/15/ChatgptPrompt/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">ChatgptPrompt</h2>
+        <a href="/2023/05/18/%E6%AF%9B%E6%A6%822/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">毛概2</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -168,8 +173,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/05/08/reading-AI-paper-1/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">reading-AI-paper-1</h2>
+        <a href="/2023/05/16/%E6%AF%9B%E6%A6%821/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">毛概1</h2>
         </a>
       
       <div class="card-text--row">Older</div>
