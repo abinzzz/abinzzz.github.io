@@ -140,7 +140,10 @@
 <h2 id="3-未知的初始值与减少的数值"><a href="#3-未知的初始值与减少的数值" class="headerlink" title="3.未知的初始值与减少的数值"></a>3.未知的初始值与减少的数值</h2><h3 id="从上一次扫描中退出要点新的扫描"><a href="#从上一次扫描中退出要点新的扫描" class="headerlink" title="从上一次扫描中退出要点新的扫描"></a>从上一次扫描中退出要点<strong>新的扫描</strong></h3><p>   (1)<strong>扫描类型</strong>=<strong>未知初始值</strong><br>   (2)点击<strong>首次扫描</strong>，会发现很多地址<br>   (3)然后减少生命值，<strong>扫描类型</strong>=减少的数值，点击<strong>再次扫描</strong><br>   (4)重复上一步，直到只剩下一个地址  </p>
 <h2 id="4-单精度与双精度"><a href="#4-单精度与双精度" class="headerlink" title="4.单精度与双精度"></a>4.单精度与双精度</h2><p><em>这么做是为了给菜鸟制造一些麻烦，让他们没那么容易修改游戏</em><br>(1)选择<strong>精确扫描</strong>或者<strong>未知初始值</strong><br>(2)<strong>数据类型</strong>=<strong>单浮点</strong>/<strong>双浮点</strong><br>(3)然后减少生命值，<strong>扫描类型</strong>=减少的数值，点击<strong>再次扫描</strong><br>(4)重复上一步，直到只剩下一个地址  </p>
 <h2 id="5-代码查找"><a href="#5-代码查找" class="headerlink" title="5.代码查找"></a>5.代码查找</h2><p><em>某些游戏开始的时候，数据会存储在与上次不同的地方，甚至游戏过程中数据的位置也会改变</em><br>(1)首先要找到这个数值当前的存储地址<br>(2)右键地址，点击<strong>找出是什么改写了这个地址</strong><br>(3)改变数值，然后窗口内会弹出一些汇编代码<br>(4)选中代码，点击<strong>replace</strong>，替换为什么也不做的代码(nop)<br>(5)这样当程序读到它的时候，将什么也不做</p>
-<h2 id="6-指针"><a href="#6-指针" class="headerlink" title="6.指针"></a>6.指针</h2><p>(1)找到数值的存储地址，点击<strong>找出是什么改写了这个地址</strong><br>(2)<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/d53b269a6b3e405ca29a4d755210bac4.png">改变数值，就可以看到汇编代码，点击<strong>详情信息</strong>会告诉你指令运行发生了什么,rdx就是取地址里的内容</a><br>(3)<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/74ac0e0df82e40d383c5b8ac876bf1aa.png">使用十六进制去搜索该数值的存储地址，发现有变绿色的，点击<strong>手动添加地址</strong>,将激活打×,指针指向的地址和数值都不会改变</a>  </p>
+<h2 id="6-指针"><a href="#6-指针" class="headerlink" title="6.指针"></a>6.指针</h2><p>(1)找到数值的存储地址，点击<strong>找出是什么改写了这个地址</strong><br>(2)<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/d53b269a6b3e405ca29a4d755210bac4.png">改变数值，就可以看到汇编代码，点击<strong>详情信息</strong>会告诉你指令运行发生了什么,rdx就是取地址里的内容</a><br>(3)<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/74ac0e0df82e40d383c5b8ac876bf1aa.png">使用十六进制去搜索该数值的存储地址，发现有变绿色的，点击<strong>手动添加地址</strong>,将激活打X就是锁定，该指针锁定的话，数值和指针都不会改变</a>  </p>
+<h2 id="7-代码注入"><a href="#7-代码注入" class="headerlink" title="7.代码注入"></a>7.代码注入</h2><p><em>将代码注入到目标进程中并执行它的技巧</em><br>(1)首先找到数值的存储地址，点击<strong>找出是什么改写了这个地址</strong><br>(2)改变数值，找到改变数值的那条汇编代码，选择<strong>反汇编程序</strong><br>(3)sub是减少的操作码，所以减少生命值的命令就在这里<br>(4)工具-&gt;Auto Assemble-&gt;Template，然后添加add的汇编指令即可  </p>
+<h2 id="8-多级指针"><a href="#8-多级指针" class="headerlink" title="8.多级指针"></a>8.多级指针</h2><p><em>在6中，你已经清楚1级指针的概念和用途，并可以利用数值的首个地址来找到存放数据真正的基址。在本关中，你将看到4级指针，它由一个第一个指针指向第二个指针，再由第二个指针指向第三个指针，由第三个指针指向第四个指针，最终指向健康值的真正地址。</em></p>
+<h2 id="9-注入-之共享代码"><a href="#9-注入-之共享代码" class="headerlink" title="9.注入++之共享代码"></a>9.注入++之共享代码</h2><p><em>解释如何处理游戏中的共用代码, 这种代码是通用在除了自己以外的其他同类型对象上</em><br>(1)在改变数值进行<strong>精确搜索</strong>，但没有结果，可能是因为数值类型并不是默认的”4字节”，而是浮点型</p>
 
       </section>
 
@@ -197,7 +200,7 @@
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
   <div class="widget-body">
     
-      <img src="https://www.huoyingahz.com/d/file/content/2020/06/5edcf0886e8dd.jpeg" class="soft-size--round soft-style--box" alt="Moon_Zzz">
+      <img src="https://64.media.tumblr.com/274ef1a594ade83f4fed89295ffb8fb3/6eb91cc75771e213-35/s1280x1920/48423cd925fc9129f8c9468d96926841a3b1e529.jpg" class="soft-size--round soft-style--box" alt="Moon_Zzz">
     
     
       <h2>Moon_Zzz</h2>
