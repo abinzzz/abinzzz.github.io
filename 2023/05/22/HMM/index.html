@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--将该代码放入博客模板的head中即可-->
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-  tex2jax: {
-  inlineMath: [['$','$'], ['\\(','\\)']],
-  processEscapes: true
-  }
-  });
-  </script>
-  <!--latex数学显示公式-->
-  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -150,8 +139,8 @@
 <p>(1)隐马尔可夫模型用概率图模型来表示<br>(2)组成三要素  </p>
 <p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$\lambda$=(A,B,$\pi$)</p>
 <ul>
-<li>状态转移概率矩阵A<br>A=[$a_{ij}$]<em>{N×N}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)<br>$a</em>{ij}$=P($i_{t+1}$=$q_{j}$|$i_{t}=$$q_{i}$),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i=1,2,…,N;&nbsp;&nbsp;&nbsp;j=1,2,…,N<br>是在时刻t处在状态$q_{i}$的条件下在时刻t+1转移到状态$q_{j}$的概率</li>
-<li>观测概率矩阵B<br>B=[$b_{j}$(k)]<em>{N×M}<br>$b</em>{j}$(k)=P($o_{t}$=$v_{k}$|$i_{t}$=$q_{j}$),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k=1,2,…,M;&nbsp;&nbsp;&nbsp;j=1,2,…,N<br>是在时刻t处于状态$q_{j}$的条件下生成观测$v_{k}$的概率  </li>
+<li>状态转移概率矩阵A<br>A=[$a_{ij}$]_{N×N}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)<br>$a_{ij}$=P($i_{t+1}$=$q_{j}$|$i_{t}$=$q_{i}$),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i=1,2,…,N;&nbsp;&nbsp;&nbsp;j=1,2,…,N<br>是在时刻t处在状态$q_{i}$的条件下在时刻t+1转移到状态$q_{j}$的概率</li>
+<li>观测概率矩阵B<br>B=[$b_{j}$(k)]_{N×M}<br>$b_{j}$(k)=P($o_{t}$=$v_{k}$|$i_{t}$=$q_{j}$),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k=1,2,…,M;&nbsp;&nbsp;&nbsp;j=1,2,…,N<br>是在时刻t处于状态$q_{j}$的条件下生成观测$v_{k}$的概率  </li>
 <li>初始状态概率向量<br>$\pi$=($\pi_{i}$)<br>$\pi_{i}$=P($i_{1}$=$q_{i}$),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i=1,2,…,N<br>是时刻t=1处于状态$q_{i}$的概率</li>
 </ul>
 <p>&nbsp;&nbsp;A和$\pi$确定了隐藏的马尔科夫链，生成不可观测的状态序列；B确定了如何从状态序列生成观测序列<br>(3)两个假设前提  </p>
@@ -160,13 +149,13 @@
 <li>观测独立性假设<br>t时刻观测只依赖于t时刻的状态</li>
 </ul>
 <h2 id="2-概率计算方法"><a href="#2-概率计算方法" class="headerlink" title="2.概率计算方法"></a>2.概率计算方法</h2><p>介绍计算观测序列概率P(O|$\lambda$)  </p>
-<h3 id="2-1-直接计算法"><a href="#2-1-直接计算法" class="headerlink" title="2.1 直接计算法"></a>2.1 直接计算法</h3><p>&nbsp;&nbsp;状态序列 I=($i_{1}$,$i_{2}$,…,$i_{T}$)的概率：<br><img src="https://lh3.googleusercontent.com/-JIo3sxnBMviLRIeu0tDEKAt7Hl7wXSMAvtyOFHCrlNpoju81CSI_8M3HTj3UtqeaHRkBaiDYTjvCOoiqhK4xOmLVKDBitBiA6g_wF_3dw"><br>&nbsp;&nbsp;给定状态序列I=($i_{1}$,$i_{2}$,…,$i_{T}$),观测序列O=($o_{1}$,$o_{2}$,…,$o_{T}$)的概率：<br><img src="https://lh3.googleusercontent.com/JPDnONroHMnWWmBzZdg2t7Cz9rtfZITGcHfRLngpHR0-F_Qb0VyhqopvgJe6DwCeJohXZKTnu37l1H_Tt7O43O7Z4p9xxMy4znwrCVM"><br>&nbsp;&nbsp;根据贝叶斯公式可得:<br><img src="https://lh3.googleusercontent.com/Nulro5HCTfVtepMNWTgLHpSimKCKwpA26fdwC6cDP7fKueQc8aLbM-16djJeSNkj1pPuQ67t5Iq47MW66JkhaV31kEPv4DT6IntsKbib_g"><br>&nbsp;&nbsp;根据联合概率求边缘概率可得：<br><img src="https://lh3.googleusercontent.com/l2EBQQ1ht56cDHA-_9Tr4mQmnmNnv1gtUs0aTDIO5PEh6QHW4WotfjklgjgJgGwlgekX83rE8B7u2EnHXkOzmRJ9MTt9ugfs2vpKO8WG"><br>&nbsp;&nbsp;但是直接计算的复杂度太高，是O(T$N^{T}$)，算法不可行。</p>
-<h3 id="2-2-前向算法"><a href="#2-2-前向算法" class="headerlink" title="2.2 前向算法"></a>2.2 前向算法</h3><p>(1)前向算法推导(递推部分)：<br>$\alpha_{t+1}$(i)=P($o_{1}$,$o_{2}$,…,$o_{t+1}$,$i_{t+1}$=$q_{i}$|$\lambda$) &nbsp;<strong>(前向概率的定义)</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=$\sum^{N}<em>{j=1}$P($o</em>{1}$,$o_{2}$,…,$o_{t+1}$,$i_{t+1}$=$q_{i}$,$i_{t}$=$q_{j}$|$\lambda$)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=$\sum^{N}<em>{j=1}$P($o</em>{1}$,$o_{2}$,…,$o_{t+1}$,$i_{t}$=$q_{j}$|$\lambda$)P($o_{t+1}$|$o_{1}$,$o_{2}$,…,$o_{t}$,$i_{t+1}$=$q_{i}$,$i_{t}$=$q_{j}$|$\lambda$)P($i_{t+1}$=$q_{i}$|$o_{1}$,$o_{2}$,…,$o_{t}$,,$o_{t+1}$,$i_{t}$=$q_{j}$,$\lambda$)<br>&nbsp;&nbsp;<strong>根据两个假设前提:t时刻的状态只依赖前一时刻的状态,和t时刻观测只依赖于t时刻的状态</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=$\sum^{N}<em>{j=1}$P($o</em>{1}$,$o_{2}$,…,$o_{t+1}$,$i_{t}$=$q_{j}$|$\lambda$)P($o_{t+1}$|$i_{t+1}$=$q_{i}$|$\lambda$)P($i_{t+1}$=$q_{i}$|$i_{t}$=$q_{j}$,$\lambda$)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=$\sum^{N}<em>{j=1}$$\alpha</em>{t}$$a_{ji}$$b_{i}$($o_{t+1}$)</p>
+<h3 id="2-1-直接计算法"><a href="#2-1-直接计算法" class="headerlink" title="2.1 直接计算法"></a>2.1 直接计算法</h3><p>&nbsp;&nbsp;状态序列 I=($i_{1}$,$i_{2}$,…,$i_{T}$)的概率：<br><img src="https://lh3.googleusercontent.com/-JIo3sxnBMviLRIeu0tDEKAt7Hl7wXSMAvtyOFHCrlNpoju81CSI_8M3HTj3UtqeaHRkBaiDYTjvCOoiqhK4xOmLVKDBitBiA6g_wF_3dw" alt=""><br>&nbsp;&nbsp;给定状态序列I=($i_{1}$,$i_{2}$,…,$i_{T}$),观测序列O=($o_{1}$,$o_{2}$,…,$o_{T}$)的概率：<br><img src="https://lh3.googleusercontent.com/JPDnONroHMnWWmBzZdg2t7Cz9rtfZITGcHfRLngpHR0-F_Qb0VyhqopvgJe6DwCeJohXZKTnu37l1H_Tt7O43O7Z4p9xxMy4znwrCVM" alt=""><br>&nbsp;&nbsp;根据贝叶斯公式可得:<br><img src="https://lh3.googleusercontent.com/Nulro5HCTfVtepMNWTgLHpSimKCKwpA26fdwC6cDP7fKueQc8aLbM-16djJeSNkj1pPuQ67t5Iq47MW66JkhaV31kEPv4DT6IntsKbib_g" alt=""><br>&nbsp;&nbsp;根据联合概率求边缘概率可得：<br><img src="https://lh3.googleusercontent.com/l2EBQQ1ht56cDHA-_9Tr4mQmnmNnv1gtUs0aTDIO5PEh6QHW4WotfjklgjgJgGwlgekX83rE8B7u2EnHXkOzmRJ9MTt9ugfs2vpKO8WG" alt=""><br>&nbsp;&nbsp;但是直接计算的复杂度太高，是O(T$N^{T}$)，算法不可行。</p>
+<h3 id="2-2-前向算法"><a href="#2-2-前向算法" class="headerlink" title="2.2 前向算法"></a>2.2 前向算法</h3><p>(1)前向算法推导(递推部分)：<br>$\alpha_{t+1}$(i)=P($o_{1}$,$o_{2}$,…,$o_{t+1}$,$i_{t+1}$=$q_{i}$|$\lambda$) &nbsp;<strong>(前向概率的定义)</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=$\sum^{N}_{j=1}$P($o_{1}$,$o_{2}$,…,$o_{t+1}$,$i_{t+1}$=$q_{i}$,$i_{t}$=$q_{j}$|$\lambda$)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=$\sum^{N}_{j=1}$P($o_{1}$,$o_{2}$,…,$o_{t+1}$,$i_{t}$=$q_{j}$|$\lambda$)P($o_{t+1}$|$o_{1}$,$o_{2}$,…,$o_{t}$,$i_{t+1}$=$q_{i}$,$i_{t}$=$q_{j}$|$\lambda$)P($i_{t+1}$=$q_{i}$|$o_{1}$,$o_{2}$,…,$o_{t}$,,$o_{t+1}$,$i_{t}$=$q_{j}$,$\lambda$)<br>&nbsp;&nbsp;<strong>根据两个假设前提:t时刻的状态只依赖前一时刻的状态,和t时刻观测只依赖于t时刻的状态</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=$\sum^{N}_{j=1}$P($o_{1}$,$o_{2}$,…,$o_{t+1}$,$i_{t}$=$q_{j}$|$\lambda$)P($o_{t+1}$|$i_{t+1}$=$q_{i}$|$\lambda$)P($i_{t+1}$=$q_{i}$|$i_{t}$=$q_{j}$,$\lambda$)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=$\sum^{N}_{j=1}<script type="math/tex">\alpha_{t}</script>a_{ji}$$b_{i}$($o_{t+1}$)</p>
 <p>(2)观测序列概率的前向算法<br>&nbsp;&nbsp;输入:隐马尔科夫模型$\lambda$,观测序列O<br>&nbsp;&nbsp;输出:观测序列概率P(O|$\lambda$)  </p>
 <ul>
 <li>初值：$\alpha_{1}$=$\pi_i$$b_i$($o_i$)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,i=1,2,…,N(<strong>N是状态数</strong>)  </li>
-<li>递推：$\alpha_{t+1}$(i)=[$\sum^{N}<em>{j=1}$$\alpha</em>{t}(j)$$a_{ji}$]$b_{i}$($o_{t+1}$)  </li>
-<li>终止：P(O|$\lambda$)=$\sum^{N}<em>{i=1}$$\alpha</em>{T}(i)$<strong>(T是最终的时刻)</strong></li>
+<li>递推：$\alpha_{t+1}$(i)=[$\sum^{N}_{j=1}<script type="math/tex">\alpha_{t}(j)</script>a_{ji}$]$b_{i}$($o_{t+1}$)  </li>
+<li>终止：P(O|$\lambda$)=$\sum^{N}_{i=1}$$\alpha_{T}(i)$<strong>(T是最终的时刻)</strong></li>
 </ul>
 
       </section>
