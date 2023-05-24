@@ -178,8 +178,8 @@
 <h3 id="2-3后向算法"><a href="#2-3后向算法" class="headerlink" title="2.3后向算法"></a>2.3后向算法</h3><p>&nbsp;&nbsp;输入和输出同前向算法</p>
 <ul>
 <li>初始值：$\beta_{T}$(i)=1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i=1,2,…,N  </li>
-<li>递推：$\beta_{t}$(i)=$\sum^{N}_{j=1}<script type="math/tex">a_{ij}</script>b_j$($o_{t+1}$)$\beta_{t+1}$(j),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i=1,2,…,N  </li>
-<li>最终：P(O|$\lambda$)=$\sum^{N}_{i=1}<script type="math/tex">\pi_{i}</script>b_i$($o_1$)$\beta_{1}$(i)<h3 id="2-4前向-后向算法"><a href="#2-4前向-后向算法" class="headerlink" title="2.4前向-后向算法"></a>2.4前向-后向算法</h3>&nbsp;&nbsp;前面步骤基本一致，是前向后向算法的总和，只是<strong>最终</strong>这里不同：<br>P(O|$\lambda$)=$\sum^{N}_{i=1}<script type="math/tex">\sum^{N}_{j=1}</script>\alpha_{ij}$$b_j$($o_{t+1}$)$\beta_{t+1}$(j),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t=1,2,…,T</li>
+<li>递推：$\beta_{t}$(i)=$\sum^{N}_{j=1}$ $a_{ij}$ $b_j$($o_{t+1}$)$\beta_{t+1}$(j),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i=1,2,…,N  </li>
+<li>最终：P(O|$\lambda$)=$\sum^{N}_{i=1}$ $\pi_{i}$ $b_i$($o_1$) $\beta_{1}$(i)<h3 id="2-4前向-后向算法"><a href="#2-4前向-后向算法" class="headerlink" title="2.4前向-后向算法"></a>2.4前向-后向算法</h3>&nbsp;&nbsp;前面步骤基本一致，是前向后向算法的总和，只是<strong>最终</strong>这里不同：<br>P(O|$\lambda$)=$\sum^{N}_{i=1}<script type="math/tex">\sum^{N}_{j=1}</script>\alpha_{ij}$$b_j$($o_{t+1}$)$\beta_{t+1}$(j),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t=1,2,…,T</li>
 </ul>
 <h2 id="3-学习算法"><a href="#3-学习算法" class="headerlink" title="3.学习算法"></a>3.学习算法</h2><h3 id="3-1监督学习方法"><a href="#3-1监督学习方法" class="headerlink" title="3.1监督学习方法"></a>3.1监督学习方法</h3><p>给定的训练数据：S个长度相同的观测序列和对应的状态序列{($O_1$,$I_1$),($O_2$,$I_2$),…,($O_s$,$I_s$)}  </p>
 <ul>
