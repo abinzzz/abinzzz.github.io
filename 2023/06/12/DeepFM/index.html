@@ -33,7 +33,7 @@
 
   
 
-  <title>毛概2 | Moon_Zzz</title>
+  <title>DeepFM | Moon_Zzz</title>
 
   
 
@@ -109,20 +109,16 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">毛概2</h1>
+          <h1 class="title-wrap">DeepFM</h1>
           <h2 class="title-sub-wrap">
             <strong>abinzzz</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-05-18T04:05:34.000Z" itemprop="datePublished">2023-05-18</time>
+            <time  class="article-date" datetime="2023-06-12T08:06:03.000Z" itemprop="datePublished">2023-06-12</time>
           </h2>
           <ul class="wrap-list dark">
   
-    <li><a href="/categories/%E6%AF%9B%E6%A6%82/">📒 毛概</a></li>
-  
 </ul>
           <ul class="wrap-list dark">
-  
-    <li><a href="/tags/%E7%AC%AC%E4%BA%8C%E7%AB%A0/">🏷️ 第二章</a></li>
   
 </ul>
         </div>
@@ -146,40 +142,24 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="第二章-新民主主义革命理论"><a href="#第二章-新民主主义革命理论" class="headerlink" title="第二章.新民主主义革命理论"></a>第二章.新民主主义革命理论</h1><h2 id="第一节-新民主主义革命理论的形成的依据"><a href="#第一节-新民主主义革命理论的形成的依据" class="headerlink" title="第一节.新民主主义革命理论的形成的依据"></a>第一节.新民主主义革命理论的形成的依据</h2><ul>
-<li>新民主主义革命理论形成的依据：<br>1.近代中国国情和中国革命的时代特征<br>2.新民主主义革命理论的实践基础</li>
-</ul>
-<h3 id="一-近代中国国情和中国革命的时代特征"><a href="#一-近代中国国情和中国革命的时代特征" class="headerlink" title="一.近代中国国情和中国革命的时代特征"></a>一.近代中国国情和中国革命的时代特征</h3><ul>
-<li>近代中国国情  <!--1.一方面，帝国主义的侵略虽然在一定程度上促使封建社会自给自足的自然经济解体，在客观上为中国资本主义的发展创造了一定条件，但中国不可能发展成为资本主义国家。  
-2.另一方面帝国主义列强通过政治的、经济的和文化的侵略，是中国半殖民地化。 -->
-1.在半殖民地半封建的近代中国，社会矛盾呈现出错综复杂的状况。<br>2.在诸多社会矛盾中，占支配地位的主要矛盾是帝国主义和中华民族的矛盾、封建主义和人民大众的矛盾，而帝国主义和中华民族的矛盾又是各种矛盾中最主要的矛盾。</li>
-<li><p>近代中国革命的时代特征：<br>近代中国的社会性质和主要矛盾，决定了中国革命仍然是资产阶级民主革命.</p>
+        <ul>
+<li><strong>Q1</strong>:由于类别特征<br>无法直接用于数值计算,为了表征这类特征,我们采用独热编<br>码将特征向量转换为高维稀疏向量.考虑到高维稀疏特征难<br>以处理,通常采用特征嵌入将高维稀疏特征嵌入到低维稠密<br>的向量空间中,以获得特征嵌入向量E   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设我们有以下的DataFrame</span></span><br><span class="line">df = pd.DataFrame(&#123;</span><br><span class="line">   <span class="string">&#x27;A&#x27;</span>: [<span class="string">&#x27;dog&#x27;</span>, <span class="string">&#x27;cat&#x27;</span>, <span class="string">&#x27;dog&#x27;</span>, <span class="string">&#x27;dog&#x27;</span>, <span class="string">&#x27;cat&#x27;</span>, <span class="string">&#x27;dog&#x27;</span>],</span><br><span class="line">   <span class="string">&#x27;B&#x27;</span>: [<span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;banana&#x27;</span>, <span class="string">&#x27;banana&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;banana&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>],</span><br><span class="line">   <span class="string">&#x27;C&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="comment"># 对类别特征进行独热编码</span></span><br><span class="line">df_encoded = pd.get_dummies(df, columns=[<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(df_encoded)</span><br><span class="line"><span class="comment"># 实例化PCA，选择嵌入向量的维度</span></span><br><span class="line">pca = PCA(n_components=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用PCA对独热编码的特征进行降维</span></span><br><span class="line">df_pca = pca.fit_transform(df_encoded)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出特征嵌入向量E</span></span><br><span class="line"><span class="built_in">print</span>(df_pca)</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Q2</strong>:baseline<br><strong>LR (Logistic Regression)</strong>：这是一个基本的线性模型，对原始特征进行线性变换，然后通过sigmoid函数将输出转换成0到1之间的概率。它适用于二分类问题，但只能捕捉到特征的一阶交互（即每个特征对输出的独立影响）。</p>
+<p><strong>FM (Factorization Machine)</strong>：这是一个能够学习特征对的二阶交互的模型。它使用了矩阵分解的技术，使得在有大量稀疏特征的情况下，也能高效地学习特征的二阶交互。</p>
+<p><strong>DeepFM</strong>：这个模型结合了FM和深度学习的技术。它的FM部分用于学习特征的低阶交互，而深度网络部分用于学习特征的高阶交互。这两部分共享同样的输入，使得低阶和高阶交互能够同时被学习。</p>
+<p><strong>xDeepFM</strong>：这个模型在DeepFM的基础上进一步引入了CIN（Compressed Interaction Network）部分，用于显式地学习特征的高阶交互。它同时考虑了显式和隐式的特征交互，能够更好地学习特征之间的复杂关系。</p>
+<p> <strong>AFM (Attentional Factorization Machine)</strong>：这个模型在FM的基础上引入了注意力机制。对于每个特征对的交互，AFM都会通过一个注意力网络来计算其重要性，然后将注意力分数用于加权特征对的交互。这使得模型能够区分不同交互特征的重要性。</p>
+<p><strong>AutoInt (Automatic Feature Interaction)</strong>：这个模型使用了多头自注意力机制来学习特征的交互。自注意力机制使得模型在计算一个特征对输出的影响时，能够考虑到所有其他特征的信息。这使得模型能够自动地、显式地学习特征的高阶交互。</p>
 </li>
-<li><p>俄国十月革命是一个划时代意义的世界性历史事件，以此为<strong>标志</strong>，中国资产阶级民主革命的时代背景发生了根本转换。  </p>
+<li><p><strong>Q3</strong>:低阶和高阶的特征是什么？你能用DeepFM模型举一个例子吗，帮助我更好的理解DeepFM模型<br>“低阶”和”高阶”特征交互通常指的是特征组合的复杂性。</p>
+<p>低阶特征交互通常指的是两个或者少数几个特征之间的交互。例如，在推荐系统中，用户的性别（男或女）和商品的类别（衣服或鞋子）之间的交互可以被看作是一个二阶交互（也就是低阶交互）。如果男性更倾向于购买鞋子，而女性更倾向于购买衣服，这个信息就是一个二阶交互特征。</p>
+<p>高阶特征交互则涉及到三个或者更多的特征。例如，用户的年龄、性别和商品的类别三者之间的交互就是一个三阶交互。如果我们发现年轻的男性用户更倾向于购买运动鞋，而年轻的女性用户更倾向于购买高跟鞋，这个信息就是一个三阶交互特征。</p>
+<p>下面是一个DeepFM模型的例子。假设我们有一个简化的推荐系统问题，特征包括用户的性别（男、女）、年龄（年轻、中年、老年）和商品的类别（衣服、鞋子）。我们想预测一个用户是否会购买一个商品。</p>
+<p>DeepFM会将这些特征先通过embedding转化为连续向量，然后：</p>
+<p>FM部分：DeepFM会学习每对特征之间的交互，也就是二阶交互。例如，它会学习”男性”和”鞋子”的交互对购买行为的影响是什么，”年轻”和”衣服”的交互对购买行为的影响是什么等。</p>
+<p>Deep部分：DeepFM的深度网络部分则会学习更复杂的、高阶的特征交互。例如，它可能会发现年轻的男性用户更喜欢购买运动鞋这样的三阶交互。</p>
+<p>最后，DeepFM会将FM部分和Deep部分的输出合并，然后通过一个sigmoid函数，将它们转化为购买的概率。</p>
 </li>
-</ul>
-<h3 id="二-新民主主义革命理论的实践基础"><a href="#二-新民主主义革命理论的实践基础" class="headerlink" title="二.新民主主义革命理论的实践基础"></a>二.新民主主义革命理论的实践基础</h3><ul>
-<li>新民主主义革命理论的实践基础：<br>1.旧民主主义革命的失败呼唤新的革命理论<br>2.新民主主义革命的艰辛探索奠定了革命理论形成的实践基础  </li>
-</ul>
-<h2 id="第二节-新民主主义革命的总路线和基本纲领"><a href="#第二节-新民主主义革命的总路线和基本纲领" class="headerlink" title="第二节.新民主主义革命的总路线和基本纲领"></a>第二节.新民主主义革命的总路线和基本纲领</h2><h3 id="一-新民主主义革命的总路线"><a href="#一-新民主主义革命的总路线" class="headerlink" title="一.新民主主义革命的总路线"></a>一.新民主主义革命的总路线</h3><ul>
-<li><p>1939年，毛泽东在《中国革命和中国共产党》一文中第一次提出了“新民主主义的革命”的科学概念</p>
-</li>
-<li><p>1948年，毛泽东在《晋绥干部会议的讲话》完整地总结和概括了新民主主义革命路线的，即无阶级领导的，人民大众的，反对帝国主义封建主义和官僚资本主义的革命</p>
-</li>
-<li><p>中国革命的主要敌人：<br>1.帝国主义(首要对象)<br>2.封建主义<br>3.官僚资本主义  </p>
-</li>
-<li><p>新民主主义革命的动力：<br>1.无产阶级(最基本的动力)<br>2.农民阶级(主力)<br>3.城市小资产阶级(同盟)<br>4.民族资产阶级</p>
-</li>
-<li><p>无产阶级的领导权是中国革命的中心问题，也是新民主主义革命理论的核心问题。</p>
-</li>
-<li><p>区分新旧两种不同范畴的民主主义革命的<strong>标志</strong>：<br>革命领导权是掌握在无产阶级手中还是掌握在资产阶级手中。</p>
-</li>
-<li><p>现阶段中国革命的性质:<br>不是无产阶级社会主义的，而是资产阶级民主主义的。</p>
-</li>
-<li><p>革命的领导力量：中国无产阶级及其先锋队——中国共产党</p>
-</li>
-<li>革命的指导思想: 马克思列宁主义</li>
-<li>革命的前途： 社会主义而不是资本主义</li>
 </ul>
 
       </section>
@@ -193,8 +173,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/05/22/EM-algorithm/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">EM-algorithm</h2>
+        <a href="/2023/06/18/computer-network/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">computer-network</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -208,8 +188,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/05/17/Lime/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">Lime论文阅读</h2>
+        <a href="/2023/06/03/%E6%AF%9B%E6%A6%824/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">毛概4</h2>
         </a>
       
       <div class="card-text--row">Older</div>
