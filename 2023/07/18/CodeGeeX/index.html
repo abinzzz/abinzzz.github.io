@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--将该代码放入博客模板的head中即可-->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  tex2jax: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  processEscapes: true
+  }
+  });
+  </script>
+  <!--latex数学显示公式-->
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <meta name="generator" content="Hexo 5.4.2">
+
+  
+
+  
+
+  
+    <meta name="author" content="abinzzz">
+  
+
+  
+
+  
+
+  <title>CodeGeeX | ab_Zzz</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@1.1.3/index.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/monokai.css">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/m3/wallhaven-m317k1.jpg)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          ab_Zzz
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="/links">友链</a></li>
+        
+          <li class="navbar-list-item"><a href="/messages">留言</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">CodeGeeX</h1>
+          <h2 class="title-sub-wrap">
+            <strong>abinzzz</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2023-07-18T03:20:36.000Z" itemprop="datePublished">2023-07-18</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/categories/internship/">📒 internship</a></li>
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/tags/supervisor/">🏷️ supervisor</a></li>
+  
+    <li><a href="/tags/%E4%B8%9C%E6%98%B1%E6%99%93/">🏷️ 东昱晓</a></li>
+  
+    <li><a href="/tags/%E8%B0%83%E7%A0%94/">🏷️ 调研</a></li>
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <h1 id="CodeGeeX"><a href="#CodeGeeX" class="headerlink" title="CodeGeeX"></a>CodeGeeX</h1><h2 id="1-abstract"><a href="#1-abstract" class="headerlink" title="1.abstract"></a>1.abstract</h2><p>大型预训练代码生成模型，如OpenAI Codex，可以生成语法和功能正确的代码，使程序员的编码更高效，我们对人工通用智能的追求更接近。本文介绍了一个具有130亿个参数的多语言代码生成模型CodeGeeX。截至2022年6月，CodeGeeX在23种编程语言的8500亿个代币上进行了预训练。我们的大量实验表明，CodeGeeX在HumanEval-X上的代码生成和翻译任务上都优于类似规模的多语言代码模型。在HumanEval(仅限Python)的基础上，我们开发了HumanEval- x基准，通过用c++、Java、JavaScript和Go手工编写解决方案来评估多语言模型。此外，我们在Visual Studio Code、JetBrains和Cloud Studio上构建了基于codegeex的扩展，每周为成千上万的活跃用户生成47亿个令牌。我们的用户研究表明，CodeGeeX可以帮助83.4%的用户提高编码效率。最后，CodeGeeX是公开访问的，在2022年9月，我们在[<a target="_blank" rel="noopener" href="https://github.com/THUDM/CodeGeeX]上开源了它的代码、模型权重(850B令牌的版本)、API、扩展和HumanEval-X。">https://github.com/THUDM/CodeGeeX]上开源了它的代码、模型权重(850B令牌的版本)、API、扩展和HumanEval-X。</a>  </p>
+<h2 id="2-introduction"><a href="#2-introduction" class="headerlink" title="2.introduction"></a>2.introduction</h2><p>给定人类意图的描述，比如“写一个阶乘函数”，机器能自动生成一个可执行的程序来满足这个需求吗?这是自20世纪60年代计算机科学早期以来一直在探索的自动程序编写问题(Waldinger和Lee, 1969;夏天,1977)。从基于lisp的开创性演绎综合方法(Waldinger和Lee, 1969;Summers, 1977)到现代程序合成系统(Solar-Lezama, 2008;Polozov和Gulwani, 2015)，通过深度神经网络生成端到端代码(Mou等人，2015;Svyatkovskiy等人，2020;Sun et al.， 2020)，为了使机器能够自动编写正确的程序，作为对人工通用智能的探索的一部分，已经做出了巨大的努力。  </p>
+<p>通过将程序视为语言序列，神经序列架构，如循环神经网络和变压器(Vaswani et al.， 2017)，可以自然地应用于代码生成。事实上，基于变压器的技术(Svyatkovskiy等人，2020;Sun et al.， 2020)已经展示了自动程序编写的潜力，开始生成既语法正确又有效的代码,当大型语言模型(具有数十亿参数的转换器)遇到大量开源代码数据时，这一进展得到了显著的推进。  </p>
+<p>值得注意的是，OpenAI Codex (Chen et al.， 2021)模型(仅Python)具有120亿(12B)个参数，开创并展示了在数十亿行公共代码上预训练的大型代码生成模型的潜力。通过使用生成式预训练(GPT)策略，Codex可以高概率地解决Python入门级编程问题。研究(Ziegler et al.， 2022)还表明，88%的GitHub copilot用户(由codex提供的付费服务)在使用它编码时感觉更有效率。从那时起，大型预训练代码模型得到了广泛的开发，包括DeepMind AlphaCode (Li等人，2022)、Salesforce CodeGen (Nijkamp等人，2022)、Meta InCoder (Fried等人，2022)和Google PaLM-Coder-540B (Chowdhery等人，2022)。  </p>
+<p>在这项工作中，我们提出了CodeGeeX，一个具有130亿个参数的多语言代码生成模型，在23种编程语言的大型代码语料库上进行了预训练。它在2022年4月至6月期间在1536个Ascend 910 AI处理器的集群上对超过8500亿个代币进行了训练，并于2022年9月公开发布(参见GitHub回购)。CodeGeeX具有以下属性。首先，与Chen et al.(2021)中的Codex不同，codegeex -模型本身-以及如何对这种规模的代码模型进行预训练都是开源的，这有助于对预训练代码生成模型的理解和进步。CodeGeeX还支持在Ascend和NVIDIA gpu上的跨平台推理。其次，CodeGeeX除了像Codex那样生成代码和完成代码之外，还支持语言对之间的代码解释和代码翻译任务(参见图1 (a))。第三，与同类规模的知名多语言代码生成模型(包括CodeGen-16B、gpt - nex - 20b、InCode-6.7B和GPT-J-6B)相比，它具有一致的性能优势(参见图1 (b)和(c))。  </p>
+<p>我们还在几个IDE中构建了免费的CodeGeeX扩展，目前包括Visual Studio Code、JetBrains和腾讯云工作室(一个Web IDE)。它支持几种不同的模式——代码完成、函数级生成、代码翻译、代码解释和可定制的提示——以实时帮助用户完成编程任务。自发布以来，每天有成千上万的活跃用户，每个人平均每个工作日调用250多个API。在撰写本文时，CodeGeeX模型每周生成47亿个令牌。我们的用户调查显示，83.4%的用户认为CodeGeeX扩展提高了他们的编程效率。  </p>
+<p>最后，我们开发了用于评估多语言代码模型的HumanEval- x基准，如下:1)HumanEval (Chen等人，2021)-由OpenAI开发用于评估codex -和其他基准(Austin等人，2021;Hendrycks等人，2021;Nijkamp等人，2022)只包含单一语言的编程问题和2)现有的多语言数据集(Ren等人，2020;Lu et al.， 2021;Zhu et al.， 2022)使用BLEU (Papineni et al.， 2002)等字符串相似度指标进行评估，而不是真正验证生成代码的功能正确性。具体来说，对于每个问题(仅针对python定义)，我们在HumanEval中手动重写其提示、规范解决方案和用c++、Java、JavaScript和Go编写的测试用例。HumanEval-X总共涵盖820对手写问题-解决方案(164个问题，每个问题都有5种语言的解决方案)。重要的是，HumanEval-X支持不同语言之间代码生成和代码翻译的评估。</p>
+<p>本工作的贡献可以概括如下:</p>
+<ul>
+<li>我们开发并发布CodeGeeX，这是一个13B预训练的23种语言代码生成模型，在相同规模的多语言基线上，它在代码生成和翻译方面表现出一致的优异表现。</li>
+<li>We build the CodeGeeX extensionson VSCode4、JebBrains5 andTencentCloudStudio。与Copilot相比，它支持更多样化的功能，包括代码补全、生成、翻译和解释。根据用户调查，CodeGeeX可以提高83.4%的用户的编码效率。</li>
+<li>我们手工制作HumanEval-X基准，以评估代码生成和翻译任务的多语言代码模型的功能正确性，促进对预训练(多语言)代码模型的理解和开发。</li>
+</ul>
+<h2 id="3-CodeGeeX-Model"><a href="#3-CodeGeeX-Model" class="headerlink" title="3.CodeGeeX Model"></a>3.CodeGeeX Model</h2><p>CodeGeeX是一个多语言代码生成模型，具有130亿(13B)个参数，在23种编程语言的大型代码语料库上进行预训练。截至2022年6月22日，CodeGeeX已经在1,536个Ascend 910 AI处理器集群上对超过8500亿个代币进行了两个多月的训练。  </p>
+<p>介绍了CodeGeeX模型及其设计选择。共识的现实是，为大型预训练模型测试不同的架构设计在计算上是负担不起的(Brown et al.， 2020;Chowdhery et al.， 2022;Zhang et al.， 2022;Zeng et al.， 2022)，尽管他们定义了模型的归纳偏差。  </p>
+<h3 id="3-1-CodeGeeX结构："><a href="#3-1-CodeGeeX结构：" class="headerlink" title="3.1 CodeGeeX结构："></a>3.1 CodeGeeX结构：</h3><p><strong>transformer的主干</strong>。与最近的预训练模型，如GPT-3 (Brown等人，2020)、PaLM (Chowdhery等人，2022)和Codex (Chen等人，2021)类似，CodeGeeX遵循生成式预训练(GPT)架构(Radford等人，2018)，采用自回归(编程)语言建模的解码器风格。CodeGeeX的核心架构是一个39层的变压器解码器。在每个变压器层(见图2)中，我们应用了多头自关注机制(Vaswani等人，2017)，然后是MLP层，以及层规范化(Ba等人，2016)和剩余连接(He等人，2016)。我们使用了一种近似的GELU(高斯线性单元)操作(Hendrycks和Gimpel, 2016)，即FastGELU，它在Ascend 910 AI处理器下更高效:   </p>
+<p><strong>生成式预训练目标</strong>。通过采用GPT范式(Radford et al.， 2019;Chen et al.， 2021)，我们在大量未标记的代码数据上训练模型。其原理是迭代地将代码标记作为输入，预测下一个标记，并将其与基本事实进行比较。具体来说，对于任意输入序列{x1, x2，…，长度为n的xn}， CodeGeeX的输出是下一个token P(xn+1|x1,x2，…，xn，Θ) = pn+1∈[0,1]1×v的概率分布，其中Θ表示模型的所有参数，v表示词汇表大小。通过将其与实分布进行比较，即ground-truth令牌的一个单热向量yn+1∈{0,1}1×v，我们可以优化累积交叉熵损失  </p>
+<p><strong>顶层查询层和解码</strong>。原始的GPT模型使用池函数来获得最终输出。我们在所有其他变压器层之上使用额外的查询层(Zeng et al.， 2021)，通过关注获得最终嵌入。如图2所示，顶层查询层的输入用位置n + 1的查询嵌入代替查询输入Xin。最后的输出乘以词嵌入矩阵的转置得到输出概率。对于解码策略，CodeGeeX支持贪婪、温度采样、top-k采样、top-p采样和波束搜索。最后，去标记化将把选定的令牌ID转换为实际的单词。  </p>
+<h3 id="3-2-预训练的设置"><a href="#3-2-预训练的设置" class="headerlink" title="3.2 预训练的设置"></a>3.2 预训练的设置</h3><p><strong>代码语料库</strong>。训练语料库包含两个部分。第一部分来自开源代码数据集，The Pile (Gao et al.， 2020)和CodeParrot6。Pile包含GitHub上超过100颗星星的公共存储库的一个子集，我们从中选择了23种流行的编程语言的文件，包括c++， Python, Java, JavaScript, C, Go等。我们根据每个文件的后缀和它所属的存储库的主要语言来识别其编程语言。CodeParrot是BigQuery的另一个公共Python数据集。第二部分是直接从GitHub公共存储库中抓取的Python、Java和c++的补充数据，这些数据在第一部分中没有出现。我们选择至少有一个星号且总大小在10MB以内的存储库，然后我们过滤掉以下文件:1)平均每行超过100个字符，2)自动生成的，3)字母比例小于40%，4)大于100KB或小于1KB。我们根据PEP8标准格式化Python代码。  </p>
+<p><strong>标记</strong>。第一步是将代码片段转换为数值向量。考虑到1)代码数据中存在大量自然语言注释，2)变量、函数和类的命名通常是有意义的单词，我们将代码数据视为文本数据并应用GPT-2标记器(Radford et al.， 2019)。它是一个BPE(字节对编码)(Sennrich等人，2015)标记器，它使用固定大小的词汇表和可变长度的字符来处理开放词汇表问题。初始词汇表大小为50,000，我们按照Chen等人(2021)的方法将多个空格编码为额外的标记，以提高编码效率。具体来说，L空格由&lt;|extratoken_X|&gt;表示，其中X=8+L。由于词汇表包含来自各种自然语言的标记，因此它允许CodeGeeX处理除英语以外的其他语言的标记，如中文、法语、俄语、日语等。最终的词汇量是v = 52,224。在标记化之后，任何代码片段或文本描述都可以转换为整数向量。详情见附录A.2。  </p>
+<p><strong>输入词和位置嵌入</strong>。给定了标记，下一步是将每个标记与单词嵌入关联起来。通过在单词嵌入矩阵Wword∈Rv×h中查找令牌ID，其中h = 5120为隐藏大小，为每个令牌获得一个可学习的嵌入xword∈Rh。为了获取位置信息，我们还采用了可学习的位置嵌入，将当前位置ID映射到一个可学习的嵌入xpos∈Rh，从Wpos∈Rnmax×h，其中nmax = 2048为最大序列长度。然后，将两个嵌入相加，得到模型的输入嵌入xin = xword + xpos。最后将整个序列转化为输入嵌入Xin∈Rn×h，其中n为输入序列长度。  </p>
+<h3 id="3-3-CodeGeeX训练"><a href="#3-3-CodeGeeX训练" class="headerlink" title="3.3 CodeGeeX训练"></a>3.3 CodeGeeX训练</h3><p><strong>平行训练提升910</strong>。CodeGeeX在使用Mindspore (v1.7.0)的Ascend 910 AI处理器(32GB)集群上进行训练。在预训练期间，我们面临并解决了许多未知的技术和工程挑战，因为与NVIDIA gpu和PyTorch/TensorFlow相比，Ascend和Mindspore相对较新。整个预训练过程在192个节点和1536个AI处理器上花费了两个月的时间，在此期间，模型消耗了850B个令牌，相当于5+个epoch(213,000步)。详细的配置见表2。  </p>
+<p>为了提高训练效率，我们采用8路模型并行训练和192路数据并行训练，启用ZeRO-2 (Rajbhandari et al.， 2020)优化器，进一步减少优化器状态的内存消耗。最后，微批大小为每个节点16个，全局批大小达到3,072个。  </p>
+<p>具体来说，我们使用Adam优化器(Kingma and Ba, 2014)来优化方程2中的损失。模型权值采用FP16格式，但为了更高的精度和稳定性，我们使用FP32进行层规范和softmax。该型号的GPU内存约为27GB。我们从初始学习率1e-4开始，并应用余弦学习率衰减。  </p>
+<p>在为期两个月的培训中，随着培训的进行，CodeGeeX的培训损失不断减少。我们评估了HumanEval-X代码生成任务上的检查点，并观察到性能在不断提高。详见附录A.3中的图13和图14。  </p>
+<p><strong>培训效率优化</strong>。在培训过程中，我们积极尝试优化Mindspore框架，以释放Ascend 910的力量。值得注意的是，我们采用了以下技术，显著提高了培训效率:</p>
+<ul>
+<li>内核融合:我们融合了几个元素明智的运算符来提高Ascend 910的计算效率，包括Bias+LayerNorm, BatchMatmul+Add, FastGeLU+Matmul, Softmax等。我们还优化了LayerNorm运算符以支持多核计算。</li>
+<li>自动调整优化:加载模型时，Mindspore首先将它们编译为静态计算图。它使用Auto Tune工具来优化运算符的选择(例如，不同维度的矩阵乘法)。并应用图优化技术处理算子融合和常数折叠问题。</li>
+</ul>
+<p>表3是我们优化前后的训练效率对比。总体效率是通过每天训练的代币来衡量的。我们观察到，与未优化的实现相比，每个处理器的效率提高了3倍，1,536个gpu的总体令牌吞吐量提高了224%。  </p>
+<h3 id="3-4-快速推理"><a href="#3-4-快速推理" class="headerlink" title="3.4 快速推理"></a>3.4 快速推理</h3><p>为了服务于预训练的CodeGeeX，我们实现了一个纯PyTorch版本的CodeGeeX，它支持在NVIDIA gpu上进行推理。为了实现快速和高效的推理，我们将量化和加速技术应用于预训练的CodeGeeX。  </p>
+<p><strong>量化</strong>。我们应用训练后量化技术来减少CodeGeeX在推理过程中的内存消耗。在FP16到INT8的所有线性变换中，我们使用常见的绝对最大量化对权重W进行变换:  </p>
+<p>如表4所示，CodeGeeX的内存消耗从~ 26.9GB减少到~ 14.7GB(下降45.4%)，允许在一个RTX 3090 GPU上进行CodeGeeX推理。重要的是，图4显示量化只对代码生成任务的性能有轻微的影响(参见3.2节了解有关HumanEval-X的详细信息)。</p>
+<p><strong>加速</strong>。量化后，我们使用NVIDIA FasterTransformer (FastTrans)进一步实现更快版本的CodeGeeX。它通过使用层融合、GEMM自动调优和硬件加速功能支持高度优化的操作。对于INT8量化版本，我们还实现了一个自定义内核，用于加速INT8权值与FP16激活向量之间的混合精度矩阵乘法。根据表4,INT8量化加上FastTrans实现在单个GPU上实现了最快的推理速度和最低的GPU内存消耗。每个令牌的推理时间在13ms以内(1.61秒/ 128个令牌)。我们还比较了LLM.int() (Dettmers等人，2022)和Oneflow (Yuan等人，2021)中的推理速度。  </p>
+<h2 id="4-The-HumanEval-X-Benchmark"><a href="#4-The-HumanEval-X-Benchmark" class="headerlink" title="4.The HumanEval-X Benchmark"></a>4.The HumanEval-X Benchmark</h2><p>我们开发了用于评估多语言代码模型的HumanEval-X基准。针对五种主要语言(c++、Java、JavaScript、Go和Python)定义了164个代码问题，导致164×5=820个问题-解决方案对。对于每个问题，它都支持代码生成和代码转换。这些问题的示例可以在附录A.5中找到。  </p>
+<h3 id="4-1-HumanEval-X-A-Multilingual-Benchmark"><a href="#4-1-HumanEval-X-A-Multilingual-Benchmark" class="headerlink" title="4.1 HumanEval-X: A Multilingual Benchmark"></a>4.1 HumanEval-X: A Multilingual Benchmark</h3><p>HumanEval (Chen et al.， 2021)已开发用于评估OpenAI的法典。然而，与MBPP (Austin et al.， 2021)和APPS (Hendrycks et al.， 2021)类似，它只包含用Python手工制作的编程问题，因此不能直接用于系统地评估多语言代码生成的性能。  </p>
+<p>为此，我们建议开发HumanEval的多语言变体，称为HumanEval- x。这不是微不足道的。对于每个仅为Python定义的问题，我们在HumanEval中手动重写其提示、规范解决方案和其他四种语言(c++、Java、JavaScript和Go)的测试用例。我们在HumanEval-X中总共有820对问题解决方案，每个问题解决方案由以下部分组成:</p>
+<ul>
+<li>task_id:编程语言和数值问题id，例如，Java/0表示Java中的第0个问题;</li>
+<li>声明:函数声明包括必要的库或包;</li>
+<li>docstring:指定功能和示例输入/输出的描述;<br>提示:函数声明加docstring;</li>
+<li>canonical_solution:经过验证的问题解决方案;</li>
+<li>测试:测试程序，包括测试用例。</li>
+</ul>
+<p>HumanEval-X中的每个问题解决方案对都支持代码生成和代码翻译。图5显示了一个说明性示例。我们采取以下措施确保重写的代码符合相应语言的编程风格。首先，我们使用习惯的命名样式，比如Java、Go和JavaScript中的CamelCase，以及c++中的snake_case。其次，在Java、JavaScript、c++和Go中，我们将文档字符串放在函数声明之前。文档字符串中的符号被修改，例如，在某些语言中单引号被双引号替换，而True/False, None等关键字也被替换。第三，我们根据特定于语言的行为来细化测试用例，而不是强迫程序对不同的语言返回相同的结果。例如，当将整数转换为二进制字符串时，Python方法bin在字符串之前添加前缀“0b”，而Java方法integer。toBinaryString没有，所以我们在Java测试用例中删除了这样的前缀。最后，我们还要考虑舍入函数。在Python中，round将一半转换为最接近的偶数，这与其他语言不同。因此，我们更改测试用例以匹配每种语言中的舍入实现。  </p>
+<h3 id="4-2-HumanEval-X-Tasks"><a href="#4-2-HumanEval-X-Tasks" class="headerlink" title="4.2 HumanEval-X: Tasks"></a>4.2 HumanEval-X: Tasks</h3><p>在HumanEval-X中，我们评估两个任务:代码生成和代码翻译  </p>
+<p><strong>代码生成</strong>。代码生成任务以问题描述(例如，“编写一个阶乘函数”)作为输入，并以选定的语言生成解决方案(参见图1 (a))。具体来说，模型接受包括声明和文档字符串在内的提示，并生成函数的实现。请注意，HumanEval-X对所有五种语言使用相同的问题集，因此，为了解决每个问题，它同时支持一种语言或多种语言。</p>
+<p><strong>代码翻译</strong>。代码翻译任务是以源语言实现一个问题，并以目标语言生成对应的实现。准确地说，它的输入包括函数声明和源语言(例如Python)的规范解决方案。模型应该将解决方案翻译成目标语言。在目标语言中添加声明限制了函数名和变量类型，使计算更容易，特别是在零射击设置下。为了防止模型直接解决问题而不是进行翻译，我们不包括文档字符串。HumanEval-X支持5种语言的所有对之间的翻译，即总共20对源-目标语言对。</p>
+<p><strong>指标</strong>。对于这两个任务，我们使用测试用例来评估生成代码的确切功能正确性，使用pass@k (Kulal等人，2019)测量性能，使其在现实世界中有用，并且与BLEU (Papineni等人，2002)和CodeBLEU (Ren等人，2020)等字符串相似性指标完全不同;Lu et al.， 2021;朱等人，2022)。具体来说，我们使用无偏方法估计pass@k (Chen et al.， 2021):  </p>
+<p><strong>预算分配的多语种指标</strong>。与单语言模型不同，多语言代码模型可以通过将生成预算分配给各种语言来解决问题，从而增加采样多样性，提高求解率。给定一个预算k，我们可以把它的一部分ni分配给每一种语言  </p>
+<h2 id="5-在HumanEval-X上评估CodeGeeX"><a href="#5-在HumanEval-X上评估CodeGeeX" class="headerlink" title="5. 在HumanEval-X上评估CodeGeeX"></a>5. 在HumanEval-X上评估CodeGeeX</h2><p>我们在多语言基准HumanEval-X上评估CodeGeeX的代码生成和翻译任务。通过继承HumanEval，在Python上的HumanEval- x结果等同于在HumanEval上的求值。  </p>
+<h3 id="5-1-评估设置"><a href="#5-1-评估设置" class="headerlink" title="5.1  评估设置"></a>5.1  评估设置</h3><p><strong>基线</strong>。我们将CodeGeeX与五个竞争性开源基线进行比较:GPT-J-6B (Wang和Komatsuzaki, 2021)， gpt - neo - 20b (Black等人，2022)，incode -6.7 b (Fried等人，2022)和codegen -多- 6b /16B (Nijkamp等人，2022)。这些模型都是在多语言代码数据上训练的，但以前只在HumanEval (Python)中进行评估。它们更接近CodeGeeX的规模，甚至更大，而文献中较小的模型被忽略了。对于所有基线，我们使用HuggingFace上可用的版本(Wolf et al.， 2019)。我们遵循3.2节中HumanEval-X的实验设置。详情见附录A.3。  </p>
+<p><strong>环境</strong>。实验采用NVIDIA A100-SXM-40GB gpu, Linux操作系统。我们设计了一个基于ZeroMQ的分布式生成框架来平衡GPU负载。所有生成的代码都在特定于语言的环境中进行测试，并安装必要的包。</p>
+<p><strong>解码策略</strong>。我们使用温度采样(t∈[0,1])和核采样(p∈[0,1])进行生成。对于代码生成中的CodeGeeX，我们使用t = 0.2, p = 0.95用于pass@1和t = 0.8, p = 0.95用于pass@10和pass@100(除了Go和JavaScript，其中p = 0.9)。对于代码翻译中的CodeGeeX，我们对所有语言对使用t = 0.2, p = 0.95 pass@1和t = 0.8, p = 0.95 pass@10和pass@100。对于用于代码翻译的经过微调的CodeGeeX-13B-FT，我们使用p = 0.95。对于这两个任务中的所有基线，我们对pass@1使用t = 0.2, p = 0.95，对pass@10和pass@100使用t = 0.8, p = 0.95。所有pass@k, k∈{1,10,100}的结果都用n = 200进行估计。所有模型生成的令牌的最大数量设置为1024。</p>
+<p>————-略————-</p>
+<h2 id="6-结论"><a href="#6-结论" class="headerlink" title="6.结论"></a>6.结论</h2><p>我们引入了CodeGeeX，一个13B预训练的23语言代码生成模型，并构建了HumanEval-X，以填补多语言代码生成的空白。在代码生成和翻译任务上，CodeGeeX始终优于相同规模的开源多语言基线。建立在CodeGeeX上的扩展在提高编码效率方面带来了显著的好处。CodeGeeX的多语言性带来了用一组无处不在的形式化语言解决问题的潜力。我们开源CodeGeeX的目的是帮助研究人员和开发人员广泛地利用大型预训练模型来生成代码。<br>CodeGeeX的多语言能力显示了用一组无处不在的形式化语言解决问题的潜力。在这里，我们分享三个我们的观察作为未来的方向。</p>
+<p>首先，我们发现模型能力对多语言编程能力至关重要。该模型从学习多种语言中获益并不是微不足道的。人类程序员可以抽象编程的高级概念，因此学习一种语言可以帮助他们掌握其他语言。相反，该模型似乎需要很大的容量来同时存储每种语言的知识。如何帮助模型提取最基本的编程知识仍然是一个研究挑战。</p>
+<p>其次，与其他类似，CodeGeeX显示了作为模型的推理潜力，尽管它缺乏很强的通用性。我们证明了CodeGeeX可以解决不同语言的问题。然而，不同语言之间的通过率分布差异很大，即有时使用不同的语言无法解决相同的问题。我们假设这可能与某些特定于语言的特性有关(例如，有些问题在Python中更容易解决)，或者它可能仅仅是由于在训练数据中出现了类似的特定于语言的实现。无论哪种情况，模型要具有可靠的推理能力还有很长的路要走。</p>
+<p>第三，CodeGeeX的少拍能力值得探索。而不是使用昂贵的微调方法，我们可以使用几个例子来启动，使模型达到可比较的性能。最近的工作，如思维链(CoT)提示(Wei et al.， 2022)使用这种方法显示了令人印象深刻的结果，激励我们在代码模型中检查CoT。</p>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2023/07/17/THU/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">THU</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="https://www.ecyacg.net//wp-content/uploads/2019/08/63-1Z425162U5100.jpg" class="soft-size--round soft-style--box" alt="Moon_Zzz">
+    
+    
+      <h2>Moon_Zzz</h2>
+    
+    
+      <p>你就是温柔本身.</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>25</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        10
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        29
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+
+      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+    <span>CATEGORYS</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categorys-list">
+      
+        <li class="categorys-list-item">
+          <a href="/categories/gpt/">
+            gpt (1)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="/categories/prml/">
+            prml (4)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="/categories/%E5%A4%A7%E5%88%9B/">
+            大创 (2)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="/categories/STGgameAI/">
+            STGgameAI (1)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="/categories/%E8%AE%A1%E7%BD%91/">
+            计网 (1)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="/categories/%E6%AF%9B%E6%A6%82/">
+            毛概 (6)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="/categories/%E7%95%99%E5%AD%A6/">
+            留学 (2)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="/categories/intership/">
+            intership (1)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="/categories/%E5%93%B2%E5%AD%A6/">
+            哲学 (2)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="/categories/internship/">
+            internship (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      <a href="/tags/AI/" style="font-size: 20px;" class="tags-cloud-10">AI</a> <a href="/tags/CV/" style="font-size: 10px;" class="tags-cloud-0">CV</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;" class="tags-cloud-0">Cover Letter</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;" class="tags-cloud-0">Deep Learning</a> <a href="/tags/EM%E7%AE%97%E6%B3%95/" style="font-size: 10px;" class="tags-cloud-0">EM算法</a> <a href="/tags/English/" style="font-size: 10px;" class="tags-cloud-0">English</a> <a href="/tags/Lime/" style="font-size: 10px;" class="tags-cloud-0">Lime</a> <a href="/tags/ReadMemory/" style="font-size: 10px;" class="tags-cloud-0">ReadMemory</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;" class="tags-cloud-0">chatgpt prompt</a> <a href="/tags/explainer/" style="font-size: 20px;" class="tags-cloud-10">explainer</a> <a href="/tags/internship/" style="font-size: 10px;" class="tags-cloud-0">internship</a> <a href="/tags/intership/" style="font-size: 10px;" class="tags-cloud-0">intership</a> <a href="/tags/llm/" style="font-size: 10px;" class="tags-cloud-0">llm</a> <a href="/tags/supervisor/" style="font-size: 20px;" class="tags-cloud-10">supervisor</a> <a href="/tags/%E4%B8%9C%E6%98%B1%E6%99%93/" style="font-size: 10px;" class="tags-cloud-0">东昱晓</a> <a href="/tags/%E5%AF%BC%E8%AE%BA/" style="font-size: 10px;" class="tags-cloud-0">导论</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;" class="tags-cloud-0">情绪的秘密</a> <a href="/tags/%E6%84%9F%E7%9F%A5%E6%9C%BA/" style="font-size: 10px;" class="tags-cloud-0">感知机</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;" class="tags-cloud-0">支持向量机</a> <a href="/tags/%E7%95%99%E5%AD%A6/" style="font-size: 20px;" class="tags-cloud-10">留学</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;" class="tags-cloud-0">知行合一</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E7%AB%A0/" style="font-size: 20px;" class="tags-cloud-10">第一章</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E7%AB%A0/" style="font-size: 10px;" class="tags-cloud-0">第三章</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E7%AB%A0/" style="font-size: 10px;" class="tags-cloud-0">第二章</a> <a href="/tags/%E7%AC%AC%E4%BA%94%E7%AB%A0/" style="font-size: 10px;" class="tags-cloud-0">第五章</a> <a href="/tags/%E7%AC%AC%E5%85%AD%E7%AB%A0/" style="font-size: 10px;" class="tags-cloud-0">第六章</a> <a href="/tags/%E7%AC%AC%E5%9B%9B%E7%AB%A0/" style="font-size: 10px;" class="tags-cloud-0">第四章</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 20px;" class="tags-cloud-10">调研</a> <a href="/tags/%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;" class="tags-cloud-0">隐马尔可夫模型</a>
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="https://github.com/abinzzz/" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+      
+    </div>
+     
+    <p>&copy; 2023 <a href="/" target="_blank">abinzzz</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+
+
+  
+
+
+  <!-- Google Analytics START -->
+  <script type="text/javascript">
+    (function() {
+      if (window.location.hostname === "localhost" || window.location.hostname.startsWith("192.168")) {
+        return console.log("本地调试");
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      let script = document.createElement("script")
+
+      script.onload = function() {
+        gtag('js', new Date());
+        gtag('config', "UA-165681463-1");
+      }
+
+      script.src = "https://www.googletagmanager.com/gtag/js?id=UA-165681463-1"
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(script, s);
+    })()
+  </script>
+  <!-- Google Analytics End -->
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
