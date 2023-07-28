@@ -33,7 +33,7 @@
 
   
 
-  <title>Lime论文阅读 | のなかはる</title>
+  <title>author | のなかはる</title>
 
   
 
@@ -109,24 +109,22 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">Lime论文阅读</h1>
+          <h1 class="title-wrap">author</h1>
           <h2 class="title-sub-wrap">
             <strong>のなかはる</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-05-17T15:53:10.000Z" itemprop="datePublished">2023-05-17</time>
+            <time  class="article-date" datetime="2023-07-28T06:40:34.000Z" itemprop="datePublished">2023-07-28</time>
           </h2>
           <ul class="wrap-list dark">
   
-    <li><a href="/categories/%E5%A4%A7%E5%88%9B/">📒 大创</a></li>
+    <li><a href="/categories/paper/">📒 paper</a></li>
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/AI/">🏷️ AI</a></li>
+    <li><a href="/tags/paper/">🏷️ paper</a></li>
   
-    <li><a href="/tags/explainer/">🏷️ explainer</a></li>
-  
-    <li><a href="/tags/Lime/">🏷️ Lime</a></li>
+    <li><a href="/tags/author/">🏷️ author</a></li>
   
 </ul>
         </div>
@@ -150,22 +148,29 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <ul>
-<li><p>交叉验证：<br>&nbsp;&nbsp;交叉验证（Cross-validation）是一种用于评估机器学习模型性能的统计方法。它的目的是通过在数据集上进行多次的训练和测试来估计模型的泛化能力，即对新数据的预测能力。</p>
-<p>&nbsp;&nbsp;在交叉验证中，将数据集划分为训练集和测试集，然后使用训练集对模型进行训练，再利用测试集评估模型的性能。为了准确评估模型的泛化能力，交叉验证将这个过程重复多次，每次使用不同的数据划分方式。</p>
-</li>
-</ul>
-<p>&nbsp;&nbsp;期刊：KDD 2016<br>&nbsp;&nbsp;LIME：解释任何机器学习模型预测结果的方法。使用可解释特征训练可解释模型，在特定的局部线性邻域拟合元模型(可解释性特征)</p>
-<h1 id="一-摘要"><a href="#一-摘要" class="headerlink" title="一.摘要"></a>一.摘要</h1><p>&nbsp;&nbsp;机器学习模型现在仍然主要是黑匣子。理解背后原因可以将不可信的模型转化为可信的模型。LIME，通过学习预测周围局部的可解释模型，以一种可解释和忠实的方式解释任何分类器的预测。还提出了一种解释模型的方法，通过以非冗余的方式提出代表性的个人预测及其解释，将任务框架为子模块优化问题。</p>
-<h1 id="二-介绍"><a href="#二-介绍" class="headerlink" title="二.介绍"></a>二.介绍</h1><p>&nbsp;&nbsp;作者指出，如果用户不信任模型或预测，他们就不会使用它。  </p>
-<p>&nbsp;&nbsp;两种信任定义：  </p>
-<ul>
-<li>信任预测，即用户是否足够信任一个预测以依据它采取某种行动</li>
-<li>信任模型，即用户是否信任模型在部署后会以合理的方式行动。</li>
-</ul>
-<p>&nbsp;&nbsp;在模型被用于决策制定时，确定对单个预测的信任是一个重要问题，如在医学诊断或恐怖主义检测中，不能盲目依赖预测，因为后果可能是灾难性的。除了信任单个预测外，还需要在将模型部署到实际环境中之前评估整个模型，用户需要对模型在真实世界数据上的表现有信心。目前，模型通常使用可用的验证数据集上的准确度指标进行评估，但真实世界的数据通常与此大相径庭，评估指标可能不能反映产品的目标。  </p>
-<p>&nbsp;&nbsp;文章中提出了一个解决方案，对单个预测提供解释，以解决“信任预测”问题，选择多个此类预测（及其解释），以解决“信任模型”问题。  </p>
-<p>&nbsp;&nbsp;文章的主要贡献包括提出了一个名为LIME的算法，可以通过用可解释模型在局部近似它，以真实地解释任何分类器或回归器的预测。另一方面，SP-LIME方法通过子模块优化选择一组具有解释的代表性实例，以解决“信任模型”问题。  </p>
+        <h1 id="关于论文的作者"><a href="#关于论文的作者" class="headerlink" title="关于论文的作者"></a>关于论文的作者</h1><p>设SCI论文的作者如果有N个人，依作者排名的顺序叫做一作，二作，三作……N作，这个大家都明白的常识。但是作者的顺序往往是至关重要的 ——排在第一（首席研究员）和最后的作者（通常是责任作者或资深）的位置，意味着他们会获得最多的褒奖。那么一作、通讯作者、以及最后的作者意味着什么呢？  </p>
+<h2 id="1-论文中的作者顺序是怎样规定的？"><a href="#1-论文中的作者顺序是怎样规定的？" class="headerlink" title="1.论文中的作者顺序是怎样规定的？"></a>1.论文中的作者顺序是怎样规定的？</h2><h3 id="1-1-一般说来，作者排名主要是依据对本论文的实际贡献大小来执行"><a href="#1-1-一般说来，作者排名主要是依据对本论文的实际贡献大小来执行" class="headerlink" title="1.1 一般说来，作者排名主要是依据对本论文的实际贡献大小来执行"></a>1.1 一般说来，作者排名主要是依据对本论文的实际贡献大小来执行</h3><p>排名靠在前面的作者对论文的贡献越大  </p>
+<h3 id="1-2-特殊情况：有的SCI论文作者实际排名操作中可能会受到各种非客观的其他因素所影响"><a href="#1-2-特殊情况：有的SCI论文作者实际排名操作中可能会受到各种非客观的其他因素所影响" class="headerlink" title="1.2 特殊情况：有的SCI论文作者实际排名操作中可能会受到各种非客观的其他因素所影响"></a>1.2 特殊情况：有的SCI论文作者实际排名操作中可能会受到各种非客观的其他因素所影响</h3><p>比如：在我国申请博士学位和学术职称时，对论文作者的排名常常有严格的规定。</p>
+<p>比如，某些高校理工科的博士生学位论文答辩条件之一是发表SCI论文，发表的SCI论文必须满足第一作者为博士生或者导师第一作者博士生第二作者才算数，否则发表多少篇论文都是白搭。</p>
+<p>又比如，晋升副教授时，相关副高职称的文件会规定申请条件之一为申请者第一作者论文至少多少篇等等。</p>
+<h2 id="2-一作、通讯作者、以及最后的作者意味着什么呢？"><a href="#2-一作、通讯作者、以及最后的作者意味着什么呢？" class="headerlink" title="2.一作、通讯作者、以及最后的作者意味着什么呢？"></a>2.一作、通讯作者、以及最后的作者意味着什么呢？</h2><h3 id="2-1-第一作者"><a href="#2-1-第一作者" class="headerlink" title="2.1 第一作者"></a>2.1 第一作者</h3><p>显而易见，第一作者是被认为论文所述工作的主要完成人，科研项目的主要承担者，能见度极高。</p>
+<p>比如，当某篇论文被引用，该文的第一作者在所有的科技刊物中被忽略过去，因为参考文献规则可以规定非第一作者全都被“et al.”缩写掉。这时候，第一作者就像电影或者电视剧里不会早早去领盒饭的主角一个待遇。</p>
+<p>按惯例，理工科论文的第一作者是撰写论文的那个人，而撰写论文的那个人应该具备撰写论文内容的资格，也就是说第一作者亲自参与科研项目或者实验，采集数据、动手做实验和分析结果，ta应该是该课题的主要完成者。</p>
+<p>没有做过某项科研项目，在没有经过完成人、同意的情况下，却拿着别人的工作撰写论文的行为也算是剽窃行为的一种。</p>
+<p>作为论文的第一作者，通常是课题的主要完成人也是写出第一轮草稿的那个人。完成科研项目而愿意让别人撰写相关的科技论文，通常这种情况是极少的。在自然界，几乎找不到一个自己怀孕了N个月，却让别人下蛋的老母鸡。由完成论文主要工作的人自己执笔，写出论文初稿并作为第一作者是合理的。</p>
+<p>但实际如何按具体情况操作，本文就不做展开了。  </p>
+<h3 id="2-2-通讯作者"><a href="#2-2-通讯作者" class="headerlink" title="2.2 通讯作者"></a>2.2 通讯作者</h3><p>按照通常认为，通讯作者为导师、研究决策者或主要组织者，是课题的总负责人，承担课题的经费、设计、文章的把关者。</p>
+<p>我写过的SCI论文中，如果第一作者和通讯作者不是一个人，那么通讯作者往往放在作者信息中最后一个。有的相关资料说，通讯作者可以是任何一个位置，换句话，可以是第一、第二到第N个作者。正式出版的论文中，常常以类似“⁎Corresponding author E-mail addresses:XXXX”或“Author to whom correspondence shouldbe addressed.”等字样标明哪个作者为通讯作者。</p>
+<p>通讯作者，顾名思义，就是可以与之通讯的作者，主要在投稿与期刊编辑联系的作者（论文未正式录用前，有些期刊编辑还是以投稿系统中的联系方式为主，进行审稿等工作的联系），并在论文发表后读者联系的那个作者。</p>
+<p>论文通讯作者的身份不仅光荣，也有其实际的作用， 文章发表后， 一旦有“问题”， 或者要“获奖”， 该作者就是第一联系人。要是获奖还好办，要是论文出现问题， 该作者首当其冲，是主要的意见回复人。</p>
+<p>历史性，通讯作者最重要的义务是，担负着论文可靠性的责任，负责与编辑部的一切通信联系和接受读者的咨询等。通讯作者的能够是能和外界建立更广泛的联系，因此可以获得很多学术资源和声望。</p>
+<h3 id="2-3-最后作者"><a href="#2-3-最后作者" class="headerlink" title="2.3 最后作者"></a>2.3 最后作者</h3><p>除了First author, Corresponding author,还有最后作者(Lastauthor)。所谓的Last author，就是最后一个作者，这个作者一般为导师、研究决策者或主要调查员。如果是一名博士生写的SCI论文，通行的Last author署名做法是写上自己导师的名字，只要导师不是第一作者。当然，导师也可以作为Corresponding author，只需要标注一下即可。</p>
+<p>以上的第一作者(First author)与通讯作者(Corresponding author)没有互斥关系，最后作者(Last author)与通讯作者(Correspondingauthor)也不是互斥关系；第一作者(First author)和最后作者(Last author)肯定是互斥关系。</p>
+<p>简而言之，SCI论文需要根据各类相应规则决定署名次序，不能随便。最好在论文草稿起草前，论文的撰写者就决定合著作者们的提成名顺序。  </p>
+<h3 id="2-4第一作者与通讯作者的区别"><a href="#2-4第一作者与通讯作者的区别" class="headerlink" title="2.4第一作者与通讯作者的区别"></a>2.4第一作者与通讯作者的区别</h3><p>从做科研项目的过程来看，那么，第一作者就像是冲锋陷阵的将军（对研究成果的实现贡献最大，且是论文初稿的撰写者），通讯作者就像是运筹帷幄的元帅（出项目，规划大致研究方向和路线,统筹安排，出资金，出实验室和实验器材等），或者说第一作者有点像是具体干苦活的乙方，通讯作者有点像出钱出资源的甲方。</p>
+<p>如果第一作者和通讯作者是同一人，那就可以忽略区分两者的问题；只有当第一作者和通讯作者不为同一人时，才要特别强调第一作者和通讯作者区分的问题。</p>
+<p>据我所知道的，博士生的SCI论文作者署名时，可能第一作者是学生，而通讯作者是导师或者可能第一作者是导师，第二作者是学生，通讯作者为副导师或者也可能第一作者是副导师，第二作者是学生，通讯作者为导师。</p>
+<p>如果有对SCI论文有帮助或作出过贡献但不足成为作者的人，可以放在论文结尾的Acknowledgments表示感谢。论文署名确定以后，就是具体的SCI论文作者信息的撰写了，这需要遵循约定俗成的规则。</p>
 
       </section>
 
@@ -173,28 +178,14 @@
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2023/05/18/%E6%AF%9B%E6%A6%822/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">毛概2</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2023/05/16/%E6%AF%9B%E6%A6%821/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">毛概1</h2>
+        <a href="/2023/07/25/%E5%BF%AB%E6%8D%B7%E9%94%AE/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">快捷键</h2>
         </a>
       
       <div class="card-text--row">Older</div>
