@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>DeepFM | のなかはる</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Q1:由于类别特征无法直接用于数值计算,为了表征这类特征,我们采用独热编码将特征向量转换为高维稀疏向量.考虑到高维稀疏特征难以处理,通常采用特征嵌入将高维稀疏特征嵌入到低维稠密的向量空间中,以获得特征嵌入向量E&#96;&#96;&#96;pythonimport pandas as pdfrom sklearn.decomposition import PCA  假设我们有以下的DataFramedf &#x3D; pd.Da">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepFM">
+<meta property="og:url" content="https://abinzzz.github.io/2023/06/12/DeepFM/index.html">
+<meta property="og:site_name" content="のなかはる">
+<meta property="og:description" content="Q1:由于类别特征无法直接用于数值计算,为了表征这类特征,我们采用独热编码将特征向量转换为高维稀疏向量.考虑到高维稀疏特征难以处理,通常采用特征嵌入将高维稀疏特征嵌入到低维稠密的向量空间中,以获得特征嵌入向量E&#96;&#96;&#96;pythonimport pandas as pdfrom sklearn.decomposition import PCA  假设我们有以下的DataFramedf &#x3D; pd.Da">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-12T08:06:03.000Z">
+<meta property="article:modified_time" content="2023-06-12T10:52:50.000Z">
+<meta property="article:author" content="のなかはる">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="のなかはる" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">のなかはる</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://abinzzz.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-DeepFM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/06/12/DeepFM/" class="article-date">
+  <time datetime="2023-06-12T08:06:03.000Z" itemprop="datePublished">2023-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DeepFM
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><strong>Q1</strong>:由于类别特征<br>无法直接用于数值计算,为了表征这类特征,我们采用独热编<br>码将特征向量转换为高维稀疏向量.考虑到高维稀疏特征难<br>以处理,通常采用特征嵌入将高维稀疏特征嵌入到低维稠密<br>的向量空间中,以获得特征嵌入向量E<br>```python<br>import pandas as pd<br>from sklearn.decomposition import PCA</li>
+</ul>
+<h1 id="假设我们有以下的DataFrame"><a href="#假设我们有以下的DataFrame" class="headerlink" title="假设我们有以下的DataFrame"></a>假设我们有以下的DataFrame</h1><p>df = pd.DataFrame({<br>   ‘A’: [‘dog’, ‘cat’, ‘dog’, ‘dog’, ‘cat’, ‘dog’],<br>   ‘B’: [‘orange’, ‘banana’, ‘banana’, ‘orange’, ‘banana’, ‘orange’],<br>   ‘C’: [1, 2, 3, 4, 5, 6]<br>})<br>print(df)</p>
+<h1 id="对类别特征进行独热编码"><a href="#对类别特征进行独热编码" class="headerlink" title="对类别特征进行独热编码"></a>对类别特征进行独热编码</h1><p>df_encoded = pd.get_dummies(df, columns=[‘A’, ‘B’])<br>print(df_encoded)</p>
+<h1 id="实例化PCA，选择嵌入向量的维度"><a href="#实例化PCA，选择嵌入向量的维度" class="headerlink" title="实例化PCA，选择嵌入向量的维度"></a>实例化PCA，选择嵌入向量的维度</h1><p>pca = PCA(n_components=2)</p>
+<h1 id="使用PCA对独热编码的特征进行降维"><a href="#使用PCA对独热编码的特征进行降维" class="headerlink" title="使用PCA对独热编码的特征进行降维"></a>使用PCA对独热编码的特征进行降维</h1><p>df_pca = pca.fit_transform(df_encoded)</p>
+<h1 id="输出特征嵌入向量E"><a href="#输出特征嵌入向量E" class="headerlink" title="输出特征嵌入向量E"></a>输出特征嵌入向量E</h1><p>print(df_pca)<br>```</p>
+<ul>
+<li><p><strong>Q2</strong>:baseline<br><strong>LR (Logistic Regression)</strong>：这是一个基本的线性模型，对原始特征进行线性变换，然后通过sigmoid函数将输出转换成0到1之间的概率。它适用于二分类问题，但只能捕捉到特征的一阶交互（即每个特征对输出的独立影响）。</p>
+<p><strong>FM (Factorization Machine)</strong>：这是一个能够学习特征对的二阶交互的模型。它使用了矩阵分解的技术，使得在有大量稀疏特征的情况下，也能高效地学习特征的二阶交互。</p>
+<p><strong>DeepFM</strong>：这个模型结合了FM和深度学习的技术。它的FM部分用于学习特征的低阶交互，而深度网络部分用于学习特征的高阶交互。这两部分共享同样的输入，使得低阶和高阶交互能够同时被学习。</p>
+<p><strong>xDeepFM</strong>：这个模型在DeepFM的基础上进一步引入了CIN（Compressed Interaction Network）部分，用于显式地学习特征的高阶交互。它同时考虑了显式和隐式的特征交互，能够更好地学习特征之间的复杂关系。</p>
+<p> <strong>AFM (Attentional Factorization Machine)</strong>：这个模型在FM的基础上引入了注意力机制。对于每个特征对的交互，AFM都会通过一个注意力网络来计算其重要性，然后将注意力分数用于加权特征对的交互。这使得模型能够区分不同交互特征的重要性。</p>
+<p><strong>AutoInt (Automatic Feature Interaction)</strong>：这个模型使用了多头自注意力机制来学习特征的交互。自注意力机制使得模型在计算一个特征对输出的影响时，能够考虑到所有其他特征的信息。这使得模型能够自动地、显式地学习特征的高阶交互。</p>
+</li>
+<li><p><strong>Q3</strong>:低阶和高阶的特征是什么？你能用DeepFM模型举一个例子吗，帮助我更好的理解DeepFM模型<br>“低阶”和”高阶”特征交互通常指的是特征组合的复杂性。</p>
+<p>低阶特征交互通常指的是两个或者少数几个特征之间的交互。例如，在推荐系统中，用户的性别（男或女）和商品的类别（衣服或鞋子）之间的交互可以被看作是一个二阶交互（也就是低阶交互）。如果男性更倾向于购买鞋子，而女性更倾向于购买衣服，这个信息就是一个二阶交互特征。</p>
+<p>高阶特征交互则涉及到三个或者更多的特征。例如，用户的年龄、性别和商品的类别三者之间的交互就是一个三阶交互。如果我们发现年轻的男性用户更倾向于购买运动鞋，而年轻的女性用户更倾向于购买高跟鞋，这个信息就是一个三阶交互特征。</p>
+<p>下面是一个DeepFM模型的例子。假设我们有一个简化的推荐系统问题，特征包括用户的性别（男、女）、年龄（年轻、中年、老年）和商品的类别（衣服、鞋子）。我们想预测一个用户是否会购买一个商品。</p>
+<p>DeepFM会将这些特征先通过embedding转化为连续向量，然后：</p>
+<p>FM部分：DeepFM会学习每对特征之间的交互，也就是二阶交互。例如，它会学习”男性”和”鞋子”的交互对购买行为的影响是什么，”年轻”和”衣服”的交互对购买行为的影响是什么等。</p>
+<p>Deep部分：DeepFM的深度网络部分则会学习更复杂的、高阶的特征交互。例如，它可能会发现年轻的男性用户更喜欢购买运动鞋这样的三阶交互。</p>
+<p>最后，DeepFM会将FM部分和Deep部分的输出合并，然后通过一个sigmoid函数，将它们转化为购买的概率。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://abinzzz.github.io/2023/06/12/DeepFM/" data-id="clkpmxthx0006ip69fouch07o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/07/13/%E7%95%99%E5%AD%A6DIY%E6%8C%87%E5%8C%97/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          留学DIY指北
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/03/%E6%AF%9B%E6%A6%824/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">毛概4</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Goabroad/">Goabroad</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/STGgameAI/">STGgameAI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/apple/">apple</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gpt/">gpt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/intership/">intership</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/prml/">prml</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reading/">reading</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%93%B2%E5%AD%A6/">哲学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%88%9B/">大创</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%9B%E6%A6%82/">毛概</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%BD%91/">计网</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anything/" rel="tag">Anything</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cover-Letter/" rel="tag">Cover Letter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/" rel="tag">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EM%E7%AE%97%E6%B3%95/" rel="tag">EM算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GoAbroad/" rel="tag">GoAbroad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Goabroad/" rel="tag">Goabroad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HKU/" rel="tag">HKU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IC/" rel="tag">IC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lime/" rel="tag">Lime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NTU/" rel="tag">NTU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReadMemory/" rel="tag">ReadMemory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TUM/" rel="tag">TUM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tai-Jiang-Mu/" rel="tag">Tai-Jiang Mu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/University/" rel="tag">University</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yuxiao-Dong/" rel="tag">Yuxiao Dong</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/" rel="tag">apple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/author/" rel="tag">author</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatgpt-prompt/" rel="tag">chatgpt prompt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/email/" rel="tag">email</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/explainer/" rel="tag">explainer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fee/" rel="tag">fee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hacker/" rel="tag">hacker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/imap/" rel="tag">imap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instructor/" rel="tag">instructor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/internship/" rel="tag">internship</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intership/" rel="tag">intership</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/llm/" rel="tag">llm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/outlook/" rel="tag">outlook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paper/" rel="tag">paper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading/" rel="tag">reading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/" rel="tag">supervisor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BB%8B/" rel="tag">中介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%BC%E8%AE%BA/" rel="tag">导论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" rel="tag">情绪的秘密</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E7%9F%A5%E6%9C%BA/" rel="tag">感知机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" rel="tag">知行合一</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E7%AB%A0/" rel="tag">第一章</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E7%AB%A0/" rel="tag">第三章</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%BA%8C%E7%AB%A0/" rel="tag">第二章</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%BA%94%E7%AB%A0/" rel="tag">第五章</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E5%85%AD%E7%AB%A0/" rel="tag">第六章</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E5%9B%9B%E7%AB%A0/" rel="tag">第四章</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E7%A0%94/" rel="tag">调研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%99%B6%E7%93%B7/" rel="tag">陶瓷</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B/" rel="tag">隐马尔可夫模型</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 12px;">AI</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/EM%E7%AE%97%E6%B3%95/" style="font-size: 10px;">EM算法</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/GoAbroad/" style="font-size: 20px;">GoAbroad</a> <a href="/tags/Goabroad/" style="font-size: 14px;">Goabroad</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 18px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 12px;">Yuxiao Dong</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 12px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 14px;">instructor</a> <a href="/tags/internship/" style="font-size: 16px;">internship</a> <a href="/tags/intership/" style="font-size: 10px;">intership</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 16px;">paper</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E5%AF%BC%E8%AE%BA/" style="font-size: 10px;">导论</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E7%9F%A5%E6%9C%BA/" style="font-size: 10px;">感知机</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E7%AB%A0/" style="font-size: 12px;">第一章</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E7%AB%A0/" style="font-size: 10px;">第三章</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E7%AB%A0/" style="font-size: 10px;">第二章</a> <a href="/tags/%E7%AC%AC%E4%BA%94%E7%AB%A0/" style="font-size: 10px;">第五章</a> <a href="/tags/%E7%AC%AC%E5%85%AD%E7%AB%A0/" style="font-size: 10px;">第六章</a> <a href="/tags/%E7%AC%AC%E5%9B%9B%E7%AB%A0/" style="font-size: 10px;">第四章</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">隐马尔可夫模型</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/30/archives/">archives</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/30/GRE/">GRE</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/30/HKU/">HKU</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/30/TUM/">TUM</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/30/IC/">IC</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 のなかはる<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
