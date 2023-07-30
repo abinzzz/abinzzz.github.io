@@ -155,166 +155,153 @@
 <li><h3 id="①填写明确和具体的指令"><a href="#①填写明确和具体的指令" class="headerlink" title="①填写明确和具体的指令"></a>①填写明确和具体的指令</h3></li>
 </ul>
 <p>  Topic1：使用分隔符，Delimiters can be anything like: ```, “””, &lt; &gt;, <tag> </tag><br>  输入： </p>
-<pre><code class="lang-python">  text = f&quot;&quot;&quot;
-  You should express what you want a model to do by \ 
-  providing instructions that are as clear and \ 
-  specific as you can possibly make them. \ 
-  This will guide the model towards the desired output, \ 
-  and reduce the chances of receiving irrelevant \ 
-  or incorrect responses. Don&#39;t confuse writing a \ 
-  clear prompt with writing a short prompt. \ 
-  In many cases, longer prompts provide more clarity \ 
-  and context for the model, which can lead to \ 
-  more detailed and relevant outputs.
-  &quot;&quot;&quot;
-  prompt = f&quot;&quot;&quot;
-  Summarize the text delimited by triple backticks \ 
-  into a single sentence.
-  ```&#123;text&#125;
-</code></pre>
-<p>  “””<br>  response = get_completion(prompt)<br>  print(response)</p>
-<pre><code>
-
-  输出：
-</code></pre><p>  Clear and specific instructions should be provided to guide a model towards the desired output, and longer prompts can provide more clarity and context for the model, leading to more detailed and relevant outputs.</p>
-<pre><code>
-  &lt;br&gt;
-  &lt;br&gt;
-  &lt;br&gt;
-  &lt;br&gt;
-
-  Topic2：要求结构化的输出，例如JSON,HTML  
-  输入：
-
-  ```python
-  prompt = f&quot;&quot;&quot;
-  Generate a list of three made-up book titles along \ 
-  with their authors and genres. 
-  Provide them in JSON format with the following keys: 
-  book_id, title, author, genre.
-  &quot;&quot;&quot;
-  response = get_completion(prompt)
-  print(response)
-</code></pre><p>  输出：</p>
-<pre><code>  &#123;
-    &quot;book_id&quot;: 1,
-    &quot;title&quot;: &quot;The Lost City of Zorath&quot;,
-    &quot;author&quot;: &quot;Aria Blackwood&quot;,
-    &quot;genre&quot;: &quot;Fantasy&quot;
-  &#125;,
-  &#123;
-    &quot;book_id&quot;: 2,
-    &quot;title&quot;: &quot;The Last Survivors&quot;,
-    &quot;author&quot;: &quot;Ethan Stone&quot;,
-    &quot;genre&quot;: &quot;Science Fiction&quot;
-  &#125;,
-  &#123;
-    &quot;book_id&quot;: 3,
-    &quot;title&quot;: &quot;The Secret Life of Bees&quot;,
-    &quot;author&quot;: &quot;Lila Rose&quot;,
-    &quot;genre&quot;: &quot;Romance&quot;
-  &#125;
-</code></pre><p>  <br><br>  <br><br>  <br><br>  <br></p>
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python">text <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
+You should express what you want a model to do by \ 
+providing instructions that are as clear and \ 
+specific as you can possibly make them. \ 
+This will guide the model towards the desired output, \ 
+and reduce the chances of receiving irrelevant \ 
+or incorrect responses. Don't confuse writing a \ 
+clear prompt with writing a short prompt. \ 
+In many cases, longer prompts provide more clarity \ 
+and context for the model, which can lead to \ 
+more detailed and relevant outputs.
+"""</span></span>
+prompt <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
+Summarize the text delimited by triple backticks \ 
+into a single sentence.
+```</span><span class="token interpolation"><span class="token punctuation">&#123;</span>text<span class="token punctuation">&#125;</span></span><span class="token string">```
+"""</span></span>
+response <span class="token operator">=</span> get_completion<span class="token punctuation">(</span>prompt<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  输出：<br>  <pre class="line-numbers language-none"><code class="language-none">Clear and specific instructions should be provided to guide a model towards the desired output, and longer prompts can provide more clarity and context for the model, leading to more detailed and relevant outputs.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p>  <br><br>  <br><br>  <br><br>  <br></p>
+<p>  Topic2：要求结构化的输出，例如JSON,HTML<br>  输入：</p>
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python">prompt <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
+Generate a list of three made-up book titles along \ 
+with their authors and genres. 
+Provide them in JSON format with the following keys: 
+book_id, title, author, genre.
+"""</span></span>
+response <span class="token operator">=</span> get_completion<span class="token punctuation">(</span>prompt<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  输出：</p>
+  <pre class="line-numbers language-none"><code class="language-none">&#123;
+  &quot;book_id&quot;: 1,
+  &quot;title&quot;: &quot;The Lost City of Zorath&quot;,
+  &quot;author&quot;: &quot;Aria Blackwood&quot;,
+  &quot;genre&quot;: &quot;Fantasy&quot;
+&#125;,
+&#123;
+  &quot;book_id&quot;: 2,
+  &quot;title&quot;: &quot;The Last Survivors&quot;,
+  &quot;author&quot;: &quot;Ethan Stone&quot;,
+  &quot;genre&quot;: &quot;Science Fiction&quot;
+&#125;,
+&#123;
+  &quot;book_id&quot;: 3,
+  &quot;title&quot;: &quot;The Secret Life of Bees&quot;,
+  &quot;author&quot;: &quot;Lila Rose&quot;,
+  &quot;genre&quot;: &quot;Romance&quot;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  <br><br>  <br><br>  <br><br>  <br></p>
 <p>  Topic3：请model检查是否满足条件<br>  输入：我们运行这个cell，可以看到该模型能够提取指令</p>
-<pre><code class="lang-python">  text_1 = f&quot;&quot;&quot;
-  Making a cup of tea is easy! First, you need to get some \ 
-  water boiling. While that&#39;s happening, \ 
-  grab a cup and put a tea bag in it. Once the water is \ 
-  hot enough, just pour it over the tea bag. \ 
-  Let it sit for a bit so the tea can steep. After a \ 
-  few minutes, take out the tea bag. If you \ 
-  like, you can add some sugar or milk to taste. \ 
-  And that&#39;s it! You&#39;ve got yourself a delicious \ 
-  cup of tea to enjoy.
-  &quot;&quot;&quot;
-  prompt = f&quot;&quot;&quot;
-  You will be provided with text delimited by triple quotes. 
-  If it contains a sequence of instructions, \ 
-  re-write those instructions in the following format:
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python">text_1 <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
+Making a cup of tea is easy! First, you need to get some \ 
+water boiling. While that's happening, \ 
+grab a cup and put a tea bag in it. Once the water is \ 
+hot enough, just pour it over the tea bag. \ 
+Let it sit for a bit so the tea can steep. After a \ 
+few minutes, take out the tea bag. If you \ 
+like, you can add some sugar or milk to taste. \ 
+And that's it! You've got yourself a delicious \ 
+cup of tea to enjoy.
+"""</span></span>
+prompt <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
+You will be provided with text delimited by triple quotes. 
+If it contains a sequence of instructions, \ 
+re-write those instructions in the following format:
 
-  Step 1 - ...
-  Step 2 - …
-  …
-  Step N - …
+Step 1 - ...
+Step 2 - …
+…
+Step N - …
 
-  If the text does not contain a sequence of instructions, \ 
-  then simply write \&quot;No steps provided.\&quot;
+If the text does not contain a sequence of instructions, \ 
+then simply write \"No steps provided.\"
 
-  \&quot;\&quot;\&quot;&#123;text_1&#125;\&quot;\&quot;\&quot;
-  &quot;&quot;&quot;
-  response = get_completion(prompt)
-  print(&quot;Completion for Text 1:&quot;)
-  print(response)
-</code></pre>
+\"\"\"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>text_1<span class="token punctuation">&#125;</span></span><span class="token string">\"\"\"
+"""</span></span>
+response <span class="token operator">=</span> get_completion<span class="token punctuation">(</span>prompt<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Completion for Text 1:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  输出：</p>
-<pre><code>  Completion for Text 1:
-  Step 1 - Get some water boiling.
-  Step 2 - Grab a cup and put a tea bag in it.
-  Step 3 - Once the water is hot enough, pour it over the tea bag.
-  Step 4 - Let it sit for a bit so the tea can steep.
-  Step 5 - After a few minutes, take out the tea bag.
-  Step 6 - Add some sugar or milk to taste.
-  Step 7 - Enjoy your delicious cup of tea!
-</code></pre><p>  <br><br>  <br><br>  <br><br>  <br></p>
+  <pre class="line-numbers language-none"><code class="language-none">Completion for Text 1:
+Step 1 - Get some water boiling.
+Step 2 - Grab a cup and put a tea bag in it.
+Step 3 - Once the water is hot enough, pour it over the tea bag.
+Step 4 - Let it sit for a bit so the tea can steep.
+Step 5 - After a few minutes, take out the tea bag.
+Step 6 - Add some sugar or milk to taste.
+Step 7 - Enjoy your delicious cup of tea!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  <br><br>  <br><br>  <br><br>  <br></p>
 <p>  接下来使用不同的段落来尝试这个相同的提示，这段文字并不包含指示</p>
-<pre><code class="lang-python">  text_2 = f&quot;&quot;&quot;
-  The sun is shining brightly today, and the birds are \
-  singing. It&#39;s a beautiful day to go for a \ 
-  walk in the park. The flowers are blooming, and the \ 
-  trees are swaying gently in the breeze. People \ 
-  are out and about, enjoying the lovely weather. \ 
-  Some are having picnics, while others are playing \ 
-  games or simply relaxing on the grass. It&#39;s a \ 
-  perfect day to spend time outdoors and appreciate the \ 
-  beauty of nature.
-  &quot;&quot;&quot;
-  prompt = f&quot;&quot;&quot;
-  You will be provided with text delimited by triple  quotes. 
-  If it contains a sequence of instructions, \ 
-  re-write those instructions in the following format:
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python">text_2 <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
+The sun is shining brightly today, and the birds are \
+singing. It's a beautiful day to go for a \ 
+walk in the park. The flowers are blooming, and the \ 
+trees are swaying gently in the breeze. People \ 
+are out and about, enjoying the lovely weather. \ 
+Some are having picnics, while others are playing \ 
+games or simply relaxing on the grass. It's a \ 
+perfect day to spend time outdoors and appreciate the \ 
+beauty of nature.
+"""</span></span>
+prompt <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
+You will be provided with text delimited by triple  quotes. 
+If it contains a sequence of instructions, \ 
+re-write those instructions in the following format:
 
-  Step 1 - ...
-  Step 2 - …
-  …
-  Step N - …
+Step 1 - ...
+Step 2 - …
+…
+Step N - …
 
-  If the text does not contain a sequence of instructions, \ 
-  then simply write \&quot;No steps provided.\&quot;
+If the text does not contain a sequence of instructions, \ 
+then simply write \"No steps provided.\"
 
-  \&quot;\&quot;\&quot;&#123;text_2&#125;\&quot;\&quot;\&quot;
-  &quot;&quot;&quot;
-  response = get_completion(prompt)
-  print(&quot;Completion for Text 2:&quot;)
-  print(response)
-</code></pre>
+\"\"\"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>text_2<span class="token punctuation">&#125;</span></span><span class="token string">\"\"\"
+"""</span></span>
+response <span class="token operator">=</span> get_completion<span class="token punctuation">(</span>prompt<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Completion for Text 2:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  输出：(我们可以看出在这段不包含指示的文字中，他确实没有输出什么)</p>
-<pre><code>  Completion for Text 2:
-  No steps provided.
-</code></pre><p>  <br><br>  <br><br>  <br><br>  <br></p>
+  <pre class="line-numbers language-none"><code class="language-none">Completion for Text 2:
+No steps provided.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  <br><br>  <br><br>  <br><br>  <br></p>
 <p>  Topic4：“Few-shot”提示,给模型明确且具体的例子<br>  输入：</p>
-<pre><code class="lang-python">  prompt = f&quot;&quot;&quot;
-  Your task is to answer in a consistent style.
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python">prompt <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
+Your task is to answer in a consistent style.
 
-  &lt;child&gt;: Teach me about patience.
+&lt;child>: Teach me about patience.
 
-  &lt;grandparent&gt;: The river that carves the deepest \ 
-  valley flows from a modest spring; the \ 
-  grandest symphony originates from a single note; \ 
-  the most intricate tapestry begins with a solitary thread.
+&lt;grandparent>: The river that carves the deepest \ 
+valley flows from a modest spring; the \ 
+grandest symphony originates from a single note; \ 
+the most intricate tapestry begins with a solitary thread.
 
-  &lt;child&gt;: Teach me about resilience.
-  &quot;&quot;&quot;
-  response = get_completion(prompt)
-  print(response)
-</code></pre>
+&lt;child>: Teach me about resilience.
+"""</span></span>
+response <span class="token operator">=</span> get_completion<span class="token punctuation">(</span>prompt<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  输出：</p>
-<pre><code>  &lt;grandparent&gt;: Resilience is like a tree that bends with the wind but never breaks. It is the ability to bounce back from adversity and keep moving forward, even when things get tough. Just like a tree that grows stronger with each storm it weathers, resilience is a quality that can be developed and strengthened over time.
-</code></pre><p>  <br><br>  <br><br>  <br><br>  <br><br>  <br><br>  <br><br>  <br><br>  <br></p>
+  <pre class="line-numbers language-none"><code class="language-none">&lt;grandparent&gt;: Resilience is like a tree that bends with the wind but never breaks. It is the ability to bounce back from adversity and keep moving forward, even when things get tough. Just like a tree that grows stronger with each storm it weathers, resilience is a quality that can be developed and strengthened over time.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  <br><br>  <br><br>  <br><br>  <br><br>  <br><br>  <br><br>  <br><br>  <br></p>
 <ul>
 <li><h3 id="②给模型足够的时间来思考"><a href="#②给模型足够的时间来思考" class="headerlink" title="②给模型足够的时间来思考"></a>②给模型足够的时间来思考</h3><p>一个模型因急于得出不正确的结论而出现推理错误，应该重新设计查询，要求在模型之前进行一连串的相关推理，就像一个人，你没有给他足够的时间去计算数学题，他们如果会做的话但也会犯错的.</p>
 <p>Topic1：制定完成任务所需步骤  </p>
 <p>输入：</p>
-<pre><code class="lang-python">text = f&quot;&quot;&quot;
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">text <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
 In a charming village, siblings Jack and Jill set out on \ 
 a quest to fetch water from a hilltop \ 
 well. As they climbed, singing joyfully, misfortune \ 
@@ -324,9 +311,9 @@ Though slightly battered, the pair returned home to \
 comforting embraces. Despite the mishap, \ 
 their adventurous spirits remained undimmed, and they \ 
 continued exploring with delight.
-&quot;&quot;&quot;
-# example 1
-prompt_1 = f&quot;&quot;&quot;
+"""</span></span>
+<span class="token comment"># example 1</span>
+prompt_1 <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
 Perform the following actions: 
 1 - Summarize the following text delimited by triple \
 backticks with 1 sentence.
@@ -338,59 +325,63 @@ keys: french_summary, num_names.
 Separate your answers with line breaks.
 
 Text:
-```&#123;text&#125;
-</code></pre>
-<p>“””<br>response = get_completion(prompt_1)<br>print(“Completion for prompt 1:”)<br>print(response)</p>
-<pre><code>
-输出：
-</code></pre><p>Completion for prompt 1:<br>Two siblings, Jack and Jill, go on a quest to fetch water from a well on a hilltop, but misfortune strikes and they both tumble down the hill, returning home slightly battered but with their adventurous spirits undimmed.</p>
-<p>Deux frères et sœurs, Jack et Jill, partent en quête d’eau d’un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts. </p>
-<p>Noms: Jack, Jill. </p>
-<p>{<br>“french_summary”: “Deux frères et sœurs, Jack et Jill, partent en quête d’eau d’un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts.”,<br>“num_names”: 2<br>}</p>
-<pre><code>
-接下来将展示另一个完成相同任务的提示,即请求指定格式输出(进一步改进输出结果)
+```</span><span class="token interpolation"><span class="token punctuation">&#123;</span>text<span class="token punctuation">&#125;</span></span><span class="token string">```
+"""</span></span>
+response <span class="token operator">=</span> get_completion<span class="token punctuation">(</span>prompt_1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Completion for prompt 1:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出：</p>
+<pre class="line-numbers language-none"><code class="language-none">Completion for prompt 1:
+Two siblings, Jack and Jill, go on a quest to fetch water from a well on a hilltop, but misfortune strikes and they both tumble down the hill, returning home slightly battered but with their adventurous spirits undimmed.
 
-输入：
+Deux frères et sœurs, Jack et Jill, partent en quête d&#39;eau d&#39;un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts. 
 
-```python
-prompt_2 = f&quot;&quot;&quot;
+Noms: Jack, Jill. 
+
+&#123;
+&quot;french_summary&quot;: &quot;Deux frères et sœurs, Jack et Jill, partent en quête d&#39;eau d&#39;un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts.&quot;,
+&quot;num_names&quot;: 2
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>接下来将展示另一个完成相同任务的提示,即请求指定格式输出(进一步改进输出结果)</p>
+<p>输入：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">prompt_2 <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
 Your task is to perform the following actions: 
 1 - Summarize the following text delimited by 
-  &lt;&gt; with 1 sentence.
+  &lt;> with 1 sentence.
 2 - Translate the summary into French.
 3 - List each name in the French summary.
 4 - Output a json object that contains the 
   following keys: french_summary, num_names.
 
 Use the following format:
-Text: &lt;text to summarize&gt;
-Summary: &lt;summary&gt;
-Translation: &lt;summary translation&gt;
-Names: &lt;list of names in Italian summary&gt;
-Output JSON: &lt;json with summary and num_names&gt;
+Text: &lt;text to summarize>
+Summary: &lt;summary>
+Translation: &lt;summary translation>
+Names: &lt;list of names in Italian summary>
+Output JSON: &lt;json with summary and num_names>
 
-Text: &lt;&#123;text&#125;&gt;
-&quot;&quot;&quot;
-response = get_completion(prompt_2)
-print(&quot;\nCompletion for prompt 2:&quot;)
-print(response)
-</code></pre><p>输出：</p>
-<pre><code>Completion for prompt 2:
+Text: &lt;</span><span class="token interpolation"><span class="token punctuation">&#123;</span>text<span class="token punctuation">&#125;</span></span><span class="token string">>
+"""</span></span>
+response <span class="token operator">=</span> get_completion<span class="token punctuation">(</span>prompt_2<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nCompletion for prompt 2:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出：</p>
+<pre class="line-numbers language-none"><code class="language-none">Completion for prompt 2:
 Summary: Jack and Jill go on a quest to fetch water, but misfortune strikes and they tumble down the hill, returning home slightly battered but with their adventurous spirits undimmed. 
 
 Translation: Jack et Jill partent en quête d&#39;eau, mais la malchance frappe et ils dégringolent la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts.
 
 Names: Jack, Jill
 
-Output JSON: &#123;&quot;french_summary&quot;: &quot;Jack et Jill partent en quête d&#39;eau, mais la malchance frappe et ils dégringolent la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts.&quot;, &quot;num_names&quot;: 2&#125;
-</code></pre><p><br><br><br><br><br><br><br></p>
+Output JSON: &#123;&quot;french_summary&quot;: &quot;Jack et Jill partent en quête d&#39;eau, mais la malchance frappe et ils dégringolent la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts.&quot;, &quot;num_names&quot;: 2&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><br><br><br><br><br><br><br></p>
 <p>Topic2:在匆忙得出结论之前，指示模型自己找出解决方案</p>
 <p>输入：</p>
-<pre><code class="lang-python">prompt = f&quot;&quot;&quot;
-Determine if the student&#39;s solution is correct or not.
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">prompt <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
+Determine if the student's solution is correct or not.
 
 Question:
-I&#39;m building a solar power installation and I need \
+I'm building a solar power installation and I need \
  help working out the financials. 
 - Land costs $100 / square foot
 - I can buy solar panels for $250 / square foot
@@ -400,120 +391,118 @@ foot
 What is the total cost for the first year of operations 
 as a function of the number of square feet.
 
-Student&#39;s Solution:
+Student's Solution:
 Let x be the size of the installation in square feet.
 Costs:
 1. Land cost: 100x
 2. Solar panel cost: 250x
 3. Maintenance cost: 100,000 + 100x
 Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000
-&quot;&quot;&quot;
-response = get_completion(prompt)
-print(response)
-</code></pre>
+"""</span></span>
+response <span class="token operator">=</span> get_completion<span class="token punctuation">(</span>prompt<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>输出：(该模型只是略读了一下，同意学生的观点，但是学生的观点是错的)</p>
-<pre><code>The student&#39;s solution is correct.
-</code></pre></li>
+<pre class="line-numbers language-none"><code class="language-none">The student&#39;s solution is correct.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 </ul>
 <p>  <br><br>  <br></p>
 <p>  我们在这个提示中告诉model,你的任务是确定学生的解决方案是否正确，要解决问题请做以下工作： </p>
 <p>  找出你自己的解决方案的问题，然后将你的解决方案与学生的解决方案进行比较，并评估学生的解决方案是否正确，当你做完这个问题之前，不要决定学生的解决方案是否正确。在真正清楚的同时，要确保你自己做的问题。</p>
 <p>  输出：(将任务分解成几个步骤，让模型有更多的时间来思考，可以帮助得到更准确地回答)</p>
-<pre><code class="lang-python">
-  prompt = f&quot;&quot;&quot;
-  Your task is to determine if the student&#39;s solution \
-  is correct or not.
-  To solve the problem do the following:
-  - First, work out your own solution to the problem. 
-  - Then compare your solution to the student&#39;s solution \ 
-  and evaluate if the student&#39;s solution is correct or not. 
-  Don&#39;t decide if the student&#39;s solution is correct until 
-  you have done the problem yourself.
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python">
+prompt <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
+Your task is to determine if the student's solution \
+is correct or not.
+To solve the problem do the following:
+- First, work out your own solution to the problem. 
+- Then compare your solution to the student's solution \ 
+and evaluate if the student's solution is correct or not. 
+Don't decide if the student's solution is correct until 
+you have done the problem yourself.
 
-  Use the following format:
-  Question:
-  &quot;&quot;&quot;
-  question here
-  &quot;&quot;&quot;
-  Student&#39;s solution:
-  &quot;&quot;&quot;
-  student&#39;s solution here
-  &quot;&quot;&quot;
-  Actual solution:
-  &quot;&quot;&quot;
-  steps to work out the solution and your solution here
-  &quot;&quot;&quot;
-  Is the student&#39;s solution the same as actual solution \
-  just calculated:
-  &quot;&quot;&quot;
-  yes or no
-  &quot;&quot;&quot;
-  Student grade:
-  &quot;&quot;&quot;
-  correct or incorrect
-  &quot;&quot;&quot;
+Use the following format:
+Question:
+"""</span></span>
+question here
+<span class="token triple-quoted-string string">"""
+Student's solution:
+"""</span>
+student's solution here
+<span class="token triple-quoted-string string">"""
+Actual solution:
+"""</span>
+steps to work out the solution <span class="token keyword">and</span> your solution here
+<span class="token triple-quoted-string string">"""
+Is the student's solution the same as actual solution \
+just calculated:
+"""</span>
+yes <span class="token keyword">or</span> no
+<span class="token triple-quoted-string string">"""
+Student grade:
+"""</span>
+correct <span class="token keyword">or</span> incorrect
+<span class="token triple-quoted-string string">"""
 
-  Question:
-  &quot;&quot;&quot;
-  I&#39;m building a solar power installation and I need help \
-  working out the financials. 
-  - Land costs $100 / square foot
-  - I can buy solar panels for $250 / square foot
-  - I negotiated a contract for maintenance that will cost \
-  me a flat $100k per year, and an additional $10 / square \
-  foot
-  What is the total cost for the first year of operations \
-  as a function of the number of square feet.
-  &quot;&quot;&quot;
-  Student&#39;s solution:
-  &quot;&quot;&quot;
-  Let x be the size of the installation in square feet.
-  Costs:
-  1. Land cost: 100x
-  2. Solar panel cost: 250x
-  3. Maintenance cost: 100,000 + 100x
-  Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000
-  &quot;&quot;&quot;
-  ctual solution:
-  &quot;&quot;&quot;
-  response = get_completion(prompt)
-  print(response)
-</code></pre>
+Question:
+"""</span>
+I'm building a solar power installation <span class="token keyword">and</span> I need <span class="token builtin">help</span> \
+working out the financials<span class="token punctuation">.</span> 
+<span class="token operator">-</span> Land costs $<span class="token number">100</span> <span class="token operator">/</span> square foot
+<span class="token operator">-</span> I can buy solar panels <span class="token keyword">for</span> $<span class="token number">250</span> <span class="token operator">/</span> square foot
+<span class="token operator">-</span> I negotiated a contract <span class="token keyword">for</span> maintenance that will cost \
+me a flat $100k per year<span class="token punctuation">,</span> <span class="token keyword">and</span> an additional $<span class="token number">10</span> <span class="token operator">/</span> square \
+foot
+What <span class="token keyword">is</span> the total cost <span class="token keyword">for</span> the first year of operations \
+<span class="token keyword">as</span> a function of the number of square feet<span class="token punctuation">.</span>
+<span class="token triple-quoted-string string">"""
+Student's solution:
+"""</span>
+Let x be the size of the installation <span class="token keyword">in</span> square feet<span class="token punctuation">.</span>
+Costs<span class="token punctuation">:</span>
+<span class="token number">1.</span> Land cost<span class="token punctuation">:</span> 100x
+<span class="token number">2.</span> Solar panel cost<span class="token punctuation">:</span> 250x
+<span class="token number">3.</span> Maintenance cost<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span><span class="token number">000</span> <span class="token operator">+</span> 100x
+Total cost<span class="token punctuation">:</span> 100x <span class="token operator">+</span> 250x <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">,</span><span class="token number">000</span> <span class="token operator">+</span> 100x <span class="token operator">=</span> 450x <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">,</span><span class="token number">000</span>
+<span class="token triple-quoted-string string">"""
+ctual solution:
+"""</span>
+response <span class="token operator">=</span> get_completion<span class="token punctuation">(</span>prompt<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  输出结果：</p>
-<pre><code>  Let x be the size of the installation in square feet.
+  <pre class="line-numbers language-none"><code class="language-none">Let x be the size of the installation in square feet.
 
-  Costs:
-  1. Land cost: 100x
-  2. Solar panel cost: 250x
-  3. Maintenance cost: 100,000 + 10x
+Costs:
+1. Land cost: 100x
+2. Solar panel cost: 250x
+3. Maintenance cost: 100,000 + 10x
 
-  Total cost: 100x + 250x + 100,000 + 10x = 360x + 100,000
+Total cost: 100x + 250x + 100,000 + 10x &#x3D; 360x + 100,000
 
-  Is the student&#39;s solution the same as actual solution just calculated:
-  No
+Is the student&#39;s solution the same as actual solution just calculated:
+No
 
-  Student grade:
-  Incorrect
-</code></pre><p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+Student grade:
+Incorrect<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 <ul>
 <li><h3 id="③模型的局限性"><a href="#③模型的局限性" class="headerlink" title="③模型的局限性"></a>③模型的局限性</h3><p>尽管LLM已经接触了大量的知识，在训练过程中，它并没有完全记住它所看到的信息，所以它对自己的知识边界不是很了解，这意味着他可以尝试着回答一些晦涩难懂的问题，并且编造一些东西，听起来有道理，但并不真实。</p>
 <p>以下是一个例子，Boie是一个真的公司，但产品名称是不存在的    </p>
 <p>输入：</p>
-<pre><code class="lang-python">prompt = f&quot;&quot;&quot;
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">prompt <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
 Tell me about AeroGlide UltraSlim Smart Toothbrush by Boie
-&quot;&quot;&quot;
-response = get_completion(prompt)
-print(response)
-</code></pre>
+"""</span></span>
+response <span class="token operator">=</span> get_completion<span class="token punctuation">(</span>prompt<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>尽管并没有这个产品，它还是像模像样的给出了回答，这是一个很危险的事情。<br>输出：</p>
-<pre><code>The AeroGlide UltraSlim Smart Toothbrush by Boie is a high-tech toothbrush that uses advanced sonic technology to provide a deep and thorough clean. It features a slim and sleek design that makes it easy to hold and maneuver, and it comes with a range of smart features that help you optimize your brushing routine.
+<pre class="line-numbers language-none"><code class="language-none">The AeroGlide UltraSlim Smart Toothbrush by Boie is a high-tech toothbrush that uses advanced sonic technology to provide a deep and thorough clean. It features a slim and sleek design that makes it easy to hold and maneuver, and it comes with a range of smart features that help you optimize your brushing routine.
 
 One of the key features of the AeroGlide UltraSlim Smart Toothbrush is its advanced sonic technology, which uses high-frequency vibrations to break up plaque and bacteria on your teeth and gums. This technology is highly effective at removing even the toughest stains and buildup, leaving your teeth feeling clean and refreshed.
 
 In addition to its sonic technology, the AeroGlide UltraSlim Smart Toothbrush also comes with a range of smart features that help you optimize your brushing routine. These include a built-in timer that ensures you brush for the recommended two minutes, as well as a pressure sensor that alerts you if you&#39;re brushing too hard.
 
-Overall, the AeroGlide UltraSlim Smart Toothbrush by Boie is a highly advanced and effective toothbrush that is perfect for anyone looking to take their oral hygiene to the next level. With its advanced sonic technology and smart features, it provides a deep and thorough clean that leaves your teeth feeling fresh and healthy.
-</code></pre><p>对于model出现这种幻觉，我们可以首先找到相关信息，然后根据相关信息回答问题</p>
+Overall, the AeroGlide UltraSlim Smart Toothbrush by Boie is a highly advanced and effective toothbrush that is perfect for anyone looking to take their oral hygiene to the next level. With its advanced sonic technology and smart features, it provides a deep and thorough clean that leaves your teeth feeling fresh and healthy.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>对于model出现这种幻觉，我们可以首先找到相关信息，然后根据相关信息回答问题</p>
 </li>
 </ul>
 
@@ -619,14 +608,14 @@ Overall, the AeroGlide UltraSlim Smart Toothbrush by Boie is a highly advanced a
     <ul class="categorys-list">
       
         <li class="categorys-list-item">
-          <a href="/categories/gpt/">
-            gpt (1)
+          <a href="/categories/intership/">
+            intership (1)
           </a>
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/intership/">
-            intership (1)
+          <a href="/categories/gpt/">
+            gpt (1)
           </a>
         </li>
       
@@ -637,14 +626,14 @@ Overall, the AeroGlide UltraSlim Smart Toothbrush by Boie is a highly advanced a
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/GoAbroad/">
-            GoAbroad (11)
+          <a href="/categories/prml/">
+            prml (4)
           </a>
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/prml/">
-            prml (4)
+          <a href="/categories/GoAbroad/">
+            GoAbroad (11)
           </a>
         </li>
       
@@ -661,6 +650,12 @@ Overall, the AeroGlide UltraSlim Smart Toothbrush by Boie is a highly advanced a
         </li>
       
         <li class="categorys-list-item">
+          <a href="/categories/STGgameAI/">
+            STGgameAI (1)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
           <a href="/categories/reading/">
             reading (1)
           </a>
@@ -673,14 +668,14 @@ Overall, the AeroGlide UltraSlim Smart Toothbrush by Boie is a highly advanced a
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/%E5%93%B2%E5%AD%A6/">
-            哲学 (2)
+          <a href="/categories/Goabroad/">
+            Goabroad (2)
           </a>
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/Goabroad/">
-            Goabroad (2)
+          <a href="/categories/%E5%93%B2%E5%AD%A6/">
+            哲学 (2)
           </a>
         </li>
       
@@ -699,12 +694,6 @@ Overall, the AeroGlide UltraSlim Smart Toothbrush by Boie is a highly advanced a
         <li class="categorys-list-item">
           <a href="/categories/%E6%AF%9B%E6%A6%82/">
             毛概 (6)
-          </a>
-        </li>
-      
-        <li class="categorys-list-item">
-          <a href="/categories/STGgameAI/">
-            STGgameAI (1)
           </a>
         </li>
       

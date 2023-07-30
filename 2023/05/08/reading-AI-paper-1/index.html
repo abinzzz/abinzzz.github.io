@@ -148,17 +148,17 @@
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
         <h1 id="Reading-《Causal-Analysis-of-Customer-Churn-Using-Deep-Learning》"><a href="#Reading-《Causal-Analysis-of-Customer-Churn-Using-Deep-Learning》" class="headerlink" title="Reading 《Causal Analysis of Customer Churn Using Deep Learning》"></a>Reading 《Causal Analysis of Customer Churn Using Deep Learning》</h1><h2 id="一-摘要"><a href="#一-摘要" class="headerlink" title="一.摘要"></a>一.摘要</h2><p>&nbsp;&nbsp;本文提出了一种基于深度前馈神经网络的高维稀疏数据分类框架和序列模式挖掘方法。我们还提出了一个因果贝叶斯网络来预测导致客户流失的原因概率。<br>&nbsp;&nbsp;本文提供了一个现实世界的客户流失分析，从现状推断到未来的方向<br>&nbsp;&nbsp;关键词:流失分析，因果分析，深度神经分析网络、数据挖掘</p>
-<h2 id="二-介绍"><a href="#二-介绍" class="headerlink" title="二.介绍"></a>二.介绍</h2><pre><code>探讨了客户流失（churn）分析的重要性，以及如何通过深度学习方法来预测和解决客户流失问题。
-</code></pre><p>&nbsp;&nbsp;文章提出了一个应用于本地养老基金客户流失分析的框架。通过数据准备和分析，验证了大部分客户账户的活跃期少于一年，原因可能包括一些客户是非自愿流失者，他们随后被注册到由他们的雇主运营的其他养老基金。</p>
+<h2 id="二-介绍"><a href="#二-介绍" class="headerlink" title="二.介绍"></a>二.介绍</h2><pre class="line-numbers language-none"><code class="language-none">探讨了客户流失（churn）分析的重要性，以及如何通过深度学习方法来预测和解决客户流失问题。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>&nbsp;&nbsp;文章提出了一个应用于本地养老基金客户流失分析的框架。通过数据准备和分析，验证了大部分客户账户的活跃期少于一年，原因可能包括一些客户是非自愿流失者，他们随后被注册到由他们的雇主运营的其他养老基金。</p>
 <p>&nbsp;&nbsp;文章的主要贡献是建立了一个特定的倾向性模型框架来分析客户的财务行为数据，然后将模型泛化为任何养老基金业务。首先，分析了12个月的时间窗口数据以预测接下来六个月的客户流失。然后，通过利用贝叶斯网络扩展模型，描述了由于多种原因而发生故意流失的情况，并表明对常见特征的假设检验对预测结果有很大影响。</p>
 <p>&nbsp;&nbsp;最后，文章指出这项研究只关注了DFF神经网络在处理大规模高维稀疏数据集上的表现，这些数据主要在订阅式业务中生成，尤其是在养老基金中，因为它们使用了客户关系管理（CRM）系统中的间隔特性。</p>
-<h2 id="三-相关工作"><a href="#三-相关工作" class="headerlink" title="三.相关工作"></a>三.相关工作</h2><pre><code>讨论了以往的客户流失（churn）研究，以及作者提出的一个新方法来改进客户流失预测模型。
-</code></pre><p>&nbsp;&nbsp;大多数以前的研究都专注于确定特定数据集的流失变量，而不是客户流失的因果分析。CHAMP是一个预测消费者取消他们的手机服务的综合系统。Alyuda Neuro-Intelligence使用神经网络进行数据挖掘以预测银行的客户流失。在客户流失预测算法中，结合文本数据可以增加价值，将不同的分类器（例如，梯度提升、过采样和单年观察窗口的对比顺序模式挖掘）结合起来，已经被证明是处理来自养老基金收集的高偏斜数据的实用策略。</p>
+<h2 id="三-相关工作"><a href="#三-相关工作" class="headerlink" title="三.相关工作"></a>三.相关工作</h2><pre class="line-numbers language-none"><code class="language-none">讨论了以往的客户流失（churn）研究，以及作者提出的一个新方法来改进客户流失预测模型。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>&nbsp;&nbsp;大多数以前的研究都专注于确定特定数据集的流失变量，而不是客户流失的因果分析。CHAMP是一个预测消费者取消他们的手机服务的综合系统。Alyuda Neuro-Intelligence使用神经网络进行数据挖掘以预测银行的客户流失。在客户流失预测算法中，结合文本数据可以增加价值，将不同的分类器（例如，梯度提升、过采样和单年观察窗口的对比顺序模式挖掘）结合起来，已经被证明是处理来自养老基金收集的高偏斜数据的实用策略。</p>
 <p>&nbsp;&nbsp;对于养老基金，”隐藏流失”是一个常见问题，即当强制性的雇主支付停止后，客户账户就会变得不活跃。有人提出了各种对不足的消费者互动的补救措施，解决了不平衡和完全利用的数据问题，并从采样数据集开发了多个分类器。深度学习技术可以处理非常大的数据集，相比之下，标准的机器学习方法就显得力不从心。深度学习和卷积神经网络的结合已经成功地预测了客户流失。</p>
 <p>&nbsp;&nbsp;最近的因果推断发展突出了从标准统计分析转向多变量因果分析所需的基本改变。新的PC-Stable方法有效地使用DFS数据学习因果结构，允许对巨大的时间信息数据集进行时间因果建模。已经提出了使用贝叶斯网络表示因果关系的有向无环图。预计会有客户流失的可能性，以及驱动银行数据的因素。</p>
 <p>&nbsp;&nbsp;以上的方法已经被广泛地用于当前的客户流失预测方法，但大多数用于从电信、银行和零售市场收集数据。与此相反，作者提出的方法是使用大规模的高维稀疏数据进行测试。此外，据作者所知，以前没有研究考虑过对养老金公司的客户流失进行因果分析。受到上述研究的启发，作者提出了一种新的方法，该方法结合深度学习和贝叶斯理论来改进客户流失预测建模系统。</p>
-<h2 id="四-预备知识"><a href="#四-预备知识" class="headerlink" title="四.预备知识"></a>四.预备知识</h2><pre><code>讨论客户流失预测模型的作用和优点，并提出了一种深度学习算法来处理大规模金融数据。
-</code></pre><p>&nbsp;&nbsp;客户流失预测模型可以提前识别可能的流失客户，从而帮助开发客户干预计划。这本质上是一个分类问题，即将每个客户分类为潜在的流失客户或非流失客户。虽然一些机器学习技术已经产生了可验证的结果，如提升技术、非参数方法、逻辑回归，但这些方法只在客户数据库非常小、样本大小变化的情况下有效，并且在处理更大的数据集时会失败。</p>
+<h2 id="四-预备知识"><a href="#四-预备知识" class="headerlink" title="四.预备知识"></a>四.预备知识</h2><pre class="line-numbers language-none"><code class="language-none">讨论客户流失预测模型的作用和优点，并提出了一种深度学习算法来处理大规模金融数据。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>&nbsp;&nbsp;客户流失预测模型可以提前识别可能的流失客户，从而帮助开发客户干预计划。这本质上是一个分类问题，即将每个客户分类为潜在的流失客户或非流失客户。虽然一些机器学习技术已经产生了可验证的结果，如提升技术、非参数方法、逻辑回归，但这些方法只在客户数据库非常小、样本大小变化的情况下有效，并且在处理更大的数据集时会失败。</p>
 <p>&nbsp;&nbsp;因此，作者提出了一种深度学习算法来处理大量的金融数据，因为深度学习（特征转换）会根据历史数据对特征进行不同的权重分配。深度学习算法使用人工神经网络（ANNs）来模仿人脑的结构。前馈神经网络将一个层的输出作为下一个层的输入，层与层之间没有循环。因此，作者使用深度学习前馈（DFF）算法进行实验，在减少计算负担和不同算法的最高准确度之间进行权衡。DFF神经网络的一般优点包括：</p>
 <ul>
 <li>来自深度学习的优越精度；  </li>
@@ -273,14 +273,14 @@
     <ul class="categorys-list">
       
         <li class="categorys-list-item">
-          <a href="/categories/gpt/">
-            gpt (1)
+          <a href="/categories/intership/">
+            intership (1)
           </a>
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/intership/">
-            intership (1)
+          <a href="/categories/gpt/">
+            gpt (1)
           </a>
         </li>
       
@@ -291,14 +291,14 @@
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/GoAbroad/">
-            GoAbroad (11)
+          <a href="/categories/prml/">
+            prml (4)
           </a>
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/prml/">
-            prml (4)
+          <a href="/categories/GoAbroad/">
+            GoAbroad (11)
           </a>
         </li>
       
@@ -315,6 +315,12 @@
         </li>
       
         <li class="categorys-list-item">
+          <a href="/categories/STGgameAI/">
+            STGgameAI (1)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
           <a href="/categories/reading/">
             reading (1)
           </a>
@@ -327,14 +333,14 @@
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/%E5%93%B2%E5%AD%A6/">
-            哲学 (2)
+          <a href="/categories/Goabroad/">
+            Goabroad (2)
           </a>
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/Goabroad/">
-            Goabroad (2)
+          <a href="/categories/%E5%93%B2%E5%AD%A6/">
+            哲学 (2)
           </a>
         </li>
       
@@ -353,12 +359,6 @@
         <li class="categorys-list-item">
           <a href="/categories/%E6%AF%9B%E6%A6%82/">
             毛概 (6)
-          </a>
-        </li>
-      
-        <li class="categorys-list-item">
-          <a href="/categories/STGgameAI/">
-            STGgameAI (1)
           </a>
         </li>
       

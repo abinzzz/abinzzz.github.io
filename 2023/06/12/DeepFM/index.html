@@ -140,14 +140,27 @@
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
         <ul>
-<li><strong>Q1</strong>:由于类别特征<br>无法直接用于数值计算,为了表征这类特征,我们采用独热编<br>码将特征向量转换为高维稀疏向量.考虑到高维稀疏特征难<br>以处理,通常采用特征嵌入将高维稀疏特征嵌入到低维稠密<br>的向量空间中,以获得特征嵌入向量E<br>```python<br>import pandas as pd<br>from sklearn.decomposition import PCA</li>
-</ul>
-<h1 id="假设我们有以下的DataFrame"><a href="#假设我们有以下的DataFrame" class="headerlink" title="假设我们有以下的DataFrame"></a>假设我们有以下的DataFrame</h1><p>df = pd.DataFrame({<br>   ‘A’: [‘dog’, ‘cat’, ‘dog’, ‘dog’, ‘cat’, ‘dog’],<br>   ‘B’: [‘orange’, ‘banana’, ‘banana’, ‘orange’, ‘banana’, ‘orange’],<br>   ‘C’: [1, 2, 3, 4, 5, 6]<br>})<br>print(df)</p>
-<h1 id="对类别特征进行独热编码"><a href="#对类别特征进行独热编码" class="headerlink" title="对类别特征进行独热编码"></a>对类别特征进行独热编码</h1><p>df_encoded = pd.get_dummies(df, columns=[‘A’, ‘B’])<br>print(df_encoded)</p>
-<h1 id="实例化PCA，选择嵌入向量的维度"><a href="#实例化PCA，选择嵌入向量的维度" class="headerlink" title="实例化PCA，选择嵌入向量的维度"></a>实例化PCA，选择嵌入向量的维度</h1><p>pca = PCA(n_components=2)</p>
-<h1 id="使用PCA对独热编码的特征进行降维"><a href="#使用PCA对独热编码的特征进行降维" class="headerlink" title="使用PCA对独热编码的特征进行降维"></a>使用PCA对独热编码的特征进行降维</h1><p>df_pca = pca.fit_transform(df_encoded)</p>
-<h1 id="输出特征嵌入向量E"><a href="#输出特征嵌入向量E" class="headerlink" title="输出特征嵌入向量E"></a>输出特征嵌入向量E</h1><p>print(df_pca)<br>```</p>
-<ul>
+<li><strong>Q1</strong>:由于类别特征<br>无法直接用于数值计算,为了表征这类特征,我们采用独热编<br>码将特征向量转换为高维稀疏向量.考虑到高维稀疏特征难<br>以处理,通常采用特征嵌入将高维稀疏特征嵌入到低维稠密<br>的向量空间中,以获得特征嵌入向量E   <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>decomposition <span class="token keyword">import</span> PCA
+
+<span class="token comment"># 假设我们有以下的DataFrame</span>
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+   <span class="token string">'A'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'dog'</span><span class="token punctuation">,</span> <span class="token string">'cat'</span><span class="token punctuation">,</span> <span class="token string">'dog'</span><span class="token punctuation">,</span> <span class="token string">'dog'</span><span class="token punctuation">,</span> <span class="token string">'cat'</span><span class="token punctuation">,</span> <span class="token string">'dog'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token string">'B'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'orange'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token string">'orange'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token string">'orange'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token string">'C'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>df<span class="token punctuation">)</span>
+<span class="token comment"># 对类别特征进行独热编码</span>
+df_encoded <span class="token operator">=</span> pd<span class="token punctuation">.</span>get_dummies<span class="token punctuation">(</span>df<span class="token punctuation">,</span> columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token string">'B'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>df_encoded<span class="token punctuation">)</span>
+<span class="token comment"># 实例化PCA，选择嵌入向量的维度</span>
+pca <span class="token operator">=</span> PCA<span class="token punctuation">(</span>n_components<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 使用PCA对独热编码的特征进行降维</span>
+df_pca <span class="token operator">=</span> pca<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>df_encoded<span class="token punctuation">)</span>
+
+<span class="token comment"># 输出特征嵌入向量E</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>df_pca<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>Q2</strong>:baseline<br><strong>LR (Logistic Regression)</strong>：这是一个基本的线性模型，对原始特征进行线性变换，然后通过sigmoid函数将输出转换成0到1之间的概率。它适用于二分类问题，但只能捕捉到特征的一阶交互（即每个特征对输出的独立影响）。</p>
 <p><strong>FM (Factorization Machine)</strong>：这是一个能够学习特征对的二阶交互的模型。它使用了矩阵分解的技术，使得在有大量稀疏特征的情况下，也能高效地学习特征的二阶交互。</p>
 <p><strong>DeepFM</strong>：这个模型结合了FM和深度学习的技术。它的FM部分用于学习特征的低阶交互，而深度网络部分用于学习特征的高阶交互。这两部分共享同样的输入，使得低阶和高阶交互能够同时被学习。</p>
@@ -268,14 +281,14 @@
     <ul class="categorys-list">
       
         <li class="categorys-list-item">
-          <a href="/categories/gpt/">
-            gpt (1)
+          <a href="/categories/intership/">
+            intership (1)
           </a>
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/intership/">
-            intership (1)
+          <a href="/categories/gpt/">
+            gpt (1)
           </a>
         </li>
       
@@ -286,14 +299,14 @@
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/GoAbroad/">
-            GoAbroad (11)
+          <a href="/categories/prml/">
+            prml (4)
           </a>
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/prml/">
-            prml (4)
+          <a href="/categories/GoAbroad/">
+            GoAbroad (11)
           </a>
         </li>
       
@@ -310,6 +323,12 @@
         </li>
       
         <li class="categorys-list-item">
+          <a href="/categories/STGgameAI/">
+            STGgameAI (1)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
           <a href="/categories/reading/">
             reading (1)
           </a>
@@ -322,14 +341,14 @@
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/%E5%93%B2%E5%AD%A6/">
-            哲学 (2)
+          <a href="/categories/Goabroad/">
+            Goabroad (2)
           </a>
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/Goabroad/">
-            Goabroad (2)
+          <a href="/categories/%E5%93%B2%E5%AD%A6/">
+            哲学 (2)
           </a>
         </li>
       
@@ -348,12 +367,6 @@
         <li class="categorys-list-item">
           <a href="/categories/%E6%AF%9B%E6%A6%82/">
             毛概 (6)
-          </a>
-        </li>
-      
-        <li class="categorys-list-item">
-          <a href="/categories/STGgameAI/">
-            STGgameAI (1)
           </a>
         </li>
       
