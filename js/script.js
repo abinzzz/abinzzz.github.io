@@ -1,120 +1,137 @@
-window.addEventListener("DOMContentLoaded", function() {
-  const html            = document.querySelector("html");
-  const navBtn          = document.querySelector(".navbar-btn");
-  const navList         = document.querySelector(".navbar-list");
-  const backToTopFixed  = document.querySelector(".back-to-top-fixed");
-  let lastTop           = 0;
-  let theme             = window.localStorage.getItem('theme') || '';
+(function($){
+  // Search
+  var $searchWrap = $('#search-form-wrap'),
+    isSearchAnim = false,
+    searchAnimDuration = 200;
 
-  theme && html.classList.add(theme)
+  var startSearchAnim = function(){
+    isSearchAnim = true;
+  };
 
-  const goScrollTop = () => {
-    let currentTop = getScrollTop()
-    let speed = Math.floor(-currentTop / 10)
-    if (currentTop > lastTop) {
-      return lastTop = 0
-    }
-    let distance = currentTop + speed;
-    lastTop = distance;
-    document.documentElement.scrollTop = distance;
-    distance > 0 && window.requestAnimationFrame(goScrollTop)
-  }
+  var stopSearchAnim = function(callback){
+    setTimeout(function(){
+      isSearchAnim = false;
+      callback && callback();
+    }, searchAnimDuration);
+  };
 
-  const toggleBackToTopBtn = (top) => {
-    top = top || getScrollTop()
-    if (top >= 100) {
-      backToTopFixed.classList.add("show")
+  $('#nav-search-btn').on('click', function(){
+    if (isSearchAnim) return;
+
+    startSearchAnim();
+    $searchWrap.addClass('on');
+    stopSearchAnim(function(){
+      $('.search-form-input').focus();
+    });
+  });
+
+  $('.search-form-input').on('blur', function(){
+    startSearchAnim();
+    $searchWrap.removeClass('on');
+    stopSearchAnim();
+  });
+
+  // Share
+  $('body').on('click', function(){
+    $('.article-share-box.on').removeClass('on');
+  }).on('click', '.article-share-link', function(e){
+    e.stopPropagation();
+
+    var $this = $(this),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      id = 'article-share-box-' + $this.attr('data-id'),
+      offset = $this.offset();
+
+    if ($('#' + id).length){
+      var box = $('#' + id);
+
+      if (box.hasClass('on')){
+        box.removeClass('on');
+        return;
+      }
     } else {
-      backToTopFixed.classList.remove("show")
+      var html = [
+        '<div id="' + id + '" class="article-share-box">',
+          '<input class="article-share-input" value="' + url + '">',
+          '<div class="article-share-links">',
+            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+          '</div>',
+        '</div>'
+      ].join('');
+
+      var box = $(html);
+
+      $('body').append(box);
     }
-  }
 
-  toggleBackToTopBtn()
+    $('.article-share-box.on').hide();
 
-  // theme light click
-  document.querySelector('#theme-light').addEventListener('click', function () {
-    html.classList.remove('theme-dark')
-    html.classList.add('theme-light')
-    window.localStorage.setItem('theme', 'theme-light')
-  })
+    box.css({
+      top: offset.top + 25,
+      left: offset.left
+    }).addClass('on');
+  }).on('click', '.article-share-box', function(e){
+    e.stopPropagation();
+  }).on('click', '.article-share-box-input', function(){
+    $(this).select();
+  }).on('click', '.article-share-box-link', function(e){
+    e.preventDefault();
+    e.stopPropagation();
 
-  // theme dark click
-  document.querySelector('#theme-dark').addEventListener('click', function () {
-    html.classList.remove('theme-light')
-    html.classList.add('theme-dark')
-    window.localStorage.setItem('theme', 'theme-dark')
-  })
-
-  // theme auto click
-  document.querySelector('#theme-auto').addEventListener('click', function() {
-    html.classList.remove('theme-light')
-    html.classList.remove('theme-dark')
-    window.localStorage.setItem('theme', '')
-  })
-
-  // mobile nav click
-  navBtn.addEventListener("click", function () {
-    html.classList.toggle("show-mobile-nav");
-    this.classList.toggle("active");
+    window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
   });
 
-  // mobile nav link click
-  navList.addEventListener("click", function (e) {
-    if (e.target.nodeName == "A" && html.classList.contains("show-mobile-nav")) {
-      navBtn.click()
-    }
-  })
+  // Caption
+  $('.article-entry').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
 
-  // click back to top
-  backToTopFixed.addEventListener("click", function () {
-    lastTop = getScrollTop()
-    goScrollTop()
+      var alt = this.alt;
+
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
   });
 
-  window.addEventListener("scroll", function () {
-    toggleBackToTopBtn()
-  }, { passive: true });
-
-  /** handle lazy bg iamge */
-  handleLazyBG();
-});
-
-/**
- * 获取当前滚动条距离顶部高度
- *
- * @returns 距离高度
- */
-function getScrollTop () {
-  return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-}
-
-function querySelectorArrs (selector) {
-  return Array.from(document.querySelectorAll(selector))
-}
-
-
-function handleLazyBG () {
-  const lazyBackgrounds = querySelectorArrs('[background-image-lazy]')
-  let lazyBackgroundsCount = lazyBackgrounds.length
-  if (lazyBackgroundsCount > 0) {
-    let lazyBackgroundObserver = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function({ isIntersecting, target }) {
-        if (isIntersecting) {
-          let img = target.dataset.img
-          if (img) {
-            target.style.backgroundImage = `url(${img})`
-          }
-          lazyBackgroundObserver.unobserve(target)
-          lazyBackgroundsCount --
-        }
-        if (lazyBackgroundsCount <= 0) {
-          lazyBackgroundObserver.disconnect()
-        }
-      })
-    })
-
-    lazyBackgrounds.forEach(function(lazyBackground) {
-      lazyBackgroundObserver.observe(lazyBackground)
-    })
+  if ($.fancybox){
+    $('.fancybox').fancybox();
   }
-}
+
+  // Mobile nav
+  var $container = $('#container'),
+    isMobileNavAnim = false,
+    mobileNavAnimDuration = 200;
+
+  var startMobileNavAnim = function(){
+    isMobileNavAnim = true;
+  };
+
+  var stopMobileNavAnim = function(){
+    setTimeout(function(){
+      isMobileNavAnim = false;
+    }, mobileNavAnimDuration);
+  }
+
+  $('#main-nav-toggle').on('click', function(){
+    if (isMobileNavAnim) return;
+
+    startMobileNavAnim();
+    $container.toggleClass('mobile-nav-on');
+    stopMobileNavAnim();
+  });
+
+  $('#wrap').on('click', function(){
+    if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
+
+    $container.removeClass('mobile-nav-on');
+  });
+})(jQuery);
