@@ -12,7 +12,7 @@
 
     
     <title>
-        留学规划 |
+        Model Evaluation |
         
         Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,19 +23,25 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="港新：一年，港三新二学费+生活费35w-40w，生活费1月1.5w-1.8w，综合考量，和美国很像，没有bar，文书会多，有个专门的网站可以看到录取人的backgroud，必须申请时有语言    英：强调学术能力，有清单，分数北邮80，85分两档，会涨88分，英国先申请再交成绩，G5能带语言带语言   1.伦敦地区：UCL，50w   ​2.非伦敦：35w-40w        澳洲：好移民，除">
+    <meta name="description" content="模型评估标准常见的模型评估标准有：sensitivity, specificity, Precision, F1-measure, Geometric mean and mathew correlation coefficient and finally ROC AUC curve   1.confusion matrix混淆矩阵是一个表，通常用来描述分类模型(或“分类器”)在一组已知真实值的测试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="留学规划">
-<meta property="og:url" content="https://abinzzz.github.io/2023/07/23/%E7%95%99%E5%AD%A6%E8%A7%84%E5%88%92/index.html">
+<meta property="og:title" content="Model Evaluation">
+<meta property="og:url" content="https://abinzzz.github.io/2023/08/03/Model-Evaluation/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="港新：一年，港三新二学费+生活费35w-40w，生活费1月1.5w-1.8w，综合考量，和美国很像，没有bar，文书会多，有个专门的网站可以看到录取人的backgroud，必须申请时有语言    英：强调学术能力，有清单，分数北邮80，85分两档，会涨88分，英国先申请再交成绩，G5能带语言带语言   1.伦敦地区：UCL，50w   ​2.非伦敦：35w-40w        澳洲：好移民，除">
+<meta property="og:description" content="模型评估标准常见的模型评估标准有：sensitivity, specificity, Precision, F1-measure, Geometric mean and mathew correlation coefficient and finally ROC AUC curve   1.confusion matrix混淆矩阵是一个表，通常用来描述分类模型(或“分类器”)在一组已知真实值的测试">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-22T18:31:15.000Z">
-<meta property="article:modified_time" content="2023-07-30T07:17:55.247Z">
+<meta property="og:image" content="https://www.dataschool.io/content/images/2015/01/confusion_matrix_simple2.png">
+<meta property="og:image" content="https://i.ibb.co/d43FVfJ/Sensitivity-and-specificity-svg.png">
+<meta property="og:image" content="https://i.ibb.co/mH6MmG4/mcc.jpg">
+<meta property="og:image" content="https://i.ibb.co/6BdDczW/log-loss.jpg">
+<meta property="og:image" content="https://www.researchgate.net/publication/325567208/figure/tbl4/AS:668664739151911@1536433505975/Classification-performance-metrics-based-on-the-confusion-matrix.png">
+<meta property="article:published_time" content="2023-08-03T12:25:22.000Z">
+<meta property="article:modified_time" content="2023-08-03T13:08:27.995Z">
 <meta property="article:author" content="晴">
-<meta property="article:tag" content="GoAbroad">
-<meta property="article:tag" content="fee">
+<meta property="article:tag" content="paper">
+<meta property="article:tag" content="model evaluation">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.dataschool.io/content/images/2015/01/confusion_matrix_simple2.png">
     
         <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
     
@@ -110,7 +116,7 @@
         <div id="wrap">
             <header id="header">
     
-        <img data-src="/images/banner.jpg" data-sizes="auto" alt="留学规划" class="lazyload">
+        <img data-src="https://th.bing.com/th/id/OIP.zXJ29K7vgjlUx8EzdDIwNAHaEK?w=309&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=2&amp;pid=1.7" data-sizes="auto" alt="Model Evaluation" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -118,7 +124,7 @@
                 
                     
                     
-                        <a href="/" id="logo"><h1>留学规划</h1></a>
+                        <a href="/" id="logo"><h1>Model Evaluation</h1></a>
                     
                 
             </div>
@@ -167,20 +173,20 @@
 </header>
 
             <div id="content" class="outer">
-                <section id="main"><article id="post-留学规划" class="h-entry article article-type-post"
+                <section id="main"><article id="post-Model-Evaluation" class="h-entry article article-type-post"
          itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
     <div class="article-inner">
         <div class="article-meta">
             <div class="article-date wow slideInLeft">
-    <a href="/2023/07/23/%E7%95%99%E5%AD%A6%E8%A7%84%E5%88%92/" class="article-date-link">
-        <time datetime="2023-07-22T18:31:15.000Z"
-              itemprop="datePublished">2023-07-23</time>
+    <a href="/2023/08/03/Model-Evaluation/" class="article-date-link">
+        <time datetime="2023-08-03T12:25:22.000Z"
+              itemprop="datePublished">2023-08-03</time>
     </a>
 </div>
 
             
     <div class="article-category wow slideInLeft">
-        <a class="article-category-link" href="/categories/GoAbroad/">GoAbroad</a>
+        <a class="article-category-link" href="/categories/paper/">paper</a>
     </div>
 
 
@@ -190,45 +196,53 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <ul>
-<li>港新：一年，港三新二学费+生活费35w-40w，生活费1月1.5w-1.8w，综合考量，和美国很像，没有bar，文书会多，有个专门的网站可以看到录取人的backgroud，必须申请时有语言</li>
+                <h1 id="模型评估标准"><a href="#模型评估标准" class="headerlink" title="模型评估标准"></a>模型评估标准</h1><p>常见的模型评估标准有：sensitivity, specificity, Precision, F1-measure, Geometric mean and mathew correlation coefficient and finally ROC AUC curve  </p>
+<h2 id="1-confusion-matrix"><a href="#1-confusion-matrix" class="headerlink" title="1.confusion matrix"></a>1.confusion matrix</h2><p>混淆矩阵是一个表，通常用来描述分类模型(或“分类器”)在一组已知真实值的测试数据上的性能。混淆矩阵本身相对容易理解，但相关的术语可能会令人困惑。  </p>
+<p>二元分类器的混淆矩阵示例：<br><img src="https://www.dataschool.io/content/images/2015/01/confusion_matrix_simple2.png" alt=""> </p>
+<p>我们能从上面了解到的东西：  </p>
+<ul>
+<li>有两种可能的预测类别:“是”和“否”。例如，如果我们预测某种疾病的存在，“是”意味着他们患有这种疾病，“否”意味着他们没有这种疾病。</li>
+<li>分类器总共做出了165个预测(例如，165个病人正在测试是否存在该疾病)。</li>
+<li>在这165个例子中，分类器预测了110次“是”，55次“否”。</li>
+<li>实际上，样本中有105名患者患有该病，60名患者没有。</li>
 </ul>
+<h2 id="2-basic-terms"><a href="#2-basic-terms" class="headerlink" title="2.basic terms"></a>2.basic terms</h2><p><strong>true positives (TP)：</strong><br>这些是我们预测是(他们患病)的情况，他们确实患病。</p>
+<p><strong>true negatives (TN):</strong><br>我们预测没有，他们没有患病</p>
+<p><strong>false positives (FP):</strong><br>我们预测是，但他们实际上没有患病。(也称为“第一类错误”。)</p>
+<p><strong>false negatives (FN):</strong><br>我们预测没有，但他们确实患病。(也称为“第二类错误”。)</p>
+<p><strong>Accuracy:</strong><br>总体而言，分类器多久正确一次?<br>(TP+TN)/total = (100+50)/165 = 0.91</p>
+<p><strong>Misclassification Rate:</strong><br>总的来说，错误的频率是多少?<br>(FP+FN)/total = (10+5)/165 = 0.09<br>等价于1减去准确率也就是“错误率”</p>
+<p><strong>True Positive Rate:</strong><br>当它实际上是“是”时，它预测“是”的频率是多少?<br>TP/actual yes = 100/105 = 0.95<br>又称“灵敏度”或“召回率”（”Sensitivity” or “Recall”）</p>
+<p><strong>False Positive Rate:</strong><br>当它实际上是“否”时，它预测“是”的频率是多少?<br>FP/actual no = 10/60 = 0.17</p>
+<p><strong>True Negative Rate:</strong>  当它实际上是“否”时，它预测“否”的概率是多少?<br>TN/actual no = 50/60 = 0.83<br>相当于1减去假阳性率也被称为“特异性”（”Specificity”）</p>
+<p><strong>Precision:</strong> 当预测为“是”时，它的正确频率是多少?<br>TP/predicted yes = 100/110 = 0.91  </p>
+<p><strong>Prevalence:</strong><br>在我们的样本中，yes条件实际发生的频率是多少?<br>actual yes/total = 105/165 = 0.64 </p>
+<p><strong>Null Error Rate:</strong><br>如果你总是预测占多数的类别，则错误的频率。(在我们的例子中，零错误率为60/165=0.36，因为如果你总是预测是，那么只有60个“否”的情况下，你的预测是错误的。)</p>
+<p>这可以作为比较分类器的基准指标。然而，对于特定的应用来说，最好的分类器有时会有比零错误率更高的错误率，正如精度悖论所证明的那样。</p>
+<p><strong>Cohen’s Kappa:</strong><br>这本质上是一种衡量分类器的表现与随机表现的比较。换句话说，如果准确率和零错误率之间存在较大差异，则模型将具有较高的Kappa分数。</p>
+<p><strong>F Score:</strong><br>这是真阳性率(召回率)和准确率的加权平均值。  </p>
+<p><strong>ROC Curve:</strong><br>这是一个常用的图表，总结了一个分类器在所有可能的阈值下的性能。当你改变将观测值分配给给定类的阈值时，通过绘制真正率(y轴)与假正率(x轴)来生成它。  </p>
 <p><br><br><br></p>
-<ul>
-<li>英：强调学术能力，有清单，分数北邮80，85分两档，会涨88分，英国先申请再交成绩，G5能带语言带语言  <ul>
-<li>1.伦敦地区：UCL，50w  </li>
-<li>​2.非伦敦：35w-40w  </li>
-</ul>
-</li>
-</ul>
-<p><br><br><br></p>
-<ul>
-<li><p>澳洲：好移民，除了墨大部分school list，分数80+可   </p>
-<ul>
-<li>1.悉尼1.5年（必须本专业）2年（可以跨申80w）</li>
-<li>2.墨尔本（70w）</li>
-<li>3.士兰（60w）</li>
-</ul>
-</li>
-<li><p>加拿大：多伦多，麦吉尔 25w左右<br>留下来难度：加拿大40%留下来 澳洲30%留下来</p>
-</li>
-</ul>
-<p>留学不是考研的兜底方案，考研考不上，出国也申请不了好学校，九月份准备好所有材料</p>
-<p>低分高录怎么办：舍弃专业，如果也要保专业澳大利亚</p>
-<p>实习：motivation contribution</p>
-<p>工科科研大于实习，如果实习大厂加核心</p>
-<p>phd去对应国家老师扒老师的研究，一定要有paper，rp（你写的研究计划，即：<em>Research Proposal</em> （RP）），语言</p>
+<p><strong>Sensitivity vs Specificity：</strong>  </p>
+<p><img src="https://i.ibb.co/d43FVfJ/Sensitivity-and-specificity-svg.png" alt="">  </p>
+<h2 id="3-Mathew-Correlation-coefficient-MCC"><a href="#3-Mathew-Correlation-coefficient-MCC" class="headerlink" title="3.Mathew Correlation coefficient (MCC)"></a>3.Mathew Correlation coefficient (MCC)</h2><p>马修斯相关系数(MCC)是一个更可靠的统计率，只有当预测在所有四个混淆矩阵类别(真阳性、假阴性、真阴性和假阳性)中获得良好的结果时，才会产生高分数，与数据集中正元素和负元素的大小成比例。<br><img src="https://i.ibb.co/mH6MmG4/mcc.jpg" alt="">  </p>
+<h2 id="4-Log-Loss"><a href="#4-Log-Loss" class="headerlink" title="4.Log Loss"></a>4.Log Loss</h2><p>对数损失衡量分类模型的性能，其中预测输入是介于0和1之间的概率值。我们的机器学习模型的目标是最小化这个值。一个完美的模型的对数损失为0。当预测概率偏离实际标签时，对数损失会增加。因此，当实际观测标签为1时，预测概率为0.012将是很糟糕的，并会导致很高的对数损失。</p>
+<p>下图显示了给定真实观测值(isDog = 1)的对数损失值的可能范围。随着预测概率接近1，对数损失慢慢减小。然而，随着预测概率的降低，对数损失迅速增加。对数损失会惩罚两种类型的错误，特别是那些自信且错误的预测!  </p>
+<p><img src="https://i.ibb.co/6BdDczW/log-loss.jpg" alt="">  </p>
+<h2 id="5-F1-Score"><a href="#5-F1-Score" class="headerlink" title="5.F1 Score"></a>5.F1 Score</h2><p>F1分数是精确率和召回率的加权平均值。因此，这个分数同时考虑了假阳性和假阴性。直观地说，它不像精度那么容易理解，但F1通常比精度更有用，特别是当你有不均匀的类分布时。当假阳性和假阴性具有相似的成本时，准确率效果最好。如果假阳性和假阴性的代价非常不同，最好同时查看准确率和召回率。在我们的例子中，F1分数是0.701。  </p>
+<p>F1 Score = 2(Recall Precision) / (Recall + Precision)  </p>
+<h2 id="6-其他"><a href="#6-其他" class="headerlink" title="6.其他"></a>6.其他</h2><p><img src="https://www.researchgate.net/publication/325567208/figure/tbl4/AS:668664739151911@1536433505975/Classification-performance-metrics-based-on-the-confusion-matrix.png" alt="">  </p>
 
             
         </div>
         <footer class="article-footer">
-            <a data-url="https://abinzzz.github.io/2023/07/23/%E7%95%99%E5%AD%A6%E8%A7%84%E5%88%92/" data-id="clkpn7r1q00343t698sye5d0h" data-title="留学规划"
+            <a data-url="https://abinzzz.github.io/2023/08/03/Model-Evaluation/" data-id="clkv6b6xn0002mc3z7ilw2xja" data-title="Model Evaluation"
                class="article-share-link">分享</a>
             
             
             
             
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GoAbroad/" rel="tag">GoAbroad</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fee/" rel="tag">fee</a></li></ul>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/model-evaluation/" rel="tag">model evaluation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/paper/" rel="tag">paper</a></li></ul>
 
 
         </footer>
@@ -237,37 +251,17 @@
         
     <nav id="article-nav" class="wow fadeInUp">
         
-            <div class="article-nav-link-wrap article-nav-link-left">
-                
-                    
-                    
-                        <img data-src="/images/banner.jpg" data-sizes="auto" alt="中介避坑指北"
-                             class="lazyload">
-                    
-                
-                <a href="/2023/07/23/%E4%B8%AD%E4%BB%8B%E9%81%BF%E5%9D%91%E6%8C%87%E5%8C%97/"></a>
-                <div class="article-nav-caption">前一篇</div>
-                <h3 class="article-nav-title">
-                    
-                        中介避坑指北
-                    
-                </h3>
-            </div>
-        
         
             <div class="article-nav-link-wrap article-nav-link-right">
                 
-                    
-                    
-                        <img data-src="/images/banner.jpg" data-sizes="auto" alt="University-Recommendation"
-                             class="lazyload">
-                    
+                    <img data-src="https://th.bing.com/th/id/OIP.zXJ29K7vgjlUx8EzdDIwNAHaEK?w=309&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=2&amp;pid=1.7" data-sizes="auto" alt="2023.08.03"
+                         class="lazyload">
                 
-                <a href="/2023/07/23/University-Recommendation/"></a>
+                <a href="/2023/08/03/2023-08-03/"></a>
                 <div class="article-nav-caption">后一篇</div>
                 <h3 class="article-nav-title">
                     
-                        University-Recommendation
+                        2023.08.03
                     
                 </h3>
             </div>
