@@ -31,7 +31,7 @@
 <meta property="og:description" content="2023.8.2随笔pd.DataFrame1.从字典创建df12data &#x3D; &amp;#123;&amp;#x27;name&amp;#x27;:[&amp;#x27;张三&amp;#x27;,&amp;#x27;李四&amp;#x27;],&amp;#x27;age&amp;#x27;:[18,20]&amp;#125;df &#x3D; pd.DataFrame(data) 2.从np数组创建df12data &#x3D; np.array([[1,2,3],[4,5,6]]) df &#x3D;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-01T20:22:40.000Z">
-<meta property="article:modified_time" content="2023-08-02T06:38:13.479Z">
+<meta property="article:modified_time" content="2023-08-02T10:56:25.460Z">
 <meta property="article:author" content="晴">
 <meta property="article:tag" content="Essay">
 <meta property="article:tag" content="coding">
@@ -207,29 +207,64 @@
 <li>创建空DataFrame时,需要指定index和columns参数</li>
 <li>从其他DataFrame转换时,可通过copy参数控制是否复制数据</li>
 </ul>
+<h3 id="6-举例"><a href="#6-举例" class="headerlink" title="6.举例"></a>6.举例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个字典,包含学生姓名、年级、数学和语文成绩</span></span><br><span class="line">data = &#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;王五&#x27;</span>],<span class="string">&#x27;grade&#x27;</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],<span class="string">&#x27;math&#x27;</span>:[<span class="number">90</span>,<span class="number">80</span>,<span class="number">70</span>],<span class="string">&#x27;chinese&#x27;</span>:[<span class="number">80</span>,<span class="number">90</span>,<span class="number">60</span>]&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用字典创建DataFrame</span></span><br><span class="line">df = pd.DataFrame(data) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看DataFrame</span></span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"></span><br><span class="line">   name  grade  math  chinese</span><br><span class="line"><span class="number">0</span>  张三      <span class="number">1</span>    <span class="number">90</span>       <span class="number">80</span></span><br><span class="line"><span class="number">1</span>  李四      <span class="number">2</span>    <span class="number">80</span>       <span class="number">90</span></span><br><span class="line"><span class="number">2</span>  王五      <span class="number">3</span>    <span class="number">70</span>       <span class="number">60</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="df-iloc"><a href="#df-iloc" class="headerlink" title="df.iloc"></a>df.iloc</h2><h3 id="1-举例"><a href="#1-举例" class="headerlink" title="1.举例"></a>1.举例</h3><p>数据：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   name  age  gender</span><br><span class="line"><span class="number">0</span>  张三   <span class="number">18</span>   男</span><br><span class="line"><span class="number">1</span>  李四   <span class="number">20</span>   女</span><br><span class="line"><span class="number">2</span>  王五   <span class="number">21</span>   男</span><br></pre></td></tr></table></figure></p>
-<p>选择单个元素：df.iloc[1, 2] 选择第二行第三列的值:’女’</p>
-<p>选择一行：df.iloc[2] 选择第三行</p>
-<p>选择一列：df.iloc[:, 1] 选择第二列,age列  </p>
-<p>选择多行多列：df.iloc[[0, 2], [0, 2]] 选择第一行和第三行的name和gender两列，交叉确定四个元素</p>
-<p>切片选择：  df.iloc[0:2, 1:3] 选择前两行,第二列和第三列</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;df.iloc[:, ::-1] 将所有列反序排列  </p>
+<ul>
+<li><p>选择单个元素：df.iloc[1, 2] 选择第二行第三列的值:’女’</p>
+</li>
+<li><p>选择一行：df.iloc[2] 选择第三行</p>
+</li>
+<li><p>选择一列：df.iloc[:, 1] 选择第二列,age列  </p>
+</li>
+<li><p>选择多行多列：df.iloc[[0, 2], [0, 2]] 选择第一行和第三行的name和gender两列，交叉确定四个元素</p>
+</li>
+<li><p>切片选择： </p>
+<p>df.iloc[0:2, 1:3] 选择前两行,第二列和第三列</p>
+<p>df.iloc[:, ::-1] 将所有列反序排列  </p>
+</li>
+</ul>
+<h3 id="2-与df-loc的不同"><a href="#2-与df-loc的不同" class="headerlink" title="2.与df.loc的不同"></a>2.与df.loc的不同</h3><ul>
+<li><p>索引方式不同：  </p>
+<p>df.loc基于行/列的标签索引,可以是字符串也可以是整数。  </p>
+<p>df.iloc基于行/列的整数位置索引。</p>
+</li>
+<li><p>索引顺序：  </p>
+<p> df.loc不需要顺序,标签可以是乱序的。</p>
+<p> df.iloc要求保持整数顺序。</p>
+</li>
+<li><p>选择范围：  </p>
+<p>df.loc选择是包含端点的。</p>
+<p>df.iloc选择是不包含端点的。</p>
+</li>
+<li><p>索引错误处理：  </p>
+<p>df.loc索引错误会引发KeyError。</p>
+<p>df.iloc索引错误会引发IndexError。</p>
+</li>
+<li><p>性能上：</p>
+<p>df.iloc会略快于df.loc。</p>
+</li>
+</ul>
+<p><br></p>
 <h2 id="df-frop"><a href="#df-frop" class="headerlink" title="df.frop"></a>df.frop</h2><p>删除df中指定的行或列  </p>
 <h3 id="1-axis"><a href="#1-axis" class="headerlink" title="1.axis"></a>1.axis</h3><p>1表示删除列，2表示删除行  </p>
 <h3 id="2-inplace"><a href="#2-inplace" class="headerlink" title="2.inplace"></a>2.inplace</h3><p>直接在原df上进行删除，不产生副本  </p>
+<p><br></p>
 <h2 id="object类型"><a href="#object类型" class="headerlink" title="object类型"></a>object类型</h2><p>在Pandas中,object表示一种通用的混合数据类型,它通常表示该列包含Python对象,如字符串、列表、字典等</p>
 <h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">data = &#123;<span class="string">&#x27;Name&#x27;</span>:[<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Mary&#x27;</span>, <span class="string">&#x27;Tom&#x27;</span>], </span><br><span class="line">        <span class="string">&#x27;Age&#x27;</span>:[<span class="number">28</span>, <span class="number">32</span>, <span class="string">&#x27;Unknown&#x27;</span>],</span><br><span class="line">        <span class="string">&#x27;Scores&#x27;</span>:[<span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span>]&#125;</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(data)</span><br><span class="line"><span class="built_in">print</span>(df.dtypes)</span><br></pre></td></tr></table></figure>
 <p>输出：  </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Name     <span class="built_in">object</span></span><br><span class="line">Age      <span class="built_in">object</span></span><br><span class="line">Scores    int64</span><br><span class="line">dtype:   <span class="built_in">object</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="series类型"><a href="#series类型" class="headerlink" title="series类型"></a>series类型</h2><p>在Pandas中,Series是一种一维数组,与Numpy中的ndarray类似。它与DataFrame一起为Pandas的核心数据结构  </p>
 <h3 id="1-从列表创建"><a href="#1-从列表创建" class="headerlink" title="1.从列表创建"></a>1.从列表创建</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>] </span><br><span class="line">ser = pd.Series(data)</span><br></pre></td></tr></table></figure>
 <h3 id="2-从字典创建"><a href="#2-从字典创建" class="headerlink" title="2.从字典创建"></a>2.从字典创建</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">&#x27;a&#x27;</span>:<span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>:<span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>:<span class="number">3</span>&#125;</span><br><span class="line">ser = pd.Series(data)</span><br></pre></td></tr></table></figure>
 <h3 id="3-从标量创建"><a href="#3-从标量创建" class="headerlink" title="3.从标量创建"></a>3.从标量创建</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ser = pd.Series(<span class="number">5</span>, index=[<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>])</span><br></pre></td></tr></table></figure>
 <h3 id="4-举例"><a href="#4-举例" class="headerlink" title="4.举例"></a>4.举例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建Series</span></span><br><span class="line">s = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看数据</span></span><br><span class="line"><span class="built_in">print</span>(s)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取索引</span></span><br><span class="line"><span class="built_in">print</span>(s.index) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取值</span></span><br><span class="line"><span class="built_in">print</span>(s.values)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择元素</span></span><br><span class="line"><span class="built_in">print</span>(s[<span class="number">1</span>]) </span><br><span class="line"><span class="built_in">print</span>(s[:<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运算</span></span><br><span class="line"><span class="built_in">print</span>(s + <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(s * <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<p>输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>    <span class="number">1</span></span><br><span class="line"><span class="number">1</span>    <span class="number">2</span>   </span><br><span class="line"><span class="number">2</span>    <span class="number">3</span></span><br><span class="line"><span class="number">3</span>    <span class="number">4</span></span><br><span class="line">dtype: int64</span><br><span class="line"></span><br><span class="line">RangeIndex(start=<span class="number">0</span>, stop=<span class="number">4</span>, step=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>] </span><br><span class="line"></span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="number">0</span>    <span class="number">1</span></span><br><span class="line"><span class="number">1</span>    <span class="number">2</span></span><br><span class="line"><span class="number">2</span>    <span class="number">3</span></span><br><span class="line">dtype: int64</span><br><span class="line"></span><br><span class="line"><span class="number">0</span>    <span class="number">2</span></span><br><span class="line"><span class="number">1</span>    <span class="number">3</span></span><br><span class="line"><span class="number">2</span>    <span class="number">4</span> </span><br><span class="line"><span class="number">3</span>    <span class="number">5</span></span><br><span class="line">dtype: int64</span><br><span class="line"></span><br><span class="line"><span class="number">0</span>    <span class="number">2</span></span><br><span class="line"><span class="number">1</span>    <span class="number">4</span></span><br><span class="line"><span class="number">2</span>    <span class="number">6</span></span><br><span class="line"><span class="number">3</span>    <span class="number">8</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>    <span class="number">1</span></span><br><span class="line"><span class="number">1</span>    <span class="number">2</span>   </span><br><span class="line"><span class="number">2</span>    <span class="number">3</span></span><br><span class="line"><span class="number">3</span>    <span class="number">4</span></span><br><span class="line">dtype: int64</span><br><span class="line"></span><br><span class="line">RangeIndex(start=<span class="number">0</span>, stop=<span class="number">4</span>, step=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>] </span><br><span class="line"></span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="number">0</span>    <span class="number">1</span></span><br><span class="line"><span class="number">1</span>    <span class="number">2</span></span><br><span class="line"><span class="number">2</span>    <span class="number">3</span></span><br><span class="line">dtype: int64</span><br><span class="line"></span><br><span class="line"><span class="number">0</span>    <span class="number">2</span></span><br><span class="line"><span class="number">1</span>    <span class="number">3</span></span><br><span class="line"><span class="number">2</span>    <span class="number">4</span> </span><br><span class="line"><span class="number">3</span>    <span class="number">5</span></span><br><span class="line">dtype: int64</span><br><span class="line"></span><br><span class="line"><span class="number">0</span>    <span class="number">2</span></span><br><span class="line"><span class="number">1</span>    <span class="number">4</span></span><br><span class="line"><span class="number">2</span>    <span class="number">6</span></span><br><span class="line"><span class="number">3</span>    <span class="number">8</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure><br><br></p>
 <h2 id="pd-xx-tolist"><a href="#pd-xx-tolist" class="headerlink" title="pd.xx.tolist()"></a>pd.xx.tolist()</h2><p>将index或series对象转换为列表的方法  </p>
 <h3 id="举例-1"><a href="#举例-1" class="headerlink" title="举例"></a>举例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">s = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(s.tolist())</span><br><span class="line"></span><br><span class="line">idx = pd.Index([<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(idx.tolist())</span><br></pre></td></tr></table></figure>
 <p>输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]  </span><br><span class="line">[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
 <h2 id="ax-pie"><a href="#ax-pie" class="headerlink" title="ax.pie"></a>ax.pie</h2><h3 id="参数解析"><a href="#参数解析" class="headerlink" title="参数解析"></a>参数解析</h3><ul>
 <li>x:表示每个部分的数值大小,如[1, 2, 3]</li>
 <li>labels:表示每个部分的标签文本,如[‘A’, ‘B’, ‘C’]</li>
@@ -239,10 +274,13 @@
 <li>startangle:起始绘制角度</li>
 <li>autopct:设置饼图内各部分文本格式,如’%1.1f%%’表示显示百分比</li>
 <li>pctdistance:设置百分比文本距圆心距离</li>
-<li>labeldistance:设置标签文本距圆心距离</li>
+<li><p>labeldistance:设置标签文本距圆心距离</p>
+<p><br></p>
+</li>
 </ul>
 <h2 id="pd-set-option"><a href="#pd-set-option" class="headerlink" title="pd.set_option"></a>pd.set_option</h2><p>显示最大行数，最大列数等  </p>
 <h3 id="举例：取消最大行数限制，显示所有行"><a href="#举例：取消最大行数限制，显示所有行" class="headerlink" title="举例：取消最大行数限制，显示所有行"></a>举例：取消最大行数限制，显示所有行</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.set_option(<span class="string">&#x27;display.max_rows&#x27;</span>, <span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="df-head"><a href="#df-head" class="headerlink" title="df.head()"></a>df.head()</h2><p>在Pandas中,df.head()方法用于返回DataFrame的前N行数据,用来预览DataFrame。  </p>
 <h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
 <li>n : int,可选,默认为5。返回的行数,默认返回前5行。</li>
@@ -251,6 +289,74 @@
 </ul>
 <h3 id="举例-2"><a href="#举例-2" class="headerlink" title="举例"></a>举例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;A&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="string">&#x27;B&#x27;</span>: [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df.head(n=<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(df.head(verbose=<span class="literal">True</span>))</span><br></pre></td></tr></table></figure>
 <p>输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   A  B</span><br><span class="line"><span class="number">0</span>  <span class="number">1</span>  <span class="number">4</span>  </span><br><span class="line"><span class="number">1</span>  <span class="number">2</span>  <span class="number">5</span></span><br><span class="line"></span><br><span class="line">[<span class="number">2</span> rows x <span class="number">2</span> columns]</span><br><span class="line">   A  B</span><br><span class="line"><span class="number">0</span>  <span class="number">1</span>  <span class="number">4</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2</span>  <span class="number">5</span></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="plt-subplots"><a href="#plt-subplots" class="headerlink" title="plt.subplots()"></a>plt.subplots()</h2><p>在matplotlib中,plt.subplots()是一个非常常用的函数,它可以创建一个或多个子图 Axes的图形数组。</p>
+<h3 id="1-参数"><a href="#1-参数" class="headerlink" title="1.参数"></a>1.参数</h3><ul>
+<li>nrows:子图行数</li>
+<li>ncols:子图列数</li>
+<li>sharex:子图间是否共享x轴</li>
+<li>sharey:子图间是否共享y轴</li>
+<li>figsize:整个图表的大小</li>
+<li>dpi:图表分辨率</li>
+</ul>
+<h3 id="2-return"><a href="#2-return" class="headerlink" title="2.return"></a>2.return</h3><ul>
+<li>figure：创建图表对象figure对象 </li>
+<li>axs：子图axes对象数组</li>
+</ul>
+<h3 id="3-nrows和ncols解析"><a href="#3-nrows和ncols解析" class="headerlink" title="3.nrows和ncols解析"></a>3.nrows和ncols解析</h3><p>这两个参数共同决定了子图的矩阵布局<br>例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fig, axarr = plt.subplots(nrows=<span class="number">3</span>, ncols=<span class="number">3</span>)</span><br></pre></td></tr></table></figure><br>表示一共三行三列，总共9个子图，布局为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ax00 ax01 ax02</span><br><span class="line">ax10 ax11 ax12 </span><br><span class="line">ax20 ax21 ax22</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="sns-countplot"><a href="#sns-countplot" class="headerlink" title="sns.countplot"></a>sns.countplot</h2><p>在Seaborn中,sns.countplot()用于绘制分类变量的计数/频率条形图。  </p>
+<h3 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h3><ul>
+<li>x: 指定绘图用的分类变量,可以是字符串或Series/DataFrame列名</li>
+<li>hue: 按照 hue 中变量进行分组</li>
+<li>data: 绘图用的数据集,DataFrame</li>
+<li>order: x轴顺序</li>
+<li>palette: 颜色调色板</li>
+<li>saturation: 颜色饱和度</li>
+<li>ax：布局的位置  </li>
+</ul>
+<p><br></p>
+<h2 id="sns-boxplot"><a href="#sns-boxplot" class="headerlink" title="sns.boxplot"></a>sns.boxplot</h2><p>在Seaborn中,sns.boxplot()用于绘制箱型图,可视化连续型变量的分布。</p>
+<h3 id="1-参数-1"><a href="#1-参数-1" class="headerlink" title="1.参数"></a>1.参数</h3><ul>
+<li>x,y:指定箱型图的变量,可以是字符串名字,也可以是Series/DataFrame的列。</li>
+<li>data:绘制箱型图所使用的DataFrame数据集。</li>
+<li>hue:为箱型图上色,按照hue中变量进行分组。</li>
+<li>orient:方向,‘v’竖直方向,’h‘为水平方向。</li>
+<li>whis:指定上下须与箱体的距离,默认为1.5倍四分位距。</li>
+<li>width:箱体的宽度,默认为0.8。</li>
+<li>palette:颜色盘。</li>
+</ul>
+<h3 id="2-箱型图"><a href="#2-箱型图" class="headerlink" title="2.箱型图"></a>2.箱型图</h3><p>箱形图于1977年由美国著名统计学家约翰·图基（John Tukey）发明。它能显示出一组数据的最大值、最小值、中位数、及上下四分位数。</p>
+<p><br></p>
+<h2 id="sns-kdeplot"><a href="#sns-kdeplot" class="headerlink" title="sns.kdeplot"></a>sns.kdeplot</h2><p>在Seaborn中,sns.kdeplot()用于绘制核密度估计图(KDE plot)。</p>
+<h3 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h3><ul>
+<li>data: 输入的数据,默认是全部。也可以指定Series、DataFrame列。</li>
+<li>x, y: 指定绘制KDE的变量,默认是data。</li>
+<li>hue: 分组变量,用于绘制分组KDE。</li>
+<li>bw: 带宽,控制平滑程度。</li>
+<li>label: 图例标签。</li>
+<li>color: 指定曲线颜色。</li>
+</ul>
+<p><br></p>
+<h2 id="plt-tick-params"><a href="#plt-tick-params" class="headerlink" title="plt.tick_params"></a>plt.tick_params</h2><p>这行代码的作用是设置matplotlib绘图时坐标轴刻度标签的大小。  </p>
+<h3 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h3><ul>
+<li>axis:控制哪个坐标轴,‘x’, ‘y’,或’both’</li>
+<li>which:控制设置主刻度还是次刻度,‘major’或’minor’</li>
+<li>labelsize:设置刻度标签字体大小</li>
+</ul>
+<p><br></p>
+<h2 id="sns-heatmap"><a href="#sns-heatmap" class="headerlink" title="sns.heatmap"></a>sns.heatmap</h2><p>在Seaborn中,sns.heatmap()函数用于绘制热力图(heatmap)。</p>
+<p>heatmap可以表示数据矩阵中的值通过颜色的深浅形成的图形。</p>
+<h3 id="参数-4"><a href="#参数-4" class="headerlink" title="参数"></a>参数</h3><ul>
+<li>data: 需要绘制热力图的数值矩阵,如相关系数矩阵。</li>
+<li>annot: 如果设置为True,将数据值显示在每个热力块上。</li>
+<li>fmt: 数据值的格式化字符串。</li>
+<li>vmax/vmin: 热力图的最大/最小值,对应着颜色映射的最大值/最小值。</li>
+<li>cmap: 颜色映射表。如”Reds”,”Blues”等。</li>
+<li>cbar: 是否显示颜色条。</li>
+<li>xticklabels/yticklabels: x/y轴刻度标签。</li>
+<li>square: 是否让热力图的格子变成方</li>
+</ul>
 
             
         </div>
@@ -269,6 +375,20 @@
     
         
     <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    <img data-src="https://w.wallhaven.cc/full/zy/wallhaven-zydmkv.jpg" data-sizes="auto" alt="2023.08.03"
+                         class="lazyload">
+                
+                <a href="/2023/08/03/2023-08-03/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        2023.08.03
+                    
+                </h3>
+            </div>
         
         
             <div class="article-nav-link-wrap article-nav-link-right">
@@ -313,7 +433,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">43</div>
+                <div class="sidebar-state-number">44</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -426,10 +546,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    68.9k
+                    69.9k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    04:10
+                    04:15
                 </div>
             
             
@@ -456,7 +576,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">43</div>
+                <div class="sidebar-state-number">44</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
