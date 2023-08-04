@@ -12,7 +12,7 @@
 
     
     <title>
-        标签: Deep Learning |
+        2023.08.04 |
         
         Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,12 +23,18 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="https://abinzzz.github.io/tags/Deep-Learning/index.html">
+    <meta name="description" content="2023.08.03随笔RandomUnderSampler().fit_sample()1.作用 从多数类(majority class)中随机移除一些样本,以减少多数类样本的数量 从而使训练数据集中不同类别样本的比例更加平衡 通常用来处理分类问题中的类别不平衡(class imbalance)问题    2.演示假设我们正在训练一个模型来分类水果,有两个类别:  苹果(类别0) - 1000个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023.08.04">
+<meta property="og:url" content="https://abinzzz.github.io/2023/08/03/2023-08-04/index.html">
 <meta property="og:site_name" content="Blog">
+<meta property="og:description" content="2023.08.03随笔RandomUnderSampler().fit_sample()1.作用 从多数类(majority class)中随机移除一些样本,以减少多数类样本的数量 从而使训练数据集中不同类别样本的比例更加平衡 通常用来处理分类问题中的类别不平衡(class imbalance)问题    2.演示假设我们正在训练一个模型来分类水果,有两个类别:  苹果(类别0) - 1000个">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-03T15:55:07.000Z">
+<meta property="article:modified_time" content="2023-08-03T21:33:01.810Z">
 <meta property="article:author" content="晴">
+<meta property="article:tag" content="coding">
+<meta property="article:tag" content="Eassy">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
@@ -104,7 +110,7 @@
         <div id="wrap">
             <header id="header">
     
-        <img data-src="/images/banner.jpg" data-sizes="auto" alt="" class="lazyload">
+        <img data-src="https://th.bing.com/th/id/OIP.zXJ29K7vgjlUx8EzdDIwNAHaEK?w=309&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=2&amp;pid=1.7" data-sizes="auto" alt="2023.08.04" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -112,16 +118,12 @@
                 
                     
                     
-                        <a href="/" id="logo"><h1>标签</h1></a>
+                        <a href="/" id="logo"><h1>2023.08.04</h1></a>
                     
                 
             </div>
             
                 
-                
-                    <h2 id="subtitle-wrap">
-                        <a href="/" id="subtitle">Deep Learning</a>
-                    </h2>
                 
             
         </div>
@@ -165,282 +167,158 @@
 </header>
 
             <div id="content" class="outer">
-                <section id="main">
-    <div class="archives-outer-wrap wow fadeInUp">
-        <div class="tag-wrap">
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/CV/">CV</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/Cover-Letter/">Cover Letter</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/llm/">llm</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/chatgpt-prompt/">chatgpt prompt</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/paper/">paper</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/internship/">internship</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/instructor/">instructor</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/Yuxiao-Dong/">Yuxiao Dong</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/GoAbroad/">GoAbroad</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/English/">English</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/Anything/">Anything</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/University/">University</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/HKU/">HKU</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/IC/">IC</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/Tai-Jiang-Mu/">Tai-Jiang Mu</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/AI/">AI</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/explainer/">explainer</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/Lime/">Lime</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/NTU/">NTU</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/调研/">调研</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/TUM/">TUM</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/author/">author</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/ReadMemory/">ReadMemory</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/hacker/">hacker</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/reading/">reading</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/tool/">tool</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/outlook/">outlook</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/email/">email</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/imap/">imap</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/中介/">中介</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/知行合一/">知行合一</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/情绪的秘密/">情绪的秘密</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/快捷键/">快捷键</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/fee/">fee</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/DIY/">DIY</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/陶瓷/">陶瓷</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/DeepFM/">DeepFM</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/prml/">prml</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/STGgameAI/">STGgameAI</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/提问/">提问</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/计网/">计网</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/毛概/">毛概</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/gpt/">gpt</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/introduction/">introduction</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/Essay/">Essay</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/coding/">coding</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/model-evaluation/">model evaluation</a>
-                </div>
-            
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/tags/Eassy/">Eassy</a>
-                </div>
-            
-        </div>
-        <div class="category-wrap">
-            
-                <div class="archives-category-list-item">
-                    <a class="archives-category-list-link" href="/categories/paper/">paper</a>
-                </div>
-            
-                <div class="archives-category-list-item">
-                    <a class="archives-category-list-link" href="/categories/GoAbroad/">GoAbroad</a>
-                </div>
-            
-                <div class="archives-category-list-item">
-                    <a class="archives-category-list-link" href="/categories/internship/">internship</a>
-                </div>
-            
-                <div class="archives-category-list-item">
-                    <a class="archives-category-list-link" href="/categories/reading/">reading</a>
-                </div>
-            
-                <div class="archives-category-list-item">
-                    <a class="archives-category-list-link" href="/categories/tool/">tool</a>
-                </div>
-            
-                <div class="archives-category-list-item">
-                    <a class="archives-category-list-link" href="/categories/专业知识/">专业知识</a>
-                </div>
-            
-                <div class="archives-category-list-item">
-                    <a class="archives-category-list-link" href="/categories/project/">project</a>
-                </div>
-            
-                <div class="archives-category-list-item">
-                    <a class="archives-category-list-link" href="/categories/Essay/">Essay</a>
-                </div>
-            
-                <div class="archives-category-list-item">
-                    <a class="archives-category-list-link" href="/categories/Eassy/">Eassy</a>
-                </div>
-            
-        </div>
-        
-        
-            
-            
-                
-    
-    <section class="archives-wrap wow fadeInUp">
-        <div class="archive-year-wrap">
-            <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-            <ul>
-                
-                <li class="archive-article">
-    <div class="archive-article-date-wrap">
-        <a href="/2023/05/08/Casual-Analysis-Churn/">
-            <time class="dt-published" datetime="2023-05-08T09:01:22.000Z"
-                  itemprop="datePublished">05-08</time>
-        </a>
-    </div>
-    <div class="archive-article-title-wrap">
-        
-            
-                <a class="archive-article-title" href="/2023/05/08/Casual-Analysis-Churn/">Casual_Analysis_Churn</a>
-            
-        
-    </div>
-</li>
+                <section id="main"><article id="post-2023-08-04" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/08/03/2023-08-04/" class="article-date-link">
+        <time datetime="2023-08-03T15:55:07.000Z"
+              itemprop="datePublished">2023-08-03</time>
+    </a>
+</div>
 
-                
-                
-            </ul>
-        </div>
-    </section>
-    
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="/categories/Eassy/">Eassy</a>
     </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <h1 id="2023-08-03随笔"><a href="#2023-08-03随笔" class="headerlink" title="2023.08.03随笔"></a>2023.08.03随笔</h1><h2 id="RandomUnderSampler-fit-sample"><a href="#RandomUnderSampler-fit-sample" class="headerlink" title="RandomUnderSampler().fit_sample()"></a>RandomUnderSampler().fit_sample()</h2><h3 id="1-作用"><a href="#1-作用" class="headerlink" title="1.作用"></a>1.作用</h3><ul>
+<li>从多数类(majority class)中随机移除一些样本,以减少多数类样本的数量</li>
+<li>从而使训练数据集中不同类别样本的比例更加平衡</li>
+<li>通常用来处理分类问题中的类别不平衡(class imbalance)问题  </li>
+</ul>
+<h3 id="2-演示"><a href="#2-演示" class="headerlink" title="2.演示"></a>2.演示</h3><p>假设我们正在训练一个模型来分类水果,有两个类别:</p>
+<ul>
+<li>苹果(类别0) - 1000个样本</li>
+<li>橘子(类别1) - 100个样本</li>
+</ul>
+<p>很显然类别不平衡,苹果的样本数远多于橘子。为了平衡训练数据,我们可以使用RandomUnderSampler:  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> imblearn.under_sampling <span class="keyword">import</span> RandomUnderSampler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分割数据</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(features, labels) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义采样器</span></span><br><span class="line">rus = RandomUnderSampler()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行欠采样</span></span><br><span class="line">X_resampled, y_resampled = rus.fit_resample(X_train, y_train)</span><br></pre></td></tr></table></figure>
+<p>rus.fit_resample()会从苹果的1000个样本中随机删除一部分,使苹果和橘子的样本数量接近。</p>
+<p>假设它 ahora 了苹果到100个样本,那么我们现在的训练数据是:</p>
+<ul>
+<li>苹果(类别0) - 100个样本</li>
+<li>橘子(类别1) - 100个样本</li>
+</ul>
+<p>样本数量变得平衡!我们可以用这些平衡后的数据训练模型,从而提高模型对少数类橘子的预测能力。</p>
+<p>测试数据保持原始比例不变。这样模型在实际使用时,仍能对真实世界中类别不平衡的数据进行预测。</p>
+<p><br><br><br></p>
+<h2 id="classifier-fit"><a href="#classifier-fit" class="headerlink" title="classifier.fit()"></a>classifier.fit()</h2><p>在scikit-learn中, classifier.fit() 方法是用于在训练集上拟合/训练分类模型的。</p>
+<p>classifier.fit(X_train, y_train)  </p>
+<p>fit()方法执行完毕后,模型就可以对新数据进行预测了。</p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
+<li>classifier: 是初始化的分类器对象,如LogisticRegression()。</li>
+<li>X_train: 训练集特征数据,通常是num_samples x num_features的二维NumPy数组。</li>
+<li>y_train: 训练集目标值,通常是长度为num_samples的一维NumPy数组。  </li>
+</ul>
+<p><br><br><br></p>
+<h2 id="classifier-predict"><a href="#classifier-predict" class="headerlink" title="classifier.predict()"></a>classifier.predict()</h2><p>在scikit-learn中,classifier.predict()方法用于使用训练好的分类器模型对新数据进行预测。</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul>
+<li>X_test:待预测的数据,通常是num_samples x num_features大小的二维NumPy数组</li>
+<li>y_pred:模型预测的目标值,长度为num_samples的一维NumPy数组</li>
+</ul>
+<p><br><br><br></p>
+<h2 id="classification-report"><a href="#classification-report" class="headerlink" title="classification_report()"></a>classification_report()</h2><p>classification_report是sklearn.metrics模块中的一个函数,用于显示针对测试数据的模型预测结果的汇总性能报告。  </p>
+<h3 id="主要作用"><a href="#主要作用" class="headerlink" title="主要作用"></a>主要作用</h3><ul>
+<li>通过一系列测度指标展示模型在每个类别上的预测性能,如精确率、召回率、F1分数等。</li>
+<li>直观地显示模型预测结果的整体质量好坏。</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设用Logistic回归对鸢尾花数据集进行分类,得到了以下的预测结果:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"></span><br><span class="line">iris = load_iris()</span><br><span class="line">X, y = iris.data, iris.target </span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练逻辑回归模型</span></span><br><span class="line">logreg = LogisticRegression()</span><br><span class="line">logreg.fit(X, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对训练集做预测</span></span><br><span class="line">y_pred = logreg.predict(X)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(classification_report(y, y_pred))</span><br></pre></td></tr></table></figure></p>
+<p>输出结果：<br>（macro avg是宏平均,support是样本数量）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">             precision    recall  f1-score   support</span><br><span class="line"></span><br><span class="line">          <span class="number">0</span>       <span class="number">1.00</span>      <span class="number">1.00</span>      <span class="number">1.00</span>        <span class="number">50</span></span><br><span class="line">          <span class="number">1</span>       <span class="number">0.82</span>      <span class="number">0.90</span>      <span class="number">0.86</span>        <span class="number">50</span></span><br><span class="line">          <span class="number">2</span>       <span class="number">0.96</span>      <span class="number">0.92</span>      <span class="number">0.94</span>        <span class="number">50</span></span><br><span class="line"></span><br><span class="line">    accuracy                           <span class="number">0.94</span>       <span class="number">150</span></span><br><span class="line">   macro avg       <span class="number">0.93</span>      <span class="number">0.94</span>      <span class="number">0.93</span>       <span class="number">150</span></span><br><span class="line">weighted avg       <span class="number">0.93</span>      <span class="number">0.94</span>      <span class="number">0.93</span>       <span class="number">150</span></span><br></pre></td></tr></table></figure></p>
+<p><br><br><br></p>
+<h2 id="confusion-matrix"><a href="#confusion-matrix" class="headerlink" title="confusion_matrix()"></a>confusion_matrix()</h2><p>confusion_matrix是sklearn.metrics模块中的一个函数,用于计算机器学习分类模型的混淆矩阵(confusion matrix)。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>假设我们开发了一个二分类模型,对测试数据集进行预测,得到以下的真实标签和预测标签:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">y_true = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">y_pred = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> confusion_matrix</span><br><span class="line"></span><br><span class="line">conf_mat = confusion_matrix(y_true, y_pred)</span><br><span class="line"><span class="built_in">print</span>(conf_mat)</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="number">2</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">4</span>]]</span><br></pre></td></tr></table></figure></p>
+<p>对于输出的理解：</p>
+<ul>
+<li>真实类0有2个样本被正确预测为类0(第一行第一列元素)</li>
+<li>真实类0有1个样本被错误预测为类1(第一行第二列元素)</li>
+<li>真实类1有1个样本被错误预测为类0(第二行第一列元素)</li>
+<li>真实类1有4个样本被正确预测为类1(第二行第二列元素)</li>
+</ul>
+<p><br><br><br></p>
+<h2 id="np-arange"><a href="#np-arange" class="headerlink" title="np.arange"></a>np.arange</h2><p>在Python中,np.arange是NumPy库中的一个函数,用于创建一个定步长的数组,功能类似于Python内置的range函数,但生成的是NumPy数组。  </p>
+<h3 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h3><p>np.arange(start, stop, step)：  </p>
+<ul>
+<li>start: 数组的起始值,默认为0</li>
+<li>stop: 数组的结束值(不包含在数组中)</li>
+<li>step: 数组值之间的步长,默认为1</li>
+</ul>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">np.arange(<span class="number">5</span>)  </span><br><span class="line"><span class="comment"># array([0, 1, 2, 3, 4])</span></span><br><span class="line"></span><br><span class="line">np.arange(<span class="number">1</span>, <span class="number">5</span>)</span><br><span class="line"><span class="comment"># array([1, 2, 3, 4]) </span></span><br><span class="line"></span><br><span class="line">np.arange(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>)  </span><br><span class="line"><span class="comment"># array([1, 3, 5, 7, 9])</span></span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
+<h2 id="plt-bar"><a href="#plt-bar" class="headerlink" title="plt.bar"></a>plt.bar</h2><p>在matplotlib中,plt.bar()函数用于绘制条形图。  </p>
+<h3 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h3><p>plt.bar(x, height, width=0.8, bottom=None, *, align=’center’, data=None)  </p>
+<ul>
+<li>x: 条形图的x轴数据,通常是类别标签</li>
+<li>height: 条形的高度,即y轴数值</li>
+<li>width: 条形的宽度,默认0.8</li>
+<li>bottom: 条形底部位置,默认0</li>
+<li>align: 条形对齐方式,如’center’</li>
+<li>data: 输入的数据,可以代替x和height</li>
+</ul>
+<p><br><br><br></p>
+<h2 id="plt-xticks"><a href="#plt-xticks" class="headerlink" title="plt.xticks()"></a>plt.xticks()</h2><p>在matplotlib中,plt.xticks()用于设置x轴刻度标签。  </p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>设置x周标签值：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">plt.xticks([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>])</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>设置x轴刻度数量：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.xticks(np.arange(<span class="number">0</span>, <span class="number">10</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>设置标签旋转角度：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.xticks(rotation=<span class="number">45</span>)</span><br></pre></td></tr></table></figure><br><br></p>
+<p>获取当前刻度列表：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ticks = plt.xticks()</span><br></pre></td></tr></table></figure></p>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="https://abinzzz.github.io/2023/08/03/2023-08-04/" data-id="clkw5orp00000k43z4fgj7h61" data-title="2023.08.04"
+               class="article-share-link">分享</a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Eassy/" rel="tag">Eassy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/" rel="tag">coding</a></li></ul>
+
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    <img data-src="https://th.bing.com/th/id/OIP.zXJ29K7vgjlUx8EzdDIwNAHaEK?w=309&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=2&amp;pid=1.7" data-sizes="auto" alt="Model Evaluation"
+                         class="lazyload">
+                
+                <a href="/2023/08/03/Model-Evaluation/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        Model Evaluation
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
 
 
 
