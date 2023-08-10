@@ -12,7 +12,7 @@
 
     
     <title>
-        LRP |
+        paper:DeepFM |
         
         Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,23 +23,18 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="Long Range Pooling for 3D Large-Scale Scene Understandingquestion: 1.point cloud:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;点云（point cloud）是一组呈现三维坐标（X， Y，Z）的数据集，可以表示三维形状或对象。点云通常由3D扫描仪或摄影测量软件生成，这些软件测量周围物体的外部表面上的许多点。作为3D扫">
+    <meta name="description" content="Q1:由于类别特征无法直接用于数值计算,为了表征这类特征,我们采用独热编码将特征向量转换为高维稀疏向量.考虑到高维稀疏特征难以处理,通常采用特征嵌入将高维稀疏特征嵌入到低维稠密的向量空间中,以获得特征嵌入向量E   123456789101112131415161718192021import pandas as pdfrom sklearn.decomposition import PCA#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LRP">
-<meta property="og:url" content="https://abinzzz.github.io/2023/07/28/LRP/index.html">
+<meta property="og:title" content="paper:DeepFM">
+<meta property="og:url" content="https://abinzzz.github.io/2023/06/12/paper:DeepFM/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Long Range Pooling for 3D Large-Scale Scene Understandingquestion: 1.point cloud:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;点云（point cloud）是一组呈现三维坐标（X， Y，Z）的数据集，可以表示三维形状或对象。点云通常由3D扫描仪或摄影测量软件生成，这些软件测量周围物体的外部表面上的许多点。作为3D扫">
+<meta property="og:description" content="Q1:由于类别特征无法直接用于数值计算,为了表征这类特征,我们采用独热编码将特征向量转换为高维稀疏向量.考虑到高维稀疏特征难以处理,通常采用特征嵌入将高维稀疏特征嵌入到低维稠密的向量空间中,以获得特征嵌入向量E   123456789101112131415161718192021import pandas as pdfrom sklearn.decomposition import PCA#">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://picx.zhimg.com/v2-c9c541dc2aaecdec25d7fb912d927134_1440w.jpg?source=172ae18b">
-<meta property="article:published_time" content="2023-07-28T07:55:14.000Z">
-<meta property="article:modified_time" content="2023-07-30T09:37:49.991Z">
+<meta property="article:published_time" content="2023-06-12T08:06:03.000Z">
+<meta property="article:modified_time" content="2023-08-09T13:48:27.955Z">
 <meta property="article:author" content="晴">
-<meta property="article:tag" content="paper">
-<meta property="article:tag" content="internship">
-<meta property="article:tag" content="instructor">
-<meta property="article:tag" content="Tai-Jiang Mu">
+<meta property="article:tag" content="DeepFM">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://picx.zhimg.com/v2-c9c541dc2aaecdec25d7fb912d927134_1440w.jpg?source=172ae18b">
     
         <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
     
@@ -114,7 +109,7 @@
         <div id="wrap">
             <header id="header">
     
-        <img data-src="/images/banner.jpg" data-sizes="auto" alt="LRP" class="lazyload">
+        <img data-src="/images/banner.jpg" data-sizes="auto" alt="paper:DeepFM" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -122,7 +117,7 @@
                 
                     
                     
-                        <a href="/" id="logo"><h1>LRP</h1></a>
+                        <a href="/" id="logo"><h1>paper:DeepFM</h1></a>
                     
                 
             </div>
@@ -171,14 +166,14 @@
 </header>
 
             <div id="content" class="outer">
-                <section id="main"><article id="post-LRP" class="h-entry article article-type-post"
+                <section id="main"><article id="post-paper:DeepFM" class="h-entry article article-type-post"
          itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
     <div class="article-inner">
         <div class="article-meta">
             <div class="article-date wow slideInLeft">
-    <a href="/2023/07/28/LRP/" class="article-date-link">
-        <time datetime="2023-07-28T07:55:14.000Z"
-              itemprop="datePublished">2023-07-28</time>
+    <a href="/2023/06/12/paper:DeepFM/" class="article-date-link">
+        <time datetime="2023-06-12T08:06:03.000Z"
+              itemprop="datePublished">2023-06-12</time>
     </a>
 </div>
 
@@ -194,46 +189,36 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <h1 id="Long-Range-Pooling-for-3D-Large-Scale-Scene-Understanding"><a href="#Long-Range-Pooling-for-3D-Large-Scale-Scene-Understanding" class="headerlink" title="Long Range Pooling for 3D Large-Scale Scene Understanding"></a>Long Range Pooling for 3D Large-Scale Scene Understanding</h1><h2 id="question"><a href="#question" class="headerlink" title="question:"></a>question:</h2><ul>
-<li><p>1.point cloud:<br>&nbsp;&nbsp;&nbsp;&nbsp;点云（point cloud）是一组呈现三维坐标（X， Y，Z）的数据集，可以表示三维形状或对象。点云通常由3D扫描仪或摄影测量软件生成，这些软件测量周围物体的外部表面上的许多点。作为3D扫描过程的输出，点云用于许多目的，包括为制造零件创建3D计算机辅助设计（CAD）模型，用于计量和质量检查，以及用于可视化、动画、渲染和大规模定制应用程序的多种应用。  </p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;点云（point cloud）的一个例子是，当我们利用三维激光扫描仪扫描某一建筑表面时，我们可以得到大量密集的点，这些点带有三维坐标（X，Y，Z）、激光反射强度和颜色等信息。这些点的集合就是一个点云。点云可以用于许多目的，包括为制造零件创建3D计算机辅助设计（CAD）模型，用于计量和质量检查，以及用于可视化、动画、渲染和大规模定制应用程序的多种应用。<br><img src="https://picx.zhimg.com/v2-c9c541dc2aaecdec25d7fb912d927134_1440w.jpg?source=172ae18b" alt=""></p>
+                <ul>
+<li><strong>Q1</strong>:由于类别特征<br>无法直接用于数值计算,为了表征这类特征,我们采用独热编<br>码将特征向量转换为高维稀疏向量.考虑到高维稀疏特征难<br>以处理,通常采用特征嵌入将高维稀疏特征嵌入到低维稠密<br>的向量空间中,以获得特征嵌入向量E   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设我们有以下的DataFrame</span></span><br><span class="line">df = pd.DataFrame(&#123;</span><br><span class="line">   <span class="string">&#x27;A&#x27;</span>: [<span class="string">&#x27;dog&#x27;</span>, <span class="string">&#x27;cat&#x27;</span>, <span class="string">&#x27;dog&#x27;</span>, <span class="string">&#x27;dog&#x27;</span>, <span class="string">&#x27;cat&#x27;</span>, <span class="string">&#x27;dog&#x27;</span>],</span><br><span class="line">   <span class="string">&#x27;B&#x27;</span>: [<span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;banana&#x27;</span>, <span class="string">&#x27;banana&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;banana&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>],</span><br><span class="line">   <span class="string">&#x27;C&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="comment"># 对类别特征进行独热编码</span></span><br><span class="line">df_encoded = pd.get_dummies(df, columns=[<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(df_encoded)</span><br><span class="line"><span class="comment"># 实例化PCA，选择嵌入向量的维度</span></span><br><span class="line">pca = PCA(n_components=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用PCA对独热编码的特征进行降维</span></span><br><span class="line">df_pca = pca.fit_transform(df_encoded)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出特征嵌入向量E</span></span><br><span class="line"><span class="built_in">print</span>(df_pca)</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Q2</strong>:baseline<br><strong>LR (Logistic Regression)</strong>：这是一个基本的线性模型，对原始特征进行线性变换，然后通过sigmoid函数将输出转换成0到1之间的概率。它适用于二分类问题，但只能捕捉到特征的一阶交互（即每个特征对输出的独立影响）。</p>
+<p><strong>FM (Factorization Machine)</strong>：这是一个能够学习特征对的二阶交互的模型。它使用了矩阵分解的技术，使得在有大量稀疏特征的情况下，也能高效地学习特征的二阶交互。</p>
+<p><strong>DeepFM</strong>：这个模型结合了FM和深度学习的技术。它的FM部分用于学习特征的低阶交互，而深度网络部分用于学习特征的高阶交互。这两部分共享同样的输入，使得低阶和高阶交互能够同时被学习。</p>
+<p><strong>xDeepFM</strong>：这个模型在DeepFM的基础上进一步引入了CIN（Compressed Interaction Network）部分，用于显式地学习特征的高阶交互。它同时考虑了显式和隐式的特征交互，能够更好地学习特征之间的复杂关系。</p>
+<p> <strong>AFM (Attentional Factorization Machine)</strong>：这个模型在FM的基础上引入了注意力机制。对于每个特征对的交互，AFM都会通过一个注意力网络来计算其重要性，然后将注意力分数用于加权特征对的交互。这使得模型能够区分不同交互特征的重要性。</p>
+<p><strong>AutoInt (Automatic Feature Interaction)</strong>：这个模型使用了多头自注意力机制来学习特征的交互。自注意力机制使得模型在计算一个特征对输出的影响时，能够考虑到所有其他特征的信息。这使得模型能够自动地、显式地学习特征的高阶交互。</p>
 </li>
-<li><p>2.receptive field：<br>&nbsp;&nbsp;&nbsp;&nbsp;感受野（Receptive Field）的定义：卷积神经网络每一层输出的特征图（feature map）上的像素点映射回输入图像上的区域大小。通俗点的解释是，特征图上一点，相对于原图的大小，也是卷积神经网络特征所能看到输入图像的区域  </p>
+<li><p><strong>Q3</strong>:低阶和高阶的特征是什么？你能用DeepFM模型举一个例子吗，帮助我更好的理解DeepFM模型<br>“低阶”和”高阶”特征交互通常指的是特征组合的复杂性。</p>
+<p>低阶特征交互通常指的是两个或者少数几个特征之间的交互。例如，在推荐系统中，用户的性别（男或女）和商品的类别（衣服或鞋子）之间的交互可以被看作是一个二阶交互（也就是低阶交互）。如果男性更倾向于购买鞋子，而女性更倾向于购买衣服，这个信息就是一个二阶交互特征。</p>
+<p>高阶特征交互则涉及到三个或者更多的特征。例如，用户的年龄、性别和商品的类别三者之间的交互就是一个三阶交互。如果我们发现年轻的男性用户更倾向于购买运动鞋，而年轻的女性用户更倾向于购买高跟鞋，这个信息就是一个三阶交互特征。</p>
+<p>下面是一个DeepFM模型的例子。假设我们有一个简化的推荐系统问题，特征包括用户的性别（男、女）、年龄（年轻、中年、老年）和商品的类别（衣服、鞋子）。我们想预测一个用户是否会购买一个商品。</p>
+<p>DeepFM会将这些特征先通过embedding转化为连续向量，然后：</p>
+<p>FM部分：DeepFM会学习每对特征之间的交互，也就是二阶交互。例如，它会学习”男性”和”鞋子”的交互对购买行为的影响是什么，”年轻”和”衣服”的交互对购买行为的影响是什么等。</p>
+<p>Deep部分：DeepFM的深度网络部分则会学习更复杂的、高阶的特征交互。例如，它可能会发现年轻的男性用户更喜欢购买运动鞋这样的三阶交互。</p>
+<p>最后，DeepFM会将FM部分和Deep部分的输出合并，然后通过一个sigmoid函数，将它们转化为购买的概率。</p>
 </li>
-</ul>
-<h2 id="1-模型为什么好？"><a href="#1-模型为什么好？" class="headerlink" title="1.模型为什么好？"></a>1.模型为什么好？</h2><ul>
-<li>提高了模型的质量</li>
-<li>减小了模型的计算量</li>
-</ul>
-<h2 id="2-以前的模型为什么不好？"><a href="#2-以前的模型为什么不好？" class="headerlink" title="2.以前的模型为什么不好？"></a>2.以前的模型为什么不好？</h2><ul>
-<li>稀疏卷积在建模局部结构上有优势，但却忽视了长序列上下文。transformer用它更大的接受域和更好的交互方式去捕获全局关系。但是他们通常有二次复杂度，计算成本太大。</li>
-<li>将long rang context整合到3d像素数据学习中，去开发一个3d大核卷积，但网络参数的数量和计算量将立方的增加。  </li>
-<li>目前的数据交互或聚合(卷积，平均池化)的方式用于3d像素数据，会使像素的特征太小或过于平滑，导致信息量更小。</li>
-<li>2d大核卷积计算量大，所以用小核来近似大核，但3d大核分解困难<h2 id="3-编程怎么实现的？"><a href="#3-编程怎么实现的？" class="headerlink" title="3.编程怎么实现的？"></a>3.编程怎么实现的？</h2></li>
-</ul>
-<h2 id="4-哪个关键点对性能提升最大？"><a href="#4-哪个关键点对性能提升最大？" class="headerlink" title="4.哪个关键点对性能提升最大？"></a>4.哪个关键点对性能提升最大？</h2><ul>
-<li>dilation max pooling</li>
-<li>self-attention<h2 id="5-论文和源代码匹配度是怎么样的？"><a href="#5-论文和源代码匹配度是怎么样的？" class="headerlink" title="5.论文和源代码匹配度是怎么样的？"></a>5.论文和源代码匹配度是怎么样的？</h2></li>
-</ul>
-<h2 id="6-那些数学运算是关键的？"><a href="#6-那些数学运算是关键的？" class="headerlink" title="6.那些数学运算是关键的？"></a>6.那些数学运算是关键的？</h2><h2 id="7-整个全流程是怎么走的？"><a href="#7-整个全流程是怎么走的？" class="headerlink" title="7.整个全流程是怎么走的？"></a>7.整个全流程是怎么走的？</h2><h2 id="8-数据是怎么样流动的？"><a href="#8-数据是怎么样流动的？" class="headerlink" title="8.数据是怎么样流动的？"></a>8.数据是怎么样流动的？</h2><h2 id="9-作者的灵感从何而来？"><a href="#9-作者的灵感从何而来？" class="headerlink" title="9.作者的灵感从何而来？"></a>9.作者的灵感从何而来？</h2><p>根据Vision Transformers和LargeKernelCNN设计的成功,提出这些成功的关键在于更大的感受野和更强的非线性。</p>
-<h2 id="10-作者的思考路线如何？"><a href="#10-作者的思考路线如何？" class="headerlink" title="10.作者的思考路线如何？"></a>10.作者的思考路线如何？</h2><ul>
-<li>1.作者首先分析了最近视觉Transformers和大卷积核设计的成功,提出这些成功的关键在于更大的感受野和更强的非线性。</li>
-<li>2.基于这个分析,作者提出了设计一个简单有效的模块去实现这两个原则 - 长程池化模块(LRP)。LRP通过膨胀最大池化获得大感受野,同时引入感受野选择让每个voxel自适应选择合适的感受野,增强了非线性。</li>
-<li>3.作者将LRP模块应用于现有的稀疏卷积网络,构建了LRPNet,在多个3D场景分割数据集上验证了其有效性。</li>
-<li>4.通过可视化和各种ablation实验,作者分析了大感受野和非线性对提升网络性能的重要性。</li>
-<li>5.最后,作者得出结论,LRP模块可以简单有效地为网络提供自适应大感受野,增强网络的建模能力。<br>总体来看,作者的思考路线是:分析现有方法的优势 —&gt; 提出实现这些优势的简单模块 —&gt; 将模块应用于现有网络获得性能提升 —&gt; 通过实验分析模块的有效性。这反映了作者分析问题的深度和解决问题的系统</li>
 </ul>
 
             
         </div>
         <footer class="article-footer">
-            <a data-url="https://abinzzz.github.io/2023/07/28/LRP/" data-id="clkpn7r1h000q3t6946rz6hyg" data-title="LRP"
+            <a data-url="https://abinzzz.github.io/2023/06/12/paper:DeepFM/" data-id="cll4t3ouo000bky3z9yfa5hym" data-title="paper:DeepFM"
                class="article-share-link">分享</a>
             
             
             
             
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tai-Jiang-Mu/" rel="tag">Tai-Jiang Mu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/instructor/" rel="tag">instructor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/internship/" rel="tag">internship</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/paper/" rel="tag">paper</a></li></ul>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DeepFM/" rel="tag">DeepFM</a></li></ul>
 
 
         </footer>
@@ -246,15 +231,15 @@
                 
                     
                     
-                        <img data-src="/images/banner.jpg" data-sizes="auto" alt="NTU"
+                        <img data-src="/images/banner.jpg" data-sizes="auto" alt="留学DIY指北"
                              class="lazyload">
                     
                 
-                <a href="/2023/07/30/NTU/"></a>
+                <a href="/2023/07/13/%E7%95%99%E5%AD%A6DIY%E6%8C%87%E5%8C%97/"></a>
                 <div class="article-nav-caption">前一篇</div>
                 <h3 class="article-nav-title">
                     
-                        NTU
+                        留学DIY指北
                     
                 </h3>
             </div>
@@ -264,15 +249,15 @@
                 
                     
                     
-                        <img data-src="/images/banner.jpg" data-sizes="auto" alt="author"
+                        <img data-src="/images/banner.jpg" data-sizes="auto" alt="毛概4"
                              class="lazyload">
                     
                 
-                <a href="/2023/07/28/author/"></a>
+                <a href="/2023/06/03/%E6%AF%9B%E6%A6%824/"></a>
                 <div class="article-nav-caption">后一篇</div>
                 <h3 class="article-nav-title">
                     
-                        author
+                        毛概4
                     
                 </h3>
             </div>
@@ -305,7 +290,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">49</div>
+                <div class="sidebar-state-number">51</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -313,7 +298,7 @@
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
-                <div class="sidebar-state-number">54</div>
+                <div class="sidebar-state-number">55</div>
             </div>
         </div>
         <div class="sidebar-social">
@@ -378,7 +363,7 @@
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 11.67px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 15px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/GoAbroad/" style="font-size: 20px;">GoAbroad</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/T1/" style="font-size: 10px;">T1</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 16.67px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 11.67px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/causal-analysis/" style="font-size: 11.67px;">causal analysis</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 15px;">coding</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 11.67px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 10px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 13.33px;">instructor</a> <a href="/tags/internship/" style="font-size: 15px;">internship</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 18.33px;">paper</a> <a href="/tags/prml/" style="font-size: 13.33px;">prml</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/tool/" style="font-size: 11.67px;">tool</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 10px;">最长的电影</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 16.67px;">毛概</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a>
+            <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 12.86px;">Causal Analysis Churn</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 11.43px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 17.14px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/GoAbroad/" style="font-size: 20px;">GoAbroad</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/T1/" style="font-size: 11.43px;">T1</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 17.14px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 11.43px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 17.14px;">coding</a> <a href="/tags/dowhy/" style="font-size: 10px;">dowhy</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 11.43px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 10px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 14.29px;">instructor</a> <a href="/tags/internship/" style="font-size: 15.71px;">internship</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 18.57px;">paper</a> <a href="/tags/prml/" style="font-size: 14.29px;">prml</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/tool/" style="font-size: 11.43px;">tool</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 10px;">最长的电影</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 17.14px;">毛概</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a>
         </div>
     </div>
 
@@ -418,10 +403,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    76.7k
+                    77.1k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    04:39
+                    04:41
                 </div>
             
             
@@ -448,7 +433,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">49</div>
+                <div class="sidebar-state-number">51</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -456,7 +441,7 @@
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
-                <div class="sidebar-state-number">54</div>
+                <div class="sidebar-state-number">55</div>
             </div>
         </div>
         <div class="sidebar-social">
