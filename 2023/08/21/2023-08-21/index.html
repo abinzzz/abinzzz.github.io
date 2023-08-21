@@ -12,7 +12,7 @@
 
     
     <title>
-        2023.08.03 |
+        2023.08.21 |
         
         Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,15 +23,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="2023.08.03pd.getdummies在pandas中,pd.get_dummies()是实现one-hot编码的常用方法。 1.参数 data:需要编码的原始数据,如Series或DataFrame列。 prefix: dummy变量列名的前缀。 prefix_sep:前缀和原列名之间的连接字符。默认为’_’。 dummy_na:是否添加一列表示missing值。 columns:需要编">
+    <meta name="description" content="不知道为何，此时是会想起这首音乐🎵   🔗：STAR WALKIN’ (League of Legends Worlds Anthem)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2023.08.03">
-<meta property="og:url" content="https://abinzzz.github.io/2023/08/03/2023-08-03/index.html">
+<meta property="og:title" content="2023.08.21">
+<meta property="og:url" content="https://abinzzz.github.io/2023/08/21/2023-08-21/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="2023.08.03pd.getdummies在pandas中,pd.get_dummies()是实现one-hot编码的常用方法。 1.参数 data:需要编码的原始数据,如Series或DataFrame列。 prefix: dummy变量列名的前缀。 prefix_sep:前缀和原列名之间的连接字符。默认为’_’。 dummy_na:是否添加一列表示missing值。 columns:需要编">
+<meta property="og:description" content="不知道为何，此时是会想起这首音乐🎵   🔗：STAR WALKIN’ (League of Legends Worlds Anthem)">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-03T08:01:07.000Z">
-<meta property="article:modified_time" content="2023-08-03T13:17:25.028Z">
+<meta property="article:published_time" content="2023-08-21T04:52:48.000Z">
+<meta property="article:modified_time" content="2023-08-21T05:03:07.267Z">
 <meta property="article:author" content="晴">
 <meta property="article:tag" content="Essay">
 <meta property="article:tag" content="coding">
@@ -110,7 +110,7 @@
         <div id="wrap">
             <header id="header">
     
-        <img data-src="https://th.bing.com/th/id/OIP.zXJ29K7vgjlUx8EzdDIwNAHaEK?w=309&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=2&amp;pid=1.7" data-sizes="auto" alt="2023.08.03" class="lazyload">
+        <img data-src="https://pbs.twimg.com/media/F3U-edyaQAA4XIR?format=jpg&amp;name=large" data-sizes="auto" alt="2023.08.21" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -118,7 +118,7 @@
                 
                     
                     
-                        <a href="/" id="logo"><h1>2023.08.03</h1></a>
+                        <a href="/" id="logo"><h1>2023.08.21</h1></a>
                     
                 
             </div>
@@ -167,14 +167,14 @@
 </header>
 
             <div id="content" class="outer">
-                <section id="main"><article id="post-2023-08-03" class="h-entry article article-type-post"
+                <section id="main"><article id="post-2023-08-21" class="h-entry article article-type-post"
          itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
     <div class="article-inner">
         <div class="article-meta">
             <div class="article-date wow slideInLeft">
-    <a href="/2023/08/03/2023-08-03/" class="article-date-link">
-        <time datetime="2023-08-03T08:01:07.000Z"
-              itemprop="datePublished">2023-08-03</time>
+    <a href="/2023/08/21/2023-08-21/" class="article-date-link">
+        <time datetime="2023-08-21T04:52:48.000Z"
+              itemprop="datePublished">2023-08-21</time>
     </a>
 </div>
 
@@ -190,55 +190,13 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <h1 id="2023-08-03"><a href="#2023-08-03" class="headerlink" title="2023.08.03"></a>2023.08.03</h1><h2 id="pd-getdummies"><a href="#pd-getdummies" class="headerlink" title="pd.getdummies"></a>pd.getdummies</h2><p>在pandas中,pd.get_dummies()是实现one-hot编码的常用方法。</p>
-<h3 id="1-参数"><a href="#1-参数" class="headerlink" title="1.参数"></a>1.参数</h3><ul>
-<li>data:需要编码的原始数据,如Series或DataFrame列。</li>
-<li>prefix: dummy变量列名的前缀。</li>
-<li>prefix_sep:前缀和原列名之间的连接字符。默认为’_’。</li>
-<li>dummy_na:是否添加一列表示missing值。</li>
-<li>columns:需要编码的列,默认对所有object和category类型列编码。</li>
-<li>sparse:是否返回稀疏矩阵。默认False。</li>
-<li>drop_first:是否丢弃第一个dummy变量,避免因 dummy变量间线性相关引起的多重共线性。默认True。</li>
-</ul>
-<h3 id="2-one-hot编码是什么"><a href="#2-one-hot编码是什么" class="headerlink" title="2.one-hot编码是什么"></a>2.one-hot编码是什么</h3><p>对于一个分类特征,将其不同的类别值编码为多个0/1列。每个类别对应一列,表示类别是否出现。  </p>
-<h3 id="3-举例"><a href="#3-举例" class="headerlink" title="3.举例"></a>3.举例</h3><p>输入：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;性别&#x27;</span>:[<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;女&#x27;</span>,<span class="string">&#x27;女&#x27;</span>], </span><br><span class="line">                   <span class="string">&#x27;职业&#x27;</span>:[<span class="string">&#x27;学生&#x27;</span>,<span class="string">&#x27;工程师&#x27;</span>,<span class="string">&#x27;医生&#x27;</span>]&#125;)</span><br><span class="line"></span><br><span class="line">df = one_hot_encoding(df, cols=[<span class="string">&#x27;性别&#x27;</span>, <span class="string">&#x27;职业&#x27;</span>])</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">编码后得到：  </span><br><span class="line">```python</span><br><span class="line">   性别_男  性别_女  职业_学生  职业_工程师  职业_医生</span><br><span class="line"><span class="number">0</span>      <span class="number">1</span>       <span class="number">0</span>      <span class="number">1</span>         <span class="number">0</span>           <span class="number">0</span></span><br><span class="line"><span class="number">1</span>      <span class="number">0</span>       <span class="number">1</span>      <span class="number">0</span>         <span class="number">1</span>           <span class="number">0</span> </span><br><span class="line"><span class="number">2</span>      <span class="number">0</span>       <span class="number">1</span>      <span class="number">0</span>         <span class="number">0</span>           <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="df-clolunms与df-index"><a href="#df-clolunms与df-index" class="headerlink" title="df.clolunms与df.index"></a>df.clolunms与df.index</h2><p>df.columns得到的是行标签，df.index得到的是列标签   </p>
-<p>返回值类型是index对象</p>
-<h3 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建DataFrame</span></span><br><span class="line">data = &#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;王五&#x27;</span>], <span class="string">&#x27;age&#x27;</span>:[<span class="number">20</span>,<span class="number">21</span>,<span class="number">22</span>]&#125;</span><br><span class="line">df = pd.DataFrame(data, index=[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="comment">#    name  age</span></span><br><span class="line"><span class="comment"># a   张三  20</span></span><br><span class="line"><span class="comment"># b   李四  21</span></span><br><span class="line"><span class="comment"># c   王五  22 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看columns和index</span></span><br><span class="line"><span class="built_in">print</span>(df.columns) <span class="comment"># Index([&#x27;name&#x27;, &#x27;age&#x27;], dtype=&#x27;object&#x27;)</span></span><br><span class="line"><span class="built_in">print</span>(df.index) <span class="comment"># Index([&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;], dtype=&#x27;object&#x27;) </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改columns和index</span></span><br><span class="line">df.columns = [<span class="string">&#x27;姓名&#x27;</span>, <span class="string">&#x27;年龄&#x27;</span>]  </span><br><span class="line">df.index = [<span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;y&#x27;</span>, <span class="string">&#x27;z&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="comment">#    姓名   年龄</span></span><br><span class="line"><span class="comment"># x   张三  20</span></span><br><span class="line"><span class="comment"># y   李四  21</span></span><br><span class="line"><span class="comment"># z   王五  22</span></span><br></pre></td></tr></table></figure>
-<h2 id="特征的分类"><a href="#特征的分类" class="headerlink" title="特征的分类"></a>特征的分类</h2><p>一般前两类特征比较常见</p>
-<ul>
-<li>数值型特征(Numerical Features):连续的数字特征,可以进行各种数学运算。 如年龄、收入、价格等。</li>
-<li>分类特征(Categorical Features):有限多个类别的特征。如性别(男/女)、邮政编码、品牌等。</li>
-<li>计数特征(Count Features):表示某个事件发生的次数的特征。如过去30天购买次数。</li>
-<li>文本特征(Text Features):文本和自然语言形式的特征。如商品描述、用户评论等。</li>
-<li>日期时间特征(DateTime Features):日期和时间相关的特征。如注册日期、浏览时间等。</li>
-<li>地理位置特征(Geospatial Features):地理坐标、地址相关的特征。如GPS坐标、IP地址等。</li>
-<li>图像特征(Image Features):从图像中提取的特征。如图像文字、形状、边缘等。</li>
-<li>音频特征(Audio Features):从音频中提取的特征。如音调、频率等。</li>
-</ul>
-<h2 id="scaler-fit-transform"><a href="#scaler-fit-transform" class="headerlink" title="scaler.fit_transform()"></a>scaler.fit_transform()</h2><p>scaler.fit_transform() 是scikit-learn中用于数据缩放的常用方法,它将fit()和transform()合并到了一个方法中。  </p>
-<h3 id="内部流程"><a href="#内部流程" class="headerlink" title="内部流程"></a>内部流程</h3><ul>
-<li>调用fit(),计算数据的均值和标准差</li>
-<li>调用transform(),使用上一步的均值和标准差,进行标准化缩放转换  </li>
-</ul>
-<h2 id="train-test-split"><a href="#train-test-split" class="headerlink" title="train_test_split"></a>train_test_split</h2><h3 id="1-参数-1"><a href="#1-参数-1" class="headerlink" title="1.参数"></a>1.参数</h3><ul>
-<li>data:要划分的数据,可以是数组、矩阵或者pandas DataFrame。</li>
-<li>test_size:测试集占比,默认为0.25。</li>
-<li>shuffle:是否在分割前对数据打乱顺序,默认为True。</li>
-<li>random_state:随机数种子,用于重现结果,默认为None  </li>
-</ul>
-<h3 id="2-返回值"><a href="#2-返回值" class="headerlink" title="2.返回值"></a>2.返回值</h3><p>返回一个元组,包含4个数组成的训练集特征、训练集标签、测试集特征、测试集标签。</p>
-<h3 id="3-expmales"><a href="#3-expmales" class="headerlink" title="3.expmales"></a>3.expmales</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">X, y = np.arange(<span class="number">10</span>).reshape((<span class="number">5</span>, <span class="number">2</span>)), <span class="built_in">range</span>(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(X)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(y))</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">输出X，y的内容：  </span><br><span class="line">```python </span><br><span class="line">array([[<span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">       [<span class="number">6</span>, <span class="number">7</span>],</span><br><span class="line">       [<span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line"></span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
-<p>第一种输入类型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line"> X, y, test_size=<span class="number">0.33</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>输出内容：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>X_train</span><br><span class="line">array([[<span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">6</span>, <span class="number">7</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y_train</span><br><span class="line">[<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>X_test</span><br><span class="line">array([[<span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y_test</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>第二张输入类型：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>train_test_split(y, shuffle=<span class="literal">False</span>)</span><br><span class="line">[[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]]</span><br></pre></td></tr></table></figure></p>
-<h2 id="format"><a href="#format" class="headerlink" title="{}.format"></a>{}.format</h2><p>在Python中,{}.format()是一种格式化字符串的便捷方法。  </p>
-<h3 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1.基本语法"></a>1.基本语法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&#123;&#125; &#123;&#125;&quot;</span>.<span class="built_in">format</span>(value1, value2)</span><br></pre></td></tr></table></figure>
-<h3 id="2-举例"><a href="#2-举例" class="headerlink" title="2.举例"></a>2.举例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;John&quot;</span></span><br><span class="line">age = <span class="number">20</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;&#125; is &#123;&#125; years old.&quot;</span>.<span class="built_in">format</span>(name, age))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出:&quot;John is 20 years old.&quot;</span></span><br></pre></td></tr></table></figure>
+                <p>不知道为何，此时是会想起这首音乐🎵  </p>
+<p>🔗：<a target="_blank" rel="noopener" href="https://music.163.com/song?id=1983593929&amp;userid=540044775">STAR WALKIN’ (League of Legends Worlds Anthem)</a></p>
+
             
         </div>
         <footer class="article-footer">
-            <a data-url="https://abinzzz.github.io/2023/08/03/2023-08-03/" data-id="clkuv53va0000893z5sc5dxht" data-title="2023.08.03"
+            <a data-url="https://abinzzz.github.io/2023/08/21/2023-08-21/" data-id="cllkewhlr0000li690abj2g3u" data-title="2023.08.21"
                class="article-share-link">分享</a>
             
             
@@ -253,31 +211,17 @@
         
     <nav id="article-nav" class="wow fadeInUp">
         
-            <div class="article-nav-link-wrap article-nav-link-left">
-                
-                    <img data-src="https://th.bing.com/th/id/OIP.zXJ29K7vgjlUx8EzdDIwNAHaEK?w=309&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=2&amp;pid=1.7" data-sizes="auto" alt="Model Evaluation"
-                         class="lazyload">
-                
-                <a href="/2023/08/03/Model-Evaluation/"></a>
-                <div class="article-nav-caption">前一篇</div>
-                <h3 class="article-nav-title">
-                    
-                        Model Evaluation
-                    
-                </h3>
-            </div>
-        
         
             <div class="article-nav-link-wrap article-nav-link-right">
                 
-                    <img data-src="https://th.bing.com/th/id/OIP.zXJ29K7vgjlUx8EzdDIwNAHaEK?w=309&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=2&amp;pid=1.7" data-sizes="auto" alt="2023.08.02"
+                    <img data-src="https://pbs.twimg.com/media/F3ZgmLva8AAcIVv?format=webp&amp;name=medium" data-sizes="auto" alt="2023.08.19"
                          class="lazyload">
                 
-                <a href="/2023/08/02/2023-08-02/"></a>
+                <a href="/2023/08/19/2023-08-19/"></a>
                 <div class="article-nav-caption">后一篇</div>
                 <h3 class="article-nav-title">
                     
-                        2023.08.02
+                        2023.08.19
                     
                 </h3>
             </div>
