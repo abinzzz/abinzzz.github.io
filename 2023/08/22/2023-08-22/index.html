@@ -23,15 +23,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="今天是七夕节哎">
+    <meta name="description" content="今天是七夕节不过，与我无关啦，唯一开心的是收到了祝福hahahahaha！  🫘：红豆 1.过采样和欠采样的区别 过采样是通过增加少数类样本来平衡数据集。欠采样是通过减少多数类样本来平衡数据集。 过采样可能通过重复少数类或生成新样本来实现。欠采样一般通过随机去除多数类样本实现。 过采样会增加训练数据量,而欠采样会减少训练数据量。 过采样可能会导致对少数类的过拟合。欠采样可能导致对多数类的欠拟合。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023.08.22">
 <meta property="og:url" content="https://abinzzz.github.io/2023/08/22/2023-08-22/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="今天是七夕节哎">
+<meta property="og:description" content="今天是七夕节不过，与我无关啦，唯一开心的是收到了祝福hahahahaha！  🫘：红豆 1.过采样和欠采样的区别 过采样是通过增加少数类样本来平衡数据集。欠采样是通过减少多数类样本来平衡数据集。 过采样可能通过重复少数类或生成新样本来实现。欠采样一般通过随机去除多数类样本实现。 过采样会增加训练数据量,而欠采样会减少训练数据量。 过采样可能会导致对少数类的过拟合。欠采样可能导致对多数类的欠拟合。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-22T05:37:01.000Z">
-<meta property="article:modified_time" content="2023-08-22T05:51:54.927Z">
+<meta property="article:modified_time" content="2023-08-22T08:25:51.078Z">
 <meta property="article:author" content="晴">
 <meta property="article:tag" content="Essay">
 <meta property="article:tag" content="coding">
@@ -111,7 +111,7 @@
         <div id="wrap">
             <header id="header">
     
-        <img data-src="https://pbs.twimg.com/media/F4GCk_yXEAA_OR2?format=jpg&amp;name=small" data-sizes="auto" alt="2023.08.22" class="lazyload">
+        <img data-src="https://bkimg.cdn.bcebos.com/pic/95eef01f3a292df50d8d31e5be315c6035a873f0?x-bce-process=image/resize,m_lfit,w_268,limit_1" data-sizes="auto" alt="2023.08.22" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -191,7 +191,41 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <p>今天是七夕节哎</p>
+                <p>今天是七夕节<br>不过，与我无关啦，唯一开心的是收到了祝福hahahahaha！ </p>
+<p>🫘：<a target="_blank" rel="noopener" href="https://music.163.com/song?id=299936&amp;userid=540044775">红豆</a></p>
+<h2 id="1-过采样和欠采样的区别"><a href="#1-过采样和欠采样的区别" class="headerlink" title="1.过采样和欠采样的区别"></a>1.过采样和欠采样的区别</h2><ul>
+<li>过采样是通过增加少数类样本来平衡数据集。欠采样是通过减少多数类样本来平衡数据集。</li>
+<li>过采样可能通过重复少数类或生成新样本来实现。欠采样一般通过随机去除多数类样本实现。</li>
+<li>过采样会增加训练数据量,而欠采样会减少训练数据量。</li>
+<li>过采样可能会导致对少数类的过拟合。欠采样可能导致对多数类的欠拟合。</li>
+<li>过采样时需要注意避免完全重复样本。欠采样需要保证样本代表性。</li>
+</ul>
+<p>实际使用中,过采样和欠采样常结合使用,以平衡样本量与保留代表性。</p>
+<h2 id="2-sample-averaging和weight-averaging的区别"><a href="#2-sample-averaging和weight-averaging的区别" class="headerlink" title="2.sample averaging和weight averaging的区别"></a>2.sample averaging和weight averaging的区别</h2><ul>
+<li>Simple averaging: 直接计算所有数值的算术平均值,每个数值贡献相同。</li>
+<li>Weighted averaging: 根据一组权重(weights)计算加权平均值,不同数值贡献不同。</li>
+</ul>
+<h2 id="3-max-voting"><a href="#3-max-voting" class="headerlink" title="3.max voting"></a>3.max voting</h2><p>构建多个不同的分类模型,对新样本,利用这些模型分别预测类别,将各模型预测出的类别进行投票统计,选择投票数最多的类别作为最终分类结果</p>
+<h2 id="4-硬投票和软投票的区别"><a href="#4-硬投票和软投票的区别" class="headerlink" title="4.硬投票和软投票的区别"></a>4.硬投票和软投票的区别</h2><p>投票对象不同：  </p>
+<ul>
+<li>硬投票是对各个模型的预测类别进行投票  </li>
+<li>软投票是对各个模型的预测概率进行投票统计  </li>
+</ul>
+<p>集成方式不同：</p>
+<ul>
+<li>硬投票属于大多数投票法,采用最大投票类别</li>
+<li>软投票属于平均概率合并,属于模型平均</li>
+</ul>
+<p>投票权重：</p>
+<ul>
+<li>硬投票通常模型投票权重相同</li>
+<li>软投票可以设置模型权重</li>
+</ul>
+<p>错误惩罚能力不同：</p>
+<ul>
+<li>软投票可以根据模型误差情况设定权重惩罚错误</li>
+<li>硬投票难以设定权重</li>
+</ul>
 
             
         </div>
@@ -367,10 +401,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    92.5k
+                    94.7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    05:47
+                    05:57
                 </div>
             
             
