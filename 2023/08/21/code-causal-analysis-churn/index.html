@@ -23,15 +23,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="此篇文章是用来梳理”paper:Causal Analysis Churn”的代码    流程：  导入数据集  将前两个数据集拼接在一起 特征工程： 创建副本 删掉重复行 找到分类列和数量列     删掉高相关性特征   预处理对分类特征进行one-hot编码  1.导入数据集123observation_window1 &#x3D; pd.read_csv(&amp;#x27;new_data&#x2F;features">
+    <meta name="description" content="此篇文章是用来梳理”paper:Causal Analysis Churn”的代码    流程：  1.导入数据集  2.将前两个数据集拼接在一起 3.特征工程： 3.1创建副本 删掉重复行 3.2找到分类列和数量列  3.3删掉高相关性特征 3.4预处理：对类别特征进行one-hot编码   4.模型评估 4.1对训练数据进行欠采样处理 4.2评估指标   5.集成学习 5.1建立集成学习分类器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="code:causal analysis churn">
 <meta property="og:url" content="https://abinzzz.github.io/2023/08/21/code-causal-analysis-churn/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="此篇文章是用来梳理”paper:Causal Analysis Churn”的代码    流程：  导入数据集  将前两个数据集拼接在一起 特征工程： 创建副本 删掉重复行 找到分类列和数量列     删掉高相关性特征   预处理对分类特征进行one-hot编码  1.导入数据集123observation_window1 &#x3D; pd.read_csv(&amp;#x27;new_data&#x2F;features">
+<meta property="og:description" content="此篇文章是用来梳理”paper:Causal Analysis Churn”的代码    流程：  1.导入数据集  2.将前两个数据集拼接在一起 3.特征工程： 3.1创建副本 删掉重复行 3.2找到分类列和数量列  3.3删掉高相关性特征 3.4预处理：对类别特征进行one-hot编码   4.模型评估 4.1对训练数据进行欠采样处理 4.2评估指标   5.集成学习 5.1建立集成学习分类器">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-21T05:50:30.000Z">
-<meta property="article:modified_time" content="2023-08-22T09:55:46.531Z">
+<meta property="article:modified_time" content="2023-08-22T10:10:43.482Z">
 <meta property="article:author" content="晴">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="coding">
@@ -195,15 +195,71 @@
 <p><br></p>
 <p>流程：</p>
 <ul>
-<li>导入数据集 </li>
-<li>将前两个数据集拼接在一起</li>
-<li>特征工程：<ul>
-<li>创建副本 删掉重复行</li>
-<li>找到分类列和数量列  </li>
+<li>1.导入数据集 </li>
+<li>2.将前两个数据集拼接在一起</li>
+<li>3.特征工程：<ul>
+<li>3.1创建副本 删掉重复行</li>
+<li>3.2找到分类列和数量列 </li>
+<li>3.3删掉高相关性特征</li>
+<li>3.4预处理：对类别特征进行one-hot编码</li>
 </ul>
 </li>
-<li>删掉高相关性特征  </li>
-<li>预处理对分类特征进行one-hot编码</li>
+<li>4.模型评估<ul>
+<li>4.1对训练数据进行欠采样处理</li>
+<li>4.2评估指标</li>
+</ul>
+</li>
+<li>5.集成学习<ul>
+<li>5.1建立集成学习分类器-hard</li>
+<li>5.2建立集成学习分类器-soft</li>
+</ul>
+</li>
+<li>6.特征选择-随机森林变量的重要性<ul>
+<li>6.1训练随机森林分类器</li>
+<li>6.2显示重要性最大的前180个</li>
+<li>6.3将重要性前100个存入列表，然后将训练数据只保存前100个</li>
+<li>6.4将修改后的数据集用于训练，并添加模型评价指标</li>
+</ul>
+</li>
+<li>7.特征挑选方法-递归特征消除<ul>
+<li>7.1过采样处理，平衡样本量</li>
+<li>7.2定义特征选择器，进行特征选择</li>
+<li>7.3保留选择后的特征</li>
+<li>7.4创建评价指标列表，并将分类器加入到model列表中</li>
+<li>7.5训练模型</li>
+</ul>
+</li>
+<li>8.在简单模型上的集成<ul>
+<li>8.1simple voting</li>
+<li>8.2weight voting</li>
+<li>8.3weight voting2</li>
+</ul>
+</li>
+<li>9.基于深度学习的集成<ul>
+<li>9.1对训练数据和测试数据进行特征缩放</li>
+<li>9.2定义深度学习模型：ANN1，ANN2</li>
+<li>9.3进行模型训练</li>
+</ul>
+</li>
+<li>10.ROC AUC曲线<ul>
+<li>10.1定义模型</li>
+<li>10.2训练模型</li>
+<li>10.3定义roc auc函数</li>
+<li>10.4展示图像</li>
+</ul>
+</li>
+<li>11.precision-recall曲线<ul>
+<li>11.1定义函数</li>
+<li>11.2绘图</li>
+</ul>
+</li>
+<li>12.dowhy归因分析</li>
+<li>13.模型可解释性<ul>
+<li>13.1eli5展示特征重要性</li>
+<li>13.2pdp图(部分依赖图)</li>
+<li>13.3shap</li>
+</ul>
+</li>
 </ul>
 <h2 id="1-导入数据集"><a href="#1-导入数据集" class="headerlink" title="1.导入数据集"></a>1.导入数据集</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">observation_window1 = pd.read_csv(<span class="string">&#x27;new_data/features_201506.csv&#x27;</span>)</span><br><span class="line">observation_window2 = pd.read_csv(<span class="string">&#x27;new_data/features_201512.csv&#x27;</span>)</span><br><span class="line">outcome_window = pd.read_csv(<span class="string">&#x27;new_data/features_201606.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="2-将前两个数据集拼接在一起"><a href="#2-将前两个数据集拼接在一起" class="headerlink" title="2.将前两个数据集拼接在一起"></a>2.将前两个数据集拼接在一起</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将两个数据集拼接在一起</span></span><br><span class="line"><span class="comment">#参数axis表示拼接的方向，0表示垂直拼接，1表示水平拼接</span></span><br><span class="line"><span class="comment">#参数ignore_index表示忽略原来索引，使新的索引连续</span></span><br><span class="line">features = pd.concat([observation_window1, observation_window2], axis=<span class="number">0</span>, ignore_index=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
@@ -313,7 +369,7 @@
         
             <div class="article-nav-link-wrap article-nav-link-left">
                 
-                    <img data-src="https://bkimg.cdn.bcebos.com/smart/95eef01f3a292df50d8d31e5be315c6035a873f0-bkimg-process,v_1,rw_1,rh_1,pad_1,color_ffffff?x-bce-process=image/format,f_auto" data-sizes="auto" alt="2023.08.22"
+                    <img data-src="https://pbs.twimg.com/media/F4GCk_yXEAA_OR2?format=jpg&amp;name=small" data-sizes="auto" alt="2023.08.22"
                          class="lazyload">
                 
                 <a href="/2023/08/22/2023-08-22/"></a>
@@ -481,10 +537,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    96k
+                    96.4k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    06:04
+                    06:06
                 </div>
             
             

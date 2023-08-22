@@ -174,7 +174,7 @@
         
         <div class="post-cover-left">
             
-                <img data-src="https://bkimg.cdn.bcebos.com/smart/95eef01f3a292df50d8d31e5be315c6035a873f0-bkimg-process,v_1,rw_1,rh_1,pad_1,color_ffffff?x-bce-process=image/format,f_auto" data-sizes="auto" alt="2023.08.22" class="lazyload">
+                <img data-src="https://pbs.twimg.com/media/F4GCk_yXEAA_OR2?format=jpg&amp;name=small" data-sizes="auto" alt="2023.08.22" class="lazyload">
             
 
         </div>
@@ -223,10 +223,10 @@
             <div class="post-meta">
                 <a><span class="icon-calendar"></span>2023-08-21</a>
                 
-                    <a><span class="icon-pencil"></span>4.8k 字</a>
+                    <a><span class="icon-pencil"></span>5.2k 字</a>
                 
                 
-                    <a><span class="icon-clock"></span>25 分钟</a>
+                    <a><span class="icon-clock"></span>27 分钟</a>
                 
             </div>
             <h2 class="post-title">code:causal analysis churn</h2>
@@ -236,17 +236,29 @@
 
 流程：
 
-导入数据集 
-将前两个数据集拼接在一起
-特征工程：
-创建副本 删掉重复行
-找到分类列和数量列  
+1.导入数据集 
+2.将前两个数据集拼接在一起
+3.特征工程：
+3.1创建副本 删掉重复行
+3.2找到分类列和数量列 
+3.3删掉高相关性特征
+3.4预处理：对类别特征进行one-hot编码
 
 
-删掉高相关性特征  
-预处理对分类特征进行one-hot编码
+4.模型评估
+4.1对训练数据进行欠采样处理
+4.2评估指标
 
-1.导入数据集123observation_window1 = pd.read_csv(&amp;#x27;new_data/features_201506.csv&amp;#x27;)observation_window2 = pd.read_csv(&amp;#x27;new_data/features_201512.csv&amp;#x27;)outcome
+
+5.集成学习
+5.1建立集成学习分类器-hard
+5.2建立集成学习分类器-soft
+
+
+6.特征选择-随机森林变量的重要性
+6.1训练随机森林分类器
+6.2显示重要性最大的前180个
+6.3将重要性前100个存入列表，然后将训练数据只保
                 
             </article>
         </div>
@@ -713,10 +725,10 @@ PDP的工作流程是:
             
                 <div>
                     <span class="icon-brush"></span>
-                    96k
+                    96.4k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    06:04
+                    06:06
                 </div>
             
             
