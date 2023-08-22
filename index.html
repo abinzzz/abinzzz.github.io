@@ -174,7 +174,7 @@
         
         <div class="post-cover-left">
             
-                <img data-src="https://bkimg.cdn.bcebos.com/pic/95eef01f3a292df50d8d31e5be315c6035a873f0?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg" data-sizes="auto" alt="2023.08.22" class="lazyload">
+                <img data-src="https://bkimg.cdn.bcebos.com/smart/95eef01f3a292df50d8d31e5be315c6035a873f0-bkimg-process,v_1,rw_1,rh_1,pad_1,color_ffffff?x-bce-process=image/format,f_auto" data-sizes="auto" alt="2023.08.22" class="lazyload">
             
 
         </div>
@@ -237,12 +237,16 @@
 流程：
 
 导入数据集 
-删掉重复行 
-找到分类特征列和数量特征列  
+将前两个数据集拼接在一起
+特征工程：
+创建副本 删掉重复行
+找到分类列和数量列  
+
+
 删掉高相关性特征  
 预处理对分类特征进行one-hot编码
 
-1.导入数据集123observation_window1 = pd.read_csv(&amp;#x27;new_data/features_201506.csv&amp;#x27;)observation_window2 = pd.read_csv(&amp;#x27;new_data/features_201512.csv&amp;#x27;)outcome_window = pd.read_csv
+1.导入数据集123observation_window1 = pd.read_csv(&amp;#x27;new_data/features_201506.csv&amp;#x27;)observation_window2 = pd.read_csv(&amp;#x27;new_data/features_201512.csv&amp;#x27;)outcome
                 
             </article>
         </div>
