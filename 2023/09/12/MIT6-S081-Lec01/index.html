@@ -30,13 +30,15 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="MIT6.S081这门课程的标题是Operating System Engineering，主要讲的就是操作系统。授课教授是Robert Morris和Frans Kaashoek，两位都是非常出名的程序员。   课程是基于一个类似于Unix但是简单的多的教学操作系统XV6来讲解，虽然不是原汁原味的Linux，但是对于理解Linux的工作方式和结构是足够了。 笔记链接🔗：https:&#x2F;&#x2F;mit-">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://906337931-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHZoT2b_bcLghjAOPsJ%2F-MH_0vtckm44OL-Ry80u%2F-MHfa6qidpjQGh_XpuRm%2Fimage.png?alt=media&amp;token=13f0cc46-16b5-4e7e-bfc6-498ff3c6449a">
 <meta property="article:published_time" content="2023-09-11T23:58:03.000Z">
-<meta property="article:modified_time" content="2023-09-12T03:40:06.556Z">
+<meta property="article:modified_time" content="2023-09-12T07:40:51.125Z">
 <meta property="article:author" content="晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="MIT6.S081">
 <meta property="article:tag" content="Lec01">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://906337931-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHZoT2b_bcLghjAOPsJ%2F-MH_0vtckm44OL-Ry80u%2F-MHfa6qidpjQGh_XpuRm%2Fimage.png?alt=media&amp;token=13f0cc46-16b5-4e7e-bfc6-498ff3c6449a">
     
         <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
     
@@ -210,6 +212,75 @@
 <li>同一个操作系统需要能够支持大量不同的用户场景:对于大部分操作系统，必须要支持大量不同类型的应用程序，或许这是一个笔记本，正在运行文本编辑器，正在运行游戏，或许你的操作系统需要支持数据库服务器和云计算。通常来说，设计并构造一个操作系统代价是非常大的，所以人们总是希望在相同的操作系统上，例如Linux，运行大量的任务。我认为大部分人都已经跑过Linux，并使用了我刚刚描述的所有的场景。</li>
 </ul>
 <h2 id="1-2操作系统结构"><a href="#1-2操作系统结构" class="headerlink" title="1.2操作系统结构"></a>1.2操作系统结构</h2><p>过去几十年，人们将一些分层的设计思想加入到操作系统中，并运行的很好。</p>
+<p>这里实际上就是操作系统内部组成，当我想到这里的组织结构时，我首先会想到用一个矩形表示一个计算机，这个计算机有一些硬件资源，我会将它放在矩形的下面，硬件资源包括了CPU，内存，磁盘，网卡。所以硬件资源在最低一层。</p>
+<p><br></p>
+<p><img src="https://906337931-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHZoT2b_bcLghjAOPsJ%2F-MH_0vtckm44OL-Ry80u%2F-MHfa6qidpjQGh_XpuRm%2Fimage.png?alt=media&amp;token=13f0cc46-16b5-4e7e-bfc6-498ff3c6449a" alt=""></p>
+<p><strong>space的分类</strong>:</p>
+<ul>
+<li><strong>(架构的最上层)</strong> user space:运行各种各样的程序，例如：文本编辑器(VI),C编译器(CC),Shell</li>
+<li>kernel space:<ul>
+<li>计算机资源的守护者</li>
+<li>first &amp; only &amp; always</li>
+<li>维护每一个用户的空间进程和大量的数据结构</li>
+<li>内置的服务，例如文件系统：实现文件名，文件内容和目录，将文件存储在磁盘中，user space的程序和kernel space中的文件系统进行交互，文件系统再与磁盘交互</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<p><strong>这门课的关注点</strong>：</p>
+<ul>
+<li>kernel</li>
+<li>连接kernel与use space program的接口</li>
+<li>kernel内软件的架构</li>
+</ul>
+<p><br></p>
+<p><strong>kernel中的服务</strong>：</p>
+<ul>
+<li><p>文件系统：管理文件内容并找出文件具体在磁盘中的哪个位置。维护了一个独立的命名空间，其中每个文件都有文件名，并且命名空间中有一个层级的目录，每个目录包含了一些文件。所有这些都被文件系统所管理。</p>
+</li>
+<li><p>进程管理系统：每一个用户空间程序都被称为一个进程，它们有自己的内存和共享的CPU时间。同时，Kernel会管理内存的分配。不同的进程需要不同数量的内存，Kernel会复用内存、划分内存，并为所有的进程分配内存。</p>
+</li>
+<li>(security)Access Control:当一个进程想要使用某些资源时，比如读取磁盘中的数据，使用某些内存，Kernel中的Access Control机制会决定是否允许这样的操作。   </li>
+</ul>
+<p>在一个真实的完备的操作系统中，会有很多很多其他的服务，比如在不同进程之间通信的进程间通信服务，比如一大票与网络关联的软件（TCP/IP协议栈），比如支持声卡的软件，比如支持数百种不同磁盘，不同网卡的驱动。所以在一个完备的系统中，Kernel会包含大量的内容，数百万行代码。</p>
+<p><br></p>
+<p>program如何与kernel交互：system call<br>program和kernel之间的接口：API</p>
+<h2 id="instance"><a href="#instance" class="headerlink" title="instance"></a>instance</h2><p>如果program想要打开一个文件，他会调用名为open的system call，并且把文件名作为参数传给open。假设现在要打开一个名为out的文件，同时还希望写入参数，那么还有个而外的参数，在这里这个参数的值为1，表明我想要写文件。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fd=<span class="built_in">open</span>(<span class="string">&quot;out&quot;</span>,<span class="number">1</span>)</span><br><span class="line"><span class="comment">//arg1:文件名</span></span><br><span class="line"><span class="comment">//arg2:是否要写文件</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><br>这里看起来像是个函数调用，但是open是一个system call，它会跳到Kernel，Kernel可以获取到open的参数，执行一些实现了open的Kernel代码，或许会与磁盘有一些交互，最后返回一个文件描述符对象。上图中的fd全称就是file descriptor。之后，应用程序可以使用这个文件描述符作为handle，来表示相应打开的文件。</p>
+<p>如果你想要向文件写入数据，相应的系统调用是write。你需要向write传递一个由open返回的文件描述符作为参数。你还需要向write传递一个指向要写入数据的指针（数据通常是char型序列），在C语言中，可以简单传递一个双引号表示的字符串（下图中的\n表示是换行）。第三个参数是你想要写入字符的数量。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fd=<span class="built_in">open</span>(<span class="string">&quot;out&quot;</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">write</span>(fd,<span class="string">&quot;hello\n&quot;</span>,<span class="number">6</span>)</span><br><span class="line"><span class="comment">//arg1:open函数的返回值</span></span><br><span class="line"><span class="comment">//arg2:写入数据的指针</span></span><br><span class="line"><span class="comment">//arg3:写入字符的数量</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>更有意思的系统调用是fork。fork是一个这样的系统调用，它创建了一个与调用进程一模一样的新的进程，并返回新进程的process ID/pid。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fd=<span class="built_in">open</span>(<span class="string">&quot;out&quot;</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">write</span>(fd,<span class="string">&quot;hello\n&quot;</span>,<span class="number">6</span>)</span><br><span class="line">pid=fork()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这些系统调用看起来就跟普通的函数调用一样。系统调用不同的地方是，它最终会跳到系统内核中。</p>
+<h2 id="1-3-hard-and-insteresting"><a href="#1-3-hard-and-insteresting" class="headerlink" title="1.3 hard and insteresting"></a>1.3 hard and insteresting</h2><p>hard：</p>
+<ul>
+<li>内核编程困难：你在编写、修改，扩展内核，或者写一个新的操作系统内核时，你实际上在提供一个基础设施让别人来运行他们的程序。当程序员在写普通的应用程序时，应用程序下面都是操作系统。而当我们在构建操作系统时，在操作系统下面就是硬件了，这些硬件通常会更难处理。</li>
+<li>满足一些列矛盾的需求：efficient-abstract,powerful-simple api,flexible-secore</li>
+</ul>
+<p>interesting:</p>
+<ul>
+<li>操作系统提供了大量的特性和大量的服务，但是它们趋向于相互交互。有时，这种交互以奇怪的方式进行，并且需要你大量的思考。</li>
+<li>操作系统需要能够满足广泛的使用场景。相同的操作系统需要既给数据库服务器使用，又给智能手机使用。</li>
+</ul>
+<h2 id="question"><a href="#question" class="headerlink" title="question"></a>question</h2><p><strong>学生提问：系统调用跳到内核与标准的函数调用跳到另一个函数相比，区别是什么？</strong>  </p>
+<p>Robert教授：Kernel的代码总是有特殊的权限。当机器启动Kernel时，Kernel会有特殊的权限能直接访问各种各样的硬件，例如磁盘。而普通的用户程序是没有办法直接访问这些硬件的。所以，当你执行一个普通的函数调用时，你所调用的函数并没有对于硬件的特殊权限。然而，如果你触发系统调用到内核中，内核中的具体实现会具有这些特殊的权限，这样就能修改敏感的和被保护的硬件资源，比如访问硬件磁盘。我们之后会介绍更多有关的细节。</p>
+<p><br></p>
+<p><strong>学生提问：对于应用程序开发人员来说，他们会基于一些操作系统做开发，真正的深入理解这些操作系统有多重要？他们需要成为操作系统的专家吗？</strong></p>
+<p>Robert教授：你不必成为一个专家。但是如果你花费大量时间来开发，维护并调试应用程序，你最终还是会知道大量操作系统的知识。不论你是否是有意要掌握这些知识，它们就是出现了，而你不得不去理解它们。</p>
+<p><br></p>
+<p><strong>学生提问：对于一些例如Python的高阶编程语言（高阶是指离自然语言更接近，低阶是指离机器语言更接近如C，汇编），它们是直接执行系统调用呢，还是内部对系统调用进行了封装呢？</strong></p>
+<p>Robert教授：许多高阶的编程语言都离系统调用较远，这是一个事实。部分原因是很多编程语言想要提供可以在多个操作系统上运行的可移植的环境，所以它们不能依赖特定的系统调用。所以，对于这个问题的答案我认为是，如果你使用了Python，你在某种程度上就与系统调用接口隔离了。当然，在Python内部，最终还是要执行系统调用来完成相应的工作。当然，Python和许多其他的编程语言通常都有方法能直接访问系统调用</p>
+<h2 id="1-4-课程结构和资源"><a href="#1-4-课程结构和资源" class="headerlink" title="1.4 课程结构和资源"></a>1.4 课程结构和资源</h2><p>资源：</p>
+<ul>
+<li>6.s081</li>
+<li>pizza</li>
+</ul>
+<p>授课：</p>
+<ul>
+<li>os基本概念</li>
+<li>xv6代码</li>
+<li>lab</li>
+<li>paper</li>
+</ul>
 
             
         </div>
@@ -399,10 +470,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    137.6k
+                    139.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    08:39
+                    08:45
                 </div>
             
             
