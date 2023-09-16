@@ -23,16 +23,16 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MIT6.S081这门课程的标题是Operating System Engineering，主要讲的就是操作系统。授课教授是Robert Morris和Frans Kaashoek，两位都是非常出名的程序员。   课程是基于一个类似于Unix但是简单的多的教学操作系统XV6来讲解，虽然不是原汁原味的Linux，但是对于理解Linux的工作方式和结构是足够了。 笔记链接🔗：https:&#x2F;&#x2F;mit-">
+    <meta name="description" content="MIT6.S081这门课程的标题是Operating System Engineering，主要讲的就是操作系统。授课教授是Robert Morris和Frans Kaashoek，两位都是非常出名的程序员。 课程是基于一个类似于Unix但是简单的多的教学操作系统XV6来讲解，虽然不是原汁原味的Linux，但是对于理解Linux的工作方式和结构是足够了。 课程网站🔗：https:&#x2F;&#x2F;pdos.c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MIT6.S081-Lec01">
 <meta property="og:url" content="https://abinzzz.github.io/2023/09/12/MIT6-S081-Lec01/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MIT6.S081这门课程的标题是Operating System Engineering，主要讲的就是操作系统。授课教授是Robert Morris和Frans Kaashoek，两位都是非常出名的程序员。   课程是基于一个类似于Unix但是简单的多的教学操作系统XV6来讲解，虽然不是原汁原味的Linux，但是对于理解Linux的工作方式和结构是足够了。 笔记链接🔗：https:&#x2F;&#x2F;mit-">
+<meta property="og:description" content="MIT6.S081这门课程的标题是Operating System Engineering，主要讲的就是操作系统。授课教授是Robert Morris和Frans Kaashoek，两位都是非常出名的程序员。 课程是基于一个类似于Unix但是简单的多的教学操作系统XV6来讲解，虽然不是原汁原味的Linux，但是对于理解Linux的工作方式和结构是足够了。 课程网站🔗：https:&#x2F;&#x2F;pdos.c">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://906337931-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHZoT2b_bcLghjAOPsJ%2F-MH_0vtckm44OL-Ry80u%2F-MHfa6qidpjQGh_XpuRm%2Fimage.png?alt=media&amp;token=13f0cc46-16b5-4e7e-bfc6-498ff3c6449a">
 <meta property="article:published_time" content="2023-09-11T23:58:03.000Z">
-<meta property="article:modified_time" content="2023-09-12T07:40:51.125Z">
+<meta property="article:modified_time" content="2023-09-16T02:00:52.013Z">
 <meta property="article:author" content="晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="MIT6.S081">
@@ -197,32 +197,38 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <p>MIT6.S081这门课程的标题是Operating System Engineering，主要讲的就是操作系统。授课教授是Robert Morris和Frans Kaashoek，两位都是非常出名的程序员。  </p>
+                <p>MIT6.S081这门课程的标题是Operating System Engineering，主要讲的就是操作系统。授课教授是Robert Morris和Frans Kaashoek，两位都是非常出名的程序员。</p>
 <p>课程是基于一个类似于Unix但是简单的多的教学操作系统XV6来讲解，虽然不是原汁原味的Linux，但是对于理解Linux的工作方式和结构是足够了。</p>
-<p>笔记链接🔗：<a target="_blank" rel="noopener" href="https://mit-public-courses-cn-translatio.gitbook.io/mit6-s081/">https://mit-public-courses-cn-translatio.gitbook.io/mit6-s081/</a></p>
-<h2 id="1-1-课程内容简介"><a href="#1-1-课程内容简介" class="headerlink" title="1.1 课程内容简介"></a>1.1 课程内容简介</h2><p>课程目标：  </p>
+<p>课程网站🔗：<a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2021/schedule.html">https://pdos.csail.mit.edu/6.828/2021/schedule.html</a></p>
+<p>课程所用教材🔗：<a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2021/xv6/book-riscv-rev2.pdf">https://pdos.csail.mit.edu/6.828/2021/xv6/book-riscv-rev2.pdf</a></p>
+<p>课程翻译文档🔗：<a target="_blank" rel="noopener" href="https://mit-public-courses-cn-translatio.gitbook.io/mit6-s081/">https://mit-public-courses-cn-translatio.gitbook.io/mit6-s081/</a></p>
+<p>这门课用到的所有资源和作业实现汇总🔗：<a target="_blank" rel="noopener" href="https://github.com/PKUFlyingPig/MIT6.S081-2020fall">https://github.com/PKUFlyingPig/MIT6.S081-2020fall</a></p>
+<h2 id="11-课程内容简介"><a class="markdownIt-Anchor" href="#11-课程内容简介"></a> 1.1 课程内容简介</h2>
+<p>课程目标：</p>
 <ul>
-<li>理解操作系统的设计和实现。设计是指整体的结构，实现是指具体的代码是什么样  </li>
-<li>通过xv6的操作系统进行实际动手操作，并结合课程配套的实验，你可以获得扩展操作系统，修改并提升操作系统的相关经验，并且能够通过操作系统借口，编写系统软件。  </li>
+<li>理解操作系统的设计和实现。设计是指整体的结构，实现是指具体的代码是什么样</li>
+<li>通过xv6的操作系统进行实际动手操作，并结合课程配套的实验，你可以获得扩展操作系统，修改并提升操作系统的相关经验，并且能够通过操作系统借口，编写系统软件。</li>
 </ul>
-<p>操作系统的目的：  </p>
+<p>操作系统的目的：</p>
 <ul>
-<li>抽象硬件：通常来说，你会买一个计算机，里面包含了CPU，memory，但这是非常低层级的资源。幸好我们有一些应用程序实现了高层级的接口和抽象，例如进程和文件系统。这些高层级的接口和抽象方便了应用开发也提供了更好的移植性。   </li>
-<li><strong>(multiplex)</strong> 在多个应用程序之间共用硬件资源：你可以在一个操作系统同时运行文本编辑器，程序编译器，多个数据库等等。  </li>
+<li>抽象硬件：通常来说，你会买一个计算机，里面包含了CPU，memory，但这是非常低层级的资源。幸好我们有一些应用程序实现了高层级的接口和抽象，例如进程和文件系统。这些高层级的接口和抽象方便了应用开发也提供了更好的移植性。</li>
+<li><strong>(multiplex)</strong> 在多个应用程序之间共用硬件资源：你可以在一个操作系统同时运行文本编辑器，程序编译器，多个数据库等等。</li>
 <li><strong>(isolation)</strong> 因为在操作系统中可能同时运行很多程序，即使程序出现了故障，多个程序之间互不干扰就变得非常重要。</li>
 <li><strong>(sharing)</strong> 不同的活动之间有时又想要相互影响，比如说数据交互，协同完成任务等。举个例子，我通过文本编辑器创建了一个文件，并且我希望我的编译器能读取文件，我绝对想要数据能共享。</li>
 <li><strong>(Security/Permission System/Access Control System)</strong> 在很多场景下，用户并不想要共享，比如你登录到了一个公共的计算机，例如Athena，你不会想要其他人来读取你的文件。所以在共享的同时，我们也希望在没有必要的时候不共享。</li>
 <li><strong>(Perform)</strong> 操作系统需要至少不阻止应用程序获得高性能，甚至需要帮助应用程序获得高性能:如果你在硬件上花费了大量的金钱，你会期望你的应用程序拥有硬件应该提供的完整性能，但是很多时候你只负责应用程序编程，你会期望操作系统也必须保证自身提供的服务不会阻止应用程序获得高性能。</li>
 <li>同一个操作系统需要能够支持大量不同的用户场景:对于大部分操作系统，必须要支持大量不同类型的应用程序，或许这是一个笔记本，正在运行文本编辑器，正在运行游戏，或许你的操作系统需要支持数据库服务器和云计算。通常来说，设计并构造一个操作系统代价是非常大的，所以人们总是希望在相同的操作系统上，例如Linux，运行大量的任务。我认为大部分人都已经跑过Linux，并使用了我刚刚描述的所有的场景。</li>
 </ul>
-<h2 id="1-2操作系统结构"><a href="#1-2操作系统结构" class="headerlink" title="1.2操作系统结构"></a>1.2操作系统结构</h2><p>过去几十年，人们将一些分层的设计思想加入到操作系统中，并运行的很好。</p>
+<h2 id="12操作系统结构"><a class="markdownIt-Anchor" href="#12操作系统结构"></a> 1.2操作系统结构</h2>
+<p>过去几十年，人们将一些分层的设计思想加入到操作系统中，并运行的很好。</p>
 <p>这里实际上就是操作系统内部组成，当我想到这里的组织结构时，我首先会想到用一个矩形表示一个计算机，这个计算机有一些硬件资源，我会将它放在矩形的下面，硬件资源包括了CPU，内存，磁盘，网卡。所以硬件资源在最低一层。</p>
-<p><br></p>
-<p><img src="https://906337931-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHZoT2b_bcLghjAOPsJ%2F-MH_0vtckm44OL-Ry80u%2F-MHfa6qidpjQGh_XpuRm%2Fimage.png?alt=media&amp;token=13f0cc46-16b5-4e7e-bfc6-498ff3c6449a" alt=""></p>
+<br>
+<p><img src="https://906337931-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHZoT2b_bcLghjAOPsJ%2F-MH_0vtckm44OL-Ry80u%2F-MHfa6qidpjQGh_XpuRm%2Fimage.png?alt=media&amp;token=13f0cc46-16b5-4e7e-bfc6-498ff3c6449a" alt="" /></p>
 <p><strong>space的分类</strong>:</p>
 <ul>
 <li><strong>(架构的最上层)</strong> user space:运行各种各样的程序，例如：文本编辑器(VI),C编译器(CC),Shell</li>
-<li>kernel space:<ul>
+<li>kernel space:
+<ul>
 <li>计算机资源的守护者</li>
 <li>first &amp; only &amp; always</li>
 <li>维护每一个用户的空间进程和大量的数据结构</li>
@@ -230,32 +236,41 @@
 </ul>
 </li>
 </ul>
-<p><br></p>
+<br>
 <p><strong>这门课的关注点</strong>：</p>
 <ul>
 <li>kernel</li>
 <li>连接kernel与use space program的接口</li>
 <li>kernel内软件的架构</li>
 </ul>
-<p><br></p>
+<br>
 <p><strong>kernel中的服务</strong>：</p>
 <ul>
-<li><p>文件系统：管理文件内容并找出文件具体在磁盘中的哪个位置。维护了一个独立的命名空间，其中每个文件都有文件名，并且命名空间中有一个层级的目录，每个目录包含了一些文件。所有这些都被文件系统所管理。</p>
+<li>
+<p>文件系统：管理文件内容并找出文件具体在磁盘中的哪个位置。维护了一个独立的命名空间，其中每个文件都有文件名，并且命名空间中有一个层级的目录，每个目录包含了一些文件。所有这些都被文件系统所管理。</p>
 </li>
-<li><p>进程管理系统：每一个用户空间程序都被称为一个进程，它们有自己的内存和共享的CPU时间。同时，Kernel会管理内存的分配。不同的进程需要不同数量的内存，Kernel会复用内存、划分内存，并为所有的进程分配内存。</p>
+<li>
+<p>进程管理系统：每一个用户空间程序都被称为一个进程，它们有自己的内存和共享的CPU时间。同时，Kernel会管理内存的分配。不同的进程需要不同数量的内存，Kernel会复用内存、划分内存，并为所有的进程分配内存。</p>
 </li>
-<li>(security)Access Control:当一个进程想要使用某些资源时，比如读取磁盘中的数据，使用某些内存，Kernel中的Access Control机制会决定是否允许这样的操作。   </li>
+<li>
+<p>(security)Access Control:当一个进程想要使用某些资源时，比如读取磁盘中的数据，使用某些内存，Kernel中的Access Control机制会决定是否允许这样的操作。</p>
+</li>
 </ul>
 <p>在一个真实的完备的操作系统中，会有很多很多其他的服务，比如在不同进程之间通信的进程间通信服务，比如一大票与网络关联的软件（TCP/IP协议栈），比如支持声卡的软件，比如支持数百种不同磁盘，不同网卡的驱动。所以在一个完备的系统中，Kernel会包含大量的内容，数百万行代码。</p>
-<p><br></p>
-<p>program如何与kernel交互：system call<br>program和kernel之间的接口：API</p>
-<h2 id="instance"><a href="#instance" class="headerlink" title="instance"></a>instance</h2><p>如果program想要打开一个文件，他会调用名为open的system call，并且把文件名作为参数传给open。假设现在要打开一个名为out的文件，同时还希望写入参数，那么还有个而外的参数，在这里这个参数的值为1，表明我想要写文件。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fd=<span class="built_in">open</span>(<span class="string">&quot;out&quot;</span>,<span class="number">1</span>)</span><br><span class="line"><span class="comment">//arg1:文件名</span></span><br><span class="line"><span class="comment">//arg2:是否要写文件</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><br>这里看起来像是个函数调用，但是open是一个system call，它会跳到Kernel，Kernel可以获取到open的参数，执行一些实现了open的Kernel代码，或许会与磁盘有一些交互，最后返回一个文件描述符对象。上图中的fd全称就是file descriptor。之后，应用程序可以使用这个文件描述符作为handle，来表示相应打开的文件。</p>
+<br>
+<p>program如何与kernel交互：system call<br />
+program和kernel之间的接口：API</p>
+<h2 id="instance"><a class="markdownIt-Anchor" href="#instance"></a> instance</h2>
+<p>如果program想要打开一个文件，他会调用名为open的system call，并且把文件名作为参数传给open。假设现在要打开一个名为out的文件，同时还希望写入参数，那么还有个而外的参数，在这里这个参数的值为1，表明我想要写文件。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fd=<span class="built_in">open</span>(<span class="string">&quot;out&quot;</span>,<span class="number">1</span>)</span><br><span class="line"><span class="comment">//arg1:文件名</span></span><br><span class="line"><span class="comment">//arg2:是否要写文件</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这里看起来像是个函数调用，但是open是一个system call，它会跳到Kernel，Kernel可以获取到open的参数，执行一些实现了open的Kernel代码，或许会与磁盘有一些交互，最后返回一个文件描述符对象。上图中的fd全称就是file descriptor。之后，应用程序可以使用这个文件描述符作为handle，来表示相应打开的文件。</p>
 <p>如果你想要向文件写入数据，相应的系统调用是write。你需要向write传递一个由open返回的文件描述符作为参数。你还需要向write传递一个指向要写入数据的指针（数据通常是char型序列），在C语言中，可以简单传递一个双引号表示的字符串（下图中的\n表示是换行）。第三个参数是你想要写入字符的数量。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fd=<span class="built_in">open</span>(<span class="string">&quot;out&quot;</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">write</span>(fd,<span class="string">&quot;hello\n&quot;</span>,<span class="number">6</span>)</span><br><span class="line"><span class="comment">//arg1:open函数的返回值</span></span><br><span class="line"><span class="comment">//arg2:写入数据的指针</span></span><br><span class="line"><span class="comment">//arg3:写入字符的数量</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>更有意思的系统调用是fork。fork是一个这样的系统调用，它创建了一个与调用进程一模一样的新的进程，并返回新进程的process ID/pid。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fd=<span class="built_in">open</span>(<span class="string">&quot;out&quot;</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">write</span>(fd,<span class="string">&quot;hello\n&quot;</span>,<span class="number">6</span>)</span><br><span class="line">pid=fork()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>这些系统调用看起来就跟普通的函数调用一样。系统调用不同的地方是，它最终会跳到系统内核中。</p>
-<h2 id="1-3-hard-and-insteresting"><a href="#1-3-hard-and-insteresting" class="headerlink" title="1.3 hard and insteresting"></a>1.3 hard and insteresting</h2><p>hard：</p>
+<h2 id="13-hard-and-insteresting"><a class="markdownIt-Anchor" href="#13-hard-and-insteresting"></a> 1.3 hard and insteresting</h2>
+<p>hard：</p>
 <ul>
 <li>内核编程困难：你在编写、修改，扩展内核，或者写一个新的操作系统内核时，你实际上在提供一个基础设施让别人来运行他们的程序。当程序员在写普通的应用程序时，应用程序下面都是操作系统。而当我们在构建操作系统时，在操作系统下面就是硬件了，这些硬件通常会更难处理。</li>
 <li>满足一些列矛盾的需求：efficient-abstract,powerful-simple api,flexible-secore</li>
@@ -265,15 +280,17 @@
 <li>操作系统提供了大量的特性和大量的服务，但是它们趋向于相互交互。有时，这种交互以奇怪的方式进行，并且需要你大量的思考。</li>
 <li>操作系统需要能够满足广泛的使用场景。相同的操作系统需要既给数据库服务器使用，又给智能手机使用。</li>
 </ul>
-<h2 id="question"><a href="#question" class="headerlink" title="question"></a>question</h2><p><strong>学生提问：系统调用跳到内核与标准的函数调用跳到另一个函数相比，区别是什么？</strong>  </p>
+<h2 id="question"><a class="markdownIt-Anchor" href="#question"></a> question</h2>
+<p><strong>学生提问：系统调用跳到内核与标准的函数调用跳到另一个函数相比，区别是什么？</strong></p>
 <p>Robert教授：Kernel的代码总是有特殊的权限。当机器启动Kernel时，Kernel会有特殊的权限能直接访问各种各样的硬件，例如磁盘。而普通的用户程序是没有办法直接访问这些硬件的。所以，当你执行一个普通的函数调用时，你所调用的函数并没有对于硬件的特殊权限。然而，如果你触发系统调用到内核中，内核中的具体实现会具有这些特殊的权限，这样就能修改敏感的和被保护的硬件资源，比如访问硬件磁盘。我们之后会介绍更多有关的细节。</p>
-<p><br></p>
+<br>
 <p><strong>学生提问：对于应用程序开发人员来说，他们会基于一些操作系统做开发，真正的深入理解这些操作系统有多重要？他们需要成为操作系统的专家吗？</strong></p>
 <p>Robert教授：你不必成为一个专家。但是如果你花费大量时间来开发，维护并调试应用程序，你最终还是会知道大量操作系统的知识。不论你是否是有意要掌握这些知识，它们就是出现了，而你不得不去理解它们。</p>
-<p><br></p>
+<br>
 <p><strong>学生提问：对于一些例如Python的高阶编程语言（高阶是指离自然语言更接近，低阶是指离机器语言更接近如C，汇编），它们是直接执行系统调用呢，还是内部对系统调用进行了封装呢？</strong></p>
 <p>Robert教授：许多高阶的编程语言都离系统调用较远，这是一个事实。部分原因是很多编程语言想要提供可以在多个操作系统上运行的可移植的环境，所以它们不能依赖特定的系统调用。所以，对于这个问题的答案我认为是，如果你使用了Python，你在某种程度上就与系统调用接口隔离了。当然，在Python内部，最终还是要执行系统调用来完成相应的工作。当然，Python和许多其他的编程语言通常都有方法能直接访问系统调用</p>
-<h2 id="1-4-课程结构和资源"><a href="#1-4-课程结构和资源" class="headerlink" title="1.4 课程结构和资源"></a>1.4 课程结构和资源</h2><p>资源：</p>
+<h2 id="14-课程结构和资源"><a class="markdownIt-Anchor" href="#14-课程结构和资源"></a> 1.4 课程结构和资源</h2>
+<p>资源：</p>
 <ul>
 <li>6.s081</li>
 <li>pizza</li>
@@ -285,6 +302,30 @@
 <li>lab</li>
 <li>paper</li>
 </ul>
+<h2 id="15-readwriteexit-system-call"><a class="markdownIt-Anchor" href="#15-readwriteexit-system-call"></a> 1.5 read,write,exit-system call</h2>
+<h2 id="q1什么是虚拟机"><a class="markdownIt-Anchor" href="#q1什么是虚拟机"></a> q1.什么是虚拟机</h2>
+<p>虚拟机（Virtual Machine）指通过软件模拟的具有完整硬件系统功能的、运行在一个完全隔离环境中的完整计算机系统。</p>
+<p>虚拟机，顾名思义就是虚拟出来的电脑，这个虚拟出来的电脑和真实的电脑几乎完全一样，所不同的是他的硬盘是在一个文件中虚拟出来的，所以你可以随意修改虚拟机的设置，而不用担心对自己的电脑造成损失，因此可以用来做试验什么的，呵呵，差不多就是这样了，不知道我说的能明白不<sup>_</sup>，简单说就是一句话，虚拟出来的电脑，你干什么都行。</p>
+<p>虚拟机是指运行在Windows或Linux计算机上的一个应用程序，这个应用程序“模拟”了一个基于x86的标准PC的环境。这个环境和普通的计算机一样，都有芯片组、CPU、内存、显卡、声卡、网卡、软驱、硬盘、光驱、串口、并口、USB控制器、SCSI控制器等设备，提供这个应用程序的“窗口”就是虚拟机的显示器。在一台电脑上将硬盘和内存的一部分拿出来虚拟出若干台机器，每台机器可以运行单独的操作系统而互不干扰，这些“新”机器各自拥有自己独立的CMOS、硬盘和操作系统，你可以像使用普通机器一样对它们进行分区、格式化、安装系统和应用软件等操作，还可以将这几个操作系统联成一个网络。在虚拟系统崩溃之后可直接删除不影响本机系统，同样本机系统崩溃后也不影响虚拟系统，可以下次重装后再加入以前做的虚拟系统。同时它也是唯一的能在 Windows和Linux主机平台上运行的虚拟计算机软件。虚拟机软件不需要重开机，就能在同一台电脑使用好几个OS，不但方便，而且安全。虚拟机在学习技术方面能够发挥很大的作用。</p>
+<h2 id="q2什么是linux类-unix-操作系统"><a class="markdownIt-Anchor" href="#q2什么是linux类-unix-操作系统"></a> q2.什么是linux(“类 Unix ”操作系统)</h2>
+<p>Linux是一套免费使用和自由传播的类Unix操作系统，是一个多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的UNIX工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。</p>
+<p>说的简单点，它就是一个操作系统</p>
+<h2 id="q3linux和unix的区别和关系"><a class="markdownIt-Anchor" href="#q3linux和unix的区别和关系"></a> q3.linux和unix的区别和关系</h2>
+<p><strong>Unix的起源：</strong> Unix 的历史始于 20 世纪 60 年代后期的 AT&amp;T 贝尔实验室，有一小组程序员希望为 PDP-7 编写一个多任务、多用户操作系统。这个贝尔实验室研究机构的团队中最著名的两名成员是 Ken Thompson 和 Dennis Ritchie。尽管 Unix 的许多概念都是其前身(Multics)的衍生物，但 Unix 团队早在 70 年代就决定用 C 语言重写这个小型操作系统，这是将 Unix 与其他操作系统区分开来的原因。当时，操作系统很少，更不要说可移植的操作系统。相反，由于它们的设计和底层语言的本质，操作系统与他们所编写的硬件平台紧密相关。而通过 C 语言重构 Unix、Unix 现在可以移植到许多硬件体系结构中。</p>
+<p><strong>Linux的兴起：</strong>  今天我们所说的 Linux 操作系统实际上是 90 年代初期的两个努力的结合。Richard Stallman 希望创建一个真正的自由而开放源代码的专有 Unix 系统的替代品。他正在以 GNU 的名义开发实用程序和程序，这是一种递归的说法，意思是“GNU‘s not Unix!”。虽然当时有一个内核项目正在进行，但事实证明这是一件很困难的事情，而且没有内核，自由和开源操作系统的梦想无法实现。而这是 Linus Torvald 的工作 – 生产出一种可工作和可行的内核，他称之为 Linux – 它将整个操作系统带入了生活。鉴于 Linus 使用了几个 GNU 工具(例如 GNU 编译器集合，即 GCC)，GNU 工具和 Linux 内核的结合是完美的搭配。</p>
+<p>Linux 发行版采用了 GNU 的组件、Linux 内核、MIT 的 X-Windows GUI 以及可以在开源 BSD 许可下使用的其它 BSD 组件。像 Slackware 和 Red Hat 这样的发行版早期的流行给了 20 世纪 90 年代的“普通 PC 用户”一个进入 Linux 操作系统的机会，并且让他们在工作和学术生活中可以使用许多 Unix 系统特有的功能和实用程序。</p>
+<p>由于所有 Linux 组件都是自由和开放的源代码，任何人都可以通过一些努力来创建一个 Linux 发行版，所以不久后发行版的总数达到了数百个。</p>
+<p><strong>比较unix和linux：</strong> 到目前为止，我们已经了解了 Unix 的历史以及 Linux 的兴起，以及 GNU/自由软件基金会对 Unix 的自由和开源替代品的支持。让我们来看看这两个操作系统之间的差异，它们有许多共同的传统和许多相同的目标。</p>
+<p>从用户体验角度来看，两者差不多!Linux 的很大吸引力在于操作系统在许多硬件体系结构(包括现代 PC)上的可用性以及类似使用 Unix 系统管理员和用户熟悉的工具的能力。</p>
+<p>由于 POSIX 的标准和合规性，在 Unix 上编写的软件可以针对 Linux 操作系统进行编译，通常只有少量的移植工作量。在很多情况下，Shell 脚本可以在 Linux 上直接使用。虽然一些工具在 Unix 和 Linux 之间有着略微不同的标志或命令行选项，但许多工具在两者上都是相同的。</p>
+<p>一方面要注意的是，macOS 硬件和操作系统作为主要针对 Linux 的开发平台的流行可能归因于类 BSD 的 macOS 操作系统。许多用于 Linux 系统的工具和脚本可以在 macOS 终端内轻松工作。Linux 上的许多开源软件组件都可以通过 Homebrew 等工具轻松获得。</p>
+<p>Linux 和 Unix 之间的其他差异主要与许可模式有关:开源与专有许可软件。另外，在 Unix 发行版中缺少一个影响软件和硬件供应商的通用内核。对于 Linux，供应商可以为特定的硬件设备创建设备驱动程序，并期望在合理的范围内它可以在大多数发行版上运行。由于 Unix 家族的商业和学术分支，供应商可能必须为 Unix 的变体编写不同的驱动程序，并且需要许可和其他相关的权限才能访问 SDK 或软件的分发模型，以跨越多个二进制设备驱动程序的 Unix 变体。</p>
+<p>随着这两个社区在过去十年中的成熟，Linux 的许多优点已经在 Unix 世界中被采用。当开发人员需要来自不属于 Unix 的 GNU 程序的功能时，许多 GNU 实用程序可作为 Unix 系统的附件提供。例如，IBM 的 AIX 为 Linux 应用程序提供了一个 AIX Toolbox，其中包含数百个 GNU 软件包(如 Bash、 GCC、 OpenLDAP 和许多其他软件包)，这些软件包可添加到 AIX 安装包中以简化 Linux 和基于 Unix 的 AIX 系统之间的过渡。</p>
+<p>专有的 Unix 仍然活着而且还不错，许多主要供应商承诺支持其当前版本，直到 2020 年。不言而喻，Unix 还会在可预见的将来一直出现。此外，Unix 的 BSD 分支是开源的，而 NetBSD、 OpenBSD 和 FreeBSD 都有强大的用户基础和开源社区，它们可能不像 Linux 那样显眼或活跃，但在最近的服务器报告中，在 Web 服务等领域它们远高于专有 Unix 的数量。</p>
+<p>Linux 已经显示出其超越 Unix 的显著优势在于其在大量硬件平台和设备上的可用性。 树莓派(Raspberry Pi)受到业余爱好者的欢迎，它是由 Linux 驱动的，为运行 Linux 的各种物联网设备打开了大门。我们已经提到了 Android 设备，汽车(包括 Automotive Grade Linux)和智能电视，其中 Linux 占有巨大的市场份额。这个星球上的每个云提供商都提供运行 Linux 的虚拟服务器，而且当今许多最受欢迎的原生云架构都是基于 Linux 的，无论你是在谈论容器运行时还是 Kubernetes，或者是许多正在流行的无服务器平台。</p>
+<p>其中一个最显著的代表 Linux 的优势是近年来微软的转变。如果你十年前告诉软件开发人员，Windows 操作系统将在 2016 年“运行 Linux”，他们中的大多数人会歇斯底里地大笑。 但是 Windows Linux 子系统(WSL)的存在和普及，以及最近宣布的诸如 Docker 的 Windows 移植版，包括 LCOW(Windows 上的 Linux 容器)支持等功能都证明了 Linux 在整个软件世界中所产生的影响 – 而且显然还会继续存在。</p>
+<h2 id="q4qemu"><a class="markdownIt-Anchor" href="#q4qemu"></a> q4.qemu</h2>
+<p>qemu（quick emulator）：这是一个模拟硬件环境的软件，利用它可以运行我们编译好的操作系统。</p>
 
             
         </div>
@@ -361,7 +402,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">96</div>
+                <div class="sidebar-state-number">97</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -369,7 +410,7 @@
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
-                <div class="sidebar-state-number">102</div>
+                <div class="sidebar-state-number">103</div>
             </div>
         </div>
         <div class="sidebar-social">
@@ -434,7 +475,7 @@
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 15px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 11px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/GoAbroad/" style="font-size: 17px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 12px;">IELTS</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lec01/" style="font-size: 10px;">Lec01</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/MIT6-S081/" style="font-size: 11px;">MIT6.S081</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Qingyao-Ai/" style="font-size: 11px;">Qingyao Ai</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/StarBucks/" style="font-size: 13px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 14px;">T1</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 15px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 11px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 18px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/debug/" style="font-size: 11px;">debug</a> <a href="/tags/dowhy/" style="font-size: 11px;">dowhy</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 11px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 12px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 13px;">instructor</a> <a href="/tags/internship/" style="font-size: 16px;">internship</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 19px;">paper</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 13px;">prml</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 12px;">shap</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/tool/" style="font-size: 11px;">tool</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 11px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 11px;">审稿意见</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 11px;">最长的电影</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 15px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
+            <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 15px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 11px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/GoAbroad/" style="font-size: 17px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 12px;">IELTS</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lec01/" style="font-size: 10px;">Lec01</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/MIT6-S081/" style="font-size: 11px;">MIT6.S081</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Qingyao-Ai/" style="font-size: 11px;">Qingyao Ai</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/StarBucks/" style="font-size: 13px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 14px;">T1</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 15px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 11px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 18px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/debug/" style="font-size: 11px;">debug</a> <a href="/tags/dowhy/" style="font-size: 11px;">dowhy</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 11px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 12px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 13px;">instructor</a> <a href="/tags/internship/" style="font-size: 16px;">internship</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 19px;">paper</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 13px;">prml</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 12px;">shap</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/tool/" style="font-size: 11px;">tool</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 11px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 11px;">审稿意见</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 11px;">最长的电影</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 15px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
         </div>
     </div>
 
@@ -474,10 +515,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    147.8k
+                    150.3k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    09:12
+                    09:23
                 </div>
             
             
@@ -504,7 +545,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">96</div>
+                <div class="sidebar-state-number">97</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -512,7 +553,7 @@
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
-                <div class="sidebar-state-number">102</div>
+                <div class="sidebar-state-number">103</div>
             </div>
         </div>
         <div class="sidebar-social">
