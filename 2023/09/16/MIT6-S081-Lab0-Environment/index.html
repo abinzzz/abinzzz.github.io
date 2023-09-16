@@ -1,0 +1,578 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        MIT6.S081-Lab0 Environment |
+        
+        Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="一些问题  q1.什么是虚拟机 虚拟机（Virtual Machine）指通过软件模拟的具有完整硬件系统功能的、运行在一个完全隔离环境中的完整计算机系统。 虚拟机，顾名思义就是虚拟出来的电脑，这个虚拟出来的电脑和真实的电脑几乎完全一样，所不同的是他的硬盘是在一个文件中虚拟出来的，所以你可以随意修改虚拟机的设置，而不用担心对自己的电脑造成损失，因此可以用来做试验什么的，呵呵，差不多就是这样了，不知">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MIT6.S081-Lab0 Environment">
+<meta property="og:url" content="https://abinzzz.github.io/2023/09/16/MIT6-S081-Lab0-Environment/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="一些问题  q1.什么是虚拟机 虚拟机（Virtual Machine）指通过软件模拟的具有完整硬件系统功能的、运行在一个完全隔离环境中的完整计算机系统。 虚拟机，顾名思义就是虚拟出来的电脑，这个虚拟出来的电脑和真实的电脑几乎完全一样，所不同的是他的硬盘是在一个文件中虚拟出来的，所以你可以随意修改虚拟机的设置，而不用担心对自己的电脑造成损失，因此可以用来做试验什么的，呵呵，差不多就是这样了，不知">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-16T02:32:53.000Z">
+<meta property="article:modified_time" content="2023-09-16T05:18:03.193Z">
+<meta property="article:author" content="晴">
+<meta property="article:tag" content="专业知识">
+<meta property="article:tag" content="MIT6.S081">
+<meta property="article:tag" content="Lec01">
+<meta property="article:tag" content="os">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/katex@0.16.7/dist/katex.min.css">
+
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">Loading...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="https://w.wallhaven.cc/full/zy/wallhaven-zydmkv.jpg" data-sizes="auto" alt="MIT6.S081-Lab0 Environment" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>MIT6.S081-Lab0 Environment</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">首页</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">归档</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">关于</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">友链</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS 订阅"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://abinzzz.github.io"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-MIT6-S081-Lab0-Environment" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/09/16/MIT6-S081-Lab0-Environment/" class="article-date-link">
+        <time datetime="2023-09-16T02:32:53.000Z"
+              itemprop="datePublished">2023-09-16</time>
+    </a>
+</div>
+
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a>
+    </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <h2 id="一些问题"><a class="markdownIt-Anchor" href="#一些问题"></a> 一些问题</h2>
+<h2 id="q1什么是虚拟机"><a class="markdownIt-Anchor" href="#q1什么是虚拟机"></a> q1.什么是虚拟机</h2>
+<p>虚拟机（Virtual Machine）指通过软件模拟的具有完整硬件系统功能的、运行在一个完全隔离环境中的完整计算机系统。</p>
+<p>虚拟机，顾名思义就是虚拟出来的电脑，这个虚拟出来的电脑和真实的电脑几乎完全一样，所不同的是他的硬盘是在一个文件中虚拟出来的，所以你可以随意修改虚拟机的设置，而不用担心对自己的电脑造成损失，因此可以用来做试验什么的，呵呵，差不多就是这样了，不知道我说的能明白不<sup>_</sup>，简单说就是一句话，虚拟出来的电脑，你干什么都行。</p>
+<p>虚拟机是指运行在Windows或Linux计算机上的一个应用程序，这个应用程序“模拟”了一个基于x86的标准PC的环境。这个环境和普通的计算机一样，都有芯片组、CPU、内存、显卡、声卡、网卡、软驱、硬盘、光驱、串口、并口、USB控制器、SCSI控制器等设备，提供这个应用程序的“窗口”就是虚拟机的显示器。在一台电脑上将硬盘和内存的一部分拿出来虚拟出若干台机器，每台机器可以运行单独的操作系统而互不干扰，这些“新”机器各自拥有自己独立的CMOS、硬盘和操作系统，你可以像使用普通机器一样对它们进行分区、格式化、安装系统和应用软件等操作，还可以将这几个操作系统联成一个网络。在虚拟系统崩溃之后可直接删除不影响本机系统，同样本机系统崩溃后也不影响虚拟系统，可以下次重装后再加入以前做的虚拟系统。同时它也是唯一的能在 Windows和Linux主机平台上运行的虚拟计算机软件。虚拟机软件不需要重开机，就能在同一台电脑使用好几个OS，不但方便，而且安全。虚拟机在学习技术方面能够发挥很大的作用。</p>
+<h2 id="q2什么是linux类-unix-操作系统"><a class="markdownIt-Anchor" href="#q2什么是linux类-unix-操作系统"></a> q2.什么是linux(“类 Unix ”操作系统)</h2>
+<p>Linux是一套免费使用和自由传播的类Unix操作系统，是一个多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的UNIX工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。</p>
+<p>说的简单点，它就是一个操作系统</p>
+<h2 id="q3linux和unix的区别和关系"><a class="markdownIt-Anchor" href="#q3linux和unix的区别和关系"></a> q3.linux和unix的区别和关系</h2>
+<p><strong>Unix的起源：</strong> Unix 的历史始于 20 世纪 60 年代后期的 AT&amp;T 贝尔实验室，有一小组程序员希望为 PDP-7 编写一个多任务、多用户操作系统。这个贝尔实验室研究机构的团队中最著名的两名成员是 Ken Thompson 和 Dennis Ritchie。尽管 Unix 的许多概念都是其前身(Multics)的衍生物，但 Unix 团队早在 70 年代就决定用 C 语言重写这个小型操作系统，这是将 Unix 与其他操作系统区分开来的原因。当时，操作系统很少，更不要说可移植的操作系统。相反，由于它们的设计和底层语言的本质，操作系统与他们所编写的硬件平台紧密相关。而通过 C 语言重构 Unix、Unix 现在可以移植到许多硬件体系结构中。</p>
+<p><strong>Linux的兴起：</strong>  今天我们所说的 Linux 操作系统实际上是 90 年代初期的两个努力的结合。Richard Stallman 希望创建一个真正的自由而开放源代码的专有 Unix 系统的替代品。他正在以 GNU 的名义开发实用程序和程序，这是一种递归的说法，意思是“GNU‘s not Unix!”。虽然当时有一个内核项目正在进行，但事实证明这是一件很困难的事情，而且没有内核，自由和开源操作系统的梦想无法实现。而这是 Linus Torvald 的工作 – 生产出一种可工作和可行的内核，他称之为 Linux – 它将整个操作系统带入了生活。鉴于 Linus 使用了几个 GNU 工具(例如 GNU 编译器集合，即 GCC)，GNU 工具和 Linux 内核的结合是完美的搭配。</p>
+<p>Linux 发行版采用了 GNU 的组件、Linux 内核、MIT 的 X-Windows GUI 以及可以在开源 BSD 许可下使用的其它 BSD 组件。像 Slackware 和 Red Hat 这样的发行版早期的流行给了 20 世纪 90 年代的“普通 PC 用户”一个进入 Linux 操作系统的机会，并且让他们在工作和学术生活中可以使用许多 Unix 系统特有的功能和实用程序。</p>
+<p>由于所有 Linux 组件都是自由和开放的源代码，任何人都可以通过一些努力来创建一个 Linux 发行版，所以不久后发行版的总数达到了数百个。</p>
+<p><strong>比较unix和linux：</strong> 到目前为止，我们已经了解了 Unix 的历史以及 Linux 的兴起，以及 GNU/自由软件基金会对 Unix 的自由和开源替代品的支持。让我们来看看这两个操作系统之间的差异，它们有许多共同的传统和许多相同的目标。</p>
+<p>从用户体验角度来看，两者差不多!Linux 的很大吸引力在于操作系统在许多硬件体系结构(包括现代 PC)上的可用性以及类似使用 Unix 系统管理员和用户熟悉的工具的能力。</p>
+<p>由于 POSIX 的标准和合规性，在 Unix 上编写的软件可以针对 Linux 操作系统进行编译，通常只有少量的移植工作量。在很多情况下，Shell 脚本可以在 Linux 上直接使用。虽然一些工具在 Unix 和 Linux 之间有着略微不同的标志或命令行选项，但许多工具在两者上都是相同的。</p>
+<p>一方面要注意的是，macOS 硬件和操作系统作为主要针对 Linux 的开发平台的流行可能归因于类 BSD 的 macOS 操作系统。许多用于 Linux 系统的工具和脚本可以在 macOS 终端内轻松工作。Linux 上的许多开源软件组件都可以通过 Homebrew 等工具轻松获得。</p>
+<p>Linux 和 Unix 之间的其他差异主要与许可模式有关:开源与专有许可软件。另外，在 Unix 发行版中缺少一个影响软件和硬件供应商的通用内核。对于 Linux，供应商可以为特定的硬件设备创建设备驱动程序，并期望在合理的范围内它可以在大多数发行版上运行。由于 Unix 家族的商业和学术分支，供应商可能必须为 Unix 的变体编写不同的驱动程序，并且需要许可和其他相关的权限才能访问 SDK 或软件的分发模型，以跨越多个二进制设备驱动程序的 Unix 变体。</p>
+<p>随着这两个社区在过去十年中的成熟，Linux 的许多优点已经在 Unix 世界中被采用。当开发人员需要来自不属于 Unix 的 GNU 程序的功能时，许多 GNU 实用程序可作为 Unix 系统的附件提供。例如，IBM 的 AIX 为 Linux 应用程序提供了一个 AIX Toolbox，其中包含数百个 GNU 软件包(如 Bash、 GCC、 OpenLDAP 和许多其他软件包)，这些软件包可添加到 AIX 安装包中以简化 Linux 和基于 Unix 的 AIX 系统之间的过渡。</p>
+<p>专有的 Unix 仍然活着而且还不错，许多主要供应商承诺支持其当前版本，直到 2020 年。不言而喻，Unix 还会在可预见的将来一直出现。此外，Unix 的 BSD 分支是开源的，而 NetBSD、 OpenBSD 和 FreeBSD 都有强大的用户基础和开源社区，它们可能不像 Linux 那样显眼或活跃，但在最近的服务器报告中，在 Web 服务等领域它们远高于专有 Unix 的数量。</p>
+<p>Linux 已经显示出其超越 Unix 的显著优势在于其在大量硬件平台和设备上的可用性。 树莓派(Raspberry Pi)受到业余爱好者的欢迎，它是由 Linux 驱动的，为运行 Linux 的各种物联网设备打开了大门。我们已经提到了 Android 设备，汽车(包括 Automotive Grade Linux)和智能电视，其中 Linux 占有巨大的市场份额。这个星球上的每个云提供商都提供运行 Linux 的虚拟服务器，而且当今许多最受欢迎的原生云架构都是基于 Linux 的，无论你是在谈论容器运行时还是 Kubernetes，或者是许多正在流行的无服务器平台。</p>
+<p>其中一个最显著的代表 Linux 的优势是近年来微软的转变。如果你十年前告诉软件开发人员，Windows 操作系统将在 2016 年“运行 Linux”，他们中的大多数人会歇斯底里地大笑。 但是 Windows Linux 子系统(WSL)的存在和普及，以及最近宣布的诸如 Docker 的 Windows 移植版，包括 LCOW(Windows 上的 Linux 容器)支持等功能都证明了 Linux 在整个软件世界中所产生的影响 – 而且显然还会继续存在。</p>
+<h2 id="q4qemu"><a class="markdownIt-Anchor" href="#q4qemu"></a> q4.qemu</h2>
+<p>qemu（quick emulator）：这是一个模拟硬件环境的软件，利用它可以运行我们编译好的操作系统。</p>
+<h2 id="q5-consoleterminal和shell的区别"><a class="markdownIt-Anchor" href="#q5-consoleterminal和shell的区别"></a> q5. Console，Terminal和Shell的区别</h2>
+<p><strong>Terminal：</strong> 单词 Terminal 来源于 terminate，用于表示通信过程的“终端”端。过去，当你提到一个基于文本的工作环境时，你经常会听到&quot;dumb terminal&quot;（哑终端）这个词，在这样的环境下，你身旁的计算机只负责接受键盘输入并显示文字输出，而真正的工作发生在另一端的主机或大型计算机上。</p>
+<p>TTY 或 “teletypewriter”（电传打字机） 是最早出现的终端。你会发现它是一个打字机而非现代更常见的电子屏幕。当你在上面打字的时候，你会在看到一张纸上文字的同时把它输入计算机。当计算机响应时，你会看到打字机自动在同一张纸上打印输出结果。</p>
+<p><strong>Console：</strong> 在20世纪中期，人们的起居室里会有一种家具，叫做控制台或陈列柜。而在计算机领域，控制台指的是计算机的操控台或者一个内置屏幕和键盘的机柜，但它本质上仍是一个终端（计算机领域）。从（计算机）技术上讲，控制台是硬件设备，而终端则是其内部运行的软件程序。</p>
+<p>而在软件世界中提到控制台和终端时，它们实际上是同义词。（例如IDE和编辑器中的内置终端，也叫控制台）</p>
+<p><strong>Shell（操作系统外壳，区别于操作系统内核）：</strong> 之前提到的终端，会接受用户的输入并将其发送给另一个程序，这个应用程序就是Shell。Shell 会接收你通过终端/控制台输入的命令并将其&quot;翻译&quot;成操作系统内核可以理解的语言，然后调用相应的应用程序，最后生成输出并将其传递回终端以显示给用户。这里是一些常见的shell：</p>
+<p>bash, fish, zsh, ksh, sh, tsch<br />
+PowerShell, cmd, pwsh<br />
+yori, 4dos, <a target="_blank" rel="noopener" href="http://command.com">command.com</a><br />
+注意：你对终端的选择不会也不应该影响你对Shell的选择，例如，理论上你可以使用Windows Terminal作为你的终端，并使用zsh作为你的Shell（这实际上不太可行，因为zsh不能很好地运行在Windows操作系统上，除非你使用WSL）</p>
+<h2 id="q6homebrew"><a class="markdownIt-Anchor" href="#q6homebrew"></a> q6.Homebrew</h2>
+<p>🔗：<a target="_blank" rel="noopener" href="https://brew.sh">https://brew.sh</a></p>
+<p>------------------正片开始-------------------------</p>
+<p>💻：MacBook Pro M2</p>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="https://abinzzz.github.io/2023/09/16/MIT6-S081-Lab0-Environment/" data-id="clmmcjosz0002qi695o5ra95e" data-title="MIT6.S081-Lab0 Environment"
+               class="article-share-link">分享</a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lec01/" rel="tag">Lec01</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MIT6-S081/" rel="tag">MIT6.S081</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" rel="tag">专业知识</a></li></ul>
+
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    <img data-src="https://pic.baike.soso.com/ugc/baikepic2/0/20230406163926-732354777_jpeg_1978_1101_1370622.jpg/300" data-sizes="auto" alt="CMU15-445-Lec01"
+                         class="lazyload">
+                
+                <a href="/2023/09/16/CMU15-445-Lec01/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        CMU15-445-Lec01
+                    
+                </h3>
+            </div>
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    <img data-src="https://images.chinatimes.com/newsphoto/2023-09-14/1024/20230914006019.jpg" data-sizes="auto" alt="2023.09.16"
+                         class="lazyload">
+                
+                <a href="/2023/09/16/2023-09-16/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        2023.09.16
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="晴" class="lazyload">
+            <div class="sidebar-author-name">晴</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">100</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">106</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href= itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/abinzzz183328 itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/profile.php?id=100092835102953 itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Essay/">Essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reading/">reading</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a></li></ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 15px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 11px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/GoAbroad/" style="font-size: 17px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 12px;">IELTS</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lec01/" style="font-size: 12px;">Lec01</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/MIT6-S081/" style="font-size: 12px;">MIT6.S081</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Qingyao-Ai/" style="font-size: 11px;">Qingyao Ai</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/StarBucks/" style="font-size: 13px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 14px;">T1</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 15px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 11px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 18px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/debug/" style="font-size: 11px;">debug</a> <a href="/tags/dowhy/" style="font-size: 11px;">dowhy</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 11px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 12px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 13px;">instructor</a> <a href="/tags/internship/" style="font-size: 16px;">internship</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/os/" style="font-size: 11px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 19px;">paper</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 13px;">prml</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 12px;">shap</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/tool/" style="font-size: 11px;">tool</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 13px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 11px;">审稿意见</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 11px;">最长的电影</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 15px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                晴
+            </div>
+            
+                <div>
+                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    152k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    09:28
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="晴" class="lazyload">
+            <div class="sidebar-author-name">晴</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">100</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">106</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href= itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/abinzzz183328 itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/profile.php?id=100092835102953 itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+

@@ -1,0 +1,602 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        CMU15-445-Lec01 |
+        
+        Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="csdiy网页🔗：https:&#x2F;&#x2F;csdiy.wiki&#x2F;数据库系统&#x2F;15445&#x2F; 讨论区：https:&#x2F;&#x2F;discord.com&#x2F;channels&#x2F;724929902075445281&#x2F;724929902943404074 project参考链接:https:&#x2F;&#x2F;github.com&#x2F;ysj1173886760&#x2F;Learning&#x2F;tree&#x2F;master&#x2F;db  一些问题  q1. 数据库与SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CMU15-445-Lec01">
+<meta property="og:url" content="https://abinzzz.github.io/2023/09/16/CMU15-445-Lec01/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="csdiy网页🔗：https:&#x2F;&#x2F;csdiy.wiki&#x2F;数据库系统&#x2F;15445&#x2F; 讨论区：https:&#x2F;&#x2F;discord.com&#x2F;channels&#x2F;724929902075445281&#x2F;724929902943404074 project参考链接:https:&#x2F;&#x2F;github.com&#x2F;ysj1173886760&#x2F;Learning&#x2F;tree&#x2F;master&#x2F;db  一些问题  q1. 数据库与SQL">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-3c15c6220ed6e9ec364a8d4b9d5d320c_1440w.webp">
+<meta property="article:published_time" content="2023-09-16T05:18:28.000Z">
+<meta property="article:modified_time" content="2023-09-16T16:55:15.306Z">
+<meta property="article:author" content="晴">
+<meta property="article:tag" content="专业知识">
+<meta property="article:tag" content="Lec01">
+<meta property="article:tag" content="CMU15-445">
+<meta property="article:tag" content="database">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-3c15c6220ed6e9ec364a8d4b9d5d320c_1440w.webp">
+    
+        <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/katex@0.16.7/dist/katex.min.css">
+
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">Loading...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="https://pic.baike.soso.com/ugc/baikepic2/0/20230406163926-732354777_jpeg_1978_1101_1370622.jpg/300" data-sizes="auto" alt="CMU15-445-Lec01" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>CMU15-445-Lec01</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">首页</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">归档</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">关于</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">友链</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS 订阅"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://abinzzz.github.io"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-CMU15-445-Lec01" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/09/16/CMU15-445-Lec01/" class="article-date-link">
+        <time datetime="2023-09-16T05:18:28.000Z"
+              itemprop="datePublished">2023-09-16</time>
+    </a>
+</div>
+
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a>
+    </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <p>csdiy网页🔗：<a target="_blank" rel="noopener" href="https://csdiy.wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/15445/">https://csdiy.wiki/数据库系统/15445/</a></p>
+<p>讨论区：<a target="_blank" rel="noopener" href="https://discord.com/channels/724929902075445281/724929902943404074">https://discord.com/channels/724929902075445281/724929902943404074</a></p>
+<p>project参考链接:<a target="_blank" rel="noopener" href="https://github.com/ysj1173886760/Learning/tree/master/db">https://github.com/ysj1173886760/Learning/tree/master/db</a></p>
+<h2 id="一些问题"><a class="markdownIt-Anchor" href="#一些问题"></a> 一些问题</h2>
+<h2 id="q1-数据库与sql"><a class="markdownIt-Anchor" href="#q1-数据库与sql"></a> q1. 数据库与SQL</h2>
+<p><strong>数据库(DB)：</strong>   大家都有过下面这样的经历吧？</p>
+<p>收到曾经为自己诊治过的牙医寄来的明信片，上面写着“距上次检查已有半年，请您再来做个牙齿健康检查”。<br />
+在生日的前一个月，收到曾入住过的旅店或宾馆发来的“生日当月入住优惠”的邮件或者明信片。<br />
+在网上商城购物之后，收到内附“推荐商品列表”的邮件。<br />
+这可能是因为牙医、旅店或商城的经营者掌握了顾客上一次的就诊日期、生日和购买历史等信息，并且拥有能够从大量汇总信息中快速获取所需信息（比如你的住址或爱好）的设备（计算机系统）。如果利用人工完成同样的工作，真不知道要多长时间呢。</p>
+<p>另外，现在所有地区的图书馆都配备了计算机，实现了图书的自动查询。使用该系统，可以通过检索书名或出版年份快速查找出希望借阅的图书的所在位置，以及是否已经借出等信息。正是因为拥有了可以保存图书名称、出版年份以及保管位置和外借情况等信息，并且可以按需查询的设备，才使这一切成为可能。</p>
+<p>像这样将大量数据保存起来，通过计算机加工而成的可以进行高效访问的数据集合称为数据库（Database，DB）。将姓名、住址、电话号码、邮箱地址、爱好和家庭构成等数据保存到数据库中，就可以随时迅速获取想要的信息了</p>
+<br>
+<p><strong>数据库管理系统(DBMS):</strong>  用来管理数据库的计算机系统称为数据库管理系统（Database Management System，DBMS）。</p>
+<br>
+<p><strong>为什么要使用专用系统（DBMS）来管理数据呢？</strong>  我们通过计算机管理数据的时候，通常使用文本文件或者Excel 那样的电子制表软件就可以完成了，非常简单。但也有不足。下面就举几个有代表性的例子。</p>
+<ul>
+<li>无法多人共享数据</li>
+<li>无法提供操作大量数据所需的格式</li>
+<li>实习读写自动化需要编程能力</li>
+<li>无法应对突发事故</li>
+</ul>
+<p>DBMS 可以克服这些不足，实现多个用户同时安全简单地操作大量数据（图1-2）。这也是我们一定要使用DBMS 的原因。</p>
+<br>
+<p><strong>DBMS的种类：</strong></p>
+<ul>
+<li>层次数据库（Hierarchical Database，HDB）</li>
+<li>关系数据库（Relational Database，RDB）</li>
+<li>面向对象数据库（Object Oriented Database，OODB）</li>
+<li>XML数据库（XML Database，XMLDB）</li>
+<li>键值存储系统（Key-Value Store，KVS）</li>
+</ul>
+<br>
+<p><strong>数据库的结构：</strong><br />
+<img src="https://pic1.zhimg.com/80/v2-3c15c6220ed6e9ec364a8d4b9d5d320c_1440w.webp" alt="https://pic1.zhimg.com/80/v2-3c15c6220ed6e9ec364a8d4b9d5d320c_1440w.webp" /></p>
+<br>
+<p><strong>什么是SQL？</strong><br />
+SQL是为操作数据库而开发的语言。</p>
+<p>它原本是为了提高数据库查询效率而开发的语言，但是现在不仅可以进行数据查询，就连数据的插入和删除等操作也基本上都可以通过SQL 来完成了。</p>
+<br>
+<p><strong>SQL 语句及其种类:</strong> SQL 用关键字、表名、列名等组合而成的一条语句（SQL 语句）来描述操作的内容。关键字是指那些含义或使用方法已事先定义好的英语单词，存在包含“对表进行查询”或者“参考这个表”等各种意义的关键字。</p>
+<ul>
+<li>DDL</li>
+<li>DML</li>
+<li>DCL</li>
+</ul>
+<br>
+<p><strong>SQL的基本书写规则：</strong> 书写SQL 语句时必须要遵守一些规则。</p>
+<ul>
+<li>SQL 语句要以分号（;）结尾</li>
+<li>SQL 语句不区分大小写</li>
+<li>常数的书写方式是固定的</li>
+<li>单词需要用半角空格或者换行来分隔</li>
+</ul>
+<br>
+<p>------------正文开始---------------</p>
+<p>数据库：一组以某种方式相互关联的数据<br />
+数据库系统：管理该数据库的软件</p>
+<h2 id="1flat-file-strawman"><a class="markdownIt-Anchor" href="#1flat-file-strawman"></a> 1.flat file strawman</h2>
+<p>get the year that gza want solo</p>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="https://abinzzz.github.io/2023/09/16/CMU15-445-Lec01/" data-id="clmmcjosz0001qi691bk60b3k" data-title="CMU15-445-Lec01"
+               class="article-share-link">分享</a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CMU15-445/" rel="tag">CMU15-445</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lec01/" rel="tag">Lec01</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/" rel="tag">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" rel="tag">专业知识</a></li></ul>
+
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    <img data-src="https://w.wallhaven.cc/full/zy/wallhaven-zydmkv.jpg" data-sizes="auto" alt="2023.09.17"
+                         class="lazyload">
+                
+                <a href="/2023/09/17/2023-09-17/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        2023.09.17
+                    
+                </h3>
+            </div>
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    <img data-src="https://w.wallhaven.cc/full/zy/wallhaven-zydmkv.jpg" data-sizes="auto" alt="MIT6.S081-Lab0 Environment"
+                         class="lazyload">
+                
+                <a href="/2023/09/16/MIT6-S081-Lab0-Environment/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        MIT6.S081-Lab0 Environment
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="晴" class="lazyload">
+            <div class="sidebar-author-name">晴</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">100</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">106</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href= itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/abinzzz183328 itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/profile.php?id=100092835102953 itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Essay/">Essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reading/">reading</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a></li></ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 15px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 11px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/GoAbroad/" style="font-size: 17px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 12px;">IELTS</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lec01/" style="font-size: 12px;">Lec01</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/MIT6-S081/" style="font-size: 12px;">MIT6.S081</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Qingyao-Ai/" style="font-size: 11px;">Qingyao Ai</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/StarBucks/" style="font-size: 13px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 14px;">T1</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 15px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 11px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 18px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/debug/" style="font-size: 11px;">debug</a> <a href="/tags/dowhy/" style="font-size: 11px;">dowhy</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 11px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 12px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 13px;">instructor</a> <a href="/tags/internship/" style="font-size: 16px;">internship</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/os/" style="font-size: 11px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 19px;">paper</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 13px;">prml</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 12px;">shap</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/tool/" style="font-size: 11px;">tool</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 13px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 11px;">审稿意见</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 11px;">最长的电影</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 15px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                晴
+            </div>
+            
+                <div>
+                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    152k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    09:28
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="晴" class="lazyload">
+            <div class="sidebar-author-name">晴</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">100</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">106</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href= itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/abinzzz183328 itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/profile.php?id=100092835102953 itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
