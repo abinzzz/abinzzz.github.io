@@ -23,20 +23,31 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="chapter02 Introduction to the Relational Model">
+    <meta name="description" content="chapter02:Introduction to the Relational Model  2.1 Structure of Relational Databases 关系数据库由一组表组成，每个表分配一个唯一名称。 下面是一个例子：   tuple(rows):表中的一行 attribute(columns):表中的一列 relation:表,类比c语言中的变量 relation inst">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Database-chapter02">
 <meta property="og:url" content="https://abinzzz.github.io/2023/09/19/Database-chapter02/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="chapter02 Introduction to the Relational Model">
+<meta property="og:description" content="chapter02:Introduction to the Relational Model  2.1 Structure of Relational Databases 关系数据库由一组表组成，每个表分配一个唯一名称。 下面是一个例子：   tuple(rows):表中的一行 attribute(columns):表中的一列 relation:表,类比c语言中的变量 relation inst">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6W5ZzCaYAA8WH2?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6Y0se_awAArunK?format=webp&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6ZV3PDbsAA925F?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6ZXxiqbUAAmTR5?format=webp&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6ZZSGEagAANFOQ?format=webp&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6ZaNwvbYAAuo2E?format=webp&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6ZaoVybIAAycxy?format=webp&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6Ze8Lra0AAd4VV?format=webp&amp;name=large">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6Z0T0laUAIaQX6?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6Z0ecZasAA53_L?format=webp&amp;name=900x900">
 <meta property="article:published_time" content="2023-09-19T02:22:20.000Z">
-<meta property="article:modified_time" content="2023-09-19T02:53:50.778Z">
+<meta property="article:modified_time" content="2023-09-19T16:57:35.303Z">
 <meta property="article:author" content="晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="database">
 <meta property="article:tag" content="chapter02">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/F6W5ZzCaYAA8WH2?format=webp&amp;name=900x900">
     
         <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
     
@@ -195,7 +206,167 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <h1 id="chapter02-introduction-to-the-relational-model"><a class="markdownIt-Anchor" href="#chapter02-introduction-to-the-relational-model"></a> chapter02 Introduction to the Relational Model</h1>
+                <h1 id="chapter02introduction-to-the-relational-model"><a class="markdownIt-Anchor" href="#chapter02introduction-to-the-relational-model"></a> chapter02:Introduction to the Relational Model</h1>
+<h2 id="21-structure-of-relational-databases"><a class="markdownIt-Anchor" href="#21-structure-of-relational-databases"></a> 2.1 Structure of Relational Databases</h2>
+<p>关系数据库由一组表组成，每个表分配一个唯一名称。</p>
+<p>下面是一个例子：<br />
+<img src="https://pbs.twimg.com/media/F6W5ZzCaYAA8WH2?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p><strong>tuple(rows)</strong>:表中的一行</p>
+<p><strong>attribute(columns)</strong>:表中的一列</p>
+<p><strong>relation</strong>:表,类比c语言中的变量</p>
+<p><strong>relation instance</strong>:关系的一个特定实例,类比c语言中变量的值</p>
+<p><strong>relation schema</strong>:attribute列表及其对应的<br />
+domain组成,类比c语言中的类型</p>
+<p><strong>domain</strong>:relation中每个attribute所允许的值，例如上图中的10101属于attribute ID的domain</p>
+<p><strong>domain is atomic</strong> :domain中的元素被认为是不可分割的单位，那么domain就是atomic</p>
+<p><strong>null</strong>:是一个特殊值，表示该值未知或不存在。</p>
+<p>relations是无序的</p>
+<h2 id="22-database-schema"><a class="markdownIt-Anchor" href="#22-database-schema"></a> 2.2 Database Schema</h2>
+<p>DB schema:DB的逻辑设计，例如instructor(ID,name,dept_name,salary)。<br />
+DB instance:DB中数据在给定时刻的特定实例，示例见上一个图片。</p>
+<h2 id="23-keys"><a class="markdownIt-Anchor" href="#23-keys"></a> 2.3 Keys</h2>
+<p><strong>superkey</strong>：一个或多个attribute的集合，可以唯一地标识relation中的tuple。(superkey可能包含冗余的元素)</p>
+<p><strong>candidate keys</strong>：最小的superkey</p>
+<p><strong>primary key</strong>: 数据库设计人员选择作为在relation中识别tuple的condidate keys.(通常在其他列之前)</p>
+<p><strong>foreign key</strong>: 其他表中primary key的引用。也就是说，r1中某个个tuple的A的值<br />
+也必须是r2中某个tuple的B的值。attribute集A被称为来自r1，<br />
+引用r2的foreign key。关系r1也称为<strong>foreign key<br />
+constraint</strong>的<strong>referencing relation</strong>，r2称为<strong>referencing relation</strong>.</p>
+<p><strong>referential-integrity constraint</strong>: 放宽了引用属性构成 referencing relation的primary key的要求。</p>
+<p>🌟：在foreign key constraint中，被引用的attribute(s)必须是被referencing relation的primary key</p>
+<hr />
+<p>学生表：</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>gender</th>
+<th>age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1001</td>
+<td>小明</td>
+<td>男</td>
+<td>20</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>小红</td>
+<td>女</td>
+<td>18</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>小王</td>
+<td>男</td>
+<td>19</td>
+</tr>
+</tbody>
+</table>
+<p>系别表：</p>
+<table>
+<thead>
+<tr>
+<th>dept_id</th>
+<th>dept_name</th>
+</tr>
+</thead>
+</table>
+<p>这个表中:</p>
+<ul>
+<li>(学号)是一个candidate key,因为它可以唯一区分每一条数据,并且是最小的这样一个key。</li>
+<li>(姓名,性别)也是一个superkey,因为它也可以唯一区分每一行数据。</li>
+<li>但是(姓名,性别)不是candidate key,因为它不是最小的superkey。</li>
+<li>(学号,姓名)是superkey,但不是candidate key,因为它不是最小的。</li>
+<li>学生表中的系别(dept_id)字段就是一个外键,它引用了系别表的主键字段系编号(dept_id)</li>
+</ul>
+<hr />
+<h2 id="24-schema-diagrams"><a class="markdownIt-Anchor" href="#24-schema-diagrams"></a> 2.4 Schema Diagrams</h2>
+<p><strong>Schema Diagrams</strong>：描述具有primary key和foreign key依赖关系的DB schema</p>
+<ul>
+<li>点:schema,attribute,primary key</li>
+<li>边:foreign key</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/F6Y0se_awAArunK?format=webp&amp;name=medium" alt="" /></p>
+<h2 id="25-relational-query-languages"><a class="markdownIt-Anchor" href="#25-relational-query-languages"></a> 2.5 Relational Query Languages</h2>
+<p><strong>query language</strong>:一种用户向DB请求信息的语言。</p>
+<br>
+<p>分类：</p>
+<ul>
+<li>imperative：指定要执行的操作序列来获取结果</li>
+<li>functional：把查询看成函数,执行相应的操作后返回结果</li>
+<li>declarative：只指定希望的查询结果,而不指定解决问题的步骤</li>
+</ul>
+<br>
+<p>pure query language(他们是等效的):</p>
+<ul>
+<li>relational algebra</li>
+<li>tuple relational caculus</li>
+<li>domain relational calculus</li>
+</ul>
+<h2 id="26-the-relational-algebra"><a class="markdownIt-Anchor" href="#26-the-relational-algebra"></a> 2.6 The Relational Algebra</h2>
+<p>he Relational Algebra：由一组operators组成，这些操作将一个或两个关系作为<br />
+输入，并产生一个新的关系作为它们的结果</p>
+<p>六种基本操作：</p>
+<ul>
+<li>select：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span></span></li>
+<li>project <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∏</mo></mrow><annotation encoding="application/x-tex">\prod</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∏</span></span></span></span></li>
+<li>rename:<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi></mrow><annotation encoding="application/x-tex">\rho</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ρ</span></span></span></span></li>
+<li>union: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⋃</mo></mrow><annotation encoding="application/x-tex">\bigcup</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">⋃</span></span></span></span></li>
+<li>Cartesian product:x</li>
+<li>set difference: -</li>
+</ul>
+<br>
+<p>示例：</p>
+<p><img src="https://pbs.twimg.com/media/F6ZV3PDbsAA925F?format=webp&amp;name=900x900" alt="" /></p>
+<h2 id="261-the-select-operation"><a class="markdownIt-Anchor" href="#261-the-select-operation"></a> 2.6.1 The Select Operation</h2>
+<p><strong>select</strong>：选择满足给定谓词的元组<br />
+🌟：允许使用=, !, &lt;, “, &gt;, #，and (”), or (#), and not (¬).</p>
+<p>实例见上图</p>
+<h2 id="262-the-project-operation"><a class="markdownIt-Anchor" href="#262-the-project-operation"></a> 2.6.2 The Project Operation</h2>
+<p><strong>project</strong>：返回其参数关系的一元操作，某些属性被省略。</p>
+<p>实例：</p>
+<p><img src="https://pbs.twimg.com/media/F6ZXxiqbUAAmTR5?format=webp&amp;name=small" alt="" /></p>
+<h2 id="263-composition-of-relational-operations"><a class="markdownIt-Anchor" href="#263-composition-of-relational-operations"></a> 2.6.3 Composition of Relational Operations</h2>
+<p><img src="https://pbs.twimg.com/media/F6ZZSGEagAANFOQ?format=webp&amp;name=small" alt="" /></p>
+<h2 id="264-the-cartesian-product-operation"><a class="markdownIt-Anchor" href="#264-the-cartesian-product-operation"></a> 2.6.4 The Cartesian-Product Operation</h2>
+<p>Cartesian-Product:笛卡尔积运算，简单的全组合</p>
+<p>实例：<br />
+<img src="https://pbs.twimg.com/media/F6ZaNwvbYAAuo2E?format=webp&amp;name=medium" alt="" /></p>
+<p><img src="https://pbs.twimg.com/media/F6ZaoVybIAAycxy?format=webp&amp;name=medium" alt="" /></p>
+<h2 id="265-the-join-operation"><a class="markdownIt-Anchor" href="#265-the-join-operation"></a> 2.6.5 The Join Operation</h2>
+<p>Join：生成具有一定关系的组合</p>
+<p><img src="https://pbs.twimg.com/media/F6Ze8Lra0AAd4VV?format=webp&amp;name=large" alt="" /></p>
+<h2 id="266-set-operations"><a class="markdownIt-Anchor" href="#266-set-operations"></a> 2.6.6 Set Operations</h2>
+<ul>
+<li>union: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⋃</mo></mrow><annotation encoding="application/x-tex">\bigcup</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">⋃</span></span></span></span></li>
+<li>set difference: -</li>
+<li>intersection:<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⋂</mo></mrow><annotation encoding="application/x-tex">\bigcap</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">⋂</span></span></span></span></li>
+</ul>
+<h2 id="267-the-assignment-operation"><a class="markdownIt-Anchor" href="#267-the-assignment-operation"></a> 2.6.7 The Assignment Operation</h2>
+<p>Assignment：赋值，用<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>←</mo></mrow><annotation encoding="application/x-tex">\leftarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">←</span></span></span></span>表示</p>
+<h2 id="268-the-rename-operation"><a class="markdownIt-Anchor" href="#268-the-rename-operation"></a> 2.6.8 The Rename Operation</h2>
+<p>Rename：重命名操作</p>
+<p>形式一:<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>X</mi></msub></mrow><annotation encoding="application/x-tex">\rho_X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">ρ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>(E)</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi></mrow><annotation encoding="application/x-tex">\rho</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ρ</span></span></span></span>:表示rename运算符</li>
+<li>X：表示新名称</li>
+<li>E：表示进行重命名的表达式</li>
+</ul>
+<br>
+<p>形式二：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mrow><mi>X</mi><mo stretchy="false">(</mo><msub><mi>A</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>A</mi><mn>2</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>A</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">\rho_{X(A_1,A_2,...,A_n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7857599999999999em;vertical-align:-0.3551999999999999em;"></span><span class="mord"><span class="mord mathnormal">ρ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span><span class="mopen mtight">(</span><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31731428571428577em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31731428571428577em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mpunct mtight">,</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span>(E)</p>
+<p>这种形式的重命名操作可用于在涉及<br />
+属性上的表达式中为<br />
+属性命名</p>
+<h2 id="269-equivalent-queries"><a class="markdownIt-Anchor" href="#269-equivalent-queries"></a> 2.6.9 Equivalent Queries</h2>
+<p>在relational algebra中，通常有不止一种编写查询的方法。</p>
+<p><img src="https://pbs.twimg.com/media/F6Z0T0laUAIaQX6?format=webp&amp;name=900x900" alt="" /></p>
+<p><img src="https://pbs.twimg.com/media/F6Z0ecZasAA53_L?format=webp&amp;name=900x900" alt="" /></p>
+<p>虽然这两个查询不完全相同，但实际上是等价的;也就是说，它们在任何数据库上都给出相同的结果.</p>
 
             
         </div>
@@ -371,10 +542,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    157.7k
+                    158.7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    09:51
+                    09:54
                 </div>
             
             
