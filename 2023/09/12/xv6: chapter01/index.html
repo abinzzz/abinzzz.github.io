@@ -12,7 +12,7 @@
 
     
     <title>
-        xv6: a simple, Unix-like teaching operating system |
+        xv6: chapter01 |
         
         Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,15 +23,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="该书为课程MIT6.S081的准备工作    chapter1: Os interfacesxv6是Unix Version 6   操作系统的工作是在多个程序之间共享一台计算机，并提供比硬件单独支持更有用的一组服务。操作系统能够管理和抽象底层硬件，因此文字管理器不需要关系正在使用哪种类型的硬件。为了接口简单且功能多，所以要设计一些依赖机制的接口。 一个给定的电脑可以有许多进程但只能有一个内核。">
+    <meta name="description" content="该书为课程MIT6.S081的准备工作  chapter1: Os interfaces xv6是Unix Version 6 操作系统的工作是在多个程序之间共享一台计算机，并提供比硬件单独支持更有用的一组服务。操作系统能够管理和抽象底层硬件，因此文字管理器不需要关系正在使用哪种类型的硬件。为了接口简单且功能多，所以要设计一些依赖机制的接口。 一个给定的电脑可以有许多进程但只能有一个内核。 一个进">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xv6: a simple, Unix-like teaching operating system">
-<meta property="og:url" content="https://abinzzz.github.io/2023/09/12/xv6-a-simple-Unix-like-teaching-operating-system/index.html">
+<meta property="og:title" content="xv6: chapter01">
+<meta property="og:url" content="https://abinzzz.github.io/2023/09/12/xv6:%20chapter01/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="该书为课程MIT6.S081的准备工作    chapter1: Os interfacesxv6是Unix Version 6   操作系统的工作是在多个程序之间共享一台计算机，并提供比硬件单独支持更有用的一组服务。操作系统能够管理和抽象底层硬件，因此文字管理器不需要关系正在使用哪种类型的硬件。为了接口简单且功能多，所以要设计一些依赖机制的接口。 一个给定的电脑可以有许多进程但只能有一个内核。">
+<meta property="og:description" content="该书为课程MIT6.S081的准备工作  chapter1: Os interfaces xv6是Unix Version 6 操作系统的工作是在多个程序之间共享一台计算机，并提供比硬件单独支持更有用的一组服务。操作系统能够管理和抽象底层硬件，因此文字管理器不需要关系正在使用哪种类型的硬件。为了接口简单且功能多，所以要设计一些依赖机制的接口。 一个给定的电脑可以有许多进程但只能有一个内核。 一个进">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-12T00:38:53.000Z">
-<meta property="article:modified_time" content="2023-09-12T01:49:04.847Z">
+<meta property="article:modified_time" content="2023-09-20T14:38:15.897Z">
 <meta property="article:author" content="晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="MIT6.S081">
@@ -115,7 +115,7 @@
         <div id="wrap">
             <header id="header">
     
-        <img data-src="https://picx.zhimg.com/80/v2-67fff06be9d633c173a36a9f38831faa_1440w.jpg?source=1940ef5c" data-sizes="auto" alt="xv6: a simple, Unix-like teaching operating system" class="lazyload">
+        <img data-src="https://picx.zhimg.com/80/v2-67fff06be9d633c173a36a9f38831faa_1440w.jpg?source=1940ef5c" data-sizes="auto" alt="xv6: chapter01" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -123,7 +123,7 @@
                 
                     
                     
-                        <a href="/" id="logo"><h1>xv6: a simple, Unix-like teaching operating system</h1></a>
+                        <a href="/" id="logo"><h1>xv6: chapter01</h1></a>
                     
                 
             </div>
@@ -172,12 +172,12 @@
 </header>
 
             <div id="content" class="outer">
-                <section id="main"><article id="post-xv6-a-simple-Unix-like-teaching-operating-system" class="h-entry article article-type-post"
+                <section id="main"><article id="post-xv6: chapter01" class="h-entry article article-type-post"
          itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
     <div class="article-inner">
         <div class="article-meta">
             <div class="article-date wow slideInLeft">
-    <a href="/2023/09/12/xv6-a-simple-Unix-like-teaching-operating-system/" class="article-date-link">
+    <a href="/2023/09/12/xv6:%20chapter01/" class="article-date-link">
         <time datetime="2023-09-12T00:38:53.000Z"
               itemprop="datePublished">2023-09-12</time>
     </a>
@@ -195,19 +195,22 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <p>该书为课程MIT6.S081的准备工作   </p>
-<h2 id="chapter1-Os-interfaces"><a href="#chapter1-Os-interfaces" class="headerlink" title="chapter1: Os interfaces"></a>chapter1: Os interfaces</h2><p>xv6是Unix Version 6  </p>
+                <p>该书为课程MIT6.S081的准备工作</p>
+<h2 id="chapter1-os-interfaces"><a class="markdownIt-Anchor" href="#chapter1-os-interfaces"></a> chapter1: Os interfaces</h2>
+<p>xv6是Unix Version 6</p>
 <p>操作系统的工作是在多个程序之间共享一台计算机，并提供比硬件单独支持更有用的一组服务。操作系统能够管理和抽象底层硬件，因此文字管理器不需要关系正在使用哪种类型的硬件。为了接口简单且功能多，所以要设计一些依赖机制的接口。</p>
-<p>一个给定的电脑可以有许多进程但只能有一个内核。 </p>
-<p>一个进程实在使用者空间和内核空间交替执行的。  </p>
-<p>内核使用CPU提供的硬件保护机制  </p>
+<p>一个给定的电脑可以有许多进程但只能有一个内核。</p>
+<p>一个进程实在使用者空间和内核空间交替执行的。</p>
+<p>内核使用CPU提供的硬件保护机制</p>
 <p>shell是一个普通的程序，从用户那里读取命令并执行他们。shell是用户程序，并不是内核的一部分。</p>
-<h2 id="1-1-进程与内存"><a href="#1-1-进程与内存" class="headerlink" title="1.1 进程与内存"></a>1.1 进程与内存</h2><p>xv6进程由用户空间内存和内核私有的每个进程状态组成。xv6分时进程：它透明的在一组等待执行的进程之间切换可用的cpu。当进程为执行的时候，xv6保存其cpu寄存器，并在下次运行该进程的时候恢复它们。内核将进程标识符或pid与每个进程相关联。  </p>
+<h2 id="11-进程与内存"><a class="markdownIt-Anchor" href="#11-进程与内存"></a> 1.1 进程与内存</h2>
+<p>xv6进程由用户空间内存和内核私有的每个进程状态组成。xv6分时进程：它透明的在一组等待执行的进程之间切换可用的cpu。当进程为执行的时候，xv6保存其cpu寄存器，并在下次运行该进程的时候恢复它们。内核将进程标识符或pid与每个进程相关联。</p>
 <p>进程可以使用fork系统调用创建一个新进程。fork创建一个成为子进程的新进程，其内存内容和调用进程和父进程完全相同。fork在父节点和子节点中都有返回，父进程中返回子进程的pid，子进程中返回0.</p>
 <p><strong>PID是Process ID的缩写，表示进程身份的唯一标识符，每次程序被操作系统加载时都会动态分配</strong></p>
-<p>exit系统调用导致调用进程停止执行，释放内存和打开的文件等资源。exit接受一个整型的参数，0表示成功，1表示失败。<br>wait系统调用返回当前进程exit子进程的pid，并将子进程的退出状态复制到wait的地址。   </p>
+<p>exit系统调用导致调用进程停止执行，释放内存和打开的文件等资源。exit接受一个整型的参数，0表示成功，1表示失败。<br />
+wait系统调用返回当前进程exit子进程的pid，并将子进程的退出状态复制到wait的地址。</p>
 <ul>
-<li>如果子进程都没有退出，那么等待其中一个退出  </li>
+<li>如果子进程都没有退出，那么等待其中一个退出</li>
 <li>如果没有子进程返回-1</li>
 <li>如果父进程不关心子进程，返回0</li>
 </ul>
@@ -216,7 +219,7 @@
             
         </div>
         <footer class="article-footer">
-            <a data-url="https://abinzzz.github.io/2023/09/12/xv6-a-simple-Unix-like-teaching-operating-system/" data-id="clmfp1sc60001lk69efjmbuaa" data-title="xv6: a simple, Unix-like teaching operating system"
+            <a data-url="https://abinzzz.github.io/2023/09/12/xv6:%20chapter01/" data-id="clmsrf8oz0007dx6932tq9rhb" data-title="xv6: chapter01"
                class="article-share-link">分享</a>
             
             
@@ -288,7 +291,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">105</div>
+                <div class="sidebar-state-number">108</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -296,7 +299,7 @@
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
-                <div class="sidebar-state-number">110</div>
+                <div class="sidebar-state-number">116</div>
             </div>
         </div>
         <div class="sidebar-social">
@@ -361,7 +364,7 @@
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 14.55px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 10.91px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/GoAbroad/" style="font-size: 17.27px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 11.82px;">IELTS</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lec01/" style="font-size: 11.82px;">Lec01</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/MIT6-S081/" style="font-size: 11.82px;">MIT6.S081</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Qingyao-Ai/" style="font-size: 10.91px;">Qingyao Ai</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/StarBucks/" style="font-size: 12.73px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 13.64px;">T1</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 14.55px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 10.91px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chapter02/" style="font-size: 10px;">chapter02</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 18.18px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/database/" style="font-size: 10.91px;">database</a> <a href="/tags/debug/" style="font-size: 10.91px;">debug</a> <a href="/tags/dowhy/" style="font-size: 10.91px;">dowhy</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 10.91px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 11.82px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 12.73px;">instructor</a> <a href="/tags/internship/" style="font-size: 16.36px;">internship</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/os/" style="font-size: 11.82px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 19.09px;">paper</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 12.73px;">prml</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 11.82px;">shap</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/tool/" style="font-size: 11.82px;">tool</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 15.45px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 10.91px;">审稿意见</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 10.91px;">最长的电影</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 14.55px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
+            <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 14.55px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 10.91px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/GoAbroad/" style="font-size: 17.27px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 11.82px;">IELTS</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lec01/" style="font-size: 11.82px;">Lec01</a> <a href="/tags/Lec01s/" style="font-size: 10px;">Lec01s</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/MIT6-S081/" style="font-size: 12.73px;">MIT6.S081</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Qingyao-Ai/" style="font-size: 10.91px;">Qingyao Ai</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/StarBucks/" style="font-size: 12.73px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 13.64px;">T1</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 14.55px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 10.91px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chapter00/" style="font-size: 10px;">chapter00</a> <a href="/tags/chapter02/" style="font-size: 10px;">chapter02</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 18.18px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/dalle3/" style="font-size: 10px;">dalle3</a> <a href="/tags/database/" style="font-size: 10.91px;">database</a> <a href="/tags/debug/" style="font-size: 10.91px;">debug</a> <a href="/tags/dowhy/" style="font-size: 10.91px;">dowhy</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 10.91px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 11.82px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 12.73px;">instructor</a> <a href="/tags/internship/" style="font-size: 16.36px;">internship</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/os/" style="font-size: 12.73px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 19.09px;">paper</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 12.73px;">prml</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 11.82px;">shap</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/tensor-vs-ndarray/" style="font-size: 10px;">tensor vs ndarray</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/tool/" style="font-size: 11.82px;">tool</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/xv6/" style="font-size: 10px;">xv6</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 15.45px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 10.91px;">审稿意见</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/" style="font-size: 10px;">拓扑结构</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 10.91px;">最长的电影</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 14.55px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
         </div>
     </div>
 
@@ -401,10 +404,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    158.7k
+                    163.9k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    09:54
+                    10:14
                 </div>
             
             
@@ -431,7 +434,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">105</div>
+                <div class="sidebar-state-number">108</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -439,7 +442,7 @@
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
-                <div class="sidebar-state-number">110</div>
+                <div class="sidebar-state-number">116</div>
             </div>
         </div>
         <div class="sidebar-social">
