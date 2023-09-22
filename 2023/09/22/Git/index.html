@@ -1,0 +1,786 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        Git |
+        
+        Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   1.Git Commit Git 仓库中的提交记录保存的是你的目录下所有文件的快照，就像是把整个目录复制，然后再粘贴一样，但比复制粘贴优雅许多！ Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，它并不会盲目地">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="https://abinzzz.github.io/2023/09/22/Git/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   1.Git Commit Git 仓库中的提交记录保存的是你的目录下所有文件的快照，就像是把整个目录复制，然后再粘贴一样，但比复制粘贴优雅许多！ Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，它并不会盲目地">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oE_4BbwAA18iQ?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oFXl8aAAASoHO?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oE_4BbwAA18iQ?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oIMSQacAAGNrj?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oJJntaIAAPlVf?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oIMSQacAAGNrj?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oKYkgacAEVU9g?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oNJozawAAQIgd?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oNgQJbcAA7Vcz?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oT2PDa0AAFK_J?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oU8Rma0AAgc8Z?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oaglTakAA6vKF?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oazDEbEAA5rIB?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6objMnbIAAkbCr?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6ocY7aagAAn7zW?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6ofL2qa8AAFgvJ?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oiu5ebcAAxqfD?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6okYC-aMAAuzVf?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6oksW9bwAAb_b5?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6onAbraYAApVXx?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6onl4rakAALfzT?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6ooe23bsAAnOIn?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6ooyYta8AAgLcg?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6orJhObgAADZtk?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6orn1dbkAAh3Ec?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6orJhObgAADZtk?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6os1Cob0AAF0SI?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6ovwDjaEAADvaP?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6ozXmZbIAAhT6T?format=webp&amp;name=900x900">
+<meta property="article:published_time" content="2023-09-22T11:18:21.000Z">
+<meta property="article:modified_time" content="2023-09-22T14:54:50.069Z">
+<meta property="article:author" content="晴">
+<meta property="article:tag" content="tools">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/F6oE_4BbwAA18iQ?format=webp&amp;name=900x900">
+    
+        <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/katex@0.16.7/dist/katex.min.css">
+
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">Loading...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="https://th.bing.com/th/id/OIP.RkUjg6YduzzpAHaVdzic9gHaFq?pid=ImgDet&amp;rs=1" data-sizes="auto" alt="Git" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>Git</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">首页</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">归档</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">关于</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">友链</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS 订阅"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://abinzzz.github.io"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-Git" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/09/22/Git/" class="article-date-link">
+        <time datetime="2023-09-22T11:18:21.000Z"
+              itemprop="datePublished">2023-09-22</time>
+    </a>
+</div>
+
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="/categories/tools/">tools</a>
+    </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="1git-commit"><a class="markdownIt-Anchor" href="#1git-commit"></a> 1.Git Commit</h2>
+<p>Git 仓库中的提交记录保存的是你的目录下所有文件的快照，就像是把整个目录复制，然后再粘贴一样，但比复制粘贴优雅许多！</p>
+<p>Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，它并不会盲目地复制整个目录。条件允许的情况下，它会将当前版本与仓库中的上一个版本进行对比，并把所有的差异打包到一起作为一个提交记录。</p>
+<p>Git 还保存了提交的历史记录。这也是为什么大多数提交记录的上面都有 parent 节点的原因 —— 我们会在图示中用箭头来表示这种关系。对于项目组的成员来说，维护提交历史对大家都有好处。</p>
+<hr />
+<p>实际操作一下，看看提交记录是怎样的。右边展示了一个（小型）Git 代码库。当前有两个提交记录 —— 初始提交 <strong>C0</strong> 和其后可能包含某些有用修改的提交 <strong>C1</strong></p>
+<p><img src="https://pbs.twimg.com/media/F6oE_4BbwAA18iQ?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行：<code>Git Commit</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6oFXl8aAAASoHO?format=webp&amp;name=900x900" alt="" /></p>
+<p>修改了代码库，并把这些修改保存成了一个提交记录 <strong>C2</strong>。<strong>C2</strong> 的 parent 节点是 <strong>C1</strong>， parent 节点是当前提交中变更的基础。</p>
+<br>
+<h2 id="2git-branch"><a class="markdownIt-Anchor" href="#2git-branch"></a> 2.Git Branch</h2>
+<p>这是因为即使创建再多的分支也不会造成储存或内存上的开销，并且按逻辑分解工作到不同的分支要比维护那些特别臃肿的分支简单多了。</p>
+<p>在将分支和提交记录结合起来后，我们会看到两者如何协作。现在只要记住使用分支其实就相当于在说：“我想基于这个提交以及它所有的 parent 提交进行新的工作。</p>
+<hr />
+<p>我们将要创建一个到名为 newImage 的分支。</p>
+<p><img src="https://pbs.twimg.com/media/F6oE_4BbwAA18iQ?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行：<code>git branch newimage</code></p>
+<Br>
+<p><img src="https://pbs.twimg.com/media/F6oIMSQacAAGNrj?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>创建分支就是这么容易！新创建的分支 <strong>newImage</strong> 指向的是提交记录 <strong>C1</strong>。</p>
+<p>现在咱们试着往新分支里提交一些东西。点击下面的按钮</p>
+<p>执行：<code>Git Commit</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6oJJntaIAAPlVf?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>为什么 <strong>main</strong> 分支前进了，但 <strong>newImage</strong> 分支还待在原地呢？！这是因为我们没有“在”这个新分支上，看到 <strong>main</strong> 分支上的那个星号（*）了吗？这表示当前所在的分支是 <strong>main</strong>。</p>
+<p>现在咱们告诉 Git 我们想要切换到新的分支上</p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6oIMSQacAAGNrj?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行：<code>git checkout newimage;git commit</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6oKYkgacAEVU9g?format=webp&amp;name=900x900" alt="" /></p>
+<Br>
+<p>我们的修改已经保存到新的分支里了。</p>
+<p>🌟创建分支并切换到新分支：<code>git checkout -b &lt;your branch name&gt;</code></p>
+<br>
+<h2 id="3分支与合并"><a class="markdownIt-Anchor" href="#3分支与合并"></a> 3.分支与合并</h2>
+<p>如何将两个分支合并到一起。就是说我们新建一个分支，在其上开发某个新功能，开发完成后再合并回主线。</p>
+<Br>
+<h2 id="31-第一种方法-git-merge"><a class="markdownIt-Anchor" href="#31-第一种方法-git-merge"></a> 3.1 第一种方法: <code>git merge</code></h2>
+<p>在 Git 中合并两个分支时会产生一个特殊的提交记录，它有两个 parent 节点。翻译成自然语言相当于：“我要把这两个 parent 节点本身及它们所有的祖先都包含进来。”</p>
+<hr />
+<p>我们准备了两个分支，每个分支上各有一个独有的提交。这意味着没有一个分支包含了我们修改的所有内容。咱们通过合并这两个分支来解决这个问题。</p>
+<p>我们要把 <strong>bugFix</strong> 合并到 <strong>main</strong> 里</p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6oNJozawAAQIgd?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行：<code>git merge bugFix</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6oNgQJbcAA7Vcz?format=webp&amp;name=900x900" alt="" /></p>
+<Br>
+<p>首先，<strong>main</strong> 现在指向了一个拥有两个 parent 节点的提交记录。假如从 <strong>main</strong> 开始沿着箭头向上看，在到达起点的路上会经过所有的提交记录。这意味着 <strong>main</strong> 包含了对代码库的所有修改。</p>
+<p>咱们再把 <strong>main</strong> 分支合并到 <strong>bugFix</strong>：</p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6oT2PDa0AAFK_J?format=webp&amp;name=900x900" alt="" /></p>
+<Br>
+<p>执行：<code>git checkout bugFix; git merge main</code></p>
+<Br>
+<p><img src="https://pbs.twimg.com/media/F6oU8Rma0AAgc8Z?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>因为 <strong>main</strong> 继承自 <strong>bugFix</strong>，Git 什么都不用做，只是简单地把 <strong>bugFix</strong> 移动到 <strong>main</strong> 所指向的那个提交记录。</p>
+<p>现在所有提交记录的颜色都一样了，这表明每一个分支都包含了代码库的所有修改！大功告成！</p>
+<Br>
+<h2 id="32-第二种合并分支的方法是-git-rebase"><a class="markdownIt-Anchor" href="#32-第二种合并分支的方法是-git-rebase"></a> 3.2 第二种合并分支的方法是: <code>git rebase</code></h2>
+<p><strong>Rebase</strong> 实际上就是取出一系列的提交记录，“复制”它们，然后在另外一个地方逐个的放下去。</p>
+<p><strong>Rebase</strong> 的优势就是可以创造更线性的提交历史，这听上去有些难以理解。如果只允许使用 <strong>Rebase</strong> 的话，代码库的提交历史将会变得异常清晰。</p>
+<hr />
+<p>还是准备了两个分支；注意当前所在的分支是 <strong>bugFix</strong>（星号标识的是当前分支）</p>
+<p>我们想要把 <strong>bugFix</strong> 分支里的工作直接移到 <strong>main</strong> 分支上。移动以后会使得两个分支的功能看起来像是按顺序开发，但实际上它们是并行开发的。</p>
+<p>咱们这次用 <code>git rebase</code> 实现此目标</p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6oaglTakAA6vKF?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行：<code>git rebase main</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6oazDEbEAA5rIB?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>现在 bugFix 分支上的工作在 main 的最顶端，同时我们也得到了一个更线性的提交序列。</p>
+<p>注意，提交记录 C3 依然存在（树上那个半透明的节点），而 C3’ 是我们 Rebase 到 main 分支上的 C3 的副本。</p>
+<p>现在唯一的问题就是 main 还没有更新，下面咱们就来更新它吧……</p>
+<p>执行：<code>git checkout main</code></p>
+<p>现在我们切换到了 main 上。把它 rebase 到 bugFix 分支上……</p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6objMnbIAAkbCr?format=webp&amp;name=900x900" alt="" /></p>
+<Br>
+<p>执行：<code>git rebase bugFix</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6ocY7aagAAn7zW?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>由于 <strong>bugFix</strong> 继承自 <strong>main</strong>，所以 Git 只是简单的把 <strong>main</strong> 分支的引用向前移动了一下而已。</p>
+<h2 id="在提交树上移动"><a class="markdownIt-Anchor" href="#在提交树上移动"></a> 在提交树上移动</h2>
+<p>在接触 Git 更高级功能之前，我们有必要先学习在你项目的提交树上前后移动的几种方法。</p>
+<p>一旦熟悉了如何在 Git 提交树上移动，你驾驭其它命令的能力也将水涨船高！</p>
+<h2 id="4head可以粗略地理解为指向带星号的东西"><a class="markdownIt-Anchor" href="#4head可以粗略地理解为指向带星号的东西"></a> 4.HEAD:可以粗略地理解为指向带星号的东西？</h2>
+<p>我们首先看一下 “<strong>HEAD</strong>”。 <strong>HEAD</strong> 是一个对当前所在分支的符号引用 —— 也就是指向你正在其基础上进行工作的提交记录。</p>
+<p><strong>HEAD</strong> 总是指向当前分支上最近一次提交记录。大多数修改提交树的 Git 命令都是从改变 <strong>HEAD</strong> 的指向开始的。</p>
+<p><strong>HEAD</strong> 通常情况下是指向分支名的（如 <strong>bugFix</strong>）。在你提交时，改变了 <strong>bugFix</strong> 的状态，这一变化通过 HEAD 变得可见。</p>
+<hr />
+<p>下面咱们通过实际操作看一下。我们将会观察提交前后 HEAD 的位置。</p>
+<p>分离的 HEAD 就是让其指向了某个具体的提交记录而不是分支名。在命令执行之前的状态如下所示：</p>
+<p><code>HEAD -&gt; main -&gt; C1</code></p>
+<p>HEAD 指向 main， main 指向 C1</p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6ofL2qa8AAFgvJ?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行：<code>git checkout C1</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6oiu5ebcAAxqfD?format=webp&amp;name=900x900" alt="" /></p>
+<p>现在变成了</p>
+<p><code>HEAD -&gt; C1</code></p>
+<h2 id="5相对引用"><a class="markdownIt-Anchor" href="#5相对引用"></a> 5.相对引用</h2>
+<p>通过指定提交记录哈希值的方式在 Git 中移动不太方便。在实际应用时，并没有像本程序中这么漂亮的可视化提交树供你参考，所以你就不得不用 <code>git log</code> 来查查看提交记录的哈希值。</p>
+<p>并且哈希值在真实的 Git 世界中也会更长（译者注：基于 SHA-1，共 40 位）。例如前一关的介绍中的提交记录的哈希值可能是 <strong>fed2da64c0efc5293610bdd892f82a58e8cbc5d8</strong>。舌头都快打结了吧…</p>
+<p>比较令人欣慰的是，Git 对哈希的处理很智能。你只需要提供能够唯一标识提交记录的前几个字符即可。因此我可以仅输入<strong>fed2</strong> 而不是上面的一长串字符。</p>
+<p>正如我前面所说，通过哈希值指定提交记录很不方便，所以 Git 引入了相对引用。这个就很厉害了!</p>
+<p>使用相对引用的话，你就可以从一个易于记忆的地方（比如 <strong>bugFix</strong> 分支或 <strong>HEAD</strong>）开始计算。</p>
+<p>相对引用非常给力，这里我介绍两个简单的用法：</p>
+<ul>
+<li>使用 <code>^</code> 向上移动 1 个提交记录</li>
+<li>使用 <code>~&lt;num&gt;</code> 向上移动多个提交记录，如 <code>~3</code></li>
+</ul>
+<h2 id="51-操作符"><a class="markdownIt-Anchor" href="#51-操作符"></a> 5.1 “^” 操作符</h2>
+<hr />
+<p>首先看看操作符 <code>^</code>。把这个符号加在引用名称的后面，表示让 Git 寻找指定提交记录的 parent 提交。</p>
+<p>所以 <strong>main^</strong> 相当于“<strong>main</strong> 的 parent 节点”。</p>
+<p><strong>main^^</strong> 是 <strong>main</strong> 的第二个 parent 节点</p>
+<p>现在咱们切换到 <strong>main</strong> 的 parent 节点</p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6okYC-aMAAuzVf?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行：<code>git checkout main^</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6oksW9bwAAb_b5?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<h2 id="52-~-操作符"><a class="markdownIt-Anchor" href="#52-~-操作符"></a> 5.2 “~” 操作符</h2>
+<p>如果你想在提交树中向上移动很多步的话，敲那么多 <code>^</code> 貌似也挺烦人的，Git 当然也考虑到了这一点，于是又引入了操作符 <code>~</code>。</p>
+<p>该操作符后面可以跟一个数字（可选，不跟数字时与 <code>^</code> 相同，向上移动一次），指定向上移动多少次。咱们还是通过实际操作看一下吧</p>
+<hr />
+<p>咱们用 <code>~&lt;num&gt;</code> 一次后退四步。</p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6onAbraYAApVXx?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行：<code>git checkout HEAD~4</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6onl4rakAALfzT?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<h2 id="53-强制修改分支位置"><a class="markdownIt-Anchor" href="#53-强制修改分支位置"></a> 5.3 强制修改分支位置</h2>
+<p>你现在是相对引用的专家了，现在用它来做点实际事情。</p>
+<p>我使用相对引用最多的就是移动分支。可以直接使用 <code>-f</code> 选项让分支指向另一个提交。例如:</p>
+<p><code>git branch -f main HEAD~3</code></p>
+<p>上面的命令会将 <strong>main</strong> 分支强制指向 <strong>HEAD</strong> 的第 3 级 parent 提交。</p>
+<hr />
+<br>
+<p><img src="https://pbs.twimg.com/media/F6ooe23bsAAnOIn?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行：<code>git branch -f main HEAD~3</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6ooyYta8AAgLcg?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>这就对了! 相对引用为我们提供了一种简洁的引用提交记录 <strong>C1</strong> 的方式， 而 <code>-f</code> 则容许我们将分支强制移动到那个位置。</p>
+<Br>
+<h2 id="6撤销变更"><a class="markdownIt-Anchor" href="#6撤销变更"></a> 6.撤销变更</h2>
+<p>在 Git 里撤销变更的方法很多。和提交一样，撤销变更由底层部分（暂存区的独立文件或者片段）和上层部分（变更到底是通过哪种方式被撤销的）组成。我们这个应用主要关注的是后者。</p>
+<p>主要有两种方法用来撤销变更</p>
+<ul>
+<li><code>git reset</code></li>
+<li><code>git revert</code></li>
+</ul>
+<h2 id="61-本地git-reset撤销的时候接的是上一个提交记录"><a class="markdownIt-Anchor" href="#61-本地git-reset撤销的时候接的是上一个提交记录"></a> 6.1 (本地)Git Reset:撤销的时候接的是上一个提交记录</h2>
+<p><code>git reset</code> 通过把分支记录回退几个提交记录来实现撤销改动。你可以将这想象成“改写历史”。<code>git reset</code> 向上移动分支，原来指向的提交记录就跟从来没有提交过一样。</p>
+<hr />
+<p><img src="https://pbs.twimg.com/media/F6orJhObgAADZtk?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行:<code>git reset HEAD~1</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6orn1dbkAAh3Ec?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>漂亮! Git 把 <strong>main</strong> 分支移回到 <strong>C1</strong>；现在我们的本地代码库根本就不知道有 <strong>C2</strong> 这个提交了(译者注：在reset后， C2 所做的变更还在，但是处于未加入暂存区状态。)</p>
+<br>
+<h2 id="62-远程git-revert撤销的时候接的是当前提交记录"><a class="markdownIt-Anchor" href="#62-远程git-revert撤销的时候接的是当前提交记录"></a> 6.2 (远程)Git Revert：撤销的时候接的是当前提交记录</h2>
+<p>虽然在你的本地分支中使用 <code>git reset</code> 很方便，但是这种“改写历史”的方法对大家一起使用的远程分支是无效的哦！</p>
+<hr />
+<p>为了撤销更改并分享给别人，我们需要使用 <code>git revert</code>。来看演示:</p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6orJhObgAADZtk?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行：<code>git revert HEAD</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6os1Cob0AAF0SI?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>奇怪！在我们要撤销的提交记录后面居然多了一个新提交！这是因为新提交记录 <strong>C2’</strong> 引入了更改 —— 这些更改刚好是用来撤销 <strong>C2</strong> 这个提交的。也就是说 <strong>C2’</strong> 的状态与 <strong>C1</strong> 是相同的。</p>
+<p><code>revert</code> 之后就可以把你的更改推送到远程仓库与别人分享啦。</p>
+<br>
+<h2 id="7整理提交记录"><a class="markdownIt-Anchor" href="#7整理提交记录"></a> 7.整理提交记录</h2>
+<p>到现在我们已经学习了 Git 的基础知识 —— 提交、分支以及在提交树上移动。 这些概念涵盖了 Git 90% 的功能，同样也足够满足开发者的日常需求</p>
+<p>然而, 剩余的 10% 在处理复杂的工作流时(或者当你陷入困惑时）可能就显得尤为重要了。接下来要讨论的这个话题是“整理提交记录” —— 开发人员有时会说“我想要把这个提交放到这里, 那个提交放到刚才那个提交的后面”, 而接下来就讲的就是它的实现方式，非常清晰、灵活，还很生动。</p>
+<p>看起来挺复杂, 其实是个很简单的概念。</p>
+<br>
+<h2 id="71-git-cherry-pick"><a class="markdownIt-Anchor" href="#71-git-cherry-pick"></a> 7.1 Git Cherry-pick</h2>
+<p>本系列的第一个命令是 <code>git cherry-pick</code>, 命令形式为:</p>
+<ul>
+<li><code>git cherry-pick &lt;提交号&gt;...</code></li>
+</ul>
+<p>如果你想将一些提交复制到当前所在的位置 <strong>（HEAD）</strong> 下面的话， <code>Cherry-pick</code> 是最直接的方式了。我个人非常喜欢 <code>cherry-pick</code>，因为它特别简单。</p>
+<p>咱们还是通过例子来看一下！</p>
+<hr />
+<p>这里有一个仓库, 我们想将 <strong>side</strong> 分支上的工作复制到 <strong>main</strong> 分支，你立刻想到了之前学过的 <code>rebase</code> 了吧？但是咱们还是看看 <code>cherry-pick</code> 有什么本领吧。</p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6ovwDjaEAADvaP?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行：<code>git cherry-pick C2 C4</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6ozXmZbIAAhT6T?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>这就是了！我们只需要提交记录 C2 和 C4，所以 Git 就将被它们抓过来放到当前分支下了。 就是这么简单!</p>
+<h2 id="72-交互式rebase"><a class="markdownIt-Anchor" href="#72-交互式rebase"></a> 7.2 交互式rebase</h2>
+<p>当你知道你所需要的提交记录（并且还知道这些提交记录的哈希值）时, 用 <code>cherry-pick</code> 再好不过了 —— 没有比这更简单的方式了。</p>
+<p>但是如果你不清楚你想要的提交记录的哈希值呢? 幸好 Git 帮你想到了这一点, 我们可以利用交互式的 <code>rebase</code> —— 如果你想从一系列的提交记录中找到想要的记录, 这就是最好的方法了</p>
+<p>咱们具体来看一下……</p>
+<p>交互式 <code>rebase</code> 指的是使用带参数 <code>--interactive</code> 的 <code>rebase</code> 命令, 简写为 <code>-i</code></p>
+<p>如果你在命令后增加了这个选项, Git 会打开一个 UI 界面并列出将要被复制到目标分支的备选提交记录，它还会显示每个提交记录的哈希值和提交说明，提交说明有助于你理解这个提交进行了哪些更改。</p>
+<p>在实际使用时，所谓的 UI 窗口一般会在文本编辑器 —— 如 Vim —— 中打开一个文件。 考虑到课程的初衷，我弄了一个对话框来模拟这些操作。</p>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="https://abinzzz.github.io/2023/09/22/Git/" data-id="clmuq44gy00025d6997twfgsp" data-title="Git"
+               class="article-share-link">分享</a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/" rel="tag">tools</a></li></ul>
+
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    <img data-src="https://pic4.zhimg.com/v2-73563c6c833ff75fd842761034bf8443_b.jpg" data-sizes="auto" alt="2023.09.22"
+                         class="lazyload">
+                
+                <a href="/2023/09/22/2023-09-22/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        2023.09.22
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="晴" class="lazyload">
+            <div class="sidebar-author-name">晴</div>
+            <div class="sidebar-description">Love is selfish.</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">110</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">9</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">120</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href= itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/abinzzz183328 itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/profile.php?id=100092835102953 itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Essay/">Essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reading/">reading</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a></li></ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 14.55px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 10.91px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GoAbroad/" style="font-size: 17.27px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 11.82px;">IELTS</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lec01/" style="font-size: 11.82px;">Lec01</a> <a href="/tags/Lec01s/" style="font-size: 10px;">Lec01s</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/MIT6-S081/" style="font-size: 12.73px;">MIT6.S081</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Qingyao-Ai/" style="font-size: 10.91px;">Qingyao Ai</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/StarBucks/" style="font-size: 12.73px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 13.64px;">T1</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 14.55px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 10.91px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chapter00/" style="font-size: 10px;">chapter00</a> <a href="/tags/chapter01/" style="font-size: 10px;">chapter01</a> <a href="/tags/chapter02/" style="font-size: 10px;">chapter02</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 18.18px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/dalle3/" style="font-size: 10px;">dalle3</a> <a href="/tags/database/" style="font-size: 11.82px;">database</a> <a href="/tags/debug/" style="font-size: 11.82px;">debug</a> <a href="/tags/dowhy/" style="font-size: 10.91px;">dowhy</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 10.91px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 11.82px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 12.73px;">instructor</a> <a href="/tags/internship/" style="font-size: 16.36px;">internship</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/os/" style="font-size: 12.73px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 19.09px;">paper</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 12.73px;">prml</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 11.82px;">shap</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/tensor-vs-ndarray/" style="font-size: 10px;">tensor vs ndarray</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/tool/" style="font-size: 11.82px;">tool</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/xv6/" style="font-size: 10px;">xv6</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 15.45px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%93%88%E5%B8%8C%E5%80%BC/" style="font-size: 10px;">哈希值</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 10.91px;">审稿意见</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/" style="font-size: 10px;">拓扑结构</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 10.91px;">最长的电影</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 14.55px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                晴
+            </div>
+            
+                <div>
+                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    169.4k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    10:33
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="晴" class="lazyload">
+            <div class="sidebar-author-name">晴</div>
+            <div class="sidebar-description">Love is selfish.</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">110</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">9</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">120</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href= itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/abinzzz183328 itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/profile.php?id=100092835102953 itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
