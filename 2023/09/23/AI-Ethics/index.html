@@ -1,0 +1,828 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        AI Ethics |
+        
+        Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   例子 文案 文献  1.实际应用  案例1：AI驱动的药物设计   继 AlphaGo 的巨大成功， AlphaFold 从基因序列 预测蛋白质的 3D 模型， 比以往任何一种预测方法更精确、 更高效，有望打破新药研发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Ethics">
+<meta property="og:url" content="https://abinzzz.github.io/2023/09/23/AI-Ethics/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   例子 文案 文献  1.实际应用  案例1：AI驱动的药物设计   继 AlphaGo 的巨大成功， AlphaFold 从基因序列 预测蛋白质的 3D 模型， 比以往任何一种预测方法更精确、 更高效，有望打破新药研发">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-23T05:11:57.000Z">
+<meta property="article:modified_time" content="2023-09-23T11:16:00.421Z">
+<meta property="article:author" content="晴">
+<meta property="article:tag" content="专业知识">
+<meta property="article:tag" content="AI Ethics">
+<meta property="article:tag" content="3-1">
+<meta property="article:tag" content="discussion">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/katex@0.16.7/dist/katex.min.css">
+
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">Loading...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="https://th.bing.com/th/id/OIP.RkUjg6YduzzpAHaVdzic9gHaFq?pid=ImgDet&amp;rs=1" data-sizes="auto" alt="AI Ethics" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>AI Ethics</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">首页</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">归档</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">关于</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">友链</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS 订阅"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://abinzzz.github.io"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-AI-Ethics" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/09/23/AI-Ethics/" class="article-date-link">
+        <time datetime="2023-09-23T05:11:57.000Z"
+              itemprop="datePublished">2023-09-23</time>
+    </a>
+</div>
+
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a>
+    </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="例子-文案-文献"><a class="markdownIt-Anchor" href="#例子-文案-文献"></a> 例子 文案 文献</h2>
+<h2 id="1实际应用"><a class="markdownIt-Anchor" href="#1实际应用"></a> 1.实际应用</h2>
+<h2 id="案例1ai驱动的药物设计"><a class="markdownIt-Anchor" href="#案例1ai驱动的药物设计"></a> 案例1：AI驱动的药物设计</h2>
+<ul>
+<li>
+<p>继 AlphaGo 的巨大成功， AlphaFold<br />
+从基因序列 预测蛋白质的 3D 模型，<br />
+比以往任何一种预测方法更精确、<br />
+更高效，有望打破新药研发“ 双十<br />
+定律 ”的长期瓶颈。</p>
+</li>
+<li>
+<p>受 AlphaFold 的启发，类似方法 被<br />
+用于其他行业，行成了 AI for<br />
+Science 的大趋势。</p>
+</li>
+</ul>
+<h2 id="案例2ai驱动的智能制造产业升级"><a class="markdownIt-Anchor" href="#案例2ai驱动的智能制造产业升级"></a> 案例2：AI驱动的智能制造产业升级</h2>
+<ul>
+<li>意义：全球化 2.0 时代的立国之本技术</li>
+<li>路径： AI 、机器人、物联网、 IT…</li>
+<li>预期落地时间： 已经开始</li>
+<li>科学依据： 封闭化 半封闭化</li>
+<li>发展机遇：
+<ul>
+<li>
+<ol>
+<li>高端装备</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>中、下游制造业的智能化、高<br />
+端化</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="案例3ai驱动的驾驶自动化"><a class="markdownIt-Anchor" href="#案例3ai驱动的驾驶自动化"></a> 案例3：AI驱动的驾驶自动化</h2>
+<ul>
+<li>颠覆方式：出行、居住、工作、新业态…</li>
+<li>技术路径：无人工干预的L4…</li>
+<li>预期时间：3-5年</li>
+<li>科学依据：半封闭化</li>
+<li>驾驶自动化≠ 自动驾驶</li>
+</ul>
+<h2 id="案例4ai驱动的智慧农业"><a class="markdownIt-Anchor" href="#案例4ai驱动的智慧农业"></a> 案例4：AI驱动的智慧农业</h2>
+<ul>
+<li>农业生 产智能化</li>
+<li>预期时间： 10-15 年</li>
+<li>科学依据： 半封闭化</li>
+</ul>
+<p>《高标准农田建设<br />
+通则》 GB T 3060 0 2022<br />
+Well facilitated farmland<br />
+construction General rules<br />
+2022 年 10 月 1 日起正式实 施<br />
+http<br />
+openstd samr gov cn bzgk gb newGbInfo hc<br />
+no =56806 B 705 B 9632406 C 71 BA 8 E 7 CD 7 B8EF</p>
+<h2 id="2人工智能发展现状的反思与展望"><a class="markdownIt-Anchor" href="#2人工智能发展现状的反思与展望"></a> 2.人工智能发展现状的反思与展望</h2>
+<ul>
+<li>ai替代人类</li>
+<li>人工弱智</li>
+</ul>
+<h2 id="3目前现状"><a class="markdownIt-Anchor" href="#3目前现状"></a> 3.目前现状</h2>
+<ul>
+<li>两种极端观点都与事实严重不符</li>
+<li>封闭条件下，现有人工智能技术可以大规模推广使用</li>
+<li>例子：手机导航，围棋</li>
+</ul>
+<h2 id="4人工智能伦理治理总则"><a class="markdownIt-Anchor" href="#4人工智能伦理治理总则"></a> 4.人工智能伦理治理总则*</h2>
+<ul>
+<li>一条指导原则：增进人类的福祉</li>
+</ul>
+<p>如何理解该总则也就是要对内涵解读进行详细的描述</p>
+<ul>
+<li>
+<p>内涵解读：</p>
+<ul>
+<li>人类对人工智 能的根本伦理诉求 是“ 人 工智能能否带来人类需求的改变”，即 增进<br />
+人类福祉；</li>
+<li>总则要求 全面 面向 全人类 而非局部地落实 人工智 能的根本伦理诉求；</li>
+<li>总则要求 既治标也治本 ，不能 头痛医头、脚痛医 脚。</li>
+</ul>
+</li>
+<li>
+<p>双重作用：</p>
+<ul>
+<li>应该让AI做什么</li>
+<li>不应该让AI做什么</li>
+</ul>
+</li>
+<li>
+<p>三类问题：</p>
+<ul>
+<li>可控性</li>
+<li>合理性</li>
+<li>重大相关问题：无用阶层，老龄化，人类发展…</li>
+</ul>
+</li>
+<li>
+<p>四种维度：</p>
+<ul>
+<li>理念</li>
+<li>技术</li>
+<li>管理</li>
+<li>法律</li>
+</ul>
+</li>
+<li>
+<p>五个重点领域：</p>
+<ul>
+<li>数据应用</li>
+<li>企业AI伦理建设</li>
+<li>AI科研</li>
+<li>智能媒体</li>
+<li>AI伦理与法治</li>
+</ul>
+</li>
+</ul>
+<h2 id="5什么是人工智能"><a class="markdownIt-Anchor" href="#5什么是人工智能"></a> 5.什么是人工智能</h2>
+<ul>
+<li>图灵观点：机器思维&quot;模仿&quot;人的思维功能</li>
+<li>其他观点：把人的智能搬到机器上</li>
+</ul>
+<h2 id="6人工智能的基本观点"><a class="markdownIt-Anchor" href="#6人工智能的基本观点"></a> 6.人工智能的基本观点</h2>
+<ul>
+<li>
+<p>信息处理观：</p>
+<ul>
+<li>人工智能的研究范围限于信息处理</li>
+<li>人工智能系统直接关注的外部对象只有人</li>
+<li>人工智能系统的所有功能都可以在图灵机上实现</li>
+</ul>
+</li>
+<li>
+<p>机器人观：</p>
+<ul>
+<li>人工智能的研究范围：环境感知，信息处理和自主行动</li>
+<li>直接关注的外部对象：人，环境和其他智能体</li>
+<li>实现的机器：传感器，执行器和图灵机</li>
+</ul>
+</li>
+</ul>
+<h2 id="7两种人工智能的经典思维"><a class="markdownIt-Anchor" href="#7两种人工智能的经典思维"></a> 7.两种人工智能的经典思维</h2>
+<h2 id="71基于模型的强力法"><a class="markdownIt-Anchor" href="#71基于模型的强力法"></a> 7.1基于模型的强力法</h2>
+<p>基本设计原理：</p>
+<ul>
+<li>构建问题的一个精确模型</li>
+<li>设计一个知识库或者状态空间，表达上述精确模型</li>
+<li>基于知识库或者状态空间，使用推理法或者搜索法琼剧所有选项，找出问题的一个接</li>
+</ul>
+<p>强力法的主要实现方法：</p>
+<ul>
+<li>推理法：在知识库上进行推理</li>
+<li>搜索法：在状态空间中进行搜索</li>
+</ul>
+<p>强力发的缺陷：</p>
+<ul>
+<li>缺乏知识库的正确标准</li>
+<li>存在脆弱性问题</li>
+</ul>
+<h2 id="72-基于元模型的训练法"><a class="markdownIt-Anchor" href="#72-基于元模型的训练法"></a> 7.2 基于元模型的训练法</h2>
+<p>训练法的设计原理：</p>
+<ul>
+<li>建立待解问题的元模型</li>
+<li>根据元模型的要求，选择一种合适的人工智能神经元网络和监督学习算法</li>
+<li>依数据拟合原理，以训练数据，训练上述nn和监督学习算法</li>
+</ul>
+<p>训练法的缺陷：</p>
+<ul>
+<li>缺乏可解释性</li>
+<li>没有消除脆弱性</li>
+</ul>
+<hr />
+<h2 id="8来自gpt-4对-如何理解人工智能伦理治理总则是增进人类的福祉-的回答"><a class="markdownIt-Anchor" href="#8来自gpt-4对-如何理解人工智能伦理治理总则是增进人类的福祉-的回答"></a> 8.来自gpt-4对 <code>如何理解人工智能伦理治理总则是增进人类的福祉？</code> 的回答</h2>
+<p>“增进人类的福祉”在很多文化和社会中都是一个基本的道德和伦理目标。在人工智能（AI）的背景下，理解这一目标意味着我们需要确保AI的研究、开发和应用都是为了提高人类生活的质量、确保社会公正和促进共同的利益。</p>
+<p>这里有几个关键的角度可以帮助我们理解“增进人类的福祉”这一目标：</p>
+<p>1） <strong>安全性和可靠性</strong>：AI系统的设计和部署应该首先确保人的安全。这意味着AI不应该造成伤害，不应该有预测性的错误，而且在遇到不确定或未知的情况时应该有适当的反应。</p>
+<p>2） <strong>公平性和不歧视</strong>：AI系统不应该加剧社会的不平等或歧视。这意味着AI的设计、训练和部署应该考虑到各种背景、性别、种族、经济地位等因素，确保不会导致不公平的结果。</p>
+<p>3） <strong>隐私和数据保护</strong>：AI经常依赖于大量的数据，这有时涉及个人和敏感信息。因此，AI系统应该保护个人的隐私，不滥用或不当分享数据。</p>
+<p>4） <strong>透明性和可解释性</strong>：为了赢得公众的信任，AI的决策过程应该是透明的，并且可以为人们所理解。</p>
+<p>5） <strong>人类中心的设计</strong>：AI应该与人类的需求和价值观相一致，而不是与之相对立。这意味着AI的设计和实施应该考虑人类的福祉、需求和情感。</p>
+<p>6） <strong>持续的监管和责任</strong>：随着技术的进步，AI的能力和影响也会增长。这就需要有一个持续的、动态的伦理治理机制，确保AI的使用始终是为了人类的福祉。</p>
+<p>总的来说，人工智能伦理治理的目的是确保AI的技术和应用始终是为了人类的最大利益，防止可能的负面影响，促进公正、公平和公共的福利。这不仅需要技术的进步，还需要法律、政策、伦理和社会的共同努力。</p>
+<h2 id="9-来自claude-2对-如何理解人工智能伦理治理总则是增进人类的福祉-的回答"><a class="markdownIt-Anchor" href="#9-来自claude-2对-如何理解人工智能伦理治理总则是增进人类的福祉-的回答"></a> 9. 来自Claude-2对 <code>如何理解人工智能伦理治理总则是增进人类的福祉？</code> 的回答</h2>
+<p>关于人工智能伦理治理总则应该增进人类福祉这个问题,我有以下几点看法:</p>
+<p>1） 人工智能的发展应该以提升人类生活质量、促进人类福祉为宗旨。人工智能不是目的,而是手段,其存在和发展的意义应该为造福人类。</p>
+<p>2） 在人工智能伦理治理方面,需要确立以人为本、关爱vulnerable groups的理念。人工智能系统的设计和使用不应损害任何个人或群体的基本权利和利益。</p>
+<p>3） 人工智能伦理治理需要确保人工智能系统在决策和行动中不产生对人类不利的后果。需要对人工智能系统的决策过程进行审查,防止其做出不道德或不合法的选择。</p>
+<p>4） 人工智能伦理治理需要建立责任追究机制。当人工智能系统造成负面影响时,需要明确相关责任主体,确保受影响的个人或群体获得应有的救济。</p>
+<p>5） 人工智能伦理治理需要广泛的公众讨论和多方参与。人工智能伦理不是专家能决定的,需要社会各界共同参与制定和监督执行。</p>
+<p>总之,人工智能的设计和应用必须以人的福祉为中心,不能将其仅视为工具或商品,而应考量其对人类整体利益的影响。人工智能伦理治理的目标应该是确保人工智能科技Healthy地发展,造福而非损害人类社会。</p>
+<h2 id="10一些网上的参考链接"><a class="markdownIt-Anchor" href="#10一些网上的参考链接"></a> 10.一些网上的参考链接</h2>
+<p>🔗：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/525252807">人工智能伦理与治理：要将伦理融入AI全生命周期</a></p>
+<ul>
+<li>安全和法律问题是底线，不应纳入伦理治理</li>
+<li>构建人工智能评价平台，帮助实施人工智能治理</li>
+<li>将伦理融入人工智能的整个生命周期</li>
+<li>人工智能改革创新模式和社会治理模式</li>
+</ul>
+<h2 id="11创新性观点"><a class="markdownIt-Anchor" href="#11创新性观点"></a> 11.创新性观点</h2>
+<p>1） <strong>伦理AI的自我修正能力</strong>：<br />
+- 设想一个AI系统，当它识别到自身的行为或判断可能不符合设定的伦理准则时，能自我修正。这样的系统会更加符合伦理治理总则的要求，且能在复杂的现实环境中实时调整，保障人类福祉。</p>
+<p>2） <strong>动态的伦理框架</strong>：<br />
+- 随着文化和社会的发展，人类对于“福祉”的定义也在不断变化。因此，AI的伦理框架应当是动态的，能够根据时间和背景逐渐调整，以适应人类的真实需求。</p>
+<p>3） <strong>伦理治理的公众参与</strong>：<br />
+- 为了增进所有人的福祉，我们需要更广泛地让公众参与到AI伦理治理的过程中。通过开放式的平台或论坛，公众可以对AI的发展和应用提出他们的关切和建议。</p>
+<p>4） <strong>多元文化视角的融入</strong>：<br />
+- 伦理价值观并不是全球统一的，各个文化和社群可能对于“什么是好的”有不同的定义。因此，伦理治理总则应当融入多元文化的视角，确保AI技术在全球范围内都能为人类福祉服务。</p>
+<p>5） <strong>AI的“道德感知”培养</strong>：<br />
+- 将道德哲学和认知科学相结合，研究如何让AI系统拥有一定的“道德感知”。这不仅是简单地遵循既定规则，而是在某些复杂情境中，能够进行更加符合伦理的判断。</p>
+<p>6） <strong>透明性与隐私之间的平衡</strong>：<br />
+- 为了增进人类福祉，我们需要确保AI系统的透明性。但同时，过度的透明可能会威胁到个人隐私。如何在这两者之间寻找平衡，是一个值得深入探索的议题。</p>
+<p>7） <strong>人类与AI的共生伦理</strong>：<br />
+- 在未来，AI可能不再仅仅是工具，而是与人类共存的“伙伴”。在这样的背景下，我们如何定义“福祉”？如何确保人类和AI都能在和谐共生的环境中得到福祉的增进？</p>
+<h2 id="12基本文案大纲"><a class="markdownIt-Anchor" href="#12基本文案大纲"></a> 12.基本文案大纲</h2>
+<p><strong>小组讨论报告：如何理解“人工智能伦理治理总则是增进人类的福祉”</strong></p>
+<p><strong>1). 引言(自动驾驶？)</strong></p>
+<p>随着人工智能(AI)技术的飞速发展，其对社会、经济和文化等各个领域的影响逐渐显现。如何确保AI技术的健康发展，与之相伴的是如何确保人类的福祉不被忽视或削弱。因此，建立和完善AI的伦理治理总则显得尤为重要。</p>
+<p><strong>2). 内涵解读</strong></p>
+<ul>
+<li>
+<p>根本伦理诉求:人工智能能否带来人类需求的改变</p>
+<ul>
+<li>人工智能与人类需求的关系：人工智能(AI)作为一个技术工具，它的价值在于能否满足和增进人类的需求。换句话说，我们开发和使用AI的主要目的是为了提高我们的生活质量，使生活更加便利，高效和有意义。</li>
+<li>增进人类福祉：福祉这个词不仅仅是物质层面的富足和舒适，更多的是指精神层面的满足和安宁。一个真正的增进人类福祉的AI系统，不仅能够帮助我们完成日常任务，还能够尊重我们的价值观，权利和自由。</li>
+</ul>
+</li>
+<li>
+<p>面向全人类</p>
+<ul>
+<li>超越地域和文化：伦理治理总则要求人工智能技术服务于全人类，意味着AI的开发和应用不能仅仅满足某一特定群体、国家或文化的利益，而应考虑到全球的需求和影响。这是对AI全球化的要求，确保每一个人都能从AI技术中受益，而不是仅仅是一部分人。</li>
+<li>避免偏见和不平等：考虑到全人类意味着AI系统需要避免任何形式的偏见，歧视和不平等，无论是在算法设计、数据来源还是应用过程中。</li>
+</ul>
+</li>
+<li>
+<p>既治标也治本的</p>
+<ul>
+<li>深度治理：伦理治理总则不仅仅是解决AI技术带来的表面问题（例如隐私泄露、数据偏见等），更重要的是要找到这些问题的根本原因，并提出长期有效的解决方案。这意味着在AI的设计和实施阶段就要考虑到潜在的伦理问题，而不是等到问题出现后再进行修补。</li>
+</ul>
+</li>
+</ul>
+<p><strong>3). 实践中的案例</strong></p>
+<ul>
+<li>
+<p><strong>积极案例</strong>：</p>
+<ul>
+<li>
+<p>🔗：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zl1zl2zl3/article/details/83615096">https://blog.csdn.net/zl1zl2zl3/article/details/83615096</a></p>
+</li>
+<li>
+<p>🔗：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/475224897">https://zhuanlan.zhihu.com/p/475224897</a></p>
+</li>
+<li>
+<p>🔗：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/53099400">https://www.zhihu.com/question/53099400</a></p>
+</li>
+<li>
+<p><strong>教育辅助软件</strong>：教育软件已经出现很长一段时间，AI教育软件将会有所不同。人工智能教育关键在于提供个性化教育。他们在个人层面与学生进行互动，并了解每个学生都有不同的特质和能力。</p>
+<p><strong>示例</strong>：多邻国（Duolingo）与 可汗学院（Khan Academy) 在OpenAI发布最新的GPT-4功能的当天就宣布已经接入GPT-4，旨在为用户提供个性化的学习体验。多邻国在最新的MAX用户套餐里提供了角色扮演的聊天对话功能，以及答疑解惑功能。学习者可以跟不同角色进行模拟对话，遇到语言问题的时候，虚拟助教可以为学习者进行详细的解答。</p>
+</li>
+<li>
+<p><strong>智能医学影像</strong>：智能医学影像是将人工智能技术应用在医学影像的诊断上。人工智能在医学影像应用主要分为两部分： 一是图像识别，应用于感知环节，其主要目的是将影像进行分析，获取一些有意义的信息;二是深度学习，应用于学习和分析环节，通过大量的影像数据和诊断数据，不断对神经元网络进行深度学习训练，促使其掌握诊断能力。</p>
+<p><strong>示例</strong>：贝斯以色列女执事医学中心(BIDMC)与哈佛医学院合作研发的人工智能系统，对乳腺癌病理图片中癌细胞的识别准确率能达到92%。<br />
+美国企业Enlitic将深度学习运用到了癌症等恶性肿瘤的检测中，该公司开发的系统的癌症检出率超越了4位顶级的放射科医生，诊断出了人类医生无法诊断出的7%的癌症。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>消极案例</strong>：</p>
+<ul>
+<li>🔗：<a target="_blank" rel="noopener" href="https://finance.sina.com.cn/jjxw/2023-05-22/doc-imyuskpv2907347.shtml">https://finance.sina.com.cn/jjxw/2023-05-22/doc-imyuskpv2907347.shtml</a></li>
+<li>人工智能（AI）实施电信诈骗：骗子使用了AI换脸和语音合成技术,冒充受害人的朋友进行视频聊天取得信任,称自己在外地竞标，需要430万保证金，且需要公对公账户过账，想要借受害人公司的账户走账，最终骗取了高额财产。</li>
+</ul>
+</li>
+</ul>
+<p><strong>4). 如何进一步增进人类福祉</strong></p>
+<ul>
+<li>
+<p><strong>持续完善伦理规范</strong>：随着AI技术的迅速发展，需要不断地修订和更新伦理治理总则。</p>
+</li>
+<li>
+<p><strong>多方参与</strong>：鼓励政府、企业、公众和研究机构等各方参与AI的伦理治理讨论，确保各方的利益都得到考虑。</p>
+</li>
+</ul>
+<p><strong>5).展望与创新性建议</strong></p>
+<ul>
+<li>
+<p>面对全球化、跨文化背景下的AI应用，如何确立统一的伦理治理原则是一个巨大的挑战。可以建立一个“AI伦理指南针”，这是一个动态的、全球化的伦理原则数据库，结合不同国家、地区和文化的伦理原则，为AI研发者提供即时指导。</p>
+</li>
+<li>
+<p>将AI伦理治理融入到AI系统的设计和开发中，创造一个“伦理编程语言”，这种编程语言能够让开发者在编写算法时，直接考虑到可能的伦理后果，从源头上避免问题的发生。</p>
+</li>
+</ul>
+<p><strong>6). 结论</strong></p>
+<p>人工智能伦理治理总则的制定和实施，确实对增进人类的福祉有着直接的正向影响。但同时，也需要所有相关方面的共同努力，确保AI技术在发展的同时，真正服务于人类，保障人的基本权益，从而实现人类与机器的和谐共生。</p>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="https://abinzzz.github.io/2023/09/23/AI-Ethics/" data-id="clmw0uy1a0000jr69d3476u2j" data-title="AI Ethics"
+               class="article-share-link">分享</a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3-1/" rel="tag">3-1</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI-Ethics/" rel="tag">AI Ethics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/discussion/" rel="tag">discussion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" rel="tag">专业知识</a></li></ul>
+
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    <img data-src="https://th.bing.com/th/id/OIP.RkUjg6YduzzpAHaVdzic9gHaFq?pid=ImgDet&amp;rs=1" data-sizes="auto" alt="Git"
+                         class="lazyload">
+                
+                <a href="/2023/09/22/Git/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        Git
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="晴" class="lazyload">
+            <div class="sidebar-author-name">晴</div>
+            <div class="sidebar-description">Love is selfish.</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">111</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">122</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href= itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/abinzzz183328 itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/profile.php?id=100092835102953 itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Essay/">Essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reading/">reading</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a></li></ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/3-1/" style="font-size: 10px;">3-1</a> <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/AI-Ethics/" style="font-size: 10px;">AI Ethics</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 15px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 11px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GoAbroad/" style="font-size: 17px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 12px;">IELTS</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lec01/" style="font-size: 12px;">Lec01</a> <a href="/tags/Lec01s/" style="font-size: 10px;">Lec01s</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/MIT6-S081/" style="font-size: 13px;">MIT6.S081</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Qingyao-Ai/" style="font-size: 11px;">Qingyao Ai</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/StarBucks/" style="font-size: 13px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 14px;">T1</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 15px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 11px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chapter00/" style="font-size: 10px;">chapter00</a> <a href="/tags/chapter01/" style="font-size: 10px;">chapter01</a> <a href="/tags/chapter02/" style="font-size: 10px;">chapter02</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 18px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/dalle3/" style="font-size: 10px;">dalle3</a> <a href="/tags/database/" style="font-size: 12px;">database</a> <a href="/tags/debug/" style="font-size: 12px;">debug</a> <a href="/tags/discussion/" style="font-size: 10px;">discussion</a> <a href="/tags/dowhy/" style="font-size: 11px;">dowhy</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 11px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 12px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 13px;">instructor</a> <a href="/tags/internship/" style="font-size: 16px;">internship</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/os/" style="font-size: 13px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 19px;">paper</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 13px;">prml</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 12px;">shap</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/tensor-vs-ndarray/" style="font-size: 10px;">tensor vs ndarray</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/tool/" style="font-size: 13px;">tool</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/xv6/" style="font-size: 10px;">xv6</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 16px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%93%88%E5%B8%8C%E5%80%BC/" style="font-size: 10px;">哈希值</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 11px;">审稿意见</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/" style="font-size: 10px;">拓扑结构</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 11px;">最长的电影</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 15px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                晴
+            </div>
+            
+                <div>
+                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    177.2k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    11:00
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="晴" class="lazyload">
+            <div class="sidebar-author-name">晴</div>
+            <div class="sidebar-description">Love is selfish.</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">111</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">122</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href= itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/abinzzz183328 itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/profile.php?id=100092835102953 itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
