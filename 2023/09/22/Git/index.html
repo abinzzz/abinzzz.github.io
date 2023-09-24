@@ -82,8 +82,20 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/F6t1vVQbsAAD3dc?format=webp&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/F6t2KPqa4AAaxqD?format=webp&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/F6t2bwybUAA8oZd?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6yuO5XbcAAqbo-?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6yuf9EaMAAAlMJ?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6yv3p-a0AAKBGp?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6yw6BkakAAXc66?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6yv3p-a0AAKBGp?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6yypLRbMAAHTc1?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6yv3p-a0AAKBGp?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6y0IeVbYAADPJ-?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6yv3p-a0AAKBGp?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6y01GTaEAACTv0?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6y4ySRbYAAokdA?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F6y5Q41a8AA8cxj?format=webp&amp;name=900x900">
 <meta property="article:published_time" content="2023-09-22T11:18:21.000Z">
-<meta property="article:modified_time" content="2023-09-24T12:21:35.926Z">
+<meta property="article:modified_time" content="2023-09-24T14:04:29.750Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="tool">
 <meta property="article:tag" content="Git">
@@ -334,11 +346,11 @@
 <br>
 <p><img src="https://pbs.twimg.com/media/F6oazDEbEAA5rIB?format=webp&amp;name=900x900" alt="" /></p>
 <br>
-<p>现在 bugFix 分支上的工作在 main 的最顶端，同时我们也得到了一个更线性的提交序列。</p>
-<p>注意，提交记录 C3 依然存在（树上那个半透明的节点），而 C3’ 是我们 Rebase 到 main 分支上的 C3 的副本。</p>
-<p>现在唯一的问题就是 main 还没有更新，下面咱们就来更新它吧……</p>
+<p>现在 <strong>bugFix</strong> 分支上的工作在 <strong>main</strong> 的最顶端，同时我们也得到了一个更线性的提交序列。</p>
+<p>注意，提交记录 <strong>C3</strong> 依然存在（树上那个半透明的节点），而 <strong>C3’</strong> 是我们 <code>Rebase</code> 到 <strong>main</strong> 分支上的 <strong>C3</strong> 的副本。</p>
+<p>现在唯一的问题就是 <strong>main</strong> 还没有更新，下面咱们就来更新它吧……</p>
 <p>执行：<code>git checkout main</code></p>
-<p>现在我们切换到了 main 上。把它 rebase 到 bugFix 分支上……</p>
+<p>现在我们切换到了 <strong>main</strong> 上。把它 <code>rebase</code> 到 <strong>bugFix</strong> 分支上……</p>
 <br>
 <p><img src="https://pbs.twimg.com/media/F6objMnbIAAkbCr?format=webp&amp;name=900x900" alt="" /></p>
 <Br>
@@ -732,6 +744,101 @@
 <p><code>git push</code>负责将你的变更上传到指定的远程仓库，并在远程仓库上合并你的新提交记录。一旦 <code>git push</code> 完成, 你的朋友们就可以从这个远程仓库下载你分享的成果了！</p>
 <p>你可以将 <code>git push</code> 想象成发布你成果的命令。它有许多应用技巧，稍后我们会了解到，但是咱们还是先从基础的开始吧……</p>
 <p>注意 —— <code>git push</code> 不带任何参数时的行为与 Git 的一个名为 <strong>push.default</strong> 的配置有关。它的默认值取决于你正使用的 Git 的版本，但是在教程中我们使用的是 <strong>upstream</strong>。 这没什么太大的影响，但是在你的项目中进行推送之前，最好检查一下这个配置</p>
+<hr />
+<p>这里我们准备了一些远程仓库中没有的提交记录, 咱们开始先上传吧!</p>
+<Br>
+<p><img src="https://pbs.twimg.com/media/F6yuO5XbcAAqbo-?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行：<code>git push</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6yuf9EaMAAAlMJ?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>过去了, 远程仓库接收了 <strong>C2</strong>，远程仓库中的 main 分支也被更新到指向 <strong>C2</strong> 了，我们的远程分支 (o/main) 也同样被更新了。所有的分支都同步了！</p>
+<br>
+<h2 id="21偏离的工作"><a class="markdownIt-Anchor" href="#21偏离的工作"></a> 21.偏离的工作</h2>
+<p>现在我们已经知道了如何从其它地方 <code>pull</code> 提交记录，以及如何 <code>push</code> 我们自己的变更。看起来似乎没什么难度，但是为何还会让人们如此困惑呢？</p>
+<p>困难来自于远程库提交历史的偏离。在讨论这个问题的细节前，我们先来看一个例子……</p>
+<p>假设你周一克隆了一个仓库，然后开始研发某个新功能。到周五时，你新功能开发测试完毕，可以发布了。但是 —— 天啊！你的同事这周写了一堆代码，还改了许多你的功能中使用的 API，这些变动会导致你新开发的功能变得不可用。但是他们已经将那些提交推送到远程仓库了，因此你的工作就变成了基于项目旧版的代码，与远程仓库最新的代码不匹配了。</p>
+<p>这种情况下, git push 就不知道该如何操作了。如果你执行 git push，Git 应该让远程仓库回到星期一那天的状态吗？还是直接在新代码的基础上添加你的代码，亦或由于你的提交已经过时而直接忽略你的提交？</p>
+<p>因为这情况（历史偏离）有许多的不确定性，Git 是不会允许你 push 变更的。实际上它会强制你先合并远程最新的代码，然后才能分享你的工作。****</p>
+<hr />
+<p>说了这么多，咱们还是看看实际案例吧！</p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6yv3p-a0AAKBGp?format=webp&amp;name=900x900" alt="" /></p>
+<Br>
+<p>执行：<code>git fetch; git rebase o/main; git push</code></p>
+<Br>
+<p><img src="https://pbs.twimg.com/media/F6yw6BkakAAXc66?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>我们用 git fetch 更新了本地仓库中的远程分支，然后用 rebase 将我们的工作移动到最新的提交记录下，最后再用 git push 推送到远程仓库。</p>
+<hr />
+<p>还有其它的方法可以在远程仓库变更了以后更新我的工作吗? 当然有，我们还可以使用 merge</p>
+<p>尽管 git merge 不会移动你的工作（它会创建新的合并提交），但是它会告诉 Git 你已经合并了远程仓库的所有变更。这是因为远程分支现在是你本地分支的祖先，也就是说你的提交已经包含了远程分支的所有变化。</p>
+<p>看下演示…</p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6yv3p-a0AAKBGp?format=webp&amp;name=900x900" alt="" /></p>
+<Br>
+<p>执行：<code>git fetch;git merge o/main;git push</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6yypLRbMAAHTc1?format=webp&amp;name=900x900" alt="" /></p>
+<Br>
+<p>我们用 <code>git fetch</code> 更新了本地仓库中的远程分支，然后合并了新变更到我们的本地分支（为了包含远程仓库的变更），最后我们用 <code>git push</code> 把工作推送到远程仓库</p>
+<hr />
+<p>很好！但是要敲那么多命令，有没有更简单一点的？</p>
+<p>当然 —— 前面已经介绍过 <code>git pull</code> 就是 <code>fetch</code> 和 <code>merge</code> 的简写，类似的 <code>git pull --rebase</code> 就是 <code>fetch</code> 和 <code>rebase</code> 的简写！</p>
+<p>让我们看看简写命令是如何工作的。</p>
+<p>这次用 <code>--rebase</code>……</p>
+<Br>
+<p><img src="https://pbs.twimg.com/media/F6yv3p-a0AAKBGp?format=webp&amp;name=900x900" alt="" /></p>
+<Br>
+<p>执行：<code>git pull--rebase;git pull</code></p>
+<Br>
+<p><img src="https://pbs.twimg.com/media/F6y0IeVbYAADPJ-?format=webp&amp;name=900x900" alt="" /></p>
+<Br>
+<p>跟之前结果一样，但是命令更短了。</p>
+<hr />
+<p>换用常规的 <code>pull</code></p>
+<Br>
+<p><img src="https://pbs.twimg.com/media/F6yv3p-a0AAKBGp?format=webp&amp;name=900x900" alt="" /></p>
+<p>执行：<code>git pull;git push</code></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F6y01GTaEAACTv0?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>还是跟以前一样!</p>
+<Br>
+<h2 id="22远程服务器拒绝remote-rejected"><a class="markdownIt-Anchor" href="#22远程服务器拒绝remote-rejected"></a> 22.远程服务器拒绝!(Remote Rejected)</h2>
+<p>如果你是在一个大的合作团队中工作, 很可能是main被锁定了, 需要一些Pull Request流程来合并修改。如果你直接提交(commit)到本地main, 然后试图推送(push)修改, 你将会收到这样类似的信息:</p>
+<p><code>! [远程服务器拒绝] main -&gt; main (TF402455: 不允许推送(push)这个分支; 你必须使用pull request来更新这个分支.)</code></p>
+<h2 id="为什么会被拒绝"><a class="markdownIt-Anchor" href="#为什么会被拒绝"></a> 为什么会被拒绝?</h2>
+<p>远程服务器拒绝直接推送(push)提交到<strong>main</strong>, 因为策略配置要求 <code>pull requests</code> 来提交更新.</p>
+<p>你应该按照流程,新建一个分支, 推送(push)这个分支并申请<code>pull request</code>,但是你忘记并直接提交给了<strong>main</strong>.现在你卡住并且无法推送你的更新</p>
+<h2 id="解决方法"><a class="markdownIt-Anchor" href="#解决方法"></a> 解决方法</h2>
+<p>新建一个分支<strong>feature</strong>, 推送到远程服务器. 然后<code>reset</code>你的<strong>main</strong>分支和远程服务器保持一致, 否则下次你pull并且他人的提交和你冲突的时候就会有问题.</p>
+<Br>
+<h2 id="23合并特性分支"><a class="markdownIt-Anchor" href="#23合并特性分支"></a> 23.合并特性分支</h2>
+<p>既然你应该很熟悉 <code>fetch、pull、push</code> 了，现在我们要通过一个新的工作流来测试你的这些技能。</p>
+<p>在大型项目中开发人员通常会在（从 main 上分出来的）特性分支上工作，工作完成后只做一次集成。这跟前面课程的描述很相像（把 side 分支推送到远程仓库），不过本节我们会深入一些.</p>
+<p>但是有些开发人员只在 main 上做 <code>push、pull</code> —— 这样的话 <strong>main</strong> 总是最新的，始终与远程分支 (o/main) 保持一致。</p>
+<p>对于接下来这个工作流，我们集成了两个步骤：</p>
+<ul>
+<li>将特性分支集成到 <strong>main</strong> 上</li>
+<li>推送并更新远程分支</li>
+</ul>
+<hr />
+<p>让我们看看如何快速的更新<code>main</code> 分支并推送到远程。</p>
+<Br>
+<p><img src="https://pbs.twimg.com/media/F6y4ySRbYAAokdA?format=webp&amp;name=900x900" alt="" /></p>
+<br>
+<p>执行：<code>git pull --rebase; git push</code></p>
+<Br>
+<p><img src="https://pbs.twimg.com/media/F6y5Q41a8AA8cxj?format=webp&amp;name=900x900" alt="" /></p>
+<Br>
+<p>我们执行了两个命令:</p>
+<ul>
+<li>将我们的工作 <code>rebase</code> 到远程分支的最新提交记录</li>
+<li>向远程仓库推送我们的工作</li>
+</ul>
+<p>— ⌚️22:04 今天先学到这里 回去写笔记了----</p>
 
             
         </div>
@@ -921,10 +1028,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    179.9k
+                    181.3k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    11:11
+                    11:16
                 </div>
             
             
