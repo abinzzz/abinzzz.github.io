@@ -23,15 +23,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   [ ] 一些值得问的问题解决了吗   1.Overview 1.1 Goal:  了解操作系统(O&#x2F;S)的设计和实现 有扩展小型O&#x2F;S的实践经验 有编写系统软件的实际经验   1.2 O&#x2F;S的目标：  在许多应用程序中">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   [ ] 一些值得问的问题解决了吗: 查询到2.11   1.Overview 1.1 Goal:  了解操作系统(O&#x2F;S)的设计和实现 有扩展小型O&#x2F;S的实践经验 有编写系统软件的实际经验   1.2 O&#x2F;S的目标：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MIT6.S081 Lec01 Note">
 <meta property="og:url" content="https://abinzzz.github.io/2023/09/27/MIT6-S081-Lec01-Note/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   [ ] 一些值得问的问题解决了吗   1.Overview 1.1 Goal:  了解操作系统(O&#x2F;S)的设计和实现 有扩展小型O&#x2F;S的实践经验 有编写系统软件的实际经验   1.2 O&#x2F;S的目标：  在许多应用程序中">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   [ ] 一些值得问的问题解决了吗: 查询到2.11   1.Overview 1.1 Goal:  了解操作系统(O&#x2F;S)的设计和实现 有扩展小型O&#x2F;S的实践经验 有编写系统软件的实际经验   1.2 O&#x2F;S的目标：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-26T17:07:31.000Z">
-<meta property="article:modified_time" content="2023-09-26T18:53:43.702Z">
+<meta property="article:modified_time" content="2023-09-26T19:07:39.537Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="MIT6.S081">
@@ -202,7 +202,7 @@
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
 <ul>
-<li>[ ] 一些值得问的问题解决了吗</li>
+<li>[ ] 一些值得问的问题解决了吗: 查询到2.11</li>
 </ul>
 <h2 id="1overview"><a class="markdownIt-Anchor" href="#1overview"></a> 1.Overview</h2>
 <p>1.1 Goal:</p>
@@ -389,6 +389,37 @@
 <li>Why are files streams of bytes, not disk blocks or formatted records?</li>
 <li>Why not combine fork() and exec()?</li>
 </ul>
+<br>
+<p>2.12 例子：pipe1.c 通过pipe通信</p>
+<p>shell是如何实现的</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span> | grep x</span></span><br></pre></td></tr></table></figure>
+<br>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pipe1</span></span><br></pre></td></tr></table></figure>
+<p>FD可以引用“pipe”，也可以引用文件</p>
+<br>
+<p>pipe()系统调用创建两个fd</p>
+<ul>
+<li>从第一个FD读取</li>
+<li>写入第二个FD</li>
+</ul>
+<Br>
+<p>内核为每个管道维护一个缓冲区</p>
+<ul>
+<li>write()追加到缓冲区</li>
+<li>read()等待，直到有数据</li>
+</ul>
+<Br>
+<p>2.13 例子：pipe2.c 进程间通信</p>
+<p>pipe很好地与fork()结合来实现ls / grep x</p>
+<ul>
+<li>shell创建pipe</li>
+<li>forks(twice)</li>
+<li>将ls的FD 1连接到pipe的write FD,并将fd0设置为管道</li>
+</ul>
+<br>
+<p>2.14 list.c 列出目录中的文件</p>
+<br>
+<p>– ⌚️03:06 —</p>
 
             
         </div>
@@ -552,10 +583,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    188.8k
+                    189k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    11:44
+                    11:45
                 </div>
             
             
