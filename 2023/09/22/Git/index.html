@@ -93,8 +93,24 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/F6y01GTaEAACTv0?format=webp&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/F6y4ySRbYAAokdA?format=webp&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/F6y5Q41a8AA8cxj?format=webp&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7C92iubwAASux4?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7C-V75awAEEKEm?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DAWNibsAAnCyM?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DAu34bYAANOJp?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DCrfZawAABB9q?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DDgx5awAAEQCv?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DEsW2bcAARMg8?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DF9NkbYAAM7ss?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DNCLya4AA8d5_?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DNTXQbIAA3mQK?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DN2ULbMAAcJ1r?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DOFzObwAAKhzG?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DOnogbMAA3cle?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DPHMobMAApG3A?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DVGsHbEAAs-0I?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7DWQ-cbMAAGzWM?format=png&amp;name=900x900">
 <meta property="article:published_time" content="2023-09-22T11:18:21.000Z">
-<meta property="article:modified_time" content="2023-09-27T15:04:39.780Z">
+<meta property="article:modified_time" content="2023-09-27T18:28:48.155Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="tool">
 <meta property="article:tag" content="Git">
@@ -298,8 +314,11 @@
 <li>20.<code>git push</code>:将你的变更上传到指定的远程仓库</li>
 <li>21.偏离的工作(本地与远程不同步) <code>git fetch; git rebase o/main; git push</code>:先合并远程最新的代码，然后才能分享工作</li>
 <li>22.远程服务器拒绝：新建一个分支feature, 推送到远程服务器. 然后reset你的main分支和远程服务器保持一致, 否则下次你pull并且他人的提交和你冲突的时候就会有问题.</li>
-<li>23.合并特性分支<h2 id="1-Git-Commit"><a href="#1-Git-Commit" class="headerlink" title="1.Git Commit"></a>1.Git Commit</h2>Git 仓库中的提交记录保存的是你的目录下所有文件的快照，就像是把整个目录复制，然后再粘贴一样，但比复制粘贴优雅许多！</li>
+<li>23.合并特性分支</li>
 </ul>
+<Br>
+
+<h2 id="1-Git-Commit"><a href="#1-Git-Commit" class="headerlink" title="1.Git Commit"></a>1.Git Commit</h2><p>Git 仓库中的提交记录保存的是你的目录下所有文件的快照，就像是把整个目录复制，然后再粘贴一样，但比复制粘贴优雅许多！</p>
 <p>Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，它并不会盲目地复制整个目录。条件允许的情况下，它会将当前版本与仓库中的上一个版本进行对比，并把所有的差异打包到一起作为一个提交记录。</p>
 <p>Git 还保存了提交的历史记录。这也是为什么大多数提交记录的上面都有 parent 节点的原因 —— 我们会在图示中用箭头来表示这种关系。对于项目组的成员来说，维护提交历史对大家都有好处。</p>
 <hr>
@@ -894,6 +913,174 @@
 <li>缺点:Rebase 修改了提交树的历史，比如, 提交 C1 可以被 rebase 到 C3 之后。这看起来 C1 中的工作是在 C3 之后进行的，但实际上是在 C3 之前。</li>
 </ul>
 <p>一些开发人员喜欢保留提交历史，因此更偏爱 merge。而其他人（比如我自己）可能更喜欢干净的提交树，于是偏爱 rebase。仁者见仁，智者见智。 :D</p>
+<Br>
+
+<h2 id="25-远程追踪分支"><a href="#25-远程追踪分支" class="headerlink" title="25.远程追踪分支"></a>25.远程追踪分支</h2><p>在前几节课程中有件事儿挺神奇的，Git 好像知道 <strong>main</strong> 与 <strong>o/main</strong> 是相关的。当然这些分支的名字是相似的，可能会让你觉得是依此将远程分支 <strong>main</strong> 和本地的 <strong>main</strong> 分支进行了关联。这种关联在以下两种情况下可以清楚地得到展示：</p>
+<ul>
+<li><code>pull</code> 操作时, 提交记录会被先下载到 <strong>o/main</strong> 上，之后再合并到本地的 <strong>main</strong> 分支。隐含的合并目标由这个关联确定的。</li>
+<li><code>push</code> 操作时, 我们把工作从 <strong>main</strong> 推到远程仓库中的 <strong>main</strong> 分支(同时会更新远程分支 <strong>o/main</strong>) 。这个推送的目的地也是由这种关联确定的！</li>
+</ul>
+<p>直接了当地讲，<strong>main</strong> 和 <strong>o/main</strong> 的关联关系就是由分支的 <strong>“remote tracking”</strong> 属性决定的。<strong>main</strong> 被设定为跟踪 <strong>o/main</strong> —— 这意味着为 <strong>main</strong> 分支指定了推送的目的地以及拉取后合并的目标。</p>
+<p>你可能想知道 <strong>main</strong> 分支上这个属性是怎么被设定的，你并没有用任何命令指定过这个属性呀！好吧, 当你克隆仓库的时候, Git 就自动帮你把这个属性设置好了。</p>
+<p>当你克隆时, Git 会为远程仓库中的每个分支在本地仓库中创建一个远程分支（比如 <strong>o/main</strong>）。然后再创建一个跟踪远程仓库中活动分支的本地分支，默认情况下这个本地分支会被命名为 <strong>main</strong>。</p>
+<p>克隆完成后，你会得到一个本地分支（如果没有这个本地分支的话，你的目录就是“空白”的），但是可以查看远程仓库中所有的分支（如果你好奇心很强的话）。这样做对于本地仓库和远程仓库来说，都是最佳选择。</p>
+<p>这也解释了为什么会在克隆的时候会看到下面的输出：</p>
+<p><code>local branch &quot;main&quot; set to track remote branch &quot;o/main&quot;</code></p>
+<p><br></p>
+<p>我能自己指定这个属性吗？</p>
+<p>当然可以啦！你可以让任意分支跟踪 <strong>o/main</strong>, 然后该分支会像 <strong>main</strong> 分支一样得到隐含的 <code>push</code> 目的地以及 <code>merge</code> 的目标。 这意味着你可以在分支 <strong>totallyNotMain</strong> 上执行 <code>git push</code>，将工作推送到远程仓库的 <strong>main</strong> 分支上。</p>
+<h2 id="25-1-第一种方法远程跟踪分支"><a href="#25-1-第一种方法远程跟踪分支" class="headerlink" title="25.1 第一种方法远程跟踪分支"></a>25.1 第一种方法远程跟踪分支</h2><p>通过远程分支切换到一个新的分支，执行:<code>git checkout -b totallyNotMain o/main</code>,就可以创建一个名为 <strong>totallyNotMain</strong> 的分支，它跟踪远程分支 <strong>o/main</strong>。</p>
+<hr>
+<p>闲话少说，咱们先看看演示！我们切换到一个名叫 <strong>foo</strong> 的新分支，让其跟踪远程仓库中的 <strong>main</strong></p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7C92iubwAASux4?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>执行：<code>git checkout -b foo o/main; git pull</code></p>
+<Br>
+
+<p><img src="https://pbs.twimg.com/media/F7C-V75awAEEKEm?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>正如你所看到的, 我们使用了隐含的目标 <strong>o/main</strong> 来更新 <strong>foo</strong> 分支。需要注意的是 <strong>main</strong> 并未被更新！</p>
+<Br>
+
+
+<h2 id="25-2-第二种方法远程跟踪分支"><a href="#25-2-第二种方法远程跟踪分支" class="headerlink" title="25.2 第二种方法远程跟踪分支"></a>25.2 第二种方法远程跟踪分支</h2><p>设置远程追踪分支的方法就是使用：<code>git branch -u</code>命令</p>
+<p>执行：<code>git branch -u o/main foo</code></p>
+<p>这样 <strong>foo</strong> 就会跟踪 <strong>o/main</strong> 了。如果当前就在 <strong>foo</strong> 分支上, 还可以省略 foo：<code>git branch -u o/main</code></p>
+<hr>
+<p>看看这种方法的实际效果</p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7DAWNibsAAnCyM?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>执行：<code>git branch -u o/main foo; git commit; git push</code></p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7DAu34bYAANOJp?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>跟之前一样, 但这个命令更明确！</p>
+<Br>
+
+<h2 id="26-Git-Push-的参数"><a href="#26-Git-Push-的参数" class="headerlink" title="26.Git Push 的参数"></a>26.Git Push 的参数</h2><p>很好! 既然你知道了远程跟踪分支，我们可以开始揭开 <code>git push、fetch 和 pull</code> 的神秘面纱了。我们会逐个介绍这几个命令，它们在理念上是非常相似的。</p>
+<p>首先来看 <code>git push</code>。在远程跟踪课程中，你已经学到了 Git 是通过当前所在分支的属性来确定远程仓库以及要 <code>push</code> 的目的地的。这是未指定参数时的行为，我们可以为 <code>push</code> 指定参数，语法是：<code>git push &lt;remote&gt; &lt;place&gt;</code></p>
+<p><code>&lt;place&gt;</code> 参数是什么意思呢？我们稍后会深入其中的细节, 先看看例子, 这个命令是:</p>
+<p><code>git push origin main</code></p>
+<p>把这个命令翻译过来就是：切到本地仓库中的“<strong>main</strong>”分支，获取所有的提交，再到远程仓库“<strong>origin</strong>”中找到“<strong>main</strong>”分支，将远程仓库中没有的提交记录都添加上去，搞定之后告诉我。</p>
+<p>我们通过“<strong>place</strong>”参数来告诉 Git 提交记录来自于 <strong>main</strong>, 要推送到远程仓库中的 <strong>main</strong>。它实际就是要同步的两个仓库的位置。</p>
+<p>需要注意的是，因为我们通过指定参数告诉了 Git 所有它需要的信息, 所以它就忽略了我们所切换分支的属性！</p>
+<hr>
+<p>我们看看指定参数的例子。注意下我们当前分支的位置。</p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7DCrfZawAABB9q?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>执行：<code>git checkout C0; git push prigin main</code></p>
+<Br>
+
+<p><img src="https://pbs.twimg.com/media/F7DDgx5awAAEQCv?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>好了! 通过指定参数, 远程仓库中的 <strong>main</strong> 分支得到了更新。</p>
+<Br>
+
+<h2 id="27-lt-place-gt-参数详解"><a href="#27-lt-place-gt-参数详解" class="headerlink" title="27. &lt;place&gt;参数详解"></a>27. <code>&lt;place&gt;</code>参数详解</h2><p>还记得之前课程说的吧，当为 <code>git push</code> 指定 <strong>place</strong> 参数为 <strong>main</strong> 时，我们同时指定了提交记录的来源和去向。</p>
+<p>你可能想问 —— 如果来源和去向分支的名称不同呢？比如你想把本地的 <strong>foo</strong> 分支推送到远程仓库中的 <strong>bar</strong> 分支。</p>
+<p>哎，很遗憾 Git 做不到…… 开个玩笑，别当真！当然是可以的啦 :) Git 拥有超强的灵活性（有点过于灵活了）</p>
+<p>接下来咱们看看是怎么做的……</p>
+<p>要同时为源和目的地指定 <code>&lt;place&gt;</code> 的话，只需要用冒号 : 将二者连起来就可以了：<code>git push origin &lt;source&gt;:&lt;destination&gt;</code></p>
+<p>这个参数实际的值是个 refspec，“refspec” 是一个自造的词，意思是 Git 能识别的位置（比如分支 foo 或者 HEAD~1）</p>
+<p>一旦你指定了独立的来源和目的地，就可以组织出言简意赅的远程操作命令了，让我们看看演示！</p>
+<hr>
+<p>记住，<code>source</code> 可以是任何 Git 能识别的位置：</p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7DEsW2bcAARMg8?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>执行：<code>git push origin foo^:main</code></p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7DF9NkbYAAM7ss?format=png&amp;name=900x900" alt=""></p>
+<Br>
+
+<p>这是个令人困惑的命令，但是它确实是可以运行的 —— Git 将 <strong>foo^</strong> 解析为一个位置，上传所有未被包含到远程仓库里 <strong>main</strong> 分支中的提交记录。</p>
+<Br>
+
+<h2 id="28-Git-fetch-的参数"><a href="#28-Git-fetch-的参数" class="headerlink" title="28.Git fetch 的参数"></a>28.Git fetch 的参数</h2><p>我们刚学习了 <code>git push</code> 的参数，很酷的 <code>&lt;place&gt;</code> 参数，还有用冒号分隔的 refspecs（<source>:<destination>）。 这些参数可以用于 <code>git fetch</code> 吗？</p>
+<p>你猜中了！<code>git fetch</code> 的参数和 <code>git push</code>极其相似。他们的概念是相同的，只是方向相反罢了（因为现在你是下载，而非上传）</p>
+<p>让我们逐个讨论下这些概念……</p>
+<p><br></p>
+<p><code>&lt;place&gt;</code> 参数</p>
+<p>如果你像如下命令这样为 <code>git fetch</code> 设置 的话：<code>git fetch origin foo</code></p>
+<p>Git 会到远程仓库的 <strong>foo</strong> 分支上，然后获取所有本地不存在的提交，放到本地的 <strong>o/foo</strong> 上。</p>
+<p>来看个例子（还是前面的例子，只是命令不同了）</p>
+<hr>
+<p>通过指定 place…</p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7DNCLya4AA8d5_?format=png&amp;name=900x900" alt=""></p>
+<Br>
+
+<p>执行：<code>git fetch origin foo</code></p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7DNTXQbIAA3mQK?format=png&amp;name=900x900" alt=""></p>
+<p>我们只下载了远程仓库中 <strong>foo</strong> 分支中的最新提交记录，并更新了 </p>
+<p><br></p>
+<p>为何 Git 会将新提交放到 o/foo 而不是放到我本地的 foo 分支呢？之前不是说这样的 参数就是同时应用于本地和远程的位置吗？</p>
+<p>好吧, 本例中 Git 做了一些特殊处理，因为你可能在 foo 分支上的工作还未完成，你也不想弄乱它。还记得在 git fetch 课程里我们讲到的吗 —— 它不会更新你的本地的非远程分支, 只是下载提交记录（这样, 你就可以对远程分支进行检查或者合并了）。</p>
+<hr>
+<p>“如果我们指定 <code>&lt;source&gt;:&lt;destination&gt;</code> 会发生什么呢？”</p>
+<p>如果你觉得直接更新本地分支很爽，那你就用冒号分隔的 refspec 吧。不过，你不能在当前切换的分支上干这个事，但是其它分支是可以的。</p>
+<p>这里有一点是需要注意的 —— source 现在指的是远程仓库中的位置，而 <code>&lt;destination&gt;</code> 才是要放置提交的本地仓库的位置。它与 <code>git push</code> 刚好相反，这是可以讲的通的，因为我们在往相反的方向传送数据。</p>
+<p>理论上虽然行的通，但开发人员很少这么做。我在这里介绍它主要是为了从概念上说明 <code>fetch</code> 和 <code>push</code> 的相似性，只是方向相反罢了</p>
+<Br>
+
+<p><img src="https://pbs.twimg.com/media/F7DN2ULbMAAcJ1r?format=png&amp;name=900x900" alt=""></p>
+<Br>
+
+<p>执行：<code>git fetch origin for~1:bar</code></p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7DOFzObwAAKhzG?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>哇! 看见了吧, Git 将 <strong>foo~1</strong> 解析成一个 <strong>origin</strong> 仓库的位置，然后将那些提交记录下载到了本地的 <strong>bar</strong> 分支（一个本地分支）上。注意由于我们指定了目标分支，<strong>foo</strong> 和 <strong>o/foo</strong> 都没有被更新</p>
+<hr>
+<p>没有参数呢?</p>
+<p>如果 <code>git fetch</code> 没有参数，它会下载所有的提交记录到各个远程分支……</p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7DOnogbMAA3cle?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>执行：<code>git fetch</code></p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7DPHMobMAApG3A?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>相当简单，但是仅需更新一次，值得你去做！</p>
+<p><br></p>
+<h2 id="29-古怪的"><a href="#29-古怪的" class="headerlink" title="29.古怪的 "></a>29.古怪的 <source></h2><p>Git 有两种关于 <source> 的用法是比较诡异的，即你可以在 <code>git push</code> 或 <code>git fetch</code> 时不指定任何 <strong>source</strong>，方法就是仅保留冒号和 <strong>destination</strong> 部分，<strong>source</strong> 部分留空。</p>
+<ul>
+<li><code>git push origin :side</code></li>
+<li><code>git fetch origin :bugFix</code></li>
+</ul>
+<p>我们分别来看一下这两条命令的作用……</p>
+<hr>
+<p><code>git push origin :foo</code>:就是这样子, 我们通过给 push 传空值 source，成功删除了远程仓库中的 foo 分支, 这真有意思…</p>
+<p><code>git fetch origin :bar</code>:如果 fetch 空 到本地，会在本地创建一个新分支</p>
+<p><br></p>
+<h2 id="30-Git-pull-参数"><a href="#30-Git-pull-参数" class="headerlink" title="30.Git pull 参数"></a>30.Git pull 参数</h2><p>既然你已经掌握关于 <code>git fetch</code> 和 <code>git push</code> 参数的方方面面了，关于 <code>git pull</code> 几乎没有什么可以讲的了 :)</p>
+<p>因为 <code>git pull</code> 到头来就是 <code>fetch</code> 后跟 <code>merge</code> 的缩写。你可以理解为用同样的参数执行 <code>git fetch</code>，然后再 <code>merge</code> 你所抓取到的提交记录。</p>
+<p>还可以和其它更复杂的参数一起使用, 来看一些例子:</p>
+<p>以下命令在 Git 中是等效的:</p>
+<ul>
+<li><p><code>git pull origin foo</code> 相当于：<code>git fetch origin foo; git merge o/foo</code></p>
+</li>
+<li><p>还有…</p>
+</li>
+<li><p><code>git pull origin bar~1:bugFix</code> 相当于：<code>git fetch origin bar~1:bugFix; git merge bugFix</code></p>
+</li>
+</ul>
+<p>看到了? git pull 实际上就是 fetch + merge 的缩写, git pull 唯一关注的是提交最终合并到哪里（也就是为 git fetch 所提供的 destination 参数）</p>
+<p>一起来看个例子吧：</p>
+<hr>
+<p><code>pull</code> 也可以用 <strong>source:destination</strong> 吗? 当然喽, 看看吧:</p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7DVGsHbEAAs-0I?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>执行：<code>git pull origin main:foo</code></p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7DWQ-cbMAAGzWM?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>哇, 这个命令做的事情真多。它先在本地创建了一个叫 <strong>foo</strong> 的分支，从远程仓库中的 <strong>main</strong> 分支中下载提交记录，并合并到 <strong>foo</strong>，然后再 <code>merge</code> 到我们的当前所在的分支 <strong>bar</strong> 上。操作够多的吧？！</p>
 
             
         </div>
@@ -1071,10 +1258,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    190.5k
+                    193.2k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    11:51
+                    12:01
                 </div>
             
             
