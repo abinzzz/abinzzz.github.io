@@ -23,19 +23,21 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Chapter03: Introduction to SQL虽然我们将SQL语言称为“查询语言”，但它能做的远不止查询数据库这么简单。它可以定义数据的结构，修改数据库中的数据，并指定安全约束。  3.1 Overvie">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Chapter03: Introduction to SQL 虽然我们将SQL语言称为“查询语言”，但它能做的远不止查询数据库这么简单。它可以定义数据的结构，修改数据库中的数据，并指定安全约束。   3.1 Overv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Database:chapter03">
 <meta property="og:url" content="https://abinzzz.github.io/2023/09/25/Database-chapter03/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Chapter03: Introduction to SQL虽然我们将SQL语言称为“查询语言”，但它能做的远不止查询数据库这么简单。它可以定义数据的结构，修改数据库中的数据，并指定安全约束。  3.1 Overvie">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Chapter03: Introduction to SQL 虽然我们将SQL语言称为“查询语言”，但它能做的远不止查询数据库这么简单。它可以定义数据的结构，修改数据库中的数据，并指定安全约束。   3.1 Overv">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/F7mlryMaoAAC-Dd?format=png&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/F7sUUOvaAAANs9G?format=png&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/F7sZ-bZbEAAziUY?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/F7snAE0aoAA_A5m?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7vNLTYbgAAdB-M?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7vNNN7acAApLyp?format=png&amp;name=small">
 <meta property="article:published_time" content="2023-09-25T11:21:37.000Z">
-<meta property="article:modified_time" content="2023-10-05T19:20:17.360Z">
+<meta property="article:modified_time" content="2023-10-06T07:14:14.805Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="database">
@@ -204,10 +206,11 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-
-<h1 id="Chapter03-Introduction-to-SQL"><a href="#Chapter03-Introduction-to-SQL" class="headerlink" title="Chapter03: Introduction to SQL"></a>Chapter03: Introduction to SQL</h1><p>虽然我们将SQL语言称为“查询语言”，但它能做的远不止查询数据库这么简单。它可以定义数据的结构，修改数据库中的数据，并指定安全约束。</p>
-<p><br></p>
-<h2 id="3-1-Overview-of-SQL"><a href="#3-1-Overview-of-SQL" class="headerlink" title="3.1 Overview of SQL"></a>3.1 Overview of SQL</h2><p><strong>SQL</strong>:Structured Query language</p>
+<h1 id="chapter03-introduction-to-sql"><a class="markdownIt-Anchor" href="#chapter03-introduction-to-sql"></a> Chapter03: Introduction to SQL</h1>
+<p>虽然我们将SQL语言称为“查询语言”，但它能做的远不止查询数据库这么简单。它可以定义数据的结构，修改数据库中的数据，并指定安全约束。</p>
+<br>
+<h2 id="31-overview-of-sql"><a class="markdownIt-Anchor" href="#31-overview-of-sql"></a> 3.1 Overview of SQL</h2>
+<p><strong>SQL</strong>:Structured Query language</p>
 <p>SQL的组成：</p>
 <ul>
 <li><strong>Data-manipulation language (DML)</strong>：SQL <strong>DML</strong>提供了从DB中查询信息、向DB中插入tuple、从数据库中删除tuple和修改tuple的能力。</li>
@@ -218,8 +221,7 @@
 <li><strong>Transaction control</strong>:SQL包含用于指定事务开始和结束的命令</li>
 <li><strong>Embedded SQL and dynamic SQL</strong>:嵌入式和动态SQL定义了如何在通用编程语言(如C、c++和Java)中嵌入sql语句。</li>
 </ul>
-<p><br></p>
-<div class="table-container">
+<br>
 <table>
 <thead>
 <tr>
@@ -250,13 +252,13 @@
 </tr>
 <tr>
 <td style="text-align:left">指针/游标控制语言(CCL)</td>
-<td style="text-align:left">DECLARE CURSOR,FETCH INTO和UPDATE THERE CURRENT </td>
+<td style="text-align:left">DECLARE CURSOR,FETCH INTO和UPDATE THERE CURRENT</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p><br></p>
-<h2 id="3-2-SQL-Data-Definition"><a href="#3-2-SQL-Data-Definition" class="headerlink" title="3.2 SQL Data Definition"></a>3.2 SQL Data Definition</h2><p>DB中的relation集是使用数据定义语言(DDL)指定的</p>
+<br>
+<h2 id="32-sql-data-definition"><a class="markdownIt-Anchor" href="#32-sql-data-definition"></a> 3.2 SQL Data Definition</h2>
+<p>DB中的relation集是使用数据定义语言(DDL)指定的</p>
 <p>SQL DDL不仅允许指定一组关系，还允许指定关于每个关系的信息，包括：</p>
 <ul>
 <li>定义每个relation的schema</li>
@@ -266,8 +268,9 @@
 <li>每个relation的安全和授权信息。</li>
 <li>指定每个relation在磁盘上的物理存储结构</li>
 </ul>
-<p><br></p>
-<h2 id="3-2-1-Basic-Types"><a href="#3-2-1-Basic-Types" class="headerlink" title="3.2.1 Basic Types"></a>3.2.1 Basic Types</h2><p>SQL标准支持多种内置类型:</p>
+<br>
+<h2 id="321-basic-types"><a class="markdownIt-Anchor" href="#321-basic-types"></a> 3.2.1 Basic Types</h2>
+<p>SQL标准支持多种内置类型:</p>
 <ul>
 <li><strong>char(n)</strong>:固定长度的字符串，用户指定长度n。可以使用完整形式character代替。</li>
 <li><strong>varchar(n)</strong>:具有用户指定的最大长度的可变长度字符串。完整的形式character varying是等效的。</li>
@@ -282,7 +285,7 @@
 <li><strong>Interval</strong>:一段时间</li>
 <li><strong>Null</strong>:每种类型都可以包含一个特殊的值，称为null值。null值表示一个缺失值，该值可能存在但未知，或者根本不存在。</li>
 </ul>
-<hr>
+<hr />
 <p><strong>注意</strong>：</p>
 <ul>
 <li>在Oracle等大型商用数据库系统中，关系表的属性的名字只能取英文名，不支持中文属性名</li>
@@ -290,38 +293,43 @@
 <li>开发大型数据库应用时，程序所访问的关系表的属性名字（最好）取为英文名，便于应用程序的可移植性！</li>
 <li>准确表示英文专业术语（英文属性名称), e.g. 分组 packet</li>
 </ul>
-<p><br></p>
-<h2 id="3-2-2-Basic-Schema-Definition"><a href="#3-2-2-Basic-Schema-Definition" class="headerlink" title="3.2.2 Basic Schema Definition"></a>3.2.2 Basic Schema Definition</h2><p>(1) 使用<strong>create table</strong>命令定义<strong>SQL</strong>关系：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> r</span><br><span class="line">       (A1 D1,</span><br><span class="line">       A2 D2,</span><br><span class="line">       ...,</span><br><span class="line">       An Dn,</span><br><span class="line">       ⟨integrity<span class="operator">-</span>constraint1⟩,</span><br><span class="line">       …,</span><br><span class="line">       ⟨integrity<span class="operator">-</span>constraintk⟩);</span><br></pre></td></tr></table></figure></p>
+<br>
+<h2 id="322-basic-schema-definition"><a class="markdownIt-Anchor" href="#322-basic-schema-definition"></a> 3.2.2 Basic Schema Definition</h2>
+<p>(1) 使用<strong>create table</strong>命令定义<strong>SQL</strong>关系：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> r</span><br><span class="line">       (A1 D1,</span><br><span class="line">       A2 D2,</span><br><span class="line">       ...,</span><br><span class="line">       An Dn,</span><br><span class="line">       ⟨integrity<span class="operator">-</span>constraint1⟩,</span><br><span class="line">       …,</span><br><span class="line">       ⟨integrity<span class="operator">-</span>constraintk⟩);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>r是relation名称</li>
-<li>$A_i$是relation r的schema中一个attribute名称</li>
-<li>$D_i$ 是attribute $A_i$ 的域；$D_i$ 指定attribute $A_i$ 的类型以及限制 $A_i$ 允许值集的可选约束.</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">A_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是relation r的schema中一个attribute名称</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">D_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 是attribute <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">A_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的域；<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">D_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 指定attribute <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">A_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的类型以及限制 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">A_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 允许值集的可选约束.</li>
 <li>在<strong>create table</strong>语句末尾以及本章后面的其他 SQL 语句末尾显示的分号在许多 SQL 实现中是可选的。</li>
 </ul>
-<hr>
-<p><strong>例子：</strong><br>我们使用 <strong>create table</strong> 命令定义 SQL relation。以下命令在db中创建一个<strong>relation <em>department</em></strong>:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> department</span><br><span class="line">       (dept name <span class="type">varchar</span> (<span class="number">20</span>), </span><br><span class="line">       building <span class="type">varchar</span> (<span class="number">15</span>), </span><br><span class="line">       budget <span class="type">numeric</span> (<span class="number">12</span>,<span class="number">2</span>), </span><br><span class="line">       <span class="keyword">primary</span> key (dept name));</span><br></pre></td></tr></table></figure><br>上面创建的关系有三个属性:</p>
+<hr />
+<p><strong>例子：</strong><br />
+我们使用 <strong>create table</strong> 命令定义 SQL relation。以下命令在db中创建一个<strong>relation <em>department</em></strong>:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> department</span><br><span class="line">       (dept name <span class="type">varchar</span> (<span class="number">20</span>), </span><br><span class="line">       building <span class="type">varchar</span> (<span class="number">15</span>), </span><br><span class="line">       budget <span class="type">numeric</span> (<span class="number">12</span>,<span class="number">2</span>), </span><br><span class="line">       <span class="keyword">primary</span> key (dept name));</span><br></pre></td></tr></table></figure>
+<p>上面创建的关系有三个属性:</p>
 <ul>
 <li>部门名称，最大长度为20的字符串</li>
 <li>建筑物，最大长度为15的字符串，</li>
-<li>预算，总共12位数字，其中两个是小数点后。 </li>
+<li>预算，总共12位数字，其中两个是小数点后。</li>
 </ul>
 <p><strong>create table</strong> 命令还指定部门名称属性是部门关系的主键。</p>
-<hr>
+<hr />
 <p>(2) SQL中的<strong>完整性约束</strong>：</p>
 <ul>
-<li><strong>primary key</strong>（$A_{j1}$，$A_{j2}$，…，$A_{jm}$）：The <strong>primary-key</strong> speciﬁcation表示attribute $A_{j1}$，$A_{j2}$，…，$A_{jm}$ 形成relation的<strong>primary key</strong>。<strong>primary-key</strong> attributes 要求非空且唯一；</li>
-<li><strong>foreign key</strong> ($A_{k1}$, $A_{k2}$, … , $A_{kn}$)的引用 <strong>s</strong>：<strong>foreign key</strong>规范规定关系中任何tuple的attribute ($A_{k1}$, $A_{k2}$, … , $A_{kn}$) 的值必须对应于<strong>primary-key</strong> attribute的值关系中的某个tuple。</li>
+<li><strong>primary key</strong>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mrow><mi>j</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">A_{j1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mrow><mi>j</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">A_{j2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>，…，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mrow><mi>j</mi><mi>m</mi></mrow></msub></mrow><annotation encoding="application/x-tex">A_{jm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mord mathnormal mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>）：The <strong>primary-key</strong> speciﬁcation表示attribute <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mrow><mi>j</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">A_{j1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mrow><mi>j</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">A_{j2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>，…，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mrow><mi>j</mi><mi>m</mi></mrow></msub></mrow><annotation encoding="application/x-tex">A_{jm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mord mathnormal mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 形成relation的<strong>primary key</strong>。<strong>primary-key</strong> attributes 要求非空且唯一；</li>
+<li><strong>foreign key</strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mrow><mi>k</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">A_{k1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mrow><mi>k</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">A_{k2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, … , <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mrow><mi>k</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">A_{kn}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>)的引用 <strong>s</strong>：<strong>foreign key</strong>规范规定关系中任何tuple的attribute (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mrow><mi>k</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">A_{k1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mrow><mi>k</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">A_{k2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, … , <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mrow><mi>k</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">A_{kn}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>) 的值必须对应于<strong>primary-key</strong> attribute的值关系中的某个tuple。</li>
 <li><strong>not null</strong>：attribute上的 not null 约束指定该attribute不允许使用 null 值；换句话说，约束从该属性的域中排除空值。</li>
 <li>SQL阻止任何违反完整性约束的数据库更新。</li>
 </ul>
-<p><br></p>
+<br>
 <p>(3) 从 SQL 数据库中<strong>删除relation</strong>:</p>
 <ul>
 <li>命令 <code>drop table r;</code>，不仅删除 r 的所有元组，还删除 r 的schema。</li>
 <li>命令<code>delete from r;</code>，保留relation r，但删除 r 中的所有tuple。</li>
 </ul>
 <p>r 被删除后，任何元组都不能插入到 r 中，除非使用 <strong>create table</strong> 命令重新创建它.</p>
-<p><br></p>
+<br>
 <p>(4) 向现有relation中<strong>添加attribute</strong>：<code>alter table r add A D;</code></p>
 <ul>
 <li>其中r是现有relation的名称</li>
@@ -329,57 +337,57 @@
 <li>D是添加的属性的类型。</li>
 </ul>
 <Br>
-
 <p>(5) 从relation中<strong>删除attribute</strong>:<code>alter table r drop A;</code></p>
 <ul>
 <li>其中 r 是现有relation的名称</li>
 <li>A 是relation的attribute名称</li>
 </ul>
-<p><br></p>
+<br>
 <p>🌟：表中的元组/行是逐行存储的。添加属性或删除表会导致修改记录和移动这些记录的开销很大</p>
-<p><img src="https://pbs.twimg.com/media/F7mlryMaoAAC-Dd?format=png&amp;name=900x900" alt=""></p>
-<p><br></p>
-<h2 id="3-3-Basic-Structure-of-SQL-Queries"><a href="#3-3-Basic-Structure-of-SQL-Queries" class="headerlink" title="3.3 Basic Structure of SQL Queries"></a>3.3 Basic Structure of SQL Queries</h2><p>SQL query的基本结构由三个子句组成：</p>
+<p><img src="https://pbs.twimg.com/media/F7mlryMaoAAC-Dd?format=png&amp;name=900x900" alt="" /></p>
+<br>
+<h2 id="33-basic-structure-of-sql-queries"><a class="markdownIt-Anchor" href="#33-basic-structure-of-sql-queries"></a> 3.3 Basic Structure of SQL Queries</h2>
+<p>SQL query的基本结构由三个子句组成：</p>
 <ul>
 <li>select</li>
 <li>from</li>
 <li>where</li>
 </ul>
 <p><strong>query</strong>将 <strong>from</strong> 子句中列出的关系作为输入，按照 <strong>where</strong> 和 <strong>select</strong> 子句中指定的方式对其进行操作，然后生成一个relation作为结果。</p>
-<p><br></p>
-<h2 id="3-3-1-Queries-on-a-Single-Relation"><a href="#3-3-1-Queries-on-a-Single-Relation" class="headerlink" title="3.3.1 Queries on a Single Relation"></a>3.3.1 Queries on a Single Relation</h2><ul>
-<li><strong>select</strong>子句列出attribute，对应于关系代数的<strong>projection</strong> operation   </li>
+<br>
+<h2 id="331-queries-on-a-single-relation"><a class="markdownIt-Anchor" href="#331-queries-on-a-single-relation"></a> 3.3.1 Queries on a Single Relation</h2>
+<ul>
+<li><strong>select</strong>子句列出attribute，对应于关系代数的<strong>projection</strong> operation</li>
 <li><strong>from</strong>子句列出relation,对应于关系代数中的<strong>cartesian product</strong> operation</li>
 <li><strong>where</strong>子句指定结果必须满足的条件,对应于关系代数的<strong>selection</strong>的谓词</li>
 </ul>
 <Br>
-
-<hr>
+<hr />
 <p><strong>例子:</strong></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name</span><br><span class="line"><span class="keyword">from</span> instructor;</span><br></pre></td></tr></table></figure>
 <p>让我们考虑使用我们的大学示例进行一个简单的查询，“查找所有教师的姓名”。教师姓名可以在教师关系中找到，因此我们将该关系放在 from 子句中。教师的姓名出现在 name 属性中，因此我们将其放在 select 子句中。</p>
-<p><br></p>
-<p><img src="https://pbs.twimg.com/media/F7sUUOvaAAANs9G?format=png&amp;name=900x900" alt=""></p>
-<p><br></p>
-<hr>
+<br>
+<p><img src="https://pbs.twimg.com/media/F7sUUOvaAAANs9G?format=png&amp;name=900x900" alt="" /></p>
+<br>
+<hr />
 <Br>
-
-<p>(1) <strong>强制消除重复项</strong>:在 select 之后插入关键字 <code>unique</code><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> dept name </span><br><span class="line"><span class="keyword">from</span> instructor;</span><br></pre></td></tr></table></figure></p>
+<p>(1) <strong>强制消除重复项</strong>:在 select 之后插入关键字 <code>unique</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> dept name </span><br><span class="line"><span class="keyword">from</span> instructor;</span><br></pre></td></tr></table></figure>
 <Br>
-
-<p>(2) <strong>不删除重复项</strong>：<code>all</code><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">all</span> dept name </span><br><span class="line"><span class="keyword">from</span> instructor;</span><br></pre></td></tr></table></figure><br>因为重复保留是默认的，所以我们不会在示例中使用all</p>
+<p>(2) <strong>不删除重复项</strong>：<code>all</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">all</span> dept name </span><br><span class="line"><span class="keyword">from</span> instructor;</span><br></pre></td></tr></table></figure>
+<p>因为重复保留是默认的，所以我们不会在示例中使用all</p>
 <BR>
-
-<p>(3) <strong>对tuple的常量或属性进行操作</strong>: <code>+、−、* 和 /</code><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ID, name, dept name, salary <span class="operator">*</span> <span class="number">1.1</span> </span><br><span class="line"><span class="keyword">from</span> instructor;</span><br></pre></td></tr></table></figure><br>返回一个与讲师关系相同的关系，只不过属性工资乘以 1.1。这显示了如果我们给每位讲师加薪 10% 会产生什么结果；但请注意，这不会导致导师关系发生任何变化</p>
+<p>(3) <strong>对tuple的常量或属性进行操作</strong>: <code>+、−、* 和 / </code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ID, name, dept name, salary <span class="operator">*</span> <span class="number">1.1</span> </span><br><span class="line"><span class="keyword">from</span> instructor;</span><br></pre></td></tr></table></figure>
+<p>返回一个与讲师关系相同的关系，只不过属性工资乘以 1.1。这显示了如果我们给每位讲师加薪 10% 会产生什么结果；但请注意，这不会导致导师关系发生任何变化</p>
 <Br>
-
-<hr>
+<hr />
 <p><strong>例子:</strong></p>
-<p><br></p>
+<br>
 <p>原查询:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ID, name, dept_name, salary</span><br><span class="line"><span class="keyword">from</span> instructor;</span><br></pre></td></tr></table></figure>
 <p>返回的结果是:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -410,12 +418,10 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><br></p>
-<p>修改后的查询:  </p>
+<br>
+<p>修改后的查询:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ID, name, dept_name, salary<span class="operator">*</span><span class="number">1.1</span> </span><br><span class="line"><span class="keyword">from</span> instructor;</span><br></pre></td></tr></table></figure>
 <p>返回的结果是:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -446,50 +452,59 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p>可以看到,修改后的查询返回的salary字段的值都比原表中的值增加了10%。<br>这样可以不修改表就模拟出把salary涨薪10%的效果。</p>
-<hr>
+<p>可以看到,修改后的查询返回的salary字段的值都比原表中的值增加了10%。<br />
+这样可以不修改表就模拟出把salary涨薪10%的效果。</p>
+<hr />
 <Br>
-
-<p>(4) <strong>找出所有属性</strong>：<code>*</code><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> instructor</span><br></pre></td></tr></table></figure></p>
+<p>(4) <strong>找出所有属性</strong>：<code>*</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> instructor</span><br></pre></td></tr></table></figure>
 <Br>
-
-<p>(5) <strong>找出单个属性</strong>: 不带from<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="string">&#x27;437&#x27;</span></span><br></pre></td></tr></table></figure><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="string">&#x27;437&#x27;</span> <span class="keyword">as</span> FOO</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>(6) <strong>找出单个属性:</strong> 带from<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span>  <span class="string">&#x27;A&#x27;</span>  </span><br><span class="line"><span class="keyword">from</span> instructor</span><br></pre></td></tr></table></figure><br>结果是一个有一列N行的表，每行值为“A”。</p>
-<p><br></p>
+<p>(5) <strong>找出单个属性</strong>: 不带from</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="string">&#x27;437&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="string">&#x27;437&#x27;</span> <span class="keyword">as</span> FOO</span><br></pre></td></tr></table></figure>
+<br>
+<p>(6) <strong>找出单个属性:</strong> 带from</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span>  <span class="string">&#x27;A&#x27;</span>  </span><br><span class="line"><span class="keyword">from</span> instructor</span><br></pre></td></tr></table></figure>
+<p>结果是一个有一列N行的表，每行值为“A”。</p>
+<br>
 <p>(7)<strong>where</strong>子句：允许我们仅选择 from 子句的结果关系中满足指定谓词的行。</p>
 <ul>
 <li>可使用逻辑连接词 and、or、and</li>
-<li>可使用比较运算符&lt;、&lt;=、&gt;、&gt;=、= 和&lt;&gt; 的表达式<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name </span><br><span class="line"><span class="keyword">from</span> instructor</span><br><span class="line"><span class="keyword">where</span> dept name <span class="operator">=</span> <span class="string">&#x27;Comp. Sci.&#x27;</span> <span class="keyword">and</span> salary <span class="operator">&gt;</span> <span class="number">70000</span>;</span><br></pre></td></tr></table></figure>
-查找计算机科学系中薪水超过 70,000 美元的所有讲师的姓名。</li>
+<li>可使用比较运算符&lt;、&lt;=、&gt;、&gt;=、= 和&lt;&gt; 的表达式</li>
 </ul>
-<p><br></p>
-<p>(8)<strong>笛卡尔积</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> instructor, teaches</span><br></pre></td></tr></table></figure><br><br></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name </span><br><span class="line"><span class="keyword">from</span> instructor</span><br><span class="line"><span class="keyword">where</span> dept name <span class="operator">=</span> <span class="string">&#x27;Comp. Sci.&#x27;</span> <span class="keyword">and</span> salary <span class="operator">&gt;</span> <span class="number">70000</span>;</span><br></pre></td></tr></table></figure>
+<p>查找计算机科学系中薪水超过 70,000 美元的所有讲师的姓名。</p>
+<br>
+<p>(8)<strong>笛卡尔积</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> instructor, teaches</span><br></pre></td></tr></table></figure>
+<br>
 <p>🌟：</p>
 <ul>
 <li>名称不区分大小写</li>
 <li>SQL 允许数据库关系以及 SQL 表达式结果中存在duplicates。</li>
 </ul>
-<p><br></p>
-<h2 id="3-3-2-Queries-on-Multiple-Relations"><a href="#3-3-2-Queries-on-Multiple-Relations" class="headerlink" title="3.3.2 Queries on Multiple Relations"></a>3.3.2 Queries on Multiple Relations</h2><p>我们现在考虑涉及多个关系的 SQL 查询的一般情况。SQL 查询可以包含三种类型的子句作用如下：</p>
+<br>
+<h2 id="332-queries-on-multiple-relations"><a class="markdownIt-Anchor" href="#332-queries-on-multiple-relations"></a> 3.3.2 Queries on Multiple Relations</h2>
+<p>我们现在考虑涉及多个关系的 SQL 查询的一般情况。SQL 查询可以包含三种类型的子句作用如下：</p>
 <ul>
 <li>select 子句用于列出查询结果中所需的属性A</li>
 <li>from 子句是在查询评估中要访问的关系列表r</li>
-<li>where 子句是涉及from 子句中关系的属性的谓词P<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A1, A2, … , An</span><br><span class="line"><span class="keyword">from</span> r1, r2, … , rm</span><br><span class="line"><span class="keyword">where</span> P;</span><br></pre></td></tr></table></figure>
-</li>
+<li>where 子句是涉及from 子句中关系的属性的谓词P</li>
 </ul>
-<hr>
-<p><strong>例子：</strong><br>假设我们要回答查询“检索所有教师的姓名，以及他们的部门名称和部门大楼名称”。查看relation instructor的schema，我们发现我们可以从attirbute department_name中获取department name，但是department building name存在于relation department的attribute building中。为了回答查询，instructor关系中的每个元组必须与department关系中的department_name值与instructor元组的department_name值相匹配的元组相匹配。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, instructor.dept name, building </span><br><span class="line"><span class="keyword">from</span> instructor, department</span><br><span class="line"><span class="keyword">where</span> instructor.dept name<span class="operator">=</span> department.dept name;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://pbs.twimg.com/media/F7sZ-bZbEAAziUY?format=jpg&amp;name=medium" alt=""></p>
-<hr>
-<p><br></p>
-<p><strong>自动合并相同列</strong>：<code>natural join</code><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, course_id </span><br><span class="line"><span class="keyword">from</span> instructor <span class="keyword">natural</span> <span class="keyword">join</span> teaches </span><br><span class="line"><span class="keyword">where</span> instructor. dept_name <span class="operator">=</span> ‘Art’</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<hr>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A1, A2, … , An</span><br><span class="line"><span class="keyword">from</span> r1, r2, … , rm</span><br><span class="line"><span class="keyword">where</span> P;</span><br></pre></td></tr></table></figure>
+<hr />
+<p><strong>例子：</strong><br />
+假设我们要回答查询“检索所有教师的姓名，以及他们的部门名称和部门大楼名称”。查看relation instructor的schema，我们发现我们可以从attirbute department_name中获取department name，但是department building name存在于relation department的attribute building中。为了回答查询，instructor关系中的每个元组必须与department关系中的department_name值与instructor元组的department_name值相匹配的元组相匹配。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, instructor.dept name, building </span><br><span class="line"><span class="keyword">from</span> instructor, department</span><br><span class="line"><span class="keyword">where</span> instructor.dept name<span class="operator">=</span> department.dept name;</span><br></pre></td></tr></table></figure>
+<p><img src="https://pbs.twimg.com/media/F7sZ-bZbEAAziUY?format=jpg&amp;name=medium" alt="" /></p>
+<hr />
+<br>
+<p><strong>自动合并相同列</strong>：<code>natural join</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, course_id </span><br><span class="line"><span class="keyword">from</span> instructor <span class="keyword">natural</span> <span class="keyword">join</span> teaches </span><br><span class="line"><span class="keyword">where</span> instructor. dept_name <span class="operator">=</span> ‘Art’</span><br></pre></td></tr></table></figure>
+<br>
+<hr />
 <p><strong>举例</strong>说明</p>
 <p><strong>instructor表</strong>：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -516,10 +531,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><br></p>
+<br>
 <p><strong>teaches表</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -546,10 +559,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><br></p>
+<br>
 <p><strong>自然连接后</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -586,72 +597,174 @@
 </tr>
 </tbody>
 </table>
-</div>
-<hr>
-<p><br></p>
+<hr />
+<br>
 <p>SQL查询的含义<strong>理解方式</strong>：</p>
 <ul>
 <li>生成 from 子句中列出的关系的笛卡尔积</li>
 <li>将 where 子句中指定的谓词应用于步骤 1 的结果</li>
 <li>对于步骤 2 结果中的每个元组，输出 select 子句中指定的属性（或表达式的结果）。</li>
 </ul>
-<p><br></p>
-<p>———————-注意———————-</p>
-<p>🌟<br>子句from包含多个关系表时：</p>
+<br>
+<p>---------------注意---------------</p>
+<p>🌟<br />
+子句from包含多个关系表时：</p>
 <ul>
 <li>要在where子句中加入连接条件</li>
 <li>防止出现costly多表笛卡尔积操作</li>
 </ul>
-<p><br></p>
+<br>
 <p>🌟频繁执行SQL查询，from子句表的个数不要过多</p>
 <ul>
 <li>避免耗时费力的多表连接操作</li>
 <li>不要超过4个表</li>
 <li>如果频繁执行查询涉及N≥4张表，将这N张表的数据进行合并</li>
 </ul>
-<p><br></p>
-<h2 id="3-4-Additional-Basic-Operations"><a href="#3-4-Additional-Basic-Operations" class="headerlink" title="3.4 Additional Basic Operations"></a>3.4 Additional Basic Operations</h2><p>SQL 支持许多附加的基本操作。</p>
-<p><br></p>
-<h2 id="3-4-1-The-Rename-Operation"><a href="#3-4-1-The-Rename-Operation" class="headerlink" title="3.4.1 The Rename Operation"></a>3.4.1 The Rename Operation</h2><p>重命名relation和attribute：<code>as</code></p>
-<hr>
-<p>找出所有薪水高于Comp. Sci的教师的名字<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> T.name  <span class="keyword">as</span> TeacherName</span><br><span class="line"><span class="keyword">from</span> instructor <span class="keyword">as</span> T, instructor <span class="keyword">as</span> S    </span><br><span class="line"><span class="keyword">where</span> T.salary <span class="operator">&gt;</span> S.salary <span class="keyword">and</span> S.dept_name <span class="operator">=</span> <span class="string">&#x27;Comp. Sci.&#x27;</span></span><br></pre></td></tr></table></figure><br><img src="https://pbs.twimg.com/media/F7snAE0aoAA_A5m?format=jpg&amp;name=medium" alt=""></p>
-<hr>
-<p><br></p>
+<br>
+<h2 id="34-additional-basic-operations"><a class="markdownIt-Anchor" href="#34-additional-basic-operations"></a> 3.4 Additional Basic Operations</h2>
+<p>SQL 支持许多附加的基本操作。</p>
+<br>
+<h2 id="341-the-rename-operation"><a class="markdownIt-Anchor" href="#341-the-rename-operation"></a> 3.4.1 The Rename Operation</h2>
+<p>重命名relation和attribute：<code>as</code></p>
+<hr />
+<p>找出所有薪水高于Comp. Sci的教师的名字</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> T.name  <span class="keyword">as</span> TeacherName</span><br><span class="line"><span class="keyword">from</span> instructor <span class="keyword">as</span> T, instructor <span class="keyword">as</span> S    </span><br><span class="line"><span class="keyword">where</span> T.salary <span class="operator">&gt;</span> S.salary <span class="keyword">and</span> S.dept_name <span class="operator">=</span> <span class="string">&#x27;Comp. Sci.&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://pbs.twimg.com/media/F7snAE0aoAA_A5m?format=jpg&amp;name=medium" alt="" /></p>
+<hr />
+<br>
 <p>🌟 关键字<code>as</code>可选且省略: <code>instructor as T ≡ instructor T</code></p>
 <p>🌟 <code>as</code> 子句可以出现在 <code>select</code> 和 <code>from</code> 子句中</p>
-<p><br></p>
-<h2 id="3-4-2-String-Operations"><a href="#3-4-2-String-Operations" class="headerlink" title="3.4.2 String Operations"></a>3.4.2 String Operations</h2><p><strong>字符串匹配</strong>：<code>like</code>  </p>
+<br>
+<h2 id="342-string-operations"><a class="markdownIt-Anchor" href="#342-string-operations"></a> 3.4.2 String Operations</h2>
+<p><strong>字符串匹配</strong>：<code>like</code></p>
 <ul>
 <li><code>%</code>: 匹配任何子字符串</li>
 <li><code>_</code>: 匹配任何字符</li>
 <li><code>\</code>: 转义字符</li>
 </ul>
-<hr>
+<hr />
 <p><strong>例子：</strong></p>
 <ul>
-<li><code>&#39;Intro%&#39;</code>: 匹配任何以“Intro”开头的字符串</li>
-<li><code>&#39;%Comp%&#39;</code>: 匹配任何包含“Comp”作为子字符串的字符串，</li>
+<li><code>'Intro%'</code>: 匹配任何以“Intro”开头的字符串</li>
+<li><code>'%Comp%'</code>: 匹配任何包含“Comp”作为子字符串的字符串，</li>
 <li><code>“___”</code>: 匹配任何恰好包含三个字符的字符串</li>
-<li><code>&#39;___%&#39;</code>: 匹配至少包含三个字符的任何字符串</li>
-<li><code>like &#39;ab\%cd%&#39; escape &#39;\&#39;</code>: 匹配所有以“ab%cd”开头的字符串</li>
+<li><code>'___%'</code>: 匹配至少包含三个字符的任何字符串</li>
+<li><code>like 'ab\%cd%' escape '\'</code>: 匹配所有以“ab%cd”开头的字符串</li>
 </ul>
-<p><br></p>
-<h2 id="3-4-3-Attribute-Specification-in-the-Select-Clause"><a href="#3-4-3-Attribute-Specification-in-the-Select-Clause" class="headerlink" title="3.4.3 Attribute Specification in the Select Clause"></a>3.4.3 Attribute Specification in the Select Clause</h2><p>表示<strong>所有属性</strong>：<code>*</code><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> instructor.<span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> instructor, teaches</span><br><span class="line"><span class="keyword">where</span> instructor.ID<span class="operator">=</span> teaches.ID;</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<h2 id="3-4-4-Ordering-the-Display-of-Tuples"><a href="#3-4-4-Ordering-the-Display-of-Tuples" class="headerlink" title="3.4.4 Ordering the Display of Tuples"></a>3.4.4 Ordering the Display of Tuples</h2><p>按<strong>顺序</strong>显示：<code>order</code></p>
-<hr>
-<p>举例：<br><figure class="highlight plaintext"><figcaption><span>by``` 默认升序，指定```desc```表示降序.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">假设我们希望按工资降序列出整个讲师关系。如果几位讲师的工资相同，我们按姓名升序排列。我们用 SQL 表达这个查询如下：</span><br><span class="line">```sql</span><br><span class="line">select * </span><br><span class="line">from instructor </span><br><span class="line">order by salary desc, name asc;</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<h2 id="3-4-5-Where-Clause-Predicates"><a href="#3-4-5-Where-Clause-Predicates" class="headerlink" title="3.4.5 Where-Clause Predicates"></a>3.4.5 Where-Clause Predicates</h2><ul>
+<br>
+<h2 id="343-attribute-specification-in-the-select-clause"><a class="markdownIt-Anchor" href="#343-attribute-specification-in-the-select-clause"></a> 3.4.3 Attribute Specification in the Select Clause</h2>
+<p>表示<strong>所有属性</strong>：<code>*</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> instructor.<span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> instructor, teaches</span><br><span class="line"><span class="keyword">where</span> instructor.ID<span class="operator">=</span> teaches.ID;</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="344-ordering-the-display-of-tuples"><a class="markdownIt-Anchor" href="#344-ordering-the-display-of-tuples"></a> 3.4.4 Ordering the Display of Tuples</h2>
+<p>按<strong>顺序</strong>显示：<code>order</code></p>
+<hr />
+<p>举例：</p>
+<figure class="highlight plaintext"><figcaption><span>by``` 默认升序，指定```desc```表示降序.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">假设我们希望按工资降序列出整个讲师关系。如果几位讲师的工资相同，我们按姓名升序排列。我们用 SQL 表达这个查询如下：</span><br><span class="line">```sql</span><br><span class="line">select * </span><br><span class="line">from instructor </span><br><span class="line">order by salary desc, name asc;</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="345-where-clause-predicates"><a class="markdownIt-Anchor" href="#345-where-clause-predicates"></a> 3.4.5 Where-Clause Predicates</h2>
+<ul>
 <li>指定范围：<code>between...and...</code></li>
 <li>对元组进行运算：<code>()=()</code></li>
 </ul>
-<hr>
-<p><strong>举例：</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name </span><br><span class="line"><span class="keyword">from</span> instructor </span><br><span class="line"><span class="keyword">where</span> salary <span class="keyword">between</span> <span class="number">90000</span> <span class="keyword">and</span> <span class="number">100000</span>;</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
+<hr />
+<p><strong>举例：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name </span><br><span class="line"><span class="keyword">from</span> instructor </span><br><span class="line"><span class="keyword">where</span> salary <span class="keyword">between</span> <span class="number">90000</span> <span class="keyword">and</span> <span class="number">100000</span>;</span><br></pre></td></tr></table></figure>
+<br>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, course id </span><br><span class="line"><span class="keyword">from</span> instructor, teaches</span><br><span class="line"><span class="keyword">where</span> (instructor.ID, dept name) <span class="operator">=</span> (teaches.ID, <span class="string">&#x27;Biology&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="3-5-Set-Operations"><a href="#3-5-Set-Operations" class="headerlink" title="3.5 Set Operations"></a>3.5 Set Operations</h2>
+<br>
+<h2 id="35-set-operations"><a class="markdownIt-Anchor" href="#35-set-operations"></a> 3.5 Set Operations</h2>
+<p>SQL 操作 union、intersect 和 except 对关系进行操作，对应于数学集合操作 ∪、∩ 和 −。</p>
+<br>
+<h2 id="351-the-union-operation"><a class="markdownIt-Anchor" href="#351-the-union-operation"></a> 3.5.1 The Union Operation</h2>
+<p><strong>union</strong>操作会自动消除重复项。保留所有重复项编写 <strong>union all</strong>,<strong>intersect</strong>和<strong>except</strong>也是同理。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">select</span> course id </span><br><span class="line"><span class="keyword">from</span> section</span><br><span class="line"><span class="keyword">where</span> semester <span class="operator">=</span> <span class="string">&#x27;Fall&#x27;</span> <span class="keyword">and</span> <span class="keyword">year</span><span class="operator">=</span> <span class="number">2017</span>)</span><br><span class="line"><span class="keyword">union</span> <span class="keyword">all</span> </span><br><span class="line">(<span class="keyword">select</span> course id </span><br><span class="line"><span class="keyword">from</span> section</span><br><span class="line"><span class="keyword">where</span> semester <span class="operator">=</span> <span class="string">&#x27;Spring&#x27;</span> <span class="keyword">and</span> <span class="keyword">year</span><span class="operator">=</span> <span class="number">2018</span>);</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="352-the-intersect-operation"><a class="markdownIt-Anchor" href="#352-the-intersect-operation"></a> 3.5.2 The Intersect Operation</h2>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">select</span> course id </span><br><span class="line"><span class="keyword">from</span> section</span><br><span class="line"><span class="keyword">where</span> semester <span class="operator">=</span> <span class="string">&#x27;Fall&#x27;</span> <span class="keyword">and</span> <span class="keyword">year</span><span class="operator">=</span> <span class="number">2017</span>)</span><br><span class="line"><span class="keyword">intersect</span> </span><br><span class="line">(<span class="keyword">select</span> course id </span><br><span class="line"><span class="keyword">from</span> section</span><br><span class="line"><span class="keyword">where</span> semester <span class="operator">=</span> <span class="string">&#x27;Spring&#x27;</span> <span class="keyword">and</span> <span class="keyword">year</span><span class="operator">=</span> <span class="number">2018</span>);</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="353-the-except-operation"><a class="markdownIt-Anchor" href="#353-the-except-operation"></a> 3.5.3 The Except Operation</h2>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">select</span> course id </span><br><span class="line"><span class="keyword">from</span> section</span><br><span class="line"><span class="keyword">where</span> semester <span class="operator">=</span> <span class="string">&#x27;Fall&#x27;</span> <span class="keyword">and</span> <span class="keyword">year</span><span class="operator">=</span> <span class="number">2017</span>)</span><br><span class="line"><span class="keyword">except</span> </span><br><span class="line">(<span class="keyword">select</span> course id </span><br><span class="line"><span class="keyword">from</span> section</span><br><span class="line"><span class="keyword">where</span> semester <span class="operator">=</span> <span class="string">&#x27;Spring&#x27;</span> <span class="keyword">and</span> <span class="keyword">year</span><span class="operator">=</span> <span class="number">2018</span>);</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="36-null-values"><a class="markdownIt-Anchor" href="#36-null-values"></a> 3.6 Null Values</h2>
+<p>空值在关系运算（包括算术运算、比较运算和集合运算）中带来特殊问题。</p>
+<p><strong>null</strong>:</p>
+<ul>
+<li>是未知的值</li>
+<li>是不存在的值</li>
+</ul>
+<br>
+<p><strong>null在布尔运算</strong>时的情况：</p>
+<ul>
+<li>and:
+<ul>
+<li><strong>true</strong> and <strong>unknown</strong> = <strong>unknown</strong></li>
+<li><strong>false</strong> and <strong>unknown</strong> = <strong>false</strong></li>
+<li><strong>unknown</strong> and <strong>unknown</strong> = <strong>unknown</strong></li>
+</ul>
+</li>
+<li>or:
+<ul>
+<li><strong>true</strong> or <strong>unknown</strong> = <strong>true</strong></li>
+<li><strong>false</strong> or <strong>unknown</strong> = <strong>unknown</strong></li>
+<li><strong>unknown</strong> or <strong>unknown</strong> = <strong>unknown</strong></li>
+</ul>
+</li>
+<li>not:
+<ul>
+<li>not <strong>unknown</strong> = <strong>unknown</strong></li>
+</ul>
+</li>
+</ul>
+<br>
+<p>🌟 <strong>tips</strong>:</p>
+<ul>
+<li>任何包含null的表达式的结果都是null</li>
+<li>where子句谓词的计算结果为unknown，则将其视为false</li>
+<li>对于value的描述用null，对于布尔值用unknown</li>
+</ul>
+<br>
+<h2 id="37-aggregate-functions"><a class="markdownIt-Anchor" href="#37-aggregate-functions"></a> 3.7 Aggregate Functions</h2>
+<p>Aggregate Functions是将值的集合（一组或多组）作为输入并返回单个值的函数。 SQL 提供五个标准的内置聚合函数:</p>
+<ul>
+<li><strong>Average</strong>: <code>avg</code></li>
+<li><strong>Minimum</strong>: <code>min</code></li>
+<li><strong>Maximum</strong>: <code>max</code></li>
+<li><strong>Total</strong>: <code>sum</code></li>
+<li><strong>Count</strong>: <code>count</code></li>
+</ul>
+<br>
+<h2 id="371-basic-aggregation"><a class="markdownIt-Anchor" href="#371-basic-aggregation"></a> 3.7.1 Basic Aggregation</h2>
+<p>样例1:<strong>查找计算机科学系教师的平均工资</strong>(需要保留重复项，因为重复项保留是默认的，所以没写)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">avg</span> (salary) <span class="keyword">as</span> avg salary </span><br><span class="line"><span class="keyword">from</span> instructor</span><br><span class="line"><span class="keyword">where</span> dept name <span class="operator">=</span> <span class="string">&#x27;Comp. Sci.&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<br>
+<p>样例2:<strong>查找 2018 年春季学期教授课程的教师总数</strong>(需要去掉重复项)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span> (<span class="keyword">distinct</span> ID) </span><br><span class="line"><span class="keyword">from</span> teaches</span><br><span class="line"><span class="keyword">where</span> semester <span class="operator">=</span> <span class="string">&#x27;Spring&#x27;</span> <span class="keyword">and</span> <span class="keyword">year</span> <span class="operator">=</span> <span class="number">2018</span>;</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="372-aggregation-with-grouping"><a class="markdownIt-Anchor" href="#372-aggregation-with-grouping"></a> 3.7.2 Aggregation with Grouping</h2>
+<p>聚合函数应用于<strong>一组元组</strong>集合: <code>group by</code></p>
+<p>🌟：除了count(*)之外，所有聚合操作都会忽略聚合属性上具有null值的元组<br />
+<Br></p>
+<hr />
+<p>举例：<strong>求各部门的平均工资</strong></p>
+<p><img src="https://pbs.twimg.com/media/F7vNLTYbgAAdB-M?format=png&amp;name=900x900" alt="" /></p>
+<br>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> dept name, <span class="built_in">avg</span> (salary) <span class="keyword">as</span> avg salary </span><br><span class="line"><span class="keyword">from</span> instructor </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> dept name;</span><br></pre></td></tr></table></figure>
+<br>
+<p><img src="https://pbs.twimg.com/media/F7vNNN7acAApLyp?format=png&amp;name=small" alt="" /></p>
+<br>
+<br>
+<p><strong>对照示例</strong>：<strong><code>group by</code>被忽略</strong>的情况：此时整个instructor被视为一个组</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">avg</span> (salary) </span><br><span class="line"><span class="keyword">from</span> instructor;</span><br></pre></td></tr></table></figure>
+<br>
+<p><strong>错误示范</strong>🙅：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* erroneous query */</span> </span><br><span class="line"><span class="keyword">select</span> dept name, ID, <span class="built_in">avg</span> (salary) </span><br><span class="line"><span class="keyword">from</span> instructor </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> dept name;</span><br></pre></td></tr></table></figure>
+<p>ID 列没有在 group by 中,在某些数据库中这样写会导致错误。如果需要返回ID,应该使用统计函数如 max(ID);</p>
+<p>并且这段话也同样说明了，sql的<strong>注释</strong>可以用<code>/* */</code>来编写</p>
+<hr />
+<br>
+<h2 id="373-the-having-clause"><a class="markdownIt-Anchor" href="#373-the-having-clause"></a> 3.7.3 The Having Clause</h2>
+
             
         </div>
         <footer class="article-footer">
@@ -828,10 +941,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    211.2k
+                    211.8k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    13:06
+                    13:09
                 </div>
             
             
