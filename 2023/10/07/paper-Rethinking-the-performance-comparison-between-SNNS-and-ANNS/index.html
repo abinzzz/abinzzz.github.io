@@ -30,9 +30,13 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   需要知道的问题  1.要了解深入，一个模型为什么好？ 2.以前的模型为什么不好？  除了脉冲驱动处理带来的低功耗属性优势之外，SNN 的性能通常比 ANN 差，尤其是在应用准确性方面  3.哪个关键点对性能提升最大？">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pbs.twimg.com/media/F72PB8DbYAAWekl?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F764_nYaAAACjk9?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F765BOSbwAAKfYs?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F77HNRjbIAAMsJI?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F77Ip2bb0AArpRt?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F77MHCuaQAAlH9s?format=png&amp;name=900x900">
 <meta property="article:published_time" content="2023-10-07T14:11:25.000Z">
-<meta property="article:modified_time" content="2023-10-08T09:34:35.276Z">
+<meta property="article:modified_time" content="2023-10-08T14:45:41.508Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="intern00">
@@ -42,7 +46,7 @@
 <meta property="article:tag" content="Neuromorphic computing">
 <meta property="article:tag" content="Benchmark">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pbs.twimg.com/media/F72PB8DbYAAWekl?format=png&amp;name=900x900">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/F764_nYaAAACjk9?format=png&amp;name=small">
     
         <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
     
@@ -270,9 +274,7 @@
 <li><strong>直接将工作负载从 ANN 移植到 SNN 是不合适的</strong>，至少是不明智的，尽管许多工作正在这样做。创建更多面向 SNN 的数据集并构建具有<strong>更广泛任务的基准框架对于 SNN 社区来说是紧迫的</strong>。</li>
 </ul>
 <br>
-<p><img src="https://pbs.twimg.com/media/F72PB8DbYAAWekl?format=png&amp;name=900x900" alt="(a) ANN 和 (b) SNN 中的基本神经元模型" /></p>
-<br>
-<p>本文其余部分的组织如下：</p>
+<p>本文<strong>其余部分的</strong>组织如下：</p>
 <ul>
 <li>第 2 节介绍了 ANN 和 SNN 的一些预备知识，以及典型的网络拓扑和基准数据集；</li>
 <li>第 3 节系统地提出了信号转换方法、测试工作负载、训练算法和评估指标；</li>
@@ -296,6 +298,106 @@
 </ul>
 <br>
 <h2 id="21-artificial-neural-networks"><a class="markdownIt-Anchor" href="#21-artificial-neural-networks"></a> 2.1 Artificial neural networks</h2>
+<p><img src="https://pbs.twimg.com/media/F764_nYaAAACjk9?format=png&amp;name=small" alt="" /></p>
+<p>图(a)描绘了典型的人工神经元的模型。计算过程由：y=<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ψ</mi></mrow><annotation encoding="application/x-tex">\psi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span></span></span></span>(b + <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\sum_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.185818em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16195399999999993em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span></span></span></span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">x_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">w_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>) <strong>(1)</strong></p>
+<ul>
+<li>x：输入激活</li>
+<li>y：输出激活</li>
+<li>w：突触权重</li>
+<li>b：偏差</li>
+<li>j：输入神经元的索引</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ψ</mi></mrow><annotation encoding="application/x-tex">\psi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span></span></span></span>：非线性激活函数</li>
+</ul>
+<p>人工神经网络中的神经元使用以高精度和连续值编码的激活相互通信，并且仅在空间域（即逐层）传播信息。</p>
+<br>
+<h2 id="22-spiking-neural-networks"><a class="markdownIt-Anchor" href="#22-spiking-neural-networks"></a> 2.2 Spiking neural networks</h2>
+<p><img src="https://pbs.twimg.com/media/F765BOSbwAAKfYs?format=png&amp;name=small" alt="" /></p>
+<p>(b)展示了一个典型的脉冲神经元，与ANN神经元相比，它具有相似的结构，但行为不同。相比之下，脉冲神经元通过<strong>二进制事件编码的脉冲序列</strong>进行通信，而不是人工神经网络中的连续激活。树突整合输入脉冲，<strong>soma</strong>进而进行非线性变换，产生输出脉冲序列。</p>
+<p>行为通常由流行的 <strong>LIF 模型</strong>建模，描述为:</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi></mrow><annotation encoding="application/x-tex">\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span></span></span></span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>d</mi><mi>u</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{du(t)}{dt}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.355em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">t</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">u</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">t</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> = - [u(t) - <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>r</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">u_{r1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>] + <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\sum_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.185818em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16195399999999993em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span></span></span></span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ω</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\omega_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mrow><msubsup><mi>t</mi><mi>j</mi><mi>k</mi></msubsup><mo>∈</mo><msubsup><mi>S</mi><mi>j</mi><msub><mi>T</mi><mi>w</mi></msub></msubsup></mrow></msub></mrow><annotation encoding="application/x-tex">\sum_{t_{j}^{k} \in S_j^{T_w}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.411045em;vertical-align:-0.661045em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.361775em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8408285714285714em;"><span style="top:-2.177714285714286em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span style="top:-2.8448em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.46117142857142857em;"><span></span></span></span></span></span></span><span class="mrel mtight">∈</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.97575em;"><span style="top:-2.177714285714286em;margin-left:-0.05764em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span><span style="top:-2.987657142857143em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.23056em;"><span style="top:-2.3em;margin-left:-0.13889em;margin-right:0.1em;"><span class="pstrut" style="height:2.5em;"></span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.46117142857142857em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.661045em;"><span></span></span></span></span></span></span></span></span></span>K(t - <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>t</mi><mi>j</mi><mi>k</mi></msubsup></mrow><annotation encoding="application/x-tex">t_j^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2438799999999999em;vertical-align:-0.394772em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.394772em;"><span></span></span></span></span></span></span></span></span></span>)  <strong>(2)</strong></p>
+<p>s(t)=1 &amp; u(t)=<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>r</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">u_{r2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> , if u(t) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo></mrow><annotation encoding="application/x-tex">\geq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≥</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>t</mi><mi>h</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u_{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>s(t)=0 , if u(t) &lt; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>t</mi><mi>h</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u_{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<ul>
+<li>(t):时间步长</li>
+<li>τ:时间常数</li>
+<li>u:膜电位</li>
+<li>s:输出脉冲</li>
+<li>ur1：静息电位</li>
+<li>ur2：复位电位</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">w_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>: 第 j 个输入神经元的突触权重</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>t</mi><mi>j</mi><mi>k</mi></msubsup></mrow><annotation encoding="application/x-tex">t^k_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2438799999999999em;vertical-align:-0.394772em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.394772em;"><span></span></span></span></span></span></span></span></span></span>:第 j 个输入神经元的第 k 个脉冲在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>W</mi></msub></mrow><annotation encoding="application/x-tex">T_W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">W</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的积分时间窗口内激发的时间（总共 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>S</mi><mi>j</mi><mrow><mi>T</mi><mi>w</mi></mrow></msubsup></mrow><annotation encoding="application/x-tex">S^{Tw}_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.236103em;vertical-align:-0.394772em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.441336em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.394772em;"><span></span></span></span></span></span></span></span></span></span>脉冲序列）</li>
+<li>K():描述时间衰减效应的核函数</li>
+<li>u:决定是否发射脉冲的发射阈值</li>
+</ul>
+<br>
+<p>SNN 通常可以实现<strong>更低的功耗</strong>：</p>
+<ul>
+<li>与 ANN 不同，<strong>SNN 以脉冲模式表示信息</strong>，每个脉冲神经元都会经历丰富的动态行为</li>
+<li>具体来说，除了<strong>空间域</strong>中的信息传播之外，当前状态还受到<strong>时间域</strong>中过去历史的紧密影响</li>
+<li>与<strong>主要通过空间传播和连续激活的 ANN 相比，SNN 通常具有更多的时间多功能性，但精度较低</strong>。</li>
+<li><strong>脉冲仅在膜电位超过阈值时触发</strong>，因此整个脉冲信号通常是<strong>稀疏</strong>的，并且计算可以是事件驱动的（仅在脉冲输入到达时启用）。</li>
+<li>脉冲是<strong>二进制</strong>的，即 0 或 1</li>
+</ul>
+<br>
+<h2 id="23-typical-network-topologies"><a class="markdownIt-Anchor" href="#23-typical-network-topologies"></a> 2.3 Typical network topologies</h2>
+<p><img src="https://pbs.twimg.com/media/F77HNRjbIAAMsJI?format=png&amp;name=900x900" alt="" /></p>
+<p>构建神经网络的基本层拓扑</p>
+<ul>
+<li>全连接（FC）层:<strong>多层感知器（MLP）</strong></li>
+<li>循环层:<strong>RNN</strong></li>
+<li>卷积（Conv）层（以及池化层）:<strong>CNN</strong></li>
+</ul>
+<p>MLP 和 RNN 仅包含堆叠的 FC 层，每层中带有或不带有循环连接，分别如图 2(a) 和 (b) 所示。对于图 2（c）所示的 CNN，它们直接针对 2D 特征的处理，而不是 MLP 和 RNN 中的 1D 特征。</p>
+<p>卷积 (Conv) 层中的每个神经元仅接收来自上一层中所有特征图 (FM) 的局部感受野 (RF) 的输入。每个神经元的基本计算与式（1）或（2）相同。此外，CNN还使用池化层通过输出每个RF的最大值（即最大池化）或平均值（即平均池化）来单独对每个FM的大小进行下采样，并使用FC层进行最终分类。</p>
+<br>
+<h2 id="24-benchmark-datasets"><a class="markdownIt-Anchor" href="#24-benchmark-datasets"></a> 2.4 Benchmark datasets</h2>
+<p><img src="https://pbs.twimg.com/media/F77Ip2bb0AArpRt?format=png&amp;name=900x900" alt="" /></p>
+<p>图3展示了我们用于视觉识别的两种不同类型的基准数据集:</p>
+<ul>
+<li><strong>MNIST和CIFAR10</strong>:基于帧的静态图像，并被广泛用于人工神经网络，我们称它们为面向人工神经网络的数据集</li>
+<li><strong>N-MNIST和dvs-cifar10</strong>:数据格式是spike事件，通过使用动态视觉传感器(DVS)扫描每个图像从上述静态数据集转换而来。除了与面向神经网络的数据集相似的空间信息外，它还包含更多的动态时间信息，并且脉冲事件与snn中的信号格式自然兼容，因此称为面向snn的数据集。</li>
+</ul>
+<Br>
+<p><strong>MNIST</strong>:</p>
+<ul>
+<li>60,000 个标记手写数字的<strong>训练集</strong></li>
+<li>10,000 个标记数字的<strong>测试集</strong></li>
+<li>每个数字样本都是一个 28 × 28 的灰度图像。</li>
+</ul>
+<br>
+<p><strong>CIFAR10</strong>：</p>
+<ul>
+<li>训练集：包含 50,000 张带标签的训练图像以及环境中的自然和人造物体</li>
+<li>其他 10,000 个测试图像</li>
+<li>每个样本都是 32 × 32 × 3 RGB 图像</li>
+</ul>
+<br>
+<p><img src="https://pbs.twimg.com/media/F77MHCuaQAAlH9s?format=png&amp;name=900x900" alt="" /></p>
+<p>数据信号转换说明：</p>
+<ul>
+<li>(a) 通过概率采样将图像转换为脉冲图案；</li>
+<li>(b) 通过编码层将图像转换为脉冲图案；</li>
+<li>© 脉冲图案到二值图像；</li>
+<li>(d) 脉冲图案到强度图像。</li>
+</ul>
+<br>
+<p><strong>DVS</strong>:</p>
+<ul>
+<li>9000张图像用于训练</li>
+<li>1000张用于测试</li>
+<li>可以沿着给定的方向扫描原始静态图像，并收集由每个像素的强度变化触发的脉冲序列。</li>
+<li>由于它有两种改变方式(增加或减少)，DVS产生两个脉冲事件通道，分别称为On和Off事件(图3中的红色和蓝色)</li>
+<li>将每个图像转换为行×深× 2 × T的脉冲模式，其中T是记录时间长度</li>
+<li>从原始CIFAR10数据集转换10 000幅图像，其中每个类有1000个脉冲模式，大小为128 × 128 × 2 × T</li>
+</ul>
+<br>
+<p><strong>N-MNIST</strong>:</p>
+<ul>
+<li><strong>将原始MNIST转换为spike版本</strong>。</li>
+<li>60,000个训练样本</li>
+<li>10,000个测试样本</li>
+<li>每个样本都是一个大小为34 × 34 × 2 × T的时空脉冲模式</li>
+</ul>
 
             
         </div>
@@ -459,10 +561,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    224.3k
+                    225.6k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    13:56
+                    14:01
                 </div>
             
             
