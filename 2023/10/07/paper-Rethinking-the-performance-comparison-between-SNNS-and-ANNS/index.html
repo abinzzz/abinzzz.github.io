@@ -23,20 +23,26 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   需要知道的问题  要了解深入，一个模型为什么好？ 以前的模型为什么不好？ 哪个关键点对性能提升最大？ 编程怎么实现？ 论文源代码和paper匹配度怎么样、都覆盖了吗 哪些数学运算是关键的？ 整个全流程是怎么走的？ 数据">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   需要知道的问题  1.要了解深入，一个模型为什么好？ 2.以前的模型为什么不好？  除了脉冲驱动处理带来的低功耗属性优势之外，SNN 的性能通常比 ANN 差，尤其是在应用准确性方面  3.哪个关键点对性能提升最大？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper:Rethinking the performance comparison between SNNS and ANNS">
 <meta property="og:url" content="https://abinzzz.github.io/2023/10/07/paper-Rethinking-the-performance-comparison-between-SNNS-and-ANNS/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   需要知道的问题  要了解深入，一个模型为什么好？ 以前的模型为什么不好？ 哪个关键点对性能提升最大？ 编程怎么实现？ 论文源代码和paper匹配度怎么样、都覆盖了吗 哪些数学运算是关键的？ 整个全流程是怎么走的？ 数据">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   需要知道的问题  1.要了解深入，一个模型为什么好？ 2.以前的模型为什么不好？  除了脉冲驱动处理带来的低功耗属性优势之外，SNN 的性能通常比 ANN 差，尤其是在应用准确性方面  3.哪个关键点对性能提升最大？">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pbs.twimg.com/media/F72PB8DbYAAWekl?format=png&amp;name=900x900">
 <meta property="article:published_time" content="2023-10-07T14:11:25.000Z">
-<meta property="article:modified_time" content="2023-10-07T14:12:50.466Z">
+<meta property="article:modified_time" content="2023-10-08T09:34:35.276Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="paper">
-<meta property="article:tag" content="SNN">
 <meta property="article:tag" content="intern00">
+<meta property="article:tag" content="Spiking neural networks">
+<meta property="article:tag" content="Artificial neural networks">
+<meta property="article:tag" content="Deep learning">
+<meta property="article:tag" content="Neuromorphic computing">
+<meta property="article:tag" content="Benchmark">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/F72PB8DbYAAWekl?format=png&amp;name=900x900">
     
         <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
     
@@ -200,18 +206,96 @@
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
 <h2 id="需要知道的问题"><a class="markdownIt-Anchor" href="#需要知道的问题"></a> 需要知道的问题</h2>
-<ol>
-<li>要了解深入，一个模型为什么好？</li>
-<li>以前的模型为什么不好？</li>
-<li>哪个关键点对性能提升最大？</li>
-<li>编程怎么实现？</li>
-<li>论文源代码和paper匹配度怎么样、都覆盖了吗</li>
-<li>哪些数学运算是关键的？</li>
-<li>整个全流程是怎么走的？</li>
-<li>数据是怎样流动的？其中是怎样变换的？各个变换有什么实际意义？</li>
-<li>既要关注具体实现思路、也要关注上层抽象意义。作者灵感从何而来？</li>
-<li>作者思考路线如何？</li>
-</ol>
+<ul>
+<li>1.要了解深入，一个模型为什么好？</li>
+<li>2.以前的模型为什么不好？</li>
+</ul>
+<p>除了脉冲驱动处理带来的低功耗属性优势之外，SNN 的性能通常比 ANN 差，尤其是在应用准确性方面</p>
+<ul>
+<li>3.哪个关键点对性能提升最大？</li>
+<li>4.编程怎么实现？</li>
+<li>5.论文源代码和paper匹配度怎么样、都覆盖了吗</li>
+<li>6.哪些数学运算是关键的？</li>
+<li>7.整个全流程是怎么走的？</li>
+<li>8.数据是怎样流动的？其中是怎样变换的？各个变换有什么实际意义？</li>
+<li>9.既要关注具体实现思路、也要关注上层抽象意义。作者灵感从何而来？</li>
+<li>10.作者思考路线如何？</li>
+</ul>
+<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> abstract</h2>
+<p>脉冲神经网络（SNN）:一类模拟大脑神经元动力学的有前景的模型</p>
+<p>长期以来，对于 SNN 在实际应用中的价值一直存在争论和怀疑。除了脉冲驱动处理带来的低功耗属性优势之外，SNN 的性能通常比 ANN 差，尤其是在应用准确性方面。</p>
+<p>最近，研究人员试图<strong>通过借鉴 ANN 的学习方法（例如反向传播）来训练高精度 SNN 模型来解决这个问题</strong>。该领域的快速进步不断产生令人惊叹的结果，网络规模不断扩大，其成长路径似乎与深度学习的发展相似。尽管这些方法赋予 SNN 接近 ANN 准确性的能力，但由于使用面向 ANN 的工作负载和简单化的评估指标，SNN 的天然优势和超越 ANN 的方式可能会丢失。</p>
+<p>在本文中，我们以<strong>视觉识别任务</strong>作为案例研究，回答“<strong>什么工作负载对于 SNN 来说是理想的以及如何评估 SNN 是否有意义</strong>”的问题。我们使用不同类型的数据集（面向 ANN 和 SNN）、不同的处理模型、信号转换方法和学习算法设计了一系列对比测试。我们提出了关于应用程序准确性和内存计算成本的综合指标来评估这些模型，并进行广泛的实验。我们证明了这样一个事实：<strong>在面向 ANN 的工作负载上，SNN 无法击败其 ANN 同行；而在面向 SNN 的工作负载上，SNN 完全可以表现得更好。我们进一步证明，在 SNN 中，应用程序准确性和执行成本之间存在权衡，这将受到模拟时间窗口和触发阈值的影响。</strong><br />
+<Br></p>
+<h2 id="1introduction"><a class="markdownIt-Anchor" href="#1introduction"></a> 1.Introduction</h2>
+<p>人工神经网络(ANNs)能够通过深度层次从大量输入数据中学习高级特征。例如：</p>
+<ul>
+<li>MLP/CNN：图像识别，语音识别，语言处理，目标检测，医疗诊断，游戏等</li>
+<li>RNN：语音识别，语言处理，状态控制等</li>
+<li>CNN x RNNs</li>
+<li><strong>大数据资源(如图像识别的ImageNet数据集(Deng et al.， 2009))和高性能计算平台(如GPU)</strong></li>
+</ul>
+<br>
+<p><strong>脉冲神经网络（SNN）密切模仿生物神经回路的行为。它们以连续的时空动态和事件驱动的发射活动（0-无或1-脉冲事件）进行操作</strong>。由于异步脉冲机制，SNN 在基于事件的场景中表现出了优势，也有望解决一些有趣的问题。此外，SNN 广泛部署在用于类脑计算的神经形态设备中。然而，长期以来，<strong>关于 SNN 作为计算工具的实际价值在人工智能和神经形态计算社区中一直存在争论，特别是与 ANN 相比时。这些怀疑减缓了过去几年神经​​形态计算的发展，而神经形态计算又被深度学习的快速进步抢了风头。研究人员试图通过训练算法设计等手段强化 SNN，从根本上缓解这一问题</strong>。</p>
+<Br>
+<p>SNN 研究的最大<strong>困难</strong>之一：<strong>复杂的动态和不可微的脉冲活动导致的训练难度</strong>。</p>
+<p><strong>SNN 在视觉识别任务中正在逐渐接近 ANN 级别的应用精度</strong>：</p>
+<ul>
+<li><strong>改进传统的脉冲时间依赖可塑性 (STDP) 无监督学习规则</strong>：例如通过添加横向抑制和自适应阈值  或奖励机制。</li>
+<li>预训练了<strong>适应的 ANN 并将其转换为 SNN</strong>：ANN 中的适应通常包括消除偏差、使用 ReLU 激活函数（或其变体）、将最大池化更改为平均池化等，以增强与 SNN 模型的兼容性。从 ANN 到 SNN 的转换通常会引入权重/激活归一化、阈值调整、采样误差补偿等，以保持准确性。</li>
+<li>借用人工神经网络中的<strong>有监督BP学习来直接训练准确的SNN</strong>：执行 BP 时，梯度可以通过聚合时间维度上的脉冲来仅沿空间方向传播，也可以通过直接计算每个时间步的膜电位和脉冲活动的导数来沿时间和空间维度传播。</li>
+<li><strong>BP 和 STDP 学习的结合</strong>：例如在每次训练迭代的 BP 更新后应用 STDP 更新或在 STDP 预训练后应用 BP 微调。</li>
+</ul>
+<br>
+<p><strong>由于缺乏专门的 SNN 基准测试工作负载，大量工作直接从 ANN 领域移植测试工作负载来验证 SNN 模型</strong>。用于 ANN 验证的图像数据集只需转换为用于 SNN 训练和测试的脉冲版本:这似乎是合理的，因为当 SNN 运行时，输入数据被编码为脉冲。然而，ANN 的原始数据集只是静态图像，即使将其转换为脉冲模式，也无法充分利用 SNN 的时空优势。</p>
+<p><strong>由于工作负载和评估指标不合适，当前的 SNN 无法击败 ANN</strong></p>
+<p>出现了两个悬而未决的问题：</p>
+<ul>
+<li>“<strong>什么工作负载对于 SNN 来说是理想的</strong></li>
+<li><strong>如何评估 SNN 才有意义</strong>”。</li>
+</ul>
+<br>
+<p><strong>所做工作</strong> ：</p>
+<ul>
+<li>通过使用不同领域的数据集、不同的处理模型、信号转换方法和学习算法设计一系列对比测试，我们比较了 ANN 和 SNN（带有速率编码）的性能。</li>
+<li>提出了关于应用程序准确性、内存成本和计算成本的综合指标，以评估这些模型并进行广泛的分析。</li>
+<li>证明了一个事实：<strong>在面向 ANN 的工作负载上，在相同网络规模下，SNN 在准确性方面无法击败 ANN，但具有高效处理的潜力；而在面向 SNN 的工作负载上，SNN 完全可以表现得更好</strong></li>
+<li>进一步证明:<strong>模拟时间窗口和触发阈值的变化将在应用程序准确性和执行成本之间产生权衡</strong>。</li>
+</ul>
+<Br>
+<p><strong>主要贡献</strong>：</p>
+<ul>
+<li><strong>考虑应用准确性和执行成本之间的权衡，提出了急需的SNN 和ANN 综合评估指标</strong>。使用不同的基准数据集、处理模型、信号转换和学习算法进行广泛的实验和分析，演示了各种比较方法和可视化手段。</li>
+<li>为每个工作负载<strong>推荐最佳模型</strong></li>
+<li><strong>直接将工作负载从 ANN 移植到 SNN 是不合适的</strong>，至少是不明智的，尽管许多工作正在这样做。创建更多面向 SNN 的数据集并构建具有<strong>更广泛任务的基准框架对于 SNN 社区来说是紧迫的</strong>。</li>
+</ul>
+<br>
+<p><img src="https://pbs.twimg.com/media/F72PB8DbYAAWekl?format=png&amp;name=900x900" alt="(a) ANN 和 (b) SNN 中的基本神经元模型" /></p>
+<br>
+<p>本文其余部分的组织如下：</p>
+<ul>
+<li>第 2 节介绍了 ANN 和 SNN 的一些预备知识，以及典型的网络拓扑和基准数据集；</li>
+<li>第 3 节系统地提出了信号转换方法、测试工作负载、训练算法和评估指标；</li>
+<li>第 4 节提供了实验设置、结果分析以及可视化；</li>
+<li>最后，第 5 节总结并讨论了本文</li>
+</ul>
+<h2 id="2preliminaries"><a class="markdownIt-Anchor" href="#2preliminaries"></a> 2.Preliminaries</h2>
+<p>视觉识别的 ANN 和 SNN 的<strong>初步知识</strong>:</p>
+<ul>
+<li>神经元模型</li>
+<li>网络拓扑</li>
+<li>基准数据集</li>
+</ul>
+<br>
+<p><strong>神经元是基本的计算单元，由丰富的突触连接形成神经网络</strong>。如果我们将神经网络视为图，则每个神经元和突触可以分别视为节点和边。</p>
+<br>
+<p>神经网络分类：</p>
+<ul>
+<li>ANN</li>
+<li>SNN</li>
+</ul>
+<br>
+<h2 id="21-artificial-neural-networks"><a class="markdownIt-Anchor" href="#21-artificial-neural-networks"></a> 2.1 Artificial neural networks</h2>
 
             
         </div>
@@ -222,7 +306,7 @@
             
             
             
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SNN/" rel="tag">SNN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/intern00/" rel="tag">intern00</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/paper/" rel="tag">paper</a></li></ul>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Artificial-neural-networks/" rel="tag">Artificial neural networks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Benchmark/" rel="tag">Benchmark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neuromorphic-computing/" rel="tag">Neuromorphic computing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spiking-neural-networks/" rel="tag">Spiking neural networks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/intern00/" rel="tag">intern00</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/paper/" rel="tag">paper</a></li></ul>
 
 
         </footer>
@@ -282,7 +366,7 @@
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
-                <div class="sidebar-state-number">158</div>
+                <div class="sidebar-state-number">163</div>
             </div>
         </div>
         <div class="sidebar-social">
@@ -335,7 +419,7 @@
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/0/" style="font-size: 10px;">0</a> <a href="/tags/3-1/" style="font-size: 10px;">3-1</a> <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/AI-Ethics/" style="font-size: 10px;">AI Ethics</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/Attention/" style="font-size: 10px;">Attention</a> <a href="/tags/CAS/" style="font-size: 10px;">CAS</a> <a href="/tags/CAS%E5%AE%9E%E4%B9%A0offer/" style="font-size: 10px;">CAS实习offer</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 14.55px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 10.91px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/GoAbroad/" style="font-size: 16.36px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 11.82px;">IELTS</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lec01/" style="font-size: 11.82px;">Lec01</a> <a href="/tags/Lec01s/" style="font-size: 10.91px;">Lec01s</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MIT6-S081/" style="font-size: 13.64px;">MIT6.S081</a> <a href="/tags/MS-ResNet/" style="font-size: 10px;">MS-ResNet</a> <a href="/tags/Missing-Semester/" style="font-size: 10px;">Missing Semester</a> <a href="/tags/NNDL/" style="font-size: 10px;">NNDL</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Qingyao-Ai/" style="font-size: 10.91px;">Qingyao Ai</a> <a href="/tags/RISC-V/" style="font-size: 10px;">RISC-V</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/SE/" style="font-size: 13.64px;">SE</a> <a href="/tags/SE-3-0/" style="font-size: 10px;">SE-3.0</a> <a href="/tags/SNN/" style="font-size: 11.82px;">SNN</a> <a href="/tags/SNN-vs-RNN/" style="font-size: 10px;">SNN vs RNN</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/StarBucks/" style="font-size: 12.73px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 13.64px;">T1</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 14.55px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 10.91px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bing/" style="font-size: 10px;">bing</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chapter00/" style="font-size: 10px;">chapter00</a> <a href="/tags/chapter01/" style="font-size: 10px;">chapter01</a> <a href="/tags/chapter02/" style="font-size: 10px;">chapter02</a> <a href="/tags/chapter03/" style="font-size: 10px;">chapter03</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 17.27px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/dalle3/" style="font-size: 10px;">dalle3</a> <a href="/tags/database/" style="font-size: 12.73px;">database</a> <a href="/tags/debug/" style="font-size: 11.82px;">debug</a> <a href="/tags/discussion/" style="font-size: 10px;">discussion</a> <a href="/tags/dowhy/" style="font-size: 10.91px;">dowhy</a> <a href="/tags/echo/" style="font-size: 10px;">echo</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 10.91px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 11.82px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/homework/" style="font-size: 10px;">homework</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 12.73px;">instructor</a> <a href="/tags/intern-00/" style="font-size: 10px;">intern-00</a> <a href="/tags/intern00/" style="font-size: 10px;">intern00</a> <a href="/tags/internship/" style="font-size: 15.45px;">internship</a> <a href="/tags/introduction/" style="font-size: 11.82px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/l1/" style="font-size: 10px;">l1</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/openai/" style="font-size: 10px;">openai</a> <a href="/tags/os/" style="font-size: 13.64px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 19.09px;">paper</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 12.73px;">prml</a> <a href="/tags/pytorch/" style="font-size: 10px;">pytorch</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 11.82px;">shap</a> <a href="/tags/shell-vs-terminal/" style="font-size: 10px;">shell vs terminal</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/tensor-vs-ndarray/" style="font-size: 10px;">tensor vs ndarray</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/tool/" style="font-size: 13.64px;">tool</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/xv6/" style="font-size: 10px;">xv6</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 18.18px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E8%A2%AB%E7%BA%A6%E5%AE%9A%E6%9D%9F%E7%BC%9A%E4%BA%86/" style="font-size: 10px;">再也不用被约定束缚了</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%86%99%E4%BD%9C%E5%BF%83%E5%BE%97/" style="font-size: 10px;">写作心得</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%93%88%E5%B8%8C%E5%80%BC/" style="font-size: 10px;">哈希值</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 10.91px;">审稿意见</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/" style="font-size: 10px;">拓扑结构</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%94%BE%E4%B8%8B/" style="font-size: 10px;">放下</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 10.91px;">最长的电影</a> <a href="/tags/%E6%A6%82%E8%AE%BA/" style="font-size: 10px;">概论</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 14.55px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE%E4%B9%A6/" style="font-size: 10px;">系统开发建议书</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">软件生命周期模型</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
+            <a href="/tags/0/" style="font-size: 10px;">0</a> <a href="/tags/3-1/" style="font-size: 10px;">3-1</a> <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/AI-Ethics/" style="font-size: 10px;">AI Ethics</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/Artificial-neural-networks/" style="font-size: 10px;">Artificial neural networks</a> <a href="/tags/Attention/" style="font-size: 10px;">Attention</a> <a href="/tags/Benchmark/" style="font-size: 10px;">Benchmark</a> <a href="/tags/CAS/" style="font-size: 10px;">CAS</a> <a href="/tags/CAS%E5%AE%9E%E4%B9%A0offer/" style="font-size: 10px;">CAS实习offer</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 14.55px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Deep-learning/" style="font-size: 10px;">Deep learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 10.91px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/GoAbroad/" style="font-size: 16.36px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 11.82px;">IELTS</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lec01/" style="font-size: 11.82px;">Lec01</a> <a href="/tags/Lec01s/" style="font-size: 10.91px;">Lec01s</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MIT6-S081/" style="font-size: 13.64px;">MIT6.S081</a> <a href="/tags/MS-ResNet/" style="font-size: 10px;">MS-ResNet</a> <a href="/tags/Missing-Semester/" style="font-size: 10px;">Missing Semester</a> <a href="/tags/NNDL/" style="font-size: 10px;">NNDL</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Neuromorphic-computing/" style="font-size: 10px;">Neuromorphic computing</a> <a href="/tags/Qingyao-Ai/" style="font-size: 10.91px;">Qingyao Ai</a> <a href="/tags/RISC-V/" style="font-size: 10px;">RISC-V</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/SE/" style="font-size: 13.64px;">SE</a> <a href="/tags/SE-3-0/" style="font-size: 10px;">SE-3.0</a> <a href="/tags/SNN/" style="font-size: 10.91px;">SNN</a> <a href="/tags/SNN-vs-RNN/" style="font-size: 10px;">SNN vs RNN</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/Spiking-neural-networks/" style="font-size: 10px;">Spiking neural networks</a> <a href="/tags/StarBucks/" style="font-size: 12.73px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 13.64px;">T1</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 14.55px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 10.91px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bing/" style="font-size: 10px;">bing</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chapter00/" style="font-size: 10px;">chapter00</a> <a href="/tags/chapter01/" style="font-size: 10px;">chapter01</a> <a href="/tags/chapter02/" style="font-size: 10px;">chapter02</a> <a href="/tags/chapter03/" style="font-size: 10px;">chapter03</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 17.27px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/dalle3/" style="font-size: 10px;">dalle3</a> <a href="/tags/database/" style="font-size: 12.73px;">database</a> <a href="/tags/debug/" style="font-size: 11.82px;">debug</a> <a href="/tags/discussion/" style="font-size: 10px;">discussion</a> <a href="/tags/dowhy/" style="font-size: 10.91px;">dowhy</a> <a href="/tags/echo/" style="font-size: 10px;">echo</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 10.91px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 11.82px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/homework/" style="font-size: 10px;">homework</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 12.73px;">instructor</a> <a href="/tags/intern-00/" style="font-size: 10px;">intern-00</a> <a href="/tags/intern00/" style="font-size: 10px;">intern00</a> <a href="/tags/internship/" style="font-size: 15.45px;">internship</a> <a href="/tags/introduction/" style="font-size: 11.82px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/l1/" style="font-size: 10px;">l1</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/openai/" style="font-size: 10px;">openai</a> <a href="/tags/os/" style="font-size: 13.64px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 19.09px;">paper</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 12.73px;">prml</a> <a href="/tags/pytorch/" style="font-size: 10px;">pytorch</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 11.82px;">shap</a> <a href="/tags/shell-vs-terminal/" style="font-size: 10px;">shell vs terminal</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/tensor-vs-ndarray/" style="font-size: 10px;">tensor vs ndarray</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/tool/" style="font-size: 13.64px;">tool</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/xv6/" style="font-size: 10px;">xv6</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 18.18px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E8%A2%AB%E7%BA%A6%E5%AE%9A%E6%9D%9F%E7%BC%9A%E4%BA%86/" style="font-size: 10px;">再也不用被约定束缚了</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%86%99%E4%BD%9C%E5%BF%83%E5%BE%97/" style="font-size: 10px;">写作心得</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%93%88%E5%B8%8C%E5%80%BC/" style="font-size: 10px;">哈希值</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 10.91px;">审稿意见</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/" style="font-size: 10px;">拓扑结构</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%94%BE%E4%B8%8B/" style="font-size: 10px;">放下</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 10.91px;">最长的电影</a> <a href="/tags/%E6%A6%82%E8%AE%BA/" style="font-size: 10px;">概论</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 14.55px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE%E4%B9%A6/" style="font-size: 10px;">系统开发建议书</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">软件生命周期模型</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
         </div>
     </div>
 
@@ -375,10 +459,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    222.3k
+                    224.3k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    13:50
+                    13:56
                 </div>
             
             
@@ -413,7 +497,7 @@
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
-                <div class="sidebar-state-number">158</div>
+                <div class="sidebar-state-number">163</div>
             </div>
         </div>
         <div class="sidebar-social">
