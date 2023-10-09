@@ -23,12 +23,12 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   需要知道的问题  1.要了解深入，一个模型为什么好？ 2.以前的模型为什么不好？  除了脉冲驱动处理带来的低功耗属性优势之外，SNN 的性能通常比 ANN 差，尤其是在应用准确性方面  3.哪个关键点对性能提升最大？">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   需要知道的问题 1.要了解深入，一个模型为什么好？ 2.以前的模型为什么不好？  除了脉冲驱动处理带来的低功耗属性优势之外，SNN 的性能通常比 ANN 差，尤其是在应用准确性方面  3.哪个关键点对性能提升最大？ 4">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper:Rethinking the performance comparison between SNNS and ANNS">
 <meta property="og:url" content="https://abinzzz.github.io/2023/10/07/paper-Rethinking-the-performance-comparison-between-SNNS-and-ANNS/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   需要知道的问题  1.要了解深入，一个模型为什么好？ 2.以前的模型为什么不好？  除了脉冲驱动处理带来的低功耗属性优势之外，SNN 的性能通常比 ANN 差，尤其是在应用准确性方面  3.哪个关键点对性能提升最大？">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   需要知道的问题 1.要了解深入，一个模型为什么好？ 2.以前的模型为什么不好？  除了脉冲驱动处理带来的低功耗属性优势之外，SNN 的性能通常比 ANN 差，尤其是在应用准确性方面  3.哪个关键点对性能提升最大？ 4">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/F764_nYaAAACjk9?format=png&amp;name=small">
 <meta property="og:image" content="https://pbs.twimg.com/media/F765BOSbwAAKfYs?format=png&amp;name=small">
@@ -43,8 +43,19 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/F79120taQAA9VNR?format=png&amp;name=small">
 <meta property="og:image" content="https://pbs.twimg.com/media/F796zcSaEAAnVwQ?format=png&amp;name=small">
 <meta property="og:image" content="https://pbs.twimg.com/media/F7960SpbIAAjaHj?format=png&amp;name=360x360">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7_EfbzbcAAChKu?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7_FJcJasAAyKWL?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7_FKVEagAAJe3V?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7_FLYHbkAAwqAm?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7_MGcka4AAa1nI?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7_PAXFbQAE9Rya?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7_Q96WakAAprB-?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7_UTeXbEAAKIjh?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7_U8reaIAAHC3J?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7_XDWiaAAAo1FW?format=jpg&amp;name=large">
+<meta property="og:image" content="https://pbs.twimg.com/media/F7_iRn0bEAAxe0c?format=png&amp;name=900x900">
 <meta property="article:published_time" content="2023-10-07T14:11:25.000Z">
-<meta property="article:modified_time" content="2023-10-09T03:55:44.807Z">
+<meta property="article:modified_time" content="2023-10-09T11:00:21.128Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="intern00">
@@ -217,8 +228,8 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-<h2 id="需要知道的问题"><a class="markdownIt-Anchor" href="#需要知道的问题"></a> 需要知道的问题</h2>
-<ul>
+
+<h2 id="需要知道的问题"><a href="#需要知道的问题" class="headerlink" title="需要知道的问题"></a>需要知道的问题</h2><ul>
 <li>1.要了解深入，一个模型为什么好？</li>
 <li>2.以前的模型为什么不好？</li>
 </ul>
@@ -226,39 +237,39 @@
 <ul>
 <li>3.哪个关键点对性能提升最大？</li>
 <li>4.编程怎么实现？</li>
-<li>5.论文源代码和paper匹配度怎么样、都覆盖了吗</li>
+<li>5.论文源代码和paper匹配度怎么样、都覆盖了吗  </li>
 <li>6.哪些数学运算是关键的？</li>
 <li>7.整个全流程是怎么走的？</li>
 <li>8.数据是怎样流动的？其中是怎样变换的？各个变换有什么实际意义？</li>
 <li>9.既要关注具体实现思路、也要关注上层抽象意义。作者灵感从何而来？</li>
 <li>10.作者思考路线如何？</li>
 </ul>
-<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> abstract</h2>
-<p>脉冲神经网络（SNN）:一类模拟大脑神经元动力学的有前景的模型</p>
+<h2 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h2><p>脉冲神经网络（SNN）:一类模拟大脑神经元动力学的有前景的模型</p>
 <p>长期以来，对于 SNN 在实际应用中的价值一直存在争论和怀疑。除了脉冲驱动处理带来的低功耗属性优势之外，SNN 的性能通常比 ANN 差，尤其是在应用准确性方面。</p>
 <p>最近，研究人员试图<strong>通过借鉴 ANN 的学习方法（例如反向传播）来训练高精度 SNN 模型来解决这个问题</strong>。该领域的快速进步不断产生令人惊叹的结果，网络规模不断扩大，其成长路径似乎与深度学习的发展相似。尽管这些方法赋予 SNN 接近 ANN 准确性的能力，但由于使用面向 ANN 的工作负载和简单化的评估指标，SNN 的天然优势和超越 ANN 的方式可能会丢失。</p>
-<p>在本文中，我们以<strong>视觉识别任务</strong>作为案例研究，回答“<strong>什么工作负载对于 SNN 来说是理想的以及如何评估 SNN 是否有意义</strong>”的问题。我们使用不同类型的数据集（面向 ANN 和 SNN）、不同的处理模型、信号转换方法和学习算法设计了一系列对比测试。我们提出了关于应用程序准确性和内存计算成本的综合指标来评估这些模型，并进行广泛的实验。我们证明了这样一个事实：<strong>在面向 ANN 的工作负载上，SNN 无法击败其 ANN 同行；而在面向 SNN 的工作负载上，SNN 完全可以表现得更好。我们进一步证明，在 SNN 中，应用程序准确性和执行成本之间存在权衡，这将受到模拟时间窗口和触发阈值的影响。</strong><br />
-<Br></p>
-<h2 id="1introduction"><a class="markdownIt-Anchor" href="#1introduction"></a> 1.Introduction</h2>
-<p>人工神经网络(ANNs)能够通过深度层次从大量输入数据中学习高级特征。例如：</p>
+<p>在本文中，我们以<strong>视觉识别任务</strong>作为案例研究，回答“<strong>什么工作负载对于 SNN 来说是理想的以及如何评估 SNN 是否有意义</strong>”的问题。我们使用不同类型的数据集（面向 ANN 和 SNN）、不同的处理模型、信号转换方法和学习算法设计了一系列对比测试。我们提出了关于应用程序准确性和内存计算成本的综合指标来评估这些模型，并进行广泛的实验。我们证明了这样一个事实：<strong>在面向 ANN 的工作负载上，SNN 无法击败其 ANN 同行；而在面向 SNN 的工作负载上，SNN 完全可以表现得更好。我们进一步证明，在 SNN 中，应用程序准确性和执行成本之间存在权衡，这将受到模拟时间窗口和触发阈值的影响。</strong> </p>
+<Br>
+
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h2><p>人工神经网络(ANNs)能够通过深度层次从大量输入数据中学习高级特征。例如：</p>
 <ul>
 <li>MLP/CNN：图像识别，语音识别，语言处理，目标检测，医疗诊断，游戏等</li>
 <li>RNN：语音识别，语言处理，状态控制等</li>
 <li>CNN x RNNs</li>
-<li><strong>大数据资源(如图像识别的ImageNet数据集(Deng et al.， 2009))和高性能计算平台(如GPU)</strong></li>
+<li><strong>大数据资源(如图像识别的ImageNet数据集(Deng et al.， 2009))和高性能计算平台(如GPU)</strong> </li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>脉冲神经网络（SNN）密切模仿生物神经回路的行为。它们以连续的时空动态和事件驱动的发射活动（0-无或1-脉冲事件）进行操作</strong>。由于异步脉冲机制，SNN 在基于事件的场景中表现出了优势，也有望解决一些有趣的问题。此外，SNN 广泛部署在用于类脑计算的神经形态设备中。然而，长期以来，<strong>关于 SNN 作为计算工具的实际价值在人工智能和神经形态计算社区中一直存在争论，特别是与 ANN 相比时。这些怀疑减缓了过去几年神经​​形态计算的发展，而神经形态计算又被深度学习的快速进步抢了风头。研究人员试图通过训练算法设计等手段强化 SNN，从根本上缓解这一问题</strong>。</p>
 <Br>
+
 <p>SNN 研究的最大<strong>困难</strong>之一：<strong>复杂的动态和不可微的脉冲活动导致的训练难度</strong>。</p>
 <p><strong>SNN 在视觉识别任务中正在逐渐接近 ANN 级别的应用精度</strong>：</p>
 <ul>
 <li><strong>改进传统的脉冲时间依赖可塑性 (STDP) 无监督学习规则</strong>：例如通过添加横向抑制和自适应阈值  或奖励机制。</li>
 <li>预训练了<strong>适应的 ANN 并将其转换为 SNN</strong>：ANN 中的适应通常包括消除偏差、使用 ReLU 激活函数（或其变体）、将最大池化更改为平均池化等，以增强与 SNN 模型的兼容性。从 ANN 到 SNN 的转换通常会引入权重/激活归一化、阈值调整、采样误差补偿等，以保持准确性。</li>
-<li>借用人工神经网络中的<strong>有监督BP学习来直接训练准确的SNN</strong>：执行 BP 时，梯度可以通过聚合时间维度上的脉冲来仅沿空间方向传播，也可以通过直接计算每个时间步的膜电位和脉冲活动的导数来沿时间和空间维度传播。</li>
+<li>借用人工神经网络中的<strong>有监督BP学习来直接训练准确的SNN</strong>：执行 BP 时，梯度可以通过聚合时间维度上的脉冲来仅沿空间方向传播，也可以通过直接计算每个时间步的膜电位和脉冲活动的导数来沿时间和空间维度传播。 </li>
 <li><strong>BP 和 STDP 学习的结合</strong>：例如在每次训练迭代的 BP 更新后应用 STDP 更新或在 STDP 预训练后应用 BP 微调。</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>由于缺乏专门的 SNN 基准测试工作负载，大量工作直接从 ANN 领域移植测试工作负载来验证 SNN 模型</strong>。用于 ANN 验证的图像数据集只需转换为用于 SNN 训练和测试的脉冲版本:这似乎是合理的，因为当 SNN 运行时，输入数据被编码为脉冲。然而，ANN 的原始数据集只是静态图像，即使将其转换为脉冲模式，也无法充分利用 SNN 的时空优势。</p>
 <p><strong>由于工作负载和评估指标不合适，当前的 SNN 无法击败 ANN</strong></p>
 <p>出现了两个悬而未决的问题：</p>
@@ -266,22 +277,23 @@
 <li>“<strong>什么工作负载对于 SNN 来说是理想的</strong></li>
 <li><strong>如何评估 SNN 才有意义</strong>”。</li>
 </ul>
-<br>
-<p><strong>所做工作</strong> ：</p>
+<p><br></p>
+<p><strong>所做工作</strong> ：  </p>
 <ul>
-<li>通过使用不同领域的数据集、不同的处理模型、信号转换方法和学习算法设计一系列对比测试，我们比较了 ANN 和 SNN（带有速率编码）的性能。</li>
-<li>提出了关于应用程序准确性、内存成本和计算成本的综合指标，以评估这些模型并进行广泛的分析。</li>
-<li>证明了一个事实：<strong>在面向 ANN 的工作负载上，在相同网络规模下，SNN 在准确性方面无法击败 ANN，但具有高效处理的潜力；而在面向 SNN 的工作负载上，SNN 完全可以表现得更好</strong></li>
+<li>通过使用不同领域的数据集、不同的处理模型、信号转换方法和学习算法设计一系列对比测试，我们比较了 ANN 和 SNN（带有速率编码）的性能。  </li>
+<li>提出了关于应用程序准确性、内存成本和计算成本的综合指标，以评估这些模型并进行广泛的分析。  </li>
+<li>证明了一个事实：<strong>在面向 ANN 的工作负载上，在相同网络规模下，SNN 在准确性方面无法击败 ANN，但具有高效处理的潜力；而在面向 SNN 的工作负载上，SNN 完全可以表现得更好</strong>  </li>
 <li>进一步证明:<strong>模拟时间窗口和触发阈值的变化将在应用程序准确性和执行成本之间产生权衡</strong>。</li>
 </ul>
 <Br>
+
 <p><strong>主要贡献</strong>：</p>
 <ul>
 <li><strong>考虑应用准确性和执行成本之间的权衡，提出了急需的SNN 和ANN 综合评估指标</strong>。使用不同的基准数据集、处理模型、信号转换和学习算法进行广泛的实验和分析，演示了各种比较方法和可视化手段。</li>
 <li>为每个工作负载<strong>推荐最佳模型</strong></li>
 <li><strong>直接将工作负载从 ANN 移植到 SNN 是不合适的</strong>，至少是不明智的，尽管许多工作正在这样做。创建更多面向 SNN 的数据集并构建具有<strong>更广泛任务的基准框架对于 SNN 社区来说是紧迫的</strong>。</li>
 </ul>
-<br>
+<p><br></p>
 <p>本文<strong>其余部分的</strong>组织如下：</p>
 <ul>
 <li>第 2 节介绍了 ANN 和 SNN 的一些预备知识，以及典型的网络拓扑和基准数据集；</li>
@@ -289,56 +301,53 @@
 <li>第 4 节提供了实验设置、结果分析以及可视化；</li>
 <li>最后，第 5 节总结并讨论了本文</li>
 </ul>
-<br>
-<h2 id="2preliminaries"><a class="markdownIt-Anchor" href="#2preliminaries"></a> 2.Preliminaries</h2>
-<p>视觉识别的 ANN 和 SNN 的<strong>初步知识</strong>:</p>
+<p><br></p>
+<h2 id="2-Preliminaries"><a href="#2-Preliminaries" class="headerlink" title="2.Preliminaries"></a>2.Preliminaries</h2><p>视觉识别的 ANN 和 SNN 的<strong>初步知识</strong>:</p>
 <ul>
 <li>神经元模型</li>
 <li>网络拓扑</li>
 <li>基准数据集</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>神经元是基本的计算单元，由丰富的突触连接形成神经网络</strong>。如果我们将神经网络视为图，则每个神经元和突触可以分别视为节点和边。</p>
-<br>
+<p><br></p>
 <p>神经网络<strong>分类</strong>：</p>
 <ul>
 <li>ANN</li>
 <li>SNN</li>
 </ul>
-<br>
-<h2 id="21-artificial-neural-networks"><a class="markdownIt-Anchor" href="#21-artificial-neural-networks"></a> 2.1 Artificial neural networks</h2>
-<p><img src="https://pbs.twimg.com/media/F764_nYaAAACjk9?format=png&amp;name=small" alt="" /></p>
-<p>图(a)描绘了典型的人工神经元的模型。计算过程由：y=<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ψ</mi></mrow><annotation encoding="application/x-tex">\psi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span></span></span></span>(b + <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\sum_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.185818em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16195399999999993em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span></span></span></span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">x_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">w_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>) <strong>(1)</strong></p>
+<p><br></p>
+<h2 id="2-1-Artificial-neural-networks"><a href="#2-1-Artificial-neural-networks" class="headerlink" title="2.1 Artificial neural networks"></a>2.1 Artificial neural networks</h2><p><img src="https://pbs.twimg.com/media/F764_nYaAAACjk9?format=png&amp;name=small" alt=""></p>
+<p>图(a)描绘了典型的人工神经元的模型。计算过程由：y=$\psi$(b + $\sum_j<script type="math/tex">x_j</script>w_j$) <strong>(1)</strong></p>
 <ul>
 <li>x：输入激活</li>
 <li>y：输出激活</li>
 <li>w：突触权重</li>
 <li>b：偏差</li>
 <li>j：输入神经元的索引</li>
-<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ψ</mi></mrow><annotation encoding="application/x-tex">\psi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span></span></span></span>：非线性激活函数</li>
+<li>$\psi$：非线性激活函数</li>
 </ul>
 <p>人工神经网络中的神经元使用以高精度和连续值编码的激活相互通信，并且仅在空间域（即逐层）传播信息。</p>
-<br>
-<h2 id="22-spiking-neural-networks"><a class="markdownIt-Anchor" href="#22-spiking-neural-networks"></a> 2.2 Spiking neural networks</h2>
-<p><img src="https://pbs.twimg.com/media/F765BOSbwAAKfYs?format=png&amp;name=small" alt="" /></p>
+<p><br></p>
+<h2 id="2-2-Spiking-neural-networks"><a href="#2-2-Spiking-neural-networks" class="headerlink" title="2.2 Spiking neural networks"></a>2.2 Spiking neural networks</h2><p><img src="https://pbs.twimg.com/media/F765BOSbwAAKfYs?format=png&amp;name=small" alt=""></p>
 <p>(b)展示了一个典型的脉冲神经元，与ANN神经元相比，它具有相似的结构，但行为不同。相比之下，脉冲神经元通过<strong>二进制事件编码的脉冲序列</strong>进行通信，而不是人工神经网络中的连续激活。树突整合输入脉冲，<strong>soma</strong>进而进行非线性变换，产生输出脉冲序列。</p>
 <p>行为通常由流行的 <strong>LIF 模型</strong>建模，描述为:</p>
-<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi></mrow><annotation encoding="application/x-tex">\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span></span></span></span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>d</mi><mi>u</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{du(t)}{dt}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.355em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">t</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">u</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">t</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> = - [u(t) - <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>r</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">u_{r1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>] + <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\sum_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.185818em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16195399999999993em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span></span></span></span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ω</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\omega_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mrow><msubsup><mi>t</mi><mi>j</mi><mi>k</mi></msubsup><mo>∈</mo><msubsup><mi>S</mi><mi>j</mi><msub><mi>T</mi><mi>w</mi></msub></msubsup></mrow></msub></mrow><annotation encoding="application/x-tex">\sum_{t_{j}^{k} \in S_j^{T_w}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.411045em;vertical-align:-0.661045em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.361775em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8408285714285714em;"><span style="top:-2.177714285714286em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span style="top:-2.8448em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.46117142857142857em;"><span></span></span></span></span></span></span><span class="mrel mtight">∈</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.97575em;"><span style="top:-2.177714285714286em;margin-left:-0.05764em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span><span style="top:-2.987657142857143em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.23056em;"><span style="top:-2.3em;margin-left:-0.13889em;margin-right:0.1em;"><span class="pstrut" style="height:2.5em;"></span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.46117142857142857em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.661045em;"><span></span></span></span></span></span></span></span></span></span>K(t - <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>t</mi><mi>j</mi><mi>k</mi></msubsup></mrow><annotation encoding="application/x-tex">t_j^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2438799999999999em;vertical-align:-0.394772em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.394772em;"><span></span></span></span></span></span></span></span></span></span>)  <strong>(2)</strong></p>
-<p>s(t)=1 &amp; u(t)=<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>r</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">u_{r2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> , if u(t) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo></mrow><annotation encoding="application/x-tex">\geq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≥</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>t</mi><mi>h</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u_{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
-<p>s(t)=0 , if u(t) &lt; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>t</mi><mi>h</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u_{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>$\tau<script type="math/tex">\frac{du(t)}{dt}$ = - [u(t) - $u_{r1}$] + $\sum_j</script>\omega_j$$\sum_{t_{j}^{k} \in S_j^{T_w}}$K(t - $t_j^k$)  <strong>(2)</strong></p>
+<p>s(t)=1 &amp; u(t)=$u_{r2}$ , if u(t) $\geq$ $u_{th}$</p>
+<p>s(t)=0 , if u(t) &lt; $u_{th}$</p>
 <ul>
 <li>(t):时间步长</li>
 <li>τ:时间常数</li>
 <li>u:膜电位</li>
-<li>s:输出脉冲</li>
+<li>s:输出脉冲 </li>
 <li>ur1：静息电位</li>
 <li>ur2：复位电位</li>
-<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">w_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>: 第 j 个输入神经元的突触权重</li>
-<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>t</mi><mi>j</mi><mi>k</mi></msubsup></mrow><annotation encoding="application/x-tex">t^k_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2438799999999999em;vertical-align:-0.394772em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.394772em;"><span></span></span></span></span></span></span></span></span></span>:第 j 个输入神经元的第 k 个脉冲在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>W</mi></msub></mrow><annotation encoding="application/x-tex">T_W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">W</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的积分时间窗口内激发的时间（总共 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>S</mi><mi>j</mi><mrow><mi>T</mi><mi>w</mi></mrow></msubsup></mrow><annotation encoding="application/x-tex">S^{Tw}_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.236103em;vertical-align:-0.394772em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.441336em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.394772em;"><span></span></span></span></span></span></span></span></span></span>脉冲序列）</li>
+<li>$w_j$: 第 j 个输入神经元的突触权重</li>
+<li>$t^k_j$:第 j 个输入神经元的第 k 个脉冲在$T_W$的积分时间窗口内激发的时间（总共 $S^{Tw}_j$脉冲序列）</li>
 <li>K():描述时间衰减效应的核函数</li>
 <li>u:决定是否发射脉冲的发射阈值</li>
 </ul>
-<br>
+<p><br></p>
 <p>SNN 通常可以实现<strong>更低的功耗</strong>：</p>
 <ul>
 <li>与 ANN 不同，<strong>SNN 以脉冲模式表示信息</strong>，每个脉冲神经元都会经历丰富的动态行为</li>
@@ -347,9 +356,8 @@
 <li><strong>脉冲仅在膜电位超过阈值时触发</strong>，因此整个脉冲信号通常是<strong>稀疏</strong>的，并且计算可以是事件驱动的（仅在脉冲输入到达时启用）。</li>
 <li>脉冲是<strong>二进制</strong>的，即 0 或 1</li>
 </ul>
-<br>
-<h2 id="23-typical-network-topologies"><a class="markdownIt-Anchor" href="#23-typical-network-topologies"></a> 2.3 Typical network topologies</h2>
-<p><img src="https://pbs.twimg.com/media/F77HNRjbIAAMsJI?format=png&amp;name=900x900" alt="" /></p>
+<p><br></p>
+<h2 id="2-3-Typical-network-topologies"><a href="#2-3-Typical-network-topologies" class="headerlink" title="2.3 Typical network topologies"></a>2.3 Typical network topologies</h2><p><img src="https://pbs.twimg.com/media/F77HNRjbIAAMsJI?format=png&amp;name=900x900" alt=""></p>
 <p>构建神经网络的基本层拓扑</p>
 <ul>
 <li>全连接（FC）层:<strong>多层感知器（MLP）</strong></li>
@@ -358,29 +366,29 @@
 </ul>
 <p>MLP 和 RNN 仅包含堆叠的 FC 层，每层中带有或不带有循环连接，分别如图 2(a) 和 (b) 所示。对于图 2（c）所示的 CNN，它们直接针对 2D 特征的处理，而不是 MLP 和 RNN 中的 1D 特征。</p>
 <p>卷积 (Conv) 层中的每个神经元仅接收来自上一层中所有特征图 (FM) 的局部感受野 (RF) 的输入。每个神经元的基本计算与式（1）或（2）相同。此外，CNN还使用池化层通过输出每个RF的最大值（即最大池化）或平均值（即平均池化）来单独对每个FM的大小进行下采样，并使用FC层进行最终分类。</p>
-<br>
-<h2 id="24-benchmark-datasets"><a class="markdownIt-Anchor" href="#24-benchmark-datasets"></a> 2.4 Benchmark datasets</h2>
-<p><img src="https://pbs.twimg.com/media/F77Ip2bb0AArpRt?format=png&amp;name=900x900" alt="" /></p>
+<p><br></p>
+<h2 id="2-4-Benchmark-datasets"><a href="#2-4-Benchmark-datasets" class="headerlink" title="2.4 Benchmark datasets"></a>2.4 Benchmark datasets</h2><p><img src="https://pbs.twimg.com/media/F77Ip2bb0AArpRt?format=png&amp;name=900x900" alt=""></p>
 <p>图3展示了我们用于视觉识别的两种不同类型的基准数据集:</p>
 <ul>
 <li><strong>MNIST和CIFAR10</strong>:基于帧的静态图像，并被广泛用于人工神经网络，我们称它们为面向人工神经网络的数据集</li>
 <li><strong>N-MNIST和dvs-cifar10</strong>:数据格式是spike事件，通过使用动态视觉传感器(DVS)扫描每个图像从上述静态数据集转换而来。除了与面向神经网络的数据集相似的空间信息外，它还包含更多的动态时间信息，并且脉冲事件与snn中的信号格式自然兼容，因此称为面向snn的数据集。</li>
 </ul>
 <Br>
+
 <p><strong>MNIST</strong>:</p>
 <ul>
 <li>60,000 个标记手写数字的<strong>训练集</strong></li>
 <li>10,000 个标记数字的<strong>测试集</strong></li>
-<li>每个数字样本都是一个 28 × 28 的灰度图像。</li>
+<li>每个数字样本都是一个 28 × 28 的灰度图像。 </li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>CIFAR10</strong>：</p>
 <ul>
 <li>训练集：包含 50,000 张带标签的训练图像以及环境中的自然和人造物体</li>
 <li>其他 10,000 个测试图像</li>
 <li>每个样本都是 32 × 32 × 3 RGB 图像</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>DVS</strong>:</p>
 <ul>
 <li>9000张图像用于训练</li>
@@ -390,7 +398,7 @@
 <li>将每个图像转换为行×深× 2 × T的脉冲模式，其中T是记录时间长度</li>
 <li>从原始CIFAR10数据集转换10 000幅图像，其中每个类有1000个脉冲模式，大小为128 × 128 × 2 × T</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>N-MNIST</strong>:</p>
 <ul>
 <li><strong>将原始MNIST转换为spike版本</strong>。</li>
@@ -398,64 +406,57 @@
 <li>10,000个测试样本</li>
 <li>每个样本都是一个大小为34 × 34 × 2 × T的时空脉冲模式</li>
 </ul>
-<br>
-<h2 id="3benchmarking-methodology"><a class="markdownIt-Anchor" href="#3benchmarking-methodology"></a> 3.Benchmarking methodology</h2>
-<ul>
+<p><br></p>
+<h2 id="3-Benchmarking-methodology"><a href="#3-Benchmarking-methodology" class="headerlink" title="3.Benchmarking methodology"></a>3.Benchmarking methodology</h2><ul>
 <li>ANN和SNN域之间的信号转换</li>
 <li>设计了六个基准模型以及用于对比测试的训练算法</li>
 <li>提出了三个评估指标以供后续模型评估和比较</li>
 </ul>
-<br>
-<h2 id="31-data-signal-conversion"><a class="markdownIt-Anchor" href="#31-data-signal-conversion"></a> 3.1 Data signal conversion</h2>
-<p>ANN 接收实际值的基于帧的图像，而 SNN 接收事件驱动的脉冲信号。因此，有时需要将相同的数据资源转换成不同的形式以便在另一个域中进行处理。这里我们以视觉识别任务为例，主要介绍如下四种信号转换方法。</p>
-<br>
-<h2 id="311-image-to-spike-pattern"><a class="markdownIt-Anchor" href="#311-image-to-spike-pattern"></a> 3.1.1 Image to spike pattern</h2>
-<p><img src="https://pbs.twimg.com/media/F79sUbjbQAA6-G7?format=png&amp;name=small" alt="" /></p>
+<p><br></p>
+<h2 id="3-1-Data-signal-conversion"><a href="#3-1-Data-signal-conversion" class="headerlink" title="3.1 Data signal conversion"></a>3.1 Data signal conversion</h2><p>ANN 接收实际值的基于帧的图像，而 SNN 接收事件驱动的脉冲信号。因此，有时需要将相同的数据资源转换成不同的形式以便在另一个域中进行处理。这里我们以视觉识别任务为例，主要介绍如下四种信号转换方法。</p>
+<p><br></p>
+<h2 id="3-1-1-Image-to-spike-pattern"><a href="#3-1-1-Image-to-spike-pattern" class="headerlink" title="3.1.1 Image to spike pattern"></a>3.1.1 Image to spike pattern</h2><p><img src="https://pbs.twimg.com/media/F79sUbjbQAA6-G7?format=png&amp;name=small" alt=""></p>
 <p><strong>图像到脉冲模式</strong>：由于像素强度的实值信号不适合基于脉冲的 SNN，因此在面向 ANN 的数据集上测试 SNN 模型时需要转换为脉冲序列。普遍的策略之一是<strong>概率抽样</strong>。在每个时间步长，它<strong>将原始像素强度（通常标准化为 [0, 1]）采样为二进制值</strong>，其中 1（发射脉冲）的概率等于强度值。采样遵循特定的概率分布，例如伯努利分布或泊松分布。例如，图 4(a) 中的 i1 神经元对应于归一化强度为 0.8 的左上角像素，产生一个二进制脉冲序列，遵循伯努利分布 B(0.8,T)，这里T是给定的采样时间窗口。</p>
-<br>
-<p><img src="https://pbs.twimg.com/media/F79sWVZaMAA2fcK?format=png&amp;name=small" alt="" /></p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F79sWVZaMAA2fcK?format=png&amp;name=small" alt=""></p>
 <p>在短时间窗的情况下，上述元素采样通常会遭受精度损失(参见第4.2节)。为了规避这个问题，modern works (Esser等人，2016)添加了一个编码层来全局产生脉冲信号，如图4(b)所示。该层中的<strong>每个神经元接收多个像素的强度值作为输入</strong>(即树突以正常输入权重MAC操作的ANN模式工作)，同时产生脉冲作为输出(即soma以LIF动力学的SNN模式工作)。尽管编码层是ANN-SNN混合层，而不是像网络中的后续层那样的完整SNN层，但其权重是可训练的，因为本文对SNN的训练方法对ANNs也是bp兼容的(见第3.4节)。由于神经元数量可灵活定制，且参数可训练，因此可以适应全局优化问题，获得更好的精度</p>
-<br>
-<h2 id="312-spike-pattern-to-image"><a class="markdownIt-Anchor" href="#312-spike-pattern-to-image"></a> 3.1.2 Spike pattern to image</h2>
-<p><strong>脉冲模式到图像</strong>：为了在面向 SNN 的数据集上测试 ANN 模型，我们需要将脉冲模式转换为基于帧的图像。</p>
+<p><br></p>
+<h2 id="3-1-2-Spike-pattern-to-image"><a href="#3-1-2-Spike-pattern-to-image" class="headerlink" title="3.1.2 Spike pattern to image"></a>3.1.2 Spike pattern to image</h2><p><strong>脉冲模式到图像</strong>：为了在面向 SNN 的数据集上测试 ANN 模型，我们需要将脉冲模式转换为基于帧的图像。</p>
 <p>存在两种可能的输出格式：</p>
 <ul>
-<li>(i)具有 0/1 像素的二值图像；</li>
+<li>(i)具有 0/1 像素的二值图像； </li>
 <li>(ii) 具有实值像素的强度图像。</li>
 </ul>
-<br>
-<p><img src="https://pbs.twimg.com/media/F79sXL3akAAbd4m?format=png&amp;name=small" alt="" /></p>
-<br>
-<p>将<strong>脉冲模式转换为二值图像</strong>的直观策略是首先沿着时间维度从所有神经元位置扩展脉冲序列。然后，如图4（c）所示，扩展的2D脉冲模式（位置索引与时间）可以直接视为二值图像（每个脉冲事件代表像素强度为1，否则像素强度为0）。原始记录时间长度T通常较长，这可能会导致图像尺寸过大。因此，沿时间方向的尖峰事件需要以适度的滑动时间窗口（例如每 1 ms）定期聚合或采样。这里，聚合意味着如果窗口中存在脉冲，则所得尖峰事件为 1，否则为 0。即使如此，2D 位置（图 4© 中的左侧）也将展开为 1D 位置向量（图4©）右侧的Y轴也产生大图像尺寸</p>
-<br>
-<p><img src="https://pbs.twimg.com/media/F79sYAXbYAAR8tS?format=png&amp;name=small" alt="" /></p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F79sXL3akAAbd4m?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<p>将<strong>脉冲模式转换为二值图像</strong>的直观策略是首先沿着时间维度从所有神经元位置扩展脉冲序列。然后，如图4（c）所示，扩展的2D脉冲模式（位置索引与时间）可以直接视为二值图像（每个脉冲事件代表像素强度为1，否则像素强度为0）。原始记录时间长度T通常较长，这可能会导致图像尺寸过大。因此，沿时间方向的尖峰事件需要以适度的滑动时间窗口（例如每 1 ms）定期聚合或采样。这里，聚合意味着如果窗口中存在脉冲，则所得尖峰事件为 1，否则为 0。即使如此，2D 位置（图 4(c) 中的左侧）也将展开为 1D 位置向量（图4(c)）右侧的Y轴也产生大图像尺寸</p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F79sYAXbYAAR8tS?format=png&amp;name=small" alt=""></p>
 <p>为了<strong>转换成强度图像</strong>，需要脉冲事件的时间累积（计算脉冲数量）。图4（d）描绘了100毫秒内脉冲序列的累积过程。累积的尖峰数将被标准化为具有适当强度值的像素。由于 DVS 的相对运动和固有噪声，所得图像常常模糊且边缘特征模糊。这种转换只有在强有力的假设下才允许，即每个脉冲位置不应随着 t 的演变而移开其起始位置，否则将严重损害所得图像的质量。</p>
 <Br>
-<h2 id="32-ann-oriented-workloads"><a class="markdownIt-Anchor" href="#32-ann-oriented-workloads"></a> 3.2 ANN-oriented workloads</h2>
-<p><strong>目标</strong>:识别基于<strong>帧的数据集</strong>（例如 MNIST 和 CIFAR10）中的图像</p>
+
+<h2 id="3-2-ANN-oriented-workloads"><a href="#3-2-ANN-oriented-workloads" class="headerlink" title="3.2 ANN-oriented workloads"></a>3.2 ANN-oriented workloads</h2><p><strong>目标</strong>:识别基于<strong>帧的数据集</strong>（例如 MNIST 和 CIFAR10）中的图像</p>
 <p>为了处理此类工作负载，我们引入了三个基准模型:</p>
 <ul>
 <li>Model-1: <strong>具有 ANN 训练和 ANN 推理的自然 ANN</strong></li>
 <li>Model-2: <strong>经过 ANN 训练和 SNN 推理转换后的 SNN</strong></li>
 <li>Model-3: <strong>通过 SNN 训练和 SNN 推理强制执行 SNN</strong></li>
 </ul>
-<br>
-<h2 id="321-model-1-natural-ann-with-ann-training-and-ann-inference"><a class="markdownIt-Anchor" href="#321-model-1-natural-ann-with-ann-training-and-ann-inference"></a> 3.2.1 Model-1: natural ANN with ANN training and ANN inference</h2>
-<p><img src="https://pbs.twimg.com/media/F79107jbkAAD-gn?format=png&amp;name=360x360" alt="" /></p>
+<p><br></p>
+<h2 id="3-2-1-Model-1-natural-ANN-with-ANN-training-and-ANN-inference"><a href="#3-2-1-Model-1-natural-ANN-with-ANN-training-and-ANN-inference" class="headerlink" title="3.2.1 Model-1: natural ANN with ANN training and ANN inference"></a>3.2.1 Model-1: natural ANN with ANN training and ANN inference</h2><p><img src="https://pbs.twimg.com/media/F79107jbkAAD-gn?format=png&amp;name=360x360" alt=""></p>
 <p>如 <strong>5(a)</strong> 所示，<strong>具有“ANN 训练 ANN 推理”的自然 ANN</strong>: 使用强度图像以 ANN 模式(参考式1)充分训练网络，然后在同一域中进行后续推理。训练遵循ANN领域最广泛使用的BP算法。</p>
-<br>
-<h2 id="322-model-2-converted-snn-with-ann-training-and-snn-inference"><a class="markdownIt-Anchor" href="#322-model-2-converted-snn-with-ann-training-and-snn-inference"></a> 3.2.2 Model-2: converted SNN with ANN training and SNN inference</h2>
-<p><img src="https://pbs.twimg.com/media/F79112QbQAAauUO?format=png&amp;name=small" alt="" /></p>
+<p><br></p>
+<h2 id="3-2-2-Model-2-converted-SNN-with-ANN-training-and-SNN-inference"><a href="#3-2-2-Model-2-converted-SNN-with-ANN-training-and-SNN-inference" class="headerlink" title="3.2.2 Model-2: converted SNN with ANN training and SNN inference"></a>3.2.2 Model-2: converted SNN with ANN training and SNN inference</h2><p><img src="https://pbs.twimg.com/media/F79112QbQAAauUO?format=png&amp;name=small" alt=""></p>
 <p>此外，SNN 社区的许多工作也使用这些数据集来测试 SNN 的性能。由于在这些情况下网络工作在 SNN 模式下，因此输入数据需要从基于帧的图像转换为脉冲事件，如图 4(a) 或 (b) 所示。信号转换后，我们进一步提供两个建模分支。</p>
 <p>如图 5（b）所示，<strong>首先使用 BP 算法在原始图像数据集上训练 ANN，然后将预训练的 ANN 适应具有相同结构但不同神经元模型的 SNN 对应部分。此转换后的 SNN 在推理阶段接收具有脉冲事件的数据集变体。</strong></p>
-<br>
-<h2 id="323-model-3-enforced-snn-with-snn-training-and-snn-inference"><a class="markdownIt-Anchor" href="#323-model-3-enforced-snn-with-snn-training-and-snn-inference"></a> 3.2.3 Model-3: enforced SNN with SNN training and SNN inference.</h2>
-<p><img src="https://pbs.twimg.com/media/F79120taQAA9VNR?format=png&amp;name=small" alt="" /></p>
-<p>如图 5© 所示的<strong>强制 SNN</strong>，其中 <strong>SNN 模型直接在转换后的脉冲数据集上从头开始训练，并在同一域中进行测试</strong>。考虑到Pytorch的开源性，我们选择STBP作为snn的直接训练模型。</p>
+<p><br></p>
+<h2 id="3-2-3-Model-3-enforced-SNN-with-SNN-training-and-SNN-inference"><a href="#3-2-3-Model-3-enforced-SNN-with-SNN-training-and-SNN-inference" class="headerlink" title="3.2.3 Model-3: enforced SNN with SNN training and SNN inference."></a>3.2.3 Model-3: enforced SNN with SNN training and SNN inference.</h2><p><img src="https://pbs.twimg.com/media/F79120taQAA9VNR?format=png&amp;name=small" alt=""></p>
+<p>如图 5(c) 所示的<strong>强制 SNN</strong>，其中 <strong>SNN 模型直接在转换后的脉冲数据集上从头开始训练，并在同一域中进行测试</strong>。考虑到Pytorch的开源性，我们选择STBP作为snn的直接训练模型。</p>
 <Br>
-<h2 id="33-snn-oriented-workloads"><a class="markdownIt-Anchor" href="#33-snn-oriented-workloads"></a> 3.3 SNN-oriented workloads</h2>
-<p><strong>目标</strong>:识别无帧脉冲数据集中的图像（例如N-MNIST和DVS-CIFAR10）</p>
-<br>
+
+<h2 id="3-3-SNN-oriented-workloads"><a href="#3-3-SNN-oriented-workloads" class="headerlink" title="3.3 SNN-oriented workloads"></a>3.3 SNN-oriented workloads</h2><p><strong>目标</strong>:识别无帧脉冲数据集中的图像（例如N-MNIST和DVS-CIFAR10）</p>
+<p><br></p>
 <p>三个基准模型:</p>
 <ul>
 <li>Model-4：<strong>使用转换后的二进制或强度图像的强制二元 ANN</strong></li>
@@ -463,21 +464,154 @@
 <li>Model-6: <strong>具有 SNN 训练和 SNN 推理的自然 SNN</strong></li>
 </ul>
 <Br>
-<h2 id="331-model-4-or-model5-enforced-binary-ann-or-enforced-intensity-ann-using-converted-binary-or-intensity-images-respectively-for-ann-training-and-ann-inference"><a class="markdownIt-Anchor" href="#331-model-4-or-model5-enforced-binary-ann-or-enforced-intensity-ann-using-converted-binary-or-intensity-images-respectively-for-ann-training-and-ann-inference"></a> 3.3.1 Model-4 or Model5: enforced binary ANN or enforced intensity ANN using converted binary or intensity images, respectively, for ANN training and ANN inference</h2>
-<p><img src="https://pbs.twimg.com/media/F796zcSaEAAnVwQ?format=png&amp;name=small" alt="" /></p>
+
+<h2 id="3-3-1-Model-4-or-Model-5-enforced-binary-ANN-or-enforced-intensity-ANN-using-converted-binary-or-intensity-images-respectively-for-ANN-training-and-ANN-inference"><a href="#3-3-1-Model-4-or-Model-5-enforced-binary-ANN-or-enforced-intensity-ANN-using-converted-binary-or-intensity-images-respectively-for-ANN-training-and-ANN-inference" class="headerlink" title="3.3.1 Model-4 or Model-5: enforced binary ANN or enforced intensity ANN using converted binary or intensity images, respectively, for ANN training and ANN inference"></a>3.3.1 Model-4 or Model-5: enforced binary ANN or enforced intensity ANN using converted binary or intensity images, respectively, for ANN training and ANN inference</h2><p><img src="https://pbs.twimg.com/media/F796zcSaEAAnVwQ?format=png&amp;name=small" alt=""></p>
 <p>前两个工作在 <strong>ANN 模式</strong>下（见图 6（a）），其中<strong>输入数据被转换为图像</strong>。这些模型<strong>使用 ANN 的常规 BP 算法进行训练，并在 ANN 领域进行测试</strong>。</p>
-<br>
-<p>从<strong>脉冲事件到图像的数据转换</strong>有两种方法，分别如图 4© 和 (d) 所示：</p>
+<p><br></p>
+<p>从<strong>脉冲事件到图像的数据转换</strong>有两种方法，分别如图 4(c) 和 (d) 所示：</p>
 <ul>
-<li>(i) 直接接收展开的脉冲模式的二值图像；</li>
+<li>(i) 直接接收展开的脉冲模式的二值图像； </li>
 <li>(ii) 通过沿时间维度压缩脉冲模式来获得强度图像</li>
 </ul>
-<br>
-<h2 id="332-model-6l-natural-snn-with-snn-training-and-snn-inference"><a class="markdownIt-Anchor" href="#332-model-6l-natural-snn-with-snn-training-and-snn-inference"></a> 3.3.2 Model-6L: natural SNN with SNN training and SNN inference</h2>
-<p><img src="https://pbs.twimg.com/media/F7960SpbIAAjaHj?format=png&amp;name=360x360" alt="" /></p>
+<p><br></p>
+<h2 id="3-3-2-Model-6-natural-SNN-with-SNN-training-and-SNN-inference"><a href="#3-3-2-Model-6-natural-SNN-with-SNN-training-and-SNN-inference" class="headerlink" title="3.3.2 Model-6: natural SNN with SNN training and SNN inference"></a>3.3.2 Model-6: natural SNN with SNN training and SNN inference</h2><p><img src="https://pbs.twimg.com/media/F7960SpbIAAjaHj?format=png&amp;name=360x360" alt=""></p>
 <p>图6(b)给出了另一个在<strong>自然 SNN 模式</strong>下工作的基准模型。该网络直接<strong>使用原始脉冲数据集进行训练和测试，学习算法仍然是如上面 Model-3 中的 BP 启发</strong>。</p>
-<br>
-<h2 id="34-training-algorithms"><a class="markdownIt-Anchor" href="#34-training-algorithms"></a> 3.4 Training algorithms</h2>
+<p><br></p>
+<h2 id="3-4-Training-algorithms"><a href="#3-4-Training-algorithms" class="headerlink" title="3.4 Training algorithms"></a>3.4 Training algorithms</h2><p>在上一节中，我们提到了六个基准模型的两种<strong>训练算法</strong>：</p>
+<ul>
+<li>(i) <strong>ANN 的 BP</strong></li>
+<li>(ii) <strong>受 BP 启发的 SNN 变体</strong></li>
+</ul>
+<p><strong>BP算法</strong>: <strong>式(3)</strong></p>
+<p>$\frac{\partial L}{\partial y^n_i}$ = $\sum_j$ $\frac{\partial L}{\partial y_j^{n+1}}<script type="math/tex">\psi_j^{'n+1}</script>\omega_{ji}^{n+1}$  </p>
+<p>$\nabla<script type="math/tex">w_{ji}^n$ = $\frac{\partial L}{\partial y_j^{n+1}}</script>\psi_j^{‘n+1}<script type="math/tex">y_i^n$ , $\nabla</script>b_j^n$ = $\frac{\partial L}{\partial y_j^{n+1}}$$\psi_j^{‘n+1}$</p>
+<ul>
+<li>i和j:是前一层 n 和当前层 (n+1) 中的神经元索引</li>
+<li>$\psi_j^{‘n+1}$: 层 (n+1) 中第 j 个神经元的激活导数</li>
+<li>L: 优化损失函数。通常，我们可以简单地使用均方误差（MSE）作为要最小化的成本，即令 L = $\frac{1}{2}$||$Y^{label} - Y$||。这里 $Y$和$Y^{label}$分别是实际输出和标记的真实值</li>
+</ul>
+<p><br></p>
+<p>选择 <strong>STBP来训练我们的 SNN</strong>。它基于式(2)中原始 LIF 模型的迭代版本。具体来说，它产生: <strong>式(4)</strong></p>
+<p>$u_i^{t+1,n+1}$ = $e^{- \frac{dt}{\tau}}$$u_i^{t,n+1}$(1-$o_i^{t,n+1}$) + $\sum_j\omega_{ij}^{n}o_j^{t+1,n}$  </p>
+<p>$o_j^{t+1,n+1}$ = f($u_i^{t+1,n+1}$ - $u_{th}$)</p>
+<ul>
+<li>dt是模拟时间步的长度</li>
+<li>o表示神经元脉冲输出</li>
+<li>t和n分别是时间步和层索引 </li>
+<li>$e^{- \frac{dt}{\tau}}$：反映了膜电位的衰减效应。 </li>
+<li>f(·) 是阶跃函数，当 x ≥ 0 时，满足 f (x) = 1，否则 f (x) = 0。</li>
+</ul>
+<p>这种迭代 LIF 格式包含原始神经元模型中的所有行为，包括积分、激发和重置。请注意，为了简单起见，这里我们在原始 LIF 模型中设置 $u_{r1}$ = $u_{r2}$ = 0、$T_w$ = 1、K (·) ≡ 1。</p>
+<p><br></p>
+<p>给定迭代 LIF 模型，梯度沿时间和空间维度传播，<strong>参数更新</strong>可相应推导如下: <strong>式(5)</strong></p>
+<p>$\frac{\partial L}{o_i^{t,n}}$ = $\sum_j \frac{\partial L}{\partial o_j^{t,n+1}}\frac{\partial o_j^{t,n+1}}{\partial o_i^{t,n}}$ + $\frac{\partial L}{\partial o_i^{t+1,n}}\frac{\partial o_i^{t+1,n}}{\partial o_i^{t,n}}$ ,</p>
+<p>$\frac{\partial L}{\partial u_i^{t,n}}$ = $\frac{\partial L}{\partial o_i^{t,n}}\frac{\partial o_i^{t,n}}{\partial u_i^{t,n}}$ + $\frac{\partial L}{\partial o_i^{t+1,n}}\frac{\partial o_i^{t+1,n}}{\partial u_i^{t,n}}$ ,</p>
+<p>$\nabla \omega_{ji}^n$ = $\sum_{n=1}^T \frac{\partial L}{\partial u_j^{t,n+1}} o_i^{t,n}$</p>
+<p><br></p>
+<p>为了解决不可微问题,在计算$\frac{\partial o}{\partial u}$ 时引入了辅助函数来逼近阶跃函数f(·)的导数,满足：$\frac{\partial o}{\partial u}$ $\approx$ $\frac{1}{a}$sign(|u - $u_{th}$| &lt; $\frac{a}{2}$)</p>
+<ul>
+<li>参数 a： 决定梯度宽度</li>
+<li>当 x &gt; 0 时，sign(x) = 1；当 x = 0 时，sign(x) = 0</li>
+<li>损失函数 L：测量给定时间窗口 T 内的真实值与最后一层 N 的平均发射率之间的差异，L = $\frac{1}{2}$$||Y^{label} - \frac{1}{T}\sum_{t=1}^T O^{t,N}||^2_2$</li>
+</ul>
+<p><br></p>
+<h2 id="3-5-Evaluation-metrics"><a href="#3-5-Evaluation-metrics" class="headerlink" title="3.5 Evaluation metrics"></a>3.5 Evaluation metrics</h2><p>众所周知，基于SNNs的大脑在绝对识别精度方面通常无法击败当前基于ANNs的人工智能系统，而真实的大脑在其他指标（例如运行效率）上表现更好。然而，在最近的工作中，识别精度仍然是判断哪个模型（ANN 或 SNN）更好的主流指标，特别是在算法研究中。这不够公平，因为 ANN 和 SNN 具有非常不同的特征。例如，ANN 中的数据精度远高于 SNN，这使得 ANN 更容易在相同网络规模下获得更好的识别精度。这些都表明模型评估需要更全面的指标。除了常见的精度比较之外，这里我们进一步引入内存和计算成本作为补充评估指标。请注意，这只是一个开始，未来预计会有更多有洞察力的指标（请参阅第 5.2 节中的讨论）。</p>
+<Br>
+
+<h2 id="3-5-1-Recognition-accuracy"><a href="#3-5-1-Recognition-accuracy" class="headerlink" title="3.5.1 Recognition accuracy"></a>3.5.1 Recognition accuracy</h2><p>这里我们使用 top-1 精度。在人工神经网络中，这种准确性意味着正确识别样本的百分比。如果标签类别与激活值最大的模型预测的标签类别相同，则当前样本的识别正确。在 SNN 中，我们首先计算给定时间窗口 T 内输出神经元的发射率（脉冲数量）以进行速率编码，然后根据发射率值确定预测类别 。随后的精度计算与 ANN 中的相同。一种广为接受的解码方法可以定义如下</p>
+<p>$\hat{C}$ = $argmax_i {\frac{1}{T} \sum^T_{t=1}o_i^{t,N}}$</p>
+<ul>
+<li>其中$o_i^{t,N}$ 表示最后一层 N 中第 i 个神经元在第 t个时间步 的脉冲输出</li>
+</ul>
+<p><br></p>
+<h2 id="3-5-2-Memory-cost"><a href="#3-5-2-Memory-cost" class="headerlink" title="3.5.2 Memory cost"></a>3.5.2 Memory cost</h2><p>ANN内存成本:$M = M_w + M_a$</p>
+<ul>
+<li>权重内存</li>
+<li>激活内存</li>
+</ul>
+<p><br></p>
+<p>SNN内存成本: $M = M_w + M_p + M_s$</p>
+<ul>
+<li>权重内存</li>
+<li>膜电位内存</li>
+<li>脉冲内存(峰值内存开销仅在峰值触发时发生)</li>
+</ul>
+<p><br></p>
+<p>其中 $M_w、M_a、M_p 和 M_s$ 分别表示权重、激活、膜电位和脉冲的内存成本。与由网络结构决定的静态值$M_w、M_a和M_p$相比，$M_s$是由某个时间步长的最大尖峰事件数动态确定的。这里为了清楚起见，假设除了 1 位尖峰数据之外的所有数据都以 <strong>32 位</strong>存储。</p>
+<p><br></p>
+<h2 id="3-5-3-Compute-cost"><a href="#3-5-3-Compute-cost" class="headerlink" title="3.5.3 Compute cost"></a>3.5.3 Compute cost</h2><p>ANN计算成本主要由<strong>式(1)</strong> 中的 MAC 运算决定 </p>
+<p>SNN主要的计算开销是<strong>式(2)</strong> 中脉冲驱动的输入积分</p>
+<p>应该强调SNN与 ANN 的两个<strong>区别</strong>：</p>
+<ul>
+<li>(i)由于二进制脉冲输入，如果 $T_w$ = 1 且 K (·) == 1 实际上满足这些条件，那么树突积分就变得无乘数，如 $\sum_j w_j· s_j = \sum_{j’} w_{j’}$(如果 $s_{j′}$ = 1); </li>
+<li>(ii) 积分是事件驱动的，这意味着如果没有收到尖峰，则不会发生计算。计算成本可以通过以下方式计算：  <strong>ANN</strong>: C= $C_{mul} + C_{add}$;<strong>SNN</strong>: C= $C_{add}$ ,其中 $C_{mul} 和 C_{add}$ 分别是乘法和加法的计算成本。</li>
+</ul>
+<p><br></p>
+<h2 id="4-Experimental-results"><a href="#4-Experimental-results" class="headerlink" title="4.Experimental results"></a>4.Experimental results</h2><h2 id="4-1-Experimental-setup"><a href="#4-1-Experimental-setup" class="headerlink" title="4.1 Experimental setup"></a>4.1 Experimental setup</h2><p>作为开始工作，为了简单起见，我们更多地讨论了 <strong>MLP 和（普通）CNN</strong> 的结果，最后仅提供其他模型（例如 RNN 和时态 CNN）在面向 SNN 的工作负载上的结果。</p>
+<p>在面向 ANN 的工作负载上，我们评估了 Model-1/2/3 在 MNIST 和 CIFAR10 数据集上的性能。由于 MLP 无法处理更大规模的 CIFAR10，我们仅展示 CNN 在该数据集上的结果。</p>
+<p>在面向 SNN 的工作负载上，我们评估了 Model-4/5/6 在上述数据集的神经形态版本（即 N-MNIST 和 DVS-CIFAR10）上的性能。</p>
+<p><br></p>
+<p><strong>整体实验流程图</strong>：<br><img src="https://pbs.twimg.com/media/F7_EfbzbcAAChKu?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p><strong>主要网络结构</strong>：<br><img src="https://pbs.twimg.com/media/F7_FJcJasAAyKWL?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>面向<strong>ann的工作负载参数</strong>配置：<br><img src="https://pbs.twimg.com/media/F7_FKVEagAAJe3V?format=png&amp;name=900x900" alt=""></p>
+<p>面向<strong>snn的工作负载参数</strong>配置：<br><img src="https://pbs.twimg.com/media/F7_FLYHbkAAwqAm?format=png&amp;name=900x900" alt=""></p>
+<p>由于这些工作负载通常具有不同的输入转换编码格式，为了清晰起见，我们只显示<strong>隐藏层</strong>的参数配置。在所有Conv层中，我们将padding值设置为1。由于模型-4的输入尺寸较大，我们在那里设置步幅值为2，在其他模型中设置步幅值为1。在所有SNN模型(Model-2/3/6)中，池化层中的每个单元都是一个独立的神经元，这保证了池化层的输出仍然是spike格式。这种池化配置不同于之前的工作(Wu等人，2018,2019)。在模型3/6中，我们使用等式(4)中描述的<strong>完整的LIF神经元模型</strong>，而在模型2中，我们使用<strong>IF神经元模型</strong>(没有LIF中的泄漏项)，这是之前转换的snn中流行的选择</p>
+<p>我们在 <strong>Pytorch</strong> 框架中实现所有模型。在 MNIST 和 N-MNIST 数据集上，我们采用 Adam（自适应矩估计（Kingma Ba，2014））优化器，默认参数设置（α = 0.0001，β1 = 0.9，β2 = 0.999，ϵ = 10−8）；而在 CIFAR10 和 DVS-CIFAR10 数据集上，我们使用 SGD（随机梯度下降）优化器，初始学习率 r = 0.1，动量为 0.9，其中 r 每 35 个训练周期衰减 10 倍.</p>
+<p><br></p>
+<h2 id="4-2-Accuracy-analysis"><a href="#4-2-Accuracy-analysis" class="headerlink" title="4.2 Accuracy analysis"></a>4.2 Accuracy analysis</h2><p>不同模型在基准工作负载上的准确性结果:<br><img src="https://pbs.twimg.com/media/F7_MGcka4AAa1nI?format=png&amp;name=900x900" alt=""></p>
+<ul>
+<li>a指使用概率采样进行输入信号转换的模型</li>
+<li>b指使用编码层对输入信号进行转换的模型。</li>
+</ul>
+<p><br></p>
+<p>在<strong>MNIST</strong>上:</p>
+<ul>
+<li>简单的自然神经网络(模型-1)可以达到最好的精度，即MLP的98.60%和CNN的99.31%，因为它们自然地与基于帧的数据集兼容。</li>
+<li>基于预训练神经网络(Model-2)转换的snn的精度分数与自然神经网络相当，但略差。在转换后的spike数据集上，由bp启发算法训练的强制SNNs (Model-3)达到了最差的精度。</li>
+</ul>
+<p>请注意，尽管我们也观察到强制的SNN偶尔可以超过转换的SNN(例如在CNN结构上)，但它从来没有比自然的ANN更好。</p>
+<p><br></p>
+<p><strong>CIFAR10</strong>:</p>
+<ul>
+<li>准确度差异变得更加明显</li>
+<li>从最好到最差遵循“自然 ANN (Model-1) ⇒ 转换的 SNN (Model-2) ⇒ 强制 SNN (Model3)”（即 78.16% ⇒ 76.81% ⇒ 63.19%）</li>
+</ul>
+<p>尽管通过使用额外的编码层（图 4（b））进行信号转换，强制 SNN 的准确率可以提高到 74.23%，但它仍然无法击败自然 ANN.</p>
+<p><br><br><br></p>
+<p><img src="https://pbs.twimg.com/media/F7_PAXFbQAE9Rya?format=jpg&amp;name=medium" alt=""></p>
+<p>面向 ANN 的数据集上模拟时间窗口 T 的敏感性分析：</p>
+<ul>
+<li>(a) 采样图像； </li>
+<li>(b) 平均绝对误差（MAE）曲线； </li>
+<li>(c) 强制 SNN 的训练曲线。</li>
+</ul>
+<p><strong>准确性差距的根本原因</strong>:</p>
+<ul>
+<li>图 8(a) 显示了将原始图像转换为脉冲信号以进行后续 SNN 处理时的信息损失（在 Model-2 Model-3 中）。这里我们以图4（a）中的概率采样为例。我们首先计算模拟时间窗口 T 内每个像素的概率采样产生的脉冲总数，然后将脉冲数归一化后可视化为图像。随着 T 的增加，图像变得更加清晰，这表明信号转换中的精度损失较小。但T太大会导致仿真时间过长。在我们的实验中，我们设置T = 15，但是信号转换的精度损失仍然存在。</li>
+<li>图8（b）描绘了原始像素值和归一化尖峰数之间的平均绝对误差（MAE）以及由于非确定性采样而导致的MAE方差。最后，我们研究T如何影响训练收敛，这由不同T配置下的训练曲线显示。通常，T越长，收敛速度越快，最终精度越高，这主要是因为输入信号转换时的精度损失较小。总之，从图像到尖峰的信号转换会导致信息丢失，并使 SNN 模型失去在面向 ANN 的工作负载上超越自然 ANN 的机会。此外，仿真时间窗口T的长度显着影响模型的收敛性。</li>
+</ul>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7_Q96WakAAprB-?format=jpg&amp;name=medium" alt=""><br>在面向 <strong>ANN 的数据集上转换后的 SNN 的精度分析</strong>：</p>
+<ul>
+<li>(a) 测试自然 ANN、约束 ANN 和转换后的 SNN 之间的精度比较； </li>
+<li>(b) 转换精度损失曲线，记录自然 ANN 和转换后的 SNN 之间随着时间步长增加的精度差距。</li>
+</ul>
+<p><strong>转换后的 SNN 与自然 ANN 相比也会损失准确性</strong>： 转换后的 SNN 基于预训练的 ANN 模型。为了与转换后的最终IF模型兼容，ANN的预训练通常会添加一些约束，称为约束ANN。 Diehl 等人的约束包括消除偏差、仅允许 ReLU 激活函数、将最大池化更改为平均池化等。 （2015）以及亨斯伯格和埃利亚史密斯（2016）。这些约束通常会导致精度损失，如图 9（a）所示。然后，从预训练的 ANN 到转换后的 SNN 的转换将在上述信号转换和新发生的参数自适应（例如权重/激活归一化和阈值调整）期间遭受进一步的精度损失。在 CIFAR10 上，模型转换的精度损失明显大于小型 MNIST 上的损失。仿真时间窗口T的影响如图9(b)所示，其中T越小，精度损失明显越大。因此，转换后的 SNN 通常需要更长的 T 才能恢复精度。综上所述，由于预训练和有损模型转换的约束，转换后的 SNN 无法优于自然 ANN。最近越来越多的工作使用转换后的 SNN 在面向 ANN 的数据集上对 SNN 性能进行基准测试（Diehl 等人，2015；Hu 等人，2018；Sengupta 等人，2019）。虽然这种方式表明 SNN 仍然可以在这些面向 ANN 的工作负载上很好地工作，但这也使 SNN 失去了成为胜利者的机会。</p>
+<p><br></p>
+<p>不同模型在 <strong>面向 SNN 的工作负载上的准确性</strong> 结果:</p>
+<p><img src="https://pbs.twimg.com/media/F7_UTeXbEAAKIjh?format=png&amp;name=900x900" alt=""></p>
+<p>自然 SNN（Model-6）在这些网络和数据集上始终可以达到最佳准确率（N-MNIST 上的 MLP 为 98.61%，N-MNIST 上的 CNN 为 99.42%，DVS-CIFAR10 上的 CNN 为 60.30%），这这归功于与无帧尖峰事件的天然兼容性。在强制 ANN 中，除了 CNN 在 N-MNIST 上的一种偶然情况外，基于强度图像的 ANN（模型 5）通常比基于二值图像的 ANN（模型 4）表现更好。原因与面向 ANN 的工作负载类似，因为 N-MNIST 的相对简单性缩小了不同模型之间的准确性差距。</p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7_U8reaIAAHC3J?format=png&amp;name=900x900" alt=""></p>
+<p>表 5 中所有模型的相应训练曲线如图 10 所示。总体而言，在这些面向 SNN 的工作负载上，自然 SNN 能够比转换为 ANN 域中处理的其他模型更好地收敛。</p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7_XDWiaAAAo1FW?format=jpg&amp;name=large" alt=""></p>
+<p>本文试图对精度结果进行全面的解释。图11可视化了在面向snn的工作负载下注入到三个模型(Model-4/5/6)的不同输入。对于前两种模型，分别按照图4(c)或(d)中的信号转换方法将脉冲事件转换为二值图像或强度图像。由于Model-4直接接收每个脉冲模式(0/1)为二值图像，特征不够直观且过于稀疏，如图11(a)所示。不同的是，模型-5沿着时间维度累积每个像素的脉冲，然后将脉冲数目归一化为强度值。如图11(b)所示，物体轮廓可以在很大程度上保持，但是细节的尖锐特征被模糊。与上述两种基于帧的模型相比，Model6可以自然地接收脉冲事件。图11(c)的奇数列显示了每个时间步长的原始脉冲模式(实际上它仍然需要聚合每3 ms的脉冲事件以缩小总的模拟时间长度)。回想式(4)，如果我们为简单起见忽略点火后的电位重置，snn中的膜电位实际上用时间衰减因子累积了所有先前的输入。为了模拟最终注入膜电位的等效输入，我们绘制了以前脉冲模式在每个时间步的衰减积累，并在图11(c)的偶数列中显示它们。可以看到，自然SNN (Model-6)很好地保留了spike事件中包含的细节特征，这是为什么它在面向SNN的工作负载上可以表现更好的原因之一。</p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F7_iRn0bEAAxe0c?format=png&amp;name=900x900" alt=""></p>
+<p>除了输入信号的可视化之外，我们还进一步可视化激活（在 ANN 中）和发射率（在 SNN 中），以比较这三个模型的识别能力。图 12 提供了由非线性降维算法、t 分布随机邻域嵌入 (t-SNE) 生成的 2D 嵌入结果（Matten Hinton，2008）。它可以将高维嵌入投影到低维嵌入以进行数据可视化。由于 t-SNE 对困惑度（ppl）值设置的敏感性，我们根据 Matten 和 Hinton（2008）建议的范围在每个数据集上采用两个 ppl 值（ppl = 5，ppl = 50）。通过这种方式，我们将最后一个隐藏层的 256 维激活或激发率投影到二维。具有相同颜色的点具有相同的标签，具有不同颜色的点属于不同的类。因此，相同颜色的集中点越多，不同颜色的发散点越多，反映出模型的分类性能越好。尽管不同的 ppl 设置确实会导致模式变化，但随着 ppl 值的变化，三个模型之间的相对聚类效果保持一致。在 N-MNIST 上，三种模型都能够将不同类别的数据投影到不同的点簇中。与 Model-4 和 Model-5 相比，Model-6 可以将每个类内的点吸引得更紧凑，并将类推得更远，这表明 Model-6 的性能最好。在 DVS-CIFAR10 上，所有模型都存在较大的聚类重叠。这意味着无法获得与简单 N-MNIST 任务类似的准确度分数。可以明显看出，从Model-4到Model-6的聚类效应逐渐增强。结合 N-MNIST 和 DVS-CIFAR10 上的结果，证实了 Model-6 在面向 SNN 的工作负载上的优越性，这与表 5 中的结果一致。请注意，模型的分类性能已在表 4 中得到证明和5，t-SNE模拟只是一种辅助的可视化方式，以便更好地理解（不是本工作的重点）。这就是为什么我们只在面向 SNN 的数据集上显示表 5 中模型 4/5/6 的 t-SNE 结果，而不对表 4 中模型 1/2/3 重复相同的实验。</p>
 
             
         </div>
@@ -641,10 +775,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    227.3k
+                    231.6k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    14:07
+                    14:24
                 </div>
             
             
