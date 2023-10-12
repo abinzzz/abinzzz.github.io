@@ -1,0 +1,557 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        Mac配置PyTorch完整版教程(M2芯片) |
+        
+        Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   1.下载Anconda 去Anaconda官网安装ARM版本的Anconda    2.检查Anconda是否安装完成 输入下面指令： 1conda info 若出现以下内容则安装成功： 123456789101112">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac配置PyTorch完整版教程(M2芯片)">
+<meta property="og:url" content="https://abinzzz.github.io/2023/10/12/Mac%E9%85%8D%E7%BD%AEPyTorch%E5%AE%8C%E6%95%B4%E7%89%88%E6%95%99%E7%A8%8B-M2%E8%8A%AF%E7%89%87/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   1.下载Anconda 去Anaconda官网安装ARM版本的Anconda    2.检查Anconda是否安装完成 输入下面指令： 1conda info 若出现以下内容则安装成功： 123456789101112">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pbs.twimg.com/media/F8LNUrMbUAA_sKT?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F8MsDqAacAAnGCH?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F8MvJo-boAAuYPt?format=jpg&amp;name=medium">
+<meta property="article:published_time" content="2023-10-11T17:18:34.000Z">
+<meta property="article:modified_time" content="2023-10-12T00:31:53.062Z">
+<meta property="article:author" content="野中晴">
+<meta property="article:tag" content="tool">
+<meta property="article:tag" content="Mac">
+<meta property="article:tag" content="M2">
+<meta property="article:tag" content="PyTorch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/F8LNUrMbUAA_sKT?format=jpg&amp;name=medium">
+    
+        <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/katex@0.16.7/dist/katex.min.css">
+
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">Loading...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="Mac配置PyTorch完整版教程(M2芯片)" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>Mac配置PyTorch完整版教程(M2芯片)</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">首页</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">归档</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">关于</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">友链</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS 订阅"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://abinzzz.github.io"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-Mac配置PyTorch完整版教程-M2芯片" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/10/12/Mac%E9%85%8D%E7%BD%AEPyTorch%E5%AE%8C%E6%95%B4%E7%89%88%E6%95%99%E7%A8%8B-M2%E8%8A%AF%E7%89%87/" class="article-date-link">
+        <time datetime="2023-10-11T17:18:34.000Z"
+              itemprop="datePublished">2023-10-12</time>
+    </a>
+</div>
+
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="/categories/tool/">tool</a>
+    </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="1下载anconda"><a class="markdownIt-Anchor" href="#1下载anconda"></a> 1.下载Anconda</h2>
+<p>去<a target="_blank" rel="noopener" href="https://www.anaconda.com/download#Downloads">Anaconda官网</a>安装ARM版本的Anconda</p>
+<p><img src="https://pbs.twimg.com/media/F8LNUrMbUAA_sKT?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="2检查anconda是否安装完成"><a class="markdownIt-Anchor" href="#2检查anconda是否安装完成"></a> 2.检查Anconda是否安装完成</h2>
+<p>输入下面指令：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info</span><br></pre></td></tr></table></figure>
+<p>若出现以下内容则安装成功：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">(base) chenyubin@chenyubindeMacBook-Pro ~ % conda info</span><br><span class="line"></span><br><span class="line">     active environment : base</span><br><span class="line">    active env location : /Users/chenyubin/anaconda3</span><br><span class="line">            shell level : <span class="number">1</span></span><br><span class="line">       user config file : /Users/chenyubin/.condarc</span><br><span class="line"> populated config files : /Users/chenyubin/.condarc</span><br><span class="line">          conda version : <span class="number">23</span>.<span class="number">5</span>.<span class="number">0</span></span><br><span class="line">    conda-build version : <span class="number">3</span>.<span class="number">25</span>.<span class="number">0</span></span><br><span class="line">         python version : <span class="number">3</span>.<span class="number">11</span>.<span class="number">3</span>.final.<span class="number">0</span></span><br><span class="line">       virtual packages : __archspec=<span class="number">1</span>=arm64</span><br><span class="line">                          __osx=<span class="number">13</span>.<span class="number">6</span>=<span class="number">0</span></span><br><span class="line">                          __unix=<span class="number">0</span>=<span class="number">0</span></span><br><span class="line">       base environment : /Users/chenyubin/anaconda3  (writable)</span><br><span class="line">      conda av data <span class="built_in">dir</span> : /Users/chenyubin/anaconda3/etc/conda</span><br><span class="line">  conda av metadata url : None</span><br><span class="line">           channel URLs : https://repo.anaconda.com/pkgs/main/osx-arm64</span><br><span class="line"><span class="function">                          https://<span class="title">repo.anaconda.com</span>/<span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">noarch</span></span></span><br><span class="line"><span class="function">                          <span class="title">https</span>://<span class="title">repo.anaconda.com</span>/<span class="title">pkgs</span>/<span class="title">r</span>/<span class="title">osx</span>-<span class="title">arm64</span></span></span><br><span class="line"><span class="function">                          <span class="title">https</span>://<span class="title">repo.anaconda.com</span>/<span class="title">pkgs</span>/<span class="title">r</span>/<span class="title">noarch</span></span></span><br><span class="line"><span class="function">          <span class="title">package</span> <span class="title">cache</span> : /<span class="title">Users</span>/<span class="title">chenyubin</span>/<span class="title">anaconda3</span>/<span class="title">pkgs</span></span></span><br><span class="line"><span class="function">                          /<span class="title">Users</span>/<span class="title">chenyubin</span>/.<span class="title">conda</span>/<span class="title">pkgs</span></span></span><br><span class="line"><span class="function">       <span class="title">envs</span> <span class="title">directories</span> : /<span class="title">Users</span>/<span class="title">chenyubin</span>/<span class="title">anaconda3</span>/<span class="title">envs</span></span></span><br><span class="line"><span class="function">                          /<span class="title">Users</span>/<span class="title">chenyubin</span>/.<span class="title">conda</span>/<span class="title">envs</span></span></span><br><span class="line"><span class="function">               <span class="title">platform</span> : <span class="title">osx</span>-<span class="title">arm64</span></span></span><br><span class="line"><span class="function">             <span class="title">user</span>-<span class="title">agent</span> : <span class="title">conda</span>/23.5.0 <span class="title">requests</span>/2.29.0 <span class="title">CPython</span>/3.11.3 <span class="title">Darwin</span>/22.6.0 <span class="title">OSX</span>/13.6</span></span><br><span class="line"><span class="function">                <span class="title">UID:GID</span> : 501:20</span></span><br><span class="line"><span class="function">             <span class="title">netrc</span> <span class="title">file</span> : <span class="title">None</span></span></span><br><span class="line"><span class="function">           <span class="title">offline</span> <span class="title">mode</span> : <span class="title">False</span></span></span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="3检查安装anconda的版本是否正确"><a class="markdownIt-Anchor" href="#3检查安装anconda的版本是否正确"></a> 3.检查安装Anconda的版本是否正确</h2>
+<p>输入指令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> platform</span><br><span class="line"><span class="built_in">print</span>(platform.platform())</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(base) chenyubin@chenyubindeMacBook-Pro ~ % python</span><br><span class="line">Python <span class="number">3</span>.<span class="number">11</span>.<span class="number">3</span> (main, Apr <span class="number">19</span> <span class="number">2023</span>, <span class="number">18</span>:<span class="number">49</span>:<span class="number">55</span>) [Clang <span class="number">14</span>.<span class="number">0</span>.<span class="number">6</span> ] on darwin</span><br><span class="line"><span class="built_in">Type</span> &quot;<span class="built_in">help</span>&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; <span class="keyword">for</span> <span class="built_in">more</span> information.</span><br><span class="line">&gt;&gt;&gt; import platform</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(platform.platform())</span><br><span class="line">macOS-<span class="number">13</span>.<span class="number">6</span>-arm64-arm-<span class="number">64</span>bit</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="4创建虚拟环境"><a class="markdownIt-Anchor" href="#4创建虚拟环境"></a> 4.创建虚拟环境</h2>
+<p>输入指令: （注意此处的<code>MSResNet</code>和python版本号应该换成你需要的内容）</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n MSResNet python=<span class="number">3</span>.<span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>激活这个环境：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate MSResNet</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="5安装pytorch"><a class="markdownIt-Anchor" href="#5安装pytorch"></a> 5.安装PyTorch</h2>
+<p>今年五月PyTorch官方宣布已正式支持在M1版本的Mac上进行GPU加速的PyTorch机器学习模型训练。PyTorch的GPU训练加速是使用苹果Metal Performance Shaders（MPS）作为后端来实现的。<strong>注意Mac OS版本要大于等于12.3</strong>。</p>
+<p>去PyTorch官网获取命令。<strong>这里注意要选取Nightly版本，才支持GPU加速，Package选项中选择Pip</strong>。(这里若使用conda安装有一定概率无法安装到预览版，建议使用pip3安装)</p>
+<p><img src="https://pbs.twimg.com/media/F8MsDqAacAAnGCH?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p>输入命令安装：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># MPS acceleration is available on MacOS <span class="number">12</span>.<span class="number">3</span>+</span><br><span class="line">pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu</span><br></pre></td></tr></table></figure>
+<p>得到结果：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">(MSResNet) chenyubin@chenyubindeMacBook-Pro ~ % pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu</span><br><span class="line">Looking <span class="keyword">in</span> indexes: https://download.pytorch.org/whl/nightly/cpu</span><br><span class="line">Collecting torch</span><br><span class="line">  Downloading https://download.pytorch.org/whl/nightly/cpu/torch-<span class="number">2</span>.<span class="number">2</span>.<span class="number">0</span>.dev20231011-cp39-none-macosx_11_0_arm64.whl (<span class="number">58</span>.<span class="number">3</span> MB)</span><br><span class="line">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="number">58</span>.<span class="number">3</span>/<span class="number">58</span>.<span class="number">3</span> MB <span class="number">16</span>.<span class="number">7</span> MB/s eta <span class="number">0</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">Collecting torchvision</span><br><span class="line">  Downloading https://download.pytorch.org/whl/nightly/cpu/torchvision-<span class="number">0</span>.<span class="number">17</span>.<span class="number">0</span>.dev20231011-cp39-cp39-macosx_11_0_arm64.whl (<span class="number">1</span>.<span class="number">6</span> MB)</span><br><span class="line">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="number">1</span>.<span class="number">6</span>/<span class="number">1</span>.<span class="number">6</span> MB <span class="number">6</span>.<span class="number">8</span> MB/s eta <span class="number">0</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">Collecting torchaudio</span><br><span class="line">  Downloading https://download.pytorch.org/whl/nightly/cpu/torchaudio-<span class="number">2</span>.<span class="number">2</span>.<span class="number">0</span>.dev20231011-cp39-cp39-macosx_11_0_arm64.whl (<span class="number">1</span>.<span class="number">8</span> MB)</span><br><span class="line">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="number">1</span>.<span class="number">8</span>/<span class="number">1</span>.<span class="number">8</span> MB <span class="number">5</span>.<span class="number">9</span> MB/s eta <span class="number">0</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">Collecting filelock (from torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/filelock-<span class="number">3</span>.<span class="number">9</span>.<span class="number">0</span>-py3-none-any.whl (<span class="number">9</span>.<span class="number">7</span> kB)</span><br><span class="line">Collecting typing-extensions (from torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/typing_extensions-<span class="number">4</span>.<span class="number">4</span>.<span class="number">0</span>-py3-none-any.whl (<span class="number">26</span> kB)</span><br><span class="line">Collecting sympy (from torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/sympy-<span class="number">1</span>.<span class="number">11</span>.<span class="number">1</span>-py3-none-any.whl (<span class="number">6</span>.<span class="number">5</span> MB)</span><br><span class="line">Collecting networkx (from torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/networkx-<span class="number">3</span>.<span class="number">0</span>rc1-py3-none-any.whl (<span class="number">2</span>.<span class="number">0</span> MB)</span><br><span class="line">Collecting jinja2 (from torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/Jinja2-<span class="number">3</span>.<span class="number">1</span>.<span class="number">2</span>-py3-none-any.whl (<span class="number">133</span> kB)</span><br><span class="line">Collecting fsspec (from torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/fsspec-<span class="number">2023</span>.<span class="number">4</span>.<span class="number">0</span>-py3-none-any.whl (<span class="number">153</span> kB)</span><br><span class="line">Collecting numpy (from torchvision)</span><br><span class="line">  Downloading https://download.pytorch.org/whl/nightly/numpy-<span class="number">1</span>.<span class="number">24</span>.<span class="number">1</span>-cp39-cp39-macosx_11_0_arm64.whl (<span class="number">13</span>.<span class="number">9</span> MB)</span><br><span class="line">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="number">13</span>.<span class="number">9</span>/<span class="number">13</span>.<span class="number">9</span> MB <span class="number">18</span>.<span class="number">5</span> MB/s eta <span class="number">0</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">Collecting requests (from torchvision)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/requests-<span class="number">2</span>.<span class="number">28</span>.<span class="number">1</span>-py3-none-any.whl (<span class="number">62</span> kB)</span><br><span class="line">Collecting pillow!=<span class="number">8</span>.<span class="number">3</span>.*,&gt;=<span class="number">5</span>.<span class="number">3</span>.<span class="number">0</span> (from torchvision)</span><br><span class="line">  Downloading https://download.pytorch.org/whl/nightly/Pillow-<span class="number">9</span>.<span class="number">3</span>.<span class="number">0</span>-cp39-cp39-macosx_11_0_arm64.whl (<span class="number">2</span>.<span class="number">9</span> MB)</span><br><span class="line">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="number">2</span>.<span class="number">9</span>/<span class="number">2</span>.<span class="number">9</span> MB <span class="number">10</span>.<span class="number">9</span> MB/s eta <span class="number">0</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">Collecting MarkupSafe&gt;=<span class="number">2</span>.<span class="number">0</span> (from jinja2-&gt;torch)</span><br><span class="line">  Downloading https://download.pytorch.org/whl/nightly/MarkupSafe-<span class="number">2</span>.<span class="number">1</span>.<span class="number">2</span>-cp39-cp39-macosx_10_9_universal2.whl (<span class="number">17</span> kB)</span><br><span class="line">Collecting charset-normalizer&lt;<span class="number">3</span>,&gt;=<span class="number">2</span> (from requests-&gt;torchvision)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/charset_normalizer-<span class="number">2</span>.<span class="number">1</span>.<span class="number">1</span>-py3-none-any.whl (<span class="number">39</span> kB)</span><br><span class="line">Collecting idna&lt;<span class="number">4</span>,&gt;=<span class="number">2</span>.<span class="number">5</span> (from requests-&gt;torchvision)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/idna-<span class="number">3</span>.<span class="number">4</span>-py3-none-any.whl (<span class="number">61</span> kB)</span><br><span class="line">Collecting urllib3&lt;<span class="number">1</span>.<span class="number">27</span>,&gt;=<span class="number">1</span>.<span class="number">21</span>.<span class="number">1</span> (from requests-&gt;torchvision)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/urllib3-<span class="number">1</span>.<span class="number">26</span>.<span class="number">13</span>-py2.py3-none-any.whl (<span class="number">140</span> kB)</span><br><span class="line">Collecting certifi&gt;=<span class="number">2017</span>.<span class="number">4</span>.<span class="number">17</span> (from requests-&gt;torchvision)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/certifi-<span class="number">2022</span>.<span class="number">12</span>.<span class="number">7</span>-py3-none-any.whl (<span class="number">155</span> kB)</span><br><span class="line">Collecting mpmath&gt;=<span class="number">0</span>.<span class="number">19</span> (from sympy-&gt;torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/mpmath-<span class="number">1</span>.<span class="number">2</span>.<span class="number">1</span>-py3-none-any.whl (<span class="number">532</span> kB)</span><br><span class="line">Installing collected packages: mpmath, urllib3, typing-extensions, sympy, pillow, numpy, networkx, MarkupSafe, idna, fsspec, filelock, charset-normalizer, certifi, requests, jinja2, torch, torchvision, torchaudio</span><br><span class="line">Successfully installed MarkupSafe-<span class="number">2</span>.<span class="number">1</span>.<span class="number">2</span> certifi-<span class="number">2022</span>.<span class="number">12</span>.<span class="number">7</span> charset-normalizer-<span class="number">2</span>.<span class="number">1</span>.<span class="number">1</span> filelock-<span class="number">3</span>.<span class="number">9</span>.<span class="number">0</span> fsspec-<span class="number">2023</span>.<span class="number">4</span>.<span class="number">0</span> idna-<span class="number">3</span>.<span class="number">4</span> jinja2-<span class="number">3</span>.<span class="number">1</span>.<span class="number">2</span> mpmath-<span class="number">1</span>.<span class="number">2</span>.<span class="number">1</span> networkx-<span class="number">3</span>.<span class="number">0</span>rc1 numpy-<span class="number">1</span>.<span class="number">24</span>.<span class="number">1</span> pillow-<span class="number">9</span>.<span class="number">3</span>.<span class="number">0</span> requests-<span class="number">2</span>.<span class="number">28</span>.<span class="number">1</span> sympy-<span class="number">1</span>.<span class="number">11</span>.<span class="number">1</span> torch-<span class="number">2</span>.<span class="number">2</span>.<span class="number">0</span>.dev20231011 torchaudio-<span class="number">2</span>.<span class="number">2</span>.<span class="number">0</span>.dev20231011 torchvision-<span class="number">0</span>.<span class="number">17</span>.<span class="number">0</span>.dev20231011 typing-extensions-<span class="number">4</span>.<span class="number">4</span>.<span class="number">0</span> urllib3-<span class="number">1</span>.<span class="number">26</span>.<span class="number">13</span></span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="6验证是否安装成功与是否支持pytorch加速"><a class="markdownIt-Anchor" href="#6验证是否安装成功与是否支持pytorch加速"></a> 6.验证是否安装成功与是否支持PyTorch加速</h2>
+<p>输入指令：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line">import torch</span><br><span class="line">torch.__version__</span><br><span class="line">torch.device(&quot;mps&quot;)</span><br></pre></td></tr></table></figure>
+<p>出现结果：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(MSResNet) chenyubin@chenyubindeMacBook-Pro ~ % python</span><br><span class="line">import torch</span><br><span class="line">torch.__version__</span><br><span class="line">torch.device(&quot;mps&quot;)</span><br><span class="line">Python <span class="number">3</span>.<span class="number">9</span>.<span class="number">18</span> (main, Sep <span class="number">11</span> <span class="number">2023</span>, <span class="number">08</span>:<span class="number">25</span>:<span class="number">10</span>) </span><br><span class="line">[Clang <span class="number">14</span>.<span class="number">0</span>.<span class="number">6</span> ] :: Anaconda, Inc. on darwin</span><br><span class="line"><span class="built_in">Type</span> &quot;<span class="built_in">help</span>&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; <span class="keyword">for</span> <span class="built_in">more</span> information.</span><br><span class="line">&gt;&gt;&gt; import torch</span><br><span class="line">torch.__&gt;&gt;&gt; torch.__version__</span><br><span class="line">&#x27;<span class="number">2</span>.<span class="number">2</span>.<span class="number">0</span>.dev20231011&#x27;</span><br><span class="line">&gt;&gt;&gt; torch.device(&quot;mps&quot;)</span><br><span class="line">device(<span class="built_in">type</span>=&#x27;mps&#x27;)</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="7pycharm配置"><a class="markdownIt-Anchor" href="#7pycharm配置"></a> 7.PyCharm配置</h2>
+<p>打开PyCharm，点击setting -&gt; 项目:xxx -&gt; Python解释器 -&gt; 添加解释器 -&gt; 添加本地解释器 -&gt; conda环境，选择自己刚才创建的环境即可：</p>
+<p><img src="https://pbs.twimg.com/media/F8MvJo-boAAuYPt?format=jpg&amp;name=medium" alt="" /></p>
+<p>如果找不到python版本路径，可以打开终端输入：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which python</span><br></pre></td></tr></table></figure>
+<p>得到以下结果：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(MSResNet) chenyubin@chenyubindeMacBook-Pro ~ % which python</span><br><span class="line">/Users/chenyubin/anaconda3/envs/MSResNet/bin/python</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="8"><a class="markdownIt-Anchor" href="#8"></a> 8.</h2>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="https://abinzzz.github.io/2023/10/12/Mac%E9%85%8D%E7%BD%AEPyTorch%E5%AE%8C%E6%95%B4%E7%89%88%E6%95%99%E7%A8%8B-M2%E8%8A%AF%E7%89%87/" data-id="clnmga0oj0000f369elobha4q" data-title="Mac配置PyTorch完整版教程(M2芯片)"
+               class="article-share-link">分享</a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/M2/" rel="tag">M2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/" rel="tag">PyTorch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tool/" rel="tag">tool</a></li></ul>
+
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="ResNet"
+                         class="lazyload">
+                
+                <a href="/2023/10/11/ResNet/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        ResNet
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="野中晴" class="lazyload">
+            <div class="sidebar-author-name">野中晴</div>
+            <div class="sidebar-description">Love is selfish.</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">136</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">171</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Essay/">Essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reading/">reading</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a></li></ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/0/" style="font-size: 10px;">0</a> <a href="/tags/3-1/" style="font-size: 10px;">3-1</a> <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/AI-Ethics/" style="font-size: 10px;">AI Ethics</a> <a href="/tags/Advancing-Spiking-Neural-Networks-towards-Deep-Residual-Learning/" style="font-size: 10.91px;">Advancing Spiking Neural Networks towards Deep Residual Learning</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/Artificial-neural-networks/" style="font-size: 10px;">Artificial neural networks</a> <a href="/tags/Attention/" style="font-size: 10px;">Attention</a> <a href="/tags/Benchmark/" style="font-size: 10px;">Benchmark</a> <a href="/tags/CAS/" style="font-size: 10px;">CAS</a> <a href="/tags/CAS%E5%AE%9E%E4%B9%A0offer/" style="font-size: 10px;">CAS实习offer</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 14.55px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Deep-learning/" style="font-size: 10px;">Deep learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 10.91px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/GoAbroad/" style="font-size: 16.36px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 11.82px;">IELTS</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lec01/" style="font-size: 11.82px;">Lec01</a> <a href="/tags/Lec01s/" style="font-size: 10.91px;">Lec01s</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/M2/" style="font-size: 10px;">M2</a> <a href="/tags/MIT6-S081/" style="font-size: 13.64px;">MIT6.S081</a> <a href="/tags/MS-ResNet/" style="font-size: 10px;">MS-ResNet</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Missing-Semester/" style="font-size: 10px;">Missing Semester</a> <a href="/tags/NNDL/" style="font-size: 10px;">NNDL</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Neuromorphic-computing/" style="font-size: 10px;">Neuromorphic computing</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/Qingyao-Ai/" style="font-size: 10.91px;">Qingyao Ai</a> <a href="/tags/RISC-V/" style="font-size: 10px;">RISC-V</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/ResNet/" style="font-size: 10px;">ResNet</a> <a href="/tags/SE/" style="font-size: 13.64px;">SE</a> <a href="/tags/SE-3-0/" style="font-size: 10px;">SE-3.0</a> <a href="/tags/SNN/" style="font-size: 10.91px;">SNN</a> <a href="/tags/SNN-vs-RNN/" style="font-size: 10px;">SNN vs RNN</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/Spiking-neural-network/" style="font-size: 10px;">Spiking neural network</a> <a href="/tags/Spiking-neural-networks/" style="font-size: 10px;">Spiking neural networks</a> <a href="/tags/StarBucks/" style="font-size: 12.73px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 13.64px;">T1</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 14.55px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 10.91px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bing/" style="font-size: 10px;">bing</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chapter00/" style="font-size: 10px;">chapter00</a> <a href="/tags/chapter01/" style="font-size: 10px;">chapter01</a> <a href="/tags/chapter02/" style="font-size: 10px;">chapter02</a> <a href="/tags/chapter03/" style="font-size: 10px;">chapter03</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 17.27px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/dalle3/" style="font-size: 10px;">dalle3</a> <a href="/tags/database/" style="font-size: 12.73px;">database</a> <a href="/tags/debug/" style="font-size: 11.82px;">debug</a> <a href="/tags/deep-neural-network/" style="font-size: 10px;">deep neural network</a> <a href="/tags/discussion/" style="font-size: 10px;">discussion</a> <a href="/tags/dowhy/" style="font-size: 10.91px;">dowhy</a> <a href="/tags/echo/" style="font-size: 10px;">echo</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 10.91px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 11.82px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/homework/" style="font-size: 10px;">homework</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 12.73px;">instructor</a> <a href="/tags/intern-00/" style="font-size: 10px;">intern-00</a> <a href="/tags/intern00/" style="font-size: 10px;">intern00</a> <a href="/tags/internship/" style="font-size: 15.45px;">internship</a> <a href="/tags/introduction/" style="font-size: 11.82px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/l1/" style="font-size: 10px;">l1</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/neuromorphic-computing/" style="font-size: 10px;">neuromorphic computing</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/openai/" style="font-size: 10px;">openai</a> <a href="/tags/os/" style="font-size: 13.64px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 19.09px;">paper</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 12.73px;">prml</a> <a href="/tags/pytorch/" style="font-size: 10px;">pytorch</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 11.82px;">shap</a> <a href="/tags/shell-vs-terminal/" style="font-size: 10px;">shell vs terminal</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/tensor-vs-ndarray/" style="font-size: 10px;">tensor vs ndarray</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/tool/" style="font-size: 14.55px;">tool</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/xv6/" style="font-size: 10px;">xv6</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 18.18px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E8%A2%AB%E7%BA%A6%E5%AE%9A%E6%9D%9F%E7%BC%9A%E4%BA%86/" style="font-size: 10px;">再也不用被约定束缚了</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%86%99%E4%BD%9C%E5%BF%83%E5%BE%97/" style="font-size: 10px;">写作心得</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%93%88%E5%B8%8C%E5%80%BC/" style="font-size: 10px;">哈希值</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 10.91px;">审稿意见</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/" style="font-size: 10px;">拓扑结构</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%94%BE%E4%B8%8B/" style="font-size: 10px;">放下</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 10.91px;">最长的电影</a> <a href="/tags/%E6%A6%82%E8%AE%BA/" style="font-size: 10px;">概论</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 14.55px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE%E4%B9%A6/" style="font-size: 10px;">系统开发建议书</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">软件生命周期模型</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                野中晴
+            </div>
+            
+                <div>
+                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    248.5k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    15:31
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="野中晴" class="lazyload">
+            <div class="sidebar-author-name">野中晴</div>
+            <div class="sidebar-description">Love is selfish.</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">136</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">171</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
