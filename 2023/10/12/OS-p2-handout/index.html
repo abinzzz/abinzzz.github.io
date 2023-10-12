@@ -1,0 +1,658 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        OS:p2-handout |
+        
+        Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Programming Project 2: Threads and Interprocess Communication  Overview and Goal 在这个项目中，您将了解BLITZ中的线程，并熟悉编写涉及">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OS:p2-handout">
+<meta property="og:url" content="https://abinzzz.github.io/2023/10/12/OS-p2-handout/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Programming Project 2: Threads and Interprocess Communication  Overview and Goal 在这个项目中，您将了解BLITZ中的线程，并熟悉编写涉及">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-12T07:12:40.000Z">
+<meta property="article:modified_time" content="2023-10-12T09:40:11.851Z">
+<meta property="article:author" content="野中晴">
+<meta property="article:tag" content="专业知识">
+<meta property="article:tag" content="os">
+<meta property="article:tag" content="p2">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/katex@0.16.7/dist/katex.min.css">
+
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">Loading...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="OS:p2-handout" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>OS:p2-handout</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">首页</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">归档</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">关于</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">友链</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS 订阅"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://abinzzz.github.io"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-OS-p2-handout" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/10/12/OS-p2-handout/" class="article-date-link">
+        <time datetime="2023-10-12T07:12:40.000Z"
+              itemprop="datePublished">2023-10-12</time>
+    </a>
+</div>
+
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a>
+    </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h1 id="programming-project-2-threads-and-interprocess-communication"><a class="markdownIt-Anchor" href="#programming-project-2-threads-and-interprocess-communication"></a> Programming Project 2: Threads and Interprocess Communication</h1>
+<h2 id="overview-and-goal"><a class="markdownIt-Anchor" href="#overview-and-goal"></a> Overview and Goal</h2>
+<p>在这个项目中，您将了解BLITZ中的线程，并熟悉编写涉及并发控制的程序。您将首先研究实现多线程的thread包，然后然后对现有代码进行一些修改和添加，以使用此包中提供的代码解决一些传统的并发问题。您还将熟悉使用KPL语言编程。</p>
+<p>在你开始这个实验之前，你需要仔细阅读标题为“The Thread Scheduler and Concurrency Control Primitives”的整个文档:</p>
+<br>
+<h2 id="step-1-download-the-files"><a class="markdownIt-Anchor" href="#step-1-download-the-files"></a> Step 1: Download the Files</h2>
+<p>首先为这个项目需要的文件创建一个目录。你可以称之为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~YourUserName/os23/lab2</span><br></pre></td></tr></table></figure>
+<br>
+<p>然后下载所有的文件到你的文件夹里:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://gitee.com/hliang-bupt/os23/labs/p2/</span><br></pre></td></tr></table></figure>
+<br>
+<p>您应该得到以下文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">makefile</span><br><span class="line">DISK</span><br><span class="line">System.h</span><br><span class="line">System.c</span><br><span class="line">Runtime.s</span><br><span class="line">Switch.s</span><br><span class="line">List.h</span><br><span class="line">List.c</span><br><span class="line">Thread.h</span><br><span class="line">Thread.c</span><br><span class="line">Main.h</span><br><span class="line">Main.c</span><br><span class="line">Synch.h</span><br><span class="line">Synch.c</span><br></pre></td></tr></table></figure>
+<br>
+<p>在这个项目中，你将修改并上交以下文件:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Main.c</span><br><span class="line">Synch.h</span><br><span class="line">Synch.c</span><br></pre></td></tr></table></figure>
+<br>
+<p>获得文件后，您应该能够使用<strong>UNIX make</strong>命令编译所有代码(原样)。我们正在构建的可执行程序称为“os”。可以通过输入以下命令来执行程序:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% make</span><br><span class="line">% blitz –g os</span><br></pre></td></tr></table></figure>
+<br>
+<p>除了<code>Synch.c、Synch.c和Main.c</code>之外，您还可以修改其他文件，但需要编写<br />
+和上交的代码不需要对其他文件进行任何更改。例如，您可能希望取消某些的print语句的注释，以查看发生了什么。但是，<code>Synch.h、Synch.c和Main.c</code>的最终版本必须与其他文件一起工作，就像它们发布时一样。</p>
+<p>不要重用项目1中的任何文件，因为它们被认为是过时的。</p>
+<br>
+<h2 id="step-2-study-the-existing-code"><a class="markdownIt-Anchor" href="#step-2-study-the-existing-code"></a> Step 2: Study the Existing Code</h2>
+<p>这个项目中提供的代码提供了创建和运行多个线程的能力，以及通过几个同步方法控制并发性的能力。</p>
+<p>首先查看系统包。重点介绍文件<code>System.c</code>开头的资料，即函数:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">print</span><br><span class="line">printInt</span><br><span class="line">printHex</span><br><span class="line">printChar</span><br><span class="line">printBool</span><br><span class="line">nl</span><br><span class="line">MemoryEqual</span><br><span class="line">StrEqual</span><br><span class="line">StrCopy</span><br><span class="line">StrCmp</span><br><span class="line">Min</span><br><span class="line">Max</span><br><span class="line">printIntVar</span><br><span class="line">printHexVar</span><br><span class="line">printBoolVar</span><br><span class="line">printCharVar</span><br><span class="line">printPtr</span><br></pre></td></tr></table></figure>
+<p>熟悉打印函数;你会经常调用他们。有些是用汇编代码实现的，有些是用KPL在系统包中实现的。</p>
+<br>
+<p>以下函数用于在KPL中实现堆:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">KPLSystemInitialize</span><br><span class="line">KPLMemoryAlloc</span><br><span class="line">KPLMemoryFree</span><br></pre></td></tr></table></figure>
+<p>可以在堆上分配对象，并使用<code>alloc</code>和<code>free</code>语句释放对象。在这个实现中，堆实现是非常基本的。在您的内核中，您可以在启动期间分配对象，但在此之后，您不能在堆上分配对象!为什么?因为堆可能被填满，然后内核应该做什么?崩溃!</p>
+<p>在这个项目中，不应该在堆上分配任何东西</p>
+<br>
+<p>以下函数可以忽略，因为它们涉及我们不会使用的KPL语言方面:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">KPLUncaughtThrow</span><br><span class="line">UncaughtThrowError</span><br><span class="line">KPLIsKindOf</span><br><span class="line">KPLSystemError</span><br></pre></td></tr></table></figure>
+<br>
+<p><code>Runtime.s</code>文件包含了许多用汇编语言编码的例程。它包含程序入口点和低内存中的中断向量。看一看。看看程序从位置0x00000000(the label“_entry”)开始执行时会发生什么。标记为“<code>_mainEntry</code>”的代码包含在编译器生成的代码中。“<code>_mainEntry</code>”代码将调用main函数，该函数出现在文件<code>Main.c</code>中。</p>
+<p>在<code>Runtime.s</code>，跟踪定时器中断发生时发生的情况。它对一个名为<code>_P_Thread_TimerInterruptHandler</code>的例程进行“<code>up-call</code>”。这个名称指的是“一个在<code>Thread</code>的包中名为<code>TimerInterruptHandler</code>的函数.(<code>_P_Thread_TimerInterruptHandler</code>是编译器为该函数指定的名称。)</p>
+<p>KPL语言将检查许多错误条件，例如使用null指针。试着修改程序来犯这个错误。在<code>Runtime.s</code>中，当这种情况发生时会发生什么</p>
+<br>
+<p>接下来阅读<code>List</code>包。仔细阅读头文件。这个包提供了实现链表的代码。我们将在这个项目中使用链表。例如，准备运行(并在CPU上等待时间)的线程将保存在一个称为“<code>ready list</code>”的链表中。被阻塞的线程将位于其他链表上。还要查看<code>List.c</code>代码文件。</p>
+<br>
+<p>这个项目中的关键类名为<code>Thread</code>，它与其他东西一起位于<code>Thread</code>包中(请参阅Thread.h, Thread.c)。对于每个线程，都有一个单独的<code>Thread</code>对象。<code>Thread</code>是<code>Listable</code>的一个子类，这意味着每个<code>Thread</code>对象包含一个<code>next</code>指针，可以添加到一个链表。</p>
+<p><code>Thread</code>包是核心，您应该彻底研究此代码。这个package包含一个类(称为<code>Thread</code>)和几个与线程调度和时间切片相关的函数:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">InitializeScheduler ()</span><br><span class="line">IdleFunction (arg: int)</span><br><span class="line">Run (nextThread: ptr to Thread)</span><br><span class="line">PrintReadyList ()</span><br><span class="line">ThreadStartMain ()</span><br><span class="line">ThreadFinish ()</span><br><span class="line">FatalError (errorMessage: ptr to array of char)</span><br><span class="line">SetInterruptsTo (newStatus: int) returns int</span><br><span class="line">TimerInterruptHandler ()</span><br></pre></td></tr></table></figure>
+<br>
+<p><code>FatalError</code>是最简单的函数。每当我们希望打印错误消息并中止程序时，都将调用<code>FatalError</code>。通常，在进行一些检查并发现事情不像预期的那样之后，我们将调用<code>FatalError</code>。<code>FatalError</code>将打印调用它的线程的名称，打印消息，然后关闭。它会让我们进入BLITZ模拟器的命令行模式。通常，接下来要做的事情可能是键入“st”命令(“stack”的缩写)，以查看哪些函数和方法是active</p>
+<p>(当然，模拟器输出的信息只与调用<code>FatalError</code>的线程有关。模拟器不知道线程，而且几乎不可能通过检查内存中的字节来提取有关其他线程的信息。)</p>
+<br>
+<p>下一个要看的函数是<code>SetInterruptsTo</code>，它用于更改CPU中的“I”中断位。我们可以使用它来禁用中断，如下所示:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">... = SetInterruptsTo (DISABLED)</span><br></pre></td></tr></table></figure>
+<p>我们可以用它来启用中断:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">... = SetInterruptsTo (ENABLED)</span><br></pre></td></tr></table></figure>
+<p>这个函数返回之前的状态。这是非常有用的，因为我们经常希望<strong>禁用</strong>中断(不管之前是什么)，然后稍后希望将中断状态返回到之前的状态。在我们的内核中，我们经常会看到这样的代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var oldIntStat: int</span><br><span class="line">...</span><br><span class="line">oldIntStat = SetInterruptsTo (DISABLED)</span><br><span class="line">...</span><br><span class="line">oldIntStat = SetInterruptsTo (oldIntStat)</span><br></pre></td></tr></table></figure>
+<br>
+<p>接下来看看<code>Thread</code>类。下面是<code>Thread</code>的字段:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">name: ptr to array of char</span><br><span class="line">status: int</span><br><span class="line">systemStack: array [SYSTEM_STACK_SIZE] of int</span><br><span class="line">regs: array [13] of int</span><br><span class="line">stackTop: ptr to void</span><br><span class="line">initialFunction: ptr to function (int)</span><br><span class="line">initialArgument: int</span><br></pre></td></tr></table></figure>
+<p>下面是可以在<code>Thread</code>上执行的操作(即方法):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Init (n: ptr to array of char)</span><br><span class="line">Fork (fun: ptr to function (int), arg: int)</span><br><span class="line">Yield ()</span><br><span class="line">Sleep ()</span><br><span class="line">CheckOverflow ()</span><br><span class="line">Print ()</span><br></pre></td></tr></table></figure>
+<p>每个线程都处于以下状态之一:</p>
+<ul>
+<li>JUST_CREATED</li>
+<li>READY</li>
+<li>RUNNING</li>
+<li>BLOCKED</li>
+<li>UNUSED</li>
+</ul>
+<p><code>status</code>字段给出了这些状态。(在终止后，将<strong>未使用</strong>状态赋予<code>Thread</code>。我们在以后的项目中会用到它。)</p>
+<p>每个线程都有一个<code>name</code>。要创建线程，你需要一个<code>Thread</code>变量。首先，使用<code>Init</code>来初始化它，提供一个名称。</p>
+<p>每个线程都需要自己的栈，栈的空间直接放在名为<code>systemStack</code>的字段中的<code>Thread</code>对象中。目前，这是一个包含1000个单词的数组，应该足够了。(可以想象我们的代码可能会超过这个限制;有一个检查来确保我们不会溢出这个有限的区域。)</p>
+<p>这个项目中的所有线程将在系统模式下运行。因此，栈被称为“<code>system stack</code>”。在后面的项目中，我们将看到该栈仅用于内核例程。用户程序将在其虚拟地址空间中拥有自己的堆栈,但我们已经超前了。</p>
+<p><code>Thread</code>对象也有空间来存储CPU的状态，即寄存器。每当线程切换发生时，寄存器将保存在<code>Thread</code>对象中。这些字段(<code>regs</code>和<code>stackTop</code>)由名为<code>Switch</code>的汇编代码例程使用。</p>
+<p><code>Thread</code>对象还有空间存储一个指向函数的指针(<code>initialFunction</code>字段)和这个函数的参数(<code>initialArgument</code>字段)。这个指针将指向这个线程的“main”函数;当这个线程开始执行时，这个函数会被执行。我们存储了一个指向函数的指针，因为这是一个变量:不同的线程可能执行不同的函数。</p>
+<p>我们还可以通过<code>initialArgument</code>字段为这个线程提供一个初始参数。参数必须是整数。通常会有多个线程执行同一个“<code>main</code>”函数。参数是一种方便的方式，可以让每个线程知道它应该扮演什么角色。例如，我们可以创建10个线程，每个线程都使用相同的“<code>main</code>”函数，但向每个线程传递不同的整数(例如，1和10之间)，以让它知道自己是哪个线程。</p>
+<p>初始化一个新<code>Thread</code>后，我们可以用<code>Fork</code>方法让它开始运行。这不会立即开始线程执行;相反，它使线程<strong>准备</strong>运行，并将其放在<code>readyList</code>上。<code>readyList</code>是一个<code>Thread</code>链表。<code>readyList</code>上的所有<code>Thread</code>的状态都是<strong>准备</strong>状态。<code>ReadyList</code>是一个全局变量。还有一个名为<code>currentThread</code>的全局变量，指向当前执行的<code>Thread</code>对象;例如，状态为<strong>RUNNING</strong>的线程</p>
+<p><code>Yield</code>方法只能在当前运行的线程上调用。它将导致切换到其他线程。</p>
+<p>仔细阅读<code>Yield</code>中的代码，看看线程切换发生时发生了什么。首先，中断是禁用的;我们不希望线程切换期间有任何干扰。<code>readyList</code>和<code>currentThread</code>是共享变量，当切换线程时，我们希望能够安全地访问和更新它们。然后，<code>Yield</code>会从<code>readyList</code>中找到下一个线程。(如果没有其他线程，那么<code>Yield</code>实际上是。)然后，<code>Yield</code>将使当前运行的进程<strong>READY</strong>(准备，即不再运行)，并将当前线程添加到<code>readyList</code>的尾部。最后，它将调用<code>Run</code>函数来执行线程切换。</p>
+<p><code>Run</code>方法将检查当前线程上是否存在堆栈溢出。然后它将调用<code>Switch</code>来执行实际的切换。</p>
+<p><code>Switch</code>可能是你遇到过的最迷人的功能了!它位于汇编代码文件<code>Switch.S</code>，你应该仔细看一下。Switch不会返回到调用它的函数。相反，它会切换到另一个线程。然后它返回。因此，返回发生在另一个线程中的另一个函数上!</p>
+<p>唯一调用<code>Switch</code>的地方是<code>Run</code>函数，因此<code>Switch</code>返回到其他线程中对<code>Run</code>函数的某些调用。<code>Run</code>的副本(即调用)将返回给调用它的人。这可能是其他<code>Yield</code>的调用，我们将返回另一个<code>Yield</code>它将返回给调用它的人。</p>
+<p><code>Run</code>也会从<code>Sleep</code>中调用，所以我们可能在线程切换后从<code>Sleep</code>调用中返回</p>
+<p>第一次创建线程时，一切是如何设置的?当我们有从未调用过它时，我们如何“返回到一个函数”?看一下文件<code>Thread.c</code>中的函数<code>ThreadStartMain</code>和文件<code>Switch.s</code>中的函数<code>ThreadStartUp</code>。</p>
+<p>线程终止时会发生什么?看一下<code>Thread.c</code>文件中的<code>ThreadFinish</code>。本质上，<br />
+线程处于睡眠状态，永远不可能被唤醒。(难怪他们称之为“线程死亡!”)</p>
+<p>接下来，看看当某个线程正在执行时发生定时器中断时会发生什么。这是一个中断，因此CPU首先中断当前例程的执行，并将某些状态压入其(系统)堆栈。然后，它禁用中断并在<code>Runtime.s</code>跳转到名为<code>TimerInterruptHandler</code>的汇编代码例程。它只是调用<code>Thread.c</code>中的<code>TimerInterruptHandler</code>函数。</p>
+<p>在<code>TimerInterruptHandler</code>中，我们调用<code>Yield</code>，然后它会切换到另一个线程。稍后，当这个线程再次有机会运行时，我们将回到这里。然后，我们将返回到汇编语言例程，将执行“<code>reti</code>”指令。这将使状态恢复到之前的状态，中断的例程(无论它是什么)将继续。</p>
+<p>注意，这段代码维护了一个名为<code>currentInterruptStatus</code>的变量。这是因为查询CPU的“I”位相当困难。更简单的做法是，只要中断状态发生变化，就改变该变量。我们可以在<code>TimerInterruptHandler</code>函数中看到这种情况。显然，中断发生后将立即禁用。<code>Yield</code>数会保持中断状态。因此当我们从<code>Yield</code>返回时，中断将再次被禁用。在返回被中断的线程之前，我们将<code>currentInterruptStatus</code>设置为ENABLED。(它们必须在中断发生之前启用，否则它不可能发生，因此在我们执行“<code>reti</code>”指令之后，状态将恢复到之前的状态，即启用。)</p>
+<p>现在您已经准备好开始使用和修改代码了!请实验代码，我们刚刚有讨论，必须要理解它。</p>
+<br>
+<h2 id="step-3-run-the-simplethreadexample-code"><a class="markdownIt-Anchor" href="#step-3-run-the-simplethreadexample-code"></a> Step 3: Run the “SimpleThreadExample” Code</h2>
+<p>通过文件<code>Main.c</code>中的<code>SimpleThreadExample</code>的输出执行和跟踪。</p>
+<p>在<code>TimerInterruptHandler</code>中有一个语句:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printChar (&#x27;_&#x27;)</span><br></pre></td></tr></table></figure>
+<p>它被注释掉了。试着取消注释。确保理解输出。</p>
+<p>在<code>TimerInterruptHandler</code>中，调用了<code>Yield</code>。为什么会有这个?尝试注释这个<br />
+语句？会发生什么。确保你明白<code>Yield</code>在这里是如何工作的。</p>
+<br>
+<h2 id="step-4-run-the-morethreadexamples-code"><a class="markdownIt-Anchor" href="#step-4-run-the-morethreadexamples-code"></a> Step 4: Run the “MoreThreadExamples” Code</h2>
+<p>跟踪输出。试着修改这段代码，看看会发生什么。</p>
+<br>
+<h2 id="step-5-implement-the-mutex-class"><a class="markdownIt-Anchor" href="#step-5-implement-the-mutex-class"></a> Step 5: Implement the “Mutex” Class</h2>
+<p>在这一部分中，你必须实现类<code>Mutex</code>。<code>Mutex</code>的类规范在<code>Synch.h</code>中给出了:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Mutex</span><br><span class="line">superclass Object</span><br><span class="line">methods</span><br><span class="line">Init ()</span><br><span class="line">Lock ()</span><br><span class="line">Unlock ()</span><br><span class="line">IsHeldByCurrentThread () returns bool</span><br><span class="line">endClass</span><br></pre></td></tr></table></figure>
+<p>你需要为每个方法提供代码。在<code>Synch,c</code>中，您将看到<code>Mutex</code>的<code>behavior</code>构造。有<code>Init</code>、<code>Lock</code>、<code>Unlock</code>和<code>IsHeldByCurrentThread</code>方法，但这些方法有虚拟体。你需要编写这四个方法的代码.</p>
+<p>您还需要向<code>Mutex</code>的<code>class</code>规范中添加两个字段，以实现所需的功能.</p>
+<p>如何实现<code>Mutex</code>类?仔细看看<code>Semaphore</code>类;您的<code>Mutex</code>的实现将非常相似</p>
+<p>首先考虑<code>IsHeldByCurrentThread</code>方法，它可以被任何线程调用。方法的代码需要知道哪个线程持有mutex上的锁;然后它可以将其与<code>currentThread</code>进行比较，看看它们是否相同.因此，您可以考虑向<code>Mutex</code>类添加一个字段(可能是，名为<code>heldBy</code>)，它将是指向持有mutex的线程的指针。当然，需要在锁住mutex时将其设置为当前线程。您可以在该字段中使用null值表示没有线程持有mutex上的锁。</p>
+<p>当对mutex请求加锁时，您需要查看是否有任何线程已经对该mutex加了锁。如果是，则需要让当前进程进入睡眠状态。要让线程进入睡眠状态，请查看方法<code>Semaphore.Down</code>。在任何时候，可能有零个、一个或多个线程等待获得mutex上的锁;您需要保存这些线程的列表，以便在执行<code>Unlock</code>时，您可以唤醒其中一个线程。与<code>Semaphore</code>的情况一样，您应该使用FIFO队列，唤醒等待时间最长的线程。</p>
+<p>在<code>Lock</code>方法中添加错误检查也是一个好主意，以确保请求锁住mutex的当前线程还没有持有mutex上的锁。如果有，您可以简单地调用<code>FatalError</code>。(这可能表明在使用mutex的代码中存在逻辑错误。它会导致陷入死锁，线程永远冻结，等待自己释放锁。)同样，您还应该添加一个<code>Unlock</code>的检查，以确保当前线程确实持有锁，如果没有，则调用<code>FatalError</code>。稍后你会用到<code>Mutex</code>类，所以这些检查将有助于你在以后的项目中调试。</p>
+<p><code>Main.c</code>提供了<code>TestMutex</code>函数来练习Mutex的实现。它创建了7个线程，这些线程激烈地竞争一个mutex锁。</p>
+<br>
+<h2 id="step-6-implement-the-producer-consumer-solution"><a class="markdownIt-Anchor" href="#step-6-implement-the-producer-consumer-solution"></a> Step 6: Implement the Producer-Consumer Solution</h2>
+<p>我们的讲座和一些教科书包含对生产者-消费者问题的讨论，包括解决方案。在KPL中使用类<code>Mutex</code>和<code>Semaphore</code>实现该功能。处理多个生产者和多个消费者，它们共享一个有界缓冲区。</p>
+<p>当您尝试完成这个实验时，我们的讲座可能刚刚讨论到使用互斥锁和信号量来正确地实现生产者-消费者问题的解决方案。在这种情况下，如果您希望尽早完成这部分实验，您可能需要在“Three Easy Pieces””教科书中提前阅读一点，从第26章到包括第31.4章(“生产者-消费者问题”)，在讲座覆盖到达这一点之前。如果你不能完全理解解决方案，也没关系，因为我们将在接下来的讲座中详细介绍这个问题.</p>
+<p><code>Main</code>package包含一些用作框架的代码。该缓冲区称为<code>buffer</code>， 包含最多<code>BUFFER_SIZE</code>(例如，5)个字符。有5个生产者进程，每个由线程建模，还有3个消费者进程，每个由线程建模。因此，除了创建其他线程的主线程之外，还有8个线程。</p>
+<p>每个生成器将循环，向缓冲区添加5个字符。第一个生产者将添加5个’ A ‘字符，第二个生产者将添加5个’ B '，以此类推。但是，由于这些线程的执行是交错的，字符将以某种随机的顺序添加。</p>
+<br>
+<h2 id="step-7-implement-the-dining-philosophers-solution-using-a-monitor"><a class="markdownIt-Anchor" href="#step-7-implement-the-dining-philosophers-solution-using-a-monitor"></a> Step 7: Implement the Dining Philosopher’s Solution Using a Monitor</h2>
+<p><code>Main.c</code>提供了解决方案的初始框架。每个哲学家都用一个线程建模，我们提供的代码设置了这些线程。同步将由一个名为<code>ForkMonitor</code>的“监视器”控制。</p>
+<p>每个线程/哲学家的代码都为您提供了。检查<code>PhilosophizeAndEat</code>方法;你不需要修改这段代码。</p>
+<p>控制线程之间同步的监视器是用一个名为<code>ForkMonitor</code>的类实现的。以下是<code>ForkMonitor</code>的类规范:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class ForkMonitor</span><br><span class="line">  superclass Object</span><br><span class="line">  fields</span><br><span class="line">    status: array [5] of int   -- For each philosopher: HUNGRY,</span><br><span class="line">                               -- EATING, or THINKING</span><br><span class="line">  methods</span><br><span class="line">    Init ()</span><br><span class="line">    PickupForks (p: int)</span><br><span class="line">    PutDownForks (p: int)</span><br><span class="line">    PrintAllStatus ()</span><br><span class="line">endClass</span><br></pre></td></tr></table></figure>
+<p>你需要提供<code>Init</code>、<code>PickupForks</code>和<code>PutDownForks</code>方法的代码。您还需要添加其他字段，甚至可能添加另一个方法。</p>
+<p>提供了<code>PrintAllStatus</code>的代码。当您更改任何哲学家的状态时，您应该调用此方法。这个方法会打印一行输出，让你能看到发生了什么。</p>
+<p>你如何继续?您需要一个互斥量来保护监视器本身。有两种主要的方法(<code>PickupForks</code>和`PutDownForks``)，它们被称为哲学家线程。在这些方法开始时，第一件事是锁定监视器互斥量。这将确保在监视器中一次只有一个线程在执行。就在这些方法返回之前，它必须解锁监视器(通过解锁监视器的互斥量)，以便其他线程可以进入监视器代码。</p>
+<p>你还需要使用<code>Synch</code>包中提供的<code>Condition</code>类。(<code>Condition</code>类Mutex，因此假定您已经完成并测试了<code>Mutex</code>类。)</p>
+<p>BLITZ模拟器有一些参数，其中之一是定时器中断发生的频率。默认值是每5000条指令。您可以尝试更改此参数，以查看它如何影响程序的行为。要更改仿真参数，请在仿真器中键入<code>sim</code>命令。命令将为您提供创建名为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.blitzrc</span><br></pre></td></tr></table></figure>
+<br>
+<p>创建此文件后，您可以手动编辑它。下次运行模拟器时，它将使用这个新的值。还要注意，值过小(如1000)会导致程序挂起。你认为造成这种影响的原因是什么?</p>
+<p><strong>问题</strong>:两本教科书都讨论了条件变量信号的语义。他们提到了“Hoare语义”。<code>Sybch.c</code>中的代码注释指出，该版本实现了“Mesa-style”语义。这与Hoare语义是相同还是不同?</p>
+<br>
+<h2 id="an-example-of-correct-output"><a class="markdownIt-Anchor" href="#an-example-of-correct-output"></a> An Example of Correct Output</h2>
+<p>以下文件包含一个示例，说明正确的输出应该是什么样子:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DesiredOutput1.pdf</span><br><span class="line">DesiredOutput2.pdf</span><br><span class="line">DesiredOutput3.pdf</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="what-to-hand-in"><a class="markdownIt-Anchor" href="#what-to-hand-in"></a> What to Hand In</h2>
+<p>完成以上所有步骤</p>
+<p>请提交以下文件的硬拷贝：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Synch.h</span><br><span class="line">Synch.c</span><br><span class="line">Main.c</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="grading"><a class="markdownIt-Anchor" href="#grading"></a> Grading</h2>
+<p>在评分时，助教可能会问你一两个问题，看看你是否真的阅读了这份材料，遵循了这个实验中概述的步骤，并了解你自己的解决方案。特别是，如果您没有阅读此讲义(并遵循其所有步骤)或标题为“The Thread Scheduler and Concurrency Control Primitives”的文档，则可能无法正确回答这些问题。您答对问题获得5分的评分。</p>
+<p>您提交的解决方案还将使用测试用例进行标记(在剩余的5个标记中)，例如提供的函数TestMutex。这个实验作业的最高分数是10分。</p>
+<p>在本课程中，您提交的代码将根据正确性和风格进行评分：</p>
+<ul>
+<li>正确性意味着代码必须正确工作并且不包含错误。</li>
+<li>风格意味着代码必须整洁，注释良好，组织良好，并且易于阅读。在风格上，你的代码应该与我们分发给你的代码相匹配。缩进应该是相同的，注释的程度应该是相同的。</li>
+</ul>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="https://abinzzz.github.io/2023/10/12/OS-p2-handout/" data-id="clnn2gsqn0000r969dbf5bri8" data-title="OS:p2-handout"
+               class="article-share-link">分享</a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/p2/" rel="tag">p2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" rel="tag">专业知识</a></li></ul>
+
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="Mac配置PyTorch完整版教程(M2芯片)"
+                         class="lazyload">
+                
+                <a href="/2023/10/12/Mac%E9%85%8D%E7%BD%AEPyTorch%E5%AE%8C%E6%95%B4%E7%89%88%E6%95%99%E7%A8%8B-M2%E8%8A%AF%E7%89%87/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        Mac配置PyTorch完整版教程(M2芯片)
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="野中晴" class="lazyload">
+            <div class="sidebar-author-name">野中晴</div>
+            <div class="sidebar-description">Love is selfish.</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">137</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">173</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Essay/">Essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reading/">reading</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a></li></ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/0/" style="font-size: 10px;">0</a> <a href="/tags/3-1/" style="font-size: 10px;">3-1</a> <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/AI-Ethics/" style="font-size: 10px;">AI Ethics</a> <a href="/tags/Advancing-Spiking-Neural-Networks-towards-Deep-Residual-Learning/" style="font-size: 10.91px;">Advancing Spiking Neural Networks towards Deep Residual Learning</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/Artificial-neural-networks/" style="font-size: 10px;">Artificial neural networks</a> <a href="/tags/Attention/" style="font-size: 10px;">Attention</a> <a href="/tags/Benchmark/" style="font-size: 10px;">Benchmark</a> <a href="/tags/CAS/" style="font-size: 10px;">CAS</a> <a href="/tags/CAS%E5%AE%9E%E4%B9%A0offer/" style="font-size: 10px;">CAS实习offer</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 14.55px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Deep-learning/" style="font-size: 10px;">Deep learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 10.91px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/GoAbroad/" style="font-size: 16.36px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 11.82px;">IELTS</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lec01/" style="font-size: 11.82px;">Lec01</a> <a href="/tags/Lec01s/" style="font-size: 10.91px;">Lec01s</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/M2/" style="font-size: 10px;">M2</a> <a href="/tags/MIT6-S081/" style="font-size: 13.64px;">MIT6.S081</a> <a href="/tags/MS-ResNet/" style="font-size: 10px;">MS-ResNet</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Missing-Semester/" style="font-size: 10px;">Missing Semester</a> <a href="/tags/NNDL/" style="font-size: 10px;">NNDL</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Neuromorphic-computing/" style="font-size: 10px;">Neuromorphic computing</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/Qingyao-Ai/" style="font-size: 10.91px;">Qingyao Ai</a> <a href="/tags/RISC-V/" style="font-size: 10px;">RISC-V</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/ResNet/" style="font-size: 10px;">ResNet</a> <a href="/tags/Rethinking-the-performance-comparison-between-SNNS-and-ANNS/" style="font-size: 10px;">Rethinking the performance comparison between SNNS and ANNS</a> <a href="/tags/SE/" style="font-size: 13.64px;">SE</a> <a href="/tags/SE-3-0/" style="font-size: 10px;">SE-3.0</a> <a href="/tags/SNN/" style="font-size: 10.91px;">SNN</a> <a href="/tags/SNN-vs-RNN/" style="font-size: 10px;">SNN vs RNN</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/Spiking-neural-network/" style="font-size: 10px;">Spiking neural network</a> <a href="/tags/Spiking-neural-networks/" style="font-size: 10px;">Spiking neural networks</a> <a href="/tags/StarBucks/" style="font-size: 12.73px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 13.64px;">T1</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/University/" style="font-size: 14.55px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 10.91px;">Yuxiao Dong</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bing/" style="font-size: 10px;">bing</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chapter00/" style="font-size: 10px;">chapter00</a> <a href="/tags/chapter01/" style="font-size: 10px;">chapter01</a> <a href="/tags/chapter02/" style="font-size: 10px;">chapter02</a> <a href="/tags/chapter03/" style="font-size: 10px;">chapter03</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/coding/" style="font-size: 17.27px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/dalle3/" style="font-size: 10px;">dalle3</a> <a href="/tags/database/" style="font-size: 12.73px;">database</a> <a href="/tags/debug/" style="font-size: 11.82px;">debug</a> <a href="/tags/deep-neural-network/" style="font-size: 10px;">deep neural network</a> <a href="/tags/discussion/" style="font-size: 10px;">discussion</a> <a href="/tags/dowhy/" style="font-size: 10.91px;">dowhy</a> <a href="/tags/echo/" style="font-size: 10px;">echo</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 10.91px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 11.82px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/homework/" style="font-size: 10px;">homework</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 12.73px;">instructor</a> <a href="/tags/intern-00/" style="font-size: 10px;">intern-00</a> <a href="/tags/intern00/" style="font-size: 10.91px;">intern00</a> <a href="/tags/internship/" style="font-size: 15.45px;">internship</a> <a href="/tags/introduction/" style="font-size: 11.82px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/l1/" style="font-size: 10px;">l1</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/neuromorphic-computing/" style="font-size: 10px;">neuromorphic computing</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/openai/" style="font-size: 10px;">openai</a> <a href="/tags/os/" style="font-size: 14.55px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/p2/" style="font-size: 10px;">p2</a> <a href="/tags/paper/" style="font-size: 19.09px;">paper</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 12.73px;">prml</a> <a href="/tags/pytorch/" style="font-size: 10px;">pytorch</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 11.82px;">shap</a> <a href="/tags/shell-vs-terminal/" style="font-size: 10px;">shell vs terminal</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/tensor-vs-ndarray/" style="font-size: 10px;">tensor vs ndarray</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/tool/" style="font-size: 14.55px;">tool</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/xv6/" style="font-size: 10px;">xv6</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 18.18px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E8%A2%AB%E7%BA%A6%E5%AE%9A%E6%9D%9F%E7%BC%9A%E4%BA%86/" style="font-size: 10px;">再也不用被约定束缚了</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%86%99%E4%BD%9C%E5%BF%83%E5%BE%97/" style="font-size: 10px;">写作心得</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%93%88%E5%B8%8C%E5%80%BC/" style="font-size: 10px;">哈希值</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 10.91px;">审稿意见</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/" style="font-size: 10px;">拓扑结构</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%94%BE%E4%B8%8B/" style="font-size: 10px;">放下</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 10.91px;">最长的电影</a> <a href="/tags/%E6%A6%82%E8%AE%BA/" style="font-size: 10px;">概论</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 14.55px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE%E4%B9%A6/" style="font-size: 10px;">系统开发建议书</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">软件生命周期模型</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                野中晴
+            </div>
+            
+                <div>
+                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    253.7k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    15:49
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="野中晴" class="lazyload">
+            <div class="sidebar-author-name">野中晴</div>
+            <div class="sidebar-description">Love is selfish.</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">137</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">173</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
