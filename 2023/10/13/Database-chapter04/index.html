@@ -23,18 +23,19 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    Chapter04: Intermediate SQL本章我们继续学习SQL。我们考虑更复杂的 SQL 查询形式、视图定义、事务、完整性约束、有关 SQL 数据定义和授权的更多细节。 4.1 Join Express">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Chapter04: Intermediate SQL 本章我们继续学习SQL。我们考虑更复杂的 SQL 查询形式、视图定义、事务、完整性约束、有关 SQL 数据定义和授权的更多细节。  4.1 Join Expres">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Database:Chapter04-Intermediate SQL">
 <meta property="og:url" content="https://abinzzz.github.io/2023/10/13/Database-chapter04/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    Chapter04: Intermediate SQL本章我们继续学习SQL。我们考虑更复杂的 SQL 查询形式、视图定义、事务、完整性约束、有关 SQL 数据定义和授权的更多细节。 4.1 Join Express">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Chapter04: Intermediate SQL 本章我们继续学习SQL。我们考虑更复杂的 SQL 查询形式、视图定义、事务、完整性约束、有关 SQL 数据定义和授权的更多细节。  4.1 Join Expres">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/F8ikTmFboAAFl9p?format=png&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/F8ikWK6aoAAK8d6?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/F8itZHdaIAA2iY8?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F8jKxv5akAEeWvY?format=png&amp;name=medium">
 <meta property="article:published_time" content="2023-10-13T08:48:14.000Z">
-<meta property="article:modified_time" content="2023-10-16T08:50:39.631Z">
+<meta property="article:modified_time" content="2023-10-16T10:06:58.657Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="database">
@@ -204,58 +205,64 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-
-
-<h1 id="Chapter04-Intermediate-SQL"><a href="#Chapter04-Intermediate-SQL" class="headerlink" title="Chapter04: Intermediate SQL"></a>Chapter04: Intermediate SQL</h1><p>本章我们继续学习SQL。我们考虑更复杂的 SQL 查询形式、视图定义、事务、完整性约束、有关 SQL 数据定义和授权的更多细节。</p>
-<h2 id="4-1-Join-Expressions"><a href="#4-1-Join-Expressions" class="headerlink" title="4.1 Join Expressions"></a>4.1 Join Expressions</h2><ul>
+<h1 id="chapter04-intermediate-sql"><a class="markdownIt-Anchor" href="#chapter04-intermediate-sql"></a> Chapter04: Intermediate SQL</h1>
+<p>本章我们继续学习SQL。我们考虑更复杂的 SQL 查询形式、视图定义、事务、完整性约束、有关 SQL 数据定义和授权的更多细节。</p>
+<h2 id="41-join-expressions"><a class="markdownIt-Anchor" href="#41-join-expressions"></a> 4.1 Join Expressions</h2>
+<ul>
 <li><strong>Join操作</strong>：用作from子句中的子查询表达式</li>
 <li><strong>Join condition</strong>：定义两个关系中的哪些元组匹配，以及结果中有哪些属性</li>
 <li><strong>Join类型</strong>：定义如何处理每个关系中不匹配另一个关系中的任何元组</li>
 </ul>
-<p><br></p>
-<h2 id="4-1-1-The-Natural-Join"><a href="#4-1-1-The-Natural-Join" class="headerlink" title="4.1.1 The Natural Join"></a>4.1.1 The Natural Join</h2><p><strong>natural join</strong>:对两个关系进行运算并产生一个关系作为结果。</p>
+<br>
+<h2 id="411-the-natural-join"><a class="markdownIt-Anchor" href="#411-the-natural-join"></a> 4.1.1 The Natural Join</h2>
+<p><strong>natural join</strong>:对两个关系进行运算并产生一个关系作为结果。</p>
 <p>与<strong>笛卡尔积</strong>的不同：它将第一个关系的每个元组与第二个关系的每个元组连接起来，natural join仅考虑在两个关系的模式中出现的属性上具有相同值的那些元组对。</p>
-<p>一般形式：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A1, A2, … , An</span><br><span class="line"><span class="keyword">from</span> r1 <span class="keyword">natural</span> <span class="keyword">join</span> r2 <span class="keyword">natural</span> <span class="keyword">join</span> . . . <span class="keyword">natural</span> <span class="keyword">join</span> rm</span><br><span class="line"><span class="keyword">where</span> P;</span><br></pre></td></tr></table></figure></p>
-<hr>
+<p>一般形式：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A1, A2, … , An</span><br><span class="line"><span class="keyword">from</span> r1 <span class="keyword">natural</span> <span class="keyword">join</span> r2 <span class="keyword">natural</span> <span class="keyword">join</span> . . . <span class="keyword">natural</span> <span class="keyword">join</span> rm</span><br><span class="line"><span class="keyword">where</span> P;</span><br></pre></td></tr></table></figure>
+<hr />
 <p>例子：</p>
 <p>下面是给定的关系students和takes：</p>
-<p><img src="https://pbs.twimg.com/media/F8ikTmFboAAFl9p?format=png&amp;name=900x900" alt=""></p>
-<p><br></p>
-<p><img src="https://pbs.twimg.com/media/F8ikWK6aoAAK8d6?format=jpg&amp;name=medium" alt=""></p>
-<p>以前的写法：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, course id </span><br><span class="line"><span class="keyword">from</span> student, takes</span><br><span class="line"><span class="keyword">where</span> student.ID <span class="operator">=</span> takes.ID;</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>现在的写法：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, course id </span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">natural</span> <span class="keyword">join</span> takes;</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://pbs.twimg.com/media/F8ikTmFboAAFl9p?format=png&amp;name=900x900" alt="" /></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F8ikWK6aoAAK8d6?format=jpg&amp;name=medium" alt="" /></p>
+<p>以前的写法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, course id </span><br><span class="line"><span class="keyword">from</span> student, takes</span><br><span class="line"><span class="keyword">where</span> student.ID <span class="operator">=</span> takes.ID;</span><br></pre></td></tr></table></figure>
+<br>
+<p>现在的写法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, course id </span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">natural</span> <span class="keyword">join</span> takes;</span><br></pre></td></tr></table></figure>
 <p>我们将得到以下结果：</p>
-<p><img src="https://pbs.twimg.com/media/F8itZHdaIAA2iY8?format=jpg&amp;name=medium" alt=""></p>
-<hr>
-<h2 id="4-1-2-Join-Conditions"><a href="#4-1-2-Join-Conditions" class="headerlink" title="4.1.2 Join Conditions"></a>4.1.2 Join Conditions</h2><p>SQL 支持另一种形式的Join，其中可以指定任意连接条件。</p>
+<p><img src="https://pbs.twimg.com/media/F8itZHdaIAA2iY8?format=jpg&amp;name=medium" alt="" /></p>
+<hr />
+<h2 id="412-join-conditions"><a class="markdownIt-Anchor" href="#412-join-conditions"></a> 4.1.2 Join Conditions</h2>
+<p>SQL 支持另一种形式的Join，其中可以指定任意连接条件。</p>
 <p>对所连接的关系进行<strong>一般谓词</strong>: <code>on</code>条件,该谓词的编写方式与 where 子句谓词类似，只是使用关键字 on 而不是 where。与 using 条件类似，on 条件出现在连接表达式的末尾。</p>
 <p><code>on</code>条件的优点：</p>
 <ul>
 <li>对于一种称为外连接的连接，on 条件的行为方式确实与 where 条件不同。</li>
 <li>如果连接条件在 on 子句中指定，而其余条件出现在 where 子句中，则 SQL 查询通常更容易被人类阅读。</li>
 </ul>
-<p><br></p>
-<hr>
+<br>
+<hr />
 <p>例子：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">join</span> takes <span class="keyword">on</span> student.ID <span class="operator">=</span> takes.ID;</span><br></pre></td></tr></table></figure>
 <p>上面的 on 条件指定，如果来自 Student 的元组的 ID 值相等，则它们与来自 Takes 的元组相匹配。</p>
-<p>等价的结果：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> student, takes</span><br><span class="line"><span class="keyword">where</span> student.ID <span class="operator">=</span> takes.ID;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p><br></p>
-<h2 id="4-1-3-Outer-Joins"><a href="#4-1-3-Outer-Joins" class="headerlink" title="4.1.3 Outer Joins"></a>4.1.3 Outer Joins</h2><p>The <code>outer-join</code> operation: 通过在包含空值的结果中创建元组来保留在连接中丢失的元组</p>
+<p>等价的结果：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> student, takes</span><br><span class="line"><span class="keyword">where</span> student.ID <span class="operator">=</span> takes.ID;</span><br></pre></td></tr></table></figure>
+<hr />
+<br>
+<h2 id="413-outer-joins"><a class="markdownIt-Anchor" href="#413-outer-joins"></a> 4.1.3 Outer Joins</h2>
+<p>The <code>outer-join</code> operation: 通过在包含空值的结果中创建元组来保留在连接中丢失的元组</p>
 <p><strong>outer join</strong>：</p>
 <ul>
 <li><strong>left outer join</strong>: 仅保留左外连接操作之前（左侧）命名的关系中的元组</li>
 <li><strong>right outer join</strong>: 仅在以右外连接操作命名（右侧）的关系中保留元组</li>
 <li><strong>full outer join</strong>: 完整外连接保留两个关系中的元组</li>
 </ul>
-<p><br></p>
+<br>
 <p>The <code>inner-join</code> operation: 不保留不匹配元组的连接操作</p>
-<hr>
+<hr />
 <p>例子说明：</p>
 <p>Table1:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -274,9 +281,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p>Table2: </p>
-<div class="table-container">
+<p>Table2:</p>
 <table>
 <thead>
 <tr>
@@ -295,11 +300,9 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>进行<strong>左连接</strong>:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> Table1 <span class="keyword">left</span> <span class="keyword">join</span> Table2 <span class="keyword">on</span> Table1.id <span class="operator">=</span> Table2.id</span><br></pre></td></tr></table></figure>
 <p>结果:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -321,13 +324,11 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>左表Table1的所有行都会返回,右表Table2中id=3的行不会返回。</p>
-<p><br></p>
+<br>
 <p>进行<strong>右连接</strong>:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> Table1 <span class="keyword">right</span> <span class="keyword">join</span> Table2 <span class="keyword">on</span> Table1.id <span class="operator">=</span> Table2.id</span><br></pre></td></tr></table></figure>
 <p>结果:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -349,13 +350,11 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>右表Table2的所有行都会返回,左表Table1中id=2的行不会返回。</p>
-<p><br></p>
+<br>
 <p>进行<strong>全连接</strong>:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> Table1 <span class="keyword">full</span> <span class="keyword">join</span> Table2 <span class="keyword">on</span> Table1.id <span class="operator">=</span> Table2.id</span><br></pre></td></tr></table></figure>
 <p>结果:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -382,19 +381,17 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>左右表的所有行都会返回。</p>
-<hr>
+<hr />
 <p><strong>natural join和inner join</strong>的区别：</p>
 <ul>
 <li><strong>连接条件</strong>：inner join需要用on指定条件，而natural join不用</li>
 <li><strong>连接列</strong>：inner join会返回两个表的所有列，而natural join不会</li>
 </ul>
-<p><br></p>
-<hr>
+<br>
+<hr />
 <p>例子：</p>
-<p>TableA: </p>
-<div class="table-container">
+<p>TableA:</p>
 <table>
 <thead>
 <tr>
@@ -416,9 +413,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>TableB:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -440,14 +435,12 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><br></p>
+<br>
 <ol>
 <li>inner join</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> TableA</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> TableB </span><br><span class="line"><span class="keyword">on</span> TableA.id <span class="operator">=</span> TableB.id</span><br></pre></td></tr></table></figure>
 <p>结果:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -478,15 +471,13 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>返回了两个表的所有列,重复的age列也都返回了。</p>
-<p><br></p>
-<ol>
-<li>natural join  </li>
+<br>
+<ol start="2">
+<li>natural join</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> TableA </span><br><span class="line"><span class="keyword">natural</span> <span class="keyword">join</span> TableB</span><br></pre></td></tr></table></figure>
 <p>结果:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -511,11 +502,11 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>只返回了一个age列,自动使用id列进行等值连接。</p>
-<hr>
-<p><br></p>
-<h2 id="4-1-4-Join-Types-and-Conditions"><a href="#4-1-4-Join-Types-and-Conditions" class="headerlink" title="4.1.4 Join Types and Conditions"></a>4.1.4 Join Types and Conditions</h2><p>为了区分<strong>normal joins</strong>和<strong>outer joins</strong>，<strong>normal joins</strong>在SQL中被称为<strong>inner joins</strong></p>
+<hr />
+<br>
+<h2 id="414-join-types-and-conditions"><a class="markdownIt-Anchor" href="#414-join-types-and-conditions"></a> 4.1.4 Join Types and Conditions</h2>
+<p>为了区分<strong>normal joins</strong>和<strong>outer joins</strong>，<strong>normal joins</strong>在SQL中被称为<strong>inner joins</strong></p>
 <p><strong>Join Types</strong>:</p>
 <ul>
 <li>inner join</li>
@@ -523,10 +514,44 @@
 <li>right outer join</li>
 <li>full outer join</li>
 </ul>
-<p><br></p>
-<p><strong>Join Conditions</strong>:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">natural</span></span><br><span class="line"><span class="keyword">on</span> <span class="operator">&lt;</span>predicate<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">using</span> (A1,A2,...,An)</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<h2 id="4-2-Views"><a href="#4-2-Views" class="headerlink" title="4.2 Views"></a>4.2 Views</h2>
+<br>
+<p><strong>Join Conditions</strong>:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">natural</span></span><br><span class="line"><span class="keyword">on</span> <span class="operator">&lt;</span>predicate<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">using</span> (A1,A2,...,An)</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="42-views"><a class="markdownIt-Anchor" href="#42-views"></a> 4.2 Views</h2>
+<p>View的产生<strong>原因</strong>：不希望所有用户都看到整个逻辑模型</p>
+<p>View是一个<strong>虚拟的</strong>table/relation：</p>
+<ul>
+<li>不在数据库中以实体表的形式存储数据</li>
+<li>根据一个查询语句从一个或多个基础表中动态获取数据</li>
+</ul>
+<br>
+<p><strong>Views</strong> = <strong>projection</strong> on one or more relations</p>
+<p><img src="https://pbs.twimg.com/media/F8jKxv5akAEeWvY?format=png&amp;name=medium" alt="" /></p>
+<p>—待补充—</p>
+<h2 id="421-view-definition"><a class="markdownIt-Anchor" href="#421-view-definition"></a> 4.2.1 View Definition</h2>
+<p>在SQL中定义视图: <code>create view</code></p>
+<p>一般形式：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> v <span class="keyword">as</span> <span class="operator">&lt;</span>query expression<span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="422-using-views-in-sql-queries"><a class="markdownIt-Anchor" href="#422-using-views-in-sql-queries"></a> 4.2.2 Using Views in SQL Queries</h2>
+<p>例子1: <strong>直接创建veiws</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> faculty <span class="keyword">as</span> </span><br><span class="line">   <span class="keyword">select</span> ID, name, dept name </span><br><span class="line">   <span class="keyword">from</span> instructor;</span><br></pre></td></tr></table></figure>
+<br>
+<p>例子2: <strong>用其他Views定义Views</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> physics fall <span class="number">2017</span> <span class="keyword">as</span> </span><br><span class="line">   <span class="keyword">select</span> course.course id, sec id, building, room number </span><br><span class="line">   <span class="keyword">from</span> course, section</span><br><span class="line">   <span class="keyword">where</span> course.course id <span class="operator">=</span> section.course id </span><br><span class="line">                <span class="keyword">and</span> course.dept name <span class="operator">=</span> <span class="string">&#x27;Physics&#x27;</span> </span><br><span class="line">                <span class="keyword">and</span> section.semester <span class="operator">=</span> <span class="string">&#x27;Fall&#x27;</span> </span><br><span class="line">                <span class="keyword">and</span> section.year <span class="operator">=</span> <span class="number">2017</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> physics fall <span class="number">2017</span> watson <span class="keyword">as</span> </span><br><span class="line">            <span class="keyword">select</span> course id, room number </span><br><span class="line">            <span class="keyword">from</span> physics fall <span class="number">2017</span></span><br><span class="line">            <span class="keyword">where</span> building <span class="operator">=</span> <span class="string">&#x27;Watson&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<Br>
+<p>🌟tips：</p>
+<ul>
+<li>如果在定义v1的表达式中使用v2，则称视图关系v1 <strong>depend directly on</strong> 视图关系v2</li>
+<li>如果有一个视图关系v1 <strong>depend directly on</strong> v2，或者存在一条从v1到v2的依赖路径，则称视图关系v1 <strong>depend on</strong> 视图关系v2</li>
+<li>如果一个视图关系v依赖于它自己，我们称它是<strong>recursive</strong></li>
+</ul>
+<br>
+<h2 id="424-update-of-a-view"><a class="markdownIt-Anchor" href="#424-update-of-a-view"></a> 4.2.4 Update of a View</h2>
+<p>尽管视图是一个有用的查询工具，但如果我们用它们表达更新、插入或删除，它们就会带来严重的问题。困难在于，用视图表达的对数据库的修改必须转化为对数据库逻辑模型中实际关系的修改。</p>
+
             
         </div>
         <footer class="article-footer">
@@ -703,10 +728,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    263.4k
+                    264.1k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    16:24
+                    16:26
                 </div>
             
             
