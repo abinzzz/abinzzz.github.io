@@ -23,15 +23,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    一.分享话题药饵攻击主要用于攻击机器学习，即攻击者在训练模型中注入“坏数据”,从而造成机器学习结果发生偏差。例如支持向量机在对两组数据进行区分时,由于引入了少量的错误训练数据而造成结果的巨大偏离。请从数据质量管理的角">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   一.题目 药饵攻击主要用于攻击机器学习，即攻击者在训练模型中注入“坏数据”,从而造成机器学习结果发生偏差。例如支持向量机在对两组数据进行区分时,由于引入了少量的错误训练数据而造成结果的巨大偏离。请从数据质量管理的角度,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AI Ethics:课堂讨论2">
 <meta property="og:url" content="https://abinzzz.github.io/2023/10/21/AI-Ethics-%E8%AF%BE%E5%A0%82%E8%AE%A8%E8%AE%BA2/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    一.分享话题药饵攻击主要用于攻击机器学习，即攻击者在训练模型中注入“坏数据”,从而造成机器学习结果发生偏差。例如支持向量机在对两组数据进行区分时,由于引入了少量的错误训练数据而造成结果的巨大偏离。请从数据质量管理的角">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   一.题目 药饵攻击主要用于攻击机器学习，即攻击者在训练模型中注入“坏数据”,从而造成机器学习结果发生偏差。例如支持向量机在对两组数据进行区分时,由于引入了少量的错误训练数据而造成结果的巨大偏离。请从数据质量管理的角度,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-21T05:36:15.000Z">
-<meta property="article:modified_time" content="2023-10-21T06:41:24.470Z">
+<meta property="article:modified_time" content="2023-10-21T06:46:39.271Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="ai ethics">
@@ -199,13 +199,13 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-
-
-<h2 id="一-分享话题"><a href="#一-分享话题" class="headerlink" title="一.分享话题"></a>一.分享话题</h2><p>药饵攻击主要用于攻击机器学习，即攻击者在训练模型中注入“坏数据”,从而造成机器学习结果发生偏差。例如支持向量机在对两组数据进行区分时,由于引入了少量的错误训练数据而造成结果的巨大偏离。请从数据质量管理的角度,阐述如何防止和治理药饵攻击。</p>
+<h2 id="一题目"><a class="markdownIt-Anchor" href="#一题目"></a> 一.题目</h2>
+<p>药饵攻击主要用于攻击机器学习，即攻击者在训练模型中注入“坏数据”,从而造成机器学习结果发生偏差。例如支持向量机在对两组数据进行区分时,由于引入了少量的错误训练数据而造成结果的巨大偏离。请从数据质量管理的角度,阐述如何防止和治理药饵攻击。</p>
 <p>某位同学提出的创新型观点，可以在ppt中标注出来。</p>
 <p>内容评分不超过15分，表达评分不超过5分。若有创新型观点，最多可加2分。总分不超过20分。</p>
-<p><br></p>
-<h2 id="二-大纲"><a href="#二-大纲" class="headerlink" title="二.大纲"></a>二.大纲</h2><p><strong>1. 引言</strong></p>
+<br>
+<h2 id="二大纲"><a class="markdownIt-Anchor" href="#二大纲"></a> 二.大纲</h2>
+<p><strong>1. 引言</strong></p>
 <ul>
 <li>什么是药饵攻击?</li>
 <li>药饵攻击与机器学习的关联</li>
@@ -223,30 +223,36 @@
 </ul>
 <p><strong>4. 防止药饵攻击的策略</strong></p>
 <ul>
-<li><strong>数据验证与过滤</strong><ul>
+<li><strong>数据验证与过滤</strong>
+<ul>
 <li>创新观点：使用神经网络或其他机器学习方法预筛选可疑的“坏数据”</li>
 </ul>
 </li>
-<li><strong>数据追溯性</strong><ul>
+<li><strong>数据追溯性</strong>
+<ul>
 <li>创新观点：创建一个数据指纹系统，记录每个数据点的来源和历史</li>
 </ul>
 </li>
-<li><strong>白名单和黑名单</strong><ul>
+<li><strong>白名单和黑名单</strong>
+<ul>
 <li>确定受信任的数据来源和已知的恶意数据来源</li>
 </ul>
 </li>
 </ul>
 <p><strong>5. 治理药饵攻击的方法</strong></p>
 <ul>
-<li><strong>周期性的数据审核</strong><ul>
+<li><strong>周期性的数据审核</strong>
+<ul>
 <li>创新观点：利用无监督学习定期检测数据集中的异常模式</li>
 </ul>
 </li>
-<li><strong>多源数据交叉验证</strong><ul>
+<li><strong>多源数据交叉验证</strong>
+<ul>
 <li>对比不同来源的数据，检测一致性和潜在的异常</li>
 </ul>
 </li>
-<li><strong>强化学习应用</strong><ul>
+<li><strong>强化学习应用</strong>
+<ul>
 <li>创新观点：使用强化学习自适应地修改过滤规则，使其更具鲁棒性</li>
 </ul>
 </li>
@@ -261,13 +267,13 @@
 <li>强调数据质量管理在预防和治理药饵攻击中的核心作用</li>
 <li>前瞻：对未来机器学习安全领域的展望和发展方向</li>
 </ul>
-<p><br></p>
-<h2 id="三-详细内容"><a href="#三-详细内容" class="headerlink" title="三.详细内容"></a>三.详细内容</h2><h2 id="3-1-引言"><a href="#3-1-引言" class="headerlink" title="3.1 引言"></a>3.1 引言</h2><p><strong>3.1.1 什么是药饵攻击?</strong></p>
+<br>
+<h2 id="三详细内容"><a class="markdownIt-Anchor" href="#三详细内容"></a> 三.详细内容</h2>
+<h2 id="31-引言"><a class="markdownIt-Anchor" href="#31-引言"></a> 3.1 引言</h2>
+<p><strong>3.1.1 什么是药饵攻击?</strong></p>
 <ul>
-<li>定义：药饵攻击，也被称为“数据中毒”或“模型中毒”攻击，是一种针对机器学习系统的攻击方法，其中攻击者故意注入错误或有害的数据，以使训练的模型产生不准确或有偏的预测。<ul>
+<li>定义：药饵攻击，也被称为“数据中毒”或“模型中毒”攻击，是一种针对机器学习系统的攻击方法，其中攻击者故意注入错误或有害的数据，以使训练的模型产生不准确或有偏的预测。</li>
 <li>背景：随着机器学习在各种应用中的广泛应用，从自动驾驶汽车到医疗诊断，它们的决策结果直接关系到人们的生活和安全。这使得机器学习系统成为潜在的攻击目标。</li>
-</ul>
-</li>
 </ul>
 <p><strong>3.1.2 药饵攻击与机器学习的关联</strong></p>
 <ul>
@@ -275,8 +281,9 @@
 <li>攻击的机制：当攻击者可以影响模型的训练数据时，他们可以引导模型学习错误的、有害的或偏见的模式。例如，一个恶意攻击者可能会故意标记一些无害的网络流量为恶意的，从而导致网络安全模型产生误报。</li>
 <li>持续的威胁：由于训练数据通常是动态的，并且在某些情况下，机器学习模型可能会在线上持续训练，这意味着药饵攻击不仅可以在模型的初始训练阶段发生，还可以在模型部署后的任何时间进行。</li>
 </ul>
-<p><br></p>
-<h2 id="3-2-药饵攻击的影响"><a href="#3-2-药饵攻击的影响" class="headerlink" title="3.2 药饵攻击的影响"></a>3.2 药饵攻击的影响</h2><p><strong>3.2.1 机器学习模型的误导</strong></p>
+<br>
+<h2 id="32-药饵攻击的影响"><a class="markdownIt-Anchor" href="#32-药饵攻击的影响"></a> 3.2 药饵攻击的影响</h2>
+<p><strong>3.2.1 机器学习模型的误导</strong></p>
 <ul>
 <li><strong>理解误导</strong>: 当模型接受到药饵数据，其参数和权重可能会朝着攻击者期望的方向进行调整，从而导致模型的决策偏离其原有的目的。</li>
 <li><strong>举例</strong>：在面部识别的机器学习模型中，通过插入略微修改过的图像（这些图像对人眼可能看起来与原图没有太大区别），攻击者可以迷惑模型，使其误识别或完全忽略某个特定的面部。</li>
@@ -291,8 +298,9 @@
 <li><strong>公共形象受损</strong>: 一旦公众意识到某个机器学习系统易受药饵攻击的影响，他们可能会质疑该系统的所有输出，甚至对整个机构或品牌失去信心。</li>
 <li><strong>经济影响</strong>: 企业可能因修复受损模型而付出高昂的成本，并且可能面临因提供不准确或误导性信息而产生的法律责任。</li>
 </ul>
-<p><br></p>
-<h2 id="3-3-数据质量管理的重要性"><a href="#3-3-数据质量管理的重要性" class="headerlink" title="3.3 数据质量管理的重要性"></a>3.3 数据质量管理的重要性</h2><p><strong>3.3.1 模型的准确性与数据质量直接关联</strong></p>
+<br>
+<h2 id="33-数据质量管理的重要性"><a class="markdownIt-Anchor" href="#33-数据质量管理的重要性"></a> 3.3 数据质量管理的重要性</h2>
+<p><strong>3.3.1 模型的准确性与数据质量直接关联</strong></p>
 <ul>
 <li>“垃圾进，垃圾出”（Garbage in, Garbage out）：机器学习模型的性能在很大程度上取决于输入数据的质量。如果输入的训练数据是有偏见、不准确或不完整的，那么输出的模型预测也将是如此。</li>
 </ul>
@@ -320,12 +328,15 @@
 <ul>
 <li>数据质量管理不仅是一个前期工作，它也为模型的持续改进提供了机会。随着新数据的获取，可以定期评估和提高数据质量，从而不断优化模型。</li>
 </ul>
-<p><br></p>
-<h2 id="3-4-防止药饵攻击的策略"><a href="#3-4-防止药饵攻击的策略" class="headerlink" title="3.4 防止药饵攻击的策略"></a>3.4 防止药饵攻击的策略</h2><p><strong>3.4.1 数据验证与过滤</strong></p>
+<br>
+<h2 id="34-防止药饵攻击的策略"><a class="markdownIt-Anchor" href="#34-防止药饵攻击的策略"></a> 3.4 防止药饵攻击的策略</h2>
+<p><strong>3.4.1 数据验证与过滤</strong></p>
 <ul>
-<li><p><strong>定义和理解</strong>：确保输入到机器学习系统中的数据的质量和完整性。</p>
+<li>
+<p><strong>定义和理解</strong>：确保输入到机器学习系统中的数据的质量和完整性。</p>
 </li>
-<li><p><strong>方法</strong>：</p>
+<li>
+<p><strong>方法</strong>：</p>
 <ol>
 <li><strong>统计检验</strong>：对数据集进行常规的统计检验，以识别任何不寻常或异常的数据分布。</li>
 <li><strong>模型驱动的验证</strong>：使用预先训练的神经网络或其他机器学习模型预筛选可疑的“坏数据”。</li>
@@ -335,9 +346,11 @@
 </ul>
 <p><strong>3.4.2 数据追溯性</strong></p>
 <ul>
-<li><p><strong>定义和理解</strong>：了解数据的来源和它是如何被加工和修改的。</p>
+<li>
+<p><strong>定义和理解</strong>：了解数据的来源和它是如何被加工和修改的。</p>
 </li>
-<li><p><strong>方法</strong>：</p>
+<li>
+<p><strong>方法</strong>：</p>
 <ol>
 <li><strong>数据指纹系统</strong>：为每个数据点创建一个唯一的标识符，以追踪其来源和历史变化。</li>
 <li><strong>数据记录</strong>：记录数据修改的每一步，确保数据变动的透明性。</li>
@@ -347,9 +360,11 @@
 </ul>
 <p><strong>3.4.3 白名单和黑名单</strong></p>
 <ul>
-<li><p><strong>定义和理解</strong>：识别并管理受信任的数据来源与已知的恶意数据来源。</p>
+<li>
+<p><strong>定义和理解</strong>：识别并管理受信任的数据来源与已知的恶意数据来源。</p>
 </li>
-<li><p><strong>方法</strong>：</p>
+<li>
+<p><strong>方法</strong>：</p>
 <ol>
 <li><strong>白名单制定</strong>：创建一个白名单，列出经过验证和被认为是安全的数据来源。</li>
 <li><strong>黑名单制定</strong>：创建一个黑名单，列出已知的恶意或可疑的数据来源。</li>
@@ -357,11 +372,13 @@
 </ol>
 </li>
 </ul>
-<p><br></p>
-<h2 id="3-5-治理药饵攻击的方法"><a href="#3-5-治理药饵攻击的方法" class="headerlink" title="3.5  治理药饵攻击的方法"></a>3.5  治理药饵攻击的方法</h2><p><strong>3.5.1 周期性的数据审核</strong></p>
+<br>
+<h2 id="35-治理药饵攻击的方法"><a class="markdownIt-Anchor" href="#35-治理药饵攻击的方法"></a> 3.5  治理药饵攻击的方法</h2>
+<p><strong>3.5.1 周期性的数据审核</strong></p>
 <ul>
 <li><strong>定义</strong>：定期对机器学习数据进行审核，确保数据质量和完整性，发现并纠正可能的异常。</li>
-<li><strong>实施步骤</strong>：<ol>
+<li><strong>实施步骤</strong>：
+<ol>
 <li>定期设置数据审核时间节点，如每周、每月。</li>
 <li>使用统计方法和图形工具分析数据分布，检测异常值。</li>
 <li>对可疑数据进行深入的手工审核。</li>
@@ -372,7 +389,8 @@
 <p><strong>3.5.2 多源数据交叉验证</strong></p>
 <ul>
 <li><strong>定义</strong>：通过对比和验证来自不同来源的数据，确认数据的真实性和一致性。</li>
-<li><strong>实施步骤</strong>：<ol>
+<li><strong>实施步骤</strong>：
+<ol>
 <li>确定数据的备用来源，如从不同供应商或公开数据集获取。</li>
 <li>对主数据集和备用数据集进行对比，查找差异和不一致性。</li>
 <li>对于不一致的数据点，进行进一步调查，确定哪个数据点更可信。</li>
@@ -383,7 +401,8 @@
 <p><strong>3.5.3 强化学习应用</strong></p>
 <ul>
 <li><strong>定义</strong>：使用强化学习技术，根据历史数据和最新的反馈，不断调整数据过滤和清洗策略。</li>
-<li><strong>实施步骤</strong>：<ol>
+<li><strong>实施步骤</strong>：
+<ol>
 <li>设计一个强化学习框架，其中代理(agent)负责执行数据过滤策略，环境(environment)反映了数据的实际情况，奖励(reward)则基于策略的效果（例如，正确识别的恶意数据点数量）。</li>
 <li>随着时间的推移，代理会不断学习如何更有效地识别和过滤恶意数据点。</li>
 </ol>
@@ -393,7 +412,8 @@
 <p><strong>3.5.4 实时监控和警报系统</strong></p>
 <ul>
 <li><strong>定义</strong>：建立一个系统，实时监控数据输入，并在检测到异常或可疑活动时发出警报。</li>
-<li><strong>实施步骤</strong>：<ol>
+<li><strong>实施步骤</strong>：
+<ol>
 <li>设定异常检测的阈值，例如数据输入的速率、异常值的比例等。</li>
 <li>当系统检测到超过阈值的情况时，自动发出警报并记录相关信息。</li>
 <li>根据警报内容，对可疑数据进行进一步调查和处理。</li>
@@ -401,19 +421,22 @@
 </li>
 <li><strong>益处</strong>：实时响应可疑活动，快速定位并处理潜在的药饵攻击。</li>
 </ul>
-<p><br></p>
-<h2 id="3-6-案例分析"><a href="#3-6-案例分析" class="headerlink" title="3.6 案例分析"></a>3.6 案例分析</h2><p><strong>3.6.1 背景介绍</strong></p>
+<br>
+<h2 id="36-案例分析"><a class="markdownIt-Anchor" href="#36-案例分析"></a> 3.6 案例分析</h2>
+<p><strong>3.6.1 背景介绍</strong></p>
 <ul>
 <li>描述具体的业务场景，例如：某在线广告推荐系统、医疗诊断辅助工具等。</li>
 <li>强调该场景中机器学习模型的重要性和作用。</li>
 </ul>
 <p><strong>3.6.2 药饵攻击的实施</strong></p>
 <ul>
-<li><strong>攻击者的目标</strong><ul>
+<li><strong>攻击者的目标</strong>
+<ul>
 <li>例如：误导广告推荐系统，使某广告获得更多展示次数。</li>
 </ul>
 </li>
-<li><strong>攻击手段</strong><ul>
+<li><strong>攻击手段</strong>
+<ul>
 <li>详细描述攻击者如何注入“坏数据”：通过伪造用户行为、制造虚假的反馈等。</li>
 </ul>
 </li>
@@ -429,19 +452,23 @@
 </ul>
 <p><strong>3.6.5 应对策略与结果</strong></p>
 <ul>
-<li><strong>发现攻击</strong><ul>
+<li><strong>发现攻击</strong>
+<ul>
 <li>描述如何察觉到这一攻击，例如：通过异常检测、用户反馈、或与其他数据源的比对。</li>
 </ul>
 </li>
-<li><strong>数据清洗</strong><ul>
+<li><strong>数据清洗</strong>
+<ul>
 <li>描述如何识别并清除“坏数据”。</li>
 </ul>
 </li>
-<li><strong>模型修正</strong><ul>
+<li><strong>模型修正</strong>
+<ul>
 <li>描述如何调整或重新训练模型以消除药饵攻击的影响。</li>
 </ul>
 </li>
-<li><strong>结果</strong><ul>
+<li><strong>结果</strong>
+<ul>
 <li>分析应对策略后模型表现的改善情况和业务的恢复情况。</li>
 </ul>
 </li>
@@ -452,8 +479,9 @@
 <li>强调预防措施的必要性，如：定期进行数据审核、建立数据来源白名单等。</li>
 <li>提出对未来的建议：例如，引入更先进的异常检测方法、加强与其他数据源的交叉验证等。</li>
 </ul>
-<p><br></p>
-<h2 id="3-7-总结"><a href="#3-7-总结" class="headerlink" title="3.7 总结"></a>3.7 总结</h2><p><strong>3.7.1 数据质量的核心地位</strong></p>
+<br>
+<h2 id="37-总结"><a class="markdownIt-Anchor" href="#37-总结"></a> 3.7 总结</h2>
+<p><strong>3.7.1 数据质量的核心地位</strong></p>
 <ul>
 <li>无论机器学习模型的先进程度如何，其表现始终依赖于输入的数据质量。药饵攻击揭示了数据质量管理在确保模型的可靠性和公信力中的不可或缺的作用。</li>
 </ul>
@@ -473,8 +501,9 @@
 <ul>
 <li>数据质量管理不仅仅是机器学习或数据科学的问题。它需要网络安全、法律、伦理学和其他多个学科领域的知识。未来，跨学科的合作和研究将对确保数据质量和防护攻击起到关键作用。</li>
 </ul>
-<p><br></p>
-<h2 id="GPT-4的分析"><a href="#GPT-4的分析" class="headerlink" title="GPT-4的分析"></a>GPT-4的分析</h2><p><strong>数据验证与清洗</strong>：</p>
+<br>
+<h2 id="4-gpt-4的一些小建议"><a class="markdownIt-Anchor" href="#4-gpt-4的一些小建议"></a> 4. GPT-4的一些小建议</h2>
+<p><strong>数据验证与清洗</strong>：</p>
 <ul>
 <li>使用统计方法检查数据分布是否正常，如异常值检测、中心性和离散度指标等。</li>
 <li>针对每一条数据或特征，制定合理的范围或规范，确保数据在这些范围内。</li>
@@ -495,10 +524,8 @@
 </ul>
 <p><strong>模型鲁棒性</strong>：</p>
 <ul>
-<li>采用鲁棒性优化技术，使模型对于输入数据中的小的、恶意的变化更为稳健。<ul>
+<li>采用鲁棒性优化技术，使模型对于输入数据中的小的、恶意的变化更为稳健。</li>
 <li>例如，可以使用对抗性训练来提高模型对于恶意数据的鲁棒性。</li>
-</ul>
-</li>
 </ul>
 <p><strong>周期性的模型验证</strong>：</p>
 <ul>
@@ -521,8 +548,7 @@
 <ul>
 <li>为相关团队成员提供持续的教育和培训，确保他们了解最新的安全威胁和应对策略。</li>
 </ul>
-<p><br></p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>🔗:<a target="_blank" rel="noopener" href="https://blog.csdn.net/tianzhiya121/article/details/107874188">AI安全之投毒攻击</a><br>🔗:<a href=""></a></p>
+<br>
 
             
         </div>
@@ -686,7 +712,7 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    283.7k
+                    283.8k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     17:39
