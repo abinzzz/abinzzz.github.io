@@ -23,15 +23,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    Programming Project 2: Threads and Interprocess CommunicationOverview and Goal在这个项目中，您将了解BLITZ中的线程，并熟悉编写涉及并发">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Programming Project 2: Threads and Interprocess Communication  Overview and Goal 在这个项目中，您将了解BLITZ中的线程，并熟悉编写涉及">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OS:p2-handout">
 <meta property="og:url" content="https://abinzzz.github.io/2023/10/12/OS-p2-handout/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    Programming Project 2: Threads and Interprocess CommunicationOverview and Goal在这个项目中，您将了解BLITZ中的线程，并熟悉编写涉及并发">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Programming Project 2: Threads and Interprocess Communication  Overview and Goal 在这个项目中，您将了解BLITZ中的线程，并熟悉编写涉及">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-12T07:12:40.000Z">
-<meta property="article:modified_time" content="2023-10-21T16:52:36.767Z">
+<meta property="article:modified_time" content="2023-10-21T18:22:58.152Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="os">
@@ -199,51 +199,73 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-
-
-<h1 id="Programming-Project-2-Threads-and-Interprocess-Communication"><a href="#Programming-Project-2-Threads-and-Interprocess-Communication" class="headerlink" title="Programming Project 2: Threads and Interprocess Communication"></a>Programming Project 2: Threads and Interprocess Communication</h1><h2 id="Overview-and-Goal"><a href="#Overview-and-Goal" class="headerlink" title="Overview and Goal"></a>Overview and Goal</h2><p>在这个项目中，您将了解BLITZ中的线程，并熟悉编写涉及并发控制的程序。您将首先研究实现多线程的thread包，然后然后对现有代码进行一些修改和添加，以使用此包中提供的代码解决一些传统的并发问题。您还将熟悉使用KPL语言编程。</p>
+<h1 id="programming-project-2-threads-and-interprocess-communication"><a class="markdownIt-Anchor" href="#programming-project-2-threads-and-interprocess-communication"></a> Programming Project 2: Threads and Interprocess Communication</h1>
+<h2 id="overview-and-goal"><a class="markdownIt-Anchor" href="#overview-and-goal"></a> Overview and Goal</h2>
+<p>在这个项目中，您将了解BLITZ中的线程，并熟悉编写涉及并发控制的程序。您将首先研究实现多线程的thread包，然后然后对现有代码进行一些修改和添加，以使用此包中提供的代码解决一些传统的并发问题。您还将熟悉使用KPL语言编程。</p>
 <p>在你开始这个实验之前，你需要仔细阅读标题为“The Thread Scheduler and Concurrency Control Primitives”的整个文档:</p>
-<p><br></p>
-<h2 id="Step-1-Download-the-Files"><a href="#Step-1-Download-the-Files" class="headerlink" title="Step 1: Download the Files"></a>Step 1: Download the Files</h2><p>首先为这个项目需要的文件创建一个目录。你可以称之为<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~YourUserName/os23/lab2</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>然后下载所有的文件到你的文件夹里:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://gitee.com/hliang-bupt/os23/labs/p2/</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>您应该得到以下文件：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">makefile</span><br><span class="line">DISK</span><br><span class="line">System.h</span><br><span class="line">System.c</span><br><span class="line">Runtime.s</span><br><span class="line">Switch.s</span><br><span class="line">List.h</span><br><span class="line">List.c</span><br><span class="line">Thread.h</span><br><span class="line">Thread.c</span><br><span class="line">Main.h</span><br><span class="line">Main.c</span><br><span class="line">Synch.h</span><br><span class="line">Synch.c</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<p><strong>在这个项目中，你将修改并上交以下文件</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Main.c</span><br><span class="line">Synch.h</span><br><span class="line">Synch.c</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>获得文件后，您应该能够使用UNIX <strong>make</strong>命令编译所有代码(原样)。我们正在构建的可执行程序称为“os”。可以通过输入以下命令来执行程序:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% make</span><br><span class="line">% blitz –g os</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
+<br>
+<h2 id="step-1-download-the-files"><a class="markdownIt-Anchor" href="#step-1-download-the-files"></a> Step 1: Download the Files</h2>
+<p>首先为这个项目需要的文件创建一个目录。你可以称之为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~YourUserName/os23/lab2</span><br></pre></td></tr></table></figure>
+<br>
+<p>然后下载所有的文件到你的文件夹里:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://gitee.com/hliang-bupt/os23/labs/p2/</span><br></pre></td></tr></table></figure>
+<br>
+<p>您应该得到以下文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">makefile</span><br><span class="line">DISK</span><br><span class="line">System.h</span><br><span class="line">System.c</span><br><span class="line">Runtime.s</span><br><span class="line">Switch.s</span><br><span class="line">List.h</span><br><span class="line">List.c</span><br><span class="line">Thread.h</span><br><span class="line">Thread.c</span><br><span class="line">Main.h</span><br><span class="line">Main.c</span><br><span class="line">Synch.h</span><br><span class="line">Synch.c</span><br></pre></td></tr></table></figure>
+<br>
+<p><strong>在这个项目中，你将修改并上交以下文件</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Main.c</span><br><span class="line">Synch.h</span><br><span class="line">Synch.c</span><br></pre></td></tr></table></figure>
+<br>
+<p>获得文件后，您应该能够使用UNIX <strong>make</strong>命令编译所有代码(原样)。我们正在构建的可执行程序称为“os”。可以通过输入以下命令来执行程序:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% make</span><br><span class="line">% blitz –g os</span><br></pre></td></tr></table></figure>
+<br>
 <p>除了<code>Synch.c、Synch.c和Main.c</code>之外，您还可以修改其他文件，但需要编写和上交的代码不需要对其他文件进行任何更改。例如，您可能希望取消某些的print语句的注释，以查看发生了什么。但是，<code>Synch.h、Synch.c和Main.c</code>的最终版本必须与其他文件一起工作，就像它们发布时一样。</p>
 <p>确保复制所有文件。尽管与上一个项目中使用的一些文件有相似之处，但可能有一些微妙但重要的差异。</p>
-<p><br></p>
-<h2 id="Step-2-Study-the-Existing-Code"><a href="#Step-2-Study-the-Existing-Code" class="headerlink" title="Step 2: Study the Existing Code"></a>Step 2: Study the Existing Code</h2><p>这个项目中提供的代码提供了创建和运行多个线程的能力，以及通过几个同步方法控制并发性的能力。</p>
-<p>首先查看系统包。重点介绍文件<code>System.c</code>开头的资料，即函数:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">print</span><br><span class="line">printInt</span><br><span class="line">printHex</span><br><span class="line">printChar</span><br><span class="line">printBool</span><br><span class="line">nl</span><br><span class="line">MemoryEqual</span><br><span class="line">StrEqual</span><br><span class="line">StrCopy</span><br><span class="line">StrCmp</span><br><span class="line">Min</span><br><span class="line">Max</span><br><span class="line">printIntVar</span><br><span class="line">printHexVar</span><br><span class="line">printBoolVar</span><br><span class="line">printCharVar</span><br><span class="line">printPtr</span><br></pre></td></tr></table></figure></p>
-<p>熟悉打印函数;你会经常调用他们。有些是用汇编代码实现的，有些是用KPL在系统包中实现的。</p>
-<p><br></p>
-<p>以下函数用于在KPL中实现堆:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">KPLSystemInitialize</span><br><span class="line">KPLMemoryAlloc</span><br><span class="line">KPLMemoryFree</span><br></pre></td></tr></table></figure><br>可以在堆上分配对象，并使用<code>alloc</code>和<code>free</code>语句释放对象。在这个实现中，堆实现是非常基本的。在您的内核中，您可以在启动期间分配对象，但在此之后，您不能在堆上分配对象!为什么?因为堆可能被填满，然后内核应该做什么?崩溃!</p>
+<br>
+<h2 id="step-2-study-the-existing-code"><a class="markdownIt-Anchor" href="#step-2-study-the-existing-code"></a> Step 2: Study the Existing Code</h2>
+<p>这个项目中提供的代码提供了创建和运行多个线程的能力，以及通过几个同步方法控制并发性的能力。</p>
+<h2 id="21-systemc"><a class="markdownIt-Anchor" href="#21-systemc"></a> 2.1 <code>System.c</code></h2>
+<p>首先查看系统包。重点介绍文件<code>System.c</code>开头的资料，即函数:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">print</span><br><span class="line">printInt</span><br><span class="line">printHex</span><br><span class="line">printChar</span><br><span class="line">printBool</span><br><span class="line">nl</span><br><span class="line">MemoryEqual</span><br><span class="line">StrEqual</span><br><span class="line">StrCopy</span><br><span class="line">StrCmp</span><br><span class="line">Min</span><br><span class="line">Max</span><br><span class="line">printIntVar</span><br><span class="line">printHexVar</span><br><span class="line">printBoolVar</span><br><span class="line">printCharVar</span><br><span class="line">printPtr</span><br></pre></td></tr></table></figure>
+<p>熟悉<strong>打印函数</strong>;你会经常调用他们。有些是用汇编代码实现的，有些是用KPL在系统包中实现的。</p>
+<br>
+<p>以下函数用于在KPL中<strong>实现堆</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">KPLSystemInitialize</span><br><span class="line">KPLMemoryAlloc</span><br><span class="line">KPLMemoryFree</span><br></pre></td></tr></table></figure>
+<p>可以在堆上分配对象，并使用<code>alloc</code>和<code>free</code>语句释放对象。在这个实现中，堆实现是非常基本的。在您的内核中，您可以在启动期间分配对象，但在此之后，您不能在堆上分配对象!为什么?因为堆可能被填满，然后内核应该做什么?崩溃!</p>
 <p>在这个项目中，不应该在堆上分配任何东西</p>
-<p><br></p>
-<p>以下函数可以忽略，因为它们涉及我们不会使用的KPL语言方面:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">KPLUncaughtThrow</span><br><span class="line">UncaughtThrowError</span><br><span class="line">KPLIsKindOf</span><br><span class="line">KPLSystemError</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
+<br>
+<p>以下函数可以忽略，因为它们涉及我们不会使用的KPL语言方面:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">KPLUncaughtThrow</span><br><span class="line">UncaughtThrowError</span><br><span class="line">KPLIsKindOf</span><br><span class="line">KPLSystemError</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="22-runtimes"><a class="markdownIt-Anchor" href="#22-runtimes"></a> 2.2 <code>Runtime.s</code></h2>
 <p><code>Runtime.s</code>文件包含了许多用汇编语言编码的例程。它包含程序入口点和低内存中的中断向量。看一看。看看程序从位置0x00000000(the label“_entry”)开始执行时会发生什么。标记为“<code>_mainEntry</code>”的代码包含在编译器生成的代码中。“<code>_mainEntry</code>”代码将调用main函数，该函数出现在文件<code>Main.c</code>中。</p>
 <p>在<code>Runtime.s</code>，跟踪定时器中断发生时发生的情况。它对一个名为<code>_P_Thread_TimerInterruptHandler</code>的例程进行“<code>up-call</code>”。这个名称指的是“一个在<code>Thread</code>的包中名为<code>TimerInterruptHandler</code>的函数.(<code>_P_Thread_TimerInterruptHandler</code>是编译器为该函数指定的名称。)</p>
 <p>KPL语言将检查许多错误条件，例如使用null指针。试着修改程序来犯这个错误。在<code>Runtime.s</code>中，当这种情况发生时会发生什么</p>
-<p><br></p>
+<br>
+<h2 id="23-list"><a class="markdownIt-Anchor" href="#23-list"></a> 2.3 <code>List</code></h2>
 <p>接下来阅读<code>List</code>包。仔细阅读头文件。这个包提供了实现链表的代码。我们将在这个项目中使用链表。例如，准备运行(并在CPU上等待时间)的线程将保存在一个称为“<code>ready list</code>”的链表中。被阻塞的线程将位于其他链表上。还要查看<code>List.c</code>代码文件。</p>
-<p><br></p>
+<br>
 <p>这个项目中的关键类名为<code>Thread</code>，它与其他东西一起位于<code>Thread</code>包中(请参阅Thread.h, Thread.c)。对于每个线程，都有一个单独的<code>Thread</code>对象。<code>Thread</code>是<code>Listable</code>的一个子类，这意味着每个<code>Thread</code>对象包含一个<code>next</code>指针，可以添加到一个链表。</p>
-<p><code>Thread</code>包是核心，您应该彻底研究此代码。这个package包含一个类(称为<code>Thread</code>)和几个与线程调度和时间切片相关的函数:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">InitializeScheduler ()</span><br><span class="line">IdleFunction (arg: int)</span><br><span class="line">Run (nextThread: ptr to Thread)</span><br><span class="line">PrintReadyList ()</span><br><span class="line">ThreadStartMain ()</span><br><span class="line">ThreadFinish ()</span><br><span class="line">FatalError (errorMessage: ptr to array of char)</span><br><span class="line">SetInterruptsTo (newStatus: int) returns int</span><br><span class="line">TimerInterruptHandler ()</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
+<br>
+<h2 id="24-thread"><a class="markdownIt-Anchor" href="#24-thread"></a> 2.4 <code>Thread</code></h2>
+<p><code>Thread</code>包是核心，您应该彻底研究此代码。这个package包含一个类(称为<code>Thread</code>)和几个与线程调度和时间切片相关的函数:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">InitializeScheduler ()</span><br><span class="line">IdleFunction (arg: int)</span><br><span class="line">Run (nextThread: ptr to Thread)</span><br><span class="line">PrintReadyList ()</span><br><span class="line">ThreadStartMain ()</span><br><span class="line">ThreadFinish ()</span><br><span class="line">FatalError (errorMessage: ptr to array of char)</span><br><span class="line">SetInterruptsTo (newStatus: int) returns int</span><br><span class="line">TimerInterruptHandler ()</span><br></pre></td></tr></table></figure>
+<br>
 <p><code>FatalError</code>是最简单的函数。每当我们希望打印错误消息并中止程序时，都将调用<code>FatalError</code>。通常，在进行一些检查并发现事情不像预期的那样之后，我们将调用<code>FatalError</code>。<code>FatalError</code>将打印调用它的线程的名称，打印消息，然后关闭。它会让我们进入BLITZ模拟器的命令行模式。通常，接下来要做的事情可能是键入“st”命令(“stack”的缩写)，以查看哪些函数和方法是active</p>
 <p>(当然，模拟器输出的信息只与调用<code>FatalError</code>的线程有关。模拟器不知道线程，而且几乎不可能通过检查内存中的字节来提取有关其他线程的信息。)</p>
-<p><br></p>
-<p>下一个要看的函数是<code>SetInterruptsTo</code>，它用于更改CPU中的“I”中断位。我们可以使用它来禁用中断，如下所示:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">... = SetInterruptsTo (DISABLED)</span><br></pre></td></tr></table></figure></p>
-<p>我们可以用它来启用中断:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">... = SetInterruptsTo (ENABLED)</span><br></pre></td></tr></table></figure></p>
-<p>这个函数返回之前的状态。这是非常有用的，因为我们经常希望<strong>禁用</strong>中断(不管之前是什么)，然后稍后希望将中断状态返回到之前的状态。在我们的内核中，我们经常会看到这样的代码:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var oldIntStat: int</span><br><span class="line">...</span><br><span class="line">oldIntStat = SetInterruptsTo (DISABLED)</span><br><span class="line">...</span><br><span class="line">oldIntStat = SetInterruptsTo (oldIntStat)</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>接下来看看<code>Thread</code>类。下面是<code>Thread</code>的字段:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">name: ptr to array of char</span><br><span class="line">status: int</span><br><span class="line">systemStack: array [SYSTEM_STACK_SIZE] of int</span><br><span class="line">regs: array [13] of int</span><br><span class="line">stackTop: ptr to void</span><br><span class="line">initialFunction: ptr to function (int)</span><br><span class="line">initialArgument: int</span><br></pre></td></tr></table></figure></p>
-<p>下面是可以在<code>Thread</code>上执行的操作(即方法):<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Init (n: ptr to array of char)</span><br><span class="line">Fork (fun: ptr to function (int), arg: int)</span><br><span class="line">Yield ()</span><br><span class="line">Sleep ()</span><br><span class="line">CheckOverflow ()</span><br><span class="line">Print ()</span><br></pre></td></tr></table></figure></p>
+<br>
+<p>下一个要看的函数是<code>SetInterruptsTo</code>，它用于更改CPU中的“I”中断位。我们可以使用它来禁用中断，如下所示:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">... = SetInterruptsTo (DISABLED)</span><br></pre></td></tr></table></figure>
+<p>我们可以用它来启用中断:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">... = SetInterruptsTo (ENABLED)</span><br></pre></td></tr></table></figure>
+<p>这个函数返回之前的状态。这是非常有用的，因为我们经常希望<strong>禁用</strong>中断(不管之前是什么)，然后稍后希望将中断状态返回到之前的状态。在我们的内核中，我们经常会看到这样的代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var oldIntStat: int</span><br><span class="line">...</span><br><span class="line">oldIntStat = SetInterruptsTo (DISABLED)</span><br><span class="line">...</span><br><span class="line">oldIntStat = SetInterruptsTo (oldIntStat)</span><br></pre></td></tr></table></figure>
+<br>
+<p>接下来看看<code>Thread</code>类。下面是<code>Thread</code>的字段:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">name: ptr to array of char</span><br><span class="line">status: int</span><br><span class="line">systemStack: array [SYSTEM_STACK_SIZE] of int</span><br><span class="line">regs: array [13] of int</span><br><span class="line">stackTop: ptr to void</span><br><span class="line">initialFunction: ptr to function (int)</span><br><span class="line">initialArgument: int</span><br></pre></td></tr></table></figure>
+<p>下面是可以在<code>Thread</code>上执行的操作(即方法):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Init (n: ptr to array of char)</span><br><span class="line">Fork (fun: ptr to function (int), arg: int)</span><br><span class="line">Yield ()</span><br><span class="line">Sleep ()</span><br><span class="line">CheckOverflow ()</span><br><span class="line">Print ()</span><br></pre></td></tr></table></figure>
 <p>每个线程都处于以下状态之一:</p>
 <ul>
 <li>JUST_CREATED</li>
@@ -267,48 +289,67 @@
 <p>唯一调用<code>Switch</code>的地方是<code>Run</code>函数，因此<code>Switch</code>返回到其他线程中对<code>Run</code>函数的某些调用。<code>Run</code>的副本(即调用)将返回给调用它的人。这可能是其他<code>Yield</code>的调用，我们将返回另一个<code>Yield</code>它将返回给调用它的人。</p>
 <p><code>Run</code>也会从<code>Sleep</code>中调用，所以我们可能在线程切换后从<code>Sleep</code>调用中返回</p>
 <p>第一次创建线程时，一切是如何设置的?当我们有从未调用过它时，我们如何“返回到一个函数”?看一下文件<code>Thread.c</code>中的函数<code>ThreadStartMain</code>和文件<code>Switch.s</code>中的函数<code>ThreadStartUp</code>。</p>
-<p>线程终止时会发生什么?看一下<code>Thread.c</code>文件中的<code>ThreadFinish</code>。本质上，<br>线程处于睡眠状态，永远不可能被唤醒。(难怪他们称之为“线程死亡!”)</p>
+<p>线程终止时会发生什么?看一下<code>Thread.c</code>文件中的<code>ThreadFinish</code>。本质上，<br />
+线程处于睡眠状态，永远不可能被唤醒。(难怪他们称之为“线程死亡!”)</p>
 <p>接下来，看看当某个线程正在执行时发生定时器中断时会发生什么。这是一个中断，因此CPU首先中断当前例程的执行，并将某些状态压入其(系统)堆栈。然后，它禁用中断并在<code>Runtime.s</code>跳转到名为<code>TimerInterruptHandler</code>的汇编代码例程。它只是调用<code>Thread.c</code>中的<code>TimerInterruptHandler</code>函数。</p>
 <p>在<code>TimerInterruptHandler</code>中，我们调用<code>Yield</code>，然后它会切换到另一个线程。稍后，当这个线程再次有机会运行时，我们将回到这里。然后，我们将返回到汇编语言例程，将执行“<code>reti</code>”指令。这将使状态恢复到之前的状态，中断的例程(无论它是什么)将继续。</p>
 <p>注意，这段代码维护了一个名为<code>currentInterruptStatus</code>的变量。这是因为查询CPU的“I”位相当困难。更简单的做法是，只要中断状态发生变化，就改变该变量。我们可以在<code>TimerInterruptHandler</code>函数中看到这种情况。显然，中断发生后将立即禁用。<code>Yield</code>数会保持中断状态。因此当我们从<code>Yield</code>返回时，中断将再次被禁用。在返回被中断的线程之前，我们将<code>currentInterruptStatus</code>设置为ENABLED。(它们必须在中断发生之前启用，否则它不可能发生，因此在我们执行“<code>reti</code>”指令之后，状态将恢复到之前的状态，即启用。)</p>
 <p>现在您已经准备好开始使用和修改代码了!请实验代码，我们刚刚有讨论，必须要理解它。</p>
-<p><br></p>
-<h2 id="Step-3-Run-the-“SimpleThreadExample”-Code"><a href="#Step-3-Run-the-“SimpleThreadExample”-Code" class="headerlink" title="Step 3: Run the “SimpleThreadExample” Code"></a>Step 3: Run the “SimpleThreadExample” Code</h2><p>通过文件<code>Main.c</code>中的<code>SimpleThreadExample</code>的输出执行和跟踪。</p>
-<p>在<code>TimerInterruptHandler</code>中有一个语句:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printChar (&#x27;_&#x27;)</span><br></pre></td></tr></table></figure><br>它被注释掉了。试着取消注释。确保理解输出。</p>
-<p>在<code>TimerInterruptHandler</code>中，调用了<code>Yield</code>。为什么会有这个?尝试注释这个<br>语句？会发生什么。确保你明白<code>Yield</code>在这里是如何工作的。</p>
-<p><br></p>
-<h2 id="Step-4-Run-the-“MoreThreadExamples”-Code"><a href="#Step-4-Run-the-“MoreThreadExamples”-Code" class="headerlink" title="Step 4: Run the “MoreThreadExamples” Code"></a>Step 4: Run the “MoreThreadExamples” Code</h2><p>跟踪输出。试着修改这段代码，看看会发生什么。</p>
-<p><br></p>
-<h2 id="Step-5-Implement-the-“Mutex”-Class"><a href="#Step-5-Implement-the-“Mutex”-Class" class="headerlink" title="Step 5: Implement the “Mutex” Class"></a>Step 5: Implement the “Mutex” Class</h2><p>在这一部分中，你必须实现类<code>Mutex</code>。<code>Mutex</code>的类规范在<code>Synch.h</code>中给出了:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Mutex</span><br><span class="line">superclass Object</span><br><span class="line">methods</span><br><span class="line">Init ()</span><br><span class="line">Lock ()</span><br><span class="line">Unlock ()</span><br><span class="line">IsHeldByCurrentThread () returns bool</span><br><span class="line">endClass</span><br></pre></td></tr></table></figure><br>你需要为每个方法提供代码。在<code>Synch,c</code>中，您将看到<code>Mutex</code>的<code>behavior</code>构造。有<code>Init</code>、<code>Lock</code>、<code>Unlock</code>和<code>IsHeldByCurrentThread</code>方法，但这些方法有虚拟体。你需要编写这四个方法的代码.</p>
+<br>
+<h2 id="step-3-run-the-simplethreadexample-code"><a class="markdownIt-Anchor" href="#step-3-run-the-simplethreadexample-code"></a> Step 3: Run the “SimpleThreadExample” Code</h2>
+<p>通过文件<code>Main.c</code>中的<code>SimpleThreadExample</code>的输出执行和跟踪。</p>
+<p>在<code>TimerInterruptHandler</code>中有一个语句:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printChar (&#x27;_&#x27;)</span><br></pre></td></tr></table></figure>
+<p>它被注释掉了。试着取消注释。确保理解输出。</p>
+<p>在<code>TimerInterruptHandler</code>中，调用了<code>Yield</code>。为什么会有这个?尝试注释这个<br />
+语句？会发生什么。确保你明白<code>Yield</code>在这里是如何工作的。</p>
+<br>
+<h2 id="step-4-run-the-morethreadexamples-code"><a class="markdownIt-Anchor" href="#step-4-run-the-morethreadexamples-code"></a> Step 4: Run the “MoreThreadExamples” Code</h2>
+<p>跟踪输出。试着修改这段代码，看看会发生什么。</p>
+<br>
+<h2 id="step-5-implement-the-mutex-class"><a class="markdownIt-Anchor" href="#step-5-implement-the-mutex-class"></a> Step 5: Implement the “Mutex” Class</h2>
+<p>在这一部分中，你必须实现类<code>Mutex</code>。<code>Mutex</code>的类规范在<code>Synch.h</code>中给出了:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Mutex</span><br><span class="line">superclass Object</span><br><span class="line">methods</span><br><span class="line">Init ()</span><br><span class="line">Lock ()</span><br><span class="line">Unlock ()</span><br><span class="line">IsHeldByCurrentThread () returns bool</span><br><span class="line">endClass</span><br></pre></td></tr></table></figure>
+<p>你需要为每个方法提供代码。在<code>Synch,c</code>中，您将看到<code>Mutex</code>的<code>behavior</code>构造。有<code>Init</code>、<code>Lock</code>、<code>Unlock</code>和<code>IsHeldByCurrentThread</code>方法，但这些方法有虚拟体。你需要编写这四个方法的代码.</p>
 <p>您还需要向<code>Mutex</code>的<code>class</code>规范中添加两个字段，以实现所需的功能.</p>
 <p>如何实现<code>Mutex</code>类?仔细看看<code>Semaphore</code>类;您的<code>Mutex</code>的实现将非常相似</p>
 <p>首先考虑<code>IsHeldByCurrentThread</code>方法，它可以被任何线程调用。方法的代码需要知道哪个线程持有mutex上的锁;然后它可以将其与<code>currentThread</code>进行比较，看看它们是否相同.因此，您可以考虑向<code>Mutex</code>类添加一个字段(可能是，名为<code>heldBy</code>)，它将是指向持有mutex的线程的指针。当然，需要在锁住mutex时将其设置为当前线程。您可以在该字段中使用null值表示没有线程持有mutex上的锁。</p>
 <p>当对mutex请求加锁时，您需要查看是否有任何线程已经对该mutex加了锁。如果是，则需要让当前进程进入睡眠状态。要让线程进入睡眠状态，请查看方法<code>Semaphore.Down</code>。在任何时候，可能有零个、一个或多个线程等待获得mutex上的锁;您需要保存这些线程的列表，以便在执行<code>Unlock</code>时，您可以唤醒其中一个线程。与<code>Semaphore</code>的情况一样，您应该使用FIFO队列，唤醒等待时间最长的线程。</p>
 <p>在<code>Lock</code>方法中添加错误检查也是一个好主意，以确保请求锁住mutex的当前线程还没有持有mutex上的锁。如果有，您可以简单地调用<code>FatalError</code>。(这可能表明在使用mutex的代码中存在逻辑错误。它会导致陷入死锁，线程永远冻结，等待自己释放锁。)同样，您还应该添加一个<code>Unlock</code>的检查，以确保当前线程确实持有锁，如果没有，则调用<code>FatalError</code>。稍后你会用到<code>Mutex</code>类，所以这些检查将有助于你在以后的项目中调试。</p>
 <p><code>Main.c</code>提供了<code>TestMutex</code>函数来练习Mutex的实现。它创建了7个线程，这些线程激烈地竞争一个mutex锁。</p>
-<p><br></p>
-<h2 id="Step-6-Implement-the-Producer-Consumer-Solution"><a href="#Step-6-Implement-the-Producer-Consumer-Solution" class="headerlink" title="Step 6: Implement the Producer-Consumer Solution"></a>Step 6: Implement the Producer-Consumer Solution</h2><p>我们的讲座和一些教科书包含对生产者-消费者问题的讨论，包括解决方案。在KPL中使用类<code>Mutex</code>和<code>Semaphore</code>实现该功能。处理多个生产者和多个消费者，它们共享一个有界缓冲区。</p>
+<br>
+<h2 id="step-6-implement-the-producer-consumer-solution"><a class="markdownIt-Anchor" href="#step-6-implement-the-producer-consumer-solution"></a> Step 6: Implement the Producer-Consumer Solution</h2>
+<p>我们的讲座和一些教科书包含对生产者-消费者问题的讨论，包括解决方案。在KPL中使用类<code>Mutex</code>和<code>Semaphore</code>实现该功能。处理多个生产者和多个消费者，它们共享一个有界缓冲区。</p>
 <p>当您尝试完成这个实验时，我们的讲座可能刚刚讨论到使用互斥锁和信号量来正确地实现生产者-消费者问题的解决方案。在这种情况下，如果您希望尽早完成这部分实验，您可能需要在“Three Easy Pieces””教科书中提前阅读一点，从第26章到包括第31.4章(“生产者-消费者问题”)，在讲座覆盖到达这一点之前。如果你不能完全理解解决方案，也没关系，因为我们将在接下来的讲座中详细介绍这个问题.</p>
 <p><code>Main</code>package包含一些用作框架的代码。该缓冲区称为<code>buffer</code>， 包含最多<code>BUFFER_SIZE</code>(例如，5)个字符。有5个生产者进程，每个由线程建模，还有3个消费者进程，每个由线程建模。因此，除了创建其他线程的主线程之外，还有8个线程。</p>
-<p>每个生成器将循环，向缓冲区添加5个字符。第一个生产者将添加5个’ A ‘字符，第二个生产者将添加5个’ B ‘，以此类推。但是，由于这些线程的执行是交错的，字符将以某种随机的顺序添加。</p>
-<p><br></p>
-<h2 id="Step-7-Implement-the-Dining-Philosopher’s-Solution-Using-a-Monitor"><a href="#Step-7-Implement-the-Dining-Philosopher’s-Solution-Using-a-Monitor" class="headerlink" title="Step 7: Implement the Dining Philosopher’s Solution Using a Monitor"></a>Step 7: Implement the Dining Philosopher’s Solution Using a Monitor</h2><p><code>Main.c</code>提供了解决方案的初始框架。每个哲学家都用一个线程建模，我们提供的代码设置了这些线程。同步将由一个名为<code>ForkMonitor</code>的“监视器”控制。</p>
+<p>每个生成器将循环，向缓冲区添加5个字符。第一个生产者将添加5个’ A ‘字符，第二个生产者将添加5个’ B '，以此类推。但是，由于这些线程的执行是交错的，字符将以某种随机的顺序添加。</p>
+<br>
+<h2 id="step-7-implement-the-dining-philosophers-solution-using-a-monitor"><a class="markdownIt-Anchor" href="#step-7-implement-the-dining-philosophers-solution-using-a-monitor"></a> Step 7: Implement the Dining Philosopher’s Solution Using a Monitor</h2>
+<p><code>Main.c</code>提供了解决方案的初始框架。每个哲学家都用一个线程建模，我们提供的代码设置了这些线程。同步将由一个名为<code>ForkMonitor</code>的“监视器”控制。</p>
 <p>每个线程/哲学家的代码都为您提供了。检查<code>PhilosophizeAndEat</code>方法;你不需要修改这段代码。</p>
-<p>控制线程之间同步的监视器是用一个名为<code>ForkMonitor</code>的类实现的。以下是<code>ForkMonitor</code>的类规范:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class ForkMonitor</span><br><span class="line">  superclass Object</span><br><span class="line">  fields</span><br><span class="line">    status: array [5] of int   -- For each philosopher: HUNGRY,</span><br><span class="line">                               -- EATING, or THINKING</span><br><span class="line">  methods</span><br><span class="line">    Init ()</span><br><span class="line">    PickupForks (p: int)</span><br><span class="line">    PutDownForks (p: int)</span><br><span class="line">    PrintAllStatus ()</span><br><span class="line">endClass</span><br></pre></td></tr></table></figure><br>你需要提供<code>Init</code>、<code>PickupForks</code>和<code>PutDownForks</code>方法的代码。您还需要添加其他字段，甚至可能添加另一个方法。</p>
+<p>控制线程之间同步的监视器是用一个名为<code>ForkMonitor</code>的类实现的。以下是<code>ForkMonitor</code>的类规范:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class ForkMonitor</span><br><span class="line">  superclass Object</span><br><span class="line">  fields</span><br><span class="line">    status: array [5] of int   -- For each philosopher: HUNGRY,</span><br><span class="line">                               -- EATING, or THINKING</span><br><span class="line">  methods</span><br><span class="line">    Init ()</span><br><span class="line">    PickupForks (p: int)</span><br><span class="line">    PutDownForks (p: int)</span><br><span class="line">    PrintAllStatus ()</span><br><span class="line">endClass</span><br></pre></td></tr></table></figure>
+<p>你需要提供<code>Init</code>、<code>PickupForks</code>和<code>PutDownForks</code>方法的代码。您还需要添加其他字段，甚至可能添加另一个方法。</p>
 <p>提供了<code>PrintAllStatus</code>的代码。当您更改任何哲学家的状态时，您应该调用此方法。这个方法会打印一行输出，让你能看到发生了什么。</p>
 <p>你如何继续?您需要一个互斥量来保护监视器本身。有两种主要的方法(<code>PickupForks</code>和`PutDownForks``)，它们被称为哲学家线程。在这些方法开始时，第一件事是锁定监视器互斥量。这将确保在监视器中一次只有一个线程在执行。就在这些方法返回之前，它必须解锁监视器(通过解锁监视器的互斥量)，以便其他线程可以进入监视器代码。</p>
 <p>你还需要使用<code>Synch</code>包中提供的<code>Condition</code>类。(<code>Condition</code>类Mutex，因此假定您已经完成并测试了<code>Mutex</code>类。)</p>
-<p>BLITZ模拟器有一些参数，其中之一是定时器中断发生的频率。默认值是每5000条指令。您可以尝试更改此参数，以查看它如何影响程序的行为。要更改仿真参数，请在仿真器中键入<code>sim</code>命令。命令将为您提供创建名为<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.blitzrc</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
+<p>BLITZ模拟器有一些参数，其中之一是定时器中断发生的频率。默认值是每5000条指令。您可以尝试更改此参数，以查看它如何影响程序的行为。要更改仿真参数，请在仿真器中键入<code>sim</code>命令。命令将为您提供创建名为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.blitzrc</span><br></pre></td></tr></table></figure>
+<br>
 <p>创建此文件后，您可以手动编辑它。下次运行模拟器时，它将使用这个新的值。还要注意，值过小(如1000)会导致程序挂起。你认为造成这种影响的原因是什么?</p>
 <p><strong>问题</strong>:两本教科书都讨论了条件变量信号的语义。他们提到了“Hoare语义”。<code>Sybch.c</code>中的代码注释指出，该版本实现了“Mesa-style”语义。这与Hoare语义是相同还是不同?</p>
-<p><br></p>
-<h2 id="An-Example-of-Correct-Output"><a href="#An-Example-of-Correct-Output" class="headerlink" title="An Example of Correct Output"></a>An Example of Correct Output</h2><p>以下文件包含一个示例，说明正确的输出应该是什么样子:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DesiredOutput1.pdf</span><br><span class="line">DesiredOutput2.pdf</span><br><span class="line">DesiredOutput3.pdf</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<h2 id="What-to-Hand-In"><a href="#What-to-Hand-In" class="headerlink" title="What to Hand In"></a>What to Hand In</h2><p>完成以上所有步骤</p>
-<p>请提交以下文件的硬拷贝：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Synch.h</span><br><span class="line">Synch.c</span><br><span class="line">Main.c</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<h2 id="Grading"><a href="#Grading" class="headerlink" title="Grading"></a>Grading</h2><p>在评分时，助教可能会问你一两个问题，看看你是否真的阅读了这份材料，遵循了这个实验中概述的步骤，并了解你自己的解决方案。特别是，如果您没有阅读此讲义(并遵循其所有步骤)或标题为“The Thread Scheduler and Concurrency Control Primitives”的文档，则可能无法正确回答这些问题。您答对问题获得5分的评分。</p>
+<br>
+<h2 id="an-example-of-correct-output"><a class="markdownIt-Anchor" href="#an-example-of-correct-output"></a> An Example of Correct Output</h2>
+<p>以下文件包含一个示例，说明正确的输出应该是什么样子:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DesiredOutput1.pdf</span><br><span class="line">DesiredOutput2.pdf</span><br><span class="line">DesiredOutput3.pdf</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="what-to-hand-in"><a class="markdownIt-Anchor" href="#what-to-hand-in"></a> What to Hand In</h2>
+<p>完成以上所有步骤</p>
+<p>请提交以下文件的硬拷贝：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Synch.h</span><br><span class="line">Synch.c</span><br><span class="line">Main.c</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="grading"><a class="markdownIt-Anchor" href="#grading"></a> Grading</h2>
+<p>在评分时，助教可能会问你一两个问题，看看你是否真的阅读了这份材料，遵循了这个实验中概述的步骤，并了解你自己的解决方案。特别是，如果您没有阅读此讲义(并遵循其所有步骤)或标题为“The Thread Scheduler and Concurrency Control Primitives”的文档，则可能无法正确回答这些问题。您答对问题获得5分的评分。</p>
 <p>您提交的解决方案还将使用测试用例进行标记(在剩余的5个标记中)，例如提供的函数TestMutex。这个实验作业的最高分数是10分。</p>
 <p>在本课程中，您提交的代码将根据正确性和风格进行评分：</p>
 <ul>
@@ -492,10 +533,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    291.8k
+                    292.6k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    18:11
+                    18:15
                 </div>
             
             
