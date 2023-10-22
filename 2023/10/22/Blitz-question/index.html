@@ -1,0 +1,842 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        Blitz:question |
+        
+        Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Question?  一. Assemble asm: BLITZ汇编程序&#x2F;汇编机 1asm Hello.s 结果：创建一个Hello.o的文件  asm：命令行工具名称，通常是一个汇编器 .s: 汇编语言源文件 .o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Blitz:question">
+<meta property="og:url" content="https://abinzzz.github.io/2023/10/22/Blitz-question/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Question?  一. Assemble asm: BLITZ汇编程序&#x2F;汇编机 1asm Hello.s 结果：创建一个Hello.o的文件  asm：命令行工具名称，通常是一个汇编器 .s: 汇编语言源文件 .o">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-22T05:46:03.000Z">
+<meta property="article:modified_time" content="2023-10-22T07:25:02.592Z">
+<meta property="article:author" content="野中晴">
+<meta property="article:tag" content="专业知识">
+<meta property="article:tag" content="Blitz">
+<meta property="article:tag" content="question">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/katex@0.16.7/dist/katex.min.css">
+
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">Loading...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="Blitz:question" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>Blitz:question</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">首页</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">归档</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">关于</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">友链</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS 订阅"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://abinzzz.github.io"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-Blitz-question" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/10/22/Blitz-question/" class="article-date-link">
+        <time datetime="2023-10-22T05:46:03.000Z"
+              itemprop="datePublished">2023-10-22</time>
+    </a>
+</div>
+
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a>
+    </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h1 id="question"><a class="markdownIt-Anchor" href="#question"></a> Question?</h1>
+<h2 id="一-assemble"><a class="markdownIt-Anchor" href="#一-assemble"></a> 一. Assemble</h2>
+<p><strong>asm</strong>: BLITZ汇编程序/汇编机</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">asm Hello.s</span><br></pre></td></tr></table></figure>
+<p>结果：创建一个Hello.o的文件</p>
+<ul>
+<li><code>asm</code>：命令行工具名称，通常是一个汇编器</li>
+<li><code>.s</code>: 汇编语言源文件</li>
+<li><code>.o</code>:二进制格式对象文件，包含了编译后但未链接的代码</li>
+<li><strong>编译</strong>：将源代码（通常是高级编程语言写的）转化为机器语言或中间代码的过程，输出通常是对象文件</li>
+<li><strong>链接</strong>：将一个或多个对象文件以及可能的其他库文件组合在一起，生成一个可执行文件或库文件的过程，输出是一个可执行文件</li>
+</ul>
+<br>
+<h2 id="二-link"><a class="markdownIt-Anchor" href="#二-link"></a> 二. Link</h2>
+<p><strong>lddd</strong>：BLITZ链接器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lddd Hello.o –o Hello</span><br></pre></td></tr></table></figure>
+<p>告诉链接器 “lddd” 将 “Hello.o” 对象文件链接成一个名为 “Hello” 的可执行文件,链接器生成的可执行文件默认命名为 “a.out”，但是通过使用 “–o Hello” 选项，可以指定输出的可执行文件的名称为 “Hello”</p>
+<br>
+<h2 id="三-blitz"><a class="markdownIt-Anchor" href="#三-blitz"></a> 三. blitz</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blitz -g Hello</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>blitz</code>：BLITZ 虚拟机（或称为模拟器）的命令名.BLITZ 虚拟机用于模拟一个计算机系统，让用户可以在其上运行特定的程序</li>
+<li><code>g</code>：这是一个选项，代表“auto-go”。这意味着当该指令执行后，程序 Hello 会立即开始运行，不需要额外的命令或操作</li>
+<li><code>Hello</code>：BLITZ 虚拟机上执行的程序的名称，是一个可执行文件(bin的猜测🤨)</li>
+<li><strong>提示符</strong>：在出现的提示符“&gt;”后，你可以输入命令，例如“quit”来退出模拟器。简写方式是输入“q”</li>
+<li><strong>退出时的统计</strong>：当你退出模拟器后，它会显示一些统计数据，如磁盘读取次数、磁盘写入次数、执行的指令数量、休眠时间和总经过的时间</li>
+</ul>
+<br>
+<h2 id="四-kpl"><a class="markdownIt-Anchor" href="#四-kpl"></a> 四. kpl</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kpl HelloWorld</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>kpl</code>:kpl 是一个命令行工具，用于处理 KPL 语言的源代码(<strong>也就是.c和.h文件</strong>).</li>
+<li>输出文件：  <code>HelloWorld.s</code> (bin的猜测🤨)</li>
+</ul>
+<br>
+<h2 id="五-make"><a class="markdownIt-Anchor" href="#五-make"></a> 五. make</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+<ul>
+<li>make 是一个构建自动化工具，用于自动编译、链接和构建项目。它根据用户定义的规则（通常在名为 makefile 或 Makefile 的文件中）来决定如何构建项目.</li>
+</ul>
+<br>
+<h2 id="六输入blitz-xxx后可以使用的指令"><a class="markdownIt-Anchor" href="#六输入blitz-xxx后可以使用的指令"></a> 六.输入<code>blitz xxx</code>后可以使用的指令</h2>
+<ul>
+<li>uit (q)：当您想要退出模拟器时使用。</li>
+<li>help (h)：当您不确定可以使用哪些命令或需要查看命令的简短描述时使用。</li>
+<li>go (g)：当您想让程序继续执行，直到遇到下一个停止点（例如“debug”语句）时使用。</li>
+<li>step (s)：当您希望逐条执行机器语言指令，观察程序的具体行为或找出错误时使用。</li>
+<li>t：当您希望一次执行一个高级 KPL 语言语句时使用。</li>
+<li>reset：reset命令重新读取可执行文件并完全复位CPU。这个命令在调试期间很有用。每当您希望重新执行一个程序(而不重新编译任何东西)，您可以总是退出模拟器，然后重新启动它。reset命令做同样的事情，但更快</li>
+<li>info (i)：当您想查看虚拟 CPU 的当前状态，包括所有寄存器的值时使用。</li>
+<li>stack (st)：当您想查看执行堆栈，特别是当前的函数调用序列和它们的状态时使用。</li>
+<li>frame (fr)：当您想查看当前活动堆栈帧的详细信息，如局部变量的值时使用。</li>
+<li>up：当您在堆栈中向上移动，即查看之前的堆栈帧或函数调用时使用。</li>
+<li>down：当您在堆栈中向下移动，即查看后续的堆栈帧或函数调用时使用。</li>
+</ul>
+<br>
+<h2 id="七-poject2systemc"><a class="markdownIt-Anchor" href="#七-poject2systemc"></a> 七. Poject2:<code>System.c</code></h2>
+<ul>
+<li><strong>MemoryEqual</strong>：比较两块内存的内容是否相同。如果两块内存的内容相同，则返回 <code>true</code>，否则返回 <code>false</code>。</li>
+<li><strong>StrEqual</strong>：检查两个字符串是否有相同的大小并包含相同的字符。</li>
+<li><strong>StrCopy</strong>：将字符串 <code>s2</code> 的字符复制到字符串 <code>s1</code>。如果两个字符串的大小不同，则复制它们的最小大小。</li>
+<li><strong>StrCmp</strong>：比较两个字符串。返回 -1（如果 s1 &lt; s2）、0（如果 s1 = s2）或 +1（如果 s1 &gt; s2）。</li>
+<li><strong>Min</strong>：返回两个整数中的较小值。</li>
+<li><strong>Max</strong>：返回两个整数中的较大值。</li>
+<li><strong>printIntVar</strong>：打印一个整数变量的名称和值。</li>
+<li><strong>printHexVar</strong>：打印一个整数变量的名称和十六进制值。</li>
+<li><strong>printBoolVar</strong>：打印一个布尔变量的名称和值。</li>
+<li><strong>printCharVar</strong>：打印一个字符变量的名称和值。</li>
+<li><strong>printPtr</strong>：打印一个指针变量的名称和值。</li>
+<li><strong>nl</strong>：打印一个新行。</li>
+<li><strong>printNullTerminatedString</strong>：打印一个以 ‘\0’ 结尾的字符串。</li>
+<li><strong>KPLSystemInitialize</strong>：初始化内存区域。</li>
+<li><strong>KPLMemoryAlloc</strong>：从堆中分配内存。</li>
+<li><strong>KPLMemoryFree</strong>：释放堆内存。但是这个函数当前什么都不做。</li>
+<li><strong>KPLSystemError</strong>：在发生致命错误时调用此函数，打印一个消息并终止程序。</li>
+<li><strong>KPLIsKindOf</strong>：确定一个对象是否是给定类型或其超类/超接口的实例。</li>
+<li><strong>KPLUncaughtThrow</strong>：当一个错误被抛出但未被捕获时，运行时系统会调用此函数。</li>
+<li><strong>printCatchStack</strong>：打印所有在 <code>CATCH_STACK</code> 上的 <code>CATCH_RECORD</code>。</li>
+</ul>
+<br>
+<h2 id="八-project2threadc"><a class="markdownIt-Anchor" href="#八-project2threadc"></a> 八. Project2:<code>Thread.c</code></h2>
+<ol>
+<li>
+<p><strong>InitializeScheduler</strong>:</p>
+<ul>
+<li>初始化线程调度器。</li>
+<li>设置当前执行的程序为 “main-thread”。</li>
+<li>创建并初始化两个线程：<code>mainThread</code> 和 <code>idleThread</code>。</li>
+<li>设置 <code>currentThread</code> 为 <code>mainThread</code>。</li>
+<li>使得中断为可用状态。</li>
+</ul>
+</li>
+<li>
+<p><strong>IdleFunction</strong>:</p>
+<ul>
+<li>空闲线程的函数。</li>
+<li>如果没有其他线程可运行，它会使 CPU 进入等待状态，直到下一个中断到达。</li>
+<li>否则，它会释放CPU，让其他线程执行。</li>
+</ul>
+</li>
+<li>
+<p><strong>Run</strong>:</p>
+<ul>
+<li>开始执行指定的 <code>nextThread</code> 线程。</li>
+<li>当前线程会被挂起。</li>
+<li>该函数只从 “Thread.Yield” 和 “Thread.Sleep” 被调用。</li>
+</ul>
+</li>
+<li>
+<p><strong>PrintReadyList</strong>:</p>
+<ul>
+<li>打印当前的就绪线程列表。</li>
+</ul>
+</li>
+<li>
+<p><strong>ThreadStartMain</strong>:</p>
+<ul>
+<li>每个线程首先执行的函数。</li>
+<li>它调用线程的 “main” 函数。</li>
+<li>如果 “main” 函数返回，该函数将终止该线程。</li>
+</ul>
+</li>
+<li>
+<p><strong>ThreadFinish</strong>:</p>
+<ul>
+<li>一个线程最后执行的函数。</li>
+<li>它会清理并回收线程对象。</li>
+</ul>
+</li>
+<li>
+<p><strong>FatalError</strong>:</p>
+<ul>
+<li>在遇到致命错误时调用，打印错误消息并中止执行。</li>
+</ul>
+</li>
+<li>
+<p><strong>SetInterruptsTo</strong>:</p>
+<ul>
+<li>设置中断状态（禁用或启用）并返回先前的中断状态。</li>
+</ul>
+</li>
+<li>
+<p><strong>TimerInterruptHandler</strong>:</p>
+<ul>
+<li>当定时器中断发生时调用的处理函数。</li>
+<li>它会让当前线程放弃CPU，允许其他线程执行。</li>
+</ul>
+</li>
+<li>
+<p><strong>ThreadPrint</strong>:</p>
+<ul>
+<li>打印线程的详细信息，包括其名称、状态和地址。</li>
+</ul>
+</li>
+<li>
+<p><strong>Thread behavior</strong>:</p>
+<ul>
+<li>
+<p>定义了线程的行为和方法。</p>
+</li>
+<li>
+<p><strong>Init</strong>:</p>
+<ul>
+<li>初始化线程对象，但不安排其执行。</li>
+</ul>
+</li>
+<li>
+<p><strong>Fork</strong>:</p>
+<ul>
+<li>安排此线程执行。</li>
+</ul>
+</li>
+<li>
+<p><strong>Yield</strong>:</p>
+<ul>
+<li>当前线程可以通过执行此方法来放弃处理器。</li>
+</ul>
+</li>
+<li>
+<p><strong>Sleep</strong>:</p>
+<ul>
+<li>使当前线程进入阻塞状态并切换到执行另一个线程。</li>
+</ul>
+</li>
+<li>
+<p><strong>CheckOverflow</strong>:</p>
+<ul>
+<li>检查线程是否溢出其预分配的栈空间。</li>
+</ul>
+</li>
+<li>
+<p><strong>Print</strong>:</p>
+<ul>
+<li>打印此线程对象的详细信息。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<br>
+<h2 id="九-project2switchs"><a class="markdownIt-Anchor" href="#九-project2switchs"></a> 九. Project2:<code>Switch.s</code></h2>
+<ol>
+<li>
+<p><strong>ThreadStartUp 函数</strong>:</p>
+<ul>
+<li><strong>作用</strong>：这是每个线程开始执行的地方。每当一个新线程被创建并开始执行时，它首先运行这个函数。</li>
+<li><strong>详细描述</strong>：
+<ul>
+<li><code>Fork</code> 函数会将这个函数的起始地址放入线程对象中，因此 <code>Switch</code> 将“返回”到这个地址，从而跳转到这个函数的第一个指令。</li>
+<li>这个函数初始化高级 KPL 代码所需的所有寄存器（即 r12 和 r14）。</li>
+<li>然后调用 KPL 函数 <code>ThreadStartMain</code>。<code>ThreadStartMain</code> 将调用线程的“main”函数。重要的是，<code>ThreadStartMain</code> 永远不会返回。</li>
+<li>如果某种原因程序到达 <code>ThreadHang</code> 标签，它会进入一个无限循环，因为这表示出现了错误。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Switch 函数</strong>:</p>
+<ul>
+<li><strong>作用</strong>：它是一个上下文切换函数，用于在两个线程之间切换执行状态。</li>
+<li><strong>详细描述</strong>：
+<ul>
+<li>这个函数接收两个线程对象的指针。</li>
+<li>每个线程对象都包含一个可以存储机器状态的地方，这包括 r2-r14 寄存器以及堆栈顶部（r15）。</li>
+<li>这个函数首先保存 <code>prevThread</code> 的当前状态，然后从 <code>nextThread</code> 加载状态。</li>
+<li>一旦完成这个操作，函数返回，但由于线程已经切换，所以它返回到了不同的调用。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<br>
+<h2 id="十-project2listc"><a class="markdownIt-Anchor" href="#十-project2listc"></a> 十. Project2:<code>List.c</code></h2>
+<ol>
+<li>
+<p><strong>AddToFront</strong>:</p>
+<ul>
+<li><strong>作用</strong>：在链表的前端添加一个元素。</li>
+<li><strong>描述</strong>：如果链表为空，则新元素成为链表的第一个和最后一个元素。否则，新元素将被插入到链表的前端。</li>
+</ul>
+</li>
+<li>
+<p><strong>AddToEnd</strong>:</p>
+<ul>
+<li><strong>作用</strong>：在链表的尾部添加一个元素。</li>
+<li><strong>描述</strong>：如果链表为空，则新元素成为链表的第一个和最后一个元素。否则，新元素将被追加到链表的尾部。</li>
+</ul>
+</li>
+<li>
+<p><strong>Remove</strong>:</p>
+<ul>
+<li><strong>作用</strong>：从链表的前端移除一个元素并返回它。</li>
+<li><strong>描述</strong>：如果链表为空，则返回 null。如果链表只有一个元素，则重置 <code>first</code> 和 <code>last</code> 为 null。否则，更新 <code>first</code> 指向下一个元素。</li>
+</ul>
+</li>
+<li>
+<p><strong>IsEmpty</strong>:</p>
+<ul>
+<li><strong>作用</strong>：检查链表是否为空。</li>
+<li><strong>描述</strong>：如果 <code>first</code> 存在，则链表不为空；否则，链表为空。</li>
+</ul>
+</li>
+<li>
+<p><strong>ApplyToEach</strong>:</p>
+<ul>
+<li><strong>作用</strong>：对链表中的每个元素应用一个函数。</li>
+<li><strong>描述</strong>：这个方法遍历链表并对每个元素调用给定的函数。</li>
+</ul>
+</li>
+<li>
+<p><strong>SortedInsert</strong>:</p>
+<ul>
+<li><strong>作用</strong>：按照键值将元素插入到有序链表中的适当位置。</li>
+<li><strong>描述</strong>：此方法假定链表已按键值排序。它将元素插入到适当的位置，确保链表仍然有序。</li>
+</ul>
+</li>
+<li>
+<p><strong>SortedRemove</strong>:</p>
+<ul>
+<li><strong>作用</strong>：从链表的前端移除一个元素并返回它。此外，它还返回元素的键值。</li>
+<li><strong>描述</strong>：与 <code>Remove</code> 方法类似，但此方法还会返回已删除元素的键值。</li>
+</ul>
+</li>
+</ol>
+<br>
+<h2 id="十一-project2mainc"><a class="markdownIt-Anchor" href="#十一-project2mainc"></a> 十一. Project2:<code>Main.c</code></h2>
+<ol>
+<li>
+<p><strong>main</strong>:</p>
+<ul>
+<li><strong>作用</strong>：主函数，从这里开始执行代码。</li>
+<li><strong>描述</strong>：这个函数首先打印一条消息，然后初始化调度器。之后，它调用 <code>SimpleThreadExample</code> 函数（也可以选择其他的函数，但其他的调用被注释掉了）。最后，它调用 <code>ThreadFinish</code> 结束线程。</li>
+</ul>
+</li>
+<li>
+<p><strong>SimpleThreadExample</strong> 和 <strong>SimpleThreadFunction</strong>:</p>
+<ul>
+<li><strong>作用</strong>：这两个函数用于展示线程的基础用法。</li>
+<li><strong>描述</strong>：创建一个新线程 <code>aThread</code>，并使用 <code>Fork</code> 方法使其执行 <code>SimpleThreadFunction</code>。主线程和新创建的线程都会调用 <code>SimpleThreadFunction</code>，但会传递不同的参数。这两个线程将交替执行，并在每次迭代后打印它们的名称。</li>
+</ul>
+</li>
+<li>
+<p><strong>MoreThreadExamples</strong> 和 <strong>foo</strong>:</p>
+<ul>
+<li><strong>作用</strong>：演示如何创建和使用多个线程。</li>
+<li><strong>描述</strong>：创建6个线程，每个线程都调用 <code>foo</code> 函数并传递一个不同的整数参数。这些线程将并发运行，并频繁地进行线程切换。</li>
+</ul>
+</li>
+<li>
+<p><strong>TestMutex</strong> 和 <strong>LockTester</strong>:</p>
+<ul>
+<li><strong>作用</strong>：演示如何使用互斥锁（Mutex）来实现临界区和互斥。</li>
+<li><strong>描述</strong>：创建7个线程，每个线程都试图在临界区内访问和修改一个共享整数。使用互斥锁确保每次只有一个线程可以访问临界区。</li>
+</ul>
+</li>
+<li>
+<p><strong>ProducerConsumer</strong>, <strong>Producer</strong>, <strong>Consumer</strong>, 和 <strong>PrintBuffer</strong>:</p>
+<ul>
+<li><strong>作用</strong>：实现生产者-消费者问题。</li>
+<li><strong>描述</strong>：创建多个生产者和消费者线程。生产者在有限的缓冲区中放入字符，而消费者从中取出字符。这个示例演示了如何同步生产者和消费者的行为，确保当缓冲区满时生产者会等待，当缓冲区为空时消费者会等待。</li>
+</ul>
+</li>
+<li>
+<p><strong>DiningPhilosophers</strong> 和 <strong>PhilosphizeAndEat</strong>:</p>
+<ul>
+<li><strong>作用</strong>：实现餐桌哲学家问题。</li>
+<li><strong>描述</strong>：每个哲学家要么思考要么吃。在吃之前，他必须拿起两个叉子。吃完后，他放下叉子。由于叉子是共享的，所以访问它们需要同步。这个示例展示了如何使用一个监视器 (<code>ForkMonitor</code>) 来同步哲学家的行为。</li>
+</ul>
+</li>
+<li>
+<p><strong>ForkMonitor</strong> 类:</p>
+<ul>
+<li><strong>作用</strong>：为餐桌哲学家问题提供同步机制。</li>
+<li><strong>描述</strong>：这个类的方法允许哲学家在他们需要时拾起和放下叉子。它还提供了一个方法来打印所有哲学家的状态。</li>
+</ul>
+</li>
+</ol>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="https://abinzzz.github.io/2023/10/22/Blitz-question/" data-id="clo15qhqo0000od693atf0zl3" data-title="Blitz:question"
+               class="article-share-link">分享</a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blitz/" rel="tag">Blitz</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/question/" rel="tag">question</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" rel="tag">专业知识</a></li></ul>
+
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="OS:p2-code"
+                         class="lazyload">
+                
+                <a href="/2023/10/22/OS-p2-code/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        OS:p2-code
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="野中晴" class="lazyload">
+            <div class="sidebar-author-name">野中晴</div>
+            <div class="sidebar-description">Love is selfish.</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">155</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">10</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">208</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essay/">Essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reading/">reading</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/0/" style="font-size: 10px;">0</a> <a href="/tags/1/" style="font-size: 10px;">1</a> <a href="/tags/3-1/" style="font-size: 10px;">3-1</a> <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/AI-Ethics/" style="font-size: 10px;">AI Ethics</a> <a href="/tags/Advancing-Spiking-Neural-Networks-towards-Deep-Residual-Learning/" style="font-size: 11.54px;">Advancing Spiking Neural Networks towards Deep Residual Learning</a> <a href="/tags/AimGraduate/" style="font-size: 10.77px;">AimGraduate</a> <a href="/tags/An-Overview-of-the-BLITZ-Computer-Hardware/" style="font-size: 10px;">An Overview of the BLITZ Computer Hardware</a> <a href="/tags/An-Overview-of-the-BLITZ-System/" style="font-size: 10px;">An Overview of the BLITZ System</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/Artificial-neural-networks/" style="font-size: 10px;">Artificial neural networks</a> <a href="/tags/Attention/" style="font-size: 10px;">Attention</a> <a href="/tags/Benchmark/" style="font-size: 10px;">Benchmark</a> <a href="/tags/Blitz/" style="font-size: 12.31px;">Blitz</a> <a href="/tags/CAS/" style="font-size: 10px;">CAS</a> <a href="/tags/CAS%E5%AE%9E%E4%B9%A0offer/" style="font-size: 10px;">CAS实习offer</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 13.85px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Deep-learning/" style="font-size: 10px;">Deep learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 10.77px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/Git/" style="font-size: 10.77px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/GoAbroad/" style="font-size: 16.92px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 11.54px;">IELTS</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/Intermediate-SQL/" style="font-size: 10px;">Intermediate SQL</a> <a href="/tags/Introduction/" style="font-size: 10px;">Introduction</a> <a href="/tags/Introduction-to-SQL/" style="font-size: 10px;">Introduction to SQL</a> <a href="/tags/Introduction-to-the-Relational-Model/" style="font-size: 10px;">Introduction to the Relational Model</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lab1/" style="font-size: 10px;">Lab1</a> <a href="/tags/Lec01/" style="font-size: 11.54px;">Lec01</a> <a href="/tags/Lec01s/" style="font-size: 10.77px;">Lec01s</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/M2/" style="font-size: 10.77px;">M2</a> <a href="/tags/MIT6-S081/" style="font-size: 13.08px;">MIT6.S081</a> <a href="/tags/MS-ResNet/" style="font-size: 10px;">MS-ResNet</a> <a href="/tags/Mac/" style="font-size: 10.77px;">Mac</a> <a href="/tags/Missing-Semester/" style="font-size: 10px;">Missing Semester</a> <a href="/tags/NNDL/" style="font-size: 11.54px;">NNDL</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Neural-Network/" style="font-size: 10px;">Neural Network</a> <a href="/tags/Neural-Network-from-Shallow-to-Deep/" style="font-size: 10px;">Neural Network from Shallow to Deep</a> <a href="/tags/Neuromorphic-computing/" style="font-size: 10px;">Neuromorphic computing</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/Qingyao-Ai/" style="font-size: 10.77px;">Qingyao Ai</a> <a href="/tags/RISC-V/" style="font-size: 10px;">RISC-V</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/ResNet/" style="font-size: 10px;">ResNet</a> <a href="/tags/Rethinking-the-performance-comparison-between-SNNS-and-ANNS/" style="font-size: 10px;">Rethinking the performance comparison between SNNS and ANNS</a> <a href="/tags/SE/" style="font-size: 13.08px;">SE</a> <a href="/tags/SE-3-0/" style="font-size: 10px;">SE-3.0</a> <a href="/tags/SNN/" style="font-size: 11.54px;">SNN</a> <a href="/tags/SNN-vs-RNN/" style="font-size: 10px;">SNN vs RNN</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/Spiking-neural-network/" style="font-size: 10.77px;">Spiking neural network</a> <a href="/tags/Spiking-neural-networks/" style="font-size: 10px;">Spiking neural networks</a> <a href="/tags/StarBucks/" style="font-size: 12.31px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 13.08px;">T1</a> <a href="/tags/T1-fighting/" style="font-size: 10px;">T1 fighting</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/The-Thread-Scheduler-and-Concurrency-Control-Primitives/" style="font-size: 10px;">The Thread Scheduler and Concurrency Control Primitives</a> <a href="/tags/University/" style="font-size: 13.85px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 10.77px;">Yuxiao Dong</a> <a href="/tags/ai-ethics/" style="font-size: 10px;">ai ethics</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bert/" style="font-size: 10px;">bert</a> <a href="/tags/bing/" style="font-size: 10px;">bing</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chapter00/" style="font-size: 10px;">chapter00</a> <a href="/tags/chapter01/" style="font-size: 10.77px;">chapter01</a> <a href="/tags/chapter02/" style="font-size: 10px;">chapter02</a> <a href="/tags/chapter03/" style="font-size: 10px;">chapter03</a> <a href="/tags/chapter04/" style="font-size: 10px;">chapter04</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/code/" style="font-size: 10.77px;">code</a> <a href="/tags/coding/" style="font-size: 17.69px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/courseinfo/" style="font-size: 10px;">courseinfo</a> <a href="/tags/dalle3/" style="font-size: 10px;">dalle3</a> <a href="/tags/database/" style="font-size: 13.08px;">database</a> <a href="/tags/debug/" style="font-size: 11.54px;">debug</a> <a href="/tags/deep-neural-network/" style="font-size: 10.77px;">deep neural network</a> <a href="/tags/discussion/" style="font-size: 10px;">discussion</a> <a href="/tags/dowhy/" style="font-size: 10.77px;">dowhy</a> <a href="/tags/echo/" style="font-size: 10px;">echo</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 10.77px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 11.54px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/homework/" style="font-size: 10px;">homework</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 12.31px;">instructor</a> <a href="/tags/intern-00/" style="font-size: 10px;">intern-00</a> <a href="/tags/intern00/" style="font-size: 12.31px;">intern00</a> <a href="/tags/internship/" style="font-size: 16.15px;">internship</a> <a href="/tags/introduction/" style="font-size: 11.54px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/l1/" style="font-size: 10px;">l1</a> <a href="/tags/l2/" style="font-size: 10px;">l2</a> <a href="/tags/l3/" style="font-size: 10px;">l3</a> <a href="/tags/lec01/" style="font-size: 10px;">lec01</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/mlp/" style="font-size: 10px;">mlp</a> <a href="/tags/mnist/" style="font-size: 10px;">mnist</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/neuromorphic-computing/" style="font-size: 10.77px;">neuromorphic computing</a> <a href="/tags/nndl/" style="font-size: 10px;">nndl</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/openai/" style="font-size: 10px;">openai</a> <a href="/tags/os/" style="font-size: 15.38px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/overview/" style="font-size: 10px;">overview</a> <a href="/tags/p1/" style="font-size: 10px;">p1</a> <a href="/tags/p2/" style="font-size: 10.77px;">p2</a> <a href="/tags/paper/" style="font-size: 18.46px;">paper</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 12.31px;">prml</a> <a href="/tags/pytorch/" style="font-size: 10px;">pytorch</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 11.54px;">shap</a> <a href="/tags/shell-vs-terminal/" style="font-size: 10px;">shell vs terminal</a> <a href="/tags/spike/" style="font-size: 10px;">spike</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/tensor-vs-ndarray/" style="font-size: 10px;">tensor vs ndarray</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/thu/" style="font-size: 10px;">thu</a> <a href="/tags/tips/" style="font-size: 10.77px;">tips</a> <a href="/tags/tool/" style="font-size: 14.62px;">tool</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/xv6/" style="font-size: 10px;">xv6</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 19.23px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E8%A2%AB%E7%BA%A6%E5%AE%9A%E6%9D%9F%E7%BC%9A%E4%BA%86/" style="font-size: 10px;">再也不用被约定束缚了</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%86%99%E4%BD%9C%E5%BF%83%E5%BE%97/" style="font-size: 10px;">写作心得</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%93%88%E5%B8%8C%E5%80%BC/" style="font-size: 10px;">哈希值</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 10.77px;">审稿意见</a> <a href="/tags/%E5%BC%BA%E5%BC%B1com/" style="font-size: 10px;">强弱com</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%80%80%E6%8F%A3%E7%9D%80%E4%B8%80%E5%AE%9A%E5%8F%AF%E4%BB%A5%E5%81%9A%E5%A5%BD%E7%9A%84%E7%A1%AE%E4%BF%A1/" style="font-size: 10px;">怀揣着一定可以做好的确信</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/" style="font-size: 10px;">拓扑结构</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%94%BE%E4%B8%8B/" style="font-size: 10px;">放下</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 10.77px;">最长的电影</a> <a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 10px;">杂项</a> <a href="/tags/%E6%A6%82%E8%AE%BA/" style="font-size: 10px;">概论</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 13.85px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE%E4%B9%A6/" style="font-size: 10px;">系统开发建议书</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%BE%E5%A0%82%E8%AE%A8%E8%AE%BA/" style="font-size: 10px;">课堂讨论</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">软件生命周期模型</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                野中晴
+            </div>
+            
+                <div>
+                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    302.4k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    19:02
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="野中晴" class="lazyload">
+            <div class="sidebar-author-name">野中晴</div>
+            <div class="sidebar-description">Love is selfish.</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">155</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">10</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">208</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
