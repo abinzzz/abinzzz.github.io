@@ -31,7 +31,7 @@
 <meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Programming Project 2: Threads and Interprocess Communication  Overview and Goal 在这个项目中，您将了解BLITZ中的线程，并熟悉编写涉及">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-12T07:12:40.000Z">
-<meta property="article:modified_time" content="2023-10-21T18:22:58.152Z">
+<meta property="article:modified_time" content="2023-10-22T02:09:25.569Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="os">
@@ -274,24 +274,32 @@
 <li>BLOCKED</li>
 <li>UNUSED</li>
 </ul>
-<p><code>status</code>字段给出了这些状态。(在终止后，将<strong>未使用</strong>状态赋予<code>Thread</code>。我们在以后的项目中会用到它。)</p>
-<p>每个线程都有一个<code>name</code>。要创建线程，你需要一个<code>Thread</code>变量。首先，使用<code>Init</code>来初始化它，提供一个名称。</p>
-<p>每个线程都需要自己的栈，栈的空间直接放在名为<code>systemStack</code>的字段中的<code>Thread</code>对象中。目前，这是一个包含1000个单词的数组，应该足够了。(可以想象我们的代码可能会超过这个限制;有一个检查来确保我们不会溢出这个有限的区域。)</p>
-<p>这个项目中的所有线程将在系统模式下运行。因此，栈被称为“<code>system stack</code>”。在后面的项目中，我们将看到该栈仅用于内核例程。用户程序将在其虚拟地址空间中拥有自己的堆栈,但我们已经超前了。</p>
-<p><code>Thread</code>对象也有空间来存储CPU的状态，即寄存器。每当线程切换发生时，寄存器将保存在<code>Thread</code>对象中。这些字段(<code>regs</code>和<code>stackTop</code>)由名为<code>Switch</code>的汇编代码例程使用。</p>
-<p><code>Thread</code>对象还有空间存储一个指向函数的指针(<code>initialFunction</code>字段)和这个函数的参数(<code>initialArgument</code>字段)。这个指针将指向这个线程的“main”函数;当这个线程开始执行时，这个函数会被执行。我们存储了一个指向函数的指针，因为这是一个变量:不同的线程可能执行不同的函数。</p>
-<p>我们还可以通过<code>initialArgument</code>字段为这个线程提供一个初始参数。参数必须是整数。通常会有多个线程执行同一个“<code>main</code>”函数。参数是一种方便的方式，可以让每个线程知道它应该扮演什么角色。例如，我们可以创建10个线程，每个线程都使用相同的“<code>main</code>”函数，但向每个线程传递不同的整数(例如，1和10之间)，以让它知道自己是哪个线程。</p>
-<p>初始化一个新<code>Thread</code>后，我们可以用<code>Fork</code>方法让它开始运行。这不会立即开始线程执行;相反，它使线程<strong>准备</strong>运行，并将其放在<code>readyList</code>上。<code>readyList</code>是一个<code>Thread</code>链表。<code>readyList</code>上的所有<code>Thread</code>的状态都是<strong>准备</strong>状态。<code>ReadyList</code>是一个全局变量。还有一个名为<code>currentThread</code>的全局变量，指向当前执行的<code>Thread</code>对象;例如，状态为<strong>RUNNING</strong>的线程</p>
-<p><code>Yield</code>方法只能在当前运行的线程上调用。它将导致切换到其他线程。</p>
-<p>仔细阅读<code>Yield</code>中的代码，看看线程切换发生时发生了什么。首先，中断是禁用的;我们不希望线程切换期间有任何干扰。<code>readyList</code>和<code>currentThread</code>是共享变量，当切换线程时，我们希望能够安全地访问和更新它们。然后，<code>Yield</code>会从<code>readyList</code>中找到下一个线程。(如果没有其他线程，那么<code>Yield</code>实际上是。)然后，<code>Yield</code>将使当前运行的进程<strong>READY</strong>(准备，即不再运行)，并将当前线程添加到<code>readyList</code>的尾部。最后，它将调用<code>Run</code>函数来执行线程切换。</p>
-<p><code>Run</code>方法将检查当前线程上是否存在堆栈溢出。然后它将调用<code>Switch</code>来执行实际的切换。</p>
+<p><code>Thread</code>的字段：</p>
+<ul>
+<li><code>status</code>字段给出了这些状态。(在终止后，将<strong>未使用</strong>状态赋予<code>Thread</code>。我们在以后的项目中会用到它。)</li>
+<li>每个线程都有一个<code>name</code>。要创建线程，你需要一个<code>Thread</code>变量。首先，使用<code>Init</code>来初始化它，提供一个名称。</li>
+<li>每个线程都需要自己的栈，栈的空间直接放在名为<code>systemStack</code>的字段中的<code>Thread</code>对象中。目前，这是一个包含1000个单词的数组，应该足够了。(可以想象我们的代码可能会超过这个限制;有一个检查来确保我们不会溢出这个有限的区域。)</li>
+<li>这个项目中的所有线程将在系统模式下运行。因此，栈被称为“<code>system stack</code>”。在后面的项目中，我们将看到该栈仅用于内核例程。用户程序将在其虚拟地址空间中拥有自己的堆栈,但我们已经超前了。</li>
+<li><code>Thread</code>对象也有空间来存储CPU的状态，即寄存器。每当线程切换发生时，寄存器将保存在<code>Thread</code>对象中。这些字段(<code>regs</code>和<code>stackTop</code>)由名为<code>Switch</code>的汇编代码例程使用。</li>
+<li><code>Thread</code>对象还有空间存储一个指向函数的指针(<code>initialFunction</code>字段)和这个函数的参数(<code>initialArgument</code>字段)。这个指针将指向这个线程的“main”函数;当这个线程开始执行时，这个函数会被执行。我们存储了一个指向函数的指针，因为这是一个变量:不同的线程可能执行不同的函数。</li>
+<li>我们还可以通过<code>initialArgument</code>字段为这个线程提供一个初始参数。参数必须是整数。通常会有多个线程执行同一个“<code>main</code>”函数。参数是一种方便的方式，可以让每个线程知道它应该扮演什么角色。例如，我们可以创建10个线程，每个线程都使用相同的“<code>main</code>”函数，但向每个线程传递不同的整数(例如，1和10之间)，以让它知道自己是哪个线程。</li>
+</ul>
+<p><code>Thread</code>上执行的操作：</p>
+<ul>
+<li>初始化一个新<code>Thread</code>后，我们可以用<code>Fork</code>方法让它开始运行。这不会立即开始线程执行;相反，它使线程<strong>准备</strong>运行，并将其放在<code>readyList</code>上。<code>readyList</code>是一个<code>Thread</code>链表。<code>readyList</code>上的所有<code>Thread</code>的状态都是<strong>准备</strong>状态。<code>ReadyList</code>是一个全局变量。还有一个名为<code>currentThread</code>的全局变量，指向当前执行的<code>Thread</code>对象;例如，状态为<strong>RUNNING</strong>的线程</li>
+<li><code>Yield</code>方法只能在当前运行的线程上调用。它将导致切换到其他线程。</li>
+<li>仔细阅读<code>Yield</code>中的代码，看看线程切换发生时发生了什么。首先，中断是禁用的;我们不希望线程切换期间有任何干扰。<code>readyList</code>和<code>currentThread</code>是共享变量，当切换线程时，我们希望能够安全地访问和更新它们。然后，<code>Yield</code>会从<code>readyList</code>中找到下一个线程。(如果没有其他线程，那么<code>Yield</code>实际上是。)然后，<code>Yield</code>将使当前运行的进程<strong>READY</strong>(准备，即不再运行)，并将当前线程添加到<code>readyList</code>的尾部。最后，它将调用<code>Run</code>函数来执行线程切换。</li>
+<li><code>Run</code>方法将检查当前线程上是否存在堆栈溢出。然后它将调用<code>Switch</code>来执行实际的切换。</li>
+</ul>
+<h2 id="25-switchs"><a class="markdownIt-Anchor" href="#25-switchs"></a> 2.5 <code>Switch.s</code></h2>
 <p><code>Switch</code>可能是你遇到过的最迷人的功能了!它位于汇编代码文件<code>Switch.S</code>，你应该仔细看一下。Switch不会返回到调用它的函数。相反，它会切换到另一个线程。然后它返回。因此，返回发生在另一个线程中的另一个函数上!</p>
+<hr />
 <p>唯一调用<code>Switch</code>的地方是<code>Run</code>函数，因此<code>Switch</code>返回到其他线程中对<code>Run</code>函数的某些调用。<code>Run</code>的副本(即调用)将返回给调用它的人。这可能是其他<code>Yield</code>的调用，我们将返回另一个<code>Yield</code>它将返回给调用它的人。</p>
 <p><code>Run</code>也会从<code>Sleep</code>中调用，所以我们可能在线程切换后从<code>Sleep</code>调用中返回</p>
-<p>第一次创建线程时，一切是如何设置的?当我们有从未调用过它时，我们如何“返回到一个函数”?看一下文件<code>Thread.c</code>中的函数<code>ThreadStartMain</code>和文件<code>Switch.s</code>中的函数<code>ThreadStartUp</code>。</p>
-<p>线程终止时会发生什么?看一下<code>Thread.c</code>文件中的<code>ThreadFinish</code>。本质上，<br />
+<p><strong>第一次创建线程</strong>时，一切是如何设置的?当我们有从未调用过它时，我们如何“返回到一个函数”?看一下文件<code>Thread.c</code>中的函数<code>ThreadStartMain</code>和文件<code>Switch.s</code>中的函数<code>ThreadStartUp</code>。</p>
+<p><strong>线程终止</strong>时会发生什么?看一下<code>Thread.c</code>文件中的<code>ThreadFinish</code>。本质上，<br />
 线程处于睡眠状态，永远不可能被唤醒。(难怪他们称之为“线程死亡!”)</p>
-<p>接下来，看看当某个线程正在执行时发生定时器中断时会发生什么。这是一个中断，因此CPU首先中断当前例程的执行，并将某些状态压入其(系统)堆栈。然后，它禁用中断并在<code>Runtime.s</code>跳转到名为<code>TimerInterruptHandler</code>的汇编代码例程。它只是调用<code>Thread.c</code>中的<code>TimerInterruptHandler</code>函数。</p>
+<p>接下来，看看当某个<strong>线程正在执行时发生定时器中断</strong>时会发生什么。这是一个中断，因此CPU首先中断当前例程的执行，并将某些状态压入其(系统)堆栈。然后，它禁用中断并在<code>Runtime.s</code>跳转到名为<code>TimerInterruptHandler</code>的汇编代码例程。它只是调用<code>Thread.c</code>中的<code>TimerInterruptHandler</code>函数。</p>
 <p>在<code>TimerInterruptHandler</code>中，我们调用<code>Yield</code>，然后它会切换到另一个线程。稍后，当这个线程再次有机会运行时，我们将回到这里。然后，我们将返回到汇编语言例程，将执行“<code>reti</code>”指令。这将使状态恢复到之前的状态，中断的例程(无论它是什么)将继续。</p>
 <p>注意，这段代码维护了一个名为<code>currentInterruptStatus</code>的变量。这是因为查询CPU的“I”位相当困难。更简单的做法是，只要中断状态发生变化，就改变该变量。我们可以在<code>TimerInterruptHandler</code>函数中看到这种情况。显然，中断发生后将立即禁用。<code>Yield</code>数会保持中断状态。因此当我们从<code>Yield</code>返回时，中断将再次被禁用。在返回被中断的线程之前，我们将<code>currentInterruptStatus</code>设置为ENABLED。(它们必须在中断发生之前启用，否则它不可能发生，因此在我们执行“<code>reti</code>”指令之后，状态将恢复到之前的状态，即启用。)</p>
 <p>现在您已经准备好开始使用和修改代码了!请实验代码，我们刚刚有讨论，必须要理解它。</p>
@@ -533,10 +541,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    292.6k
+                    296.8k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    18:15
+                    18:36
                 </div>
             
             
