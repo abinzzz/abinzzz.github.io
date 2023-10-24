@@ -1,0 +1,569 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        paper: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding |
+        
+        Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   BERT: Pre-training of Deep Bidirectional Transformers for Language  abtract 本文提出一种新的语言表示模型BERT，即基于transformer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="paper: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding">
+<meta property="og:url" content="https://abinzzz.github.io/2023/10/24/paper-BERT-Pre-training-of-Deep-Bidirectional-Transformers-for-Language-Understanding/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   BERT: Pre-training of Deep Bidirectional Transformers for Language  abtract 本文提出一种新的语言表示模型BERT，即基于transformer">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pbs.twimg.com/media/F9MATxVasAAIo5U?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F9MBgDjbEAA4DUW?format=jpg&amp;name=medium">
+<meta property="article:published_time" content="2023-10-24T02:04:19.000Z">
+<meta property="article:modified_time" content="2023-10-24T07:49:28.535Z">
+<meta property="article:author" content="野中晴">
+<meta property="article:tag" content="paper">
+<meta property="article:tag" content="bert">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/F9MATxVasAAIo5U?format=jpg&amp;name=medium">
+    
+        <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/katex@0.16.7/dist/katex.min.css">
+
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">Loading...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="paper: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>paper: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">首页</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">归档</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">关于</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">友链</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS 订阅"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://abinzzz.github.io"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-paper-BERT-Pre-training-of-Deep-Bidirectional-Transformers-for-Language-Understanding" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/10/24/paper-BERT-Pre-training-of-Deep-Bidirectional-Transformers-for-Language-Understanding/" class="article-date-link">
+        <time datetime="2023-10-24T02:04:19.000Z"
+              itemprop="datePublished">2023-10-24</time>
+    </a>
+</div>
+
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="/categories/paper/">paper</a>
+    </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h1 id="bert-pre-training-of-deep-bidirectional-transformers-for-language"><a class="markdownIt-Anchor" href="#bert-pre-training-of-deep-bidirectional-transformers-for-language"></a> BERT: Pre-training of Deep Bidirectional Transformers for Language</h1>
+<h2 id="abtract"><a class="markdownIt-Anchor" href="#abtract"></a> abtract</h2>
+<p>本文提出一种新的语言表示模型BERT，即基于transformer的双向编码器表示。与最近的语言表示模型不同， BERT旨在通过联合约束所有层的左右上下文来预训练未标记文本的深度双向表示。因此，预训练的BERT模型可以通过一个额外的输出层进行微调，以创建适用于广泛任务的最先进模型，如问答和语言推理，而无需对特定任务的架构进行实质性修改</p>
+<p>BERT在概念上简单，经验上强大。它在11个自然语言处理任务上获得了最新的结果，包括将GLUE分数提高到80.5%(7.7%的绝对提高)，MultiNLI精度提高到86.7%(4.6%的绝对提高)，SQuAD v1.1问答测试F1提高到93.2(1.5分绝对提高)，SQuAD v2.0测试F1提高到83.1(5.1分绝对提高)</p>
+<br>
+<h2 id="1introduction"><a class="markdownIt-Anchor" href="#1introduction"></a> 1.Introduction</h2>
+<p>语言模型预训练已被证明对改善许多自然语言处理任务是有效的。其中包括句子级任务，如自然语言推理和释义，旨在通过整体分析句子之间的关系来预测句子之间的关系，以及标记级任务，如命名实体识别和问答，其中模型需要在标记级产生细粒度输出。</p>
+<p>现有两种将预训练语言表示应用于下游任务的策略:</p>
+<ul>
+<li>基于特征：于特征的方法，如ELMo，使用特定于任务的架构，其中包括预训练表示作为额外的特征。</li>
+<li>微调：微调方法，如生成式预训练Transformer (OpenAI GPT)，引入了最小的特定于任务的参数，并通过简单微调所有预训练参数在下游任务上进行训练。</li>
+</ul>
+<p>这两种方法在预训练期间具有相同的目标函数，它们使用单向语言模型来学习通用语言表示</p>
+<br>
+<p>现有两种将预训练语言表示应用于下游任务的策略:基于特征和微调。基于特征的方法，如ELMo (Peters等人，2018a)，使用特定于任务的架构，其中包括预训练表示作为额外的特征。微调方法，如生成式预训练Transformer (OpenAI GPT) (Radford等人，2018)，引入了最小的特定于任务的参数，并通过简单微调所有预训练参数在下游任务上进行训练。这两种方法在预训练期间具有相同的目标函数，它们使用单向语言模型来学习通用语言表示</p>
+<p>本文通过提出BERT: transformer的双向编码器表示来改进基于微调的方法。BERT受完形填空任务(Taylor, 1953)的启发，通过使用“掩码语言模型”(MLM)预训练目标缓解了前面提到的单向性约束。掩码语言模型从输入中随机掩码一些标记，目标是仅根据其上下文预测掩码单词的原始词汇id。与左右语言模型预训练不同，MLM目标使表示能够融合左右上下文，使其能够预训练深度双向Transformer。除了掩码语言模型外，还使用了&quot;下一个句子预测&quot;任务，联合预训练文本对表示。本文的贡献如下:</p>
+<ul>
+<li>我们证明了双向预训练对于语言表示的重要性。与雷德福等人不​​同。 (2018) 使用单向语言模型进行预训练，BERT 使用屏蔽语言模型来实现预训练的深度双向表示。这也与 Peters 等人形成鲜明对比。 (2018a)，它使用独立训练的从左到右和从右到左 LM 的浅层串联</li>
+<li>预训练表示减少了对许多重度工程特定任务架构的需求。BERT是第一个基于微调的表示模型，在大量句子级和token级任务上实现了最先进的性能，超过了许多特定任务的架构</li>
+<li>BERT 推进了 11 项 NLP 任务的最新技术。代码和预训练模型可在<a target="_blank" rel="noopener" href="https://github.com/google-research/bert">https://github.com/google-research/bert</a> 上获取。</li>
+</ul>
+<br>
+<h2 id="2-related-work"><a class="markdownIt-Anchor" href="#2-related-work"></a> 2. Related Work</h2>
+<p>预训练通用语言表示有着悠久的历史，我们在本节中简要回顾一下最广泛使用的方法。</p>
+<br>
+<h2 id="21-unsupervised-feature-based-approaches"><a class="markdownIt-Anchor" href="#21-unsupervised-feature-based-approaches"></a> 2.1 Unsupervised Feature-based Approaches</h2>
+<p>学习广泛适用的单词表示几十年来一直是一个活跃的研究领域，包括非神经（Brown et al., 1992; Ando and Zhu, 2005; Blitzer et al., 2006）和神经（Mikolov et al., 2013） ；Pennington 等人，2014）方法。预训练的词嵌入是现代 NLP 系统不可或缺的一部分，它比从头开始学习的嵌入提供了显着的改进（Turian 等人，2010）。为了预训练词嵌入向量，使用了从左到右的语言建模目标（Mnih 和 Hinton，2009），以及区分左右上下文中正确和错误单词的目标（Mikolov 等，2013）。</p>
+<p>这些方法已推广到更粗的粒度，例如句子嵌入（Kiros 等人，2015；Logeswaran 和 Lee，2018）或段落嵌入（Le 和 Mikolov，2014）。为了训练句子表示，先前的工作使用目标对候选下一个句子进行排名（Jernite 等人，2017 年；Logeswaran 和 Lee，2018 年），在给定前一个句子的表示的情况下从左到右生成下一个句子单词（Kiros 等人） al., 2015），或去噪自动编码器导出的目标（Hill et al., 2016）。</p>
+<p>ELMo 及其前身（Peters et al., 2017, 2018a）沿着不同的维度概括了传统的词嵌入研究。他们从从左到右和从右到左的语言模型中提取上下文敏感的特征。每个标记的上下文表示是从左到右和从右到左表示的串联。当将上下文词嵌入与现有的特定于任务的架构集成时，ELMo 推进了几个主要 NLP 基准的最新技术（Peters 等人，2018a），包括问答（Rajpurkar 等人，2016）、情感分析（Socher 等人） ., 2013），以及命名实体识别（Tjong Kim Sang 和 De Meulder, 2003）。梅拉穆德等人。 (2016) 提出通过使用 LSTM 从左右上下文预测单个单词的任务来学习上下文表示。与 ELMo 类似，他们的模型是基于特征的，而不是深度双向的。费杜斯等人。 (2018) 表明完形填空任务可用于提高文本生成模型的鲁棒性。</p>
+<br>
+<h2 id="22-unsupervised-fine-tuning-approaches"><a class="markdownIt-Anchor" href="#22-unsupervised-fine-tuning-approaches"></a> 2.2 Unsupervised Fine-tuning Approaches</h2>
+<p>与基于特征的方法一样，第一个在这个方向上仅使用来自未标记文本的预训练词嵌入参数</p>
+<p>最近，生成上下文token表示的句子或文档编码器已经从未标记的文本中进行了预训练，并针对有监督的下游任务进行了微调(Dai和Le, 2015;霍华德和罗德，2018;Radford et al.， 2018)。这些方法的优点是很少有参数需要从头学习。至少部分由于这一优势，OpenAI GPT (Radford等人，2018)在GLUE基准的许多句子级任务上取得了以前最先进的结果(Wang等人，2018a)。从左到右的语言建模和自编码器目标已用于预训练此类模型(Howard和Ruder, 2018;Radford等人，2018;Dai和Le, 2015)。</p>
+<br>
+<h2 id="23-transfer-learning-from-supervised-data"><a class="markdownIt-Anchor" href="#23-transfer-learning-from-supervised-data"></a> 2.3 Transfer Learning from Supervised Data</h2>
+<p>还有一些工作展示了从具有大型数据集的监督任务中的有效迁移，例如自然语言推理（Conneau et al., 2017）和机器翻译（McCann et al., 2017）。计算机视觉研究还证明了从大型预训练模型中进行迁移学习的重要性，其中一个有效的方法是微调使用 ImageNet 预训练的模型（Deng 等人，2009 年；Yosinski 等人，2014 年）。</p>
+<br>
+<h2 id="3-bert"><a class="markdownIt-Anchor" href="#3-bert"></a> 3. BERT</h2>
+<p><img src="https://pbs.twimg.com/media/F9MATxVasAAIo5U?format=jpg&amp;name=medium" alt="" /><br />
+BERT 的整体预训练和微调程序。除了输出层之外，预训练和微调都使用相同的架构。使用相同的预训练模型参数来初始化不同下游任务的模型。在微调过程中，所有参数都会被微调。 [CLS] 是添加在每个输入示例前面的特殊符号，[SEP] 是特殊的分隔符标记（例如分隔问题/答案）。</p>
+<p>我们在本节中介绍 BERT 及其详细实现。我们的框架有两个步骤：预训练和微调。在预训练期间，模型在不同的预训练任务中使用未标记的数据进行训练。对于微调，BERT 模型首先使用预先训练的参数进行初始化，然后使用来自下游任务的标记数据对所有参数进行微调。每个下游任务都有单独的微调模型，即使它们是使用相同的预训练参数进行初始化的。图 1 中的问答示例将作为本节的运行示例</p>
+<p>BERT的一个独特特性是它跨不同任务的统一架构。预训练架构和最终的下游架构之间的差异很小。</p>
+<p><strong>模型架构</strong> BERT 的模型架构是一个多层双向 Transformer 编码器，基于 Vaswani 等人描述的原始实现。 （2017）并在tensor2tensor库中发布。由于Transformers的使用已经变得普遍，并且我们的实现几乎与原始版本相同，因此我们将省略模型架构的详尽背景描述，并建议读者参考Vaswani等人。 (2017) 以及优秀的指南，例如“The Annotated Transformer”。</p>
+<p>在这项工作中，我们将层数（即 Transformer 块）表示为 L，隐藏大小表示为 H，自注意力头的数量表示为A。我们主要报告两种模型大小的结果：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>E</mi><mi>R</mi><msub><mi>T</mi><mrow><mi>B</mi><mi>A</mi><mi>S</mi><mi>E</mi></mrow></msub></mrow><annotation encoding="application/x-tex">BERT_{BASE}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（L=12， H=768，A=12，总参数=110M）和<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>E</mi><mi>R</mi><msub><mi>T</mi><mrow><mi>L</mi><mi>A</mi><mi>R</mi><mi>G</mi><mi>E</mi></mrow></msub></mrow><annotation encoding="application/x-tex">BERT_{LARGE}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span><span class="mord mathnormal mtight">G</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（L=24，H=1024，A=16，总参数=340M）</p>
+<p>为了进行比较，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>E</mi><mi>R</mi><msub><mi>T</mi><mrow><mi>B</mi><mi>A</mi><mi>S</mi><mi>E</mi></mrow></msub></mrow><annotation encoding="application/x-tex">BERT_{BASE}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 选择与 OpenAI GPT 具有相同的模型大小。然而，重要的是，BERT Transformer 使用双向自注意力，而 GPT Transformer 使用受限自注意力，其中每个令牌只能关注其左侧的上下文。</p>
+<p><strong>输入/输出表示</strong> 为了使 BERT 处理各种下游任务，我们的输入表示能够在一个标记序列中明确表示单个句子和一对句子（例如，〈问题，答案〉）。在这项工作中， “句子”可以是连续文本的任意范围，而不是实际的语言句子。 “序列”是指 BERT 的输入 token 序列，它可以是单个句子，也可以是打包在一起的两个句子。</p>
+<p>我们使用具有 30,000 个标记词汇的 WordPiece 嵌入（Wu et al., 2016）。每个序列的第一个标记始终是一个特殊的分类标记（[CLS]）。与该标记对应的最终隐藏状态用作分类任务的聚合序列表示。句子对被打包成一个序列。我们以两种方式区分句子。首先，我们用一个特殊的标记（[SEP]）将它们分开。其次，我们向每个标记添加学习嵌入，指示它属于句子 A 还是句子 B。如图 1 所示，我们将输入嵌入表示为 E，将特殊 [CLS] 标记的最终隐藏向量表示为 C ∈ <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>R</mi><mi>H</mi></msup></mrow><annotation encoding="application/x-tex">R^H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.08125em;">H</span></span></span></span></span></span></span></span></span></span></span> ，并且第 i 个输入标记的最终隐藏向量为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">T_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> ∈ <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>R</mi><mi>H</mi></msup></mrow><annotation encoding="application/x-tex">R^H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.08125em;">H</span></span></span></span></span></span></span></span></span></span></span> 。</p>
+<p>对于给定的标记，其输入表示是通过对相应的标记、段和位置嵌入求和来构造的。这种结构的可视化如图 2 所示。</p>
+<p><img src="https://pbs.twimg.com/media/F9MBgDjbEAA4DUW?format=jpg&amp;name=medium" alt="" /><br />
+BERT 输入表示:input嵌入=token嵌入 + segmentation嵌入 + position嵌入</p>
+<br>
+<h2 id="31-pre-training-bert"><a class="markdownIt-Anchor" href="#31-pre-training-bert"></a> 3.1 Pre-training BERT</h2>
+<p>与彼得斯等人不同。 (2018a) 和 Radford 等人。 (2018)，我们不使用传统的从左到右或从右到左的语言模型来预训练 BERT。相反，我们使用本节中描述的两个无监督任务来预训练 BERT。此步骤如图 1 的左侧部分所示。</p>
+<p><strong>任务 1：Masked LM</strong> 直观上，我们有理由相信深度双向模型比从左到右模型或从左到右和从右到左模型的浅层串联更强大。不幸的是，标准条件语言模型只能从左到右或从右到左进行训练，因为双向条件允许每个单词间接“看到自己”，并且模型可以简单地预测多目标单词。分层的上下文。</p>
+<p>为了训练深度双向表示，我们只需随机屏蔽一定比例的输入标记，然后预测这些屏蔽标记。我们将此过程称为“masked LM”（MLM），尽管它在文献中经常被称为完形填空任务（Taylor，1953）。在这种情况下，与掩码标记相对应的最终隐藏向量被输入到词汇表上的输出 softmax 中，就像在标准 LM 中一样。在我们所有的实验中，我们随机屏蔽每个序列中所有 WordPiece 标记的 15%。与去噪自动编码器（Vincent et al., 2008）相比，我们只预测屏蔽词而不是重建整个输入。</p>
+<p>虽然这使我们能够获得双向预训练模型，但缺点是我们在预训练和微调之间造成了不匹配，因为 [MASK] 标记在微调期间不会出现。为了缓解这种情况，我们并不总是用实际的 [MASK] 标记替换“屏蔽”单词。训练数据生成器随机选择 15% 的标记位置进行预测。如果选择第 i 个令牌，我们将第 i 个令牌替换为 (1) 80% 的时间为 [MASK] 令牌 (2) 10% 的时间为随机令牌 (3) 未更改的第 i 个令牌 10 ％ 的时间。然后，Ti 将用于通过交叉熵损失来预测原始令牌。我们在附录 C中比较了该过程的变体。</p>
+<p><strong>任务2：下一句预测（NSP）</strong> 许多重要的下游任务，例如问答（QA）和自然语言推理（NLI）都是基于理解两个句子之间的关系，而语言建模不能直接捕获该关系。为了训练一个理解句子关系的模型，我们预训练了一个二值化的下一个句子预测任务，该任务可以从任何单语语料库中轻松生成。具体来说，当为每个预训练示例选择句子 A 和 B 时，50% 的时间 B 是 A 之后的实际下一个句子（标记为 IsNext），50% 的时间它是来自语料库的随机句子（标记为 IsNext）。作为NotNext）。如图 1 所示，C 用于下一句预测 (NSP)。5 尽管它很简单，但我们在第 5.1 节中证明了针对此任务的预训练对 QA 和 NLI 都非常有益。</p>
+<p>NSP 任务与 Jernite 等人使用的表征学习目标密切相关。 (2017) 以及 Logeswaran 和 Lee (2018)。然而，在之前的工作中，只有句子嵌入被传输到下游任务，其中 BERT 传输所有参数来初始化最终任务模型参数</p>
+<p><strong>预训练数据</strong> 预训练过程很大程度上遵循现有的语言模型预训练文献。对于预训练语料库，我们使用 BooksCorpus（8 亿字）（Zhu et al., 2015）和英语维基百科（2,500M 字）。对于维基百科，我们仅提取文本段落并忽略列表、表格和标题。为了提取长的连续序列，使用文档级语料库而不是打乱的句子级语料库（例如十亿字基准（Chelba et al., 2013））至关重要。</p>
+<br>
+<h2 id="32-fine-tuning-bert"><a class="markdownIt-Anchor" href="#32-fine-tuning-bert"></a> 3.2 Fine-tuning BERT</h2>
+<p>微调非常简单，因为 Transformer 中的自注意力机制允许 BERT 通过交换适当的输入和输出来对许多下游任务进行建模，无论它们涉及单个文本还是文本对。对于涉及文本对的应用，常见的模式是在应用双向交叉注意力之前独立编码文本对，例如 Parikh 等人。 （2016）；徐等人。 （2017）。 BERT 使用自注意力机制来统一这两个阶段，因为使用自注意力编码串联文本对有效地包括两个句子之间的双向交叉注意力。</p>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="https://abinzzz.github.io/2023/10/24/paper-BERT-Pre-training-of-Deep-Bidirectional-Transformers-for-Language-Understanding/" data-id="clo412yog0000nq698zndgxeu" data-title="paper: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+               class="article-share-link">分享</a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bert/" rel="tag">bert</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/paper/" rel="tag">paper</a></li></ul>
+
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="OS:p2-code(simple)"
+                         class="lazyload">
+                
+                <a href="/2023/10/22/OS-p2-code-simple/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        OS:p2-code(simple)
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="野中晴" class="lazyload">
+            <div class="sidebar-author-name">野中晴</div>
+            <div class="sidebar-description">Love is selfish.</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">157</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">10</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">210</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essay/">Essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reading/">reading</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/0/" style="font-size: 10px;">0</a> <a href="/tags/1/" style="font-size: 10px;">1</a> <a href="/tags/3-1/" style="font-size: 10px;">3-1</a> <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/AI-Ethics/" style="font-size: 10px;">AI Ethics</a> <a href="/tags/Advancing-Spiking-Neural-Networks-towards-Deep-Residual-Learning/" style="font-size: 11.54px;">Advancing Spiking Neural Networks towards Deep Residual Learning</a> <a href="/tags/AimGraduate/" style="font-size: 10.77px;">AimGraduate</a> <a href="/tags/An-Overview-of-the-BLITZ-Computer-Hardware/" style="font-size: 10px;">An Overview of the BLITZ Computer Hardware</a> <a href="/tags/An-Overview-of-the-BLITZ-System/" style="font-size: 10px;">An Overview of the BLITZ System</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/Artificial-neural-networks/" style="font-size: 10px;">Artificial neural networks</a> <a href="/tags/Attention/" style="font-size: 10px;">Attention</a> <a href="/tags/Benchmark/" style="font-size: 10px;">Benchmark</a> <a href="/tags/Blitz/" style="font-size: 12.31px;">Blitz</a> <a href="/tags/CAS/" style="font-size: 10px;">CAS</a> <a href="/tags/CAS%E5%AE%9E%E4%B9%A0offer/" style="font-size: 10px;">CAS实习offer</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 13.85px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Deep-learning/" style="font-size: 10px;">Deep learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 10.77px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Essay/" style="font-size: 20px;">Essay</a> <a href="/tags/GEAR-5/" style="font-size: 10px;">GEAR-5</a> <a href="/tags/Git/" style="font-size: 10.77px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/GoAbroad/" style="font-size: 16.92px;">GoAbroad</a> <a href="/tags/Gumayusi/" style="font-size: 10px;">Gumayusi</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 11.54px;">IELTS</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/Intermediate-SQL/" style="font-size: 10px;">Intermediate SQL</a> <a href="/tags/Introduction/" style="font-size: 10px;">Introduction</a> <a href="/tags/Introduction-to-SQL/" style="font-size: 10px;">Introduction to SQL</a> <a href="/tags/Introduction-to-the-Relational-Model/" style="font-size: 10px;">Introduction to the Relational Model</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Lab1/" style="font-size: 10px;">Lab1</a> <a href="/tags/Lec01/" style="font-size: 11.54px;">Lec01</a> <a href="/tags/Lec01s/" style="font-size: 10.77px;">Lec01s</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/M2/" style="font-size: 10.77px;">M2</a> <a href="/tags/MIT6-S081/" style="font-size: 13.08px;">MIT6.S081</a> <a href="/tags/MS-ResNet/" style="font-size: 10px;">MS-ResNet</a> <a href="/tags/Mac/" style="font-size: 10.77px;">Mac</a> <a href="/tags/Missing-Semester/" style="font-size: 10px;">Missing Semester</a> <a href="/tags/NNDL/" style="font-size: 11.54px;">NNDL</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Neural-Network/" style="font-size: 10px;">Neural Network</a> <a href="/tags/Neural-Network-from-Shallow-to-Deep/" style="font-size: 10px;">Neural Network from Shallow to Deep</a> <a href="/tags/Neuromorphic-computing/" style="font-size: 10px;">Neuromorphic computing</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/Qingyao-Ai/" style="font-size: 10.77px;">Qingyao Ai</a> <a href="/tags/RISC-V/" style="font-size: 10px;">RISC-V</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/ResNet/" style="font-size: 10px;">ResNet</a> <a href="/tags/Rethinking-the-performance-comparison-between-SNNS-and-ANNS/" style="font-size: 10px;">Rethinking the performance comparison between SNNS and ANNS</a> <a href="/tags/SE/" style="font-size: 13.08px;">SE</a> <a href="/tags/SE-3-0/" style="font-size: 10px;">SE-3.0</a> <a href="/tags/SNN/" style="font-size: 11.54px;">SNN</a> <a href="/tags/SNN-vs-RNN/" style="font-size: 10px;">SNN vs RNN</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/Spiking-neural-network/" style="font-size: 10.77px;">Spiking neural network</a> <a href="/tags/Spiking-neural-networks/" style="font-size: 10px;">Spiking neural networks</a> <a href="/tags/StarBucks/" style="font-size: 12.31px;">StarBucks</a> <a href="/tags/T1/" style="font-size: 13.08px;">T1</a> <a href="/tags/T1-fighting/" style="font-size: 10px;">T1 fighting</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/The-Thread-Scheduler-and-Concurrency-Control-Primitives/" style="font-size: 10px;">The Thread Scheduler and Concurrency Control Primitives</a> <a href="/tags/University/" style="font-size: 13.85px;">University</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 10.77px;">Yuxiao Dong</a> <a href="/tags/ai-ethics/" style="font-size: 10px;">ai ethics</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bert/" style="font-size: 10.77px;">bert</a> <a href="/tags/bing/" style="font-size: 10px;">bing</a> <a href="/tags/blitz/" style="font-size: 10px;">blitz</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/causal-churn-word/" style="font-size: 10px;">causal churn word</a> <a href="/tags/chapter00/" style="font-size: 10px;">chapter00</a> <a href="/tags/chapter01/" style="font-size: 10.77px;">chapter01</a> <a href="/tags/chapter02/" style="font-size: 10px;">chapter02</a> <a href="/tags/chapter03/" style="font-size: 10px;">chapter03</a> <a href="/tags/chapter04/" style="font-size: 10px;">chapter04</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/code/" style="font-size: 11.54px;">code</a> <a href="/tags/coding/" style="font-size: 17.69px;">coding</a> <a href="/tags/cold%F0%9F%98%B7/" style="font-size: 10px;">cold😷</a> <a href="/tags/courseinfo/" style="font-size: 10px;">courseinfo</a> <a href="/tags/dalle3/" style="font-size: 10px;">dalle3</a> <a href="/tags/database/" style="font-size: 13.08px;">database</a> <a href="/tags/debug/" style="font-size: 11.54px;">debug</a> <a href="/tags/deep-neural-network/" style="font-size: 10.77px;">deep neural network</a> <a href="/tags/discussion/" style="font-size: 10px;">discussion</a> <a href="/tags/dowhy/" style="font-size: 10.77px;">dowhy</a> <a href="/tags/echo/" style="font-size: 10px;">echo</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 10.77px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gym/" style="font-size: 11.54px;">gym</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/homework/" style="font-size: 10px;">homework</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 12.31px;">instructor</a> <a href="/tags/intern-00/" style="font-size: 10px;">intern-00</a> <a href="/tags/intern00/" style="font-size: 12.31px;">intern00</a> <a href="/tags/internship/" style="font-size: 16.15px;">internship</a> <a href="/tags/introduction/" style="font-size: 11.54px;">introduction</a> <a href="/tags/kfc/" style="font-size: 10px;">kfc</a> <a href="/tags/l1/" style="font-size: 10px;">l1</a> <a href="/tags/l2/" style="font-size: 10px;">l2</a> <a href="/tags/l3/" style="font-size: 10px;">l3</a> <a href="/tags/lec01/" style="font-size: 10px;">lec01</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/m/" style="font-size: 10px;">m</a> <a href="/tags/mlp/" style="font-size: 10px;">mlp</a> <a href="/tags/mnist/" style="font-size: 10px;">mnist</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/neuromorphic-computing/" style="font-size: 10.77px;">neuromorphic computing</a> <a href="/tags/nndl/" style="font-size: 10px;">nndl</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/one-piece/" style="font-size: 10px;">one piece</a> <a href="/tags/openai/" style="font-size: 10px;">openai</a> <a href="/tags/os/" style="font-size: 15.38px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/overview/" style="font-size: 10px;">overview</a> <a href="/tags/p1/" style="font-size: 10px;">p1</a> <a href="/tags/p2/" style="font-size: 11.54px;">p2</a> <a href="/tags/paper/" style="font-size: 18.46px;">paper</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 12.31px;">prml</a> <a href="/tags/pytorch/" style="font-size: 10px;">pytorch</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/redemption/" style="font-size: 10px;">redemption</a> <a href="/tags/research-vs-coursework/" style="font-size: 10px;">research vs coursework</a> <a href="/tags/shap/" style="font-size: 11.54px;">shap</a> <a href="/tags/shell-vs-terminal/" style="font-size: 10px;">shell vs terminal</a> <a href="/tags/simple/" style="font-size: 10px;">simple</a> <a href="/tags/spike/" style="font-size: 10px;">spike</a> <a href="/tags/starbucks/" style="font-size: 10px;">starbucks</a> <a href="/tags/tensor-vs-ndarray/" style="font-size: 10px;">tensor vs ndarray</a> <a href="/tags/third-place/" style="font-size: 10px;">third place</a> <a href="/tags/thu/" style="font-size: 10px;">thu</a> <a href="/tags/tips/" style="font-size: 10.77px;">tips</a> <a href="/tags/tool/" style="font-size: 14.62px;">tool</a> <a href="/tags/wbg%E8%AF%AD%E9%9F%B3-uzi/" style="font-size: 10px;">wbg语音-uzi</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/xv6/" style="font-size: 10px;">xv6</a> <a href="/tags/youth/" style="font-size: 10px;">youth</a> <a href="/tags/zeus/" style="font-size: 10px;">zeus</a> <a href="/tags/%E4%B8%83%E5%A4%95/" style="font-size: 10px;">七夕</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 19.23px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E8%A2%AB%E7%BA%A6%E5%AE%9A%E6%9D%9F%E7%BC%9A%E4%BA%86/" style="font-size: 10px;">再也不用被约定束缚了</a> <a href="/tags/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8/" style="font-size: 10px;">再见绘梨</a> <a href="/tags/%E5%86%99%E4%BD%9C%E5%BF%83%E5%BE%97/" style="font-size: 10px;">写作心得</a> <a href="/tags/%E5%8D%9A%E4%BA%BA%E4%BC%A0/" style="font-size: 10px;">博人传</a> <a href="/tags/%E5%8F%AA%E8%A6%81%E6%9C%89%E7%9C%9F%E5%BF%83%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%B0%B1%E8%83%BD%E5%8F%91%E5%87%BA%E5%85%89%E6%9D%A5/" style="font-size: 10px;">只要有真心喜欢的东西,就能发出光来</a> <a href="/tags/%E5%93%88%E5%B8%8C%E5%80%BC/" style="font-size: 10px;">哈希值</a> <a href="/tags/%E5%9C%A3%E5%A2%83/" style="font-size: 10px;">圣境</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 10.77px;">审稿意见</a> <a href="/tags/%E5%BC%BA%E5%BC%B1com/" style="font-size: 10px;">强弱com</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%80%80%E6%8F%A3%E7%9D%80%E4%B8%80%E5%AE%9A%E5%8F%AF%E4%BB%A5%E5%81%9A%E5%A5%BD%E7%9A%84%E7%A1%AE%E4%BF%A1/" style="font-size: 10px;">怀揣着一定可以做好的确信</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%84%9F%E5%86%92/" style="font-size: 10px;">感冒</a> <a href="/tags/%E6%84%9F%E5%86%92%E7%97%8A%E6%84%88/" style="font-size: 10px;">感冒痊愈</a> <a href="/tags/%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/" style="font-size: 10px;">拓扑结构</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%90%AC%E5%AE%B6/" style="font-size: 10px;">搬家</a> <a href="/tags/%E6%94%BE%E4%B8%8B/" style="font-size: 10px;">放下</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%8A%82/" style="font-size: 10px;">教师节</a> <a href="/tags/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1/" style="font-size: 10.77px;">最长的电影</a> <a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 10px;">杂项</a> <a href="/tags/%E6%A6%82%E8%AE%BA/" style="font-size: 10px;">概论</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 13.85px;">毛概</a> <a href="/tags/%E6%B2%88%E6%9C%88/" style="font-size: 10px;">沈月</a> <a href="/tags/%E6%B2%A1%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" style="font-size: 10px;">没那么简单</a> <a href="/tags/%E7%81%AB%E9%BE%99%E5%A4%A7%E7%82%AC/" style="font-size: 10px;">火龙大炬</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE%E4%B9%A6/" style="font-size: 10px;">系统开发建议书</a> <a href="/tags/%E8%8E%93/" style="font-size: 10px;">莓</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%BE%E5%A0%82%E8%AE%A8%E8%AE%BA/" style="font-size: 10px;">课堂讨论</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10px;">调研</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">软件生命周期模型</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%F0%9F%93%A6/" style="font-size: 10px;">📦</a> <a href="/tags/%F0%9F%9B%80/" style="font-size: 10px;">🛀</a>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                野中晴
+            </div>
+            
+                <div>
+                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    307.6k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    19:21
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="野中晴" class="lazyload">
+            <div class="sidebar-author-name">野中晴</div>
+            <div class="sidebar-description">Love is selfish.</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">157</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">10</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">210</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
