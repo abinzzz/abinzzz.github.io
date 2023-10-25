@@ -32,8 +32,17 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/F9RI7YIacAAsxFG?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/F9RKfsEbUAAnHz_?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F9RMiuma8AAROhM?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F9RO01xaMAAkRvE?format=png&amp;name=360x360">
+<meta property="og:image" content="https://pbs.twimg.com/media/F9RPpioa8AAHzDS?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F9RQ_NRWMAAZfaj?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F9RRitpWMAAJaLS?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F9RTsATXQAA5cES?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F9RU_D9WgAEYiJ-?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F9RWP0RWkAA21dg?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F9RX12sWQAAoy4_?format=png&amp;name=small">
 <meta property="article:published_time" content="2023-10-25T07:13:35.000Z">
-<meta property="article:modified_time" content="2023-10-25T07:26:10.404Z">
+<meta property="article:modified_time" content="2023-10-25T08:29:56.029Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="se">
@@ -280,7 +289,165 @@
 <li>构件视图：使用构件图；</li>
 <li>部署视图：使用部署图。</li>
 </ul>
+<hr>
+<h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>类图的<strong>定义</strong>：是显示一组<strong>类、接口、协作以及它们之间关系</strong>的图。</p>
+<p>类图主要包含7种元素：</p>
+<ul>
+<li>类</li>
+<li>接口</li>
+<li>协作</li>
+<li>依赖关系</li>
+<li>泛化关系</li>
+<li>实现关系</li>
+<li>关联关系</li>
+</ul>
+<p><br></p>
+<h2 id="2-类"><a href="#2-类" class="headerlink" title="2.类"></a>2.类</h2><ul>
+<li>类是一组拥有<strong>相同的属性、操作、方法、关系和行为</strong>的对象地描述符。</li>
+<li>类定义了一组有着<strong>状态与行为的对象</strong>。类的<strong>状态由属性和关联来描述</strong>，个体行为由操作来描述，对象的生命周期则由附加给类的状态机来描述。</li>
+<li>在UML中，类表达成一个有三个分隔区的矩形。其中顶端显示<strong>类名</strong>，中间显示<strong>类的属性</strong>，尾端显示<strong>类的操作</strong>。</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/F9RMiuma8AAROhM?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<h2 id="2-1-属性"><a href="#2-1-属性" class="headerlink" title="2.1 属性"></a>2.1 属性</h2><p>可见性：描述了该属性在那些范围内可以被使用</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>可见性</strong></th>
+<th><strong>英文限定符</strong></th>
+<th><strong>UML标准图示</strong></th>
+<th><strong>Rose图示</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>公有</strong></td>
+<td>public</td>
+<td>+</td>
+<td></td>
+<td>其他类可以访问</td>
+</tr>
+<tr>
+<td><strong>私有</strong></td>
+<td>private</td>
+<td>-</td>
+<td></td>
+<td>只对本类可见,不能被其他类访问</td>
+</tr>
+<tr>
+<td><strong>保护</strong></td>
+<td>protected</td>
+<td>#</td>
+<td></td>
+<td>对本类及其派生类可见</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>类型</strong>：属性的数据类型，可以系统固有，也可以用户自定义。属性的类型决定了该属性的所有可能取值的集合</p>
+<p><br></p>
+<h2 id="2-2-操作"><a href="#2-2-操作" class="headerlink" title="2.2 操作"></a>2.2 操作</h2><p>可见性：同样描述该操作在那些范围内可以使用，与属性的可见性相同。</p>
+<p>参数列表：是一些按照顺序排列的属性定义了操作的输入。例如：oper(out arg1:int, arg2:double=3.2)</p>
+<p>返回类型即回送调用对象消息的类型。void关键字表示无返回值。</p>
+<p>特性是对操作性质的约束说明</p>
+<p><br></p>
+<h2 id="2-3-职责"><a href="#2-3-职责" class="headerlink" title="2.3 职责"></a>2.3 职责</h2><p><strong>职责是类的契约或责任</strong>。当创建一个类时，就声明了这个类的所有对象具有相同种类的状态和相同种类的行为。在较高的抽象层次上，这些相应的属性和操作正式要完成类的职责的特征。</p>
+<p>类的职责是自由形式的文本，在非正式的类图中，可以将职责列在类图操作下的另一分割栏中</p>
+<p><br></p>
+<h2 id="3-接口"><a href="#3-接口" class="headerlink" title="3.接口"></a>3.接口</h2><ul>
+<li>接口是一个<strong>被命名的操作集合</strong>，用于<strong>描述类或组件的一个服务</strong>。</li>
+<li>接口<strong>不包含属性与方法实现</strong>，但可以有一些操作。接口的所有内容都是公有的。</li>
+<li>接口代表了一份契约，<strong>实现该接口的类元必须履行它</strong>。</li>
+<li>在UML中，接口由一个带名称的小圆圈表示；<strong>也可以表示为带有&lt;<interface>&gt;构造型的类</strong></li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/F9RO01xaMAAkRvE?format=png&amp;name=360x360" alt=""></p>
+<p><br></p>
+<h2 id="4-关系"><a href="#4-关系" class="headerlink" title="4.关系"></a>4.关系</h2><p>UML中最常用的四种关系：</p>
+<ul>
+<li>关联关系</li>
+<li>泛化关系</li>
+<li>依赖关系</li>
+<li>实现关系</li>
+</ul>
+<p><br></p>
+<h2 id="4-1-关联关系"><a href="#4-1-关联关系" class="headerlink" title="4.1 关联关系"></a>4.1 关联关系</h2><ul>
+<li>关联的实例被称为链，每个链由一组有序或无序的对象组成。</li>
+<li>关联关系靠近被关联元素的部分称为关联端，关联的大部分描述都包含在一组关联端的列表里，每个端用来描述关联中类的对象的参与</li>
+<li>二元关联、自关联、N元关联</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/F9RPpioa8AAHzDS?format=jpg&amp;name=medium" alt=""></p>
+<Br>
 
+<p><strong>现实例子</strong>：<br>比如客户和订单，每个订单对应特定的客户，每个客户对应一些特定的订单；再例如公司和员工，每个公司对应一些特定的员工，每个员工对应一特定的公司。（表示有关联，也可以表示多重性）</p>
+<p><img src="https://pbs.twimg.com/media/F9RQ_NRWMAAZfaj?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<h2 id="4-1-1-特殊的关联关系：聚合关系"><a href="#4-1-1-特殊的关联关系：聚合关系" class="headerlink" title="4.1.1 特殊的关联关系：聚合关系"></a>4.1.1 特殊的关联关系：聚合关系</h2><p><strong>聚合关系</strong>：描述“<strong>整体-部分</strong>”的关联关系</p>
+<p>聚合关系没有改变整体与部分之间整个关联的导航含义，也与整体和部分的生命周期无关。（部分与整体相互独立）</p>
+<p><img src="https://pbs.twimg.com/media/F9RRitpWMAAJaLS?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<p>关联与聚合的区别：</p>
+<ul>
+<li><strong>关联关系</strong>所涉及的<strong>两个对象是处在同一个层次上的</strong>。比如人和自行车就是一种关联关系，而不是聚合关系，因为人不是由自行车组成的。<strong>聚合关系</strong>涉及的<strong>两个对象处于不平等的层次上，一个代表整体，一个代表部分</strong>。比如:电脑和它的显示器、键盘、主板以及内存就是聚集关系，因为主板是电脑的组成部分。</li>
+<li>对于具有<strong>聚集关系（尤其是强聚集关系）的两个对象，整体对象会制约它的组成对象的生命周期</strong>。部分类的对象不能单独存在，它的生命周期依赖于整体类的对象的生命周期，当整体消失，部分也就随之消失。比如张三的电脑被偷了，那么电脑的所有组件也不存在了，除非张三事先把一些电脑的组件（比如硬盘和内存）拆了下来。</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/F9RTsATXQAA5cES?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<h2 id="4-1-2-特殊的关联关系：组合关系"><a href="#4-1-2-特殊的关联关系：组合关系" class="headerlink" title="4.1.2 特殊的关联关系：组合关系"></a>4.1.2 特殊的关联关系：组合关系</h2><p>组合关系：描述“整体-部分”的关联关系</p>
+<p>组合关系中的<strong>部分要完全依赖于整体</strong></p>
+<p>聚合与组合的区别:</p>
+<ul>
+<li>聚合关系：涉及的两个对象处于不平等的层次上，一个代表整体，一个代表部分。比如:电脑和它的显示器、键盘、主板以及内存就是聚集关系，因为主板是电脑的组成部分。</li>
+<li>组合关系(更强的聚合关系)：代表整体的对象负责代表部分对象的生命周期。公司不存在，部门也没有意义了。再例如：人和五脏六腑、四肢的关系。</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/F9RU_D9WgAEYiJ-?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<h2 id="4-2-泛化关系"><a href="#4-2-泛化关系" class="headerlink" title="4.2 泛化关系"></a>4.2 泛化关系</h2><p><strong>泛化关系</strong>定义为一个较普通的元素与一个较特殊的元素之间的类元关系。其中描述一般的元素称为父，描述特殊的元素称为子。（<strong>子类是父类的继承，则父类就是子类的泛化</strong>。）</p>
+<p>通过泛化对应的继承机制使<strong>子类共享父类的属性和操作</strong>，小了模型的规模，同时也防止了模型的更新所导致的定义不一致的意外。</p>
+<p>泛化关系的特征：</p>
+<ul>
+<li><strong>传递性</strong>：一个类子类的子类同样继承了这个类的特性。在父方向上经过了一个或几个泛化的元素被称为祖先，在子方向上则被称为后代。</li>
+<li><strong>反对称性</strong>：泛化关系不能成环，即一个类不可能是自己的祖先和自己的后代。</li>
+</ul>
+<p>泛化关系的两种情况</p>
+<ul>
+<li>单继承：每个类之多能拥有一个父类。编程语言：C#、Java等</li>
+<li><strong>多重继承</strong>：子类可以有多个父类并继承了所有父类的结构、行为和约束。编程语言：C++等</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/F9RWP0RWkAA21dg?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<h2 id="4-3-依赖关系"><a href="#4-3-依赖关系" class="headerlink" title="4.3 依赖关系"></a>4.3 依赖关系</h2><p>依赖关系表示的是<strong>两个元素之间语义上的连接关系</strong>。对于两个元素X和Y，如果<strong>元素X的变化会引起对另一个元素Y的变化</strong>，则称元素Y依赖于X。其中，X被称为提供者，Y被称为客户。</p>
+<p><strong>现实例子</strong>：比如说你要去拧螺丝，你是不是要借助(也就是依赖)螺丝刀(Screwdriver)来帮助你完成拧螺丝(screw)的工作</p>
+<p>对于类图而言，主要有以下需要使用依赖的情况：</p>
+<ul>
+<li>客户类向提供者类发送消息。</li>
+<li>提供者类是客户类的属性类型。</li>
+<li>提供者类是客户类操作的参数类型</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/F9RX12sWQAAoy4_?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<h2 id="4-4-实现关系"><a href="#4-4-实现关系" class="headerlink" title="4.4 实现关系"></a>4.4 实现关系</h2><p>实现关系用来表示规格说明与实现之间的关系。在类图中，实现关系主要用于<strong>接口与实现该接口的类之间</strong>。</p>
+<p><strong>一个类可以实现多个接口，一个接口也可以被多个类实现</strong>。</p>
+<p>实现关系的两种表示法：</p>
+<ul>
+<li>当接口元素<strong>以带构造型的类的方式表示时，用虚线三角形箭头表示</strong>。</li>
+<li>当接口元素以小圆圈方式表示时，用实线表示。</li>
+</ul>
+<h2 id="4-5-总结"><a href="#4-5-总结" class="headerlink" title="4.5 总结"></a>4.5 总结</h2><p>假设我们正在构建一个简单的交通管理系统。</p>
+<p><strong>关联关系 (Association)</strong>:</p>
+<pre><code>- 示例：`Driver`类与`Car`类之间存在关联关系。一个司机可以驾驶一辆车，而一辆车只能被一个司机驾驶。
+- UML表示：`Driver`类与`Car`类用一条直线连接。在`Driver`端可能有一个`1`的标记，而在`Car`端有一个`0..1`的标记。
+</code></pre><p><strong>泛化关系 (Generalization)</strong>:</p>
+<pre><code>- 示例：`Car`、`Bus`和`Bicycle`都是交通工具。在这种情况下，我们可以有一个更为通用的类`Vehicle`。`Car`、`Bus`和`Bicycle`都是`Vehicle`的特化。
+- UML表示：对于每一个子类（`Car`、`Bus`、`Bicycle`），用一条带空心箭头的直线连接它们和`Vehicle`类，箭头指向`Vehicle`。
+</code></pre><p><strong>依赖关系 (Dependency)</strong>:</p>
+<pre><code>- 示例：假设我们有一个`GPS`类，该类可以为`Driver`提供当前位置。但是，`Driver`类不总是需要`GPS`。只有当`Driver`想要知道当前位置时，他/她才会使用`GPS`。
+- UML表示：从`Driver`类到`GPS`类有一条带虚线箭头的直线，箭头指向`GPS`。
+</code></pre><p><strong>实现关系 (Realization)</strong>:</p>
+<pre><code>- 示例：我们有一个接口叫`Drivable`，它定义了`start()`和`stop()`这两个方法。`Car`和`Bicycle`类都实现了这个接口。
+- UML表示：对于`Car`和`Bicycle`这两个类，用一条带虚线箭头的直线连接它们和`Drivable`接口，箭头指向`Drivable`。
+</code></pre>
             
         </div>
         <footer class="article-footer">
@@ -443,10 +610,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    313.8k
+                    316.1k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    19:42
+                    19:50
                 </div>
             
             
