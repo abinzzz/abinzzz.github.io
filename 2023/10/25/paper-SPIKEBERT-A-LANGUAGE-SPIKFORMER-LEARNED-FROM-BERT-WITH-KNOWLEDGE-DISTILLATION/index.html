@@ -30,14 +30,15 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   SPIKEBERT: A LANGUAGE SPIKFORMER LEARNED FROM BERT WITH KNOWLEDGE   abstract 脉冲神经网络 (SNN) 提供了一种以更节能的方式实现深度神经网">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pbs.twimg.com/media/F9iBmpwXwAAispi?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/F9YMT-qWoAApoMK?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2023-10-25T15:30:28.000Z">
-<meta property="article:modified_time" content="2023-10-27T03:03:23.214Z">
+<meta property="article:modified_time" content="2023-10-28T18:04:23.338Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="SPIKEBERT">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pbs.twimg.com/media/F9YMT-qWoAApoMK?format=jpg&amp;name=medium">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/F9iBmpwXwAAispi?format=jpg&amp;name=medium">
     
         <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
     
@@ -207,14 +208,17 @@
 <br>
 <h2 id="1introduction"><a class="markdownIt-Anchor" href="#1introduction"></a> 1.Introduction</h2>
 <p>现代人工神经网络 (ANN) 在各种自然语言处理 (NLP) 和计算机视觉 (CV) 任务中取得了巨大成功。然而，训练和部署最先进的 ANN 模型需要太多的计算能量，导致过去十年每个模型的能耗持续增加。 ChatGPT（OpenAI，2022）和GPT-4（OpenAI，2023）等大型语言模型在推理过程中的能耗是难以估量的。近年来，脉冲神经网络（SNN），可以说是第三代神经网络（Maas，1997），由于其高生物学合理性、事件驱动特性和低能耗而引起了广泛关注（Roy et al.等，2019）。与生物神经元一样，SNN 使用离散脉冲来处理和传输信息。如今，神经形态硬件可用于实现基于脉冲的计算，这为以低得多的能耗实现人工智能提供了一种有前景的方法</p>
-<p>脉冲神经网络在图像分类任务中取得了巨大成功(Hu et al., 2018; Yin et al., 2020; Fang et al., 2021; Ding et al., 2021; Kim et al., 2022b; Zhou et al. ., 2022）并且已经有一些研究（Plank et al., 2021; Lv et al., 2023; Zhu et al., 2023）证明了 SNN 在语言任务中的有效性。然而，SNN 中用于语言任务的骨干网络相对简单，这显着降低了模型性能的上限。例如，Lv 等人提出的 SNN。 (2023) 是基于 TextCNN (Kim, 2014) 构建的，与基于 Transfomer (Vaswani et al., 2017) 的语言模型（例如 BERT (Devlin et al., 2019) 和 RoBERTa）构建的语言模型相比，表现出显着的性能差距（Liu et al., 2019）关于多个文本分类基准</p>
-<p>最近，Zhou等人提出了Spikformer。 (2022)，首先将 Transformer 架构引入 SNN，并显着缩小了 SNN 和 ViT 之间的差距（Dosovitskiy 等人，2020）在 ImageNet（Deng 等人，2009）和 CIFAR-10 上。在这项研究中，我们的目标是探索将 Spikformer 这样的深度架构应用于自然语言处理领域的可行性，并研究我们在各种语言任务上使用这种深度神经模型能走多远。如图1所示，考虑到文本数据的离散性，我们改进了Spikformer的架构，使其适合语言任务。我们用语言友好的模块替换了最初为图像处理设计的某些模块（有关网络架构改进的详细信息，请参见第3.2节）。一般来说，更深的 ANN 模型通常可以带来更好的性能，并且增加 ANN 的深度可以从输入数据中提取更复杂和抽象的特征。然而，方等人。 （2020b）表明，使用代理梯度（参见第 2.1 节）直接通过时间反向传播（Werbos，1990）训练的深度 SNN 会因“自累积动态”而遭受梯度消失或爆炸的问题。因此，我们建议使用知识蒸馏（Hinton et al., 2015）来训练语言Spikformer，这样脉冲神经网络中代理梯度的偏差就不会快速累积。然而，如何从 ANN 中提取知识到 SNN 是一个巨大的挑战，因为 ANN 中的特征是浮点格式，而 SNN 中的特征是脉冲序列，甚至还涉及额外的维度 T（时间步）。我们发现这个问题可以通过引入外部模块来在训练时对齐特征来解决</p>
-<p>受到广泛使用的“训练前微调”配方（Sun et al., 2019; Liu, 2019; Gururangan et al., 2020）的启发，我们提出了一种两阶段知识蒸馏策略：</p>
+<p>脉冲神经网络在图像分类任务中取得了巨大成功并且已经有一些研究证明了 SNN 在语言任务中的有效性。然而，SNN 中用于语言任务的骨干网络相对简单，这显着降低了模型性能的上限。例如，Lv 等人提出的 SNN。 (2023) 是基于 TextCNN (Kim, 2014) 构建的，与基于 Transfomer (Vaswani et al., 2017) 的语言模型（例如 BERT (Devlin et al., 2019) 和 RoBERTa）构建的语言模型相比，表现出显着的性能差距（Liu et al., 2019）关于多个文本分类基准</p>
+<p><strong>Spikformer</strong>：首先将 Transformer 架构引入 SNN，并显着缩小了 SNN 和 ViT 之间的差距在 ImageNet和 CIFAR-10 上。<strong>(CV)</strong></p>
+<p>本文探究Spikeformer在NLP上的影响</p>
+<br>
+<p><img src="https://pbs.twimg.com/media/F9iBmpwXwAAispi?format=jpg&amp;name=medium" alt="" /><br />
+如图1所示，考虑到文本数据的离散性，我们改进了Spikformer的架构，使其适合语言任务。我们用语言友好的模块替换了最初为图像处理设计的某些模块。一般来说，更深的 ANN 模型通常可以带来更好的性能，并且增加 ANN 的深度可以从输入数据中提取更复杂和抽象的特征。然而，方等人。 （2020b）表明，使用代理梯度（参见第 2.1 节）直接通过时间反向传播训练的深度 SNN 会因“自累积动态”而遭受梯度消失或爆炸的问题。因此，<strong>我们建议使用知识蒸馏来训练语言Spikformer，这样脉冲神经网络中代理梯度的偏差就不会快速累积</strong>。然而，如何从 ANN 中提取知识到 SNN 是一个巨大的挑战，因为 ANN 中的特征是浮点格式，而 SNN 中的特征是脉冲序列，甚至还涉及额外的维度 T（时间步）。我们发现这个问题可以通过引入外部模块来在训练时对齐特征来解决</p>
+<p>受到广泛使用的“训练前微调”配方的启发，我们提出了一种两阶段知识蒸馏策略：</p>
 <ul>
 <li>在第一阶段，我们选择大型预训练模型的代表例子BERT作为教师模型，SpikeBERT作为学生模型。我们利用大量未标记文本来对齐嵌入层和隐藏层中两个模型产生的特征。</li>
 <li>在第二阶段，我们作为教师采用针对特定任务数据集进行微调的 BERT，并作为学生采用第一个预训练阶段后的模型。我们首先增加特定于任务的数据集的训练数据，然后使用教师模型预测的逻辑来进一步指导学生模型。经过两阶段的知识蒸馏，可以通过从 BERT 中蒸馏知识来构建脉冲语言模型，称为 SpikeBERT</li>
 </ul>
-<p>实验结果表明，SpikeBERT 不仅可以在文本分类任务中超越最先进的 SNN 类框架，而且还可以实现与 BERT 竞争的性能。此外，我们计算了在 45nm 神经形态硬件上运行 SpikeBERT 的理论能耗（Horowitz，2014），发现 SpikeBERT 只需要微调 BERT 实现可比性能所需能量的 27.82% 左右。消融研究（第4.5节）的实验也表明“预训练蒸馏”在训练SpikeBERT中发挥着重要作用。</p>
 <p>总之，本研究的主要贡献可概括如下：</p>
 <ul>
 <li>本文改进了Spikformer的架构，用于语言处理，并提出了一个两阶段的&quot;预训练+特定任务&quot;知识蒸馏训练方法，在此方法中，spikebert在大量未标记文本集上进行预训练，然后通过从bert中提取特征提取和预测能力的知识，在特定任务数据集上进一步微调。</li>
@@ -224,15 +228,17 @@
 <br>
 <h2 id="2related-work"><a class="markdownIt-Anchor" href="#2related-work"></a> 2.Related Work</h2>
 <h2 id="21-spiking-neural-networks"><a class="markdownIt-Anchor" href="#21-spiking-neural-networks"></a> 2.1 SPIKING NEURAL NETWORKS</h2>
-<p>与传统的人工神经网络不同，脉冲神经网络利用离散的脉冲序列而不是连续的十进制值来计算和传输信息。脉冲神经元，例如 Izhikevich 神经元 (Izhikevich, 2003) 和 Leaky Integrate-and-Fire (LIF) 神经元 (Wu et al., 2017)，通常用于生成脉冲序列。然而，由于脉冲的不可微性，训练 SNN 在过去二十年一直是一个巨大的挑战。目前解决这个问题的主流方法有两种：</p>
+<p>与传统的人工神经网络不同，脉冲神经网络利用离散的脉冲序列而不是连续的十进制值来计算和传输信息。由于脉冲的不可微性，训练 SNN 在过去二十年一直是一个巨大的挑战。目前解决这个问题的主流方法有两种：</p>
 <ul>
 <li><strong>ANN-to-SNN Conversion</strong>：ANN-SNN转换方法旨在转换良好的重量通过用脉冲神经元层替换激活函数并添加权重归一化（Diehl 等人，2016）和阈值约束（Hu 等人，2018）等缩放规则，将 ANN 训练为其 SNN 对应物。在转换过程中，这种方法遭受了大量的时间步骤。</li>
-<li><strong>Backpropagation with Surrogate Gradients</strong>：另一种流行的方法是在误差反向传播期间引入代理梯度，使整个过程可微。人们提出了多种代理梯度函数，包括Sigmoid代理函数、Fast-Sigmoid、ATan等。随着时间的反向传播（BPTT）是直接训练 SNN 的最流行的方法之一，它将传统的反向传播算法应用于展开的计算图。近年来，人们提出了几种类似BPTT的训练策略，包括时空反向传播（STBP）、具有时间依赖性批量归一化的STBP（STBP-tdBN）和时空 Dropout 反向传播 (STDB)。这些策略在特定设置下表现出了高性能。我们选择带有代理梯度的 BPTT 作为我们的训练方法。有关时间反向传播 (BPTT) 的更多详细信息，请参阅附录 A。</li>
+<li><strong>Backpropagation with Surrogate Gradients</strong>：另一种流行的方法是在误差反向传播期间引入代理梯度，使整个过程可微。人们提出了多种代理梯度函数，包括Sigmoid代理函数、Fast-Sigmoid、ATan等。随着时间的反向传播（BPTT）是直接训练 SNN 的最流行的方法之一，它将传统的反向传播算法应用于展开的计算图。<strong>我们选择带有代理梯度的 BPTT 作为我们的训练方法</strong>。<br />
+<Br></li>
 </ul>
-<Br>
 <h2 id="22-knowledge-distillation"><a class="markdownIt-Anchor" href="#22-knowledge-distillation"></a> 2.2 KNOWLEDGE DISTILLATION</h2>
-<p>辛顿等人。 （2015）提出了知识蒸馏的概念，利用教师模型的“基于响应”的知识（即软标签）来传递知识。然而，当这个概念第一次提出时，隐藏层中捕获的特征被忽略了，因为它们只关注当时的最终概率分布。为了更有效地学习教师模型，一些作品（Zagoruyko Komodakis，2016；Heo 等人，2019；Chen 等人，2021）主张在蒸馏过程中纳入隐藏特征对齐。此外，Park 等人引入了基于关系的知识蒸馏。 （2019），证明训练数据示例之间的相互关系也很重要。</p>
-<p>最近，有一些研究（Kushawaha et al., 2020; Takuy​​a et al., 2021; Qiu et al., 2023）引入了知识蒸馏方法来训练 SNN。然而，它们大多数只关注图像分类任务，不能简单地应用于语言任务。在本研究中，我们提出了一种两阶段知识蒸馏方法来训练用于文本分类任务的 SpikeBERT，这是第一个展示将知识从大型语言模型转移到 SNN 的可行性的方法之一。</p>
+<p><strong>知识蒸馏</strong>：利用教师模型的“基于响应”的知识（即软标签）来传递知识。</p>
+<p>当这个概念第一次提出时，隐藏层中捕获的特征被忽略了，因为它们只关注当时的最终概率分布。为了更有效地学习教师模型，一些作品主张在蒸馏过程中纳入隐藏特征对齐。</p>
+<p>此外，Park 等人引入了基于关系的知识蒸馏。证明训练数据示例之间的相互关系也很重要。</p>
+<p>最近，有一些研究引入了知识蒸馏方法来训练 SNN。然而，它们大多数只关注图像分类任务，不能简单地应用于语言任务。在本研究中，我们提出了一种两阶段知识蒸馏方法来训练用于文本分类任务的 SpikeBERT，这是第一个展示将知识从大型语言模型转移到 SNN 的可行性的方法之一。</p>
 <Br>
 <h2 id="3method"><a class="markdownIt-Anchor" href="#3method"></a> 3.METHOD</h2>
 <p>在本节中，我们将描述如何改进 Spikformer 的架构，并介绍我们用于训练 SpikeBERT 的两阶段蒸馏方法。首先，我们将描述脉冲神经元和代理梯度在脉冲神经网络中的工作原理。然后我们将展示对 Spikformer 的简单但有效的修改，使其能够表示文本信息。最后，我们将详细说明“预训练特定任务”蒸馏。</p>
@@ -276,7 +282,7 @@
 <li>BN: 批量归一化</li>
 <li>τ: 缩放因子</li>
 <li>SSA和Qs、Ks、Vs的输出都是仅包含0和1的脉冲矩阵</li>
-<li>W_{Q_s}、W_{K_s}、W_{V_s}和MLP都是可学习的十进制参数</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><msub><mi>Q</mi><mi>s</mi></msub></msub><mtext>、</mtext><msub><mi>W</mi><msub><mi>K</mi><mi>s</mi></msub></msub><mtext>、</mtext><msub><mi>W</mi><msub><mi>V</mi><mi>s</mi></msub></msub></mrow><annotation encoding="application/x-tex">W_{Q_s}、W_{K_s}、W_{V_s}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.328331em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">、</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:-0.07153em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2501em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">、</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:-0.22222em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2501em;"><span></span></span></span></span></span></span></span></span></span>和MLP都是可学习的十进制参数</li>
 <li>Spikformer 中注意力图的形状，即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mi>s</mi></msub><msubsup><mi>K</mi><mi>s</mi><mi>T</mi></msubsup></mrow><annotation encoding="application/x-tex">Q_sK_s^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.088331em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span> ，是 D × D，其中 D 是隐藏层的维数</li>
 </ul>
 <p>我们修改了 Spikformer，使其能够有效地处理文本数据。首先，我们用词嵌入层和脉冲神经元层替换脉冲补丁分割（SPS）模块，这是将标记映射到张量所必需的。最重要的是，我们认为通过注意力机制与不同位置的单词共享的特征比不同维度的单词共享的特征更重要。</p>
@@ -393,7 +399,7 @@ Fig 2:用于训练 SpikeBERT 的两阶段蒸馏方法（预训练特定任务蒸
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">166</div>
+                <div class="sidebar-state-number">167</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -494,7 +500,7 @@ Fig 2:用于训练 SpikeBERT 的两阶段蒸馏方法（预训练特定任务蒸
             
                 <div>
                     <span class="icon-brush"></span>
-                    322.1k
+                    321.8k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     20:13
@@ -524,7 +530,7 @@ Fig 2:用于训练 SpikeBERT 的两阶段蒸馏方法（预训练特定任务蒸
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">166</div>
+                <div class="sidebar-state-number">167</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
