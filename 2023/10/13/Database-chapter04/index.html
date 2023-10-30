@@ -23,19 +23,19 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Chapter04: Intermediate SQL 本章我们继续学习SQL。我们考虑更复杂的 SQL 查询形式、视图定义、事务、完整性约束、有关 SQL 数据定义和授权的更多细节。  4.1 Join Expres">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    Chapter04: Intermediate SQL本章我们继续学习SQL。我们考虑更复杂的 SQL 查询形式、视图定义、事务、完整性约束、有关 SQL 数据定义和授权的更多细节。 4.1 Join Express">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Database:Chapter04-Intermediate SQL">
 <meta property="og:url" content="https://abinzzz.github.io/2023/10/13/Database-chapter04/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Chapter04: Intermediate SQL 本章我们继续学习SQL。我们考虑更复杂的 SQL 查询形式、视图定义、事务、完整性约束、有关 SQL 数据定义和授权的更多细节。  4.1 Join Expres">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    Chapter04: Intermediate SQL本章我们继续学习SQL。我们考虑更复杂的 SQL 查询形式、视图定义、事务、完整性约束、有关 SQL 数据定义和授权的更多细节。 4.1 Join Express">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/F8ikTmFboAAFl9p?format=png&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/F8ikWK6aoAAK8d6?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/F8itZHdaIAA2iY8?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/F8jKxv5akAEeWvY?format=png&amp;name=medium">
 <meta property="article:published_time" content="2023-10-13T08:48:14.000Z">
-<meta property="article:modified_time" content="2023-10-30T09:45:03.504Z">
+<meta property="article:modified_time" content="2023-10-30T14:37:42.389Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="database">
@@ -205,64 +205,58 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-<h1 id="chapter04-intermediate-sql"><a class="markdownIt-Anchor" href="#chapter04-intermediate-sql"></a> Chapter04: Intermediate SQL</h1>
-<p>本章我们继续学习SQL。我们考虑更复杂的 SQL 查询形式、视图定义、事务、完整性约束、有关 SQL 数据定义和授权的更多细节。</p>
-<h2 id="41-join-expressions"><a class="markdownIt-Anchor" href="#41-join-expressions"></a> 4.1 Join Expressions</h2>
-<ul>
+
+
+<h1 id="Chapter04-Intermediate-SQL"><a href="#Chapter04-Intermediate-SQL" class="headerlink" title="Chapter04: Intermediate SQL"></a>Chapter04: Intermediate SQL</h1><p>本章我们继续学习SQL。我们考虑更复杂的 SQL 查询形式、视图定义、事务、完整性约束、有关 SQL 数据定义和授权的更多细节。</p>
+<h2 id="4-1-Join-Expressions"><a href="#4-1-Join-Expressions" class="headerlink" title="4.1 Join Expressions"></a>4.1 Join Expressions</h2><ul>
 <li><strong>Join操作</strong>：用作from子句中的子查询表达式</li>
 <li><strong>Join condition</strong>：定义两个关系中的哪些元组匹配，以及结果中有哪些属性</li>
 <li><strong>Join类型</strong>：定义如何处理每个关系中不匹配另一个关系中的任何元组</li>
 </ul>
-<br>
-<h2 id="411-the-natural-join"><a class="markdownIt-Anchor" href="#411-the-natural-join"></a> 4.1.1 The Natural Join</h2>
-<p><strong>natural join</strong>:对两个关系进行运算并产生一个关系作为结果。</p>
+<p><br></p>
+<h2 id="4-1-1-The-Natural-Join"><a href="#4-1-1-The-Natural-Join" class="headerlink" title="4.1.1 The Natural Join"></a>4.1.1 The Natural Join</h2><p><strong>natural join</strong>:对两个关系进行运算并产生一个关系作为结果。</p>
 <p>与<strong>笛卡尔积</strong>的不同：它将第一个关系的每个元组与第二个关系的每个元组连接起来，natural join仅考虑在两个关系的模式中出现的属性上具有相同值的那些元组对。</p>
-<p>一般形式：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A1, A2, … , An</span><br><span class="line"><span class="keyword">from</span> r1 <span class="keyword">natural</span> <span class="keyword">join</span> r2 <span class="keyword">natural</span> <span class="keyword">join</span> . . . <span class="keyword">natural</span> <span class="keyword">join</span> rm</span><br><span class="line"><span class="keyword">where</span> P;</span><br></pre></td></tr></table></figure>
-<hr />
+<p>一般形式：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A1, A2, … , An</span><br><span class="line"><span class="keyword">from</span> r1 <span class="keyword">natural</span> <span class="keyword">join</span> r2 <span class="keyword">natural</span> <span class="keyword">join</span> . . . <span class="keyword">natural</span> <span class="keyword">join</span> rm</span><br><span class="line"><span class="keyword">where</span> P;</span><br></pre></td></tr></table></figure></p>
+<hr>
 <p>例子：</p>
 <p>下面是给定的关系students和takes：</p>
-<p><img src="https://pbs.twimg.com/media/F8ikTmFboAAFl9p?format=png&amp;name=900x900" alt="" /></p>
-<br>
-<p><img src="https://pbs.twimg.com/media/F8ikWK6aoAAK8d6?format=jpg&amp;name=medium" alt="" /></p>
-<p>以前的写法：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, course id </span><br><span class="line"><span class="keyword">from</span> student, takes</span><br><span class="line"><span class="keyword">where</span> student.ID <span class="operator">=</span> takes.ID;</span><br></pre></td></tr></table></figure>
-<br>
-<p>现在的写法：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, course id </span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">natural</span> <span class="keyword">join</span> takes;</span><br></pre></td></tr></table></figure>
+<p><img src="https://pbs.twimg.com/media/F8ikTmFboAAFl9p?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F8ikWK6aoAAK8d6?format=jpg&amp;name=medium" alt=""></p>
+<p>以前的写法：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, course id </span><br><span class="line"><span class="keyword">from</span> student, takes</span><br><span class="line"><span class="keyword">where</span> student.ID <span class="operator">=</span> takes.ID;</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>现在的写法：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, course id </span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">natural</span> <span class="keyword">join</span> takes;</span><br></pre></td></tr></table></figure></p>
 <p>我们将得到以下结果：</p>
-<p><img src="https://pbs.twimg.com/media/F8itZHdaIAA2iY8?format=jpg&amp;name=medium" alt="" /></p>
-<hr />
-<h2 id="412-join-conditions"><a class="markdownIt-Anchor" href="#412-join-conditions"></a> 4.1.2 Join Conditions</h2>
-<p>SQL 支持另一种形式的Join，其中可以指定任意连接条件。</p>
+<p><img src="https://pbs.twimg.com/media/F8itZHdaIAA2iY8?format=jpg&amp;name=medium" alt=""></p>
+<hr>
+<h2 id="4-1-2-Join-Conditions"><a href="#4-1-2-Join-Conditions" class="headerlink" title="4.1.2 Join Conditions"></a>4.1.2 Join Conditions</h2><p>SQL 支持另一种形式的Join，其中可以指定任意连接条件。</p>
 <p>对所连接的关系进行<strong>一般谓词</strong>: <code>on</code>条件,该谓词的编写方式与 where 子句谓词类似，只是使用关键字 on 而不是 where。与 using 条件类似，on 条件出现在连接表达式的末尾。</p>
 <p><code>on</code>条件的优点：</p>
 <ul>
 <li>对于一种称为外连接的连接，on 条件的行为方式确实与 where 条件不同。</li>
 <li>如果连接条件在 on 子句中指定，而其余条件出现在 where 子句中，则 SQL 查询通常更容易被人类阅读。</li>
 </ul>
-<br>
-<hr />
+<p><br></p>
+<hr>
 <p>例子：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">join</span> takes <span class="keyword">on</span> student.ID <span class="operator">=</span> takes.ID;</span><br></pre></td></tr></table></figure>
 <p>上面的 on 条件指定，如果来自 Student 的元组的 ID 值相等，则它们与来自 Takes 的元组相匹配。</p>
-<p>等价的结果：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> student, takes</span><br><span class="line"><span class="keyword">where</span> student.ID <span class="operator">=</span> takes.ID;</span><br></pre></td></tr></table></figure>
-<hr />
-<br>
-<h2 id="413-outer-joins"><a class="markdownIt-Anchor" href="#413-outer-joins"></a> 4.1.3 Outer Joins</h2>
-<p>The <code>outer-join</code> operation: 通过在包含空值的结果中创建元组来保留在连接中丢失的元组</p>
+<p>等价的结果：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> student, takes</span><br><span class="line"><span class="keyword">where</span> student.ID <span class="operator">=</span> takes.ID;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><br></p>
+<h2 id="4-1-3-Outer-Joins"><a href="#4-1-3-Outer-Joins" class="headerlink" title="4.1.3 Outer Joins"></a>4.1.3 Outer Joins</h2><p>The <code>outer-join</code> operation: 通过在包含空值的结果中创建元组来保留在连接中丢失的元组</p>
 <p><strong>outer join</strong>：</p>
 <ul>
 <li><strong>left outer join</strong>: 仅保留左外连接操作之前（左侧）命名的关系中的元组</li>
 <li><strong>right outer join</strong>: 仅在以右外连接操作命名（右侧）的关系中保留元组</li>
 <li><strong>full outer join</strong>: 完整外连接保留两个关系中的元组</li>
 </ul>
-<br>
+<p><br></p>
 <p>The <code>inner-join</code> operation: 不保留不匹配元组的连接操作</p>
-<hr />
+<hr>
 <p>例子说明：</p>
 <p>Table1:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -281,7 +275,9 @@
 </tr>
 </tbody>
 </table>
-<p>Table2:</p>
+</div>
+<p>Table2: </p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -300,9 +296,11 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>进行<strong>左连接</strong>:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> Table1 <span class="keyword">left</span> <span class="keyword">join</span> Table2 <span class="keyword">on</span> Table1.id <span class="operator">=</span> Table2.id</span><br></pre></td></tr></table></figure>
 <p>结果:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -324,11 +322,13 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>左表Table1的所有行都会返回,右表Table2中id=3的行不会返回。</p>
-<br>
+<p><br></p>
 <p>进行<strong>右连接</strong>:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> Table1 <span class="keyword">right</span> <span class="keyword">join</span> Table2 <span class="keyword">on</span> Table1.id <span class="operator">=</span> Table2.id</span><br></pre></td></tr></table></figure>
 <p>结果:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -350,11 +350,13 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>右表Table2的所有行都会返回,左表Table1中id=2的行不会返回。</p>
-<br>
+<p><br></p>
 <p>进行<strong>全连接</strong>:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> Table1 <span class="keyword">full</span> <span class="keyword">join</span> Table2 <span class="keyword">on</span> Table1.id <span class="operator">=</span> Table2.id</span><br></pre></td></tr></table></figure>
 <p>结果:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -381,17 +383,19 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>左右表的所有行都会返回。</p>
-<hr />
+<hr>
 <p><strong>natural join和inner join</strong>的区别：</p>
 <ul>
 <li><strong>连接条件</strong>：inner join需要用on指定条件，而natural join不用</li>
 <li><strong>连接列</strong>：inner join会返回两个表的所有列，而natural join不会</li>
 </ul>
-<br>
-<hr />
+<p><br></p>
+<hr>
 <p>例子：</p>
-<p>TableA:</p>
+<p>TableA: </p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -413,7 +417,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>TableB:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -435,12 +441,14 @@
 </tr>
 </tbody>
 </table>
-<br>
+</div>
+<p><br></p>
 <ol>
 <li>inner join</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> TableA</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> TableB </span><br><span class="line"><span class="keyword">on</span> TableA.id <span class="operator">=</span> TableB.id</span><br></pre></td></tr></table></figure>
 <p>结果:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -471,13 +479,15 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>返回了两个表的所有列,重复的age列也都返回了。</p>
-<br>
-<ol start="2">
-<li>natural join</li>
+<p><br></p>
+<ol>
+<li>natural join  </li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> TableA </span><br><span class="line"><span class="keyword">natural</span> <span class="keyword">join</span> TableB</span><br></pre></td></tr></table></figure>
 <p>结果:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -502,11 +512,11 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>只返回了一个age列,自动使用id列进行等值连接。</p>
-<hr />
-<br>
-<h2 id="414-join-types-and-conditions"><a class="markdownIt-Anchor" href="#414-join-types-and-conditions"></a> 4.1.4 Join Types and Conditions</h2>
-<p>为了区分<strong>normal joins</strong>和<strong>outer joins</strong>，<strong>normal joins</strong>在SQL中被称为<strong>inner joins</strong></p>
+<hr>
+<p><br></p>
+<h2 id="4-1-4-Join-Types-and-Conditions"><a href="#4-1-4-Join-Types-and-Conditions" class="headerlink" title="4.1.4 Join Types and Conditions"></a>4.1.4 Join Types and Conditions</h2><p>为了区分<strong>normal joins</strong>和<strong>outer joins</strong>，<strong>normal joins</strong>在SQL中被称为<strong>inner joins</strong></p>
 <p><strong>Join Types</strong>:</p>
 <ul>
 <li>inner join</li>
@@ -514,46 +524,39 @@
 <li>right outer join</li>
 <li>full outer join</li>
 </ul>
-<br>
-<p><strong>Join Conditions</strong>:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">natural</span></span><br><span class="line"><span class="keyword">on</span> <span class="operator">&lt;</span>predicate<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">using</span> (A1,A2,...,An)</span><br></pre></td></tr></table></figure>
-<br>
-<h2 id="42-views"><a class="markdownIt-Anchor" href="#42-views"></a> 4.2 Views</h2>
-<p>View的产生<strong>原因</strong>：不希望所有用户都看到整个逻辑模型</p>
+<p><br></p>
+<p><strong>Join Conditions</strong>:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">natural</span></span><br><span class="line"><span class="keyword">on</span> <span class="operator">&lt;</span>predicate<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">using</span> (A1,A2,...,An)</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="4-2-Views"><a href="#4-2-Views" class="headerlink" title="4.2 Views"></a>4.2 Views</h2><p>View的产生<strong>原因</strong>：不希望所有用户都看到整个逻辑模型</p>
 <p>View是一个<strong>虚拟的</strong>table/relation：</p>
 <ul>
 <li>不在数据库中以实体表的形式存储数据</li>
 <li>根据一个查询语句从一个或多个基础表中动态获取数据</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>Views</strong> = <strong>projection</strong> on one or more relations</p>
-<p><img src="https://pbs.twimg.com/media/F8jKxv5akAEeWvY?format=png&amp;name=medium" alt="" /></p>
-<h2 id="421-view-definition"><a class="markdownIt-Anchor" href="#421-view-definition"></a> 4.2.1 View Definition</h2>
-<p>在SQL中定义视图: <code>create view</code></p>
-<p>一般形式：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> v <span class="keyword">as</span> <span class="operator">&lt;</span>query expression<span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure>
-<br>
-<h2 id="422-using-views-in-sql-queries"><a class="markdownIt-Anchor" href="#422-using-views-in-sql-queries"></a> 4.2.2 Using Views in SQL Queries</h2>
-<p>例子1: <strong>直接创建veiws</strong></p>
+<p><img src="https://pbs.twimg.com/media/F8jKxv5akAEeWvY?format=png&amp;name=medium" alt=""></p>
+<h2 id="4-2-1-View-Definition"><a href="#4-2-1-View-Definition" class="headerlink" title="4.2.1 View Definition"></a>4.2.1 View Definition</h2><p>在SQL中定义视图: <code>create view</code>  </p>
+<p>一般形式：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> v <span class="keyword">as</span> <span class="operator">&lt;</span>query expression<span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="4-2-2-Using-Views-in-SQL-Queries"><a href="#4-2-2-Using-Views-in-SQL-Queries" class="headerlink" title="4.2.2 Using Views in SQL Queries"></a>4.2.2 Using Views in SQL Queries</h2><p>例子1: <strong>直接创建veiws</strong></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> faculty <span class="keyword">as</span> </span><br><span class="line">   <span class="keyword">select</span> ID, name, dept name </span><br><span class="line">   <span class="keyword">from</span> instructor;</span><br></pre></td></tr></table></figure>
-<br>
-<p>例子2: <strong>用其他Views定义Views</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> physics fall <span class="number">2017</span> <span class="keyword">as</span> </span><br><span class="line">   <span class="keyword">select</span> course.course id, sec id, building, room number </span><br><span class="line">   <span class="keyword">from</span> course, section</span><br><span class="line">   <span class="keyword">where</span> course.course id <span class="operator">=</span> section.course id </span><br><span class="line">                <span class="keyword">and</span> course.dept name <span class="operator">=</span> <span class="string">&#x27;Physics&#x27;</span> </span><br><span class="line">                <span class="keyword">and</span> section.semester <span class="operator">=</span> <span class="string">&#x27;Fall&#x27;</span> </span><br><span class="line">                <span class="keyword">and</span> section.year <span class="operator">=</span> <span class="number">2017</span>;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>例子2: <strong>用其他Views定义Views</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> physics fall <span class="number">2017</span> <span class="keyword">as</span> </span><br><span class="line">   <span class="keyword">select</span> course.course id, sec id, building, room number </span><br><span class="line">   <span class="keyword">from</span> course, section</span><br><span class="line">   <span class="keyword">where</span> course.course id <span class="operator">=</span> section.course id </span><br><span class="line">                <span class="keyword">and</span> course.dept name <span class="operator">=</span> <span class="string">&#x27;Physics&#x27;</span> </span><br><span class="line">                <span class="keyword">and</span> section.semester <span class="operator">=</span> <span class="string">&#x27;Fall&#x27;</span> </span><br><span class="line">                <span class="keyword">and</span> section.year <span class="operator">=</span> <span class="number">2017</span>;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> physics fall <span class="number">2017</span> watson <span class="keyword">as</span> </span><br><span class="line">            <span class="keyword">select</span> course id, room number </span><br><span class="line">            <span class="keyword">from</span> physics fall <span class="number">2017</span></span><br><span class="line">            <span class="keyword">where</span> building <span class="operator">=</span> <span class="string">&#x27;Watson&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <Br>
+
 <p>🌟tips：</p>
 <ul>
 <li>如果在定义v1的表达式中使用v2，则称视图关系v1 <strong>depend directly on</strong> 视图关系v2</li>
 <li>如果有一个视图关系v1 <strong>depend directly on</strong> v2，或者存在一条从v1到v2的依赖路径，则称视图关系v1 <strong>depend on</strong> 视图关系v2</li>
 <li>如果一个视图关系v依赖于它自己，我们称它是<strong>recursive</strong></li>
 </ul>
-<br>
-<h2 id="423-materialized-views"><a class="markdownIt-Anchor" href="#423-materialized-views"></a> 4.2.3 Materialized Views</h2>
-<p><strong>materialized views</strong>: 某些数据库系统允许存储视图关系，但它们确保如果视图定义中使用的实际关系发生变化，视图也保持最新。</p>
+<p><br></p>
+<h2 id="4-2-3-Materialized-Views"><a href="#4-2-3-Materialized-Views" class="headerlink" title="4.2.3 Materialized Views"></a>4.2.3 Materialized Views</h2><p><strong>materialized views</strong>: 某些数据库系统允许存储视图关系，但它们确保如果视图定义中使用的实际关系发生变化，视图也保持最新。</p>
 <p><strong>view maintenance</strong>: 保持物化视图最新的过程称为物化视图维护。当定义视图的任何关系被更新时，可以立即完成视图维护。</p>
-<br>
-<h2 id="424-update-of-a-view"><a class="markdownIt-Anchor" href="#424-update-of-a-view"></a> 4.2.4 Update of a View</h2>
-<p>尽管视图是一个有用的查询工具，但如果我们用它们表达更新、插入或删除，它们就会带来严重的问题。困难在于，用视图表达的对数据库的修改必须转化为对数据库逻辑模型中实际关系的修改。</p>
+<p><br></p>
+<h2 id="4-2-4-Update-of-a-View"><a href="#4-2-4-Update-of-a-View" class="headerlink" title="4.2.4 Update of a View"></a>4.2.4 Update of a View</h2><p>尽管视图是一个有用的查询工具，但如果我们用它们表达更新、插入或删除，它们就会带来严重的问题。困难在于，用视图表达的对数据库的修改必须转化为对数据库逻辑模型中实际关系的修改。</p>
 <p>定义视图的查询满足以下条件，则称 SQL 视图是<strong>updatable</strong>:</p>
 <ul>
 <li><strong>from</strong> 子句只有一个数据库关系</li>
@@ -561,21 +564,19 @@
 <li>任何未在 <strong>select</strong> 子句中列出的属性都可以设置为 <strong>null</strong>；也就是说，它没有非空约束，也不是主键的一部分。</li>
 <li>该查询没有 <strong>group by</strong> 或<strong>having</strong> 子句。</li>
 </ul>
-<br>
-<hr />
-<p>例子：Add a new tuple to faculty view<br />
-插入必须用整个tuple来表示</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> faculty <span class="keyword">values</span> (’<span class="number">30765</span>’, ’Green’, ’Music’,<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-<hr />
-<br>
-<h2 id="43-transactions"><a class="markdownIt-Anchor" href="#43-transactions"></a> 4.3 Transactions</h2>
-<p><strong>transaction</strong>由一系列query和/或update语句组成。SQL标准指定事务在执行SQL语句时隐式开始。SQL语句必须以下列之一结束任务:</p>
+<p><br></p>
+<hr>
+<p>例子：Add a new tuple to faculty view<br>插入必须用整个tuple来表示<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> faculty <span class="keyword">values</span> (’<span class="number">30765</span>’, ’Green’, ’Music’,<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><br></p>
+<h2 id="4-3-Transactions"><a href="#4-3-Transactions" class="headerlink" title="4.3 Transactions"></a>4.3 Transactions</h2><p><strong>transaction</strong>由一系列query和/或update语句组成。SQL标准指定事务在执行SQL语句时隐式开始。SQL语句必须以下列之一结束任务:</p>
 <ul>
 <li><strong>Commit work</strong>: 提交当前事务;也就是说，它使事务执行的更新在数据库中成为永久的。事务提交后，自动启动一个新的事务。</li>
 <li><strong>Rollback work</strong>: 导致回滚当前事务;也就是说，它撤销事务中SQL语句执行的所有更新。因此，数据库状态将恢复到执行事务的第一条语句之前的状态。</li>
 </ul>
 <p>关键字<strong>work</strong>在这两个语句中都是可选的</p>
 <Br>
+
 <p>ACID属性：</p>
 <ul>
 <li><strong>原子性（Atomicity）</strong> : 事务中的所有操作要么全部完成，要么全部不完成。</li>
@@ -583,48 +584,44 @@
 <li><strong>隔离性（Isolation）</strong> : 事务的执行不会被其他事务干扰。即一个事务的中间状态对其他事务是不可见的。</li>
 <li><strong>持久性（Durability）</strong> : 一旦事务完成，其修改是永久的，即使系统崩溃也不会丢失。</li>
 </ul>
-<hr />
+<hr>
 <p>实例：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 开始事务</span></span><br><span class="line"><span class="keyword">START</span> TRANSACTION;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 从Alice的账户中扣除100元</span></span><br><span class="line"><span class="keyword">UPDATE</span> bank_accounts </span><br><span class="line"><span class="keyword">SET</span> balance <span class="operator">=</span> balance <span class="operator">-</span> <span class="number">100</span> </span><br><span class="line"><span class="keyword">WHERE</span> account_id <span class="operator">=</span> <span class="string">&#x27;Alice&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 在Bob的账户中增加100元</span></span><br><span class="line"><span class="keyword">UPDATE</span> bank_accounts </span><br><span class="line"><span class="keyword">SET</span> balance <span class="operator">=</span> balance <span class="operator">+</span> <span class="number">100</span> </span><br><span class="line"><span class="keyword">WHERE</span> account_id <span class="operator">=</span> <span class="string">&#x27;Bob&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 提交事务，使其更改生效</span></span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
-<hr />
-<br>
-<h2 id="44-integrity-constraints"><a class="markdownIt-Anchor" href="#44-integrity-constraints"></a> 4.4 Integrity Constraints</h2>
-<p>Integrity Constraints确保授权用户对数据库所做的更改不会导致数据一致性丢失。因此，完整性约束可以防止数据库意外损坏。这与安全约束相反，安全约束防止未经授权的用户访问数据库。</p>
-<br>
-<h2 id="441-constraints-on-a-single-relation"><a class="markdownIt-Anchor" href="#441-constraints-on-a-single-relation"></a> 4.4.1 Constraints on a Single Relation</h2>
-<p>允许的完整性约束包括:</p>
+<hr>
+<p><br></p>
+<h2 id="4-4-Integrity-Constraints"><a href="#4-4-Integrity-Constraints" class="headerlink" title="4.4 Integrity Constraints"></a>4.4 Integrity Constraints</h2><p>Integrity Constraints确保授权用户对数据库所做的更改不会导致数据一致性丢失。因此，完整性约束可以防止数据库意外损坏。这与安全约束相反，安全约束防止未经授权的用户访问数据库。</p>
+<p><br></p>
+<h2 id="4-4-1-Constraints-on-a-Single-Relation"><a href="#4-4-1-Constraints-on-a-Single-Relation" class="headerlink" title="4.4.1 Constraints on a Single Relation"></a>4.4.1 Constraints on a Single Relation</h2><p>允许的完整性约束包括:</p>
 <ul>
 <li>primary key</li>
 <li>not null</li>
 <li>unique</li>
 <li>check(<predicate>)</li>
 </ul>
-<br>
-<h2 id="442-not-null-constraint"><a class="markdownIt-Anchor" href="#442-not-null-constraint"></a> 4.4.2 Not Null Constraint</h2>
-<p>对于某些属性，空值可能不合适</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span> </span><br><span class="line">budget <span class="type">numeric</span>(<span class="number">12</span>,<span class="number">2</span>) <span class="keyword">not</span> <span class="keyword">null</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="4-4-2-Not-Null-Constraint"><a href="#4-4-2-Not-Null-Constraint" class="headerlink" title="4.4.2 Not Null Constraint"></a>4.4.2 Not Null Constraint</h2><p>对于某些属性，空值可能不合适<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span> </span><br><span class="line">budget <span class="type">numeric</span>(<span class="number">12</span>,<span class="number">2</span>) <span class="keyword">not</span> <span class="keyword">null</span></span><br></pre></td></tr></table></figure></p>
 <Br>
-<h2 id="443-unique-constraint"><a class="markdownIt-Anchor" href="#443-unique-constraint"></a> 4.4.3 Unique Constraint</h2>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unique</span>(A1,A2,...,Am)</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-3-Unique-Constraint"><a href="#4-4-3-Unique-Constraint" class="headerlink" title="4.4.3 Unique Constraint"></a>4.4.3 Unique Constraint</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unique</span>(A1,A2,...,Am)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>attributes A1, A2, … Am来自a candidate key</li>
 <li>候选键允许为空</li>
 </ul>
 <Br>
-<h2 id="444-the-check-clause"><a class="markdownIt-Anchor" href="#444-the-check-clause"></a> 4.4.4 The Check Clause</h2>
-<p><strong>check</strong>子句既适用于<strong>关系</strong>声明，也适用于<strong>域</strong>声明</p>
+
+<h2 id="4-4-4-The-Check-Clause"><a href="#4-4-4-The-Check-Clause" class="headerlink" title="4.4.4 The Check Clause"></a>4.4.4 The Check Clause</h2><p><strong>check</strong>子句既适用于<strong>关系</strong>声明，也适用于<strong>域</strong>声明</p>
 <p>check:确保属性满足指定的条件</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> section </span><br><span class="line">  (course id <span class="type">varchar</span> (<span class="number">8</span>),</span><br><span class="line">  sec id <span class="type">varchar</span> (<span class="number">8</span>), </span><br><span class="line">  semester <span class="type">varchar</span> (<span class="number">6</span>),</span><br><span class="line">  <span class="keyword">year</span> <span class="type">numeric</span> (<span class="number">4</span>,<span class="number">0</span>),</span><br><span class="line">  building <span class="type">varchar</span> (<span class="number">15</span>), </span><br><span class="line">  room number <span class="type">varchar</span> (<span class="number">7</span>), </span><br><span class="line">  <span class="type">time</span> slot id <span class="type">varchar</span> (<span class="number">4</span>), </span><br><span class="line">  <span class="keyword">primary</span> key (course id, sec id, semester, <span class="keyword">year</span>), </span><br><span class="line">  <span class="keyword">check</span> (semester <span class="keyword">in</span> (<span class="string">&#x27;Fall&#x27;</span>, <span class="string">&#x27;Winter&#x27;</span>, <span class="string">&#x27;Spring&#x27;</span>, <span class="string">&#x27;Summer&#x27;</span>)));</span><br></pre></td></tr></table></figure>
-<br>
-<h2 id="445-referential-integrity"><a class="markdownIt-Anchor" href="#445-referential-integrity"></a> 4.4.5 Referential Integrity</h2>
-<p><strong>Referential Integrity</strong>:确保在一个关系中针对给定的属性(外键)出现的值也出现在另一个关系中的属性(主键)</p>
+<p><br></p>
+<h2 id="4-4-5-Referential-Integrity"><a href="#4-4-5-Referential-Integrity" class="headerlink" title="4.4.5 Referential Integrity"></a>4.4.5 Referential Integrity</h2><p><strong>Referential Integrity</strong>:确保在一个关系中针对给定的属性(外键)出现的值也出现在另一个关系中的属性(主键)</p>
 <p><strong>ON DELETE CASCADE</strong>: 当在父表中删除一条记录时，与之相关的子表中的所有记录也会被自动删除</p>
 <p><strong>ON UPDATE CASCADE</strong>: 当在父表中更新一个主键的值时，子表中引用该主键的所有记录也会自动更新以反映这个更改</p>
-<br>
-<hr />
+<p><br></p>
+<hr>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> course</span><br><span class="line">   (…</span><br><span class="line">   <span class="keyword">foreign</span> key (dept name) <span class="keyword">references</span> department </span><br><span class="line">                  <span class="keyword">on</span> <span class="keyword">delete</span> cascade </span><br><span class="line">                  <span class="keyword">on</span> <span class="keyword">update</span> cascade,</span><br><span class="line">    … );</span><br></pre></td></tr></table></figure>
-<hr />
+<hr>
 <Br>
+
 <p>主键、候选键和外键可以在create table语句中指定:</p>
 <ul>
 <li>主键子句列出构成主键的属性。</li>
@@ -632,25 +629,23 @@
 <li>外键子句列出组成外键的属性，以及外键引用的关系的名称。</li>
 </ul>
 <Br>
+
 <p>如何插入元组而不造成<strong>约束违反</strong>:</p>
 <ul>
 <li>在插入person之前插入person的父亲和母亲</li>
 <li>或者最初将父和母设置为null，在插入所有人员后更新(如果父属性和母属性声明为非null，则不可能实现)</li>
 </ul>
-<br>
-<h2 id="446-assigning-names-to-constraints"><a class="markdownIt-Anchor" href="#446-assigning-names-to-constraints"></a> 4.4.6 Assigning Names to Constraints</h2>
-<p>为了命名约束，我们在约束前面加上关键字constraint 和我们希望分配给它的名称。</p>
-<hr />
-<p>我们希望将名称minisalary分配给讲师工资属性的check约束</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">salary <span class="type">numeric</span>(<span class="number">8</span>,<span class="number">2</span>), <span class="keyword">constraint</span> minsalary <span class="keyword">check</span> (salary <span class="operator">&gt;</span> <span class="number">29000</span>)</span><br></pre></td></tr></table></figure>
-<br>
-<p>我们决定不再需要这个约束，我们可以写:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> instructor <span class="keyword">drop</span> <span class="keyword">constraint</span> minsalary;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="4-4-6-Assigning-Names-to-Constraints"><a href="#4-4-6-Assigning-Names-to-Constraints" class="headerlink" title="4.4.6 Assigning Names to Constraints"></a>4.4.6 Assigning Names to Constraints</h2><p>为了命名约束，我们在约束前面加上关键字constraint 和我们希望分配给它的名称。</p>
+<hr>
+<p>我们希望将名称minisalary分配给讲师工资属性的check约束<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">salary <span class="type">numeric</span>(<span class="number">8</span>,<span class="number">2</span>), <span class="keyword">constraint</span> minsalary <span class="keyword">check</span> (salary <span class="operator">&gt;</span> <span class="number">29000</span>)</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>我们决定不再需要这个约束，我们可以写:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> instructor <span class="keyword">drop</span> <span class="keyword">constraint</span> minsalary;</span><br></pre></td></tr></table></figure></p>
 <Br>
-<h2 id="447-integrity-constraint-violation-during-a-transaction"><a class="markdownIt-Anchor" href="#447-integrity-constraint-violation-during-a-transaction"></a> 4.4.7 Integrity Constraint Violation During a Transaction</h2>
-<p>transaction可能由多个步骤组成，这些步骤中的某些可能会暂时违反数据完整性约束，但随后的步骤可能会解决这种违反。</p>
-<br>
-<hr />
+
+<h2 id="4-4-7-Integrity-Constraint-Violation-During-a-Transaction"><a href="#4-4-7-Integrity-Constraint-Violation-During-a-Transaction" class="headerlink" title="4.4.7 Integrity Constraint Violation During a Transaction"></a>4.4.7 Integrity Constraint Violation During a Transaction</h2><p>transaction可能由多个步骤组成，这些步骤中的某些可能会暂时违反数据完整性约束，但随后的步骤可能会解决这种违反。</p>
+<p><br></p>
+<hr>
 <p>例子：person表和John与Mary的情况</p>
 <p>首先，我们创建一个<code>person</code>表格，其中包括<code>name</code>和<code>spouse</code>属性，且<code>spouse</code>属性引用了<code>name</code>：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> person (</span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    spouse <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">REFERENCES</span> person(name) DEFERRABLE INITIALLY DEFERRED</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
@@ -660,22 +655,348 @@
 <p>由于外键约束是推迟的，所以即使在我们插入John的记录时Mary尚未存在，我们仍然可以插入这两条记录，而不会违反外键约束。只有在<code>COMMIT</code>语句执行时，约束才会被检查，此时约束得到满足，因为Mary和John都已经存在于表中。</p>
 <p>如果约束被定义为<code>DEFERRABLE</code>但没有<code>INITIALLY DEFERRED</code>，我们需要明确地在事务中推迟约束的检查：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> person (</span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    spouse <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">REFERENCES</span> person(name) DEFERRABLE</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 开始事务</span></span><br><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 明确推迟约束检查</span></span><br><span class="line"><span class="keyword">SET</span> CONSTRAINTS <span class="keyword">ALL</span> DEFERRED;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> person (name, spouse) <span class="keyword">VALUES</span> (<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Mary&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> person (name, spouse) <span class="keyword">VALUES</span> (<span class="string">&#x27;Mary&#x27;</span>, <span class="string">&#x27;John&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
-<hr />
-<br>
-<h2 id="448-complex-check-conditions-and-assertions"><a class="markdownIt-Anchor" href="#448-complex-check-conditions-and-assertions"></a> 4.4.8 Complex Check Conditions and Assertions</h2>
-<p><strong>Complex Check Conditions</strong>：数据库中用于确保数据完整性的复杂约束条件</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">check</span> (<span class="type">time</span> slot id <span class="keyword">in</span> (<span class="keyword">select</span> <span class="type">time</span> slot id <span class="keyword">from</span> <span class="type">time</span> slot))</span><br></pre></td></tr></table></figure>
+<hr>
+<p><br></p>
+<h2 id="4-4-8-Complex-Check-Conditions-and-Assertions"><a href="#4-4-8-Complex-Check-Conditions-and-Assertions" class="headerlink" title="4.4.8 Complex Check Conditions and Assertions"></a>4.4.8 Complex Check Conditions and Assertions</h2><p><strong>Complex Check Conditions</strong>：数据库中用于确保数据完整性的复杂约束条件<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">check</span> (<span class="type">time</span> slot id <span class="keyword">in</span> (<span class="keyword">select</span> <span class="type">time</span> slot id <span class="keyword">from</span> <span class="type">time</span> slot))</span><br></pre></td></tr></table></figure></p>
 <Br>
+
 <p><strong>断言（Assertion）</strong>：表示我们希望数据库始终满足的条件的谓词</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> assertion <span class="operator">&lt;</span>assertion<span class="operator">-</span>name<span class="operator">&gt;</span> <span class="keyword">check</span> <span class="operator">&lt;</span>predicate<span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure>
-<br>
+<Br>
+
+<p>————— <strong>Assertion的例子·BEGIN</strong> —————</p>
+<p>断言：确保没有任何一个经理是没有员工的<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> ASSERTION manager_staff_assertion <span class="keyword">CHECK</span> (</span><br><span class="line">    <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">        <span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">        <span class="keyword">FROM</span> managers m</span><br><span class="line">        <span class="keyword">WHERE</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">            <span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">            <span class="keyword">FROM</span> employees e</span><br><span class="line">            <span class="keyword">WHERE</span> e.manager_id <span class="operator">=</span> m.id</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>————— <strong>Assertion的例子·END</strong> —————</p>
+<p><br></p>
 <p>assertion和check的区别：</p>
 <ul>
 <li>CHECK约束通常是列级或表级的，ASSERTION是数据库级的</li>
-<li>CHECK约束每当对特定的列或表中的数据进行插入或更新时，都会立即执行此约束。<br />
-ASSERTION在创建断言后，系统首先会检查其有效性。之后，任何可能违反断言的数据库修改都不会被允许</li>
+<li>CHECK约束每当对特定的列或表中的数据进行插入或更新时，都会立即执行此约束。<br>ASSERTION在创建断言后，系统首先会检查其有效性。之后，任何可能违反断言的数据库修改都不会被允许</li>
 </ul>
+<p><br></p>
+<h2 id="4-5-SQL-Data-Types-and-Schemas"><a href="#4-5-SQL-Data-Types-and-Schemas" class="headerlink" title="4.5 SQL Data Types and Schemas"></a>4.5 SQL Data Types and Schemas</h2><p>下面进行描述SQL内置数据类型和用户定义类型</p>
+<p><br></p>
+<h2 id="4-5-1-Date-and-Time-Types-in-SQL"><a href="#4-5-1-Date-and-Time-Types-in-SQL" class="headerlink" title="4.5.1 Date and Time Types in SQL"></a>4.5.1 Date and Time Types in SQL</h2><p>SQL标准支持多种与日期和时间相关的数据类型</p>
+<p><br></p>
+<p>日期时间数据类型：</p>
+<ul>
+<li><strong>data(‘2018-04-25’)</strong>: 包含（四位数）年、月和日的日历日期</li>
+<li><strong>time(‘09:30:00’)</strong>: 一天中的时间，以小时、分钟和秒为单位。变体 <strong>time(p)</strong> 可用于指定秒的小数位数（默认值为 0）。通过用<strong>时区指定时间</strong>，还可以将时区信息与时间一起存储。</li>
+<li><strong>timestamp(‘2018-04-25 10:29:01.45’)</strong>: 日期和时间的组合。变体<strong>timestamp(p)</strong> 可用于指定秒的小数位数（此处默认为 6）。如果指定了时区，时区信息也会被存储</li>
+<li><strong>datetime</strong>：MySQL提供的数据类型，代表不考虑时区调整的时间</li>
+<li><strong>interval</strong>:如<code>x - y</code>返回两个日期类型之间的天数间隔</li>
+</ul>
+<p><br></p>
+<p>提取日期时间字段：</p>
+<ul>
+<li><strong>提取年、月、日、小时、分钟或秒</strong>：<code>extract (field from d)</code>,field为year，month…</li>
+<li>时区信息可通过 <strong>timezone hour</strong> 和 <strong>timezone minute</strong> 提取</li>
+</ul>
+<BR>
 
+<p>获取当前日期时间的函数：</p>
+<ul>
+<li><strong>current date</strong>：返回当前日期</li>
+<li><strong>current time</strong>： 返回当前时间（带时区）</li>
+<li><strong>localtime</strong> 返回当前本地时间（不带时区）</li>
+<li><strong>current timestamp</strong>: 返回当前的时间戳（包含时区）</li>
+<li><strong>localtimestamp</strong>: 返回当前的本地日期和时间（不含时区）</li>
+</ul>
+<Br>
+
+<h2 id="4-5-2-Type-Conversion-and-Formatting-Functions"><a href="#4-5-2-Type-Conversion-and-Formatting-Functions" class="headerlink" title="4.5.2 Type Conversion and Formatting Functions"></a>4.5.2 Type Conversion and Formatting Functions</h2><p><code>cast(e as t)</code>：将表达式e转化为类型t</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">cast</span>(ID <span class="keyword">as</span> <span class="type">numeric</span>(<span class="number">5</span>)) <span class="keyword">as</span> inst id </span><br><span class="line"><span class="keyword">from</span> instructor </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> inst id</span><br></pre></td></tr></table></figure>
+<Br>
+
+<p><code>coalesce</code>:对null值的处理</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ID, <span class="built_in">COALESCE</span>(salary, <span class="number">0</span>) <span class="keyword">AS</span> salary</span><br><span class="line"><span class="keyword">FROM</span> instructor;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>COALESCE</strong> 函数检查 <strong>salary</strong> 字段的值。如果 <strong>salary</strong> 是非 <strong>NULL</strong> 的，它就会返回 <strong>salary</strong> 的值;<strong>salary</strong> 是 <strong>NULL</strong> 的，<strong>COALESCE</strong> 函数会返回它的第二个参数，也就是0</li>
+<li>如果要将NULL薪资显示为 ‘N/A’，不能使用 <strong>coalesce</strong></li>
+</ul>
+<p><br></p>
+<p><code>decode</code>函数：允许不同类型的转换</p>
+<ul>
+<li>形式：<code>decode(value, match-1, replacement-1, ..., match-N,replacement-N, default-replacement)</code></li>
+<li><strong>value</strong> 与 <strong>match</strong> 相符，则用相应的 <strong>replacement</strong> 替换</li>
+<li>没有匹配项，则使用默认替换值</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ID, decode(salary, <span class="keyword">null</span>, <span class="string">&#x27;N/A&#x27;</span>, salary) <span class="keyword">as</span> salary <span class="keyword">from</span> instructor</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>系统特定函数：</p>
+<ul>
+<li><strong>MySQL</strong>使用 <code>format</code> 函数。</li>
+<li><strong>Oracle</strong>和<strong>PostgreSQL</strong>使用 <code>to_char</code>、<code>to_number</code>、<code>to_date</code> 函数集。</li>
+<li><strong>SQL Server</strong>使用 <code>convert</code> 函数</li>
+</ul>
+<p><br></p>
+<p>格式化显示：</p>
+<ul>
+<li>指定数字显示的<strong>位数</strong></li>
+<li>指定数据的显示<strong>格式</strong>（如月-日-年）。</li>
+</ul>
+<p><br></p>
+<h2 id="4-5-3-Default-Values"><a href="#4-5-3-Default-Values" class="headerlink" title="4.5.3 Default Values"></a>4.5.3 Default Values</h2><p>SQL 允许为属性指定默认值</p>
+<Br>
+
+
+<p>————— <strong>Default Values·BEGIN</strong> —————</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> student </span><br><span class="line">   (ID <span class="type">varchar</span> (<span class="number">5</span>),</span><br><span class="line">   name <span class="type">varchar</span> (<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span>, </span><br><span class="line">   dept name <span class="type">varchar</span> (<span class="number">20</span>),</span><br><span class="line">   tot_cred <span class="type">numeric</span> (<span class="number">3</span>,<span class="number">0</span>) <span class="keyword">default</span> <span class="number">0</span>, </span><br><span class="line">   <span class="keyword">primary</span> key (ID));</span><br></pre></td></tr></table></figure>
+<p>tot_cred 属性的默认值被声明为 0。因此，当将元组插入到学生关系中时，如果没有为 tot_cred 属性提供值，则其值将设置为 0。</p>
+<p>————— <strong>Default Values·END</strong> —————</p>
+<BR>
+
+<h2 id="4-5-4-Large-Object-Types"><a href="#4-5-4-Large-Object-Types" class="headerlink" title="4.5.4 Large-Object Types"></a>4.5.4 Large-Object Types</h2><p>Large-Object Types：</p>
+<ul>
+<li>clob: 字符数据大对象数据类型</li>
+<li>blob: 二进制数据大对象数据类型</li>
+</ul>
+<p>当查询返回一个大对象时，返回的是一个指针，而不是大对象本身</p>
+<p><br></p>
+<p>————— <strong>Large-Object Types·BEGIN</strong> —————</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">book review <span class="type">clob</span>(<span class="number">10</span>KB) </span><br><span class="line">image <span class="type">blob</span>(<span class="number">10</span>MB) </span><br><span class="line">movie <span class="type">blob</span>(<span class="number">2</span>GB)</span><br></pre></td></tr></table></figure>
+<p>————— <strong>Large-Object Types·END</strong> —————</p>
+<p><br></p>
+<h2 id="4-5-5-User-Defined-Types"><a href="#4-5-5-User-Defined-Types" class="headerlink" title="4.5.5 User-Defined Types"></a>4.5.5 User-Defined Types</h2><p>user-deﬁned data types：</p>
+<ul>
+<li><strong>distinct types</strong></li>
+<li><strong>structured data types</strong></li>
+</ul>
+<Br>
+
+<p><code>create type</code>:类型创建</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> type Dollars <span class="keyword">as</span> <span class="type">numeric</span>(<span class="number">12</span>,<span class="number">2</span>) <span class="keyword">final</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> department (dept name <span class="type">varchar</span>(<span class="number">20</span>), budget Dollars);</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p><code>create domain</code>:域创建</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> domain person_name <span class="type">char</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span></span><br></pre></td></tr></table></figure>
+<p>类型和域很相似。但域可以有约束，比如指定not null</p>
+<p><br></p>
+<h2 id="4-5-6-Generating-Unique-Key-Values"><a href="#4-5-6-Generating-Unique-Key-Values" class="headerlink" title="4.5.6 Generating Unique Key Values"></a>4.5.6 Generating Unique Key Values</h2><p>自动管理唯一键值生成</p>
+<p>声明主键：<code>ID number(5) generated always as identity</code></p>
+<p>插入语句：<code>insert into instructor (name, dept name, salary) values (&#39;Newprof&#39;, &#39;Comp. Sci.&#39;, 100000);</code></p>
+<ul>
+<li>不用指定ID是什么</li>
+</ul>
+<Br>
+
+<h2 id="4-5-7-Create-Table-Extensions"><a href="#4-5-7-Create-Table-Extensions" class="headerlink" title="4.5.7 Create Table Extensions"></a>4.5.7 Create Table Extensions</h2><p><code>create table like</code>: 创建现有表架构的新表</p>
+<p><br></p>
+<p>创建一个与 instructor 表结构相同的新表 temp_instructor<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> temp_instructor <span class="keyword">like</span> instructor;</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p><code>create table as</code>: 创建一个包含查询结果的表<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t1 <span class="keyword">as</span> </span><br><span class="line">     (<span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line">     <span class="keyword">from</span> instructor </span><br><span class="line">     <span class="keyword">where</span> dept_name <span class="operator">=</span> <span class="string">&#x27;Music&#x27;</span>) </span><br><span class="line"><span class="keyword">with</span> data;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>with data:填充数据</li>
+</ul>
+<p><br></p>
+<h2 id="4-5-8-Schemas-Catalogs-and-Environments"><a href="#4-5-8-Schemas-Catalogs-and-Environments" class="headerlink" title="4.5.8 Schemas, Catalogs, and Environments"></a>4.5.8 Schemas, Catalogs, and Environments</h2><p><strong>三级层次结构：</strong><br>现代数据库系统提供一个三级层次结构来组织数据对象：</p>
+<ul>
+<li><strong>目录（Catalogs）：</strong> 也被称为数据库，每个目录可以包含多个架构（Schemas）。目录是最顶层的组织单位。</li>
+<li><strong>架构（Schemas）：</strong> 存储关系（表）和视图（Views）。架构对象代表数据库对象的所有权上下文，是组织和管理表、视图等SQL对象的集合。</li>
+<li><strong>SQL对象：</strong> 如关系（表）和视图等。这些是构成数据库内容的基本元素。</li>
+</ul>
+<Br>
+
+<p><strong>三部分名称：</strong></p>
+<ul>
+<li>为了在数据库中唯一标识一个关系，可以使用包含三部分的名称，格式通常为：<br><code>catalog5.univ_schema.course</code></li>
+<li>这里<code>catalog5</code>是目录名，<code>univ_schema</code>是架构名，<code>course</code>是关系（表）名。</li>
+<li><code>数据库.gsmCDI_schema.tbcell</code>：这里<code>数据库</code>是目录（或数据库）名，<code>gsmCDI_schema</code>是架构名，<code>tbcell</code>是关系名。</li>
+</ul>
+<p><br></p>
+<p><strong>数据库连接</strong>：</p>
+<ul>
+<li>用户在对数据库执行任何操作之前，必须先建立连接。</li>
+<li>连接时，用户需要提供用户名和通常的密码来验证身份。</li>
+</ul>
+<p><br></p>
+<p><strong>默认目录和架构</strong>：每个用户都有一个默认的目录（Catalog）和架构（Schema），这个组合对每个用户是唯一的。</p>
+<Br>
+
+<p><strong>SQL环境</strong>：SQL环境包括用户标识符、连接、目录和架构,为用户与数据库的交互定义了一个上下文，包括身份验证和数据访问的初始设置</p>
+<Br>
+
+<h2 id="4-6-Index-Definition-in-SQL"><a href="#4-6-Index-Definition-in-SQL" class="headerlink" title="4.6 Index Definition in SQL"></a>4.6 Index Definition in SQL</h2><p>许多查询仅引用文件中的一小部分记录，查询特定记录（如特定部门的教师或特定ID的教师薪资）时，扫描整个文件是低效的。</p>
+<p>索引是一种数据结构，允许数据库系统高效地找到具有指定属性值的元组，无需扫描整个关系。</p>
+<p><br></p>
+<p><strong>创建索引</strong>：<code>create index &lt;index-name&gt; on &lt;relation-name&gt; (&lt;attribute-list&gt;)</code></p>
+<p><strong>删除索引</strong>：<code>drop index &lt;index-name&gt;</code></p>
+<p><br></p>
+<p>————— <strong>Index·BEGIN</strong> —————</p>
+<p>创建表:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> student</span><br><span class="line">(ID <span class="type">varchar</span> (<span class="number">5</span>),</span><br><span class="line">name <span class="type">varchar</span> (<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">dept_name <span class="type">varchar</span> (<span class="number">20</span>),</span><br><span class="line">tot_cred <span class="type">numeric</span> (<span class="number">3</span>,<span class="number">0</span>) <span class="keyword">default</span> <span class="number">0</span>,</span><br><span class="line"><span class="keyword">primary</span> key (ID))</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>创建索引:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> index studentID_index <span class="keyword">on</span> student(ID)</span><br></pre></td></tr></table></figure></p>
+<Br>
+
+<p>使用索引进行查询：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> student</span><br><span class="line"><span class="keyword">where</span> ID <span class="operator">=</span> <span class="string">&#x27;12345&#x27;</span></span><br></pre></td></tr></table></figure><br>这个查询可以通过使用索引 studentID_index 来执行，使得数据库系统无需查看 student 表中的所有记录，而是直接使用索引来快速定位到所需的记录。</p>
+<p>————— <strong>Index·END</strong> —————</p>
+<p><br></p>
+<h2 id="4-7-Authorization"><a href="#4-7-Authorization" class="headerlink" title="4.7 Authorization"></a>4.7 Authorization</h2><p><strong>对数据的权限：</strong></p>
+<ul>
+<li><strong>读取（Read）:</strong> 允许用户读取数据，但不允许修改数据。</li>
+<li><strong>插入（Insert）:</strong> 允许用户插入新数据，但不允许修改现有数据。</li>
+<li><strong>更新（Update）:</strong> 允许用户修改数据，但不允许删除数据。</li>
+<li><strong>删除（Delete）:</strong> 允许用户删除数据。</li>
+</ul>
+<p><br></p>
+<p><strong>修改数据库架构的权限：</strong></p>
+<ul>
+<li><strong>资源（Resources）:</strong> 允许用户创建新的关系（表）。</li>
+<li><strong>变更（Alteration）:</strong> 允许用户在关系（表）中添加或删除属性（字段）。</li>
+<li><strong>删除（Drop）:</strong> 允许用户删除关系（表）。</li>
+<li><strong>索引（Index）:</strong> 文章未详述，但通常指允许用户创建或删除索引。</li>
+</ul>
+<p><br></p>
+<h2 id="4-7-1-Granting-and-Revoking-of-Privileges"><a href="#4-7-1-Granting-and-Revoking-of-Privileges" class="headerlink" title="4.7.1 Granting and Revoking of Privileges"></a>4.7.1 Granting and Revoking of Privileges</h2><p><code>grant</code>:用于给予用户或角色特定的权限</p>
+<p>基本语法：<code>grant &lt;privilege list&gt; on &lt;relation name or view name&gt; to &lt;user list&gt;;</code></p>
+<ul>
+<li><privilege list> 指的是想要授予的权限列表</li>
+<li><relation name or view name> 是权限被授予的关系（表）或视图的名称</li>
+<li><user list> 是单个用户ID/public</li>
+</ul>
+<p><br></p>
+<p><strong>视图权限</strong>：授予某个视图的权限不意味着授予了该视图底层表的任何权限</p>
+<p><strong>权限授予条件</strong>：授予权限的人必须已经拥有对指定项的权限，或者是数据库管理员。</p>
+<p>SQL权限：  </p>
+<ul>
+<li><p><strong><code>select</code> 权限：</strong> 允许用户读取（查询）关系（表），或使用视图进行查询。</p>
+</li>
+<li><p><strong><code>insert</code> 权限：</strong> 允许用户插入新的元组（记录）到表中。</p>
+</li>
+<li><p><strong><code>update</code> 权限：</strong> 允许用户使用SQL <code>update</code> 语句修改表中的数据。</p>
+</li>
+<li><p><strong><code>delete</code> 权限：</strong> 允许用户删除表中的元组（记录）。</p>
+</li>
+<li><p><strong><code>all privileges</code>：</strong> 作为所有允许权限的简写形式，授予用户对表的所有操作权限。</p>
+</li>
+</ul>
+<p><br></p>
+<p>————— <strong>grant·BEGIN</strong> —————</p>
+<p>为用户U1、U2和U3授予对 <code>instructor</code> 表的 <code>select</code> 权限的命令是：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">select</span> <span class="keyword">on</span> instructor <span class="keyword">to</span> U1, U2, U3;</span><br></pre></td></tr></table></figure>
+<p>————— <strong>grant·END</strong> —————</p>
+<p><br></p>
+<p><code>revoke</code>:用于撤销先前授予的授权</p>
+<p>基本语法：<code>revoke &lt;privilege list&gt; on &lt;relation name or view name&gt; from &lt;user list&gt;;</code></p>
+<ul>
+<li><code>&lt;privilege list&gt;</code>:想要撤销的权限列表，<strong>all</strong>可以撤销所有权限</li>
+<li><code>&lt;relation name or view name&gt;</code>:是权限被撤销的关系（表）或视图的名称</li>
+<li><code>&lt;user list&gt;</code>:权限被撤销的用户列表,<strong>public</strong>代表所有人</li>
+</ul>
+<Br>
+
+<p>————— <strong>revoke·BEGIN</strong> —————</p>
+<p>如果要从用户U1、U2和U3撤销对 branch 表的 select 权限，使用的命令是：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">revoke</span> <span class="keyword">select</span> <span class="keyword">on</span> branch <span class="keyword">from</span> U1, U2, U3;</span><br></pre></td></tr></table></figure>
+<p>————— <strong>revoke·END</strong> —————</p>
+<p><br></p>
+<h2 id="4-7-2-Roles"><a href="#4-7-2-Roles" class="headerlink" title="4.7.2 Roles"></a>4.7.2 Roles</h2><p><code>create role</code>: 创建新角色</p>
+<p>基本语法：<code>create role &lt;role name&gt;;</code></p>
+<p><br></p>
+<p>————— <strong>Roles·BEGIN</strong> —————</p>
+<p>创建角色：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> role instructor;</span><br></pre></td></tr></table></figure>
+<Br>
+
+<p>将角色授予用户：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> instructor <span class="keyword">to</span> Amit;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>将权限授予给角色：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">select</span> <span class="keyword">on</span> takes <span class="keyword">to</span> instructor;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>角色不仅可以授予给用户，还可以授予给其他角色：<strong>讲师继承助教的所有特权</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> role teaching_assistant</span><br><span class="line"><span class="keyword">grant</span> teaching_assistant <span class="keyword">to</span> instructor;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>角色链：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> role dean;</span><br><span class="line"><span class="keyword">grant</span> instructor <span class="keyword">to</span> dean;</span><br><span class="line"><span class="keyword">grant</span> dean <span class="keyword">to</span> Satoshi;</span><br></pre></td></tr></table></figure>
+<p>————— <strong>Roles·END</strong> —————</p>
+<p><br></p>
+<h2 id="4-7-3-Authorization-on-Views"><a href="#4-7-3-Authorization-on-Views" class="headerlink" title="4.7.3 Authorization on Views"></a>4.7.3 Authorization on Views</h2><p><strong>应用场景</strong>：在一个大学的例子中，如果一个员工只需要访问特定部门（比如地质学系）的教师薪资信息，而不应该看到其他部门的信息。</p>
+<p><br></p>
+<p>————— <strong>Authorization·Views·BEGIN</strong> —————</p>
+<p>创建视图：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> geo_instructor <span class="keyword">as</span></span><br><span class="line">(<span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> instructor</span><br><span class="line"><span class="keyword">where</span> dept_name <span class="operator">=</span> ’Geology’);</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>授予视图权限：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">select</span> <span class="keyword">on</span> geo_instructor <span class="keyword">to</span>  geo_staff</span><br></pre></td></tr></table></figure></p>
+<Br>
+
+<p>使用视图：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> geo_instructor;</span><br></pre></td></tr></table></figure></p>
+<p>如果 <strong>geo_staf</strong>f 成员没有对底层 <strong>instructor</strong> 表的权限，他们仍然可以查询视图，因为他们被授权查询视图，而视图的查询在创建视图时已经限定在特定的数据集上</p>
+<p>如果视图的创建者在 <strong>instructor</strong> 表上没有某些权限，他们将无法在视图中包含这些受限的数据。例如，如果创建者没有权限查看某些属性，那么这些属性不能包含在视图中</p>
+<p>————— <strong>Authorization·Views·END</strong> —————</p>
+<p><br></p>
+<h2 id="4-7-4-Authorizations-on-Schema"><a href="#4-7-4-Authorizations-on-Schema" class="headerlink" title="4.7.4 Authorizations on Schema"></a>4.7.4 Authorizations on Schema</h2><h2 id="4-7-5-Transfer-of-Privileges"><a href="#4-7-5-Transfer-of-Privileges" class="headerlink" title="4.7.5 Transfer of Privileges"></a>4.7.5 Transfer of Privileges</h2><h2 id="4-7-6-Revoking-of-Privileges"><a href="#4-7-6-Revoking-of-Privileges" class="headerlink" title="4.7.6 Revoking of Privileges"></a>4.7.6 Revoking of Privileges</h2><h2 id="4-7-7-Row-Level-Authorization"><a href="#4-7-7-Row-Level-Authorization" class="headerlink" title="4.7.7 Row-Level Authorization"></a>4.7.7 Row-Level Authorization</h2><h2 id="4-8-Summary"><a href="#4-8-Summary" class="headerlink" title="4.8 Summary"></a>4.8 Summary</h2><p><strong>连接类型：</strong></p>
+<ul>
+<li>SQL支持多种类型的连接，包括自然连接、内连接和外连接，以及多种连接条件。</li>
+<li>自然连接提供了一种简单的方法来编写跨多个关系的查询，它通过匹配名称的属性来等同化这些属性。</li>
+<li><code>join-using</code> 结构提供了一种简单的方法来编写查询，它对于一些具有匹配名称的属性需要等值连接，但不一定是所有这样的属性。</li>
+<li><code>join-on</code> 结构提供了一种包含连接谓词在 <code>from</code> 子句中的方法。</li>
+<li>外连接提供了一种保留那些因连接谓词而不会出现在结果关系中的元组的方法。保留的元组会用 <code>null</code> 值填充，以符合结果模式。</li>
+</ul>
+<p><strong>视图关系：</strong> 视图可以定义为包含查询结果的关系。视图对隐藏不需要的信息很有用，并且可以将来自多个关系的信息汇集到一个单一的视图中。</p>
+<p><strong>事务：</strong> 事务是一系列的查询和更新，它们一起执行一个任务。事务可以被提交或回滚；当事务回滚时，事务执行的所有更新的效果都会被撤销。</p>
+<p><strong>完整性约束：</strong> 完整性约束确保被授权用户所做的数据库更改不会导致数据一致性的丧失。</p>
+<p><strong>引用完整性约束：</strong> 引用完整性约束确保出现在一个关系的给定属性集中的值也出现在另一个关系的某个属性集中。</p>
+<p><strong>域约束：</strong> 域约束指定与属性相关联的可能值的集合。这些约束还可能禁止对特定属性使用 <code>null</code> 值。</p>
+<p><strong>断言：</strong> 断言是声明性表达式，声明我们要求始终为真的谓词。</p>
+<p><strong>SQL数据定义语言：</strong> SQL数据定义语言支持定义内置域类型，如日期和时间，以及用户定义的域类型。</p>
+<p><strong>索引：</strong> 索引对于高效处理查询以及高效执行完整性约束非常重要。虽然索引不是SQL标准的一部分，但大多数数据库系统支持创建索引的SQL命令。</p>
+<p><strong>SQL授权机制：</strong> SQL授权机制允许区分数据库的用户，在数据库中对各种数据值的访问类型上有所不同。</p>
+<p><br></p>
+<h2 id="4-9-Review-Terms"><a href="#4-9-Review-Terms" class="headerlink" title="4.9 Review Terms"></a>4.9 Review Terms</h2><h3 id="Join-types"><a href="#Join-types" class="headerlink" title="Join types"></a>Join types</h3><ul>
+<li>Natural join</li>
+<li>Inner join with using and on</li>
+<li>Left, right and full outer join  </li>
+<li>Outer join with using and on</li>
+</ul>
+<h3 id="View-definition"><a href="#View-definition" class="headerlink" title="View definition"></a>View definition</h3><ul>
+<li>Materialized views</li>
+<li>View maintenance</li>
+<li>View update</li>
+</ul>
+<h3 id="Transactions"><a href="#Transactions" class="headerlink" title="Transactions"></a>Transactions</h3><ul>
+<li>Commit work  </li>
+<li>Rollback work</li>
+<li>Atomic transaction</li>
+</ul>
+<h3 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h3><ul>
+<li>Integrity constraints</li>
+<li>Domain constraints</li>
+<li>Unique constraint</li>
+<li>Check clause</li>
+<li>Referential integrity<ul>
+<li>Cascading deletes</li>
+<li>Cascading updates</li>
+</ul>
+</li>
+<li>Assertions </li>
+</ul>
+<h3 id="Data-types"><a href="#Data-types" class="headerlink" title="Data types"></a>Data types</h3><ul>
+<li>Date and time types</li>
+<li>Default values</li>
+<li>Large objects<ul>
+<li>clob</li>
+<li>blob</li>
+</ul>
+</li>
+<li>User-defined types<ul>
+<li>distinct types</li>
+<li>Domains</li>
+<li>Type conversions</li>
+</ul>
+</li>
+</ul>
+<h3 id="Catalogs"><a href="#Catalogs" class="headerlink" title="Catalogs"></a>Catalogs</h3><h3 id="Schemas"><a href="#Schemas" class="headerlink" title="Schemas"></a>Schemas</h3><h3 id="Indices"><a href="#Indices" class="headerlink" title="Indices"></a>Indices</h3><h3 id="Privileges"><a href="#Privileges" class="headerlink" title="Privileges"></a>Privileges</h3><ul>
+<li>Types of privileges<ul>
+<li>select</li>
+<li>insert </li>
+<li>update</li>
+</ul>
+</li>
+<li>Granting of privileges</li>
+<li>Revoking of privileges</li>
+<li>Privilege to grant privileges</li>
+<li>Grant option</li>
+</ul>
+<h3 id="Roles"><a href="#Roles" class="headerlink" title="Roles"></a>Roles</h3><h3 id="Authorization-on-views"><a href="#Authorization-on-views" class="headerlink" title="Authorization on views"></a>Authorization on views</h3><h3 id="Execute-authorization"><a href="#Execute-authorization" class="headerlink" title="Execute authorization"></a>Execute authorization</h3><h3 id="Invoker-privileges"><a href="#Invoker-privileges" class="headerlink" title="Invoker privileges"></a>Invoker privileges</h3><h3 id="Row-level-authorization"><a href="#Row-level-authorization" class="headerlink" title="Row-level authorization"></a>Row-level authorization</h3><h3 id="Virtual-private-database-VPD"><a href="#Virtual-private-database-VPD" class="headerlink" title="Virtual private database (VPD)"></a>Virtual private database (VPD)</h3>
             
         </div>
         <footer class="article-footer">
@@ -852,10 +1173,10 @@ ASSERTION在创建断言后，系统首先会检查其有效性。之后，任�
             
                 <div>
                     <span class="icon-brush"></span>
-                    327.5k
+                    330.8k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    20:35
+                    20:48
                 </div>
             
             
