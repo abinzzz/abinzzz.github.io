@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/F9iBmpwXwAAispi?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/F9YMT-qWoAApoMK?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2023-10-25T15:30:28.000Z">
-<meta property="article:modified_time" content="2023-10-30T04:24:07.350Z">
+<meta property="article:modified_time" content="2023-10-31T13:07:46.485Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="SPIKEBERT">
@@ -209,33 +209,35 @@
 <p>脉冲神经网络 (SNN) 提供了一种以更节能的方式实现深度神经网络的有前途的途径。然而，<strong>现有SNN用于语言任务的网络架构仍然过于简单且相对浅层，深层架构尚未得到充分探索，导致与BERT等主流基于Transformer的网络相比存在显着的性能差距。</strong> 为此，我们<strong>改进了最近提出的脉冲变压器（即 Spikformer）</strong>，使其能够处理语言任务，并提出了一种<strong>两阶段知识蒸馏方法来训练</strong>它，该方法将通过从 BERT 中蒸馏知识来进行预训练与大量未标记文本的集合，并通过知识蒸馏对特定于任务的实例进行微调，再次从 BERT 中对相同的训练示例进行微调。通过广泛的实验，我们表明，使用我们的方法训练的模型（称为 SpikeBERT）超越了最先进的 SNN，甚至在英语和中文文本分类任务上取得了与 BERT 相当的结果，而且能耗要低得多。我们的代码可在 <a target="_blank" rel="noopener" href="https://github.com/Lvchangze/SpikeBERT">https://github.com/Lvchangze/SpikeBERT</a> 获取。</p>
 <br>
 <h2 id="1introduction"><a class="markdownIt-Anchor" href="#1introduction"></a> 1.Introduction</h2>
-<p>现代人工神经网络 (ANN) 在各种自然语言处理 (NLP) 和计算机视觉 (CV) 任务中取得了巨大成功。然而，训练和部署最先进的 ANN 模型需要太多的计算能量，导致过去十年每个模型的能耗持续增加。 ChatGPT（OpenAI，2022）和GPT-4（OpenAI，2023）等大型语言模型在推理过程中的能耗是难以估量的。近年来，脉冲神经网络（SNN），可以说是第三代神经网络（Maas，1997），由于其高生物学合理性、事件驱动特性和低能耗而引起了广泛关注（Roy et al.等，2019）。与生物神经元一样，SNN 使用离散脉冲来处理和传输信息。如今，神经形态硬件可用于实现基于脉冲的计算，这为以低得多的能耗实现人工智能提供了一种有前景的方法</p>
-<p>脉冲神经网络在图像分类任务中取得了巨大成功并且已经有一些研究证明了 SNN 在语言任务中的有效性。然而，SNN 中用于语言任务的骨干网络相对简单，这显着降低了模型性能的上限。例如，Lv 等人提出的 SNN。 (2023) 是基于 TextCNN (Kim, 2014) 构建的，与基于 Transfomer (Vaswani et al., 2017) 的语言模型（例如 BERT (Devlin et al., 2019) 和 RoBERTa）构建的语言模型相比，表现出显着的性能差距（Liu et al., 2019）关于多个文本分类基准</p>
-<p><strong>Spikformer</strong>：首先将 Transformer 架构引入 SNN，并显着缩小了 SNN 和 ViT 之间的差距在 ImageNet和 CIFAR-10 上。<strong>(CV)</strong></p>
-<p>本文探究Spikeformer在NLP上的影响</p>
+<ul>
+<li>
+<p><strong>Spikformer</strong>：CV</p>
+</li>
+<li>
+<p><strong>SpikBERT</strong>：NLP</p>
+</li>
+</ul>
 <br>
 <p><img src="https://pbs.twimg.com/media/F9iBmpwXwAAispi?format=jpg&amp;name=medium" alt="" /><br />
-如图1所示，考虑到文本数据的离散性，我们改进了Spikformer的架构，使其适合语言任务。我们用语言友好的模块替换了最初为图像处理设计的某些模块。一般来说，更深的 ANN 模型通常可以带来更好的性能，并且增加 ANN 的深度可以从输入数据中提取更复杂和抽象的特征。然而，方等人。 （2020b）表明，使用代理梯度（参见第 2.1 节）直接通过时间反向传播训练的深度 SNN 会因“自累积动态”而遭受梯度消失或爆炸的问题。因此，<strong>我们建议使用知识蒸馏来训练语言Spikformer，这样脉冲神经网络中代理梯度的偏差就不会快速累积</strong>。然而，如何从 ANN 中提取知识到 SNN 是一个巨大的挑战，因为 ANN 中的特征是浮点格式，而 SNN 中的特征是脉冲序列，甚至还涉及额外的维度 T（时间步）。我们发现这个问题可以通过引入外部模块来在训练时对齐特征来解决</p>
+如图1所示，考虑到文本数据的离散性，我们改进了Spikformer的架构，<strong>使其适合语言任务</strong>。我们用语言友好的模块替换了最初为图像处理设计的某些模块。</p>
+<p>一般来说，更深的 ANN 模型通常可以带来更好的性能，并且增加 ANN 的深度可以从输入数据中提取更复杂和抽象的特征。然而，方等人。 （2020b）表明，使用代理梯度（参见第 2.1 节）直接通过时间反向传播训练的深度 SNN 会因“自累积动态”而遭受梯度消失或爆炸的问题。因此，<strong>我们建议使用知识蒸馏来训练语言Spikformer，这样脉冲神经网络中代理梯度的偏差就不会快速累积</strong>。</p>
+<p>然而，如何从 ANN 中提取知识到 SNN 是一个巨大的挑战，因为 ANN 中的特征是浮点格式，而 SNN 中的特征是脉冲序列，甚至还涉及额外的维度 T（时间步）。我们发现这个问题可以通过引入外部模块来在训练时对齐特征来解决</p>
 <p>受到广泛使用的“训练前微调”配方的启发，我们提出了一种两阶段知识蒸馏策略：</p>
 <ul>
-<li>在第一阶段，我们选择大型预训练模型的代表例子BERT作为教师模型，SpikeBERT作为学生模型。我们利用大量未标记文本来对齐嵌入层和隐藏层中两个模型产生的特征。</li>
-<li>在第二阶段，我们作为教师采用针对特定任务数据集进行微调的 BERT，并作为学生采用第一个预训练阶段后的模型。我们首先增加特定于任务的数据集的训练数据，然后使用教师模型预测的逻辑来进一步指导学生模型。经过两阶段的知识蒸馏，可以通过从 BERT 中蒸馏知识来构建脉冲语言模型，称为 SpikeBERT</li>
+<li><strong>第一阶段</strong>：我们选择大型预训练模型的代表例子BERT作为教师模型，SpikeBERT作为学生模型。我们利用大量未标记文本来对齐嵌入层和隐藏层中两个模型产生的特征。</li>
+<li><strong>第二阶段</strong>：我们作为教师采用针对特定任务数据集进行微调的 BERT，并作为学生采用第一个预训练阶段后的模型。我们首先增加特定于任务的数据集的训练数据，然后使用教师模型预测的逻辑来进一步指导学生模型。经过两阶段的知识蒸馏，可以通过从 BERT 中蒸馏知识来构建脉冲语言模型，称为 SpikeBERT</li>
 </ul>
-<p>总之，本研究的主要贡献可概括如下：</p>
-<ul>
-<li>本文改进了Spikformer的架构，用于语言处理，并提出了一个两阶段的&quot;预训练+特定任务&quot;知识蒸馏训练方法，在此方法中，spikebert在大量未标记文本集上进行预训练，然后通过从bert中提取特征提取和预测能力的知识，在特定任务数据集上进一步微调。</li>
-<li>我们的经验表明，SpikeBERT 在英语和中文的 6 个不同语言基准数据集上取得了比现有 SNN 更高的性能。</li>
-<li>这项研究是第一个展示将 BERT 式大型语言模型的知识转移到基于脉冲的架构的可行性的研究之一，该架构可以实现可比的结果，但能耗却要低得多。</li>
-</ul>
+<p>本文改进了Spikformer的架构，用于语言处理，并提出了一个<strong>两阶段的&quot;预训练+特定任务&quot;知识蒸馏训练方法</strong>，在此方法中，spikebert在大量未标记文本集上进行预训练，然后通过从bert中提取特征提取和预测能力的知识，在特定任务数据集上进一步微调。</p>
 <br>
 <h2 id="2related-work"><a class="markdownIt-Anchor" href="#2related-work"></a> 2.Related Work</h2>
 <h2 id="21-spiking-neural-networks"><a class="markdownIt-Anchor" href="#21-spiking-neural-networks"></a> 2.1 SPIKING NEURAL NETWORKS</h2>
 <p>与传统的人工神经网络不同，脉冲神经网络利用离散的脉冲序列而不是连续的十进制值来计算和传输信息。由于脉冲的不可微性，训练 SNN 在过去二十年一直是一个巨大的挑战。目前解决这个问题的主流方法有两种：</p>
 <ul>
 <li><strong>ANN-to-SNN Conversion</strong>：ANN-SNN转换方法旨在转换良好的重量通过用脉冲神经元层替换激活函数并添加权重归一化（Diehl 等人，2016）和阈值约束（Hu 等人，2018）等缩放规则，将 ANN 训练为其 SNN 对应物。在转换过程中，这种方法遭受了大量的时间步骤。</li>
-<li><strong>Backpropagation with Surrogate Gradients</strong>：另一种流行的方法是在误差反向传播期间引入代理梯度，使整个过程可微。人们提出了多种代理梯度函数，包括Sigmoid代理函数、Fast-Sigmoid、ATan等。随着时间的反向传播（BPTT）是直接训练 SNN 的最流行的方法之一，它将传统的反向传播算法应用于展开的计算图。<strong>我们选择带有代理梯度的 BPTT 作为我们的训练方法</strong>。<br />
-<Br></li>
+<li><strong>Backpropagation with Surrogate Gradients</strong>：另一种流行的方法是在误差反向传播期间引入代理梯度，使整个过程可微。人们提出了多种代理梯度函数，包括Sigmoid代理函数、Fast-Sigmoid、ATan等。随着时间的反向传播（BPTT）是直接训练 SNN 的最流行的方法之一，它将传统的反向传播算法应用于展开的计算图。<strong>我们选择带有代理梯度的 BPTT 作为我们的训练方法</strong>。</li>
+<li></li>
 </ul>
+<Br>
 <h2 id="22-knowledge-distillation"><a class="markdownIt-Anchor" href="#22-knowledge-distillation"></a> 2.2 KNOWLEDGE DISTILLATION</h2>
 <p><strong>知识蒸馏</strong>：利用教师模型的“基于响应”的知识（即软标签）来传递知识。</p>
 <p>当这个概念第一次提出时，隐藏层中捕获的特征被忽略了，因为它们只关注当时的最终概率分布。为了更有效地学习教师模型，一些作品主张在蒸馏过程中纳入隐藏特征对齐。</p>
@@ -502,10 +504,10 @@ Fig 2:用于训练 SpikeBERT 的两阶段蒸馏方法（预训练特定任务蒸
             
                 <div>
                     <span class="icon-brush"></span>
-                    331.6k
+                    331.1k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    20:51
+                    20:49
                 </div>
             
             
