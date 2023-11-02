@@ -32,8 +32,15 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/F96Bhs8WIAAfXEW?format=png&amp;name=360x360">
 <meta property="og:image" content="https://pbs.twimg.com/media/F96De1RXkAAmx4n?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F97VW05WAAEIxFl?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F97VusRX0AAi5cg?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F97V93fXwAEpLjr?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F97WSThWkAAdU4b?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F97WexeXQAAUkcL?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F97Wsm6W4AA3Tue?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F972BFibcAAOhRL?format=png&amp;name=small">
 <meta property="article:published_time" content="2023-10-19T06:49:26.000Z">
-<meta property="article:modified_time" content="2023-11-02T07:37:58.374Z">
+<meta property="article:modified_time" content="2023-11-02T14:36:17.060Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="os">
@@ -314,7 +321,197 @@
 <br>
 <p><strong>并发和共享的关系</strong>：互为存在条件</p>
 <br>
-<p>#3</p>
+<h2 id="23-虚拟"><a class="markdownIt-Anchor" href="#23-虚拟"></a> 2.3 虚拟</h2>
+<p><strong>虚拟</strong>：指的是把一个物理上的实体变为若干个逻辑上的对应物。物理实体是实际存在的，而逻辑上对应物是用户感受到的</p>
+<p>虚拟技术：</p>
+<ul>
+<li>空分复用技术(虚拟存储器)</li>
+<li>时分复用技术(虚拟处理剂)</li>
+</ul>
+<br>
+<p>------------------- <strong>虚拟·Example·BEGIN</strong> -------------------<br />
+背景：一个程序需要<strong>放入内存</strong>并分<strong>配给CPU</strong>才能执行</p>
+<p><strong>虚拟存储器技术</strong>：电脑内存只有4GB，但是可以运行超过4GB的程序</p>
+<p><strong>时分复用技术</strong>：单核CPU同时打开多个程序(微观上处理机在各个微小的时间段交替着为各个进程服务)</p>
+<p>------------------- <strong>虚拟·Example·END</strong> -------------------</p>
+<BR>
+<p>💡：没有并发性就谈不上虚拟性</p>
+<br>
+<h2 id="24-异步"><a class="markdownIt-Anchor" href="#24-异步"></a> 2.4 异步</h2>
+<p><strong>异步</strong>：多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是<strong>一贯到底的，而是走走停停的</strong>，以不可预知的速度向前推进。</p>
+<p>💡：有并发性才会导致异步性</p>
+<br>
+<h2 id="3-os的发展与分类"><a class="markdownIt-Anchor" href="#3-os的发展与分类"></a> 3. OS的发展与分类</h2>
+<h2 id="31-手工操作阶段"><a class="markdownIt-Anchor" href="#31-手工操作阶段"></a> 3.1 手工操作阶段</h2>
+<p><img src="https://pbs.twimg.com/media/F97VW05WAAEIxFl?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="32-单道批处理系统"><a class="markdownIt-Anchor" href="#32-单道批处理系统"></a> 3.2 单道批处理系统</h2>
+<p><img src="https://pbs.twimg.com/media/F97VusRX0AAi5cg?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="33-多道批处理系统"><a class="markdownIt-Anchor" href="#33-多道批处理系统"></a> 3.3 多道批处理系统</h2>
+<p><img src="https://pbs.twimg.com/media/F97V93fXwAEpLjr?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="34-分时操作系统"><a class="markdownIt-Anchor" href="#34-分时操作系统"></a> 3.4 分时操作系统</h2>
+<p><img src="https://pbs.twimg.com/media/F97WSThWkAAdU4b?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="35-实时操作系统"><a class="markdownIt-Anchor" href="#35-实时操作系统"></a> 3.5 实时操作系统</h2>
+<p><img src="https://pbs.twimg.com/media/F97WexeXQAAUkcL?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="36-其他几种操作系统"><a class="markdownIt-Anchor" href="#36-其他几种操作系统"></a> 3.6 其他几种操作系统</h2>
+<p><img src="https://pbs.twimg.com/media/F97Wsm6W4AA3Tue?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="4操作系统的运行机制"><a class="markdownIt-Anchor" href="#4操作系统的运行机制"></a> 4.操作系统的运行机制</h2>
+<ul>
+<li>程序运行原理：C语言代码 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 机器指令(二进制)，CPU执行指令</li>
+<li>两种<strong>指令</strong>：
+<ul>
+<li>特权指令</li>
+<li>非特权指令</li>
+</ul>
+</li>
+<li>两种<strong>处理器状态</strong>：
+<ul>
+<li>核心态</li>
+<li>用户态</li>
+</ul>
+</li>
+<li>两种<strong>程序</strong>：
+<ul>
+<li>内核程序</li>
+<li>应用程序</li>
+</ul>
+</li>
+<li>内核：最核心部分</li>
+<li>如何变态</li>
+</ul>
+<br>
+<p><strong>预备知识</strong>：C语言代码 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 机器指令(二进制)</p>
+<br>
+<h2 id="41-内核程序vs应用程序"><a class="markdownIt-Anchor" href="#41-内核程序vs应用程序"></a> 4.1 内核程序vs应用程序</h2>
+<p>普通程序员写的程序就是<strong>应用程序</strong></p>
+<p>微软，苹果有一群人负责实现操作系统，他们写的就是<strong>内核程序</strong><br />
+有很多内核程序组成了<strong>操作系统内核</strong>，简称<strong>内核</strong></p>
+<br>
+<h2 id="42-特权指令-vs-非特权指令"><a class="markdownIt-Anchor" href="#42-特权指令-vs-非特权指令"></a> 4.2 特权指令 vs 非特权指令</h2>
+<p>应用程序只能使用非特权指令，例如加减法指令等</p>
+<p>操作系统内核作为管理者，有时会让CPU执行一些特权指令，如：内存清零指令</p>
+<br>
+<h2 id="43-内核态vs用户态"><a class="markdownIt-Anchor" href="#43-内核态vs用户态"></a> 4.3 内核态vs用户态</h2>
+<p>CPU的两种状态：</p>
+<ul>
+<li><strong>内核态</strong>：说明此时运行的是内核程序，此时可以执行特权指令</li>
+<li><strong>用户态</strong>：说明此时运行的是应用程序，此时只能执行非特权指令</li>
+</ul>
+<br>
+<p><strong>拓展</strong>：CPU中有一个寄存器叫程序状态字寄存器(PSW),其中有个二进制位，1表示内核态，0表示用户态</p>
+<p><strong>内核态 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 用户态</strong>：执行一条特权指令，修改PSW的标志位为用户态，这个动作意味着操作系统主动让出CPU使用权</p>
+<p><strong>用户态 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 内核态</strong>：由中断引发，硬件自动完成变态过程</p>
+<br>
+<h2 id="5-中断和异常"><a class="markdownIt-Anchor" href="#5-中断和异常"></a> 5. 中断和异常</h2>
+<p><strong>中断和异常</strong>：</p>
+<ul>
+<li>5.1 中断的作用</li>
+<li>5.2 中断的类型：
+<ul>
+<li>内中断
+<ul>
+<li>trap</li>
+<li>fault</li>
+<li>abort</li>
+</ul>
+</li>
+<li>外中断
+<ul>
+<li>时钟中断</li>
+<li>I/O中断请求</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>5.3 中断机制的基本原理
+<ul>
+<li>检查中断信号：内中断检查在指令执行过程中；外中断检查在每个指令周期末尾。</li>
+<li>找到相应的中断处理程序：通过中断向量表来实现</li>
+</ul>
+</li>
+</ul>
+<br>
+<h2 id="51-中断的作用"><a class="markdownIt-Anchor" href="#51-中断的作用"></a> 5.1 中断的作用</h2>
+<p>CPU上会运行<strong>两种程序</strong>：</p>
+<ul>
+<li><strong>操作系统内核程序</strong></li>
+<li><strong>应用程序</strong></li>
+</ul>
+<br>
+<p><strong>中断</strong>：操作系统内核夺回CPU使用权的唯一途径</p>
+<br>
+<h2 id="52-中断的类型"><a class="markdownIt-Anchor" href="#52-中断的类型"></a> 5.2 中断的类型</h2>
+<p>中断的类型：</p>
+<ul>
+<li><strong>内中断</strong>：与当前执行的指令有关，中断信号来源于CPU内部</li>
+<li><strong>外中断</strong>：与当前执行的指令无关，中断信号来源于CPU外部</li>
+</ul>
+<br>
+<p>------------------- <strong>内中断·Example·BEGIN</strong> -------------------</p>
+<p>例子1:在用户态下执行特权指令</p>
+<p>例子2:执行除法指令时发现除数为0</p>
+<p>例子3:应用程序想要请求操作系统内核服务，此时会执行一条<strong>特殊的指令–陷入指令</strong>，该指令会引发一个内部中断信号。</p>
+<p>------------------- <strong>内中断·Example·END</strong> -------------------</p>
+<br>
+<p>------------------- <strong>外中断·Example·BEGIN</strong> -------------------</p>
+<p>例子1:时钟中断–由时钟部件发来的中断信号，时钟部件每隔一个时间片都会给CPU发送一个时钟中断信号</p>
+<p>例子2:I/O中断</p>
+<p>------------------- <strong>外中断·Example·END</strong> -------------------</p>
+<br>
+<h2 id="53-中断机制的基本原理"><a class="markdownIt-Anchor" href="#53-中断机制的基本原理"></a> 5.3 中断机制的基本原理</h2>
+<p>不同中断信号，需要不同的中断处理程序来处理。</p>
+<p>显然，中断处理程序一定是内核程序，需要内核态</p>
+<br>
+<h2 id="6系统调用"><a class="markdownIt-Anchor" href="#6系统调用"></a> 6.系统调用</h2>
+<p>系统调用：</p>
+<ul>
+<li>6.1 什么是系统调用：操作系统对应用程序/程序员提供的接口</li>
+<li>6.2 系统调用与库函数的区别
+<ul>
+<li>有的库函数是对系统调用的进一步封装</li>
+<li>有的库函数没有使用系统调用</li>
+</ul>
+</li>
+<li>6.3 为什么系统调用是必须的：wps和word打印</li>
+<li>6.4 什么功能要系统调用实现
+<ul>
+<li>设备管理</li>
+<li>文件管理</li>
+<li>进程控制</li>
+<li>进程通信</li>
+<li>内存管理</li>
+</ul>
+</li>
+<li>6.5 系统调用的过程
+<ul>
+<li>传参</li>
+<li>trap</li>
+<li>操作系统内核处理系统调用</li>
+<li>返回应用程序<br />
+<br></li>
+</ul>
+</li>
+</ul>
+<h2 id="61-什么是系统调用"><a class="markdownIt-Anchor" href="#61-什么是系统调用"></a> 6.1 什么是系统调用</h2>
+<p>操作系统作为用户和计算机硬件之间的接口，需要向上提供一些简单易用的服务。主要包括命令借口和程序接口。其中，程序接口由一组系统调用组成。</p>
+<br>
+<h2 id="62-系统调用与库函数的区别"><a class="markdownIt-Anchor" href="#62-系统调用与库函数的区别"></a> 6.2 系统调用与库函数的区别</h2>
+<p><img src="https://pbs.twimg.com/media/F972BFibcAAOhRL?format=png&amp;name=small" alt="" /></p>
+<br>
+<h2 id="63-为什么系统调用是必须的"><a class="markdownIt-Anchor" href="#63-为什么系统调用是必须的"></a> 6.3 为什么系统调用是必须的</h2>
+<p><strong>生活场景</strong>：你在校打印店打印论文，按下了wps的打印选项；但是进行到一半的时候，另一位同学按下了word的打印键</p>
+<p>为了避免混乱的解决方法：由操作系统内核对共享资源进行统一的管理，并向上提供系统调用，用户进程想要使用打印机这种共享资源，只能通过系统调用向操作系统内核发出请求。内核会对各个请求进行协调处理。</p>
+<br>
+<h2 id="64-什么功能要用到系统调用"><a class="markdownIt-Anchor" href="#64-什么功能要用到系统调用"></a> 6.4 什么功能要用到系统调用</h2>
+<p>应用程序通过<strong>系统调用</strong>请求操作系统的服务。而系统中的各种共享资源都由操作系统内核统一掌控，因此<strong>凡是与共享资源有关的操作，都必须通过系统调用的方式向操作系统内核提出服务请求</strong>，由操作系统内核代为完成。</p>
+<br>
+<h2 id="65-系统调用的过程"><a class="markdownIt-Anchor" href="#65-系统调用的过程"></a> 6.5 系统调用的过程</h2>
+<p>传递系统调用参数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 执行陷入指令(<strong>用户态</strong>) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 执行相应的内核请求处理系统调用(<strong>核心态</strong>) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 返回</p>
 
             
         </div>
@@ -492,10 +689,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    336.4k
+                    338.1k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    21:08
+                    21:14
                 </div>
             
             
