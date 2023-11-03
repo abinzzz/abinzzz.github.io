@@ -41,8 +41,9 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/F972BFibcAAOhRL?format=png&amp;name=small">
 <meta property="og:image" content="https://pbs.twimg.com/media/F98UjmOXIAETF_C?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/F98WTrvXQAApMKm?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F-BPs4zW0AAG3eh?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2023-10-19T06:49:26.000Z">
-<meta property="article:modified_time" content="2023-11-03T15:23:20.072Z">
+<meta property="article:modified_time" content="2023-11-03T15:35:14.346Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="os">
@@ -496,6 +497,13 @@
 <p><br></p>
 <h2 id="8-操作系统的引导"><a href="#8-操作系统的引导" class="headerlink" title="8.操作系统的引导"></a>8.操作系统的引导</h2><p><strong>操作系统的引导</strong>：开机的时候，怎么让操作系统运行起来</p>
 <p><br></p>
+<p><img src="https://pbs.twimg.com/media/F-BPs4zW0AAG3eh?format=jpg&amp;name=medium" alt=""></p>
+<ul>
+<li><strong>Step1</strong>:CPU从一个特定主存地址开始，读取指令，执行ROM中的引导程序(先进行硬件自检)</li>
+<li><strong>Step2</strong>:将磁盘的第一块—主引导记录读入内存，执行磁盘引导程序，扫描分区表</li>
+<li><strong>Step3</strong>:从活动分区(主分区)读入分区引导记录，执行其中程序</li>
+<li><strong>Step4</strong>:从根目录下找到完整的操作系统初始化程序并执行，完成开机一系列动作</li>
+</ul>
 
             
         </div>
@@ -673,10 +681,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    339.2k
+                    339.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    21:16
+                    21:17
                 </div>
             
             
