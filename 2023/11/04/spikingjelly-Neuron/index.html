@@ -23,20 +23,23 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   脉冲神经元模型 在 spikingjelly 中,我们约定,只能输出脉冲,即0或1的神经元,都可以称之为“脉冲神经元”。使用脉冲神经元的网络,进而也可以称之为脉冲神经元网络(Spiking Neural Network">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   神经元 本教程作者： fangwei123456 本节教程主要关注 :class:spikingjelly.activation_based.neuron，介绍脉冲神经元。   脉冲神经元模型 在 spikingjel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spikingjelly:Neuron">
 <meta property="og:url" content="https://abinzzz.github.io/2023/11/04/spikingjelly-Neuron/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   脉冲神经元模型 在 spikingjelly 中,我们约定,只能输出脉冲,即0或1的神经元,都可以称之为“脉冲神经元”。使用脉冲神经元的网络,进而也可以称之为脉冲神经元网络(Spiking Neural Network">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   神经元 本教程作者： fangwei123456 本节教程主要关注 :class:spikingjelly.activation_based.neuron，介绍脉冲神经元。   脉冲神经元模型 在 spikingjel">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://spikingjelly.readthedocs.io/zh-cn/latest/_images/neuron.png">
+<meta property="og:image" content="https://spikingjelly.readthedocs.io/zh-cn/latest/_images/02.svg">
 <meta property="article:published_time" content="2023-11-04T07:39:04.000Z">
-<meta property="article:modified_time" content="2023-11-04T07:49:32.266Z">
+<meta property="article:modified_time" content="2023-11-07T07:11:20.047Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="internship">
 <meta property="article:tag" content="spikngjelly">
 <meta property="article:tag" content="Neuron">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://spikingjelly.readthedocs.io/zh-cn/latest/_images/neuron.png">
     
         <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
     
@@ -199,27 +202,241 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-<h2 id="脉冲神经元模型"><a class="markdownIt-Anchor" href="#脉冲神经元模型"></a> 脉冲神经元模型</h2>
-<p>在 <code>spikingjelly</code> 中,我们约定,只能输出脉冲,即0或1的神经元,都可以称之为“脉冲神经元”。使用脉冲神经元的网络,进而也可以称之为脉冲神经元网络(Spiking Neural Networks, SNNs)。<code>spikingjelly.activation_based.neuron</code> 中定义了各种常见的脉冲神经元模型,我们以 <code>spikingjelly.activation_based.neuron.IFNode</code> 为例来介绍脉冲神经元。</p>
+<h1 id="神经元"><a class="markdownIt-Anchor" href="#神经元"></a> 神经元</h1>
+<p>本教程作者： <a target="_blank" rel="noopener" href="https://github.com/fangwei123456">fangwei123456</a></p>
+<p>本节教程主要关注 :class:<code>spikingjelly.activation_based.neuron</code>，介绍脉冲神经元。</p>
 <br>
-<p>首先导入相关的模块:</p>
+<h2 id="脉冲神经元模型"><a class="markdownIt-Anchor" href="#脉冲神经元模型"></a> 脉冲神经元模型</h2>
+<p>在 <code>spikingjelly</code> 中，我们约定，只能输出脉冲，即0或1的神经元，都可以称之为“脉冲神经元”。使用脉冲神经元的网络，进而也可以称之为脉冲神经元网络(Spiking Neural Networks, SNNs)。<br />
+class:<code>spikingjelly.activation_based.neuron</code> 中定义了各种常见的脉冲神经元模型，我们以 :class:<code>spikingjelly.activation_based.neuron.IFNode</code> 为例来介绍脉冲神经元。</p>
+<p>首先导入相关的模块：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> spikingjelly.activation_based <span class="keyword">import</span> neuron</span><br><span class="line"><span class="keyword">from</span> spikingjelly <span class="keyword">import</span> visualizing</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
 <br>
-<p>新建一个IF神经元层:</p>
+<p>新建一个IF神经元层：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if_layer = neuron.IFNode()</span><br></pre></td></tr></table></figure>
-<p>IF神经元层有一些构造参数,在API文档中对这些参数有详细的解释,我们暂时只关注下面几个重要的参数:</p>
+<p>IF神经元层有一些构造参数，在API文档中对这些参数有详细的解释，我们暂时只关注下面几个重要的参数：</p>
 <ul>
 <li>
-<p><strong>v_threshold</strong>: 神经元的阈值电压</p>
+<p><strong>v_threshold</strong>： 神经元的阈值电压</p>
 </li>
 <li>
-<p><strong>v_reset</strong>: 神经元的重置电压。如果不为<code>None</code>,当神经元释放脉冲后,电压会被重置为<code>v_reset</code>;如果设置为<code>None</code>,则电压会被减去<code>v_threshold</code></p>
+<p><strong>v_reset</strong>： 神经元的重置电压。如果不为 <code>None</code>，当神经元释放脉冲后，电压会被重置为 <code>v_reset</code>；如果设置为 <code>None</code>，则电压会被减去 <code>v_threshold</code></p>
 </li>
 <li>
-<p><strong>surrogate_function</strong>: 反向传播时用来计算脉冲函数梯度的替代函数</p>
+<p><strong>surrogate_function</strong>： 反向传播时用来计算脉冲函数梯度的替代函数</p>
 </li>
 </ul>
-<p>你可能会好奇这一层神经元的数量是多少。对于 <code>spikingjelly.activation_based.neuron.IFNode</code> 中的绝大多数神经元层,神经元的数量是在初始化或调用 <code>reset()</code> 函数重新初始化后,根据第一次接收的输入的 <code>shape</code> 自动决定的。</p>
+<p>你可能会好奇这一层神经元的数量是多少。对于 :class:<code>spikingjelly.activation_based.neuron.IFNode</code> 中的绝大多数神经元层，神经元的数量是在初始化或调用 <code>reset()</code> 函数重新初始化后，根据第一次接收的输入的 <code>shape</code> 自动决定的。</p>
+<br>
+<p>与RNN中的神经元非常类似，脉冲神经元也是有状态的，或者说是有记忆。脉冲神经元的状态变量，一般是它的膜电位 <code>V[t]</code>。因此，:class:<code>spikingjelly.activation_based.neuron</code> 中的神经元，都有成员变量 <code>v</code>。可以打印出刚才新建的IF神经元层的膜电位：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(if_layer.v)</span><br><span class="line"><span class="comment"># if_layer.v=0.0</span></span><br></pre></td></tr></table></figure>
+<p>可以发现，现在的 <code>if_layer.v</code> 是 <code>0.0</code>，因为我们还没有给与它任何输入。我们给与几个不同的输入，观察神经元的电压的 <code>shape</code>，可以发现它与输入的<br />
+数量是一致的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">x = torch.rand(size=[<span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">if_layer(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;x.shape=<span class="subst">&#123;x.shape&#125;</span>, if_layer.v.shape=<span class="subst">&#123;if_layer.v.shape&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="comment"># x.shape=torch.Size([2, 3]), if_layer.v.shape=torch.Size([2, 3])</span></span><br><span class="line">if_layer.reset()</span><br><span class="line"></span><br><span class="line">x = torch.rand(size=[<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</span><br><span class="line">if_layer(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;x.shape=<span class="subst">&#123;x.shape&#125;</span>, if_layer.v.shape=<span class="subst">&#123;if_layer.v.shape&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="comment"># x.shape=torch.Size([4, 5, 6]), if_layer.v.shape=torch.Size([4, 5, 6])</span></span><br><span class="line">if_layer.reset()</span><br></pre></td></tr></table></figure>
+<br>
+<br>
+<p>脉冲神经元是有状态的，在输入下一个样本前，一定要先调用 <code>reset()</code> 函数清除之前的状态。</p>
+<p><code>V[t]</code> 和输入<code>X[t]</code> 的关系是什么样的？在脉冲神经元中，<code>V[t]</code> 不仅取决于当前时刻的输入 <code>X[t]</code>，还取决于它在上一个时刻末的膜电位 <code>V[t-1]</code>。</p>
+<p>通常使用阈下（指的是膜电位不超过阈值电压 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>t</mi><mi>h</mi><mi>r</mi><mi>e</mi><mi>s</mi><mi>h</mi><mi>o</mi><mi>l</mi><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex">V_{threshold}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">h</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 时）神经动态方程 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">d</mi><mi>V</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>V</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>X</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\frac{\mathrm{d}V(t)}{\mathrm{d}t} = f(V(t), X(t))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.355em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight">d</span></span><span class="mord mathnormal mtight">t</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight">d</span></span><span class="mord mathnormal mtight" style="margin-right:0.22222em;">V</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">t</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span> 描述连续时间的脉冲神经元的充电过程，例如对于IF神经元，充电方程为：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">d</mi><mi>V</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mi>V</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>+</mo><mi>X</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">    \frac{\mathrm{d}V(t)}{\mathrm{d}t} = V(t) + X(t)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.113em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">d</span></span><span class="mord mathnormal">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">d</span></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></span></p>
+<p>:class:<code>spikingjelly.activation_based.neuron</code> 中的神经元，使用离散的差分方程来近似连续的微分方程。在差分方程的视角下，IF神经元的充电方程为：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>V</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo>−</mo><mi>V</mi><mo stretchy="false">[</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo>=</mo><mi>X</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">    V[t] - V[t-1] = X[t]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span></span></span></span></span></p>
+<p>因此可以得到<code>V[t]</code> 的表达式为</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>V</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>V</mi><mo stretchy="false">[</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo separator="true">,</mo><mi>X</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo stretchy="false">)</mo><mo>=</mo><mi>V</mi><mo stretchy="false">[</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo>+</mo><mi>X</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">    V[t] = f(V[t-1], X[t]) = V[t-1] + X[t]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span></span></span></span></span></p>
+<p>可以在 :class:<code>spikingjelly.activation_based.neuron.IFNode.neuronal_charge</code> 中找到如下所示的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">neuronal_charge</span>(<span class="params">self, x: torch.Tensor</span>):</span><br><span class="line">    self.v = self.v + x</span><br></pre></td></tr></table></figure>
+<br>
+<p>不同的神经元，充电方程不尽相同。但膜电位超过阈值电压后，释放脉冲，以及释放脉冲后，膜电位的重置都是相同的。因此它们全部继承自 :class:<code>spikingjelly.activation_based.neuron.BaseNode</code>，共享相同的放电、重置方程。可以在 :class:<code>spikingjelly.activation_based.neuron.BaseNode.neuronal_fire</code> 中找到释放脉冲的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">neuronal_fire</span>(<span class="params">self</span>):</span><br><span class="line">    self.spike = self.surrogate_function(self.v - self.v_threshold)</span><br></pre></td></tr></table></figure>
+<p><code>surrogate_function()</code> 在前向传播时是阶跃函数，只要输入大于或等于0，就会返回1，否则会返回0。我们将这种元素仅为0或1的 <code>tensor</code> 视为脉冲。</p>
+<p>释放脉冲消耗了神经元之前积累的电荷，因此膜电位会有一个瞬间的降低，即膜电位的重置。在SNN中，对膜电位重置的实现，有2种方式：</p>
+<ul>
+<li><strong>Hard方式</strong>：释放脉冲后，膜电位直接被设置成重置电压：</li>
+</ul>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>V</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo>=</mo><msub><mi>V</mi><mrow><mi>r</mi><mi>e</mi><mi>s</mi><mi>e</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">V[t] = V_{reset}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<ul>
+<li><strong>Soft方式</strong>：释放脉冲后，膜电位减去阈值电压：</li>
+</ul>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>V</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo>=</mo><mi>V</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo>−</mo><msub><mi>V</mi><mrow><mi>t</mi><mi>h</mi><mi>r</mi><mi>e</mi><mi>s</mi><mi>h</mi><mi>o</mi><mi>l</mi><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex">V[t] = V[t] - V_{threshold}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">h</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>可以发现，对于使用Soft方式的神经元，并不需要重置电压<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>r</mi><mi>e</mi><mi>s</mi><mi>e</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">V_{reset}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 这个变量。:class:<code>spikingjelly.activation_based.neuron</code> 中的神经元，在构造函数的参数之一 <code>v_reset</code>，默认为 <code>1.0</code> ，表示神经元使用Hard方式；若设置为 <code>None</code>，则会使用Soft方式。在 :class:<code>spikingjelly.activation_based.neuron.BaseNode.neuronal_fire.neuronal_reset</code> 中可以找到膜电位重置的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># The following codes are for tutorials. The actual codes are different, but have the similar behavior.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">neuronal_reset</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">if</span> self.v_reset <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        self.v = self.v - self.spike * self.v_threshold</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        self.v = (<span class="number">1.</span> - self.spike) * self.v + self.spike * self.v_reset</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="描述离散脉冲神经元的三个方程"><a class="markdownIt-Anchor" href="#描述离散脉冲神经元的三个方程"></a> 描述离散脉冲神经元的三个方程</h2>
+<p>至此，我们可以用充电、放电、重置，这3个离散方程来描述任意的离散脉冲神经元。充电、放电方程为：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>H</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>V</mi><mo stretchy="false">[</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo separator="true">,</mo><mi>X</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo stretchy="false">)</mo><mspace linebreak="newline"></mspace><mi>S</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo>=</mo><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>H</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo>−</mo><msub><mi>V</mi><mrow><mi>t</mi><mi>h</mi><mi>r</mi><mi>e</mi><mi>s</mi><mi>h</mi><mi>o</mi><mi>l</mi><mi>d</mi></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">    H[t]  = f(V[t-1], X[t]) \\
+    S[t]  = \Theta(H[t] - V_{threshold})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mclose">)</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">h</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 即为构造函数参数中的 <code>surrogate_function</code>，是一个阶跃函数：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.3599999999999999em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>1</mn><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>0</mn><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">    \Theta(x) =
+    \begin{cases}
+    1, &amp; x \geq 0 \\
+    0, &amp; x &lt; 0
+    \end{cases}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.0000299999999998em;vertical-align:-1.25003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">1</span><span class="mpunct">,</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">0</span><span class="mpunct">,</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<br>
+<p>Hard方式重置方程为：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>V</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo>=</mo><mi>H</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo>⋅</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>S</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo stretchy="false">)</mo><mo>+</mo><msub><mi>V</mi><mrow><mi>r</mi><mi>e</mi><mi>s</mi><mi>e</mi><mi>t</mi></mrow></msub><mo>⋅</mo><mi>S</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">    V[t] = H[t] \cdot (1 - S[t]) + V_{reset} \cdot S[t]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span></span></span></span></span></p>
+<p>Soft方式重置方程为：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>V</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo>=</mo><mi>H</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo><mo>−</mo><msub><mi>V</mi><mrow><mi>t</mi><mi>h</mi><mi>r</mi><mi>e</mi><mi>s</mi><mi>h</mi><mi>o</mi><mi>l</mi><mi>d</mi></mrow></msub><mo>⋅</mo><mi>S</mi><mo stretchy="false">[</mo><mi>t</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">    V[t] = H[t] - V_{threshold} \cdot S[t]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">h</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mopen">[</span><span class="mord mathnormal">t</span><span class="mclose">]</span></span></span></span></span></p>
+<p>其中<code>X[t]</code> 是外源输入，例如电压增量；为了避免混淆，我们使用<code>H[t]</code> 表示神经元充电后、释放脉冲前的膜电位；<code>V[t]</code> 是神经元释放脉冲后的膜电位；<code>f(V[t-1], X[t])</code> 是神经元的状态更新方程，不同的神经元，区别就在于更新方程不同。</p>
+<p>神经元的动态如下图所示：</p>
+<p><img src="https://spikingjelly.readthedocs.io/zh-cn/latest/_images/neuron.png" alt="" /></p>
+<br>
+<h2 id="仿真"><a class="markdownIt-Anchor" href="#仿真"></a> 仿真</h2>
+<p>接下来，我们将逐步给与神经元输入，并查看它的膜电位和输出脉冲。</p>
+<p>现在让我们给与IF神经元层持续的输入，并画出其放电后的膜电位和输出脉冲：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">if_layer.reset()</span><br><span class="line">x = torch.as_tensor([<span class="number">0.02</span>])</span><br><span class="line">T = <span class="number">150</span></span><br><span class="line">s_list = []</span><br><span class="line">v_list = []</span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(T):</span><br><span class="line">    s_list.append(if_layer(x))</span><br><span class="line">    v_list.append(if_layer.v)</span><br><span class="line"></span><br><span class="line">dpi = <span class="number">300</span></span><br><span class="line">figsize = (<span class="number">12</span>, <span class="number">8</span>)</span><br><span class="line">visualizing.plot_one_neuron_v_s(torch.cat(v_list).numpy(), torch.cat(s_list).numpy(), v_threshold=if_layer.v_threshold,</span><br><span class="line">                                v_reset=if_layer.v_reset,</span><br><span class="line">                                figsize=figsize, dpi=dpi)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>我们给与的输入 <code>shape=[1]</code>，因此这个IF神经元层只有1个神经元。它的膜电位和输出脉冲随着时间变化情况如下：</p>
+<p><img src="https://spikingjelly.readthedocs.io/zh-cn/latest/_images/02.svg" alt="" /></p>
+<p>下面我们将神经元层重置，并给与 <code>shape=[32]</code> 的输入，查看这32个神经元的膜电位和输出脉冲：</p>
+<p>… code-block:: python</p>
+<pre><code>if_layer.reset()
+T = 50
+x = torch.rand([32]) / 8.
+s_list = []
+v_list = []
+for t in range(T):
+    s_list.append(if_layer(x).unsqueeze(0))
+    v_list.append(if_layer.v.unsqueeze(0))
+
+s_list = torch.cat(s_list)
+v_list = torch.cat(v_list)
+
+figsize = (12, 8)
+dpi = 200
+visualizing.plot_2d_heatmap(array=v_list.numpy(), title='membrane potentials', xlabel='simulating step',
+                            ylabel='neuron index', int_x_ticks=True, x_max=T, figsize=figsize, dpi=dpi)
+
+
+visualizing.plot_1d_spikes(spikes=s_list.numpy(), title='membrane sotentials', xlabel='simulating step',
+                        ylabel='neuron index', figsize=figsize, dpi=dpi)
+
+plt.show()
+</code></pre>
+<p>结果如下：</p>
+<p>… image:: …/_static/tutorials/activation_based/0_neuron/1.*<br />
+:width: 100%</p>
+<p>… image:: …/_static/tutorials/activation_based/0_neuron/2.*<br />
+:width: 100%</p>
+<h2 id="步进模式和后端"><a class="markdownIt-Anchor" href="#步进模式和后端"></a> 步进模式和后端</h2>
+<p>在 :doc:<code>../activation_based/basic_concept</code> 中我们已经介绍过单步和多步模式，在本教程前面的内容中，我们使用的都是<br />
+单步模式。切换成多步模式非常简单，只需要设置 <code>step_mode</code> 即可：</p>
+<p>… code-block:: python</p>
+<pre><code>import torch
+from spikingjelly.activation_based import neuron, functional
+if_layer = neuron.IFNode(step_mode='s')
+T = 8
+N = 2
+x_seq = torch.rand([T, N])
+y_seq = functional.multi_step_forward(x_seq, if_layer)
+if_layer.reset()
+
+if_layer.step_mode = 'm'
+y_seq = if_layer(x_seq)
+if_layer.reset()
+</code></pre>
+<p>此外，部分神经元在多步模式下支持 <code>cupy</code> 后端。在 <code>cupy</code> 模式下，前反向传播会使用CuPy进行加速：</p>
+<p>… code-block:: python</p>
+<pre><code>import torch
+from spikingjelly.activation_based import neuron
+if_layer = neuron.IFNode()
+print(f'if_layer.backend=&#123;if_layer.backend&#125;')
+# if_layer.backend=torch
+
+print(f'step_mode=&#123;if_layer.step_mode&#125;, supported_backends=&#123;if_layer.supported_backends&#125;')
+# step_mode=s, supported_backends=('torch',)
+
+
+if_layer.step_mode = 'm'
+print(f'step_mode=&#123;if_layer.step_mode&#125;, supported_backends=&#123;if_layer.supported_backends&#125;')
+# step_mode=m, supported_backends=('torch', 'cupy')
+
+device = 'cuda:0'
+if_layer.to(device)
+if_layer.backend = 'cupy'  # switch to the cupy backend
+print(f'if_layer.backend=&#123;if_layer.backend&#125;')
+# if_layer.backend=cupy
+
+x_seq = torch.rand([8, 4], device=device)
+y_seq = if_layer(x_seq)
+if_layer.reset()
+</code></pre>
+<h2 id="自定义神经元"><a class="markdownIt-Anchor" href="#自定义神经元"></a> 自定义神经元</h2>
+<p>如前所述，SpikingJelly使用充电、放电、重置三个方程来描述脉冲神经元，在 :class:<code>BaseNode &lt;spikingjelly.activation_based.neuron.BaseNode&gt;</code> <br />
+中可以找到对应的代码，单步模式下的前向传播 <code>single_step_forward</code> 函数即是由这3个过程组成：</p>
+<p>… code-block:: python</p>
+<pre><code># spikingjelly.activation_based.neuron.BaseNode
+def single_step_forward(self, x: torch.Tensor):
+    self.neuronal_charge(x)
+    spike = self.neuronal_fire()
+    self.neuronal_reset(spike)
+    return spike
+</code></pre>
+<p>其中 <code>neuronal_fire</code> 和 <code>neuronal_reset</code> 对绝大多数神经元都是相同的，因而在 <code>BaseNode</code> 中就已经定义了。不同的神经元主要是<br />
+构造函数和充电方程 <code>neuronal_charge</code> 不同。因此，若想实现新的神经元，则只需要更改构造函数和充电方程即可。</p>
+<p>假设我们构造一种平方积分发放神经元，其充电方程为：</p>
+<p>… math::<br />
+V[t] = f(V[t-1], X[t]) = V[t-1] + X[t]^{2}</p>
+<p>实现方式如下：</p>
+<p>… code-block:: python</p>
+<pre><code>import torch
+from spikingjelly.activation_based import neuron
+
+class SquareIFNode(neuron.BaseNode):
+    def neuronal_charge(self, x: torch.Tensor):
+        self.v = self.v + x ** 2
+</code></pre>
+<p>:class:<code>BaseNode &lt;spikingjelly.activation_based.neuron.BaseNode&gt;</code> 继承自 :class:<code>MemoryModule &lt;spikingjelly.activation_based.base.MemoryModule&gt;</code>。:class:<code>MemoryModule &lt;spikingjelly.activation_based.base.MemoryModule&gt;</code> <br />
+默认的多步传播，是使用 <code>for t in range(T)</code> 来循环调用单步传播实现的。因此我们定义 <code>neuronal_charge</code> 后， <code>single_step_forward</code> 就已经是完整的了，进而 <code>multi_step_forward</code> 也可以被使用。</p>
+<p>使用平方积分发放神经元进行单步或多步传播：</p>
+<p>… code-block:: python</p>
+<pre><code>import torch
+from spikingjelly.activation_based import neuron
+
+class SquareIFNode(neuron.BaseNode):
+
+    def neuronal_charge(self, x: torch.Tensor):
+        self.v = self.v + x ** 2
+
+sif_layer = SquareIFNode()
+
+T = 4
+N = 1
+x_seq = torch.rand([T, N])
+print(f'x_seq=&#123;x_seq&#125;')
+
+for t in range(T):
+    yt = sif_layer(x_seq[t])
+    print(f'sif_layer.v[&#123;t&#125;]=&#123;sif_layer.v&#125;')
+
+sif_layer.reset()
+sif_layer.step_mode = 'm'
+y_seq = sif_layer(x_seq)
+print(f'y_seq=&#123;y_seq&#125;')
+sif_layer.reset()
+</code></pre>
+<p>输出为</p>
+<p>… code-block:: shell</p>
+<pre><code>x_seq=tensor([[0.7452],
+        [0.8062],
+        [0.6730],
+        [0.0942]])
+sif_layer.v[0]=tensor([0.5554])
+sif_layer.v[1]=tensor([0.])
+sif_layer.v[2]=tensor([0.4529])
+sif_layer.v[3]=tensor([0.4618])
+y_seq=tensor([[0.],
+        [1.],
+        [0.],
+        [0.]])
+</code></pre>
 
             
         </div>
@@ -397,10 +614,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    349.1k
+                    351.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    21:55
+                    22:06
                 </div>
             
             
