@@ -23,19 +23,21 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Chapter05: Advanced SQL 本章首先讨论如何使用通用编程语言访问SQL，这对于构建使用数据库管理数据的应用程序非常重要。然后，我们将介绍SQL的一些更高级的特性，从如何通过扩展SQL语言以支持过程操">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Chapter05: Advanced SQL本章首先讨论如何使用通用编程语言访问SQL，这对于构建使用数据库管理数据的应用程序非常重要。然后，我们将介绍SQL的一些更高级的特性，从如何通过扩展SQL语言以支持过程操作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Database:Chapter05-Advanced SQL">
 <meta property="og:url" content="https://abinzzz.github.io/2023/11/08/Database-Chapter05-Advanced-SQL/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Chapter05: Advanced SQL 本章首先讨论如何使用通用编程语言访问SQL，这对于构建使用数据库管理数据的应用程序非常重要。然后，我们将介绍SQL的一些更高级的特性，从如何通过扩展SQL语言以支持过程操">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Chapter05: Advanced SQL本章首先讨论如何使用通用编程语言访问SQL，这对于构建使用数据库管理数据的应用程序非常重要。然后，我们将介绍SQL的一些更高级的特性，从如何通过扩展SQL语言以支持过程操作">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/F-aRfe8a4AAZEiz?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pica.zhimg.com/100/v2-584f7a829a6d66c3207d52df50bdde42_qhd.jpg">
 <meta property="og:image" content="https://pbs.twimg.com/media/F-q9cR6XwAAmcGR?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/F_YWri5WYAAac6w?format=png&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_ZHme2XMAAEFR3?format=jpg&amp;name=large">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_ZHme3XIAAnxvQ?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2023-11-08T11:40:23.000Z">
-<meta property="article:modified_time" content="2023-11-20T13:41:28.199Z">
+<meta property="article:modified_time" content="2023-11-20T17:01:48.438Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="database">
@@ -205,16 +207,15 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-<h1 id="chapter05-advanced-sql"><a class="markdownIt-Anchor" href="#chapter05-advanced-sql"></a> Chapter05: Advanced SQL</h1>
-<p>本章首先讨论如何使用通用编程语言访问SQL，这对于构建使用数据库管理数据的应用程序非常重要。然后，我们将介绍SQL的一些更高级的特性，从如何通过扩展SQL语言以支持过程操作或允许在数据库中执行过程性代码开始。我们描述了触发器，它可以用来指定在特定事件上自动执行的操作，例如插入、删除或更新指定关系中的元组。最后，我们讨论SQL支持的递归查询和高级聚集特性。</p>
-<br>
-<h2 id="51-accessing-sql-from-a-programming-language"><a class="markdownIt-Anchor" href="#51-accessing-sql-from-a-programming-language"></a> 5.1 Accessing SQL from a Programming Language</h2>
-<p>SQL虽然是一种强大的声明式查询语言，但也需要借助通用编程语言：</p>
+
+<h1 id="Chapter05-Advanced-SQL"><a href="#Chapter05-Advanced-SQL" class="headerlink" title="Chapter05: Advanced SQL"></a>Chapter05: Advanced SQL</h1><p>本章首先讨论如何使用通用编程语言访问SQL，这对于构建使用数据库管理数据的应用程序非常重要。然后，我们将介绍SQL的一些更高级的特性，从如何通过扩展SQL语言以支持过程操作或允许在数据库中执行过程性代码开始。我们描述了触发器，它可以用来指定在特定事件上自动执行的操作，例如插入、删除或更新指定关系中的元组。最后，我们讨论SQL支持的递归查询和高级聚集特性。</p>
+<p><br></p>
+<h2 id="5-1-Accessing-SQL-from-a-Programming-Language"><a href="#5-1-Accessing-SQL-from-a-Programming-Language" class="headerlink" title="5.1 Accessing SQL from a Programming Language"></a>5.1 Accessing SQL from a Programming Language</h2><p>SQL虽然是一种强大的声明式查询语言，但也需要借助通用编程语言：</p>
 <ul>
 <li><strong>SQL的局限性</strong>：虽然编写SQL查询通常比在通用编程语言中编写相同查询要容易，但SQL并不提供与通用编程语言相同的完全表达能力。</li>
 <li><strong>非声明性操作的需求</strong>：某些操作，如打印报告、与用户交互或将查询结果发送到图形用户界面，无法仅通过SQL完成。</li>
 </ul>
-<br>
+<p><br></p>
 <p>DBAS = user + application programs + DBMS +DB</p>
 <p>API(应用程序接口)与数据库服务器交互</p>
 <p>应用程序进行数据处理，并调用:</p>
@@ -223,23 +224,19 @@
 <li>将SQL命令发送到数据库服务器</li>
 <li>将结果元组逐个取出到程序变量中</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/F-aRfe8a4AAZEiz?format=jpg&amp;name=medium" alt="" /></p>
-<br>
+<p><img src="https://pbs.twimg.com/media/F-aRfe8a4AAZEiz?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
 <p>采用SQL作为数据库查询工具的方法：</p>
 <ul>
-<li>
-<p><strong>交互式SQL（Interactive SQL）</strong>:这是最直接的使用SQL的方式，通常通过数据库系统（DBS）的人机界面直接使用。用户可以直接输入SQL语句来执行数据库操作，包括数据操纵语言（DML）和数据定义语言（DDL）操作。这种方法适用于手动查询数据库、测试SQL语句或进行数据库管理。</p>
+<li><p><strong>交互式SQL（Interactive SQL）</strong>:这是最直接的使用SQL的方式，通常通过数据库系统（DBS）的人机界面直接使用。用户可以直接输入SQL语句来执行数据库操作，包括数据操纵语言（DML）和数据定义语言（DDL）操作。这种方法适用于手动查询数据库、测试SQL语句或进行数据库管理。</p>
 </li>
-<li>
-<p><strong>动态SQL（Dynamic SQL）</strong>:动态SQL指的是在程序运行时构造并执行的SQL语句，例如通过JDBC或ODBC。这种方法允许程序根据需要生成和执行SQL查询，使得数据库操作可以更灵活地响应程序的运行时需求。通常用于需要根据用户输入或程序状态动态生成SQL语句的场景。</p>
+<li><p><strong>动态SQL（Dynamic SQL）</strong>:动态SQL指的是在程序运行时构造并执行的SQL语句，例如通过JDBC或ODBC。这种方法允许程序根据需要生成和执行SQL查询，使得数据库操作可以更灵活地响应程序的运行时需求。通常用于需要根据用户输入或程序状态动态生成SQL语句的场景。</p>
 </li>
-<li>
-<p><strong>嵌入式SQL（Embedded SQL）</strong>:嵌入式SQL是将SQL语句嵌入到一般编程语言（如C语言）中的一种方法。在这种方法中，SQL语句与宿主语言代码混合，然后整个程序被编译和执行，执行过程中包含了对数据库的访问。这种方法适用于在程序中需要直接访问数据库的情况，但与动态SQL不同，SQL语句通常在编译时就确定了，不会根据运行时情况改变。</p>
+<li><p><strong>嵌入式SQL（Embedded SQL）</strong>:嵌入式SQL是将SQL语句嵌入到一般编程语言（如C语言）中的一种方法。在这种方法中，SQL语句与宿主语言代码混合，然后整个程序被编译和执行，执行过程中包含了对数据库的访问。这种方法适用于在程序中需要直接访问数据库的情况，但与动态SQL不同，SQL语句通常在编译时就确定了，不会根据运行时情况改变。</p>
 </li>
 </ul>
-<br>
-<h2 id="511-jdbcjava-database-connectivity"><a class="markdownIt-Anchor" href="#511-jdbcjava-database-connectivity"></a> 5.1.1 JDBC(Java Database Connectivity)</h2>
-<p>JDBC标准定义了一个应用程序接口(API)， Java程序可以使用它连接到数据库服务器。</p>
+<p><br></p>
+<h2 id="5-1-1-JDBC-Java-Database-Connectivity"><a href="#5-1-1-JDBC-Java-Database-Connectivity" class="headerlink" title="5.1.1 JDBC(Java Database Connectivity)"></a>5.1.1 JDBC(Java Database Connectivity)</h2><p>JDBC标准定义了一个应用程序接口(API)， Java程序可以使用它连接到数据库服务器。</p>
 <p><strong>功能</strong>：</p>
 <ul>
 <li>支持查询和更新数据。</li>
@@ -266,21 +263,18 @@
 <li>动态获取数据库结构信息。</li>
 <li>应用程序中的错误管理和资源清理。</li>
 </ul>
-<br>
-<h2 id="5111-connecting-to-the-database"><a class="markdownIt-Anchor" href="#5111-connecting-to-the-database"></a> 5.1.1.1 Connecting to the Database</h2>
-<p>从Java程序访问数据库的第一步是打开到数据库的连接</p>
-<br>
-<p>-------------------- <strong>JDBC·expmale·BEGIN</strong> --------------------</p>
+<p><br></p>
+<h2 id="5-1-1-1-Connecting-to-the-Database"><a href="#5-1-1-1-Connecting-to-the-Database" class="headerlink" title="5.1.1.1 Connecting to the Database"></a>5.1.1.1 Connecting to the Database</h2><p>从Java程序访问数据库的第一步是打开到数据库的连接</p>
+<p><br></p>
+<p>—————————— <strong>JDBC·expmale·BEGIN</strong> —————————— </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">JDBCexample</span><span class="params">(String userid, String passwd)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> (</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(<span class="string">&quot;jdbc:oracle:thin:@db.yale.edu:1521:univdb&quot;</span>, userid, passwd);</span><br><span class="line">        <span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> conn.createStatement();</span><br><span class="line">    ) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            stmt.executeUpdate(<span class="string">&quot;insert into instructor values(&#x27;77987&#x27;,&#x27;Kim&#x27;,&#x27;Physics&#x27;,98000)&quot;</span>);</span><br><span class="line">            <span class="type">ResultSet</span> <span class="variable">rset</span> <span class="operator">=</span> stmt.executeQuery(<span class="string">&quot;select dept_name, avg(salary) from instructor group by dept_name&quot;</span>);</span><br><span class="line">            <span class="keyword">while</span> (rset.next()) &#123;</span><br><span class="line">                System.out.println(rset.getString(<span class="string">&quot;dept_name&quot;</span>) + <span class="string">&quot; &quot;</span> + rset.getFloat(<span class="number">2</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException sqle) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Could not insert tuple. &quot;</span> + sqle);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception sqle) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Exception : &quot;</span> + sqle);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>建立数据库连接</strong>：</p>
 <ul>
-<li><code>Connection conn = DriverManager.getConnection(&quot;jdbc:oracle:thin:@db.yale.edu:1521:univdb&quot;, userid, passwd);</code><br />
-这一行试图使用提供的<code>userid</code>和<code>passwd</code>参数来建立对Oracle数据库的连接。</li>
+<li><code>Connection conn = DriverManager.getConnection(&quot;jdbc:oracle:thin:@db.yale.edu:1521:univdb&quot;, userid, passwd);</code><br>这一行试图使用提供的<code>userid</code>和<code>passwd</code>参数来建立对Oracle数据库的连接。</li>
 </ul>
 <p><strong>创建Statement对象</strong>：</p>
 <ul>
-<li><code>Statement stmt = conn.createStatement();</code><br />
-通过连接对象<code>conn</code>创建了一个<code>Statement</code>对象，用于执行SQL语句。</li>
+<li><code>Statement stmt = conn.createStatement();</code><br>通过连接对象<code>conn</code>创建了一个<code>Statement</code>对象，用于执行SQL语句。</li>
 </ul>
 <p><strong>执行SQL更新和查询</strong>：</p>
 <ul>
@@ -292,13 +286,11 @@
 </ul>
 <p><strong>遍历结果集</strong>：</p>
 <ul>
-<li><code>while (rset.next()) &#123; ... &#125;</code><br />
-这个循环用于迭代查询结果集<code>rset</code>，并打印每个部门的名称和平均工资。然而，这部分也有错误，因为它没有正确地从<code>ResultSet</code>对象中获取数据。</li>
+<li><code>while (rset.next()) &#123; ... &#125;</code><br>这个循环用于迭代查询结果集<code>rset</code>，并打印每个部门的名称和平均工资。然而，这部分也有错误，因为它没有正确地从<code>ResultSet</code>对象中获取数据。</li>
 </ul>
-<p>-------------------- <strong>JDBC·expmale·END</strong> --------------------</p>
-<br>
-<h2 id="5112-shipping-sql-statements-to-the-database-system"><a class="markdownIt-Anchor" href="#5112-shipping-sql-statements-to-the-database-system"></a> 5.1.1.2 Shipping SQL Statements to the Database System</h2>
-<p>打开数据库连接后，程序可以使用它将SQL语句发送到数据库系统执行。</p>
+<p>—————————— <strong>JDBC·expmale·END</strong> —————————— </p>
+<p><br></p>
+<h2 id="5-1-1-2-Shipping-SQL-Statements-to-the-Database-System"><a href="#5-1-1-2-Shipping-SQL-Statements-to-the-Database-System" class="headerlink" title="5.1.1.2 Shipping SQL Statements to the Database System"></a>5.1.1.2 Shipping SQL Statements to the Database System</h2><p>打开数据库连接后，程序可以使用它将SQL语句发送到数据库系统执行。</p>
 <p><strong>发送SQL语句</strong>：</p>
 <ul>
 <li>通过打开的数据库连接，程序可以发送SQL语句给数据库系统执行。</li>
@@ -324,9 +316,8 @@
 <li><code>stmt.executeUpdate()</code>用于执行更新操作，如插入、更新或删除。</li>
 <li>返回影响的行数，对DDL语句返回0。</li>
 </ul>
-<br>
-<h2 id="5113-exceptions-and-resource-management"><a class="markdownIt-Anchor" href="#5113-exceptions-and-resource-management"></a> 5.1.1.3 Exceptions and Resource Management</h2>
-<p><strong>异常处理</strong>：</p>
+<p><br></p>
+<h2 id="5-1-1-3-Exceptions-and-Resource-Management"><a href="#5-1-1-3-Exceptions-and-Resource-Management" class="headerlink" title="5.1.1.3 Exceptions and Resource Management"></a>5.1.1.3 Exceptions and Resource Management</h2><p><strong>异常处理</strong>：</p>
 <ul>
 <li>SQL方法执行可能抛出异常。</li>
 <li>使用<code>try-catch</code>结构来捕获和处理JDBC调用中的异常。</li>
@@ -349,19 +340,17 @@
 <li>自动管理资源关闭，减少错误和遗漏。</li>
 <li>使代码更简洁，避免冗余的关闭语句。</li>
 </ul>
-<br>
-<h2 id="5114-retrieving-the-result-of-a-query"><a class="markdownIt-Anchor" href="#5114-retrieving-the-result-of-a-query"></a> 5.1.1.4 Retrieving the Result of a Query</h2>
-<p><strong>执行查询</strong>：使用Statement对象的executeQuery()方法执行SQL查询。</p>
+<p><br></p>
+<h2 id="5-1-1-4-Retrieving-the-Result-of-a-Query"><a href="#5-1-1-4-Retrieving-the-Result-of-a-Query" class="headerlink" title="5.1.1.4 Retrieving the Result of a Query"></a>5.1.1.4 Retrieving the Result of a Query</h2><p><strong>执行查询</strong>：使用Statement对象的executeQuery()方法执行SQL查询。</p>
 <p><strong>获取结果集</strong>：查询结果被检索到一个ResultSet对象rset中，这个对象包含了结果集中的多个元组（行）。</p>
 <p><strong>逐行获取数据</strong>：通过ResultSet对象的next()方法来逐行遍历结果集。next()方法检查结果集中是否还有未获取的元组，如果有，它会获取下一个元组。next()方法返回一个布尔值，指示是否成功获取到了元组。</p>
 <p><strong>提取元组属性</strong>：一旦获取到元组，可以使用以get开头的各种方法来提取该元组的属性。例如，getString()方法可以检索基本的SQL数据类型并将其转换为Java字符串对象，而getFloat()等更具体的方法用于检索浮点类型的数据。</p>
-<br>
-<h2 id="5115-prepared-statements"><a class="markdownIt-Anchor" href="#5115-prepared-statements"></a> 5.1.1.5 Prepared Statements</h2>
-<p><strong>预备语句的创建</strong>：预备语句允许在SQL查询中使用问号（?）作为占位符，这些占位符将在后续被实际的参数值替换。当预备语句被创建时，数据库系统会编译这个查询。</p>
+<p><br></p>
+<h2 id="5-1-1-5-Prepared-Statements"><a href="#5-1-1-5-Prepared-Statements" class="headerlink" title="5.1.1.5 Prepared Statements"></a>5.1.1.5 Prepared Statements</h2><p><strong>预备语句的创建</strong>：预备语句允许在SQL查询中使用问号（?）作为占位符，这些占位符将在后续被实际的参数值替换。当预备语句被创建时，数据库系统会编译这个查询。</p>
 <p><strong>执行预备语句</strong>：每次执行预备语句时，数据库系统可以重用之前编译的查询形式，并将新的参数值应用到查询中。通过PreparedStatement对象的executeQuery()和executeUpdate()方法来执行查询。</p>
 <p><strong>设置参数值</strong>：在执行查询之前，必须为占位符设置具体的参数值。使用setString()、setInt()等方法为每个问号占位符分配适当的值。方法的第一个参数是占位符的位置（从1开始计数），第二个参数是要分配的值。</p>
-<br>
-<p>-------------------- <strong>Prepared Statements·expmale·BEGIN</strong> --------------------</p>
+<p><br></p>
+<p>—————————— <strong>Prepared Statements·expmale·BEGIN</strong> —————————— </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">PreparedStatement</span> <span class="variable">pStmt</span> <span class="operator">=</span> conn.prepareStatement( <span class="string">&quot;insert into instructor values(?,?,?,?)&quot;</span>);</span><br><span class="line">pStmt.setString(<span class="number">1</span>, <span class="string">&quot;88877&quot;</span>);</span><br><span class="line"> pStmt.setString(<span class="number">2</span>, <span class="string">&quot;Perry&quot;</span>); </span><br><span class="line">pStmt.setString(<span class="number">3</span>, <span class="string">&quot;Finance&quot;</span>); </span><br><span class="line">pStmt.setInt(<span class="number">4</span>, <span class="number">125000</span>); </span><br><span class="line">pStmt.executeUpdate(); </span><br><span class="line">pStmt.setString(<span class="number">1</span>, <span class="string">&quot;88878&quot;</span>); </span><br><span class="line">pStmt.executeUpdate();</span><br></pre></td></tr></table></figure>
 <p>这段话描述的是在Java代码中使用JDBC API创建并执行预备语句（PreparedStatement）的过程，主要用于向数据库中插入数据。</p>
 <p><strong>创建预备语句</strong>：<code>conn.prepareStatement(&quot;insert into instructor values(?,?,?,?)&quot;);</code></p>
@@ -370,31 +359,23 @@
 </ul>
 <p><strong>设置参数值</strong>：</p>
 <ul>
-<li><code>pStmt.setString(1, &quot;88877&quot;);</code><br />
-这一行代码设置了第一个占位符的值为字符串&quot;88877&quot;。</li>
-<li><code>pStmt.setString(2, &quot;Perry&quot;);</code><br />
-这一行代码设置了第二个占位符的值为字符串&quot;Perry&quot;。</li>
-<li><code>pStmt.setString(3, &quot;Finance&quot;);</code><br />
-这一行代码设置了第三个占位符的值为字符串&quot;Finance&quot;。</li>
-<li><code>pStmt.setInt(4, 125000);</code><br />
-这一行代码设置了第四个占位符的值为整数125000。</li>
+<li><code>pStmt.setString(1, &quot;88877&quot;);</code><br>这一行代码设置了第一个占位符的值为字符串”88877”。</li>
+<li><code>pStmt.setString(2, &quot;Perry&quot;);</code><br>这一行代码设置了第二个占位符的值为字符串”Perry”。</li>
+<li><code>pStmt.setString(3, &quot;Finance&quot;);</code><br>这一行代码设置了第三个占位符的值为字符串”Finance”。</li>
+<li><code>pStmt.setInt(4, 125000);</code><br>这一行代码设置了第四个占位符的值为整数125000。</li>
 </ul>
 <p><strong>执行预备语句</strong>：</p>
 <ul>
-<li><code>pStmt.executeUpdate();</code><br />
-这一行代码执行预备语句，将前面设置的参数值插入到<code>instructor</code>表中。此操作不返回任何结果集，但会返回一个整数，表示受影响的行数（通常是插入的行数）。</li>
+<li><code>pStmt.executeUpdate();</code><br>这一行代码执行预备语句，将前面设置的参数值插入到<code>instructor</code>表中。此操作不返回任何结果集，但会返回一个整数，表示受影响的行数（通常是插入的行数）。</li>
 </ul>
 <p><strong>重新设置参数并再次执行</strong>：</p>
 <ul>
-<li><code>pStmt.setString(1, &quot;88878&quot;);</code><br />
-这一行代码改变了第一个参数的值，将其设置为&quot;88878&quot;。</li>
-<li><code>pStmt.executeUpdate();</code><br />
-然后再次执行预备语句，这次是将更新后的参数值插入到数据库中。</li>
+<li><code>pStmt.setString(1, &quot;88878&quot;);</code><br>这一行代码改变了第一个参数的值，将其设置为”88878”。</li>
+<li><code>pStmt.executeUpdate();</code><br>然后再次执行预备语句，这次是将更新后的参数值插入到数据库中。</li>
 </ul>
-<p>-------------------- <strong>Prepared Statements·expmale·END</strong> --------------------</p>
-<br>
-<h2 id="5116-callable-statements"><a class="markdownIt-Anchor" href="#5116-callable-statements"></a> 5.1.1.6 Callable Statements</h2>
-<p><strong>CallableStatement接口</strong>:用于从Java程序中调用数据库的存储过程和函数，并处理它们的输入输出参数</p>
+<p>—————————— <strong>Prepared Statements·expmale·END</strong> —————————— </p>
+<p><br></p>
+<h2 id="5-1-1-6-Callable-Statements"><a href="#5-1-1-6-Callable-Statements" class="headerlink" title="5.1.1.6 Callable Statements"></a>5.1.1.6 Callable Statements</h2><p><strong>CallableStatement接口</strong>:用于从Java程序中调用数据库的存储过程和函数，并处理它们的输入输出参数</p>
 <p><strong><code>CallableStatement</code>接口的作用</strong>：<code>CallableStatement</code>允许开发者在Java代码中调用数据库中定义的存储过程和函数。</p>
 <p><strong>创建<code>CallableStatement</code>对象</strong>：通过<code>Connection</code>对象的<code>prepareCall()</code>方法创建<code>CallableStatement</code>对象。在这个方法中，可以写入调用存储过程或函数的SQL语句，使用问号（?）作为输入参数（IN参数）和输出参数（OUT参数）的占位符。例如：</p>
 <ul>
@@ -403,10 +384,9 @@
 </ul>
 <p><strong>注册输出参数</strong>：对于存储过程的输出参数（OUT参数）和函数的返回值，必须使用<code>registerOutParameter()</code>方法来指定其数据类型。这样，当存储过程或函数执行后，可以通过类似于处理结果集的<code>get</code>方法来检索这些值。</p>
 <p><strong>检索输出值</strong>：执行完存储过程或函数后，可以通过<code>CallableStatement</code>对象的<code>get</code>方法（例如<code>getInt()</code>，<code>getString()</code>等）来获取这些输出参数的值。</p>
-<br>
-<h2 id="5117-metadata-features"><a class="markdownIt-Anchor" href="#5117-metadata-features"></a> 5.1.1.7  Metadata Features</h2>
-<p><strong>Metadata</strong>：关于数据的数据。更具体地说，它是描述数据库结构的数据，如表格、列、数据类型和约束的详细信息</p>
-<br>
+<p><br></p>
+<h2 id="5-1-1-7-Metadata-Features"><a href="#5-1-1-7-Metadata-Features" class="headerlink" title="5.1.1.7  Metadata Features"></a>5.1.1.7  Metadata Features</h2><p><strong>Metadata</strong>：关于数据的数据。更具体地说，它是描述数据库结构的数据，如表格、列、数据类型和约束的详细信息</p>
+<p><br></p>
 <p><strong>用途</strong>：</p>
 <ul>
 <li>允许Java程序在运行时获取数据库结构信息。</li>
@@ -435,19 +415,16 @@
 <li>使用<code>DatabaseMetaData.getTables()</code>来获取表的列表。</li>
 <li>可以限制返回特定类型的表。</li>
 </ul>
-<br>
-<p>-------------------- <strong>Prepared Statements·expmale·BEGIN</strong> --------------------</p>
+<p><br></p>
+<p>—————————— <strong>Prepared Statements·expmale·BEGIN</strong> —————————— </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DatabaseMetaData</span> <span class="variable">dbmd</span> <span class="operator">=</span> conn.getMetaData();</span><br><span class="line"><span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> dbmd.getColumns(<span class="literal">null</span>, <span class="string">&quot;univdb&quot;</span>, <span class="string">&quot;department&quot;</span>, <span class="string">&quot;%&quot;</span>);</span><br><span class="line"><span class="comment">// Arguments to getColumns: Catalog, Schema-pattern, Table-pattern, // and Column-Pattern</span></span><br><span class="line"><span class="comment">// Returns: One row for each column; row has a number of attributes // such as COLUMN NAME, TYPE NAME</span></span><br><span class="line"><span class="keyword">while</span>( rs.next()) &#123; System.out.println(rs.getString(<span class="string">&quot;COLUMN NAME&quot;</span>),</span><br><span class="line">rs.getString(<span class="string">&quot;TYPE NAME&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>获取数据库元数据对象</strong>：</p>
 <ul>
-<li><code>DatabaseMetaData dbmd = conn.getMetaData();</code><br />
-这行代码通过已经建立的数据库连接对象<code>conn</code>获取了数据库元数据对象<code>dbmd</code>。</li>
+<li><code>DatabaseMetaData dbmd = conn.getMetaData();</code><br>这行代码通过已经建立的数据库连接对象<code>conn</code>获取了数据库元数据对象<code>dbmd</code>。</li>
 </ul>
 <p><strong>检索表的列信息</strong>：</p>
 <ul>
-<li><code>ResultSet rs = dbmd.getColumns(null, &quot;univdb&quot;, &quot;department&quot;, &quot;%&quot;);</code><br />
-这行代码调用<code>getColumns</code>方法来获取名为<code>&quot;department&quot;</code>的表的所有列的信息。方法参数说明如下：
-<ul>
+<li><code>ResultSet rs = dbmd.getColumns(null, &quot;univdb&quot;, &quot;department&quot;, &quot;%&quot;);</code><br>这行代码调用<code>getColumns</code>方法来获取名为<code>&quot;department&quot;</code>的表的所有列的信息。方法参数说明如下：<ul>
 <li>第一个参数是目录名称，这里传入<code>null</code>表示目录名称不作为过滤条件。</li>
 <li>第二个参数是数据库模式名称，这里传入<code>&quot;univdb&quot;</code>表示特定的数据库模式。</li>
 <li>第三个参数是表名模式，这里传入<code>&quot;department&quot;</code>表示我们正在查询的表名。</li>
@@ -457,15 +434,12 @@
 </ul>
 <p><strong>遍历结果集并打印信息</strong>：</p>
 <ul>
-<li><code>while( rs.next()) &#123; ... &#125;</code><br />
-这个<code>while</code>循环遍历查询返回的每个列的信息。<code>rs.next()</code>方法移动到结果集的下一行，如果有更多行返回<code>true</code>，否则返回<code>false</code>。</li>
-<li><code>System.out.println(rs.getString(&quot;COLUMN NAME&quot;), rs.getString(&quot;TYPE NAME&quot;));</code><br />
-在循环体内，对于结果集的当前行，使用<code>getString</code>方法分别打印出列名和列的数据类型。<code>&quot;COLUMN NAME&quot;</code>和<code>&quot;TYPE NAME&quot;</code>是<code>getColumns</code>方法返回的结果集的列标签，分别代表列的名称和列的数据类型。</li>
+<li><code>while( rs.next()) &#123; ... &#125;</code><br>这个<code>while</code>循环遍历查询返回的每个列的信息。<code>rs.next()</code>方法移动到结果集的下一行，如果有更多行返回<code>true</code>，否则返回<code>false</code>。</li>
+<li><code>System.out.println(rs.getString(&quot;COLUMN NAME&quot;), rs.getString(&quot;TYPE NAME&quot;));</code><br>在循环体内，对于结果集的当前行，使用<code>getString</code>方法分别打印出列名和列的数据类型。<code>&quot;COLUMN NAME&quot;</code>和<code>&quot;TYPE NAME&quot;</code>是<code>getColumns</code>方法返回的结果集的列标签，分别代表列的名称和列的数据类型。</li>
 </ul>
-<p>-------------------- <strong>Prepared Statements·expmale·END</strong> --------------------</p>
-<br>
-<h2 id="5118-other-features"><a class="markdownIt-Anchor" href="#5118-other-features"></a> 5.1.1.8 Other Features</h2>
-<p><strong>可更新结果集</strong>：</p>
+<p>—————————— <strong>Prepared Statements·expmale·END</strong> —————————— </p>
+<p><br></p>
+<h2 id="5-1-1-8-Other-Features"><a href="#5-1-1-8-Other-Features" class="headerlink" title="5.1.1.8 Other Features"></a>5.1.1.8 Other Features</h2><p><strong>可更新结果集</strong>：</p>
 <ul>
 <li>支持直接在结果集上修改数据。</li>
 <li>修改反映到数据库对应行。</li>
@@ -490,36 +464,31 @@
 <li>结果集可以被传递、共享和修改。</li>
 <li>支持前向和后向扫描。</li>
 </ul>
-<br>
-<h2 id="513-odbcopen-database-connectivity"><a class="markdownIt-Anchor" href="#513-odbcopen-database-connectivity"></a> 5.1.3 ODBC(Open Database Connectivity)</h2>
-<p>开放数据库连接(ODBC)标准：</p>
+<p><br></p>
+<h2 id="5-1-3-ODBC-Open-Database-Connectivity"><a href="#5-1-3-ODBC-Open-Database-Connectivity" class="headerlink" title="5.1.3 ODBC(Open Database Connectivity)"></a>5.1.3 ODBC(Open Database Connectivity)</h2><p>开放数据库连接(ODBC)标准：</p>
 <ul>
 <li>用于应用程序(作为客户端)与DB服务器通信。</li>
-<li>应用程序编程接口(API)
-<ul>
+<li>应用程序编程接口(API)<ul>
 <li>打开与数据库的连接</li>
 <li>发送查询和更新</li>
 <li>获取结果</li>
 </ul>
 </li>
 </ul>
-<br>
-<p><img src="https://pica.zhimg.com/100/v2-584f7a829a6d66c3207d52df50bdde42_qhd.jpg" alt="" /></p>
-<br>
-<p>-------------------- <strong>ODBC·expmale·BEGIN</strong> --------------------</p>
+<p><br></p>
+<p><img src="https://pica.zhimg.com/100/v2-584f7a829a6d66c3207d52df50bdde42_qhd.jpg" alt=""></p>
+<p><br></p>
+<p>—————————— <strong>ODBC·expmale·BEGIN</strong> —————————— </p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">ODBCexample</span><span class="params">()</span> &#123;</span><br><span class="line">    RETCODE error;</span><br><span class="line">    HENV env; <span class="comment">/* environment */</span></span><br><span class="line">    HDBC conn; <span class="comment">/* database connection */</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Allocate environment and connection</span></span><br><span class="line">    SQLAllocEnv(&amp;env);</span><br><span class="line">    SQLAllocConnect(env, &amp;conn);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Establish connection to the database</span></span><br><span class="line">    SQLConnect(conn, <span class="string">&quot;db.yale.edu&quot;</span>, SQL_NTS, <span class="string">&quot;avi&quot;</span>, SQL_NTS, <span class="string">&quot;avipasswd&quot;</span>, SQL_NTS);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Declare variables to hold the result</span></span><br><span class="line">    <span class="type">char</span> deptname[<span class="number">80</span>];</span><br><span class="line">    <span class="type">float</span> salary;</span><br><span class="line">    <span class="type">int</span> lenOut1, lenOut2;</span><br><span class="line">    HSTMT stmt;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// SQL query to be executed</span></span><br><span class="line">    <span class="type">char</span> *sqlquery = <span class="string">&quot;select dept_name, sum(salary) from instructor group by dept_name&quot;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Allocate statement and execute query</span></span><br><span class="line">    SQLAllocStmt(conn, &amp;stmt);</span><br><span class="line">    error = SQLExecDirect(stmt, sqlquery, SQL_NTS);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (error == SQL_SUCCESS) &#123;</span><br><span class="line">        <span class="comment">// Bind columns in result set to C variables</span></span><br><span class="line">        SQLBindCol(stmt, <span class="number">1</span>, SQL_C_CHAR, deptname, <span class="number">80</span>, &amp;lenOut1);</span><br><span class="line">        SQLBindCol(stmt, <span class="number">2</span>, SQL_C_FLOAT, &amp;salary, <span class="number">0</span>, &amp;lenOut2);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Fetch and print each row of result set</span></span><br><span class="line">        <span class="keyword">while</span> (SQLFetch(stmt) == SQL_SUCCESS) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%s %g\n&quot;</span>, deptname, salary);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Free statement handle</span></span><br><span class="line">    SQLFreeStmt(stmt, SQL_DROP);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Disconnect and free connection and environment handles</span></span><br><span class="line">    SQLDisconnect(conn);</span><br><span class="line">    SQLFreeConnect(conn);</span><br><span class="line">    SQLFreeEnv(env);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://pbs.twimg.com/media/F-q9cR6XwAAmcGR?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<h2 id="514-embedded-sql"><a class="markdownIt-Anchor" href="#514-embedded-sql"></a> 5.1.4 Embedded SQL</h2>
-<p><strong>host language</strong>：嵌入SQL查询的语言</p>
+<p><img src="https://pbs.twimg.com/media/F-q9cR6XwAAmcGR?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h2 id="5-1-4-Embedded-SQL"><a href="#5-1-4-Embedded-SQL" class="headerlink" title="5.1.4 Embedded SQL"></a>5.1.4 Embedded SQL</h2><p><strong>host language</strong>：嵌入SQL查询的语言</p>
 <p><strong>嵌入式SQL与JDBC或ODBC之间的主要区别</strong>：嵌入式SQL程序在编译之前必须由一个特殊的预处理器处理。预处理器用允许在运行时执行数据库访问的宿主语言声明和过程调用替换嵌入式SQL请求。然后由宿主语言编译器编译得到的程序。</p>
-<p><strong>识别嵌入到预处理器的SQL请求</strong>:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="operator">&lt;</span>embedded <span class="keyword">SQL</span> statement <span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure>
-<br>
+<p><strong>识别嵌入到预处理器的SQL请求</strong>:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="operator">&lt;</span>embedded <span class="keyword">SQL</span> statement <span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
 <p><strong>在执行任何SQL语句之前，程序必须首先连接数据库</strong>。宿主语言的变量可以在嵌入式SQL语句中使用，但必须在它们之前加上冒号(:)以区别于SQL变量。例如<code>: credit_amount</code></p>
-<br>
-<br>
-<p>--------------------------- <strong>Embedded SQL·CPP·Expmale·BEGIN</strong> ---------------------------</p>
+<p><br><br><br></p>
+<p>—————————————- <strong>Embedded SQL·CPP·Expmale·BEGIN</strong> —————————————-</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">BEGIN</span> <span class="keyword">DECLARE</span> SECTION</span><br><span class="line">           <span class="type">int</span> credit_amount;</span><br><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span>   <span class="keyword">END</span>   <span class="keyword">DECLARE</span> SECTION</span><br><span class="line"></span><br><span class="line">         credit_amount :<span class="operator">=</span> e.g. input<span class="operator">-</span><span class="keyword">from</span><span class="operator">-</span>screen<span class="operator">-</span><span class="keyword">by</span><span class="operator">-</span>users</span><br><span class="line">         </span><br><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span></span><br><span class="line">   <span class="keyword">select</span> ID, name</span><br><span class="line">   <span class="keyword">from</span> student</span><br><span class="line">   <span class="keyword">where</span> tot_cred <span class="operator">&gt;</span> :credit_amount</span><br><span class="line"><span class="keyword">END</span><span class="operator">-</span><span class="keyword">EXEC</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>声明部分</strong>:</p>
 <ul>
@@ -536,53 +505,113 @@
 <li>查询中的 <code>where tot_cred &gt; :credit_amount</code> 子句表示查找 <code>tot_cred</code> （假设是总学分字段）大于 <code>credit_amount</code> 变量值的学生。</li>
 <li>注意，嵌入式SQL中使用 <code>:credit_amount</code> 来引用C语言中声明的变量。</li>
 </ul>
-<p>--------------------------- <strong>Embedded SQL·CPP·Expmale·END</strong> ---------------------------</p>
-<Br>
-<br>
+<p>—————————————- <strong>Embedded SQL·CPP·Expmale·END</strong> —————————————-</p>
+<p><Br><br><br></p>
 <p><strong>cursor</strong>:游标允许程序按顺序逐行访问和操作查询结果集中的数据。这在处理涉及多个记录的数据库操作时非常有用</p>
 <p>要遍历一个嵌入式SQL查询的结果，必须声明一个<strong>游标变量</strong>，然后可以打开它，并在宿主语言循环中发出fetch命令，以获取连续的查询结果行。一行的属性可以获取到宿主语言变量中。数据库更新也可以使用关系上的<strong>游标</strong>来迭代关系的行，也可以选择使用where子句只迭代选定的行。嵌入式SQL命令可用于更新游标所指向的当前行。</p>
-<p>要编写嵌入式SQL查询，我们使用语句:<code>declare c cursor for  &lt;SQL query&gt;  </code></p>
-<p>变量c用于标识查询:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span></span><br><span class="line">    <span class="keyword">declare</span> c <span class="keyword">cursor</span> <span class="keyword">for</span>            </span><br><span class="line">      <span class="keyword">select</span> ID, name           </span><br><span class="line">      <span class="keyword">from</span> student           </span><br><span class="line">      <span class="keyword">where</span> tot_cred <span class="operator">&gt;</span> :credit_amount</span><br><span class="line"> END_EXEC</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<br>
-<br>
-<p>--------------------------- <strong>Embedded SQL·Cursor·Expmale·BEGIN</strong> ---------------------------</p>
+<p>要编写嵌入式SQL查询，我们使用语句:<code>declare c cursor for  &lt;SQL query&gt;</code></p>
+<p>变量c用于标识查询:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span></span><br><span class="line">    <span class="keyword">declare</span> c <span class="keyword">cursor</span> <span class="keyword">for</span>            </span><br><span class="line">      <span class="keyword">select</span> ID, name           </span><br><span class="line">      <span class="keyword">from</span> student           </span><br><span class="line">      <span class="keyword">where</span> tot_cred <span class="operator">&gt;</span> :credit_amount</span><br><span class="line"> END_EXEC</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><br><br><br></p>
+<p>—————————————- <strong>Embedded SQL·Cursor·Expmale·BEGIN</strong> —————————————-</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">BEGIN</span> <span class="keyword">DECLARE</span> SECTION</span><br><span class="line">   <span class="type">int</span>  credit_amount;   </span><br><span class="line">   <span class="type">char</span>  si, sn; </span><br><span class="line"> <span class="keyword">EXEC</span> <span class="keyword">SQL</span>   <span class="keyword">END</span>   <span class="keyword">DECLARE</span> SECTION</span><br><span class="line"></span><br><span class="line">   credit_amount :<span class="operator">=</span> input<span class="operator">-</span><span class="keyword">from</span><span class="operator">-</span>screen<span class="operator">-</span><span class="keyword">by</span><span class="operator">-</span>users</span><br><span class="line"></span><br><span class="line"> <span class="keyword">EXEC</span> <span class="keyword">SQL</span></span><br><span class="line">   <span class="keyword">declare</span> c <span class="keyword">cursor</span> <span class="keyword">for</span> </span><br><span class="line">             <span class="keyword">select</span> ID, name           </span><br><span class="line">             <span class="keyword">from</span> student           </span><br><span class="line">             <span class="keyword">where</span> tot_cred <span class="operator">&gt;</span> :credit_amount</span><br><span class="line">  <span class="keyword">END</span><span class="operator">-</span><span class="keyword">EXEC</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">open</span> c <span class="keyword">END</span><span class="operator">-</span><span class="keyword">EXEC</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">fetch</span> c <span class="keyword">into</span>   :si,   :sn  <span class="keyword">END</span><span class="operator">-</span><span class="keyword">EXEC</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">close</span> c <span class="keyword">END</span><span class="operator">-</span><span class="keyword">EXEC</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>C程序中使用了嵌入式SQL，以便从数据库中检索出学分数超过某个值的所有学生的ID和姓名，并假设将这些值存储在C语言的变量中.</p>
-<p>在嵌入式SQL中使用cursor：<code>declare cursor – open – fetch - close</code><br />
-<img src="https://pbs.twimg.com/media/F_YWri5WYAAac6w?format=png&amp;name=medium" alt="" /></p>
-<br>
-<p><strong>Open Cursor</strong>：<code>EXEC SQL open c </code></p>
+<p>在嵌入式SQL中使用cursor：<code>declare cursor – open – fetch - close</code><br><img src="https://pbs.twimg.com/media/F_YWri5WYAAac6w?format=png&amp;name=medium" alt=""></p>
+<p><br></p>
+<p><strong>Open Cursor</strong>：<code>EXEC SQL open c</code></p>
 <ul>
 <li>这个语句执行与游标 c 相关联的查询，并将结果保存在一个临时关系（temporary relation，通常理解为临时表或结果集）中。</li>
 <li>当打开游标的语句执行时，查询会使用宿主语言变量 credit_amount 当时的值</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>Fetch Statement</strong>：<code>EXEC SQL fetch c into :si, :sn END_EXEC</code></p>
 <ul>
 <li>这个抓取语句导致查询结果中的一行（tuple）的值被放置到宿主语言变量 si 和 sn 中</li>
 <li>对 fetch 的重复调用将依次获取查询结果中的后续行</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>Close Cursor</strong>:<code>EXEC SQL close c</code></p>
 <ul>
 <li>这个语句删除保存查询结果的临时关系</li>
 <li>关闭游标是一个清理步骤，确保不会有不必要的资源占用</li>
 </ul>
-<p>--------------------------- <strong>Embedded SQL·Cursor·Expmale·END</strong> ---------------------------</p>
-<br>
-<br>
+<p>—————————————- <strong>Embedded SQL·Cursor·Expmale·END</strong> —————————————-</p>
+<p><br><br><br></p>
 <p>用于<strong>修改</strong>的嵌入式SQL表达式:</p>
 <ul>
 <li>update</li>
 <li>insert</li>
 <li>delete</li>
 </ul>
-<p>通过声明游标为更新来更新由游标获取的元组:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> </span><br><span class="line">       <span class="keyword">declare</span> c <span class="keyword">cursor</span> <span class="keyword">for</span>             </span><br><span class="line">       <span class="keyword">select</span> <span class="operator">*</span>             </span><br><span class="line">       <span class="keyword">from</span> instructor             </span><br><span class="line">       <span class="keyword">where</span> dept_name <span class="operator">=</span> ‘Music’             </span><br><span class="line">       <span class="keyword">for</span> <span class="keyword">update</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<br>
-<p>我们通过对游标执行<strong>fetch</strong>操作来迭代元组，在获取每个元组后，我们执行以下代码:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> instructor             </span><br><span class="line"><span class="keyword">set</span> salary <span class="operator">=</span> salary <span class="operator">+</span> <span class="number">1000</span>             </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">current</span> <span class="keyword">of</span> c</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>通过声明游标为更新来更新由游标获取的元组:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> </span><br><span class="line">       <span class="keyword">declare</span> c <span class="keyword">cursor</span> <span class="keyword">for</span>             </span><br><span class="line">       <span class="keyword">select</span> <span class="operator">*</span>             </span><br><span class="line">       <span class="keyword">from</span> instructor             </span><br><span class="line">       <span class="keyword">where</span> dept_name <span class="operator">=</span> ‘Music’             </span><br><span class="line">       <span class="keyword">for</span> <span class="keyword">update</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>我们通过对游标执行<strong>fetch</strong>操作来迭代元组，在获取每个元组后，我们执行以下代码:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> instructor             </span><br><span class="line"><span class="keyword">set</span> salary <span class="operator">=</span> salary <span class="operator">+</span> <span class="number">1000</span>             </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">current</span> <span class="keyword">of</span> c</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="5-2-Functions-and-Procedures"><a href="#5-2-Functions-and-Procedures" class="headerlink" title="5.2 Functions and Procedures"></a>5.2 Functions and Procedures</h2><p>SQL-99支持<strong>函数和过程</strong>:</p>
+<ul>
+<li>函数/过程可以用SQL本身编写，也可以用<strong>外部编程语言</strong>(C、Java)编写。</li>
+<li>用外部语言编写的函数对于<strong>特殊的数据</strong>类型(如图像)很有用。</li>
+<li>有些数据库支持表值函数，它可以返回一个关系。</li>
+</ul>
+<p><br></p>
+<p>SQL-99还支持<strong>命令式结构</strong>:循环，if-then-else，赋值</p>
+<p><br><br><br></p>
+<p>————————— <strong>SQL Function-Expamle-Begin</strong> —————————<br>定义一个函数:给定一个部门的名称，返回教官的数量。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">function</span> dept_count (dept_name <span class="type">varchar</span>(<span class="number">20</span>))    </span><br><span class="line">                     <span class="keyword">returns</span> <span class="type">integer</span> </span><br><span class="line">                     <span class="keyword">begin</span>                </span><br><span class="line">                     <span class="keyword">declare</span> d_count  <span class="type">integer</span>;                      </span><br><span class="line">                         <span class="keyword">select</span> <span class="built_in">count</span> (<span class="operator">*</span> ) <span class="keyword">into</span> d_count                      </span><br><span class="line">                         <span class="keyword">from</span> instructor                      </span><br><span class="line">                         <span class="keyword">where</span> instructor.dept_name <span class="operator">=</span> dept_name                </span><br><span class="line">                      <span class="keyword">return</span> d_count;              </span><br><span class="line">                    <span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>————————— <strong>SQL Function-Expamle-END</strong> —————————</p>
+<p><br><br><br></p>
+<h2 id="5-2-1-Declaring-and-Invoking-SQL-Functions-and-Procedures"><a href="#5-2-1-Declaring-and-Invoking-SQL-Functions-and-Procedures" class="headerlink" title="5.2.1 Declaring and Invoking SQL Functions and Procedures"></a>5.2.1 Declaring and Invoking SQL Functions and Procedures</h2><p><strong>函数 vs 存储过程</strong>：函数用于计算和返回值，存储过程用于执行更复杂的操作，包括更新数据库</p>
+<p>dept_count函数可用于查找教师人数超过12人的所有部门的部门名称和预算:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> dept_name, budget	</span><br><span class="line"><span class="keyword">from</span> department	</span><br><span class="line"><span class="keyword">where</span> dept_count (dept_name ) <span class="operator">&gt;</span> <span class="number">12</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>dept_count <strong>function</strong>可以写成<strong>procedure</strong>:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> dept_count_proc (<span class="keyword">in</span> dept_name <span class="type">varchar</span>(<span class="number">20</span>),<span class="keyword">out</span> d_count <span class="type">integer</span>)  </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">into</span> d_count       </span><br><span class="line">      <span class="keyword">from</span> instructor       </span><br><span class="line">      <span class="keyword">where</span> instructor.dept_name <span class="operator">=</span> dept_count_proc.dept_name</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>可以使用call语句从<strong>SQL procedure</strong>或<strong>嵌入式SQL</strong>调用<strong>procedure</strong>:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> d_count  <span class="type">integer</span>;	</span><br><span class="line"><span class="keyword">call</span> dept_count_proc ( ‘Physics’, d_count);</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="5-2-2-Language-Constructs-for-Procedures-and-Functions"><a href="#5-2-2-Language-Constructs-for-Procedures-and-Functions" class="headerlink" title="5.2.2 Language Constructs for Procedures and Functions"></a>5.2.2 Language Constructs for Procedures and Functions</h2><p>SQL支持几乎具有通用编程语言所有功能的结构。SQL标准中处理这些结构的部分称为<strong>持久存储模块(Persistent Storage Module, PSM)</strong></p>
+<p>复合语句的形式：<strong>begin … end</strong>：</p>
+<ul>
+<li>begin和end之间可能包含多条SQL语句。</li>
+<li>局部变量可以在复合语句中声明</li>
+</ul>
+<p><br></p>
+<p><strong>While语句</strong>:while语句以一个布尔表达式为条件，当条件为真时执行循环体内的语句序列。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while <span class="type">boolean</span> expression   do</span><br><span class="line">      sequence <span class="keyword">of</span> statements ;</span><br><span class="line"><span class="keyword">end</span> while</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p><strong>Repeat语句</strong>:repeat语句重复执行语句序列，直到布尔表达式为真。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">repeat</span><br><span class="line">    sequence <span class="keyword">of</span> statements;</span><br><span class="line">until <span class="type">boolean</span> expression</span><br><span class="line"><span class="keyword">end</span> repeat</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p><strong>If-Then-Else语句</strong>:if-then-else语句根据布尔表达式的值执行不同的分支。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if <span class="type">boolean</span> expression <span class="keyword">then</span></span><br><span class="line">    statement <span class="keyword">or</span> compound statement</span><br><span class="line">elseif <span class="type">boolean</span> expression <span class="keyword">then</span></span><br><span class="line">    statement <span class="keyword">or</span> compound statement</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    statement <span class="keyword">or</span> compound statement</span><br><span class="line"><span class="keyword">end</span> if</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p><strong>For循环</strong>:for循环用于遍历查询结果<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> n <span class="type">integer</span> <span class="keyword">default</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> r <span class="keyword">as</span></span><br><span class="line">    <span class="keyword">select</span> budget <span class="keyword">from</span> department</span><br><span class="line">do</span><br><span class="line">    <span class="keyword">set</span> n <span class="operator">=</span> n <span class="operator">+</span> r.budget</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">for</span></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="5-3-Triggers"><a href="#5-3-Triggers" class="headerlink" title="5.3 Triggers"></a>5.3 Triggers</h2><p><strong>Triggers</strong>:触发器是数据库中的一个语句，当数据库发生修改时，系统会自动执行这个触发器作为副作用</p>
+<p><strong>设置触发器</strong>：要定义一个触发器，需要指定两个要素：</p>
+<ul>
+<li>触发时机：这包括导致触发器被检查的事件和必须满足的条件，以便触发器继续执行。</li>
+<li>执行动作：当触发器执行时需要采取的具体操作。</li>
+</ul>
+<p><br></p>
+<p><strong>数据库的角色</strong>：一旦触发器被加入到数据库中，数据库系统负责在指定的事件发生且相应条件满足时执行它</p>
+<p><strong>触发器的事件-条件-动作模型</strong>：</p>
+<ul>
+<li><strong>触发器执行的原因（Event）</strong>：首先需要指定哪些事件会导致触发器被执行。在数据库中，这些事件通常是数据修改操作，如插入（insert）、删除（delete）或更新（update）。</li>
+<li><strong>触发器执行的条件（Condition）</strong>：其次，需要定义在哪些特定条件下触发器的执行将继续进行。这可以是与数据相关的条件，或是其他业务逻辑相关的条件。</li>
+<li><strong>触发器执行时的操作（Action）</strong>：最后，需要明确当触发器执行时将采取的具体动作。这些动作通常与数据完整性检查和维护相关。</li>
+<li><strong>数据完整性的维护</strong>：触发器在数据库中的一个主要作用是帮助维护数据完整性。它们可以用于定义完整性约束、在数据操作时进行完整性检查，以及在检测到违反完整性约束时采取补救措施。</li>
+</ul>
+<p><br></p>
+<p><strong>引用更新前后的属性值</strong>:</p>
+<ul>
+<li><strong>引用旧数据</strong>：在处理删除（delete）和更新（update）操作时，触发器可以引用被修改的数据行的原始（旧）值。这通常是通过指定“referencing old row as”来实现的。在这种情况下，触发器可以访问操作之前的数据行状态。</li>
+<li><strong>引用新数据</strong>：在处理插入（insert）和更新（update）操作时，触发器可以引用新插入或更新的数据行的值。这通常是通过指定“referencing new row as”来实现的。在这种情况下，触发器可以访问操作之后的数据行状态</li>
+</ul>
+<p><br><br><br></p>
+<p>————————- <strong>Triggers-expmale-BEGIN</strong> ————————-</p>
+<p><strong>转换空白成绩为null</strong>：创建一个触发器，在takes表的grade字段更新前运行。如果一个成绩字段的值是空白（’ ‘），该触发器会将它转换为null。这可以保证数据的一致性和正确性</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> setnull_trigger before <span class="keyword">update</span> <span class="keyword">of</span> takes	</span><br><span class="line"><span class="keyword">referencing</span> <span class="keyword">new</span> <span class="type">row</span> <span class="keyword">as</span> nrow	</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">each</span> <span class="type">row</span>	</span><br><span class="line"><span class="keyword">when</span> (nrow.grade <span class="operator">=</span> ‘ ‘)         </span><br><span class="line"><span class="keyword">begin</span> <span class="keyword">atomic</span>	          </span><br><span class="line">  <span class="keyword">set</span> nrow.grade <span class="operator">=</span> <span class="keyword">null</span>;         </span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+<p>————————- <strong>Triggers-expmale-END</strong> ————————-</p>
+<p><br><br><br></p>
+<p>————————- <strong>Triggers-referential integrity-expmale-BEGIN</strong> ————————-</p>
+<p><img src="https://pbs.twimg.com/media/F_ZHme2XMAAEFR3?format=jpg&amp;name=large" alt=""><br>这个触发器的主要作用是确保section表中插入的每条记录的time_slot_id字段值必须存在于timeslot表中。如果不满足这一条件，即time_slot_id不存在于timeslot表中，那么整个插入操作将被撤销。</p>
+<p><br></p>
+<p><img src="https://pbs.twimg.com/media/F_ZHme3XIAAnxvQ?format=jpg&amp;name=medium" alt=""><br>这个触发器的主要目的是维护timeslot表和section表之间的参照完整性。在删除timeslot表中某个time_slot_id之前，触发器检查这个time_slot_id是否仍然在section表中被引用。如果是，那么删除操作将被撤销。这确保了不会因为删除timeslot表中的数据而破坏section表中对该时间槽的引用。</p>
+<p>————————- <strong>Triggers-referential integrity-expmale-END</strong> ————————-</p>
 
             
         </div>
@@ -760,10 +789,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    394.5k
+                    395.8k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    24:57
+                    25:02
                 </div>
             
             
