@@ -23,15 +23,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   实验三 关系数据库的高级 SQL 练习  1. 实验目的 结合数据库系统原理教学的理论知识，通过实验让学生熟悉高级 SQL 的用法，掌握 SQL 语言的数据定义，触发器等高级功能。  2. 实验内容  在 MySQL">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   实验三 关系数据库的高级 SQL 练习   1. 实验目的 结合数据库系统原理教学的理论知识，通过实验让学生熟悉高级 SQL 的用法，掌握 SQL 语言的数据定义，触发器等高级功能。   2. 实验内容  在 MySQ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Database:Lab3">
 <meta property="og:url" content="https://abinzzz.github.io/2023/11/20/Database-Lab3/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   实验三 关系数据库的高级 SQL 练习  1. 实验目的 结合数据库系统原理教学的理论知识，通过实验让学生熟悉高级 SQL 的用法，掌握 SQL 语言的数据定义，触发器等高级功能。  2. 实验内容  在 MySQL">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   实验三 关系数据库的高级 SQL 练习   1. 实验目的 结合数据库系统原理教学的理论知识，通过实验让学生熟悉高级 SQL 的用法，掌握 SQL 语言的数据定义，触发器等高级功能。   2. 实验内容  在 MySQ">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-20T10:31:58.000Z">
-<meta property="article:modified_time" content="2023-11-20T10:34:33.439Z">
+<meta property="article:modified_time" content="2023-11-21T10:51:31.593Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="Database">
@@ -200,15 +200,19 @@
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
 <h1 id="实验三-关系数据库的高级-sql-练习"><a class="markdownIt-Anchor" href="#实验三-关系数据库的高级-sql-练习"></a> 实验三 关系数据库的高级 SQL 练习</h1>
+<br>
 <h2 id="1-实验目的"><a class="markdownIt-Anchor" href="#1-实验目的"></a> 1. 实验目的</h2>
 <p>结合数据库系统原理教学的理论知识，通过实验让学生熟悉高级 SQL 的用法，掌握 SQL 语言的数据定义，触发器等高级功能。</p>
+<br>
 <h2 id="2-实验内容"><a class="markdownIt-Anchor" href="#2-实验内容"></a> 2. 实验内容</h2>
 <ul>
 <li>在 MySQL Server 数据库管理系统中创建自己的数据库模式、表、视图等数据库对象；</li>
 <li>练习数据库触发器的定义和使用。</li>
 </ul>
+<br>
 <h2 id="3-实验环境"><a class="markdownIt-Anchor" href="#3-实验环境"></a> 3. 实验环境</h2>
 <p>普通 PC、Windows/Linux/macOS系列操作系统、MySQL Server 数据库管理系统</p>
+<br>
 <h2 id="4-实验步骤"><a class="markdownIt-Anchor" href="#4-实验步骤"></a> 4. 实验步骤</h2>
 <p>一个银行客户有一个储蓄账户和一个支票账户。当客户从支票账户中取款的金额超过支票账户的余额时，如果储蓄账户的余额能够抵消产生的透支，则发生一次自动转账，即自动从客户的储蓄账户将透支的金额转账到支票账户；否则，拒绝该操作。要求使用触发器提供账户透支保护。</p>
 <ol>
@@ -253,19 +257,20 @@
 </li>
 <li>
 <p>向表中插入两条记录：</p>
-<p>(‘111111111111111111’, ‘zhangsan’, 1500.00, 1000.00)<br />
-(‘222222222222222222’, ‘lisi’, 500.00, 4000.00)</p>
 </li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(‘<span class="number">111111111111111111</span>’, ‘zhangsan’, <span class="number">1500.00</span>, <span class="number">1000.00</span>)</span><br><span class="line">(‘<span class="number">222222222222222222</span>’, ‘lisi’, <span class="number">500.00</span>, <span class="number">4000.00</span>)</span><br></pre></td></tr></table></figure>
+<ol start="3">
 <li>
 <p>在 MySQLWorkbench 中，创建触发器 <code>OVERDRAFT</code>，在对 <code>acct</code> 表的 <code>CheckingBalance</code> 字段执行 <code>UPDATE</code> 操作之前激活触发器完成自动转账。</p>
 <p>参考触发条件：<code>NEW.CheckingBalance&lt;0</code>。转账失败时需要给出提示信息。</p>
 </li>
 <li>
 <p>触发器创建完成后，执行测试语句：</p>
-<p>Update acct set checkingbalance=-500 where ssn=’111111111111111111’;<br />
-Update acct set checkingbalance=-1000 where ssn=’222222222222222222’;</p>
 </li>
 </ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Update</span> acct <span class="keyword">set</span> checkingbalance<span class="operator">=</span><span class="number">-500</span> <span class="keyword">where</span> ssn<span class="operator">=</span>’<span class="number">111111111111111111</span>’;</span><br><span class="line"><span class="keyword">Update</span> acct <span class="keyword">set</span> checkingbalance<span class="operator">=</span><span class="number">-1000</span> <span class="keyword">where</span> ssn<span class="operator">=</span>’<span class="number">222222222222222222</span>’;</span><br></pre></td></tr></table></figure>
+<br>
 <h2 id="5-实验要求"><a class="markdownIt-Anchor" href="#5-实验要求"></a> 5. 实验要求</h2>
 <ol>
 <li>保存创建触发器的 SQL 语句。</li>
