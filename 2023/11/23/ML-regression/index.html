@@ -23,22 +23,49 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   1.什么是regression Regression 就是找到一个函数 function，通过输入特征 x ，输出一个数值 Scalar 。">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    1.什么是regressionRegression 就是找到一个函数 function，通过输入特征 x ，输出一个数值 Scalar 。  股市预测（Stock market forecast）:  输入：过去10">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ML:regression">
 <meta property="og:url" content="https://abinzzz.github.io/2023/11/23/ML-regression/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   1.什么是regression Regression 就是找到一个函数 function，通过输入特征 x ，输出一个数值 Scalar 。">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    1.什么是regressionRegression 就是找到一个函数 function，通过输入特征 x ，输出一个数值 Scalar 。  股市预测（Stock market forecast）:  输入：过去10">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1528992/201907/1528992-20190720194017617-649716206.png">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_n7RKQXQAA6D3x?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_n8TW5WQAEeINp?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_n8TW9WAAA_zpP?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_n9IRzWUAA6_4X?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_n9IR3XIAAZXEv?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_n9IR5WoAAF7Ld?format=jpg&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_n-LzaWUAAPY-g?format=jpg&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_n-LzaXkAA6Baw?format=jpg&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_n-LzZWwAA_ljF?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_n-LzYWEAAXnZx?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oAJUZXwAAUEJi?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oAJUcWMAAqgCo?format=jpg&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oAJUcWEAAE2yK?format=jpg&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oAodVWkAA4LE5?format=jpg&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oAodZWQAEOee4?format=jpg&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oAodjWIAAsCcc?format=jpg&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oAoduXEAANFOU?format=jpg&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oBGsuXgAAncDk?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oBGsvWwAEbenA?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oBt_PW0AArQOy?format=jpg&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oBt_KWMAA2Z1t?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oBt_QW0AA3BM1?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oBt_JXwAEnYYl?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oCPLOWUAAadRQ?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oCPLhXEAAeqfr?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oCPLZWgAAJAxB?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oDO-FWkAA7iP_?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/F_oDO-CWUAEwxIK?format=png&amp;name=small">
 <meta property="article:published_time" content="2023-11-23T13:53:37.000Z">
-<meta property="article:modified_time" content="2023-11-23T13:55:03.762Z">
+<meta property="article:modified_time" content="2023-11-23T14:37:54.729Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="regression">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1528992/201907/1528992-20190720194017617-649716206.png">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/F_n7RKQXQAA6D3x?format=png&amp;name=900x900">
     
         <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
     
@@ -201,9 +228,97 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-<h2 id="1什么是regression"><a class="markdownIt-Anchor" href="#1什么是regression"></a> 1.什么是regression</h2>
-<p>Regression 就是找到一个函数 function，通过输入特征 x ，输出一个数值 Scalar 。<br />
-<img src="https://img2018.cnblogs.com/blog/1528992/201907/1528992-20190720194017617-649716206.png" alt="" /></p>
+
+
+<h2 id="1-什么是regression"><a href="#1-什么是regression" class="headerlink" title="1.什么是regression"></a>1.什么是regression</h2><p><strong>Regression</strong> 就是找到一个<strong>函数 function</strong>，通过<strong>输入特征 x</strong> ，输出一个<strong>数值 Scalar</strong> 。<br><img src="https://pbs.twimg.com/media/F_n7RKQXQAA6D3x?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>股市预测（Stock market forecast）:</p>
+<ul>
+<li>输入：过去10年股票的变动、新闻咨询、公司并购咨询等</li>
+<li>输出：预测股市明天的平均值</li>
+</ul>
+<p>自动驾驶（Self-driving Car）：</p>
+<ul>
+<li>输入：无人车上的各个sensor的数据，例如路况、测出的车距等</li>
+<li>输出：方向盘的角度</li>
+</ul>
+<p>商品推荐（Recommendation）：</p>
+<ul>
+<li>输入：商品A的特性，商品B的特性</li>
+<li>输出：购买商品B的可能性</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h2 id="2-实现回归的步骤"><a href="#2-实现回归的步骤" class="headerlink" title="2.实现回归的步骤"></a>2.实现回归的步骤</h2><p><img src="https://pbs.twimg.com/media/F_n8TW5WQAEeINp?format=png&amp;name=900x900" alt=""></p>
+<p><strong>栗子</strong>：我们要预测Pokemon精灵攻击力。</p>
+<p><strong>输入</strong>：进化前的CP值、物种（Bulbasaur）、血量（HP）、重量（Weight）、高度（Height）</p>
+<p><strong>输出</strong>：进化后的CP</p>
+<p><br></p>
+<h2 id="2-1-model（确定一个模型）——线性模型"><a href="#2-1-model（确定一个模型）——线性模型" class="headerlink" title="2.1 model（确定一个模型）——线性模型"></a>2.1 model（确定一个模型）——线性模型</h2><p>先从简单的单个特征（Xcp）开始（后面改进再考虑多个特征）</p>
+<p><img src="https://pbs.twimg.com/media/F_n8TW9WAAA_zpP?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h2 id="2-2-goodness-of-function（确定评价函数）——损失函数"><a href="#2-2-goodness-of-function（确定评价函数）——损失函数" class="headerlink" title="2.2 goodness of function（确定评价函数）——损失函数"></a>2.2 goodness of function（确定评价函数）——损失函数</h2><p>确定好<strong>model</strong>以后，就开始训练数据:<br><img src="https://pbs.twimg.com/media/F_n9IRzWUAA6_4X?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<p>以此类推，训练10个数据：<br><img src="https://pbs.twimg.com/media/F_n9IR3XIAAZXEv?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<p>有了这些真实的数据，那我们怎么衡量模型的好坏呢？从数学的角度来讲，我们使用距离。求实际进化后的CP值与模型预测的CP值差，来判定模型的好坏。</p>
+<p>也就是使用 <strong>损失函数（Loss function）</strong> 来衡量模型的好坏，和越小模型越好。如下图所示：<br><img src="https://pbs.twimg.com/media/F_n9IR5WoAAF7Ld?format=jpg&amp;name=small" alt=""></p>
+<p><br></p>
+<h2 id="2-3-best-function（找出最好的一个函数）——梯度下降法"><a href="#2-3-best-function（找出最好的一个函数）——梯度下降法" class="headerlink" title="2.3 best function（找出最好的一个函数）——梯度下降法"></a>2.3 best function（找出最好的一个函数）——梯度下降法</h2><p>找到一个<strong>best function（说白了是找最佳的参数）</strong>，也就是使损失函数最小时候的参数<br><img src="https://pbs.twimg.com/media/F_n-LzaWUAAPY-g?format=jpg&amp;name=small" alt=""></p>
+<p><br></p>
+<p>用梯度下降法，求最佳参数:　　</p>
+<ul>
+<li><strong>梯度</strong>：在单变量的函数中，梯度其实就是函数的微分，代表着函数在某个给定点的切线的斜率;在多变量函数中，梯度是一个向量，向量有方向，梯度的方向就指出了函数在给定点的上升最快的方向</li>
+<li><strong>梯度下降</strong>：“下山最快路径”的一种算法</li>
+</ul>
+<p>先考虑简单的一个<strong>参数w</strong>:<br><img src="https://pbs.twimg.com/media/F_n-LzaXkAA6Baw?format=jpg&amp;name=small" alt=""></p>
+<p><br></p>
+<p>首先在这里引入一个概念 <strong>学习率 ：移动的步长，如下图中 η</strong></p>
+<ul>
+<li><strong>步骤1</strong>：随机选取一个 w0 。</li>
+<li><strong>步骤2</strong>：计算微分，也就是当前的斜率，根据斜率来判定移动的方向<ul>
+<li>大于0向右移动（增加w）</li>
+<li>小于0向左移动（减少w）</li>
+</ul>
+</li>
+<li><strong>步骤3</strong>：根据学习率移动。</li>
+<li><strong>重复步骤2和步骤3</strong>，直到找到最低点。<br><img src="https://pbs.twimg.com/media/F_n-LzZWwAA_ljF?format=png&amp;name=small" alt=""></li>
+</ul>
+<p><br></p>
+<p>再考虑两个参数（w、b）<br><img src="https://pbs.twimg.com/media/F_n-LzYWEAAXnZx?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<p>颜色约深的区域代表的损失函数越小<br><img src="https://pbs.twimg.com/media/F_oAJUZXwAAUEJi?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p><strong>总结一下梯度下降法</strong>：我们要解决使L(x)最小时参数的最佳值，梯度下降法是每次update参数值，直到损失函数最小。<br><img src="https://pbs.twimg.com/media/F_oAJUcWMAAqgCo?format=jpg&amp;name=small" alt=""></p>
+<p><br></p>
+<p>但是梯度下降法会出现问题呢?<br><img src="https://pbs.twimg.com/media/F_oAJUcWEAAE2yK?format=jpg&amp;name=small" alt=""></p>
+<p><br></p>
+<h2 id="2-4-回归结果分析"><a href="#2-4-回归结果分析" class="headerlink" title="2.4 回归结果分析"></a>2.4 回归结果分析</h2><p>经过上述三个步骤后，我们就得到了训练后的 <strong>“最佳参数w，b”</strong> ，那么它在测试集的performance怎么样呢？下面一起来看看吧<br><img src="https://pbs.twimg.com/media/F_oAodVWkAA4LE5?format=jpg&amp;name=small" alt=""><br><img src="https://pbs.twimg.com/media/F_oAodZWQAEOee4?format=jpg&amp;name=small" alt=""></p>
+<p><br></p>
+<h2 id="3-进一步，如何做得更好（优化step1欠拟合）"><a href="#3-进一步，如何做得更好（优化step1欠拟合）" class="headerlink" title="3.进一步，如何做得更好（优化step1欠拟合）"></a>3.进一步，如何做得更好（优化step1欠拟合）</h2><h2 id="3-1-select-another-model（选择另一个模型）"><a href="#3-1-select-another-model（选择另一个模型）" class="headerlink" title="3.1 select another model（选择另一个模型）"></a>3.1 select another model（选择另一个模型）</h2><p>model改用不同函数的performance：<br><img src="https://pbs.twimg.com/media/F_oAodjWIAAsCcc?format=jpg&amp;name=small" alt=""><br><img src="https://pbs.twimg.com/media/F_oAoduXEAANFOU?format=jpg&amp;name=small" alt=""><br><img src="https://pbs.twimg.com/media/F_oBGsuXgAAncDk?format=jpg&amp;name=medium" alt=""><br><img src="https://pbs.twimg.com/media/F_oBGsvWwAEbenA?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<p>如何选择model呢?</p>
+<p>超过三次函数以上的model都出现了过拟合问题，因此要找到一个suitable model（这里是第三个）<br><img src="https://pbs.twimg.com/media/F_oBt_PW0AArQOy?format=jpg&amp;name=small" alt=""><br><img src="https://pbs.twimg.com/media/F_oBt_KWMAA2Z1t?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<h2 id="3-2-consider-the-hidden-factors（考虑其他隐藏因素）"><a href="#3-2-consider-the-hidden-factors（考虑其他隐藏因素）" class="headerlink" title="3.2 consider the hidden factors（考虑其他隐藏因素）"></a>3.2 consider the hidden factors（考虑其他隐藏因素）</h2><p>再考虑另外一个因素（精灵的种类）:<br><img src="https://pbs.twimg.com/media/F_oBt_QW0AA3BM1?format=png&amp;name=small" alt=""><br><img src="https://pbs.twimg.com/media/F_oBt_JXwAEnYYl?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<p>performance：<br><img src="https://pbs.twimg.com/media/F_oCPLOWUAAadRQ?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<p>把更多的因素都考虑:<br><img src="https://pbs.twimg.com/media/F_oCPLhXEAAeqfr?format=png&amp;name=small" alt=""><br><img src="https://pbs.twimg.com/media/F_oCPLZWgAAJAxB?format=png&amp;name=small" alt=""></p>
+<p>考虑更多的因素反而出现了<strong>过拟合</strong>的问题，说明有些因素跟本次实验的CP值预测<strong>没有关系</strong>！</p>
+<p>过拟合这么讨厌，到底如何减少过拟合问题呢？往下看！</p>
+<p><br></p>
+<h2 id="4-再进一步，防止过拟合"><a href="#4-再进一步，防止过拟合" class="headerlink" title="4.再进一步，防止过拟合"></a>4.再进一步，防止过拟合</h2><p>比如先考虑一个参数w，<strong>正则化就是在损失函数上加上一个与w（斜率）相关的值</strong>，那么要是loss function越小的话，w也会越小，w越小就使function更加<strong>平滑</strong>（function没那么大跳跃）<br><img src="https://pbs.twimg.com/media/F_oDO-FWkAA7iP_?format=png&amp;name=900x900" alt=""></p>
+<p><br></p>
+<p>正则化虽然能够减少过拟合的现象，但是因为加在损失函数后面的值是平白无故加上去的，所以正则化过度的话会导致bias偏差增大:<br><img src="https://pbs.twimg.com/media/F_oDO-CWUAEwxIK?format=png&amp;name=small" alt=""></p>
+<p><br><br><br></p>
+<p><strong>问题</strong>：为什么不需要对b进行正则化？</p>
+<p><strong>解答</strong>：因为b只影响图像上下平移，而不影响图像的平滑程度</p>
+<p><br></p>
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5.总结"></a>5.总结</h2><p>宝可梦的原始CP（Combat Power，战斗力）和种类几乎决定了它进化后的CP值，但可能还有其他未知的影响因素。</p>
+<p><strong>梯度下降（Gradient Descent）</strong> 是一个用于优化算法以找到函数的最小值的方法，在接下来的课程中将讨论更多理论和技巧。</p>
+<p>在测试数据上得到的平均误差为11.1，引出了对新数据的误差大小的疑问，即它可能会更大还是更小。</p>
+<p>下一讲将探讨误差的来源，包括关于过拟合（overfitting）和正则化（regularization）的更多理论，以及验证（validation）的概念。</p>
 
             
         </div>
@@ -367,10 +482,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    399.6k
+                    400.8k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    25:16
+                    25:19
                 </div>
             
             
