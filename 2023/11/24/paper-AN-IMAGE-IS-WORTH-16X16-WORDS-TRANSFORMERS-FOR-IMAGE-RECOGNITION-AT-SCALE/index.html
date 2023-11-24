@@ -23,19 +23,21 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   论文链接  🔗：AN IMAGE IS WORTH 16X16 WORDS:TRANSFORMERS FOR IMAGE RECOGNITION AT 🔗：李沐论文精读系列二：Vision Transformer、">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   论文链接 🔗：AN IMAGE IS WORTH 16X16 WORDS:TRANSFORMERS FOR IMAGE RECOGNITION AT 🔗：李沐论文精读系列二：Vision Transformer、M">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper:AN IMAGE IS WORTH 16X16 WORDS:TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE">
 <meta property="og:url" content="https://abinzzz.github.io/2023/11/24/paper-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   论文链接  🔗：AN IMAGE IS WORTH 16X16 WORDS:TRANSFORMERS FOR IMAGE RECOGNITION AT 🔗：李沐论文精读系列二：Vision Transformer、">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   论文链接 🔗：AN IMAGE IS WORTH 16X16 WORDS:TRANSFORMERS FOR IMAGE RECOGNITION AT 🔗：李沐论文精读系列二：Vision Transformer、M">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ca982c4208884e349255b9afd9f9503e.png">
 <meta property="article:published_time" content="2023-11-24T03:46:20.000Z">
-<meta property="article:modified_time" content="2023-11-24T03:50:02.556Z">
+<meta property="article:modified_time" content="2023-11-24T08:33:37.647Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="vit">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/ca982c4208884e349255b9afd9f9503e.png">
     
         <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
     
@@ -198,11 +200,19 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-<h2 id="论文链接"><a class="markdownIt-Anchor" href="#论文链接"></a> 论文链接</h2>
-<ul>
+
+<h2 id="论文链接"><a href="#论文链接" class="headerlink" title="论文链接"></a>论文链接</h2><ul>
 <li>🔗：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2010.11929.pdf">AN IMAGE IS WORTH 16X16 WORDS:TRANSFORMERS FOR IMAGE RECOGNITION AT</a></li>
 <li>🔗：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_56591814/article/details/127358168">李沐论文精读系列二：Vision Transformer、MAE、Swin-Transformer</a></li>
 </ul>
+<p><br></p>
+<h2 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h2><p>这篇文章挑战了自从2012年AlexNet提出以来卷积神经网络在计算机视觉里绝对统治的地位。结论是如果在足够多的数据上做预训练，也可以不需要卷积神经网路，直接使用标准的transformer也能够把视觉问题解决的很好。它打破了CV和NLP在模型上的壁垒，开启了CV的一个新时代，推进了多模态领域的发展。</p>
+<p><strong>paperswithcode</strong>可以查询现在某个领域或者说某个数据集表现最好的一些方法有哪些。图像分类在ImageNet数据集上排名靠前的全是基于Vision Transformer。</p>
+<p>对于目标检测任务在COCO数据集上，排名靠前都都是基于Swin Transformer。Swin Transformer是ICCV 21的最佳论文，可以把它想象成一个多尺度的Vit（Vision Transformer）。</p>
+<p>在其他领域（语义分割、实例分割、视频、医疗、遥感），基本上可以说Vision Transformer将整个视觉领域中所有的任务都刷了个遍。</p>
+<p><br></p>
+<h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h2><h2 id="1-1-Vision-Transformer的一些有趣特性"><a href="#1-1-Vision-Transformer的一些有趣特性" class="headerlink" title="1.1 Vision Transformer的一些有趣特性"></a>1.1 Vision Transformer的一些有趣特性</h2><p>作者介绍的另一篇论文：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2105.10497.pdf">《Intriguing Properties of Vision Transformer》</a></p>
+<p><img src="https://img-blog.csdnimg.cn/ca982c4208884e349255b9afd9f9503e.png" alt=""></p>
 
             
         </div>
@@ -366,10 +376,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    371k
+                    372.6k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    23:12
+                    23:16
                 </div>
             
             
