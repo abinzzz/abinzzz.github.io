@@ -23,12 +23,12 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   视频链接  🔗：李宏毅讲解卷积神经网络（带字幕)   1.为什么CNN用于图像处理 当我们用 fully connect feedforward network 来做图像处理的时候，往往我们会需要太多的参数，举例来说">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   视频链接 🔗：李宏毅讲解卷积神经网络（带字幕)  1.为什么CNN用于图像处理当我们用 fully connect feedforward network 来做图像处理的时候，往往我们会需要太多的参数，举例来说，假设">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ML:CNN">
 <meta property="og:url" content="https://abinzzz.github.io/2023/11/23/ML-CNN/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   视频链接  🔗：李宏毅讲解卷积神经网络（带字幕)   1.为什么CNN用于图像处理 当我们用 fully connect feedforward network 来做图像处理的时候，往往我们会需要太多的参数，举例来说">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   视频链接 🔗：李宏毅讲解卷积神经网络（带字幕)  1.为什么CNN用于图像处理当我们用 fully connect feedforward network 来做图像处理的时候，往往我们会需要太多的参数，举例来说，假设">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20191117103843754.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NvbWxpX2Nu,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20191117112237480.png">
@@ -38,8 +38,11 @@
 <meta property="og:image" content="https://picx.zhimg.com/100/v2-aeab7bab0504e1b1a8c61c6b8ea78107_qhd.jpg">
 <meta property="og:image" content="https://pica.zhimg.com/100/v2-c6705d8a008c51da66123e08fde7f084_qhd.jpg">
 <meta property="og:image" content="https://static001.geekbang.org/infoq/6b/6b3b981c31db80b8184db2d79265ba8e.png">
+<meta property="og:image" content="https://static001.geekbang.org/infoq/b9/b9fa9d30874c9ead6a468b28fecd32d1.png">
+<meta property="og:image" content="https://static001.geekbang.org/infoq/23/23dfd137b3a9174ea0a5fd7eaa7b042e.png">
+<meta property="og:image" content="https://static001.geekbang.org/infoq/b4/b41993d1a529475b5e270f06e2db026e.png">
 <meta property="article:published_time" content="2023-11-23T14:39:55.000Z">
-<meta property="article:modified_time" content="2023-11-24T19:20:47.264Z">
+<meta property="article:modified_time" content="2023-11-24T19:22:39.381Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="ML">
@@ -208,43 +211,37 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-<h2 id="视频链接"><a class="markdownIt-Anchor" href="#视频链接"></a> 视频链接</h2>
-<ul>
+
+<h2 id="视频链接"><a href="#视频链接" class="headerlink" title="视频链接"></a>视频链接</h2><ul>
 <li>🔗：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Lb411b7BS/?share_source=copy_web&amp;vd_source=d8d8cd49f932177e1995e230d7816d44">李宏毅讲解卷积神经网络（带字幕)</a></li>
 </ul>
-<h2 id="1为什么cnn用于图像处理"><a class="markdownIt-Anchor" href="#1为什么cnn用于图像处理"></a> 1.为什么CNN用于图像处理</h2>
-<p>当我们用 fully connect feedforward network 来做图像处理的时候，往往我们会需要太多的参数，举例来说，假设这是一张 100 *100 的彩色图(一张很小的 imgage)，你把这个拉成一个 vector，(它有多少个 pixel)，它有 100 *100 3 的 pixel。</p>
+<h2 id="1-为什么CNN用于图像处理"><a href="#1-为什么CNN用于图像处理" class="headerlink" title="1.为什么CNN用于图像处理"></a>1.为什么CNN用于图像处理</h2><p>当我们用 fully connect feedforward network 来做图像处理的时候，往往我们会需要太多的参数，举例来说，假设这是一张 100 <em>100 的彩色图(一张很小的 imgage)，你把这个拉成一个 vector，(它有多少个 pixel)，它有 100 </em>100 3 的 pixel。</p>
 <p>如果是彩色图的话，每个 pixel 需要三个 value 来描述它，就是 30000 维(30000 dimension)，那 input vector 假如是 30000dimension，那这个 hidden layer 假设是 1000 个 neural，那么这个 hidden layer 的参数就是有 30000 *1000，那这样就太多了。</p>
 <p>那么 CNN 做的事就是简化 neural network 的架构。我们根据对图像的认识，某些 weight 用不上的，我们一开始就把它滤掉。不是用 fully connect feedforward network，而是用比较少的参数来做图像处理这件事。所以 CNN 比一般的 DNN 还要简单</p>
-<p><img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20191117103843754.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NvbWxpX2Nu,size_16,color_FFFFFF,t_70" alt="" /></p>
+<p><img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20191117103843754.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NvbWxpX2Nu,size_16,color_FFFFFF,t_70" alt=""></p>
 <p>CNN 就是用 power-knowledge 去把原来 fully connect layer 中一些参数拿掉。</p>
-<br>
+<p><br></p>
 <p>为什么我们有可能把一些参数拿掉(为什么可以用比较少的参数可以来进行图像处理)</p>
 <ul>
-<li>一些特征图像远小于整个图像:<br />
-<img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20191117112237480.png" alt="" /></li>
+<li>一些特征图像远小于整个图像:<br><img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20191117112237480.png" alt=""></li>
 </ul>
 <Br>
+
 <ul>
-<li>同样的特征会出现在不同的区域:<br />
-<img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20191117113158173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NvbWxpX2Nu,size_16,color_FFFFFF,t_70" alt="" /></li>
+<li>同样的特征会出现在不同的区域:<br><img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20191117113158173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NvbWxpX2Nu,size_16,color_FFFFFF,t_70" alt=""></li>
 </ul>
-<br>
+<p><br></p>
 <ul>
-<li>像素缩放不会对图像造成太大影响:<br />
-<img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20191117114342668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NvbWxpX2Nu,size_16,color_FFFFFF,t_70" alt="" /></li>
+<li>像素缩放不会对图像造成太大影响:<br><img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20191117114342668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NvbWxpX2Nu,size_16,color_FFFFFF,t_70" alt=""></li>
 </ul>
-<br>
-<h2 id="2cnn架构"><a class="markdownIt-Anchor" href="#2cnn架构"></a> 2.CNN架构</h2>
-<p>首先 input 一张 image，这张 image 会通过 convolution layer，接下来是 max pooling，然后再做 convolution，再做 max pooling。</p>
+<p><br></p>
+<h2 id="2-CNN架构"><a href="#2-CNN架构" class="headerlink" title="2.CNN架构"></a>2.CNN架构</h2><p>首先 input 一张 image，这张 image 会通过 convolution layer，接下来是 max pooling，然后再做 convolution，再做 max pooling。</p>
 <p>上述过程可以反复无数次（反复多少次你是要事先决定的，它就是 network 的架构（就像 neural 有几层一样），要做几层的 convolution，做几层的 Max Pooling，在定 neural 架构的时候，要事先决定好）。</p>
 <p>做完要做的 convolution 和 Max Pooling 以后，就要进行 flatten，再把 flatten 的 output 丢到一般 fully connected feedforward network，然后得到图像识别的结果。</p>
-<p><img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20191117114652727.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NvbWxpX2Nu,size_16,color_FFFFFF,t_70" alt="" /></p>
-<br>
-<h2 id="3-convlution"><a class="markdownIt-Anchor" href="#3-convlution"></a> 3. Convlution</h2>
-<p>卷积（Convolution）特征提取又由卷积核（Convolution Kernel）/过滤器filter来实现，filter是一个矩阵，它以步长为一的方式在图像上移动，并且做点乘加和运算，就是先做点乘，之后再求和。下图是3x3的卷积核在5x5的图像上做卷积的过程：<br />
-<img src="https://picx.zhimg.com/100/v2-aeab7bab0504e1b1a8c61c6b8ea78107_qhd.jpg" alt="" /></p>
-<br>
+<p><img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20191117114652727.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NvbWxpX2Nu,size_16,color_FFFFFF,t_70" alt=""></p>
+<p><br></p>
+<h2 id="3-Convlution"><a href="#3-Convlution" class="headerlink" title="3. Convlution"></a>3. Convlution</h2><p>卷积（Convolution）特征提取又由卷积核（Convolution Kernel）/过滤器filter来实现，filter是一个矩阵，它以步长为一的方式在图像上移动，并且做点乘加和运算，就是先做点乘，之后再求和。下图是3x3的卷积核在5x5的图像上做卷积的过程：<br><img src="https://picx.zhimg.com/100/v2-aeab7bab0504e1b1a8c61c6b8ea78107_qhd.jpg" alt=""></p>
+<p><br></p>
 <p><strong>卷积特征提取的原理</strong>:</p>
 <ul>
 <li>卷积特征提取利用了自然图像的统计平稳性，这一部分学习的特征也能用在另一部分上，所以对于这个图像上的所有位置，我们都能使用同样的学习特征。</li>
@@ -252,14 +249,18 @@
 </ul>
 <p><strong>多个过滤器filter（卷积核）</strong>:</p>
 <ul>
-<li>一张图片有RGB三个颜色通道，则对应的filter过滤器也是三维的，图像经过每个filter做卷积运算后都会得到对应提取特征的图像.<br />
-<img src="https://pica.zhimg.com/100/v2-c6705d8a008c51da66123e08fde7f084_qhd.jpg" alt="" /></li>
+<li>一张图片有RGB三个颜色通道，则对应的filter过滤器也是三维的，图像经过每个filter做卷积运算后都会得到对应提取特征的图像.<br><img src="https://pica.zhimg.com/100/v2-c6705d8a008c51da66123e08fde7f084_qhd.jpg" alt=""></li>
 </ul>
-<br>
-<h2 id="4convolution-和-fully-connected-之间的关系"><a class="markdownIt-Anchor" href="#4convolution-和-fully-connected-之间的关系"></a> 4.Convolution 和 Fully Connected 之间的关系</h2>
-<p>将 stride=1（移动一格）做内积得到另外一个值-1，假设这个-1 是另外一个 neural 的 output，这个 neural 连接到 input 的（2,3,4，8,9,10,14，15,16），同样的 weight 代表同样的颜色。</p>
+<p><br></p>
+<h2 id="4-Convolution-和-Fully-Connected-之间的关系"><a href="#4-Convolution-和-Fully-Connected-之间的关系" class="headerlink" title="4.Convolution 和 Fully Connected 之间的关系"></a>4.Convolution 和 Fully Connected 之间的关系</h2><p>将 stride=1（移动一格）做内积得到另外一个值-1，假设这个-1 是另外一个 neural 的 output，这个 neural 连接到 input 的（2,3,4，8,9,10,14，15,16），同样的 weight 代表同样的颜色。</p>
 <p>在 fully connect 里面的两个 neural 本来是有自己的 weight，当我们在做 convolution 时，首先把每一个 neural 连接的 wight 减少，强迫这两个 neural 共用一个 weight。这件事就叫做 shared weight，当我们做这件事情的时候，我们用的这个参数就比原来的更少。</p>
-<p><img src="https://static001.geekbang.org/infoq/6b/6b3b981c31db80b8184db2d79265ba8e.png" alt="" /></p>
+<p><img src="https://static001.geekbang.org/infoq/6b/6b3b981c31db80b8184db2d79265ba8e.png" alt=""></p>
+<p><br></p>
+<h2 id="5-最大池化（Max-Pooling）"><a href="#5-最大池化（Max-Pooling）" class="headerlink" title="5.最大池化（Max Pooling）"></a>5.最大池化（Max Pooling）</h2><p>相对于 convolution 来说，Max Pooling 是比较简单的。我们根据 filter 1 得到 4<em>4 的 maxtrix，根据 filter2 得到另一个 4 </em>4 的 matrix，接下来把 output ，4 个一组。每一组里面可以选择它们的平均（平均池化）或者选最大（最大池化）的都可以，就是把四个 value 合成一个 value。这个可以让 image 缩小。</p>
+<p>池化本质上的作用是：缩小图像，减少特征。<br><img src="https://static001.geekbang.org/infoq/b9/b9fa9d30874c9ead6a468b28fecd32d1.png" alt=""><br><img src="https://static001.geekbang.org/infoq/23/23dfd137b3a9174ea0a5fd7eaa7b042e.png" alt=""></p>
+<p><br></p>
+<h2 id="6-压平（Flatten）"><a href="#6-压平（Flatten）" class="headerlink" title="6.压平（Flatten）"></a>6.压平（Flatten）</h2><p>把多维的输入一维化，常用在从卷积层到全连接层的过渡。</p>
+<p>flatten 就是 feature map 拉直，拉直之后就可以丢到 fully connected feedforward netwwork。<br><img src="https://static001.geekbang.org/infoq/b4/b41993d1a529475b5e270f06e2db026e.png" alt=""></p>
 
             
         </div>
@@ -437,7 +438,7 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    382.5k
+                    382.6k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     23:54
