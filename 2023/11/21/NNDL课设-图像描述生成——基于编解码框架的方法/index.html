@@ -31,7 +31,7 @@
 <meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录 任务介绍 数据集 评测指标 主流模型 实战 作业   1.任务介绍自动为图片生成流畅关联的自然语言描述  2.数据集 Pascal Sentence Flickr8k,Flickr30k Microsoft CO">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-20T18:18:53.000Z">
-<meta property="article:modified_time" content="2023-11-24T07:49:18.671Z">
+<meta property="article:modified_time" content="2023-11-24T09:12:49.634Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="NNDL">
@@ -257,17 +257,10 @@
 <li>服饰图像描述</li>
 </ul>
 <hr>
-<h2 id="相关工作部分："><a href="#相关工作部分：" class="headerlink" title="相关工作部分："></a>相关工作部分：</h2><h3 id="1-Normalized-and-Geometry-Aware-Self-Attention-Network-for-Image-Captioning"><a href="#1-Normalized-and-Geometry-Aware-Self-Attention-Network-for-Image-Captioning" class="headerlink" title="1.Normalized and Geometry-Aware Self-Attention Network for Image Captioning"></a>1.Normalized and Geometry-Aware Self-Attention Network for Image Captioning</h3><p><br></p>
-<p><strong>2.1. 图像字幕</strong></p>
-<p>现有的图像描述方法通常遵循CNN-RNN架构[36]。最近，人们提出了各种各样的改进工作。[40]引入软注意力和硬注意力机制，在生成每个单词时自动关注显著目标。[13]用反刍解码器模拟人类抛光过程。[2]使用目标检测器来提出图像的显著区域(目标)，并为每个目标提取一个特征向量，然后将其作为注意力机制的输入。[28]引入了基于自我批评奖励的强化学习模型训练。最近，[46]和[43]提出用Transformer架构取代传统的循环神经网络，取得了最先进的性能。然而，Transformer中的自注意力模块并没有在图像描述任务上进行更深入的探索，这激发了本文的工作。</p>
-<p><br></p>
-<p><strong>2.2. 归一化</strong></p>
-<p>归一化[18]已经成为构建深度神经网络的关键因素。批归一化(Batch normalization, BN)[18]提出控制前馈神经网络内部激活的分布，从而减少内部协变量偏移。几种归一化方法如层归一化(LN)[4]、实例归一化(IN)[31]和组归一化[39]主要是为了减少BN中固有的小批量依赖。LN沿着示例中每个单独元素的通道维度进行操作。IN只对每个样本执行类似bn的计算。虽然BN和LN已被用于包含SA模块的网络中，如Transformer，但它们通常用于SA模块之外。我们的归一化自注意力首次在SA模块内部带来了归一化的好处。</p>
-<p><br></p>
-<p><strong>2.3. 自注意力网络中的位置编码</strong></p>
-<p>为了实现SA模块的序列排序，transformer在编码器和解码器的输入元素上都加入了基于正弦信号的绝对位置编码。最近，[29]通过融合序列元素之间的相对距离来调节SA。[16]提出了一个类似sa的目标检测模块，该模块在原始的自注意力权重上乘以一个新的关系权重，并被[15]用于Transformer中。它的关系权重仅通过边界框之间的相对坐标和大小来计算。与这些工作不同，GSA模块探索了更广泛的几何基础，不仅涉及几何信息，还涉及相关对象的内容。</p>
-<h3 id="2-Image-Captioning-Transforming-Objects-into-Words"><a href="#2-Image-Captioning-Transforming-Objects-into-Words" class="headerlink" title="2.Image Captioning: Transforming Objects into Words"></a>2.Image Captioning: Transforming Objects into Words</h3><p>许多用于图像描述的早期神经模型[17,12,5,25]使用表示图像整体的单个特征向量编码视觉信息，因此没有利用关于对象及其空间关系的信息。[11]中的Karpathy和Fei-Fei，作为这种全局表示方法的一个显著例外，基于R-CNN目标检测器[7]从多个图像区域提取特征，并为区域生成单独的标题。然而，由于为每个区域生成单独的标题，因此没有对检测目标之间的空间关系进行建模。他们的后续密集字幕工作[10]也是如此，该工作提出了一种端到端的方法，用于获取与图像中不同区域相关的字幕。Fang等人在[6]中通过首先检测与图像中不同区域相关的单词来生成图像描述。将全卷积神经网络应用于图像，生成目标词的空间响应图，进行空间关联;在这里，作者再次没有明确建模空间区域之间的任何关系。</p>
-<p>还提出了一系列基于注意力的图像描述方法[26,30,28]，这些方法试图将预测标题中的单词与图像中的区域联系起来。由于视觉注意力通常来自CNN的更高卷积层，空间定位是有限的，通常没有语义意义。与我们的工作最相似的是，[2]中的Anderson等人通过将”自下而上”的注意力模型与”自上而下”的LSTM相结合来解决典型注意力模型的这一局限性。自下而上的注意力作用于从Faster R-CNN目标检测器[20]的感兴趣区域中获得的均值池化卷积特征。自上而下的LSTM是一个两层的LSTM，其中第一层作为视觉注意模型，关注当前标记的相关检测，第二层是生成下一个标记的语言LSTM。作者用这种方法在视觉问答和图像描述方面展示了最先进的性能，表明了将目标检测与视觉注意相结合的好处。同样，没有利用空间信息——本文通过几何注意力提出。Hu等人首次将几何注意力引入到[9]的目标检测中。在那里，作者使用边界框坐标和大小来推断对象对之间关系的重要性，假设如果两个边界框在大小上更接近，那么它们的关系更强。</p>
+<h2 id="相关工作部分："><a href="#相关工作部分：" class="headerlink" title="相关工作部分："></a>相关工作部分：</h2><h3 id="Image-Captioning-Transforming-Objects-into-Words"><a href="#Image-Captioning-Transforming-Objects-into-Words" class="headerlink" title="Image Captioning: Transforming Objects into Words"></a>Image Captioning: Transforming Objects into Words</h3><p>许多早期的神经模型（用一个单一的特征向量来编码视觉信息，代表整个图像，但未能利用有关对象及其空间关系的信息。Karpathy和Fei-Fei提出了一个例外，他们基于R-CNN对象检测器从多个图像区域提取特征，并为这些区域生成独立的字幕。但是，这种方法没有建模检测到的对象之间的空间关系。Fang等人通过首先检测与图像不同区域相关的词来生成图像描述，并应用全卷积神经网络生成目标词的空间响应图，但他们也没有明确建模空间区域之间的关系。</p>
+<p>然后提出了一系列基于注意力的图像字幕生成方法，旨在将预测字幕中的词与图像中的区域联系起来。但由于视觉注意力通常源于CNN的较高卷积层，其空间定位受限且通常在语义上没有意义。Anderson等人结合了“自下而上”的注意力模型和“自上而下”的LSTM来克服这一限制，展示了结合对象检测特征和视觉注意力的好处。然而，这种方法也没有利用空间信息，而我们的工作通过几何注意力来实现这一点。Hu等人首次在对象检测中引入了几何注意力，通过使用边界框的坐标和大小来推断对象对之间的关系。</p>
+<p>后续工作遵循了使用对象检测器获取图像特征并通过注意力LSTM生成字幕的范式。Yao等人引入了两个图卷积网络：一个是语义关系图，另一个是空间关系图，用于分类两个框之间的关系。Yang等人利用图结构，将对象图像特征提取到图像场景图中，并使用语义场景图（即对象、它们的关系和属性的图）自动编码器对字幕文本进行编码，以在图像场景图中嵌入语言归纳偏差。自我批判式强化学习在句子生成中也被证明对于最先进的字幕生成方法很重要。Liu等人提出了一种替代性的强化学习方法，通过视觉策略作用于对象检测器提供的图像区域特征。</p>
+<p>NLP领域的最新发展，尤其是Transformer架构带来了显著的性能提升。在论文Conceptual captions中，Transformer被应用于图像字幕生成任务。Transformer架构特别适合作为字幕的自下而上视觉编码器，因为它对输入没有顺序的概念，不像RNN。然而，通过使用位置编码，它可以成功地模拟序列数据，我们可以将其应用于字幕文本中解码的词元。</p>
 
             
         </div>
@@ -445,10 +438,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    372.6k
+                    373.1k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    23:16
+                    23:17
                 </div>
             
             
