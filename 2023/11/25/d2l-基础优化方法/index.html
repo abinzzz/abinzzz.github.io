@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/F_wc0REWwAA5eX9?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/F_wdDDkW8AA8yLF?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2023-11-25T05:32:33.000Z">
-<meta property="article:modified_time" content="2023-11-25T05:48:38.114Z">
+<meta property="article:modified_time" content="2023-11-25T07:05:46.361Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="d2l">
@@ -236,6 +236,15 @@
 <li>两个重要的超参数是批量大小和学习率</li>
 </ul>
 <p><br></p>
+<h2 id="6-QA"><a href="#6-QA" class="headerlink" title="6.QA"></a>6.QA</h2><ul>
+<li><strong>为什么使用平方损失而不是绝对差值</strong>：绝对差值是不可导的，会导致不方便</li>
+<li><strong>损失为什么要求平均</strong>：求平均是为了让梯度不至于过大；从统计上来说，就是用样本方差代替均值。</li>
+<li><strong>batchsize是否会影响最终模型结果</strong>：<br>bz越小对收敛越好，噪音会多，增加模型的泛化能力</li>
+<li><strong>针对batchsize大小的数据集进行网络训练的时候，网络中每个参数更新时减去的梯度是batchsize中每个样本对应参数梯度求和后取得的平均值吗</strong>：是的，这种情况其实是普通的随机梯度下降</li>
+<li><strong>detach</strong>：所有的运算子会自动加入计算图求梯度，detach可以把不需要求梯度的运算分离开</li>
+<li><strong>yelid相比return的好处</strong>：每次只需要生成一个batch，而不是全部</li>
+<li><strong>np问题</strong>：多项式时间内可验证的问题</li>
+</ul>
 
             
         </div>
@@ -399,7 +408,7 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    383.5k
+                    383.7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     23:57
