@@ -12,7 +12,7 @@
 
     
     <title>
-        NNDL课设:ViT |
+        NNDL课设:ViT-Readme |
         
         Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,20 +23,23 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   视觉变换器和MLP-Mixer架构 在这个仓库中，我们发布了以下论文中的模型：  一张图像相当于16x16个单词：用于大规模图像识别的变换器 MLP-Mixer：一种全MLP的视觉架构 如何训练你的ViT？视觉变换器中">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   视觉变换器和MLP-Mixer架构 在这个仓库中，我们发布了以下论文中的模型：  一幅图像等于16x16个词：用于大规模图像识别的变换器 MLP-Mixer：用于视觉的全MLP架构 如何训练你的ViT？数据、增强和视觉">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NNDL课设:ViT">
+<meta property="og:title" content="NNDL课设:ViT-Readme">
 <meta property="og:url" content="https://abinzzz.github.io/2023/12/03/NNDL%E8%AF%BE%E8%AE%BE-ViT/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   视觉变换器和MLP-Mixer架构 在这个仓库中，我们发布了以下论文中的模型：  一张图像相当于16x16个单词：用于大规模图像识别的变换器 MLP-Mixer：一种全MLP的视觉架构 如何训练你的ViT？视觉变换器中">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   视觉变换器和MLP-Mixer架构 在这个仓库中，我们发布了以下论文中的模型：  一幅图像等于16x16个词：用于大规模图像识别的变换器 MLP-Mixer：用于视觉的全MLP架构 如何训练你的ViT？数据、增强和视觉">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://abinzzz.github.io/2023/12/03/NNDL%E8%AF%BE%E8%AE%BE-ViT/vit_figure.png">
+<meta property="og:image" content="https://abinzzz.github.io/2023/12/03/NNDL%E8%AF%BE%E8%AE%BE-ViT/mixer_figure.png">
 <meta property="article:published_time" content="2023-12-03T05:01:50.000Z">
-<meta property="article:modified_time" content="2023-12-03T05:27:39.305Z">
+<meta property="article:modified_time" content="2023-12-04T06:17:40.486Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="NNDL">
 <meta property="article:tag" content="ViT">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://abinzzz.github.io/2023/12/03/NNDL%E8%AF%BE%E8%AE%BE-ViT/vit_figure.png">
     
         <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
     
@@ -115,7 +118,7 @@
         <div id="wrap">
             <header id="header">
     
-        <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="NNDL课设:ViT" class="lazyload">
+        <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="NNDL课设:ViT-Readme" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -123,7 +126,7 @@
                 
                     
                     
-                        <a href="/" id="logo"><h1>NNDL课设:ViT</h1></a>
+                        <a href="/" id="logo"><h1>NNDL课设:ViT-Readme</h1></a>
                     
                 
             </div>
@@ -202,22 +205,551 @@
 <h1 id="视觉变换器和mlp-mixer架构"><a class="markdownIt-Anchor" href="#视觉变换器和mlp-mixer架构"></a> 视觉变换器和MLP-Mixer架构</h1>
 <p>在这个仓库中，我们发布了以下论文中的模型：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.11929">一张图像相当于16x16个单词：用于大规模图像识别的变换器</a></li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.01601">MLP-Mixer：一种全MLP的视觉架构</a></li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.10270">如何训练你的ViT？视觉变换器中的数据、增强和正则化</a></li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.01548">当视觉变换器在没有预训练或强数据增强的情况下超越ResNets时</a></li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2111.07991">LiT：锁定图像文本调整的零次迁移</a></li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.08065">替代差距最小化提高了锐度意识训练</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.11929">一幅图像等于16x16个词：用于大规模图像识别的变换器</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.01601">MLP-Mixer：用于视觉的全MLP架构</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.10270">如何训练你的ViT？数据、增强和视觉变换器中的正则化</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.01548">当视觉变换器在没有预训练或强大数据增强的情况下超越ResNets时</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2111.07991">LiT：锁定图像文本调整的零样本迁移</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.08065">替代差距最小化提高了锐利感知训练</a></li>
 </ul>
-<p>这些模型是在<a target="_blank" rel="noopener" href="http://www.image-net.org/">ImageNet</a>和<a target="_blank" rel="noopener" href="http://www.image-net.org/">ImageNet-21k</a>数据集上预训练的。我们提供了用<a target="_blank" rel="noopener" href="https://jax.readthedocs.io">JAX</a>/<a target="_blank" rel="noopener" href="http://flax.readthedocs.io">Flax</a>微调这些发布模型的代码。</p>
-<p>这个代码库中的模型最初是在<br />
-<a target="_blank" rel="noopener" href="https://github.com/google-research/big_vision/">https://github.com/google-research/big_vision/</a><br />
-中训练的，在那里你可以找到更高级的代码（例如多主机训练），以及一些原始训练脚本（例如用于预训练ViT的<a target="_blank" rel="noopener" href="https://github.com/google-research/big_vision/blob/main/big_vision/configs/vit_i21k.py">configs/vit_i21k.py</a>或用于迁移模型的<a target="_blank" rel="noopener" href="https://github.com/google-research/big_vision/blob/main/big_vision/configs/transfer.py">configs/transfer.py</a>）。</p>
+<p>这些模型预训练于<a target="_blank" rel="noopener" href="http://www.image-net.org/">ImageNet</a>和<a target="_blank" rel="noopener" href="http://www.image-net.org/">ImageNet-21k</a>数据集。我们提供了用于微调已发布模型的代码，这些代码基于<a target="_blank" rel="noopener" href="https://jax.readthedocs.io">JAX</a>/<a target="_blank" rel="noopener" href="http://flax.readthedocs.io">Flax</a>。</p>
+<p>这些模型最初在<a target="_blank" rel="noopener" href="https://github.com/google-research/big_vision/">https://github.com/google-research/big_vision/</a> 中训练，你可以在这里找到更高级的代码（例如，多主机训练），以及一些原始训练脚本（例如，预训练ViT的<a target="_blank" rel="noopener" href="https://github.com/google-research/big_vision/blob/main/big_vision/configs/vit_i21k.py">configs/vit_i21k.py</a> 或者迁移模型的<a target="_blank" rel="noopener" href="https://github.com/google-research/big_vision/blob/main/big_vision/configs/transfer.py">configs/transfer.py</a>）。</p>
+<p>目录：</p>
+<ul>
+<li><a href="#%E8%A7%86%E8%A7%89%E5%8F%98%E6%8D%A2%E5%99%A8%E5%92%8Cmlp-mixer%E6%9E%B6%E6%9E%84">视觉变换器和MLP-Mixer架构</a>
+<ul>
+<li><a href="#colab">Colab</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+<li><a href="#%E5%BE%AE%E8%B0%83%E6%A8%A1%E5%9E%8B">微调模型</a></li>
+<li><a href="#%E8%A7%86%E8%A7%89%E5%8F%98%E6%8D%A2%E5%99%A8">视觉变换器</a>
+<ul>
+<li><a href="#%E5%8F%AF%E7%94%A8%E7%9A%84vit%E6%A8%A1%E5%9E%8B">可用的ViT模型</a></li>
+</ul>
+</li>
+<li><a href="#mlp-mixer">MLP-Mixer</a>
+<ul>
+<li><a href="#%E5%8F%AF%E7%94%A8%E7%9A%84mixer%E6%A8%A1%E5%9E%8B">可用的Mixer模型</a></li>
+<li><a href="#%E9%A2%84%E6%9C%9F%E7%9A%84mixer%E7%BB%93%E6%9E%9C">预期的Mixer结果</a></li>
+</ul>
+</li>
+<li><a href="#lit%E6%A8%A1%E5%9E%8B">LiT模型</a></li>
+<li><a href="#%E5%9C%A8%E4%BA%91%E4%B8%8A%E8%BF%90%E8%A1%8C">在云上运行</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E6%9C%BA">创建一个虚拟机</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA">设置虚拟机</a></li>
+</ul>
+</li>
+<li><a href="#bibtex%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">Bibtex参考文献</a></li>
+<li><a href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97">更新日志</a></li>
+<li><a href="#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E">免责声明</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="colab"><a class="markdownIt-Anchor" href="#colab"></a> Colab</h2>
+<p>下面的Colabs可以在GPU和TPUs（8核，数据并行）上运行。</p>
+<p>第一个Colab演示了视觉变换器和MLP混合器的JAX代码。这个Colab允许你直接在Colab界面中编辑仓库中的文件，并有带注释的Colab单元，引导你逐步了解代码，并让你与数据进行交互。</p>
+<p><a target="_blank" rel="noopener" href="https://colab.research.google.com/github/google-research/vision_transformer/blob/main/vit_jax.ipynb">https://colab.research.google.com/github/google-research/vision_transformer/blob/main/vit_jax.ipynb</a></p>
+<p>第二个Colab允许你探索用于生成第三篇论文“How to train your ViT? …”数据的&gt;50k视觉变换器和混合模型检查点。Colab包括探索和选择检查点的代码，以及使用来自本仓库的JAX代码进行推理，也可以使用流行的<a target="_blank" rel="noopener" href="https://github.com/rwightman/pytorch-image-models"><code>timm</code></a> PyTorch库直接加载这些检查点。请注意，一些</p>
+<p>模型也直接来自TF-Hub：<a target="_blank" rel="noopener" href="https://tfhub.dev/sayakpaul/collections/vision_transformer">sayakpaul/collections/vision_transformer</a>（<a target="_blank" rel="noopener" href="https://github.com/sayakpaul">Sayak Paul</a>的外部贡献）。</p>
+<p>第二个Colab还允许你在任何tfds数据集和你自己的数据集上微调检查点，后者包含单独的JPEG文件中的示例（可选地直接从Google Drive读取）。</p>
+<p><a target="_blank" rel="noopener" href="https://colab.research.google.com/github/google-research/vision_transformer/blob/main/vit_jax_augreg.ipynb">https://colab.research.google.com/github/google-research/vision_transformer/blob/main/vit_jax_augreg.ipynb</a></p>
+<p><strong>注意</strong>：截至目前（2021年6月20日），Google Colab仅支持单个GPU（Nvidia Tesla T4），而TPUs（目前为TPUv2-8）是间接连接到Colab VM上，并通过慢速网络通信，这导致训练速度非常慢。通常，如果你有大量的数据需要微调，你会想要设置专用机器。有关详细信息，请参阅<a href="#running-on-cloud">云上运行</a>部分。</p>
+<h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2>
+<p>确保你的机器上安装了<code>Python&gt;=3.10</code>。</p>
+<p>通过运行以下命令安装JAX和Python依赖项：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 如果使用GPU：</span><br><span class="line">pip install -r vit_jax/requirements.txt</span><br><span class="line"></span><br><span class="line"># 如果使用TPU：</span><br><span class="line">pip install -r vit_jax/requirements-tpu.txt</span><br></pre></td></tr></table></figure>
+<p>对于<a target="_blank" rel="noopener" href="https://github.com/google/jax">JAX</a>的更新版本，请按照此处链接的相应仓库提供的说明进行操作。请注意，CPU、GPU和TPU的安装说明略有不同。</p>
+<p>安装<a target="_blank" rel="noopener" href="https://github.com/google/flaxformer">Flaxformer</a>，请按照此处链接的相应仓库提供的说明进行操作。</p>
+<p>更多详情请参阅下面的<a href="#running-on-cloud">云上运行</a>部分。</p>
+<h2 id="微调模型"><a class="markdownIt-Anchor" href="#微调模型"></a> 微调模型</h2>
+<p>你可以在你感兴趣的数据集上运行已下载模型的微调。所有模型共享相同的命令行界面。</p>
+<p>例如，微调在imagenet21k上预训练的ViT-B/16模型，用于CIFAR10（注意我们如何将<code>b16,cifar10</code>作为参数指定给配置，并且我们如何指导代码直接从GCS桶访问模型，而不是首先将它们下载到本地目录）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python -m vit_jax.main --workdir=/tmp/vit-$(<span class="built_in">date</span> +%s) \</span><br><span class="line">    --config=$(<span class="built_in">pwd</span>)/vit_jax/configs/vit.py:b16,cifar10 \</span><br><span class="line">    --config.pretrained_dir=<span class="string">&#x27;gs://vit_models/imagenet21k&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>为了微调在imagenet21k上预训练的Mixer-B/16模型，用于CIFAR10：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python -m vit_jax.main --workdir=/tmp/vit-$(<span class="built_in">date</span> +%s) \</span><br><span class="line">    --config=$(<span class="built_in">pwd</span>)/vit_jax/configs/mixer_base16_cifar10.py \</span><br><span class="line">    --config.pretrained_dir=<span class="string">&#x27;gs://mixer_models/imagenet21k&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>“How to train your ViT? …”论文增加了&gt;50k可以用<a target="_blank" rel="noopener" href="https://github.com/google-research/vision_transformer/blob/main/vit_jax/configs/augreg.py"><code>configs/augreg.py</code></a>配置微调的检查点。当你仅指定模型名称（<a target="_blank" rel="noopener" href="https://github.com/google-research/vision_transformer/blob/main/vit_jax/configs/models.py"><code>configs/model.py</code></a>中的<code>config.name</code>值）时，将选择上游验证准确率最高的i21k检查点（“推荐”检查点，参见论文第4.5节）。为了决定你想使用哪个模型，请查看论文中的图3。也可以选择不同的检查点（见Colab <a target="_blank" rel="noopener" href="https://colab.research.google.com/github/google-research/vision_transformer/blob/main/vit_jax_augreg.ipynb"><code>vit_jax_augreg.ipynb</code></a>），然后指定<code>filename</code>或<code>adapt_filename</code>列中的值，这些值对应<a target="_blank" rel="noopener" href="https://console.cloud.google.com/storage/browser/vit_models/augreg/"><code>gs://vit_models/augreg</code></a>目录中没有<code>.npz</code>的文件名。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python -m vit_jax.main --workdir=/tmp/vit-$(<span class="built_in">date</span> +%s) \</span><br><span class="line">    --config=$(<span class="built_in">pwd</span>)/vit_jax/configs/augreg.py:R_Ti_16 \</span><br><span class="line">    --config.dataset=oxford_iiit_pet \</span><br><span class="line">    --config.base_lr=0.01</span><br></pre></td></tr></table></figure>
+<p>目前，代码会自动下载CIFAR-10和CIFAR-100数据集。其他公共或自定义数据集可以通过使用<a target="_blank" rel="noopener" href="https://github.com/tensorflow/datasets/">tensorflow数据集库</a>轻松集成。请注意，你还需要更新<code>vit_jax/input_pipeline.py</code>以指定关于任何添加数据集的一些参数。</p>
+<p>请注意，我们的代码使用所有可用的GPU/TPU进行微调。</p>
+<p>要查看所有可用标志的详细列表，请运行<code>python3 -m vit_jax.train --help</code>。</p>
+<p>关于内存的说明：</p>
+<ul>
+<li>不同的模型需要不同的内存量。可用内存还取决于加速器配置（类型和数量）。如果你遇到内存不足错误，可以增加<code>--config.accum_steps=8</code>的值 — 或者，你也可以减少<code>--config.batch=512</code>（并相应地减少<code>--config.base_lr</code>）。</li>
+<li>主机在内存中保持一个洗牌缓冲区。如果你遇到主机OOM（与加速器OOM相对），你可以减</li>
+</ul>
+<p>少默认的<code>--config.shuffle_buffer=50000</code>。</p>
+<h2 id="视觉变换器"><a class="markdownIt-Anchor" href="#视觉变换器"></a> 视觉变换器</h2>
+<p>作者：Alexey Dosovitskiy*†, Lucas Beyer*, Alexander Kolesnikov*, Dirk Weissenborn*, Xiaohua Zhai*, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit 和 Neil Houlsby*†。</p>
+<p>(*) 表示技术贡献相同，(†) 表示指导贡献相同。</p>
+<p><img src="vit_figure.png" alt="论文中的图1" /></p>
+<p>模型概览：我们将图像分割成固定大小的块，对每个块进行线性嵌入，添加位置嵌入，然后将得到的向量序列输入到标准的Transformer编码器中。为了进行分类，我们使用添加一个额外可学习的“分类令牌”到序列中的标准方法。</p>
+<h3 id="可用的vit模型"><a class="markdownIt-Anchor" href="#可用的vit模型"></a> 可用的ViT模型</h3>
+<p>我们在不同的GCS存储桶中提供了多种ViT模型。可以通过例如以下方式下载模型：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://storage.googleapis.com/vit_models/imagenet21k/ViT-B_16.npz</span><br></pre></td></tr></table></figure>
+<p>模型文件名（不包括<code>.npz</code>扩展名）对应于<a target="_blank" rel="noopener" href="https://github.com/google-research/vision_transformer/blob/main/vit_jax/configs/models.py"><code>vit_jax/configs/models.py</code></a>中的<code>config.model_name</code></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://console.cloud.google.com/storage/browser/vit_models/imagenet21k/"><code>gs://vit_models/imagenet21k</code></a> - 在ImageNet-21k上预训练的模型。</li>
+<li><a target="_blank" rel="noopener" href="https://console.cloud.google.com/storage/browser/vit_models/imagenet21k+imagenet2012/"><code>gs://vit_models/imagenet21k+imagenet2012</code></a> - 在ImageNet-21k上预训练并在ImageNet上微调的模型。</li>
+<li><a target="_blank" rel="noopener" href="https://console.cloud.google.com/storage/browser/vit_models/augreg/"><code>gs://vit_models/augreg</code></a> - 在ImageNet-21k上预训练，应用不同程度的<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.10270">AugReg</a>，性能得到提升的模型。</li>
+<li><a target="_blank" rel="noopener" href="https://console.cloud.google.com/storage/browser/vit_models/sam/"><code>gs://vit_models/sam</code></a> - 在ImageNet上使用<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.01412">SAM</a>预训练的模型。</li>
+<li><a target="_blank" rel="noopener" href="https://console.cloud.google.com/storage/browser/vit_models/gsam/"><code>gs://vit_models/gsam</code></a> - 在ImageNet上使用<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.08065">GSAM</a>预训练的模型。</li>
+</ul>
+<p>我们推荐使用以下经过<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.10270">AugReg</a>训练并且具有最佳预训练指标的检查点：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">模型</th>
+<th style="text-align:left">预训练检查点</th>
+<th style="text-align:right">大小</th>
+<th style="text-align:left">微调检查点</th>
+<th style="text-align:right">分辨率</th>
+<th style="text-align:right">Img/sec</th>
+<th style="text-align:right">ImageNet准确率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">L/16</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/L_16-i21k-300ep-lr_0.001-aug_strong1-wd_0.1-do_0.0-sd_0.0.npz</code></td>
+<td style="text-align:right">1243 MiB</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/L_16-i21k-300ep-lr_0.001-aug_strong1-wd_0.1-do_0.0-sd_0.0--imagenet2012-steps_20k-lr_0.01-res_384.npz</code></td>
+<td style="text-align:right">384</td>
+<td style="text-align:right">50</td>
+<td style="text-align:right">85.59%</td>
+</tr>
+<tr>
+<td style="text-align:left">B/16</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/B_16-i21k-300ep-lr_0.001-aug_medium1-wd_0.1-do_0.0-sd_0.0.npz</code></td>
+<td style="text-align:right">391 MiB</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/B_16-i21k-300ep-lr_0.001-aug_medium1-wd_0.1-do_0.0-sd_0.0--imagenet2012-steps_20k-lr_0.03-res_384.npz</code></td>
+<td style="text-align:right">384</td>
+<td style="text-align:right">138</td>
+<td style="text-align:right">85.49%</td>
+</tr>
+<tr>
+<td style="text-align:left">S/16</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/S_16-i21k-300ep-lr_0.001-aug_light1-wd_0.03-do_0.0-sd_0.0.npz</code></td>
+<td style="text-align:right">115 MiB</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/S_16-i21k-300ep-lr_0.001-aug_light1-wd_0.03-do_0.0-sd_0.0--imagenet2012-steps_20k-lr_0.03-res_384.npz</code></td>
+<td style="text-align:right">384</td>
+<td style="text-align:right">300</td>
+<td style="text-align:right">83.73%</td>
+</tr>
+<tr>
+<td style="text-align:left">R50+L/32</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/R50_L_32-i21k-300ep-lr_0.001-aug_medium1-wd_0.1-do_0.1-sd_0.1.npz</code></td>
+<td style="text-align:right">1337 MiB</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/R50_L_32-i21k-300ep-lr_0.001-aug_medium1-wd_0.1-do_0.1-sd_0.1--imagenet2012-steps_20k-lr_0.01-res_384.npz</code></td>
+<td style="text-align:right">384</td>
+<td style="text-align:right">327</td>
+<td style="text-align:right">85.99%</td>
+</tr>
+<tr>
+<td style="text-align:left">R26+S/32</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/R26_S_32-i21k-300ep-lr_0.001-aug_light1-wd_0.1-do_0.0-sd_0.0.npz</code></td>
+<td style="text-align:right">170 MiB</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/R26_S_32-i21k-300ep-lr_0.001-aug_light1-wd_0.1-do_0.0-sd_0.0--imagenet2012-steps_20k-lr_0.01-res_384.npz</code></td>
+<td style="text-align:right">384</td>
+<td style="text-align:right">560</td>
+<td style="text-align:right">83.85%</td>
+</tr>
+<tr>
+<td style="text-align:left">Ti/16</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/Ti_16-i21k-300ep-lr_0.001-aug_none-wd_0.03-do_0.0-sd_0.0.npz</code></td>
+<td style="text-align:right">37 MiB</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/Ti_16-i21k-300ep-lr_0.001-aug_none-wd_0.03-do_0.0-sd_0.0--imagenet2012-steps_20k-lr_0.03-res_384.npz</code></td>
+<td style="text-align:right">384</td>
+<td style="text-align:right">610</td>
+<td style="text-align:right">78.22%</td>
+</tr>
+<tr>
+<td style="text-align:left">B/32</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/B_32-i21k-300ep-lr_0.001-aug_light1-wd_0.1-do_0.0-sd_0.0.npz</code></td>
+<td style="text-align:right">398 MiB</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/B_32-i21k-300ep-lr_0.001-aug_light1-wd_0.1-do_0.0-sd_0.0--imagenet2012-steps_20k-lr_0.01-res_384.npz</code></td>
+<td style="text-align:right">384</td>
+<td style="text-align:right">955</td>
+<td style="text-align:right">83.59%</td>
+</tr>
+<tr>
+<td style="text-align:left">S/32</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/S_32-i21k-300ep-lr_0.001-aug_none-wd_0.1-do_0.0-sd_0.0.npz</code></td>
+<td style="text-align:right">118 MiB</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/S_32-i21k-300ep-lr_0.001-aug_none-wd_0.1-do_0.0-sd_0.0--imagenet2012-steps_20k-lr_0.01-res_384.npz</code></td>
+<td style="text-align:right">384</td>
+<td style="text-align:right">2154</td>
+<td style="text-align:right">79.58%</td>
+</tr>
+<tr>
+<td style="text-align:left">R+Ti/16</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/R_Ti_16-i21k-300ep-lr_0.001-aug_none-wd_0.03-do_0.0-sd_0.0.npz</code></td>
+<td style="text-align:right">40 MiB</td>
+<td style="text-align:left"><code>gs://vit_models/augreg/R_Ti_16-i21k-300ep-lr_0.001-aug_none-wd_0.03-do_0.0-sd_0.0--imagenet2012-steps_20k-lr_0.03-res_384.npz</code></td>
+<td style="text-align:right">384</td>
+<td style="text-align:right">2426</td>
+<td style="text-align:right">75.40%</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>原始 ViT 论文 (<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.11929">https://arxiv.org/abs/2010.11929</a>) 中的结果已经使用 <a target="_blank" rel="noopener" href="https://console.cloud.google.com/storage/browser/vit_models/imagenet21k/"><code>gs://vit_models/imagenet21k</code></a> 的模型复现：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">模型</th>
+<th style="text-align:left">数据集</th>
+<th style="text-align:left">dropout=0.0</th>
+<th style="text-align:left">dropout=0.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">R50+ViT-B_16</td>
+<td style="text-align:left">cifar10</td>
+<td style="text-align:left">98.72%, 3.9小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5ER50.ViT-B_16/cifar10/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">98.94%, 10.1小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5ER50.ViT-B_16/cifar10/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">R50+ViT-B_16</td>
+<td style="text-align:left">cifar100</td>
+<td style="text-align:left">90.88%, 4.1小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5ER50.ViT-B_16/cifar100/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">92.30%, 10.1小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5ER50.ViT-B_16/cifar100/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">R50+ViT-B_16</td>
+<td style="text-align:left">imagenet2012</td>
+<td style="text-align:left">83.72%, 9.9小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5ER50.ViT-B_16/imagenet2012/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">85.08%, 24.2小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5ER50.ViT-B_16/imagenet2012/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ViT-B_16</td>
+<td style="text-align:left">cifar10</td>
+<td style="text-align:left">99.02%, 2.2小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-B_16/cifar10/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">98.76%, 7.8小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-B_16/cifar10/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ViT-B_16</td>
+<td style="text-align:left">cifar100</td>
+<td style="text-align:left">92.06%, 2.2小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-B_16/cifar100/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">91.92%, 7.8小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-B_16/cifar100/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ViT-B_16</td>
+<td style="text-align:left">imagenet2012</td>
+<td style="text-align:left">84.53%, 6.5小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-B_16/imagenet2012/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">84.12%, 19.3小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-B_16/imagenet2012/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ViT-B_32</td>
+<td style="text-align:left">cifar10</td>
+<td style="text-align:left">98.88%, 0.8小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-B_32/cifar10/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">98.75%, 1.8小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-B_32/cifar10/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ViT-B_32</td>
+<td style="text-align:left">cifar100</td>
+<td style="text-align:left">92.31%, 0.8小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-B_32/cifar100/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">92.05%, 1.8小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-B_32/cifar100/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ViT-B_32</td>
+<td style="text-align:left">imagenet2012</td>
+<td style="text-align:left">81.66%, 3.3小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-B_32/imagenet2012/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">81.31%, 4.9小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-B_32/imagenet2012/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ViT-L_16</td>
+<td style="text-align:left">cifar10</td>
+<td style="text-align:left">99.13%, 6.9小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-L_16/cifar10/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">99.14%, 24.7小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-L_16/cifar10/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ViT-L_16</td>
+<td style="text-align:left">cifar100</td>
+<td style="text-align:left">92.91%, 7.1小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-L_16/cifar100/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">93.22%, 24.4小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-L_16/cifar100/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ViT-L_16</td>
+<td style="text-align:left">imagenet2012</td>
+<td style="text-align:left">84.47%, 16.8小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-L_16/imagenet2012/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">85.05%, 59.7小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-L_16/imagenet2012/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ViT-L_32</td>
+<td style="text-align:left">cifar10</td>
+<td style="text-align:left">99.06%, 1.9小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-L_32/cifar10/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">99.09%, 6.1小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-L_32/cifar10/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ViT-L_32</td>
+<td style="text-align:left">cifar100</td>
+<td style="text-align:left">93.29%, 1.9小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-L_32/cifar100/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">93.34%, 6.2小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-L_32/cifar100/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ViT-L_32</td>
+<td style="text-align:left">imagenet2012</td>
+<td style="text-align:left">81.89%, 7.5小时 (A100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-L_32/imagenet2012/do_0.0&amp;_smoothingWeight=0">tb.dev</a></td>
+<td style="text-align:left">81.13%, 15.0小时 (V100), <a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/nwXQNjudRJW3dtQzhPZwwA/#scalars&amp;regexInput=%5EViT-L_32/imagenet2012/do_0.1&amp;_smoothingWeight=0">tb.dev</a></td>
+</tr>
+</tbody>
+</table>
+<p>我们还想强调，通过较短的训练计划也可以达到高质量的结果，并鼓励使用我们代码的用户调整超参数，以权衡精度和计算预算。下表展示了一些针对CIFAR-10/100数据集的示例。</p>
+<table>
+<thead>
+<tr>
+<th>上游源</th>
+<th>模型</th>
+<th>数据集</th>
+<th>总步数 / 热身步数</th>
+<th>准确率</th>
+<th>实际运行时间</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>imagenet21k</td>
+<td>ViT-B_16</td>
+<td>cifar10</td>
+<td>500 / 50</td>
+<td>98.59%</td>
+<td>17分钟</td>
+<td><a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/QgkpiW53RPmjkabe1ME31g/">tensorboard.dev</a></td>
+</tr>
+<tr>
+<td>imagenet21k</td>
+<td>ViT-B_16</td>
+<td>cifar10</td>
+<td>1000 / 100</td>
+<td>98.86%</td>
+<td>39分钟</td>
+<td><a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/w8DQkDeJTOqJW5js80gOQg/">tensorboard.dev</a></td>
+</tr>
+<tr>
+<td>imagenet21k</td>
+<td>ViT-B_16</td>
+<td>cifar100</td>
+<td>500 / 50</td>
+<td>89.17%</td>
+<td>17分钟</td>
+<td><a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/5hM4GrnAR0KEZg725Ewnqg/">tensorboard.dev</a></td>
+</tr>
+<tr>
+<td>imagenet21k</td>
+<td>ViT-B_16</td>
+<td>cifar100</td>
+<td>1000 / 100</td>
+<td>91.15%</td>
+<td>39分钟</td>
+<td><a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/QLQTaaIoT9uEcAjtA0eRwg/">tensorboard.dev</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="mlp-mixer"><a class="markdownIt-Anchor" href="#mlp-mixer"></a> MLP-Mixer</h2>
+<p>作者：伊利亚·托尔斯蒂欣*，尼尔·豪斯比*，亚历山大·科列斯尼科夫*，卢卡斯·贝耶*，<br />
+夏侯哓，托马斯·安特泰纳，杰西卡·扬，安德烈亚斯·施泰纳，丹尼尔·凯瑟斯，<br />
+雅各布·乌斯兹科雷特，马里奥·卢奇奇，阿列克谢·多索夫斯基。</p>
+<p>(*) 同等贡献。</p>
+<p><img src="mixer_figure.png" alt="论文中的图1" /></p>
+<p>MLP-Mixer（简称“Mixer”）由每个补丁的线性嵌入、Mixer层和分类器头部组成。Mixer层包含一个令牌混合MLP和一个通道混合MLP，每个由两个全连接层和一个GELU非线性组成。其他组件包括：跳过连接，随机失活和线性分类器头部。</p>
+<p>安装请遵循上述<a href="#installation">相同步骤</a>。</p>
+<h3 id="可用的mixer模型"><a class="markdownIt-Anchor" href="#可用的mixer模型"></a> 可用的Mixer模型</h3>
+<p>我们提供在ImageNet和ImageNet-21k数据集上预训练的Mixer-B/16和Mixer-L/16模型。详细信息可以在Mixer论文的表3中找到。所有模型可以在以下链接找到：</p>
+<p><a target="_blank" rel="noopener" href="https://console.cloud.google.com/storage/mixer_models/">https://console.cloud.google.com/storage/mixer_models/</a></p>
+<p>注意，这些模型也可以直接从TF-Hub获取：<br />
+<a target="_blank" rel="noopener" href="https://tfhub.dev/sayakpaul/collections/mlp-mixer">sayakpaul/collections/mlp-mixer</a> （由<a target="_blank" rel="noopener" href="https://github.com/sayakpaul">Sayak Paul</a> 外部贡献）。</p>
+<h3 id="预期的mixer结果"><a class="markdownIt-Anchor" href="#预期的mixer结果"></a> 预期的Mixer结果</h3>
+<p>我们在配备四个V100 GPU的谷歌云计算机上运行了微调代码，使用了本仓库的默认适应参数。以下是结果：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">上游源</th>
+<th style="text-align:left">模型</th>
+<th style="text-align:left">数据集</th>
+<th style="text-align:right">准确率</th>
+<th style="text-align:left">实际运行时间</th>
+<th style="text-align:left">链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ImageNet</td>
+<td style="text-align:left">Mixer-B/16</td>
+<td style="text-align:left">cifar10</td>
+<td style="text-align:right">96.72%</td>
+<td style="text-align:left">3.0小时</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/j9zCYt9yQVm93nqnsDZayA/">tensorboard.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ImageNet</td>
+<td style="text-align:left">Mixer-L/16</td>
+<td style="text-align:left">cifar10</td>
+<td style="text-align:right">96.59%</td>
+<td style="text-align:left">3.0小时</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/Q4feeErzRGGop5XzAvYj2g/">tensorboard.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ImageNet-21k</td>
+<td style="text-align:left">Mixer-B/16</td>
+<td style="text-align:left">cifar10</td>
+<td style="text-align:right">96.82%</td>
+<td style="text-align:left">9.6小时</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/mvP4McV2SEGFeIww20ie5Q/">tensorboard.dev</a></td>
+</tr>
+<tr>
+<td style="text-align:left">ImageNet-21k</td>
+<td style="text-align:left">Mixer-L/16</td>
+<td style="text-align:left">cifar10</td>
+<td style="text-align:right">98.34%</td>
+<td style="text-align:left">10.0小时</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://tensorboard.dev/experiment/dolAJyQYTYmudytjalF6Jg/">tensorboard.dev</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="lit模型"><a class="markdownIt-Anchor" href="#lit模型"></a> LiT模型</h2>
+<p>更多详情，请参阅谷歌AI博客文章<br />
+<a target="_blank" rel="noopener" href="http://ai.googleblog.com/2022/04/locked-image-tuning-adding-language.html">LiT: 向图像模型添加语言理解</a>，<br />
+或阅读CVPR论文“LiT: Zero-Shot Transfer with Locked-image text Tuning”<br />
+(<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2111.07991">https://arxiv.org/abs/2111.07991</a>)。</p>
+<p>我们发布了一个Transformer B/16基础模型，其ImageNet零次学习精度为72.1%，以及一个L/16大型模型，其ImageNet零次学习精度为75.7%。有关这些模型的更多详情，请参阅<br />
+<a href="model_cards/lit.md">LiT模型卡片</a>。</p>
+<p>我们提供了一个内置浏览器演示，带有小型文本编码器用于交互式使用（最小的模型甚至应该可以在现代手机上运行）：</p>
+<p><a target="_blank" rel="noopener" href="https://google-research.github.io/vision_transformer/lit/">https://google-research.github.io/vision_transformer/lit/</a></p>
+<p>最后是一个Colab，用于使用带有图像和文本编码器的JAX模型：</p>
+<p><a target="_blank" rel="noopener" href="https://colab.research.google.com/github/google-research/vision_transformer/blob/main/lit.ipynb">https://colab.research.google.com/github/google-research/vision_transformer/blob/main/lit.ipynb</a></p>
+<p>请注意，以上模型尚不支持多语言输入，但我们正在努力发布此类模型，并将在它们可用时更新此仓库。</p>
+<p>此仓库仅包含LiT模型的评估代码。您可以在<code>big_vision</code>仓库中找到训练代码：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/google-research/big_vision/tree/main/big_vision/configs/proj/image_text">https://github.com/google-research/big_vision/tree/main/big_vision/configs/proj/image_text</a></p>
+<p>从<a target="_blank" rel="noopener" href="https://github.com/google-research/vision_transformer/blob/main/model_cards/lit.md"><code>model_cards/lit.md</code></a>预期的零次学习结果（注意，零次学习评估与Colab中的简化评估略有不同）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">模型</th>
+<th style="text-align:right">B16B_2</th>
+<th style="text-align:right">L16L</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ImageNet零次学习</td>
+<td style="text-align:right">73.9%</td>
+<td style="text-align:right">75.7%</td>
+</tr>
+<tr>
+<td style="text-align:left">ImageNet v2零次学习</td>
+<td style="text-align:right">65.1%</td>
+<td style="text-align:right">66.6%</td>
+</tr>
+<tr>
+<td style="text-align:left">CIFAR100零次学习</td>
+<td style="text-align:right">79.0%</td>
+<td style="text-align:right">80.5%</td>
+</tr>
+<tr>
+<td style="text-align:left">Pets37零次学习</td>
+<td style="text-align:right">83.3%</td>
+<td style="text-align:right">83.3%</td>
+</tr>
+<tr>
+<td style="text-align:left">Resisc45零次学习</td>
+<td style="text-align:right">25.3%</td>
+<td style="text-align:right">25.6%</td>
+</tr>
+<tr>
+<td style="text-align:left">MS-COCO字幕图像到文本检索</td>
+<td style="text-align:right">51.6%</td>
+<td style="text-align:right">48.5%</td>
+</tr>
+<tr>
+<td style="text-align:left">MS-COCO字幕文本到图像检索</td>
+<td style="text-align:right">31.8%</td>
+<td style="text-align:right">31.1%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="在云上运行"><a class="markdownIt-Anchor" href="#在云上运行"></a> 在云上运行</h2>
+<p>虽然上面的<a href="#colab">Colab笔记本</a>对于开始使用非常有用，但你通常会想在更大、配备更强大加速器的机器上进行训练。</p>
+<h3 id="创建一个虚拟机"><a class="markdownIt-Anchor" href="#创建一个虚拟机"></a> 创建一个虚拟机</h3>
+<p>你可以使用以下命令在谷歌云上设置一个带有GPU的虚拟机：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置下面所有命令使用的变量。</span></span><br><span class="line"><span class="comment"># 注意项目必须设置了结算。</span></span><br><span class="line"><span class="comment"># 可以使用GPU的区域列表参见</span></span><br><span class="line"><span class="comment"># https://cloud.google.com/compute/docs/gpus/gpu-regions-zones</span></span><br><span class="line">PROJECT=my-awesome-gcp-project  <span class="comment"># 项目必须启用了结算。</span></span><br><span class="line">VM_NAME=vit-jax-vm-gpu</span><br><span class="line">ZONE=europe-west4-b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面的设置已经在本仓库测试过。你可以选择其他</span></span><br><span class="line"><span class="comment"># 镜像和机器的组合（例如），参见相应的gcloud命令：</span></span><br><span class="line"><span class="comment"># gcloud compute images list --project ml-images</span></span><br><span class="line"><span class="comment"># gcloud compute machine-types list</span></span><br><span class="line"><span class="comment"># 等等。</span></span><br><span class="line">gcloud compute instances create <span class="variable">$VM_NAME</span> \</span><br><span class="line">    --project=<span class="variable">$PROJECT</span> --zone=<span class="variable">$ZONE</span> \</span><br><span class="line">    --image=c1-deeplearning-tf-2-5-cu110-v20210527-debian-10 \</span><br><span class="line">    --image-project=ml-images --machine-type=n1-standard-96 \</span><br><span class="line">    --scopes=cloud-platform,storage-full --boot-disk-size=256GB \</span><br><span class="line">    --boot-disk-type=pd-ssd --metadata=install-nvidia-driver=True \</span><br><span class="line">    --maintenance-policy=TERMINATE \</span><br><span class="line">    --accelerator=<span class="built_in">type</span>=nvidia-tesla-v100,count=8</span><br><span class="line"></span><br><span class="line"><span class="comment"># 连接到虚拟机（需要一些时间来设置和启动机器）。</span></span><br><span class="line">gcloud compute ssh --project <span class="variable">$PROJECT</span> --zone <span class="variable">$ZONE</span> <span class="variable">$VM_NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用后停止虚拟机（停止的虚拟机只计费存储）。</span></span><br><span class="line">gcloud compute instances stop --project <span class="variable">$PROJECT</span> --zone <span class="variable">$ZONE</span> <span class="variable">$VM_NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用后删除虚拟机（这也会删除存储在虚拟机上的所有数据）。</span></span><br><span class="line">gcloud compute instances delete --project <span class="variable">$PROJECT</span> --zone <span class="variable">$ZONE</span> <span class="variable">$VM_NAME</span></span><br></pre></td></tr></table></figure>
+<p>另外，你可以使用以下类似的命令来设置一个带有TPU的云虚拟机（以下命令来自<a target="_blank" rel="noopener" href="https://cloud.google.com/tpu/docs/jax-quickstart-tpu-vm">TPU教程</a>）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">PROJECT=my-awesome-gcp-project  <span class="comment"># 项目必须启用了结算。</span></span><br><span class="line">VM_NAME=vit-jax-vm-tpu</span><br><span class="line">ZONE=europe-west4-a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最初需要设置服务身份。</span></span><br><span class="line">gcloud beta services identity create --service tpu.googleapis.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个直接连接TPU的虚拟机。</span></span><br><span class="line">gcloud alpha compute tpus tpu-vm create <span class="variable">$VM_NAME</span> \</span><br><span class="line">    --project=<span class="variable">$PROJECT</span> --zone=<span class="variable">$ZONE</span> \</span><br><span class="line">    --accelerator-type v3-8 \</span><br><span class="line">    --version tpu-vm-base</span><br><span class="line"></span><br><span class="line"><span class="comment"># 连接到虚拟机（需要一些时间来设置和启动机器）。</span></span><br><span class="line">gcloud alpha compute tpus tpu-vm ssh --project <span class="variable">$PROJECT</span> --zone <span class="variable">$ZONE</span> <span class="variable">$VM_NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用后停止虚拟机（停止的虚拟机只计费存储）。</span></span><br><span class="line">gcloud alpha compute tpus tpu-vm stop --project <span class="variable">$PROJECT</span> --zone <span class="variable">$ZONE</span> <span class="variable">$VM_NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用后删除虚拟机（这也会删除存储在虚拟机上的所有数据）。</span></span><br><span class="line">gcloud alpha compute tpus tpu-vm delete --project <span class="variable">$PROJECT</span> --zone <span class="variable">$ZONE</span> <span class="variable">$VM_NAME</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置虚拟机"><a class="markdownIt-Anchor" href="#设置虚拟机"></a> 设置虚拟机</h3>
+<p>然后获取仓库并安装依赖项（包括支持TPU的<code>jaxlib</code>）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 --branch=master https://github.com/google-research/vision_transformer</span><br><span class="line"><span class="built_in">cd</span> vision_transformer</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可选：安装virtualenv</span></span><br><span class="line">pip3 install virtualenv</span><br><span class="line">python3 -m virtualenv <span class="built_in">env</span></span><br><span class="line">. <span class="built_in">env</span>/bin/activate</span><br></pre></td></tr></table></figure>
+<p>如果你连接到一个附加了GPU的虚拟机，用以下命令安装JAX和其他依赖项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r vit_jax/requirements.txt</span><br></pre></td></tr></table></figure>
+<p>如果你连接到一个附加了TPU的虚拟机，用以下命令安装JAX和其他依赖项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r vit_jax/requirements-tpu.txt</span><br></pre></td></tr></table></figure>
+<p>安装<a target="_blank" rel="noopener" href="https://github.com/google/flaxformer">Flaxformer</a>，按照此处链接的相应仓库中提供的指示进行操作。</p>
+<p>对于GPU和TPU，检查JAX是否可以连接到附加的加速器，使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c <span class="string">&#x27;import jax; print(jax.devices())&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>最后执行“<a href="#fine-tuning-a-model">微调模型</a>”部分中提到的命令之一。</p>
+<h2 id="bibtex参考文献"><a class="markdownIt-Anchor" href="#bibtex参考文献"></a> Bibtex参考文献</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">@article&#123;dosovitskiy2020vit,</span><br><span class="line">  title=&#123;An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale&#125;,</span><br><span class="line">  author=&#123;Dosovitskiy, Alexey and Beyer, Lucas and Kolesnikov, Alexander and Weissenborn, Dirk and Zhai, Xiaohua and Unterthiner, Thomas and  Dehghani, Mostafa and Minderer, Matthias and Heigold, Georg and Gelly, Sylvain and Uszkoreit, Jakob and Houlsby, Neil&#125;,</span><br><span class="line">  journal=&#123;ICLR&#125;,</span><br><span class="line">  year=&#123;2021&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@article&#123;tolstikhin2021mixer,</span><br><span class="line">  title=&#123;MLP-Mixer: An all-MLP Architecture for Vision&#125;,</span><br><span class="line">  author=&#123;Tolstikhin, Ilya and Houlsby, Neil and Kolesnikov, Alexander and Beyer, Lucas and Zhai, Xiaohua and Unterthiner, Thomas and Yung, Jessica and Steiner, Andreas and Keysers, Daniel and Uszkoreit, Jakob and Lucic, Mario and Dosovitskiy, Alexey&#125;,</span><br><span class="line">  journal=&#123;arXiv preprint arXiv:2105.01601&#125;,</span><br><span class="line">  year=&#123;2021&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@article&#123;steiner2021augreg,</span><br><span class="line">  title=&#123;How to train your ViT? Data, Augmentation, and Regularization in Vision Transformers&#125;,</span><br><span class="line">  author=&#123;Steiner, Andreas and Kolesnikov, Alexander and and Zhai, Xiaohua and Wightman, Ross and Uszkoreit, Jakob and Beyer, Lucas&#125;,</span><br><span class="line">  journal=&#123;arXiv preprint arXiv:2106.10270&#125;,</span><br><span class="line">  year=&#123;2021&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@article&#123;chen2021outperform,</span><br><span class="line">  title=&#123;When Vision Transformers Outperform ResNets without Pretraining or Strong Data Augmentations&#125;,</span><br><span class="line">  author=&#123;Chen, Xiangning and Hsieh, Cho-Jui and Gong, Boqing&#125;,</span><br><span class="line">  journal=&#123;arXiv preprint arXiv:2106.01548&#125;,</span><br><span class="line">  year=&#123;2021&#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@article&#123;zhuang2022gsam,</span><br><span class="line">  title=&#123;Surrogate Gap Minimization Improves Sharpness-Aware Training&#125;,</span><br><span class="line">  author=&#123;Zhuang, Juntang and Gong, Boqing and Yuan, Liangzhe and Cui, Yin and Adam, Hartwig and Dvornek, Nicha and Tatikonda, Sekhar and Duncan, James and Liu, Ting&#125;,</span><br><span class="line">  journal=&#123;ICLR&#125;,</span><br><span class="line">  year=&#123;2022&#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@article&#123;zhai2022lit,</span><br><span class="line">  title=&#123;LiT: Zero-Shot Transfer with Locked-image Text Tuning&#125;,</span><br><span class="line">  author=&#123;Zhai, Xiaohua and Wang, Xiao and Mustafa, Basil and Steiner, Andreas and Keysers, Daniel and Kolesnikov, Alexander and Beyer, Lucas&#125;,</span><br><span class="line">  journal=&#123;CVPR&#125;,</span><br><span class="line">  year=&#123;2022&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="更新日志"><a class="markdownIt-Anchor" href="#更新日志"></a> 更新日志</h2>
+<p>按时间倒序排列：</p>
+<ul>
+<li>
+<p>2022-08-18：添加了训练60k步的LiT-B16B_2模型<br />
+（LiT_B16B：30k）没有线性头部在图像侧（LiT_B16B：768），性能更好。</p>
+</li>
+<li>
+<p>2022-06-09：添加了使用<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.08065">GSAM</a>在ImageNet上从头训练的ViT和Mixer模型，没有强大的数据增强。这些ViT在性能上超越了使用AdamW优化器或原始<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.01412">SAM</a>算法训练的类似大小的模型，或者使用强数据增强。</p>
+</li>
+<li>
+<p>2022-04-14：添加了<a href="#lit-models">LiT模型</a>和Colab。</p>
+</li>
+<li>
+<p>2021-07-29：添加了ViT-B/8 AugReg模型（3个上游检查点和分辨率=224的适应性训练）。</p>
+</li>
+<li>
+<p>2021-07-02：添加了“当视觉变压器超越ResNets…”论文。</p>
+</li>
+<li>
+<p>2021-07-02：添加了使用<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.01412">SAM</a><br />
+（锐度感知最小化）优化的ViT和MLP-Mixer检查点。</p>
+</li>
+<li>
+<p>2021-06-20：添加了“How to train your ViT? …”论文，以及一个新的Colab来探索论文中提到的50k以上的预训练和</p>
+</li>
+</ul>
+<p>微调检查点。</p>
+<ul>
+<li>
+<p>2021-06-18：这个仓库被重写，使用Flax Linen API和<br />
+<code>ml_collections.ConfigDict</code>进行配置。</p>
+</li>
+<li>
+<p>2021-05-19：随着“How to train your ViT? …”<br />
+论文的发表，我们添加了50k以上的在ImageNet和ImageNet-21k上预训练的ViT和混合模型，它们有不同程度的数据增强和模型正则化，并在ImageNet、Pets37、Kitti-distance、CIFAR-100和Resisc45上进行了微调。<br />
+查看<a target="_blank" rel="noopener" href="https://colab.research.google.com/github/google-research/vision_transformer/blob/main/vit_jax_augreg.ipynb"><code>vit_jax_augreg.ipynb</code></a>来浏览这个模型的宝库！<br />
+例如，你可以使用那个Colab来获取论文中表3的<code>i21k_300</code>列中推荐的预训练和微调检查点的文件名。</p>
+</li>
+<li>
+<p>2020-12-01：添加了R50+ViT-B/16混合模型（ViT-B/16<br />
+在Resnet-50骨干网络的顶部）。当在imagenet21k上预训练时，这个模型<br />
+几乎达到了L/16模型的性能，但微调计算成本不到一半。请注意，“R50”对于B/16变种有些许修改：原始的ResNet-50有[3,4,6,3]块，每个都将图像的分辨率减少两倍。结合ResNet的起始部分，即使是（1,1）的补丁大小，ViT-B/16变种也无法实现。因此，我们对R50+B/16变种使用了[3,4,9]块。</p>
+</li>
+<li>
+<p>2020-11-09：添加了ViT-L/16模型。</p>
+</li>
+<li>
+<p>2020-10-29：添加了在ImageNet-21k上预训练然后在224x224分辨率（而不是默认的384x384）的ImageNet上微调的ViT-B/16和ViT-L/16模型。这些模型在名称中有“-224”后缀。<br />
+它们预计分别达到81.2%和82.7%的top-1准确率。</p>
+</li>
+</ul>
+<h2 id="免责声明"><a class="markdownIt-Anchor" href="#免责声明"></a> 免责声明</h2>
+<p>开源发布由Andreas Steiner准备。</p>
+<p>注意：此仓库是从<a target="_blank" rel="noopener" href="https://github.com/google-research/big_transfer">google-research/big_transfer</a>分叉并修改而来的。</p>
+<p><strong>这不是一个官方的谷歌产品。</strong></p>
 
             
         </div>
         <footer class="article-footer">
-            <a data-url="https://abinzzz.github.io/2023/12/03/NNDL%E8%AF%BE%E8%AE%BE-ViT/" data-id="clpp2qfm00001zg6950kw4bi4" data-title="NNDL课设:ViT"
+            <a data-url="https://abinzzz.github.io/2023/12/03/NNDL%E8%AF%BE%E8%AE%BE-ViT/" data-id="clpp2qfm00001zg6950kw4bi4" data-title="NNDL课设:ViT-Readme"
                class="article-share-link">分享</a>
             
             
@@ -390,10 +922,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    404.5k
+                    409.4k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    25:29
+                    25:51
                 </div>
             
             
