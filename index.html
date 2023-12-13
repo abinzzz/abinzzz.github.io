@@ -227,10 +227,10 @@
             <div class="post-meta">
                 <a><span class="icon-calendar"></span>2023-12-12</a>
                 
-                    <a><span class="icon-pencil"></span>7 字</a>
+                    <a><span class="icon-pencil"></span>918 字</a>
                 
                 
-                    <a><span class="icon-clock"></span>1 分钟</a>
+                    <a><span class="icon-clock"></span>3 分钟</a>
                 
             </div>
             <h2 class="post-title">paper:The Devil in Linear Transformer</h2>
@@ -240,7 +240,18 @@
 
     MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
 
+ Abstract
+线性Transformer的目的：减少标准Transformer的二次空间-时间复杂度
+减少复杂度带来的隐患：通常在各种任务和语料库上性能下降
+产生隐患的原因：
 
+注意力计算中的无界梯度对线性Transformer模型的收敛产生负面影响；
+注意力稀释问题，即在长序列中平均分配注意力分数，而忽视邻近结构。
+
+
+解决隐患的方法：
+
+无界梯度：首先确定注意力矩阵的缩放是无界梯度中的关键，理论上和实证上显
                 
             </article>
         </div>
@@ -703,10 +714,10 @@ full
             
                 <div>
                     <span class="icon-brush"></span>
-                    425.1k
+                    426k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    27:10
+                    27:12
                 </div>
             
             

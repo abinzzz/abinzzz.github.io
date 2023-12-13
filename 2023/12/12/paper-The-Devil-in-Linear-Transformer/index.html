@@ -23,19 +23,21 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Abstract 线性Transformer的目的：减少标准Transformer的二次空间-时间复杂度 减少复杂度带来的隐患：通常在各种任务和语料库上性能下降 产生隐患的原因：  注意力计算中的无界梯度对线性Tran">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper:The Devil in Linear Transformer">
 <meta property="og:url" content="https://abinzzz.github.io/2023/12/12/paper-The-Devil-in-Linear-Transformer/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Abstract 线性Transformer的目的：减少标准Transformer的二次空间-时间复杂度 减少复杂度带来的隐患：通常在各种任务和语料库上性能下降 产生隐患的原因：  注意力计算中的无界梯度对线性Tran">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pbs.twimg.com/media/GBM2zqvWsAAzjBb?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2023-12-11T16:17:00.000Z">
-<meta property="article:modified_time" content="2023-12-11T16:17:34.536Z">
+<meta property="article:modified_time" content="2023-12-13T04:33:37.935Z">
 <meta property="article:author" content="野中晴">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="transformer">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/GBM2zqvWsAAzjBb?format=jpg&amp;name=medium">
     
         <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
     
@@ -198,6 +200,46 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
+<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
+<p><strong>线性Transformer的目的</strong>：减少标准Transformer的二次空间-时间复杂度</p>
+<p><strong>减少复杂度带来的隐患</strong>：通常在各种任务和语料库上性能下降</p>
+<p><strong>产生隐患的原因</strong>：</p>
+<ul>
+<li>注意力计算中的无界梯度对线性Transformer模型的收敛产生负面影响；</li>
+<li>注意力稀释问题，即在长序列中平均分配注意力分数，而忽视邻近结构。</li>
+</ul>
+<br>
+<p><strong>解决隐患的方法</strong>：</p>
+<ul>
+<li><strong>无界梯度</strong>：首先确定注意力矩阵的缩放是无界梯度中的关键，理论上和实证上显示线性注意力中这是不必要的。因此，提出了一种新的线性注意力，用归一化替代缩放操作以稳定梯度。</li>
+<li><strong>注意力稀释</strong>：利用对角线注意力在早期层只关注邻近标记</li>
+</ul>
+<br>
+<h2 id="intorduction"><a class="markdownIt-Anchor" href="#intorduction"></a> Intorduction</h2>
+<p><strong>无界梯度</strong>：大多数现有的线性变换器从标准变换器继承了注意力公式，这种公式通过缩放注意力分数使其保持在[0, 1]范围内。然而，这种缩放策略导致线性变换器模型出现无界梯度。无界梯度导致训练过程中的不稳定收敛。</p>
+<p><strong>注意力稀释</strong>：以往的研究表明，在标准变换器中，softmax注意力图倾向于局部化。相比之下，线性变换器倾向于在序列的整个长度上平均分配注意力分数，即使在早期层也是如此。这种注意力稀释导致重要的局部信息在线性模型中得不到良好的保留，从而影响性能。</p>
+<br>
+<h2 id="background-and-related-work"><a class="markdownIt-Anchor" href="#background-and-related-work"></a> Background and related work</h2>
+<p><strong>标准变换器与输入长度成二次方的空间时间复杂度的关键</strong>：Softmax(·) ，自注意力机制的计算涉及到一个 n×n 的矩阵，其中 n 是输入序列的长度。为了计算这个矩阵的每个元素，需要执行大约 n^2 次操作。</p>
+<br>
+<p>减少Transformer模型中注意力计算复杂度的方法：</p>
+<ul>
+<li><strong>基于模式的方法</strong>：这些方法通过使用手工制定或可学习的掩蔽模式来稀疏化注意力计算。例如，某些方法可能专注于输入序列的特定子集，而忽略其他部分。</li>
+<li><strong>基于核心的方法</strong>：这些方法使用核函数来分解 softmax 注意力，从而将理论上的空间时间复杂度降低到线性。在这些方法中，查询和键通过核函数 φ(·) 映射到它们的隐藏表示。然后线性注意力的输出可以重写为特定的数学表达式，通过计算键和值的乘积来避免计算 n×n 矩阵。不同的方法在核函数的设计上有所不同，例如有些方法采用激活函数处理查询和键，有些方法假设注意力矩阵是低秩的，还有些方法在理论约束下近似 softmax 函数。</li>
+</ul>
+<br>
+<h2 id="the-devil-in-linear-attention"><a class="markdownIt-Anchor" href="#the-devil-in-linear-attention"></a> The devil in linear attention</h2>
+<p>pass</p>
+<br>
+<h2 id="method"><a class="markdownIt-Anchor" href="#method"></a> Method</h2>
+<p>标准注意力在避免注意力稀释方面表现更好，而线性注意力在处理长序列时更高效和可扩展。这激发了他们设计一种方法，结合这两种机制的优点。</p>
+<p>具体来说，TRANSNORMER 包含两种类型的注意力：</p>
+<ul>
+<li>模型早期阶段的 DIAGATTENTION,解决注意力稀释问题</li>
+<li>后期阶段的 NORMATTENTION,旨在稳定训练梯度</li>
+</ul>
+<p>通过适当地重塑输入，对角线注意力可以在线性空间时间内高效计算，从而保持整体的线性复杂度。</p>
+<p><img src="https://pbs.twimg.com/media/GBM2zqvWsAAzjBb?format=jpg&amp;name=medium" alt="" /></p>
 
             
         </div>
@@ -375,10 +417,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    425.1k
+                    426k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    27:10
+                    27:12
                 </div>
             
             
