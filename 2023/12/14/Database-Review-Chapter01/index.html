@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/GBS31-1WMAAnGFL?format=png&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/GBTJfOSW8AAT8em?format=png&amp;name=900x900">
 <meta property="article:published_time" content="2023-12-14T06:46:13.000Z">
-<meta property="article:modified_time" content="2023-12-14T13:03:20.670Z">
+<meta property="article:modified_time" content="2023-12-14T15:53:49.053Z">
 <meta property="article:author" content="あまのひな">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="Database">
@@ -273,26 +273,26 @@
 <p><strong>数据库系统（Data Base System，DBS）</strong> 是实现有组织的、动态地存储大量关联数据、方便多用户访问的计算机软件、硬件和数据资源组成的系统，简化为：DBS=计算机系统（硬件、软件平台、人）+DBMS+DB</p>
 <hr />
 <p><strong>Database-system applications</strong>: 一种计算机程序，其主要目的是从计算机化的数据库中输入和检索信息。</p>
-<p><strong>Online transaction processing</strong>: “A large number of users use the database, with each user retrieving relatively small amounts of data, and performing small updates. This is the primary mode of use for the vast majority of users of database applications such as those that we outlined earlier.”</p>
-<p><strong>Data analytics</strong>: 对数据进行处理以得出结论，并推断规则或决策过程，然后将其用于驱动业务决策。</p>
-<p><strong>File-processing systems</strong>： 控制如何存储和检索数据</p>
-<p><strong>Data inconsistency</strong>: 当相似的数据以不同的格式保存在两个不同的文件中，或者文件之间必须进行数据匹配时，就会出现数据不一致的情况</p>
-<p><strong>Consistency constraints</strong>: 数据库系统中的一致性是指任何给定的数据库事务只能以允许的方式修改受影响的数据。根据所有定义的规则，写入数据库的任何数据都必须是有效的，这些规则包括约束、级联、触发器以及它们的任何组合</p>
-<p><strong>Data abstraction</strong>:数据抽象强制数据类型的抽象属性与其实现的具体细节之间的明确分离。</p>
+<p><strong>Online transaction processing</strong>: 这指的是管理面向事务应用程序的系统。OLTP系统旨在支持大量的短在线交易，如订单输入、金融交易和客户记录管理。<br />
+<strong>Data analytics</strong>: 对数据进行处理以得出结论，并推断规则或决策过程，然后将其用于驱动业务决策。</p>
+<p><strong>File-processing systems</strong>： 这些系统将永久记录存储在各种文件中，并需要不同的应用程序将记录提取并添加到适当的文件中。在文件处理系统中，由于文件结构的不同以及不同文件中信息的重复，会导致数据冗余和不一致</p>
+<p><strong>Data inconsistency</strong>: 当同一数据的不同副本不一致时，就会发生这种情况。例如，如果一个学生的地址发生了变化，更新反映在一个部门的记录中，但没有反映在另一个部门中，这将导致数据不一致</p>
+<p><strong>Consistency constraints</strong>: 这些规则确保数据库中数据的完整性。它们确保存储在数据库中的数据值满足某些类型的约束。例如，一致性约束可能要求部门帐户的余额永远不能低于零</p>
+<p><strong>Data abstraction</strong>:这个概念有助于向用户隐藏数据库系统中数据结构的复杂性，并简化他们与系统的交互</p>
 <ul>
-<li><strong>Physical level</strong>:最底层的抽象描述了数据实际上是如何存储的。物理层详细描述了复杂的底层数据结构</li>
-<li><strong>Logical level</strong>:下一个更高层次的抽象描述了数据库中存储了什么数据，以及这些数据之间存在什么关系。因此，逻辑层用少量相对简单的结构来描述整个数据库。</li>
-<li><strong>View level</strong>:最高级别的抽象只描述整个数据库的一部分。尽管逻辑层使用了更简单的结构，但由于大型数据库中存储的信息种类繁多，复杂性仍然存在。许多数据库系统的用户并不需要这些信息;相反，它们只需要访问数据库的一部分。视图抽象级别的存在是为了简化它们与系统的交互。系统可以为同一个数据库提供多个视图</li>
+<li><strong>Physical level</strong>:描述数据的实际存储方式，详细说明复杂的底层数据结构</li>
+<li><strong>Logical level</strong>:描述存储的数据，表示数据的类型及其关系，而不必担心它们的存储方式</li>
+<li><strong>View level</strong>:提供数据库的各种视图，每个视图针对不同的用户需求进行定制，允许用户仅访问数据库的一部分</li>
 </ul>
-<p><strong>Instance</strong>: 在特定时刻存储在数据库中的信息集合</p>
+<p><strong>Instance</strong>: 数据库上下文中的实例通常指数据库在某一时刻的特定状态</p>
 <p><strong>Schema</strong>: 数据库的总体设计</p>
 <ul>
 <li><strong>Physical schema</strong>: 物理模式描述了物理层上的数据库设计。物理模式是数据管理中的一个术语，用于描述如何使用特定的数据库管理系统(DBMS)在辅助存储中表示和存储数据(文件、索引)。</li>
 <li><strong>Logical schema</strong>:逻辑模式是独立于特定数据库管理产品或存储技术(物理数据模型)的特定问题领域的数据模型，但根据数据结构(如关系表和列、面向对象类或XML标记)表示</li>
-<li><strong>Subschema</strong>: 数据库在视图级别也可能有几个模式(有时称为子模式)，它们描述数据库的不同视图。</li>
+<li><strong>Subschema</strong>: 子模式是模式的子集，为某些用户或应用程序定义特定的视图或与数据库的交互机制</li>
 </ul>
-<p><strong>Physical data independence</strong>: 数据库在不改变逻辑模式的情况下改变物理模式的能力</p>
-<p>Data models</p>
+<p><strong>Physical data independence</strong>: 这个术语指的是在不改变逻辑模式的情况下改变物理模式的能力。它允许更改数据的存储方式，而不会影响数据的访问和管理方式。</p>
+<p><strong>Data models</strong>：</p>
 <ul>
 <li><strong>Entity-relationship model</strong>：该模型将数据表示为实体以及这些实体之间的关系。它广泛用于概念设计，其中实体表示现实世界的对象，关系表示这些对象如何相互作用。</li>
 <li><strong>Relational data model</strong>：该模型将数据组织成表(关系)，其中每个表由行(元组)和列(属性)组成。它以强大的数学基础而闻名，是SQL和大多数现代数据库的基础。</li>
@@ -301,53 +301,145 @@
 </ul>
 <p><strong>Database languages</strong></p>
 <ul>
-<li><strong>Data-definition language</strong>：DDL用于指定数据的数据库模式和其他属性。</li>
-<li><strong>Data-manipulation language</strong>：DML允许用户访问或操作存储在数据库中的数据。
+<li>
+<p><strong>Data-definition language</strong>：这用于指定数据库模式和定义数据的附加属性。DDL允许创建、修改和删除数据库结构，如表、索引和约束。</p>
+</li>
+<li>
+<p><strong>Data-manipulation language</strong>：DML用于表达数据库查询和更新。它包括允许用户从数据库插入、更新、删除和检索数据的命令</p>
 <ul>
-<li><strong>Procedural DML</strong>：要求用户指定需要哪些数据以及如何获取这些数据</li>
-<li><strong>Declarative DML</strong>：允许用户指定需要哪些数据，而无需详细说明如何获取数据</li>
-<li><strong>nonprocedural DML</strong></li>
+<li><strong>Procedural DML</strong>：指定需要哪些数据以及如何获取数据</li>
+<li><strong>Declarative DML</strong>：指定需要哪些数据，而不显式说明如何获取数据。</li>
+<li><strong>nonprocedural DML</strong>：结合了Procedural和Declarative的特性。</li>
 </ul>
 </li>
-<li><strong>Query language</strong>：一种专门用于查询数据库以检索特定数据的DML类型。它允许用户制定和运行查询来与数据库交互。<br />
-• Data-definition language<br />
-° Domain Constraints<br />
-° Referential Integrity<br />
-° Authorization<br />
-⋄ Read authorization<br />
-⋄ Insert authorization ⋄ Update authorization ⋄ Delete authorization<br />
-• Metadata<br />
-• Application program • Database design<br />
-° Conceptual design<br />
-° Normalization<br />
-Specification of functional requirements Physical-design phase</li>
+<li>
+<p><strong>Query language</strong>：它是DML的一个子集，专门为查询数据而设计。这允许用户通过指定标准从数据库检索特定信息</p>
+</li>
+<li>
+<p><strong>Data-definition language</strong></p>
+<ul>
+<li><strong>Domain Constraints</strong>：定义关于某个属性的允许值的规则</li>
+<li><strong>Referential Integrity</strong>：确保表之间的关系保持一致</li>
+<li><strong>Authorization</strong>：包括向用户授予不同操作的权限，如读取、插入、更新和删除
+<ul>
+<li>Read authorization</li>
+<li>Insert authorization</li>
+<li>Update authorization</li>
+<li>Delete authorization</li>
 </ul>
-<p>Database Engine<br />
-° Storage manager<br />
-⋄ Authorization and integrity manager<br />
-Transaction manager ⋄ File manager<br />
-⋄ Buffer manager<br />
-⋄ Data files<br />
-⋄ Data dictionary ⋄ Indices</p>
-<p>Query processor<br />
-⋄ DDL interpreter<br />
-⋄ DML compiler<br />
-⋄ Query optimization<br />
-⋄ Query evaluation engine<br />
-° Transactions ⋄ Atomicity<br />
-⋄ Consistency<br />
-⋄ Durability<br />
-⋄ Recovery manager<br />
-⋄ Failure recovery<br />
-⋄ Concurrency-control manager</p>
-<p>Database Architecture ° Centralized<br />
-° Parallel<br />
-° Distributed<br />
-• Database Application Architecture<br />
-° Two-tier<br />
-° Three-tier<br />
-° Application server</p>
-<p>Database administrator (DBA)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Metadata</strong>： 元数据是关于数据的数据。它描述了数据库中存储的数据的结构和性质，例如表的结构、列的类型和约束等<br />
+<strong>Application program</strong>：在数据库环境中，应用程序指的是用于访问和操作数据库中数据的软件程序</p>
+<p><strong>Database design</strong>：</p>
+<ul>
+<li><strong>Conceptual design</strong>： 设计数据库的高级结构，通常使用实体-关系模型来表示。</li>
+<li><strong>Normalization</strong>：确保数据库的设计避免冗余和依赖问题，通常通过将数据组织成多个相关的表来实现。</li>
+<li><strong>Specification of functional requirements</strong>：确定数据库需要支持的操作和功能。</li>
+<li><strong>Physical-design phase</strong>：在这个阶段，设计者确定数据库的物理存储结构，如文件的组织形式和索引结构。</li>
+</ul>
+<p><strong>Database Engine</strong>：负责存储、查询、更新和管理数据库数据的核心服务和组件</p>
+<ul>
+<li>
+<p><strong>Storage manager</strong>：负责数据库数据的存储和检索</p>
+<ul>
+<li><strong>Authorization and integrity manager</strong>：负责维护数据的安全性和完整性。</li>
+<li><strong>Transaction manager</strong>：监督数据库事务的执行，确保原子性、一致性、持久性，并管理并发和恢复</li>
+<li><strong>File manager</strong>：管理磁盘存储空间的分配以及用于表示存储在磁盘上的信息的数据结构</li>
+<li><strong>Buffer manager</strong>：负责从磁盘存储器中取出数据到主存，并将数据写回磁盘。它管理内存缓冲区并优化数据检索和存储过程</li>
+<li><strong>Data files</strong>：这些是存储数据库数据的磁盘上的实际文件。文件管理器通常处理这些文件</li>
+<li><strong>Data dictionary</strong>：关于数据库数据的信息存储库，包括模式定义、数据类型和约束。数据库管理系统使用它来保证数据的完整性和一致性</li>
+<li><strong>Indices</strong>：提高数据库上数据检索操作速度的数据结构，但代价是额外的写操作和维护它们所需的存储空间</li>
+</ul>
+</li>
+<li>
+<p><strong>Query processor</strong>：由几个组件组成，包括DDL解释器、DML编译器、查询优化器和查询求值引擎。它将用户查询和数据操作命令转换为用于数据检索和修改的低级指令</p>
+<ul>
+<li><strong>DDL interpreter</strong>：解释数据定义语言语句并在数据字典中记录定义</li>
+<li><strong>DML compiler</strong>：将数据操作语言语句转换为由查询求值引擎可以理解的低级指令组成的求值计划</li>
+<li><strong>Query optimization</strong>：涉及选择执行给定查询的最有效方法，通常由DML编译器完成</li>
+<li><strong>Query evaluation engine</strong>：执行由DML编译生成的低级指令</li>
+</ul>
+</li>
+<li>
+<p><strong>Transactions</strong>：作为单个逻辑工作单元执行的操作序列，确保原子性(全执行或全不执行)、一致性(数据完整性)和持久性(更改的持久性)</p>
+<ul>
+<li><strong>Atomicity</strong>：确保事务要么全有，要么全无</li>
+<li><strong>Consistency</strong>：确保事务将数据库从一种有效状态转换为另一种有效状态</li>
+<li><strong>Durability</strong>：确保事务的结果被永久存储</li>
+<li><strong>Recovery manager</strong>：管理在发生故障后将数据库恢复到一致状态，从而确保持久性和原子性</li>
+<li><strong>Failure recovery</strong>：在发生故障后恢复数据库的过程，通常由恢复管理器处理</li>
+<li><strong>Concurrency-control manager</strong>：管理多个事务对数据库的并发访问，确保数据的一致性和完整性</li>
+</ul>
+</li>
+</ul>
+<p><strong>Database Architecture</strong>：指数据库系统的结构</p>
+<ul>
+<li><strong>Centralized</strong>：在单个服务器上</li>
+<li><strong>Parallel</strong>：多个cpu一起工作</li>
+<li><strong>Distributed</strong>：数据分布在多个地理上独立的站点上</li>
+</ul>
+<p><strong>Database Application Architecture</strong>：应用程序使用数据库的设计</p>
+<ul>
+<li>
+<p><strong>Two-tier</strong>：客户端和服务器</p>
+</li>
+<li>
+<p><strong>Three-tier</strong>：客户端、应用服务器和数据库服务器</p>
+</li>
+<li>
+<p><strong>Application server</strong>：</p>
+</li>
+</ul>
+<p><strong>Database administrator (DBA)</strong>：负责管理数据库的人员，包括模式定义、存储结构、修改、访问授权和日常维护</p>
+<br>
+<h2 id="practice-exercises"><a class="markdownIt-Anchor" href="#practice-exercises"></a> Practice Exercises</h2>
+<h3 id="11-本章描述了数据库系统的几个主要优点-两个缺点是什么"><a class="markdownIt-Anchor" href="#11-本章描述了数据库系统的几个主要优点-两个缺点是什么"></a> 1.1 本章描述了数据库系统的几个主要优点。两个缺点是什么?</h3>
+<p>下面列出了与数据库系统相关的两个缺点:</p>
+<ul>
+<li>建立数据库系统需要更多的知识、金钱、技能等。<br />
+时间。</li>
+<li>数据库的复杂性可能会导致性能低下。</li>
+</ul>
+<br>
+<h3 id="12-列出java或c等语言的类型声明系统与数据库中使用的数据定义语言的五种不同之处"><a class="markdownIt-Anchor" href="#12-列出java或c等语言的类型声明系统与数据库中使用的数据定义语言的五种不同之处"></a> 1.2 列出Java或C等语言的类型声明系统与数据库中使用的数据定义语言的五种不同之处。</h3>
+<ul>
+<li>执行数据库DDL(数据定义语言)语句会在数据库中创建一个对象,而编程语言中的类型声明只是在程序中使用的一种抽象。</li>
+</ul>
+<hr />
+<p>数据库中的DDL(Data Definition Language,数据定义语言)主要包括创建、修改、删除数据库对象的语句,比如CREATE TABLE、ALTER TABLE、DROP TABLE等。</p>
+<p>执行DDL语句比如CREATE TABLE,会真正在数据库中创建一个表对象,这个表有具体的物理存储,可以在表中插入数据。</p>
+<p>而在编程语言如Java或C中,类型声明如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">  <span class="type">int</span> id;</span><br><span class="line">  String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样的类型声明只是在程序中创建了一个抽象的Student类,仅仅用于表示学生这一概念,并没有实际创建或者存储学生对象的内存或磁盘空间。它仅仅是为了程序逻辑使用的一种抽象。</p>
+<hr />
+<ul>
+<li>数据库DDL支持指定一致性约束,比如域约束、参照完整性约束等,而编程语言的类型系统一般不允许指定这些。</li>
+<li>数据库DDL支持权限控制,可以给不同的用户不同的访问权限。编程语言的类型系统不提供这样的保护机制。</li>
+<li>编程语言的类型系统通常比数据库系统支持的类型要丰富得多。大多数数据库只支持基本类型比如数字、字符串,尽管一些数据库也支持数组、对象等复杂类型。</li>
+<li>数据库DDL更专注于指定关系的属性类型;而编程语言允许创建对象和对象的集合。</li>
+</ul>
+<h3 id="13-列出为特定企业设置数据库时需要执行的六个主要步骤"><a class="markdownIt-Anchor" href="#13-列出为特定企业设置数据库时需要执行的六个主要步骤"></a> 1.3 列出为特定企业设置数据库时需要执行的六个主要步骤。</h3>
+<ul>
+<li>定义企业的高级需求(此步骤生成称为系统需求规范的文档)</li>
+<li>定义一个包含所有适当类型的数据和数据关系的模型</li>
+<li>定义数据上的完整性约束</li>
+<li>定义physical level.</li>
+<li>对于每个需要定期解决的已知问题(例如，由职员或网络用户执行的任务)，定义一个用户界面来执行该任务，并编写必要的应用程序来实现该用户界面。</li>
+<li>创建/初始化数据库</li>
+</ul>
+<h3 id="14-假设你想构建一个类似youtube的视频网站-将12节列出的每一点都视为在文件处理系统中保存数据的缺点-讨论每个点与实际视频数据存储的相关性以及与视频相关的元数据如标题-上传用户-标签和哪些用户观看了视频的相关性"><a class="markdownIt-Anchor" href="#14-假设你想构建一个类似youtube的视频网站-将12节列出的每一点都视为在文件处理系统中保存数据的缺点-讨论每个点与实际视频数据存储的相关性以及与视频相关的元数据如标题-上传用户-标签和哪些用户观看了视频的相关性"></a> 1.4 假设你想构建一个类似YouTube的视频网站。将1.2节列出的每一点都视为在文件处理系统中保存数据的缺点。讨论每个点与实际视频数据存储的相关性，以及与视频相关的元数据(如标题、上传用户、标签和哪些用户观看了视频)的相关性。</h3>
+<p><strong>数据冗余和不一致</strong>。这在某种程度上与元数据相关，尽管与未更新的实际视频数据无关。这里很少有关系，它们都不会导致冗余。</p>
+<p><strong>访问数据困难</strong>。如果视频数据只能通过几个预定义的接口访问，就像现在的视频共享网站那样，这将不是问题。然而，如果一个组织需要根据特定的搜索条件(而不是简单的关键字查询)找到视频数据，如果元数据存储在文件中，那么在不编写应用程序的情况下很难找到相关数据。使用数据库对于查找数据的任务很重要。</p>
+<p><strong>数据隔离</strong>。由于数据通常不会更新，而是新创建的，因此数据隔离不是一个主要问题。即使是跟踪谁观看了什么视频的任务(概念上)也只是追加，再次使隔离不是一个主要问题。但是，如果添加授权，可能会出现授权信息并发更新的问题。</p>
+<p><strong>完整性问题</strong>。除了主键之外，这个应用程序似乎不太可能有什么重要的完整性约束。如果数据是分布式的，在强制主键约束时可能会出现问题。完整性问题可能不是一个大问题。</p>
+<p><strong>原子性问题</strong>。在视频上传时，关于视频和视频的元数据应该以原子方式添加，否则会出现数据不一致的情况。需要底层的恢复机制来确保发生故障时的原子性。</p>
+<p><strong>并发访问异常</strong>。由于数据不会更新，因此不太可能发生并发访问异常。</p>
+<p><strong>安全问题</strong>。如果系统支持授权，这将是一个问题</p>
+<h3 id="15-web搜索中的关键字查询与数据库查询有很大的不同-列出两者之间的关键区别包括指定查询的方式和查询的结果"><a class="markdownIt-Anchor" href="#15-web搜索中的关键字查询与数据库查询有很大的不同-列出两者之间的关键区别包括指定查询的方式和查询的结果"></a> 1.5 web搜索中的关键字查询与数据库查询有很大的不同。列出两者之间的关键区别，包括指定查询的方式和查询的结果</h3>
+<p>在web上使用的查询是通过提供一个没有特定语法的关键字列表来指定的。结果通常是一个有序的url列表，以及关于url内容的信息片段。相比之下，数据库查询有特定的语法，允许指定复杂的查询。在关系世界中，查询的结果总是一张表。</p>
 
             
         </div>
@@ -525,10 +617,10 @@ Transaction manager ⋄ File manager<br />
             
                 <div>
                     <span class="icon-brush"></span>
-                    428.2k
+                    430.6k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    27:22
+                    27:30
                 </div>
             
             
