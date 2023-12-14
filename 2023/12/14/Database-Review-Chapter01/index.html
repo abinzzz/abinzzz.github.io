@@ -23,17 +23,17 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    数据库系统和文件系统的区别左边是数据库系统，dbms作为单独一部分被提了出来，右边是文件系统   C&#x2F;S 和 B&#x2F;S的区别B&#x2F;S也是C&#x2F;S   Summary A database-management system">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   数据库系统和文件系统的区别 左边是数据库系统，dbms作为单独一部分被提了出来，右边是文件系统    C&#x2F;S 和 B&#x2F;S的区别 B&#x2F;S也是C&#x2F;S    Summary   A database-management s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Database:Review-Chapter01">
 <meta property="og:url" content="https://abinzzz.github.io/2023/12/14/Database-Review-Chapter01/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    数据库系统和文件系统的区别左边是数据库系统，dbms作为单独一部分被提了出来，右边是文件系统   C&#x2F;S 和 B&#x2F;S的区别B&#x2F;S也是C&#x2F;S   Summary A database-management system">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   数据库系统和文件系统的区别 左边是数据库系统，dbms作为单独一部分被提了出来，右边是文件系统    C&#x2F;S 和 B&#x2F;S的区别 B&#x2F;S也是C&#x2F;S    Summary   A database-management s">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GBS31-1WMAAnGFL?format=png&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/GBTJfOSW8AAT8em?format=png&amp;name=900x900">
 <meta property="article:published_time" content="2023-12-14T06:46:13.000Z">
-<meta property="article:modified_time" content="2023-12-14T10:00:30.199Z">
+<meta property="article:modified_time" content="2023-12-14T10:24:41.540Z">
 <meta property="article:author" content="あまのひな">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="Database">
@@ -203,26 +203,75 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-
-
-<h2 id="数据库系统和文件系统的区别"><a href="#数据库系统和文件系统的区别" class="headerlink" title="数据库系统和文件系统的区别"></a>数据库系统和文件系统的区别</h2><p>左边是数据库系统，dbms作为单独一部分被提了出来，右边是文件系统</p>
-<p><img src="https://pbs.twimg.com/media/GBS31-1WMAAnGFL?format=png&amp;name=900x900" alt=""></p>
-<p><br></p>
-<h2 id="C-S-和-B-S的区别"><a href="#C-S-和-B-S的区别" class="headerlink" title="C/S 和 B/S的区别"></a>C/S 和 B/S的区别</h2><p>B/S也是C/S</p>
-<p><img src="https://pbs.twimg.com/media/GBTJfOSW8AAT8em?format=png&amp;name=900x900" alt=""></p>
-<p><br></p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li>A database-management system (DBMS) consists of a collection of interrelated data and a collection of programs to access those data. The data describe one particular enterprise.</li>
-</ul>
+<h2 id="数据库系统和文件系统的区别"><a class="markdownIt-Anchor" href="#数据库系统和文件系统的区别"></a> 数据库系统和文件系统的区别</h2>
+<p>左边是数据库系统，dbms作为单独一部分被提了出来，右边是文件系统</p>
+<p><img src="https://pbs.twimg.com/media/GBS31-1WMAAnGFL?format=png&amp;name=900x900" alt="" /></p>
+<br>
+<h2 id="cs-和-bs的区别"><a class="markdownIt-Anchor" href="#cs-和-bs的区别"></a> C/S 和 B/S的区别</h2>
+<p>B/S也是C/S</p>
+<p><img src="https://pbs.twimg.com/media/GBTJfOSW8AAT8em?format=png&amp;name=900x900" alt="" /></p>
+<br>
+<h2 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h2>
 <ul>
-<li>The primary goal of a DBMS is to provide an environment that is both convenient and efficient for people to use in <strong>retrieving</strong> and storing information.</li>
-</ul>
+<li>
+<p>A database-management system (DBMS) consists of a collection of interrelated data and a collection of programs to access those data. The data describe one particular enterprise.</p>
+</li>
+<li>
+<p>The primary goal of a DBMS is to provide an environment that is both convenient and efficient for people to use in <strong>retrieving</strong> and storing information.</p>
+</li>
+<li>
+<p>Database systems are <strong>ubiquitous</strong> today, and most people interact, either directly or indirectly, with databases many times every day.</p>
+</li>
+<li>
+<p>Database systems are designed to store large bodies of information. The management of data involves both the definition of structures for the storage of information and the <strong>provision</strong> of mechanisms for the manipulation of information. In addition, the database system must provide for the safety of the information stored in the face of system crashes or attempts at unauthorized access. If data are to be shared among several users, the system must avoid possible <strong>anomalous</strong> results.</p>
+</li>
+<li>
+<p>A major <strong>purpose of a database system</strong> is to provide users with an abstract view of the data. That is, the system hides certain details of how the data are stored and maintained.</p>
+</li>
+<li>
+<p><strong>Underlying the structure of a database is the data model</strong> : a collection of conceptual tools for describing data, data relationships, data semantics, and data constraints.</p>
+</li>
+<li>
+<p>The relational data model is the most widely deployed model for storing data in databases. Other data models are the object-oriented model, the object-relational model, and semi-structured data models.</p>
+</li>
+<li>
+<p>A data-manipulation language(DML)is a language that enables users to accessor manipulate data. Nonprocedural DMLs, which require a user to specify only what data are needed, without specifying exactly how to get those data, are widely used today.</p>
+</li>
+<li>
+<p>A data-definition language(DDL)is a language for specifying the database schema and other properties of the data.</p>
+</li>
+<li>
+<p>Database design mainly involves the design of the database schema. The entity- relationship (E-R) data model is a widely used model for database design. It provides a convenient graphical representation to view data, relationships, and con- straints.</p>
+</li>
+<li>
+<p>A database system has several subsystems.</p>
 <ul>
-<li><p>Database systems are <strong>ubiquitous</strong> today, and most people interact, either directly or indirectly, with databases many times every day.</p>
+<li>The storage manager subsystem provides the interface between the low-level data stored in the database and the application programs and queries submitted to the system.</li>
+<li>The query processor subsystem compiles and executes DDL and DML statements.</li>
+</ul>
 </li>
-<li><p>Database systems are designed to store large bodies of information. The management of data involves both the definition of structures for the storage of information and the <strong>provision</strong> of mechanisms for the manipulation of information. In addition, the database system must provide for the safety of the information stored in the face of system crashes or attempts at unauthorized access. If data are to be shared among several users, the system must avoid possible anomalous results.<br>• A major purpose of a database system is to provide users with an abstract view of the data. That is, the system hides certain details of how the data are stored and maintained.<br>• Underlyingthestructureofadatabaseisthedatamodel:acollectionofconceptual tools for describing data, data relationships, data semantics, and data constraints.<br>• The relational data model is the most widely deployed model for storing data in databases. Other data models are the object-oriented model, the object-relational model, and semi-structured data models.<br>• Adata-manipulationlanguage(DML)isalanguagethatenablesuserstoaccessor manipulate data. Nonprocedural DMLs, which require a user to specify only what data are needed, without specifying exactly how to get those data, are widely used today.<br>• Adata-definitionlanguage(DDL)isalanguageforspecifyingthedatabaseschema and other properties of the data.<br>• Database design mainly involves the design of the database schema. The entity- relationship (E-R) data model is a widely used model for database design. It pro- vides a convenient graphical representation to view data, relationships, and con- straints.<br>• A database system has several subsystems.<br>° The storage manager subsystem provides the interface between the low-level data stored in the database and the application programs and queries submitted to the system.</p>
+<li>
+<p>Transaction management ensures that the database remains in a consistent (cor- rect) state despite system failures. The transaction manager ensures that concur- rent transaction executions proceed without conflicts.</p>
+</li>
+<li>
+<p>The architecture of a database system is greatly influenced by the underlying computer system on which the database system runs. Database systems can be centralized, or parallel, involving multiple machines. Distributed databases span multiple geographically separated machines.</p>
+</li>
+<li>
+<p>Database applications are typically broken up into a front-end part that runs at client machines and a part that runs at the backend. In two-tier architectures, the front end directly communicates with a database running at the back end. In three- tier architectures, the back end part is itself broken up into an application server and a database server.</p>
+</li>
+<li>
+<p>There are four different types of database-system users, differentiated by the way they expect to interact with the system. Different types of user interfaces have been designed for the different types of users.</p>
 </li>
 </ul>
+<br>
+<h2 id="review-terms"><a class="markdownIt-Anchor" href="#review-terms"></a> Review Terms</h2>
+<p>Database-management system (DBMS)<br />
+• Database-system applications<br />
+• Online transaction processing<br />
+• Data analytics<br />
+• File-processing systems<br />
+• Data inconsistency<br />
+• Consistency constraints</p>
 
             
         </div>
@@ -280,7 +329,7 @@
         <div class="sidebar-author">
             <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="あまのひな" class="lazyload">
             <div class="sidebar-author-name">あまのひな</div>
-            <div class="sidebar-description">Love is selfish.</div>
+            <div class="sidebar-description"></div>
         </div>
         <div class="sidebar-state">
             <div class="sidebar-state-article">
@@ -386,10 +435,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    426.4k
+                    426.6k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    27:14
+                    27:15
                 </div>
             
             
@@ -411,7 +460,7 @@
         <div class="sidebar-author">
             <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="あまのひな" class="lazyload">
             <div class="sidebar-author-name">あまのひな</div>
-            <div class="sidebar-description">Love is selfish.</div>
+            <div class="sidebar-description"></div>
         </div>
         <div class="sidebar-state">
             <div class="sidebar-state-article">
