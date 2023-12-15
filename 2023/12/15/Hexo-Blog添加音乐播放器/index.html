@@ -24,16 +24,16 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   1.简介本篇文章是介绍基于网易云iframe插件在hexo博客中加装音乐播放器的方法，无需安装任何额外插件。  2.安装步骤在网易云音乐中打开你想要插入的音乐页面，点击 生成外联播放器  在网页中调整好播放器插件后，复">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   1.简介 本篇文章是介绍基于网易云iframe插件在hexo博客中加装音乐播放器的方法，无需安装任何额外插件。   2.安装步骤 在网易云音乐中打开你想要插入的音乐页面，点击 生成外联播放器   在网页中调整好播放器插">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo Blog添加音乐播放器">
 <meta property="og:url" content="https://abinzzz.github.io/2023/12/15/Hexo-Blog%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   1.简介本篇文章是介绍基于网易云iframe插件在hexo博客中加装音乐播放器的方法，无需安装任何额外插件。  2.安装步骤在网易云音乐中打开你想要插入的音乐页面，点击 生成外联播放器  在网页中调整好播放器插件后，复">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   1.简介 本篇文章是介绍基于网易云iframe插件在hexo博客中加装音乐播放器的方法，无需安装任何额外插件。   2.安装步骤 在网易云音乐中打开你想要插入的音乐页面，点击 生成外联播放器   在网页中调整好播放器插">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GBXlhr2WEAAK-jn?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2023-12-15T06:09:04.000Z">
-<meta property="article:modified_time" content="2023-12-15T06:25:26.884Z">
+<meta property="article:modified_time" content="2023-12-15T06:36:58.886Z">
 <meta property="article:author" content="あまのひな">
 <meta property="article:tag" content="tool">
 <meta property="article:tag" content="hexo">
@@ -203,14 +203,22 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-
-<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>本篇文章是介绍基于网易云iframe插件在hexo博客中加装音乐播放器的方法，无需安装任何额外插件。</p>
-<p><br></p>
-<h2 id="2-安装步骤"><a href="#2-安装步骤" class="headerlink" title="2.安装步骤"></a>2.安装步骤</h2><p>在网易云音乐中打开你想要插入的音乐页面，点击 生成外联播放器<br><img src="https://pbs.twimg.com/media/GBXlhr2WEAAK-jn?format=jpg&amp;name=medium" alt=""></p>
-<p><br></p>
-<p>在网页中调整好播放器插件后，复制下方的HTML代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">&quot;//music.163.com/outchain/player?type=2&amp;id=1987781683&amp;auto=1&amp;height=66&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>打开本地架设hexo博客的文件夹，寻找正在使用主题文件夹下的layout文件夹,如果你想要放在页脚位置，就寻找以下路径：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/chenyubin/Desktop/no_emo/blog2/themes/reimu/layout/_partial/footer.ejs</span><br></pre></td></tr></table></figure></p>
+<h2 id="1简介"><a class="markdownIt-Anchor" href="#1简介"></a> 1.简介</h2>
+<p>本篇文章是介绍基于网易云iframe插件在hexo博客中加装音乐播放器的方法，无需安装任何额外插件。</p>
+<br>
+<h2 id="2安装步骤"><a class="markdownIt-Anchor" href="#2安装步骤"></a> 2.安装步骤</h2>
+<p>在网易云音乐中打开你想要插入的音乐页面，点击 生成外联播放器<br />
+<img src="https://pbs.twimg.com/media/GBXlhr2WEAAK-jn?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p>在网页中调整好播放器插件后，复制下方的HTML代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">&quot;//music.163.com/outchain/player?type=2&amp;id=1987781683&amp;auto=1&amp;height=66&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr />
+<p>可以将上面的歌单id放入下面的内容中，以获得更加详细的设置</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--网易云音乐插件--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- require APlayer --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- require MetingJS--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line"><span class="comment">&lt;!--网易云playlist外链地址--&gt;</span>   </span><br><span class="line"><span class="tag">&lt;<span class="name">meting-js</span></span></span><br><span class="line"><span class="tag">    <span class="attr">server</span>=<span class="string">&quot;netease&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">&quot;playlist&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">id</span>=<span class="string">&quot;110119120&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">mini</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">fixed</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">list-folded</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">autoplay</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">volume</span>=<span class="string">&quot;0.4&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">theme</span>=<span class="string">&quot;#FADFA3&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">order</span>=<span class="string">&quot;list&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">loop</span>=<span class="string">&quot;all&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">preload</span>=<span class="string">&quot;auto&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">mutex</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">meting-js</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr />
+<br>
+<p>打开本地架设hexo博客的文件夹，寻找正在使用主题文件夹下的layout文件夹,如果你想要放在页脚位置，就寻找以下路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/chenyubin/Desktop/no_emo/blog2/themes/reimu/layout/_partial/footer.ejs</span><br></pre></td></tr></table></figure>
 
             
         </div>
@@ -320,26 +328,8 @@
         </div>
     </div>
     
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-<!-- require MetingJS-->
-<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
-<!--网易云playlist外链地址-->   
-<meting-js
-    server="netease"
-    type="playlist" 
-    id="1987781683"
-    mini="false"
-    fixed="false"
-    list-folded="true"
-    autoplay="false"
-    volume="0.4"
-    theme="#FADFA3"
-    order="list"
-    loop="all"
-    preload="auto"
-    mutex="true">
-</meting-js>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1987781683&auto=1&height=66"></iframe>
+
 
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">分类</h3>
@@ -397,7 +387,7 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    433.9k
+                    434.1k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     27:42
