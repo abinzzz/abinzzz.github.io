@@ -5,7 +5,8 @@
           
     >
     <head>
-    
+    <!--pjax：防止跳转页面音乐暂停-->
+    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
     <meta charset="utf-8">
     
 
@@ -359,8 +360,26 @@
         </div>
     </div>
     
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1987781683&auto=1&height=66"></iframe>
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<!-- require MetingJS-->
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+<!--网易云playlist外链地址-->   
+<meting-js
+    server="netease"
+    type="playlist" 
+    id="1987781683"
+    mini="false"
+    fixed="false"
+    list-folded="true"
+    autoplay="false"
+    volume="0.4"
+    theme="#FADFA3"
+    order="list"
+    loop="all"
+    preload="auto"
+    mutex="true">
+</meting-js>
 
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">分类</h3>
@@ -421,7 +440,7 @@
                     434.1k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    27:42
+                    27:43
                 </div>
             
             
