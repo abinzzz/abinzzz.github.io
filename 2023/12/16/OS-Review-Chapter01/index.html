@@ -33,8 +33,10 @@
 <meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   习题练习11234501，操作系统是对 ( ) 进行管理的软件A. 软件B.硬件C.计算机资源D.应用程序 操作系统同时管理软件和硬件，所以应该选c，c包含了软件和硬件，还有文件  习题练习212345系统调用是由操作">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GBd8pmVWsAAgjgF?format=png&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GBeKj-iWgAARvzD?format=png&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GBeNBeZWsAAL2F3?format=png&amp;name=medium">
 <meta property="article:published_time" content="2023-12-16T11:22:21.000Z">
-<meta property="article:modified_time" content="2023-12-16T12:06:05.981Z">
+<meta property="article:modified_time" content="2023-12-16T13:12:30.662Z">
 <meta property="article:author" content="あまのひな">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="chapter01">
@@ -245,6 +247,27 @@
 </ol>
 <hr>
 <p><br></p>
+<h2 id="习题练习5"><a href="#习题练习5" class="headerlink" title="习题练习5"></a>习题练习5</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2、与单道程序系统相比，多道程序系统的优点是（ ） </span><br><span class="line">Ⅰ．CPU利用率高</span><br><span class="line">Ⅱ．系统开销小</span><br><span class="line">Ⅲ．系统吞吐量大</span><br><span class="line">Ⅳ．I/O设备利用率高</span><br><span class="line">A．仅Ⅰ、Ⅲ     B．仅Ⅰ、Ⅳ    C．仅Ⅱ、Ⅲ     D．仅Ⅰ、Ⅲ、Ⅳ</span><br></pre></td></tr></table></figure>
+<p>答案:D<br>多道程序设计的主要优点有:<br>(1)提高CPU的利用率。在多道程序环境下，多个程序共享计算机资源，当某个程序等待I/O操作时，CPU可以执行其它程序，大大提高了CPU的利用率.<br>(2)提高设备的利用率。在多道程序环境下，多个程序共享系统的设备，大大提高了系统设备的利用率。<br>(3)提高系统的吞吐量。在多道程序环境下，减少了程序的等待时间，提高了系统的吞吐量。  </p>
+<p><br></p>
+<h2 id="习题练习6"><a href="#习题练习6" class="headerlink" title="习题练习6"></a>习题练习6</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、下列关于多任务操作系统的叙述中，正确的是____。</span><br><span class="line"> Ⅰ．具有并发和并行的特点 </span><br><span class="line"> Ⅱ．需要实现对共享资源的保护 </span><br><span class="line"> Ⅲ. 需要运行在多CPU的硬件平台上 </span><br><span class="line"> A. 仅Ⅰ  </span><br><span class="line"> B. 仅Ⅱ  </span><br><span class="line"> C. 仅Ⅰ、Ⅱ  </span><br><span class="line"> D. Ⅰ、Ⅱ、Ⅲ</span><br></pre></td></tr></table></figure>
+<p>答案:C<br>多CPU并非是多任务操作系统的必备硬件，单CPU也可运行多任务。<br>并行：指在同一时刻，有多条指令在多个处理器上同时执行。所以无论从微观还是从宏观来看，二者都是一起执行的。<br>并发：指在同一时刻只能有一条指令执行，但多个进程指令被快速的轮换执行，使得在宏观上具有多个进程同时执行的效果，但在微观上并不是同时执行的，只是把时间分成若干段，使多个进程快速交替的执行</p>
+<p><br></p>
+<h2 id="习题练习7"><a href="#习题练习7" class="headerlink" title="习题练习7"></a>习题练习7</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">说明库函数与系统调用的区别和联系。</span><br></pre></td></tr></table></figure>
+<p>库函数是语言或应用程序的一部分，可以运行在用户空间中。而系统调用是操作系统的一部 分，是内核为用户提供的程序接又，运行在内核空间中，而且许多库函数都会使用系统调用来实 现功能。未使用系统调用的库函数，其执行效率通常要比系统调用的高。因为使用系统调用时， 需 要 上 下 文 的 切 换 及 状 态 的 转 换 (由 用 户 态 转 向 核 心 态 )。</p>
+<p><br></p>
+<h2 id="习题练习8"><a href="#习题练习8" class="headerlink" title="习题练习8"></a>习题练习8</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">批处理操作系统、分时操作系统和实时探作系统各有什么特点</span><br></pre></td></tr></table></figure>
+<p>1)批处理操作系统的用户脱机使用计算机，作业是成批处理的，系统内多道程序并发执行， 交互能力差。<br>2)分时操作系统可让多个用户同时使用计算机，人机交互性较强，具有每个用户独立使用 计算机的独占性，系统响应及时。<br>3)实时操作系统能对控制对象做出及时反应，可靠性高，响应及时，但资源利用率低。</p>
+<BR>
+
+
+<h2 id="习题练习9"><a href="#习题练习9" class="headerlink" title="习题练习9"></a>习题练习9</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">有两个程序，程序A依次使用CPU计10s、设备甲计5s. CPU计 10s、设备乙计10s. CPU计10s;程序B依次使用设备甲计10s. CPU计10s 、设备乙计5s、CPU计5s、设备乙计10s。在单道程序环境下先执行程序A 再执行程序B，CPU的利用率是多少?在 多道程序环境下，CPU 利用率是多少?</span><br></pre></td></tr></table></figure>
+<p>如 下 图 所 示 ， 单 道 环 境 下 ， C P U 的 运 行 时 间 为 ( 1 0 + 5 + 1 0 )  + (1 0 + 5 ) s = 4 0 s ， 两 个 程 序 运 行 的总时间为40s +40s=80s，因此利用率是40/80 =50%。<br><img src="https://pbs.twimg.com/media/GBeKj-iWgAARvzD?format=png&amp;name=medium" alt=""></p>
+<p>多道环境下，CPU运行时间为40s, 两个程序运行总时间为45s, 因此利用率为40/45=88.9%。</p>
+<p><br></p>
+<h2 id="习题练习10"><a href="#习题练习10" class="headerlink" title="习题练习10"></a>习题练习10</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">设某计算机系统有一个CPU、一台输入设备、一台打印机。现有两个进程同时进入就绪 态 ， 且 进 程 A 先 得 到 C P U 运 行 ， 进 程 B 后 远 行 。 进 程 A 的 运 行轨 迹 为 : 计 算 5 0 m s , 打印信息100ms，再计算50ms，打印信息100ms，结束。进程B 的运行轨迹为:计算 5 0 m s ， 输 入 数 据 8 0 m s ， 再 计 算 1 0 0 m s ， 结 束 。 画 出 它 们 的 时 序 关 系 图 ( 可 用 甘 特 图 )， 并说明:</span><br><span class="line"></span><br><span class="line">1 ) 开 始 运 行 后 ， C P U 有 无 空 闲 等 待 ? 若 有 ， 在哪 段 时 问 内 等 待 ? 计 算 C P U 的 利 用 率 。 </span><br><span class="line">2 )进程A远行时有无等待现象?若有，在何时发生等待现象?</span><br><span class="line">3 )进程B 运行时有无等待现象?若有，在何时发生等待现象?</span><br></pre></td></tr></table></figure>
+<p><img src="https://pbs.twimg.com/media/GBeNBeZWsAAL2F3?format=png&amp;name=medium" alt=""></p>
+<p>1)CPU在 100~ 150ms 时间段内空闲，利用率为250/300 = 83. 3%。<br>2 ) 进 程 A 为 无等 待 现 象 。<br>3)进程B为有等待现象，0~50ms, 180~200ms。</p>
 
             
         </div>
@@ -412,10 +435,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    435.5k
+                    436.7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    27:49
+                    27:53
                 </div>
             
             
