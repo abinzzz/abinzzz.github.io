@@ -25,17 +25,17 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation  Abs">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation  参考链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper:BLIP">
 <meta property="og:url" content="https://abinzzz.github.io/2023/12/18/paper-BLIP/index.html">
 <meta property="og:site_name" content="あまのひな‘s Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation  Abs">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation  参考链">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GBkbkdRaIAEvX0A?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GBkbRtRaMAAC8Ls?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2023-12-17T17:30:37.000Z">
-<meta property="article:modified_time" content="2023-12-17T18:13:24.543Z">
+<meta property="article:modified_time" content="2023-12-17T18:41:03.354Z">
 <meta property="article:author" content="あまのひな">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="BLIP">
@@ -205,20 +205,30 @@
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
 <h1 id="blip-bootstrapping-language-image-pre-training-for-unified-vision-language-understanding-and-generation"><a class="markdownIt-Anchor" href="#blip-bootstrapping-language-image-pre-training-for-unified-vision-language-understanding-and-generation"></a> BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation</h1>
-<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
-<p>文章介绍了一种新的视觉语言预训练框架BLIP。BLIP通过采用多模态混合编解码器（MED）和引入一种称为Captioning and Filtering（CapFilt）的方法，有效地从网络上收集到的噪声图文对中学习。它在多种视觉语言任务中表现出优越的性能，并在零样本转移至视频语言任务时显示出强大的泛化能力。</p>
-<br>
-<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
-<p>目前存在的问题：</p>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
 <ul>
-<li><strong>模型角度</strong>：现有方法大多采用编码器模型或编解码器模型。编码器模型不适合直接转移到文本生成任务（如图像描述），而编解码器模型在图文检索任务中的应用不够成功。</li>
-<li><strong>数据角度</strong>：大多数先进方法使用从网上收集的图文对进行预训练。虽然通过扩大数据集可以提高性能，但这种噪声网文对视觉语言学习来说是次优的。</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2201.12086.pdf">BLIP原文</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zzl1299249769/article/details/123233997">BLIP论文笔记</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.07651">Align before Fuse</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/salesforce/BLIP">code:BLIP</a></li>
 </ul>
 <br>
-<p>创新之处：</p>
+<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
+<p>大多数现有的VLP模型大多仅仅在understanding-based tasks 或者 generation-based tsaks表现良好，但很少在这两方面都能取得较好的结果。<br />
+同时，性能的增大往往来自于数据集的扩大，但是现有的数据集大多数是web网络上采集下来的img-text pair。这些大规模从网络上采集下来的数据往往包含大量的noise，不利于模型的训练。<br />
+基于以上两点，作者提出了BLIP模型，能灵活的解决understanding-based tasks和generation-based tasks。同时运用知识蒸馏的思想，利用一个captioner和一个filter生成 synthetic captions和过滤掉noisy的pair，最终获得bootstrapping dataset，送入下一次pre-train。</p>
+<br>
+<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<p><strong>目前存在的问题</strong>：</p>
 <ul>
-<li><strong>(a) 多模态混合编解码器（MED）</strong>：一种新的模型架构，用于有效的多任务预训练和灵活的迁移学习。MED可以作为单模态编码器、图像基础文本编码器或图像基础文本解码器运作。该模型通过图文对比学习、图文匹配和图像条件语言建模等三个视觉语言目标进行联合预训练。</li>
-<li><strong>(b) 标注与过滤（CapFilt）</strong>：一种新的数据集引导方法，用于从噪声图文对中学习。通过对预训练的MED进行微调，分成两个模块：一个是生成网络图像的合成描述的标注器，另一个是从原始网文和合成文本中移除噪声描述的过滤器。</li>
+<li>现在大多数模型都选择的是encoder-based model或者encoder-decoder model。但是encoder-based model很难运用到生成任务中去，与此同时encoder-decoder model也很难运用到image-text retrieval 任务中去。</li>
+<li>如今SOTA的方法，大多运用到了web中搜集的大规模数据。但是在web中收集到的这些img-text pair大多数都是noisy的，不利于模型的训练。</li>
+</ul>
+<br>
+<p><strong>创新之处</strong>：</p>
+<ul>
+<li><strong>(a) 多模态混合编解码器（MED）</strong>：MED包含unimodal encoder，image-grounded text encoder以及image-grounded text decoder三个部分。三个部分对应三个VL objectives来进行pre-train，分别是：: image-text contrastive learning, image-text matching, and imageconditioned language modeling</li>
+<li><strong>(b) 标注与过滤（CapFilt）</strong>：是一种从noisy img-text pair中进行dataset bootstrapping的方法。将pre-train的MED分为两部分进行finetune，一部分是captioner，从web图像中生成synthetic captions; 另一部分是filter，过滤掉生成的caption以及web图像中noisy的图像文本对。</li>
 </ul>
 <br>
 <h2 id="related-work"><a class="markdownIt-Anchor" href="#related-work"></a> Related Work</h2>
@@ -239,18 +249,18 @@
 <p>MED的设计:图像编码器使用视觉变换器（ViT），它将输入图像分割成多个区块并将它们编码为一系列嵌入，加上一个额外的[CLS]标记来表示全局图像特征。与使用预训练对象检测器相比，ViT更适合计算处理，并且已被最新方法采用。</p>
 <p>MED是一个多任务模型，具有三种功能：</p>
 <ul>
-<li>(1) 单模态编码器，分别编码图像和文本；</li>
-<li>(2) 图像基础文本编码器，通过添加交叉注意力层来注入视觉信息；</li>
-<li>(3) 图像基础文本解码器，使用因果自我注意力层代替双向自我注意力层。</li>
+<li>(1) <strong>单模态编码器</strong>: 分别对image和text进行编码。其中对image的编码是使用的ViT的模式，先把一个图片打成一块一块的patch再输入transformer；对text的编码就和BERT一致，添加一个[CLS]token表示全局的文本信息。</li>
+<li>(2) <strong>图像基础文本编码器</strong>: 在BERT的基础上，在FFN和SA之间增加了一个Cross Attention层，以为网络注入图像信息。文本中附加了一个[Encoder]token，用于表示img-text pair的多模态表示信息。</li>
+<li>(3) <strong>图像基础文本解码器</strong>: 在Image-grounded Text encoder的基础上，将Bi self-attention层换为了casual self-attention层，用于decoder操作。decoder即为bert的decoder形式，调用BertLMHeadModel（is_decoder=true）, 常用在language modeling里面，添加mask，预测下一个词。同时文本中附加一个[Decoder]token用于表示序列的开始,[EOS]表示序列的结束。</li>
 </ul>
 <p><img src="https://pbs.twimg.com/media/GBkbkdRaIAEvX0A?format=jpg&amp;name=medium" alt="" /></p>
 <br>
 <h3 id="pre-training-objectives"><a class="markdownIt-Anchor" href="#pre-training-objectives"></a> <code>Pre-training Objectives</code></h3>
 <p>BLIP框架的预训练过程中，共同优化了三个目标：两个基于理解的目标和一个基于生成的目标。这些目标分别是：</p>
 <ul>
-<li><strong>图文对比损失（ITC）</strong>：激活单模态编码器，旨在对齐视觉转换器和文本转换器的特征空间，鼓励正面图文对表现出相似的表征，与负面对比。</li>
-<li><strong>图文匹配损失（ITM）</strong>：激活图像基础文本编码器，目的是学习捕捉视觉与语言之间细致对齐的图文多模态表征。它是一个二分类任务，模型预测图文对是否匹配。</li>
-<li><strong>语言建模损失（LM）</strong>：激活图像基础文本解码器，旨在根据图像生成文本描述。通过最大化文本的自回归似然来优化交叉熵损失。</li>
+<li><strong>图文对比损失（ITC）</strong>：通过contrastive learning 的思想，对齐视觉transformer和文本transformer的特征空间，目的是为了获得更加优质的image和text的representation，具体操作可以参考<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.07651">ALBEF</a>这篇文章。</li>
+<li><strong>图文匹配损失（ITM）</strong>：旨在学习image-text multimodal representation，来捕获视觉和语言的细粒度对齐。简单的来啊说就是图文匹配，最后输出一个二分类，positive or negative。</li>
+<li><strong>语言建模损失（LM）</strong>：三个tasks中的生成任务，为给定的图片生成对应的 description与。广泛用于VLP的MLM损失相比，LM使模型具有将视觉信息转换为连贯字幕的泛化能力。</li>
 </ul>
 <br>
 <h3 id="capfilt"><a class="markdownIt-Anchor" href="#capfilt"></a> <code>CapFilt</code></h3>
@@ -262,6 +272,9 @@
 </ul>
 <p>这两个模块都基于预训练的MED模型初始化，然后在COCO数据集上单独微调。标注器是一个图像基础文本解码器，生成给定网图的合成描述。过滤器是一个图像基础文本编码器，通过ITC和ITM目标微调以学习文本是否与图像匹配。过滤器移除原始网文和合成文本中的噪声文本。最终，结合过滤后的图文对和人工标注对形成新数据集，用于预训练新模型。</p>
 <p><img src="https://pbs.twimg.com/media/GBkbRtRaMAAC8Ls?format=jpg&amp;name=medium" alt="" /></p>
+<p>如上图所示,其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>I</mi><mi>w</mi></msub><mo separator="true">,</mo><msub><mi>T</mi><mi>w</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(I_w, T_w)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 代表网页图文对,<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>I</mi><mi>h</mi></msub><mo separator="true">,</mo><msub><mi>T</mi><mi>h</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(I_h, T_h)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 代表高质量的手工标签的图像-文本对。</p>
+<p>它引入了两个模块:一个基于web图像生成caption的captioner,以及一个用于消除图像文本对噪声的filter。captioner和filter都是来自同一个预训练过的MED模型中初始化的,并在COCO数据集上有单独的配置。配置是一个轻量级的过程。</p>
+<p>整个过程大概为:先进行pre_train,之后利用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>I</mi><mi>h</mi></msub><mo separator="true">,</mo><msub><mi>T</mi><mi>h</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(I_h, T_h)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 分别对captioner和filter进行finetune,captioner给定web图片生成对应的caption,filter利用ITM判断web图片-文字对和web图片-生成caption对是否匹配,如果不匹配,则过滤掉,最后将过滤后剩余的图片-文字对和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>I</mi><mi>h</mi></msub><mo separator="true">,</mo><msub><mi>T</mi><mi>h</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(I_h, T_h)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 组合在一起预训练一个新模型。个人理解类似于一个新颖的在线自我知识蒸馏。</p>
 
             
         </div>
@@ -429,10 +442,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    440.9k
+                    441.3k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    28:08
+                    28:10
                 </div>
             
             
