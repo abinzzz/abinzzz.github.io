@@ -14,7 +14,7 @@
 
     
     <title>
-        loss漂浮不定 |
+        LossFlow |
         
         あまのひな‘s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,17 +25,19 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    问题描述发现训练出来的loss忽大忽小的  问题所在每个epoch计算得出的loss是最后一个batch的loss，而不是整个epoch的平均loss123456789101112131415for epoch in">
 <meta property="og:type" content="article">
-<meta property="og:title" content="loss漂浮不定">
+<meta property="og:title" content="LossFlow">
 <meta property="og:url" content="https://abinzzz.github.io/2023/12/18/loss%E6%BC%82%E6%B5%AE%E4%B8%8D%E5%AE%9A/index.html">
 <meta property="og:site_name" content="あまのひな‘s Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    问题描述发现训练出来的loss忽大忽小的  问题所在每个epoch计算得出的loss是最后一个batch的loss，而不是整个epoch的平均loss123456789101112131415for epoch in">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pbs.twimg.com/media/GBnlpgcaAAA6rb3?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2023-12-18T08:42:51.000Z">
-<meta property="article:modified_time" content="2023-12-18T08:42:51.039Z">
+<meta property="article:modified_time" content="2023-12-18T09:00:03.364Z">
 <meta property="article:author" content="あまのひな">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/GBnlpgcaAAA6rb3?format=jpg&amp;name=medium">
     
         <link rel="alternate" href="/atom.xml" title="あまのひな‘s Blog" type="application/atom+xml">
     
@@ -115,7 +117,7 @@
             <header id="header">
     
     
-        <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="loss漂浮不定" class="lazyload">
+        <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="LossFlow" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -123,7 +125,7 @@
                 
                     
                     
-                        <a href="/" id="logo"><h1>loss漂浮不定</h1></a>
+                        <a href="/" id="logo"><h1>LossFlow</h1></a>
                     
                 
             </div>
@@ -196,10 +198,17 @@
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
 
+
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>发现训练出来的loss忽大忽小的<br><img src="https://pbs.twimg.com/media/GBnlpgcaAAA6rb3?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h2 id="问题所在"><a href="#问题所在" class="headerlink" title="问题所在"></a>问题所在</h2><p>每个epoch计算得出的loss是最后一个batch的loss，而不是整个epoch的平均loss<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">50</span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> train_loader:</span><br><span class="line">        img, _ = data</span><br><span class="line">        img = img.view(img.size(<span class="number">0</span>), -<span class="number">1</span>)</span><br><span class="line">        img = img.to(device)</span><br><span class="line">        <span class="comment"># 前向传播</span></span><br><span class="line">        output = autoencoder(img)</span><br><span class="line">        loss = criterion(output, img)</span><br><span class="line">        <span class="comment"># 反向传播</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Epoch [&#123;&#125;/50], Loss: &#123;:.4f&#125;&#x27;</span>.<span class="built_in">format</span>(epoch + <span class="number">1</span>, loss.item()))</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>将每个epoch中的所有batch的loss求和，然后求平均即可：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">50</span>):</span><br><span class="line">    total_loss=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> train_loader:</span><br><span class="line">        img, _ = data</span><br><span class="line">        img = img.view(img.size(<span class="number">0</span>), -<span class="number">1</span>)</span><br><span class="line">        img = img.to(device)</span><br><span class="line">        <span class="comment"># 前向传播</span></span><br><span class="line">        output = autoencoder(img)</span><br><span class="line">        loss = criterion(output, img)</span><br><span class="line">        <span class="comment"># 反向传播</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        total_loss += loss.item()</span><br><span class="line">    avg_loss = total_loss / <span class="built_in">len</span>(train_loader)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Epoch [&#123;&#125;/50], Average Loss: &#123;:.4f&#125;&#x27;</span>.<span class="built_in">format</span>(epoch + <span class="number">1</span>, avg_loss))</span><br></pre></td></tr></table></figure></p>
+
             
         </div>
         <footer class="article-footer">
-            <a data-url="https://abinzzz.github.io/2023/12/18/loss%E6%BC%82%E6%B5%AE%E4%B8%8D%E5%AE%9A/" data-id="clqaoilqs00001l6901v7ftog" data-title="loss漂浮不定"
+            <a data-url="https://abinzzz.github.io/2023/12/18/loss%E6%BC%82%E6%B5%AE%E4%B8%8D%E5%AE%9A/" data-id="clqaoilqs00001l6901v7ftog" data-title="LossFlow"
                class="article-share-link">分享</a>
             
             
@@ -360,7 +369,7 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    446.4k
+                    446.6k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     28:29
