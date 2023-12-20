@@ -25,15 +25,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接 项目地址 文章链接 Visual Instruction Tuning论文阅读（LLaVa） 《Visual Instruction Tuning》论文笔记 核心代码 时间：2023.4 第一作者：Haoti">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  项目地址 文章链接 Visual Instruction Tuning论文阅读（LLaVa） 《Visual Instruction Tuning》论文笔记 核心代码 时间：2023.4 第一作者：Haot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper:Visual Instruction Tuning">
 <meta property="og:url" content="https://abinzzz.github.io/2023/12/19/paper-Visual-Instruction-Tuning/index.html">
 <meta property="og:site_name" content="あまのひな‘s Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接 项目地址 文章链接 Visual Instruction Tuning论文阅读（LLaVa） 《Visual Instruction Tuning》论文笔记 核心代码 时间：2023.4 第一作者：Haoti">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  项目地址 文章链接 Visual Instruction Tuning论文阅读（LLaVa） 《Visual Instruction Tuning》论文笔记 核心代码 时间：2023.4 第一作者：Haot">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-18T19:20:22.000Z">
-<meta property="article:modified_time" content="2023-12-19T18:55:46.388Z">
+<meta property="article:modified_time" content="2023-12-19T18:58:05.327Z">
 <meta property="article:author" content="あまのひな">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="llava">
@@ -201,8 +201,8 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
+<ul>
 <li><a target="_blank" rel="noopener" href="https://llava-vl.github.io/">项目地址</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2304.08485.pdf">文章链接</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/628807205">Visual Instruction Tuning论文阅读（LLaVa）</a></li>
@@ -211,28 +211,21 @@
 <li>时间：2023.4</li>
 <li>第一作者：Haotian Liu</li>
 </ul>
-<p><br></p>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>在这篇论文中，作者首次尝试使用纯语言 GPT-4 生成多模态语言图像指令遵循数据（insruction-following data）。 通过对此类生成数据进行指令调整，推出了大型语言和视觉助手（Large Language and Vision Assistant，LLaVA）。一种端到端训练的大型多模态模型，连接视觉编码器和 LLM 以实现通用视觉和语言理解。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">背景等相关方法：大型语言模型（LLM）表明语言可以发挥更广泛的作用：通用助手的通用接口，各种任务指令可以用语言明确表示并指导端到端 训练有素的神经助手切换到感兴趣的任务来解决它。例如，最近 ChatGPT 和 GPT-4 的成功证明了对齐 LLM 在遵循人类指令方面的力量，并激发了人们对开发开源 LLM 的极大兴趣。 其中，LLaMA [44] 是一个与 GPT-3 性能相匹配的开源 LLM。 Alpaca [43]、Vicuna [45]、GPT-4-LLM [34]利用各种机器生成的高质量指令跟随样本来提高 LLM 的对齐能力，与专有 LLM 相比，报告了令人印象深刻的性能。 重要的是，这行工作是纯文本的。</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
+<br>
+<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
+<p>在这篇论文中，作者首次尝试使用纯语言 GPT-4 生成多模态语言图像指令遵循数据（insruction-following data）。 通过对此类生成数据进行指令调整，推出了大型语言和视觉助手（Large Language and Vision Assistant，LLaVA）。一种端到端训练的大型多模态模型，连接视觉编码器和 LLM 以实现通用视觉和语言理解。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">背景等相关方法：大型语言模型（LLM）表明语言可以发挥更广泛的作用：通用助手的通用接口，各种任务指令可以用语言明确表示并指导端到端 训练有素的神经助手切换到感兴趣的任务来解决它。例如，最近 ChatGPT 和 GPT-4 的成功证明了对齐 LLM 在遵循人类指令方面的力量，并激发了人们对开发开源 LLM 的极大兴趣。 其中，LLaMA [44] 是一个与 GPT-3 性能相匹配的开源 LLM。 Alpaca [43]、Vicuna [45]、GPT-4-LLM [34]利用各种机器生成的高质量指令跟随样本来提高 LLM 的对齐能力，与专有 LLM 相比，报告了令人印象深刻的性能。 重要的是，这行工作是纯文本的。</span><br></pre></td></tr></table></figure>
+<br>
 <p>不同于上面文本的指令微调，作者提出了视觉指令微调，第一个尝试将指令微调拓展到多模态领域调整。贡献如下：</p>
 <ul>
 <li>数据方面：使用ChatGPT/GPT-4来将数据转化为多模态指令遵循数据（multimodel instrustion-following data）；</li>
 <li>模型方面：使用CLIP+LLaMA进行指令微调，构建了多模态大模型LLaVA，得到了较好的结果；</li>
 <li>开源，开源，还是开源！这年头大模型开源都算主要contribution了。</li>
 </ul>
-<p><br></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>人类通过视觉和语言等多种渠道与世界互动的方式，每个渠道都在表达和传达特定概念方面有其独特优势，从而有助于更好地理解世界。人工智能的核心愿景之一是开发能够有效遵循多模态视觉和语言指令的通用助手，与人类意图一致，以完成各种真实世界任务。为此，社区对开发语言增强的基础视觉模型产生了浓厚兴趣，这些模型在开放世界视觉理解方面具有强大能力，例如分类、检测、分割和字幕制作，以及视觉生成和编辑。而大型语言模型（LLM）则展示了语言可以扮演更广泛的角色：作为通用助手的通用接口，其中各种任务指令可以用语言明确表示，并指导端到端训练的神经助手切换到感兴趣的任务并解决它。文章中，作者们提出了视觉指令调优——将指令调优扩展到语言-图像多模态空间的首次尝试，为构建通用视觉助手铺平了道路。具体来说，他们的贡献包括：提出多模态指令遵循数据，开发大型多模态模型，并在科学问答多模态推理数据集上达到最新水平；提出LLaVA-Bench，包含两个具有挑战性的基准，以及公开生成的多模态指令数据、代码库、模型检查点和视觉聊天演示。</p>
-<p><br></p>
-<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><p>多模态指令遵循代理相关的研究工作。它主要分为两类：</p>
-<ul>
-<li>（i）端到端训练的模型，针对特定研究主题单独探索，例如视觉语言导航任务和图像编辑领域的InstructPix2Pix；</li>
-<li>（ii）通过LangChain/LLMs协调各种模型的系统，例如Visual ChatGPT和X-GPT。</li>
-</ul>
-<p>此外，文本还讨论了LLMs的指令调优，如InstructGPT和FLAN-T5，这种方法有效提高了LLMs的零样本和少样本泛化能力。文章强调，尽管这些模型在任务转移泛化表现方面很有前景，但它们并未明确地使用视觉语言指令数据进行调优，且在多模态任务中的表现通常不如纯语言任务。本文旨在填补这一空白，并研究其有效性。最后，作者指出视觉指令调优与视觉提示调优是不同的，前者旨在改善模型的指令遵循能力，而后者则旨在提高模型适应性的参数效率。</p>
-<p><br></p>
-<h2 id="GPT-assisted-Visual-Instruction-Data-Generation"><a href="#GPT-assisted-Visual-Instruction-Data-Generation" class="headerlink" title="GPT-assisted Visual Instruction Data Generation"></a>GPT-assisted Visual Instruction Data Generation</h2><p>利用GPT模型辅助生成视觉指令数据。尽管有大量公共多模态数据（如图像-文本对），用于多模态指令遵循数据的数量却有限。作者提出使用ChatGPT/GPT-4来收集基于广泛存在的图像对数据的多模态指令遵循数据。对于一幅图像及其相关说明文字，可以自然地创建一系列问题，指导助手描述图像内容。为了解决这个问题，作者利用仅语言的GPT-4或ChatGPT（仅接受文本输入）来创建涉及视觉内容的指令遵循数据。他们使用了两种符号表示法：说明文字和边界框，并收集了158K个独特的语言-图像指令遵循样本。</p>
-<p><br></p>
-<h2 id="Visual-Instruction-Tuning"><a href="#Visual-Instruction-Tuning" class="headerlink" title="Visual Instruction Tuning"></a>Visual Instruction Tuning</h2><p>LLaVA模型的视觉指令调优架构。它的目标是有效地利用预训练的大型语言模型（LLM）和视觉模型的能力。选择Vicuna作为LLM，并采用CLIP视觉编码器ViT-L/14来提供图像特征。通过简单的线性层，将图像特征转换为语言嵌入。然后，通过两阶段的指令调优程序训练模型：第一阶段是预训练以对特征进行对齐，第二阶段是端到端的微调。微调包括在多模态聊天机器人场景和科学问答（Science QA）基准上的训练。这一过程旨在将图像与语言模型的表示相结合，并在多模态任务上实现有效的指令遵循。</p>
+<br>
+<h2 id="gpt-协助的数据生成"><a class="markdownIt-Anchor" href="#gpt-协助的数据生成"></a> GPT-协助的数据生成</h2>
+<p>基于已有的大量图片对数据，利用ChatGPT/GPT-4进行多模态指令遵循数据的收集。主要问题集中在如何用 Language-only/Text-only的ChatGPT/GPT-4模型来为图片内容生成对应的指令。</p>
+<p>最基本的方式：图片Xv和其对应的说明文字Xc，构建一个问题集合Xq来提示大模型助手对图片内容进行描述。通过提示GPT-4可以构建这样一个问题序列，如下图：</p>
 
             
         </div>
@@ -356,7 +349,7 @@
         </div>
     </div>
     
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=86 src="//music.163.com/outchain/player?type=2&id=2086804034&auto=1&height=66"></iframe>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2019972021&auto=1&height=66"></iframe>
 
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">分类</h3>
@@ -414,10 +407,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    457.2k
+                    456.8k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    29:08
+                    29:06
                 </div>
             
             

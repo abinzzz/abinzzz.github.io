@@ -25,21 +25,24 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  LoRA https:&#x2F;&#x2F;redian.news&#x2F;wxnews&#x2F;370210    简介 最近对大模型这部分内容比较感兴趣，作者最早接触大模型是22年下半年的时候。当时觉得非常amazing，并认为这是一个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LLM 微调">
 <meta property="og:url" content="https://abinzzz.github.io/2023/12/18/LLM-%E5%BE%AE%E8%B0%83/index.html">
 <meta property="og:site_name" content="あまのひな‘s Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  LoRA https:&#x2F;&#x2F;redian.news&#x2F;wxnews&#x2F;370210    简介 最近对大模型这部分内容比较感兴趣，作者最早接触大模型是22年下半年的时候。当时觉得非常amazing，并认为这是一个">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pbs.twimg.com/media/GBww0jyXYAAbYuu?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GBw0AIKWEAA7aq8?format=png&amp;name=small">
 <meta property="article:published_time" content="2023-12-17T16:54:47.000Z">
-<meta property="article:modified_time" content="2023-12-17T17:04:23.241Z">
+<meta property="article:modified_time" content="2023-12-20T05:03:18.339Z">
 <meta property="article:author" content="あまのひな">
 <meta property="article:tag" content="internship">
 <meta property="article:tag" content="调研">
 <meta property="article:tag" content="LLM">
 <meta property="article:tag" content="Fine-Tuning">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/GBww0jyXYAAbYuu?format=jpg&amp;name=medium">
     
         <link rel="alternate" href="/atom.xml" title="あまのひな‘s Blog" type="application/atom+xml">
     
@@ -203,6 +206,32 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2106.09685.pdf">LoRA</a></li>
+<li><a target="_blank" rel="noopener" href="https://redian.news/wxnews/370210">https://redian.news/wxnews/370210</a></li>
+</ul>
+<br>
+<h2 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h2>
+<p>最近对大模型这部分内容比较感兴趣，作者最早接触大模型是22年下半年的时候。当时觉得非常amazing，并认为这是一个颠覆性的工作，目前随着开源大模型的逐渐变多。我觉得我们得学习并了解这些基础知识，以便后续在工作中可以学习并使用。在深度学习中，微调是一种重要的技术，用于改进预训练模型的性能。除了微调ChatGPT之外，还有许多其他预训练模型可以进行微调。</p>
+<p>以下是一些微调预训练模型的方法：</p>
+<ul>
+<li>微调所有层：将预训练模型的所有层都参与微调，以适应新的任务。</li>
+<li>微调顶层：只微调预训练模型的顶层，以适应新的任务。</li>
+<li>冻结底层：将预训练模型的底层固定不变，只对顶层进行微调。</li>
+<li>逐层微调：从底层开始，逐层微调预训练模型，直到所有层都被微调。</li>
+<li>迁移学习：将预训练模型的知识迁移到新的任务中，以提高模型性能。这种方法通常使用微调顶层或冻结底层的方法。</li>
+</ul>
+<br>
+<h2 id="fine-tuning"><a class="markdownIt-Anchor" href="#fine-tuning"></a> Fine tuning</h2>
+<p>Fine tuning是一种在自然语言处理（NLP）中使用的技术，用于将预训练的语言模型适应于特定任务或领域。Fine tuning的基本思想是采用已经在大量文本上进行训练的预训练语言模型，然后在小规模的任务特定文本上继续训练它。</p>
+<p>经典的Fine tuning方法包括将预训练模型与少量特定任务数据一起继续训练。在这个过程中，预训练模型的权重被更新，以更好地适应任务。所需的Fine-tuning量取决于预训练语料库和任务特定语料库之间的相似性。如果两者相似，可能只需要少量的Fine tuning。如果两者不相似，则可能需要更多的Fine tuning。</p>
+<p><img src="https://pbs.twimg.com/media/GBww0jyXYAAbYuu?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="1-lora"><a class="markdownIt-Anchor" href="#1-lora"></a> 1. LoRA</h2>
+<p>LoRA 的实现思想很简单，如下图所示，就是冻结一个预训练模型的矩阵参数，并选择用 A 和 B 矩阵来替代，在下游任务时只更新 A 和 B。</p>
+<p><img src="https://pbs.twimg.com/media/GBw0AIKWEAA7aq8?format=png&amp;name=small" alt="" /></p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><msub><mi>W</mi><mn>0</mn></msub><mi>x</mi><mo>+</mo><mi mathvariant="normal">Δ</mi><mi>W</mi><mi>x</mi><mo>=</mo><msub><mi>W</mi><mn>0</mn></msub><mi>x</mi><mo>+</mo><mi>B</mi><mi>A</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">h=W_0x + \Delta Wx = W_0x + BAx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Δ</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">A</span><span class="mord mathnormal">x</span></span></span></span></p>
 
             
         </div>
@@ -326,7 +355,7 @@
         </div>
     </div>
     
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=86 src="//music.163.com/outchain/player?type=2&id=2086804034&auto=1&height=66"></iframe>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2019972021&auto=1&height=66"></iframe>
 
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">分类</h3>
@@ -384,10 +413,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    457.2k
+                    456.8k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    29:08
+                    29:06
                 </div>
             
             
