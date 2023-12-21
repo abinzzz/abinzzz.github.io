@@ -25,17 +25,17 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });     1. 软件架构1.1 软件架构示意图正文：首先给出系统的整体软件架构的示意图，可以选用诸如Vue、SpringBoot、Django、SSH、SSM等框架，也可以根据情况自定义或者选用教材建议的框架结构；但给出的框">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  软件架构  软件架构示意图 分层结构说明   系统的界面设计  空调的控制面板设计 前台营业员出账单击详单界面设计 监控空调运行状态的界面设计（可选）   系统动态结构设计  用例: UC_01（01：需要替换">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SE:软件概要设计">
 <meta property="og:url" content="https://abinzzz.github.io/2023/12/20/SE-%E8%BD%AF%E4%BB%B6%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="あまのひな‘s Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });     1. 软件架构1.1 软件架构示意图正文：首先给出系统的整体软件架构的示意图，可以选用诸如Vue、SpringBoot、Django、SSH、SSM等框架，也可以根据情况自定义或者选用教材建议的框架结构；但给出的框">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  软件架构  软件架构示意图 分层结构说明   系统的界面设计  空调的控制面板设计 前台营业员出账单击详单界面设计 监控空调运行状态的界面设计（可选）   系统动态结构设计  用例: UC_01（01：需要替换">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GB2FhcAX0AALDU2?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GB2Fyp6W0AA8BCK?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2023-12-20T11:48:36.000Z">
-<meta property="article:modified_time" content="2023-12-21T04:58:32.157Z">
+<meta property="article:modified_time" content="2023-12-21T05:01:52.475Z">
 <meta property="article:author" content="あまのひな">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="SE">
@@ -205,19 +205,70 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-
-
-
-<h2 id="1-软件架构"><a href="#1-软件架构" class="headerlink" title="1. 软件架构"></a>1. 软件架构</h2><h3 id="1-1-软件架构示意图"><a href="#1-1-软件架构示意图" class="headerlink" title="1.1 软件架构示意图"></a>1.1 软件架构示意图</h3><p>正文：首先给出系统的整体软件架构的示意图，可以选用诸如Vue、SpringBoot、Django、SSH、SSM等框架，也可以根据情况自定义或者选用教材建议的框架结构；但给出的框架结构与最后的代码结构相一致；其次，根据示意图的内容说明该架构的合理性及其运行机制。</p>
+<h1 id="目录"><a class="markdownIt-Anchor" href="#目录"></a> 目录</h1>
+<ol>
+<li><strong>软件架构</strong>
+<ol>
+<li><a href="#11-%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE">软件架构示意图</a></li>
+<li><a href="#12-%E5%88%86%E5%B1%82%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E">分层结构说明</a></li>
+</ol>
+</li>
+<li><strong>系统的界面设计</strong>
+<ol>
+<li><a href="#21-%E7%A9%BA%E8%B0%83%E7%9A%84%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E8%AE%BE%E8%AE%A1">空调的控制面板设计</a></li>
+<li><a href="#22-%E5%89%8D%E5%8F%B0%E8%90%A5%E4%B8%9A%E5%91%98%E5%87%BA%E8%B4%A6%E5%8D%95%E5%87%BB%E8%AF%A6%E5%8D%95%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1">前台营业员出账单击详单界面设计</a></li>
+<li><a href="#23-%E7%9B%91%E6%8E%A7%E7%A9%BA%E8%B0%83%E8%BF%90%E8%A1%8C%E7%8A%B6%E6%80%81%E7%9A%84%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1%E5%8F%AF%E9%80%89">监控空调运行状态的界面设计（可选）</a></li>
+</ol>
+</li>
+<li><strong>系统动态结构设计</strong>
+<ol>
+<li><a href="#31-%E7%94%A8%E4%BE%8Buc_01-01-%E9%9C%80%E8%A6%81%E6%9B%BF%E6%8D%A2%E6%88%90%E7%94%A8%E4%BE%8B%E5%90%8D%E7%A7%B0">用例: UC_01（01：需要替换成用例名称）</a>
+<ol>
+<li><a href="#311-%E5%B7%B2%E7%9F%A5%E6%9D%A1%E4%BB%B6">已知条件</a></li>
+<li><a href="#312-%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E6%B6%88%E6%81%AF%E5%90%8D%E7%A7%B0-%E6%AF%94%E5%A6%82%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E6%8C%87%E4%BB%A4_1p1p2">对象设计：消息名称（比如：对象设计：指令_1(p1,p2,…)）</a></li>
+<li><a href="#313-%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E6%B6%88%E6%81%AF%E5%90%8D%E7%A7%B0">对象设计：消息名称</a></li>
+</ol>
+</li>
+<li><a href="#32-%E7%94%A8%E4%BE%8Buc_02-02-%E9%9C%80%E8%A6%81%E6%9B%BF%E6%8D%A2%E6%88%90%E7%94%A8%E4%BE%8B%E5%90%8D%E7%A7%B0">用例: UC_02（02：需要替换成用例名称）</a>
+<ol>
+<li><a href="#321-%E5%B7%B2%E7%9F%A5%E6%9D%A1%E4%BB%B6">已知条件</a></li>
+<li><a href="#322-%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E6%B6%88%E6%81%AF%E5%90%8D%E7%A7%B0-%E6%AF%94%E5%A6%82%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E6%8C%87%E4%BB%A4_1p1p2">对象设计：消息名称（比如：对象设计：指令_1(p1,p2,…)）</a></li>
+</ol>
+</li>
+<li><a href="#33-%E8%87%B3%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BE%8B-26">至最后一个用例 2.6</a>
+<ol>
+<li><a href="#331-%E5%B7%B2%E7%9F%A5%E6%9D%A1%E4%BB%B6">已知条件</a></li>
+<li><a href="#332-%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E6%B6%88%E6%81%AF%E5%90%8D%E7%A7%B0-%E6%AF%94%E5%A6%82%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E6%8C%87%E4%BB%A4_1p1p2">对象设计：消息名称（比如：对象设计：指令_1(p1,p2,…)）</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>系统静态结构设计</strong>
+<ol>
+<li><a href="#41-%E7%94%A8%E4%BE%8Buc_01-01-%E9%9C%80%E8%A6%81%E6%9B%BF%E6%8D%A2%E6%88%90%E7%94%A8%E4%BE%8B%E5%90%8D%E7%A7%B0">用例: UC_01（01：需要替换成用例名称）</a></li>
+<li><a href="#42-%E7%94%A8%E4%BE%8Buc_02-02-%E9%9C%80%E8%A6%81%E6%9B%BF%E6%8D%A2%E6%88%90%E7%94%A8%E4%BE%8B%E5%90%8D%E7%A7%B0">用例: UC_02（02：需要替换成用例名称）</a></li>
+<li><a href="#43-%E7%94%A8%E4%BE%8Buc_03-uc_06">用例: UC_03 … UC_06</a></li>
+<li><a href="#44-%E7%B3%BB%E7%BB%9F%E7%BA%A7%E7%9A%84%E9%9D%99%E6%80%81%E7%BB%93%E6%9E%84-%E5%8F%AF%E9%80%89">系统级的静态结构（可选）</a></li>
+</ol>
+</li>
+<li><strong>工作量统计</strong></li>
+</ol>
+<br>
+<h2 id="1-软件架构"><a class="markdownIt-Anchor" href="#1-软件架构"></a> 1. 软件架构</h2>
+<h3 id="11-软件架构示意图"><a class="markdownIt-Anchor" href="#11-软件架构示意图"></a> 1.1 软件架构示意图</h3>
+<p>正文：首先给出系统的整体软件架构的示意图，可以选用诸如Vue、SpringBoot、Django、SSH、SSM等框架，也可以根据情况自定义或者选用教材建议的框架结构；但给出的框架结构与最后的代码结构相一致；其次，根据示意图的内容说明该架构的合理性及其运行机制。</p>
 <p>建议参考：<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/en6pv1.html">如何说明架构的工作原理</a></p>
-<h3 id="1-2-分层结构说明"><a href="#1-2-分层结构说明" class="headerlink" title="1.2 分层结构说明"></a>1.2 分层结构说明</h3><p>正文：如果需要，根据选择的结构，按照层次的划分进行说明：</p>
+<h3 id="12-分层结构说明"><a class="markdownIt-Anchor" href="#12-分层结构说明"></a> 1.2 分层结构说明</h3>
+<p>正文：如果需要，根据选择的结构，按照层次的划分进行说明：</p>
 <ol>
 <li>哪些对象负责接收前端发过来的请求；</li>
 <li>哪些对象负责创建对象的实例；</li>
 <li>哪些对象负责处理请求的具体要求；</li>
 <li>哪些对象负责数据的同步和存储。</li>
 </ol>
-<h2 id="2-系统的界面设计"><a href="#2-系统的界面设计" class="headerlink" title="2. 系统的界面设计"></a>2. 系统的界面设计</h2><p>正文：本次作业仅要求各小组给出以下环节的界面设计：</p>
+<br>
+<h2 id="2-系统的界面设计"><a class="markdownIt-Anchor" href="#2-系统的界面设计"></a> 2. 系统的界面设计</h2>
+<p>正文：本次作业仅要求各小组给出以下环节的界面设计：</p>
 <ol>
 <li>顾客使用空调的控制面板；</li>
 <li>前台营业员完成出账单出详单的界面；</li>
@@ -230,7 +281,12 @@
 <li><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/7308202020518085160/?log_from=6c208ce5cc433_1701671447806">界面设计示例2</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/7307879808015581730/?log_from=5342047fcdddd_1701671592111">界面设计示例3</a></li>
 </ol>
-<h3 id="2-1-空调的控制面板设计"><a href="#2-1-空调的控制面板设计" class="headerlink" title="2.1 空调的控制面板设计"></a>2.1 空调的控制面板设计</h3><h3 id="2-2-前台营业员出账单击详单界面设计"><a href="#2-2-前台营业员出账单击详单界面设计" class="headerlink" title="2.2 前台营业员出账单击详单界面设计"></a>2.2 前台营业员出账单击详单界面设计</h3><h3 id="2-3-监控空调运行状态的界面设计（可选）"><a href="#2-3-监控空调运行状态的界面设计（可选）" class="headerlink" title="2.3 监控空调运行状态的界面设计（可选）"></a>2.3 监控空调运行状态的界面设计（可选）</h3><h2 id="3-系统动态结构设计"><a href="#3-系统动态结构设计" class="headerlink" title="3. 系统动态结构设计"></a>3. 系统动态结构设计</h2><p>说明：动态结构的设计内容分成两个环节：基本要求及扩充要求（Bonus）;</p>
+<h3 id="21-空调的控制面板设计"><a class="markdownIt-Anchor" href="#21-空调的控制面板设计"></a> 2.1 空调的控制面板设计</h3>
+<h3 id="22-前台营业员出账单击详单界面设计"><a class="markdownIt-Anchor" href="#22-前台营业员出账单击详单界面设计"></a> 2.2 前台营业员出账单击详单界面设计</h3>
+<h3 id="23-监控空调运行状态的界面设计可选"><a class="markdownIt-Anchor" href="#23-监控空调运行状态的界面设计可选"></a> 2.3 监控空调运行状态的界面设计（可选）</h3>
+<br>
+<h2 id="3-系统动态结构设计"><a class="markdownIt-Anchor" href="#3-系统动态结构设计"></a> 3. 系统动态结构设计</h2>
+<p>说明：动态结构的设计内容分成两个环节：基本要求及扩充要求（Bonus）;</p>
 <p>基本要求：</p>
 <ol>
 <li>顾客使用空调用例（组员的开机请求不用考虑资源不足的情况）；</li>
@@ -246,8 +302,11 @@
 <li>服务队列的某个房间的目标温度达到，且等</li>
 </ol>
 <p>待队列有请求；</p>
-<h3 id="3-1-用例-UC-01-（01-：需要替换成用例名称）"><a href="#3-1-用例-UC-01-（01-：需要替换成用例名称）" class="headerlink" title="3.1 用例: UC_01 （01 ：需要替换成用例名称）"></a>3.1 用例: UC_01 （01 ：需要替换成用例名称）</h3><h4 id="3-1-1-已知条件"><a href="#3-1-1-已知条件" class="headerlink" title="3.1.1 已知条件"></a>3.1.1 已知条件</h4><p>正文：用表格的形式给出该用例下所有的消息及对应的返回值；以及每个消息对应的操作契约也作为已知条件。</p>
-<h4 id="3-1-2-对象设计：消息名称-（比如：对象设计：指令-1-p1-p2-…-）"><a href="#3-1-2-对象设计：消息名称-（比如：对象设计：指令-1-p1-p2-…-）" class="headerlink" title="3.1.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）"></a>3.1.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）</h4><p>正文：</p>
+<h3 id="31-用例-uc_01-01-需要替换成用例名称"><a class="markdownIt-Anchor" href="#31-用例-uc_01-01-需要替换成用例名称"></a> 3.1 用例: UC_01 （01 ：需要替换成用例名称）</h3>
+<h4 id="311-已知条件"><a class="markdownIt-Anchor" href="#311-已知条件"></a> 3.1.1 已知条件</h4>
+<p>正文：用表格的形式给出该用例下所有的消息及对应的返回值；以及每个消息对应的操作契约也作为已知条件。</p>
+<h4 id="312-对象设计消息名称-比如对象设计指令_1p1p2"><a class="markdownIt-Anchor" href="#312-对象设计消息名称-比如对象设计指令_1p1p2"></a> 3.1.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）</h4>
+<p>正文：</p>
 <ol>
 <li>首先，给出该消息对应的操作契约作为已知条件；</li>
 <li>其次，根据各小组定义的框架结构，结合操作契约的内容（建议以《问题：以及对应的解决方案》的方式）确定第一个接收该消息的软件对象；</li>
@@ -257,7 +316,7 @@
 <li>最后，数据持久化对象的设计可做可不做，如果做了，这部分的内容可以在动态结构设计部分中添加5分的bonus；</li>
 <li>在此基础上给出该消息对应的sequence diagram</li>
 </ol>
-<p><img src="https://pbs.twimg.com/media/GB2FhcAX0AALDU2?format=jpg&amp;name=medium" alt="示例图"></p>
+<p><img src="https://pbs.twimg.com/media/GB2FhcAX0AALDU2?format=jpg&amp;name=medium" alt="示例图" /></p>
 <p>说明：</p>
 <ol>
 <li>Actor_X：用例中的角色，图中的张3为交互图的实例对象名称，设计时可以不命名；</li>
@@ -271,20 +330,37 @@
 <li>Object_A 再将获得结果返回给前端；</li>
 <li>通过上面交互图找到前端指令_1(p1,p2,…)进入系统后需要的软件对象Object_A，Object_B和Object_C，以及每个对象具备的功能。</li>
 </ol>
-<h3 id="3-1-3-对象设计：消息名称"><a href="#3-1-3-对象设计：消息名称" class="headerlink" title="3.1.3 对象设计：消息名称"></a>3.1.3 对象设计：消息名称</h3><h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p>要求同上，直到该用例中已知条件中的最后一个消息。</p>
-<h3 id="3-2-用例-UC-02-（02-：需要替换成用例名称）"><a href="#3-2-用例-UC-02-（02-：需要替换成用例名称）" class="headerlink" title="3.2 用例: UC_02 （02 ：需要替换成用例名称）"></a>3.2 用例: UC_02 （02 ：需要替换成用例名称）</h3><h4 id="3-2-1-已知条件"><a href="#3-2-1-已知条件" class="headerlink" title="3.2.1 已知条件"></a>3.2.1 已知条件</h4><p>正文：用表格的形式给出该用例下所有的消息及对应的返回值；</p>
-<h4 id="3-2-2-对象设计：消息名称-（比如：对象设计：指令-1-p1-p2-…-）"><a href="#3-2-2-对象设计：消息名称-（比如：对象设计：指令-1-p1-p2-…-）" class="headerlink" title="3.2.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）"></a>3.2.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）</h4><p>具体内容与3.1.2相同，直到该用例中已知条件中的最后一个消息。</p>
-<h3 id="3-3-至-最后一个用例-2-6"><a href="#3-3-至-最后一个用例-2-6" class="headerlink" title="3.3 至 最后一个用例 2.6"></a>3.3 至 最后一个用例 2.6</h3><h4 id="3-3-1-已知条件"><a href="#3-3-1-已知条件" class="headerlink" title="3.3.1 已知条件"></a>3.3.1 已知条件</h4><p>正文：用表格的形式给出该用例下所有的消息及对应的返回值；</p>
-<h4 id="3-3-2-对象设计：消息名称-（比如：对象设计：指令-1-p1-p2-…-）"><a href="#3-3-2-对象设计：消息名称-（比如：对象设计：指令-1-p1-p2-…-）" class="headerlink" title="3.3.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）"></a>3.3.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）</h4><p>具体内容与3.1.2相同，直到该用例中已知条件中的最后一个消息。</p>
-<h2 id="4-系统静态结构设计"><a href="#4-系统静态结构设计" class="headerlink" title="4. 系统静态结构设计"></a>4. 系统静态结构设计</h2><h3 id="4-1-用例-UC-01-（01-：需要替换成用例名称）"><a href="#4-1-用例-UC-01-（01-：需要替换成用例名称）" class="headerlink" title="4.1 用例: UC_01 （01 ：需要替换成用例名称）"></a>4.1 用例: UC_01 （01 ：需要替换成用例名称）</h3><h4 id="正文-1"><a href="#正文-1" class="headerlink" title="正文"></a>正文</h4><ol>
+<h3 id="313-对象设计消息名称"><a class="markdownIt-Anchor" href="#313-对象设计消息名称"></a> 3.1.3 对象设计：消息名称</h3>
+<h4 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h4>
+<p>要求同上，直到该用例中已知条件中的最后一个消息。</p>
+<h3 id="32-用例-uc_02-02-需要替换成用例名称"><a class="markdownIt-Anchor" href="#32-用例-uc_02-02-需要替换成用例名称"></a> 3.2 用例: UC_02 （02 ：需要替换成用例名称）</h3>
+<h4 id="321-已知条件"><a class="markdownIt-Anchor" href="#321-已知条件"></a> 3.2.1 已知条件</h4>
+<p>正文：用表格的形式给出该用例下所有的消息及对应的返回值；</p>
+<h4 id="322-对象设计消息名称-比如对象设计指令_1p1p2"><a class="markdownIt-Anchor" href="#322-对象设计消息名称-比如对象设计指令_1p1p2"></a> 3.2.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）</h4>
+<p>具体内容与3.1.2相同，直到该用例中已知条件中的最后一个消息。</p>
+<h3 id="33-至-最后一个用例-26"><a class="markdownIt-Anchor" href="#33-至-最后一个用例-26"></a> 3.3 至 最后一个用例 2.6</h3>
+<h4 id="331-已知条件"><a class="markdownIt-Anchor" href="#331-已知条件"></a> 3.3.1 已知条件</h4>
+<p>正文：用表格的形式给出该用例下所有的消息及对应的返回值；</p>
+<h4 id="332-对象设计消息名称-比如对象设计指令_1p1p2"><a class="markdownIt-Anchor" href="#332-对象设计消息名称-比如对象设计指令_1p1p2"></a> 3.3.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）</h4>
+<p>具体内容与3.1.2相同，直到该用例中已知条件中的最后一个消息。</p>
+<br>
+<h2 id="4-系统静态结构设计"><a class="markdownIt-Anchor" href="#4-系统静态结构设计"></a> 4. 系统静态结构设计</h2>
+<h3 id="41-用例-uc_01-01-需要替换成用例名称"><a class="markdownIt-Anchor" href="#41-用例-uc_01-01-需要替换成用例名称"></a> 4.1 用例: UC_01 （01 ：需要替换成用例名称）</h3>
+<h4 id="正文-2"><a class="markdownIt-Anchor" href="#正文-2"></a> 正文</h4>
+<ol>
 <li>根据选定的系统框架结构，给出用例级别的软件分层类图；</li>
 <li>对类图中的类进行属性、方法的说明（建议使用表格的形式）；</li>
 </ol>
-<p><img src="https://pbs.twimg.com/media/GB2Fyp6W0AA8BCK?format=jpg&amp;name=medium" alt="示例图"></p>
-<h3 id="4-2-用例-UC-02-（02-：需要替换成用例名称）"><a href="#4-2-用例-UC-02-（02-：需要替换成用例名称）" class="headerlink" title="4.2 用例: UC_02 （02 ：需要替换成用例名称）"></a>4.2 用例: UC_02 （02 ：需要替换成用例名称）</h3><h4 id="正文-2"><a href="#正文-2" class="headerlink" title="正文"></a>正文</h4><p>要求同上；</p>
-<h3 id="4-3-用例-UC-03-…-UC-06"><a href="#4-3-用例-UC-03-…-UC-06" class="headerlink" title="4.3 用例: UC_03 … UC_06"></a>4.3 用例: UC_03 … UC_06</h3><h4 id="正文-3"><a href="#正文-3" class="headerlink" title="正文"></a>正文</h4><p>要求同上。</p>
-<h3 id="4-4-系统级的静态结构-（可选）"><a href="#4-4-系统级的静态结构-（可选）" class="headerlink" title="4.4 系统级的静态结构 （可选）"></a>4.4 系统级的静态结构 （可选）</h3><h4 id="正文-4"><a href="#正文-4" class="headerlink" title="正文"></a>正文</h4><p>仅需给出完整的该系统级的分层软件结构模型的类图。</p>
-<p>。</p>
+<p><img src="https://pbs.twimg.com/media/GB2Fyp6W0AA8BCK?format=jpg&amp;name=medium" alt="示例图" /></p>
+<h3 id="42-用例-uc_02-02-需要替换成用例名称"><a class="markdownIt-Anchor" href="#42-用例-uc_02-02-需要替换成用例名称"></a> 4.2 用例: UC_02 （02 ：需要替换成用例名称）</h3>
+<h4 id="正文-3"><a class="markdownIt-Anchor" href="#正文-3"></a> 正文</h4>
+<p>要求同上；</p>
+<h3 id="43-用例-uc_03-uc_06"><a class="markdownIt-Anchor" href="#43-用例-uc_03-uc_06"></a> 4.3 用例: UC_03 … UC_06</h3>
+<h4 id="正文-4"><a class="markdownIt-Anchor" href="#正文-4"></a> 正文</h4>
+<p>要求同上。</p>
+<h3 id="44-系统级的静态结构-可选"><a class="markdownIt-Anchor" href="#44-系统级的静态结构-可选"></a> 4.4 系统级的静态结构 （可选）</h3>
+<h4 id="正文-5"><a class="markdownIt-Anchor" href="#正文-5"></a> 正文</h4>
+<p>仅需给出完整的该系统级的分层软件结构模型的类图。</p>
 
             
         </div>
@@ -452,10 +528,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    458.6k
+                    458.8k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    29:12
+                    29:13
                 </div>
             
             
