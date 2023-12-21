@@ -25,20 +25,23 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });     1. 软件架构1.1 软件架构示意图正文：首先给出系统的整体软件架构的示意图，可以选用诸如Vue、SpringBoot、Django、SSH、SSM等框架，也可以根据情况自定义或者选用教材建议的框架结构；但给出的框">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SE:软件概要设计">
 <meta property="og:url" content="https://abinzzz.github.io/2023/12/20/SE-%E8%BD%AF%E4%BB%B6%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="あまのひな‘s Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });     1. 软件架构1.1 软件架构示意图正文：首先给出系统的整体软件架构的示意图，可以选用诸如Vue、SpringBoot、Django、SSH、SSM等框架，也可以根据情况自定义或者选用教材建议的框架结构；但给出的框">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pbs.twimg.com/media/GB2FhcAX0AALDU2?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GB2Fyp6W0AA8BCK?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2023-12-20T11:48:36.000Z">
-<meta property="article:modified_time" content="2023-12-20T11:49:25.608Z">
+<meta property="article:modified_time" content="2023-12-21T04:58:32.157Z">
 <meta property="article:author" content="あまのひな">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="SE">
 <meta property="article:tag" content="软件概要设计">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/GB2FhcAX0AALDU2?format=jpg&amp;name=medium">
     
         <link rel="alternate" href="/atom.xml" title="あまのひな‘s Blog" type="application/atom+xml">
     
@@ -202,6 +205,86 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
+
+
+
+<h2 id="1-软件架构"><a href="#1-软件架构" class="headerlink" title="1. 软件架构"></a>1. 软件架构</h2><h3 id="1-1-软件架构示意图"><a href="#1-1-软件架构示意图" class="headerlink" title="1.1 软件架构示意图"></a>1.1 软件架构示意图</h3><p>正文：首先给出系统的整体软件架构的示意图，可以选用诸如Vue、SpringBoot、Django、SSH、SSM等框架，也可以根据情况自定义或者选用教材建议的框架结构；但给出的框架结构与最后的代码结构相一致；其次，根据示意图的内容说明该架构的合理性及其运行机制。</p>
+<p>建议参考：<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/en6pv1.html">如何说明架构的工作原理</a></p>
+<h3 id="1-2-分层结构说明"><a href="#1-2-分层结构说明" class="headerlink" title="1.2 分层结构说明"></a>1.2 分层结构说明</h3><p>正文：如果需要，根据选择的结构，按照层次的划分进行说明：</p>
+<ol>
+<li>哪些对象负责接收前端发过来的请求；</li>
+<li>哪些对象负责创建对象的实例；</li>
+<li>哪些对象负责处理请求的具体要求；</li>
+<li>哪些对象负责数据的同步和存储。</li>
+</ol>
+<h2 id="2-系统的界面设计"><a href="#2-系统的界面设计" class="headerlink" title="2. 系统的界面设计"></a>2. 系统的界面设计</h2><p>正文：本次作业仅要求各小组给出以下环节的界面设计：</p>
+<ol>
+<li>顾客使用空调的控制面板；</li>
+<li>前台营业员完成出账单出详单的界面；</li>
+<li>系统管理员监控空调使用的状态界面（Bonus）;</li>
+</ol>
+<p>说明：界面设计重点在于展示布局以及局部的各功能模块的位置（如果已经有界面，可以截图展示并说明）；</p>
+<p>这里给出了可参考的界面设计：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/7280050808686133795/?log_from=3e14959a31fe5_1701671301403">界面设计示例1</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/7308202020518085160/?log_from=6c208ce5cc433_1701671447806">界面设计示例2</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/7307879808015581730/?log_from=5342047fcdddd_1701671592111">界面设计示例3</a></li>
+</ol>
+<h3 id="2-1-空调的控制面板设计"><a href="#2-1-空调的控制面板设计" class="headerlink" title="2.1 空调的控制面板设计"></a>2.1 空调的控制面板设计</h3><h3 id="2-2-前台营业员出账单击详单界面设计"><a href="#2-2-前台营业员出账单击详单界面设计" class="headerlink" title="2.2 前台营业员出账单击详单界面设计"></a>2.2 前台营业员出账单击详单界面设计</h3><h3 id="2-3-监控空调运行状态的界面设计（可选）"><a href="#2-3-监控空调运行状态的界面设计（可选）" class="headerlink" title="2.3 监控空调运行状态的界面设计（可选）"></a>2.3 监控空调运行状态的界面设计（可选）</h3><h2 id="3-系统动态结构设计"><a href="#3-系统动态结构设计" class="headerlink" title="3. 系统动态结构设计"></a>3. 系统动态结构设计</h2><p>说明：动态结构的设计内容分成两个环节：基本要求及扩充要求（Bonus）;</p>
+<p>基本要求：</p>
+<ol>
+<li>顾客使用空调用例（组员的开机请求不用考虑资源不足的情况）；</li>
+<li>前台营业员出具账单和出具详单用例。</li>
+</ol>
+<p>扩充要求：系统管理员监控空调用例及运行空调用例。</p>
+<p>基本要求的用例对应的指令，请具体查看作业要求。</p>
+<p>强调，每个指令对应一个UML交互图：确定该指令进入系统后提供服务的软件对象（参考作为已知条件的操作契约的内容）并为对象分配功能。要求每个组员至少分配2个指令进行设计。</p>
+<p>特殊要求：组长负责设计开机请求需要进行调度的交互场景，包括优先级调度和时间片调度的所有可能的情况，至少给出以下情况的交互图（注意详单记录的产生如何表达）：</p>
+<ol>
+<li>服务队列数=3，第4个和第5个请求到达；</li>
+<li>等待队列中的房间4或者房间5改变风速；</li>
+<li>服务队列的某个房间的目标温度达到，且等</li>
+</ol>
+<p>待队列有请求；</p>
+<h3 id="3-1-用例-UC-01-（01-：需要替换成用例名称）"><a href="#3-1-用例-UC-01-（01-：需要替换成用例名称）" class="headerlink" title="3.1 用例: UC_01 （01 ：需要替换成用例名称）"></a>3.1 用例: UC_01 （01 ：需要替换成用例名称）</h3><h4 id="3-1-1-已知条件"><a href="#3-1-1-已知条件" class="headerlink" title="3.1.1 已知条件"></a>3.1.1 已知条件</h4><p>正文：用表格的形式给出该用例下所有的消息及对应的返回值；以及每个消息对应的操作契约也作为已知条件。</p>
+<h4 id="3-1-2-对象设计：消息名称-（比如：对象设计：指令-1-p1-p2-…-）"><a href="#3-1-2-对象设计：消息名称-（比如：对象设计：指令-1-p1-p2-…-）" class="headerlink" title="3.1.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）"></a>3.1.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）</h4><p>正文：</p>
+<ol>
+<li>首先，给出该消息对应的操作契约作为已知条件；</li>
+<li>其次，根据各小组定义的框架结构，结合操作契约的内容（建议以《问题：以及对应的解决方案》的方式）确定第一个接收该消息的软件对象；</li>
+<li>然后根据操作契约确定哪一个对象负责创建对象的实例；</li>
+<li>哪些对象之间是如何建立关联关系的；</li>
+<li>哪个对象的属性需要修改或者初始化。</li>
+<li>最后，数据持久化对象的设计可做可不做，如果做了，这部分的内容可以在动态结构设计部分中添加5分的bonus；</li>
+<li>在此基础上给出该消息对应的sequence diagram</li>
+</ol>
+<p><img src="https://pbs.twimg.com/media/GB2FhcAX0AALDU2?format=jpg&amp;name=medium" alt="示例图"></p>
+<p>说明：</p>
+<ol>
+<li>Actor_X：用例中的角色，图中的张3为交互图的实例对象名称，设计时可以不命名；</li>
+<li>指令_1(p1,p2,…)：为该用例系统顺序图中的角色与系统之间交互的第1条消息，其中p1,p2…为该消息中的参数；</li>
+<li>Object_A：根据选定的系统框架结构中确定的后台接收前端请求的软件对象，其中001为该软件对象的实例对象名称，可以不命名；</li>
+<li>Object_B：是根据已知对象实例，为此Object_A在图中使用的消息类型是创建消息，注意消息指向对象实例的顶部；</li>
+<li>V_Oa：是对象Object_A 的一个属性，该属性的取值调用了Object_B的方法：get_指令_1(p1,p2…)；</li>
+<li>V_Ob：是对象Object_B的一个属性，该属性的取值调用了Object_C的方法：get_V_Ob(p1,…)；</li>
+<li>在获得返回V_Ob 的结果之后，对象Object_B 还需要进行另一个计算并给V_Ob 进一步赋值，为此该对象调用了自己的一个功能函数 f_Ob(p1,p2,V_Ob)；</li>
+<li>Object_B 经过以上操作之后，返回 V_Oa=get_指令_1(p1,p2…)的结果给Object_A;</li>
+<li>Object_A 再将获得结果返回给前端；</li>
+<li>通过上面交互图找到前端指令_1(p1,p2,…)进入系统后需要的软件对象Object_A，Object_B和Object_C，以及每个对象具备的功能。</li>
+</ol>
+<h3 id="3-1-3-对象设计：消息名称"><a href="#3-1-3-对象设计：消息名称" class="headerlink" title="3.1.3 对象设计：消息名称"></a>3.1.3 对象设计：消息名称</h3><h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p>要求同上，直到该用例中已知条件中的最后一个消息。</p>
+<h3 id="3-2-用例-UC-02-（02-：需要替换成用例名称）"><a href="#3-2-用例-UC-02-（02-：需要替换成用例名称）" class="headerlink" title="3.2 用例: UC_02 （02 ：需要替换成用例名称）"></a>3.2 用例: UC_02 （02 ：需要替换成用例名称）</h3><h4 id="3-2-1-已知条件"><a href="#3-2-1-已知条件" class="headerlink" title="3.2.1 已知条件"></a>3.2.1 已知条件</h4><p>正文：用表格的形式给出该用例下所有的消息及对应的返回值；</p>
+<h4 id="3-2-2-对象设计：消息名称-（比如：对象设计：指令-1-p1-p2-…-）"><a href="#3-2-2-对象设计：消息名称-（比如：对象设计：指令-1-p1-p2-…-）" class="headerlink" title="3.2.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）"></a>3.2.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）</h4><p>具体内容与3.1.2相同，直到该用例中已知条件中的最后一个消息。</p>
+<h3 id="3-3-至-最后一个用例-2-6"><a href="#3-3-至-最后一个用例-2-6" class="headerlink" title="3.3 至 最后一个用例 2.6"></a>3.3 至 最后一个用例 2.6</h3><h4 id="3-3-1-已知条件"><a href="#3-3-1-已知条件" class="headerlink" title="3.3.1 已知条件"></a>3.3.1 已知条件</h4><p>正文：用表格的形式给出该用例下所有的消息及对应的返回值；</p>
+<h4 id="3-3-2-对象设计：消息名称-（比如：对象设计：指令-1-p1-p2-…-）"><a href="#3-3-2-对象设计：消息名称-（比如：对象设计：指令-1-p1-p2-…-）" class="headerlink" title="3.3.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）"></a>3.3.2 对象设计：消息名称 （比如：对象设计：指令_1(p1,p2,…)）</h4><p>具体内容与3.1.2相同，直到该用例中已知条件中的最后一个消息。</p>
+<h2 id="4-系统静态结构设计"><a href="#4-系统静态结构设计" class="headerlink" title="4. 系统静态结构设计"></a>4. 系统静态结构设计</h2><h3 id="4-1-用例-UC-01-（01-：需要替换成用例名称）"><a href="#4-1-用例-UC-01-（01-：需要替换成用例名称）" class="headerlink" title="4.1 用例: UC_01 （01 ：需要替换成用例名称）"></a>4.1 用例: UC_01 （01 ：需要替换成用例名称）</h3><h4 id="正文-1"><a href="#正文-1" class="headerlink" title="正文"></a>正文</h4><ol>
+<li>根据选定的系统框架结构，给出用例级别的软件分层类图；</li>
+<li>对类图中的类进行属性、方法的说明（建议使用表格的形式）；</li>
+</ol>
+<p><img src="https://pbs.twimg.com/media/GB2Fyp6W0AA8BCK?format=jpg&amp;name=medium" alt="示例图"></p>
+<h3 id="4-2-用例-UC-02-（02-：需要替换成用例名称）"><a href="#4-2-用例-UC-02-（02-：需要替换成用例名称）" class="headerlink" title="4.2 用例: UC_02 （02 ：需要替换成用例名称）"></a>4.2 用例: UC_02 （02 ：需要替换成用例名称）</h3><h4 id="正文-2"><a href="#正文-2" class="headerlink" title="正文"></a>正文</h4><p>要求同上；</p>
+<h3 id="4-3-用例-UC-03-…-UC-06"><a href="#4-3-用例-UC-03-…-UC-06" class="headerlink" title="4.3 用例: UC_03 … UC_06"></a>4.3 用例: UC_03 … UC_06</h3><h4 id="正文-3"><a href="#正文-3" class="headerlink" title="正文"></a>正文</h4><p>要求同上。</p>
+<h3 id="4-4-系统级的静态结构-（可选）"><a href="#4-4-系统级的静态结构-（可选）" class="headerlink" title="4.4 系统级的静态结构 （可选）"></a>4.4 系统级的静态结构 （可选）</h3><h4 id="正文-4"><a href="#正文-4" class="headerlink" title="正文"></a>正文</h4><p>仅需给出完整的该系统级的分层软件结构模型的类图。</p>
+<p>。</p>
 
             
         </div>
@@ -369,10 +452,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    456.8k
+                    458.6k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    29:07
+                    29:12
                 </div>
             
             
