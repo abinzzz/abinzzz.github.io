@@ -32,6 +32,8 @@
 <meta property="og:site_name" content="あまのひな‘s Blog">
 <meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   第四章  1.使用tensor初始化一个1x3的矩阵M和2x1的矩阵N，然后对两个矩阵做减法(用三种不同的方式，提示:直接相减、torch.nn、inplace原地操作)，最后分析三种方式的不同。  方法：  直接减法">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://viso.ai/wp-content/uploads/2021/03/performance-benchmark-pytorch-vs-tensorflow-02.jpg">
+<meta property="og:image" content="https://viso.ai/wp-content/uploads/2021/03/pytorch-vs-tensorflow-accuracy.jpg">
 <meta property="og:image" content="https://pbs.twimg.com/media/GCB2JB-WgAAOhBV?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GCB2XctWoAAjJN-?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GCB2lhbWIAA7rJy?format=jpg&amp;name=medium">
@@ -43,15 +45,16 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/GCCJb37XkAAXG5w?format=jpg&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/GCCJdZNWgAA15ue?format=jpg&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/GCCJdZTXsAAkolR?format=jpg&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/GCF_bUraEAAUS-9?format=jpg&amp;name=small">
 <meta property="article:published_time" content="2023-12-23T08:48:59.000Z">
-<meta property="article:modified_time" content="2023-12-24T03:49:21.479Z">
+<meta property="article:modified_time" content="2023-12-24T07:41:54.145Z">
 <meta property="article:author" content="あまのひな">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="chapter04">
 <meta property="article:tag" content="智能计算系统">
 <meta property="article:tag" content="chapter05">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pbs.twimg.com/media/GCB2JB-WgAAOhBV?format=jpg&amp;name=medium">
+<meta name="twitter:image" content="https://viso.ai/wp-content/uploads/2021/03/performance-benchmark-pytorch-vs-tensorflow-02.jpg">
     
         <link rel="alternate" href="/atom.xml" title="あまのひな‘s Blog" type="application/atom+xml">
     
@@ -257,36 +260,111 @@
 <li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2212225">实例分析</a></li>
 <li>第五章ppt P89</li>
 </ul>
+<h2 id="21-主要内容比较"><a class="markdownIt-Anchor" href="#21-主要内容比较"></a> 2.1 <code>主要内容比较</code></h2>
 <table>
 <thead>
 <tr>
 <th>深度学习框架</th>
-<th>主要维护单位</th>
-<th>前端支持语言</th>
-<th>支持平台</th>
-<th>编程类型</th>
-<th>辅助工具生态</th>
+<th>PyTorch</th>
+<th>TensorFlow</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>TensorFlow</td>
+<td>主要维护单位</td>
+<td>Facebook</td>
 <td>Google</td>
+</tr>
+<tr>
+<td>前端支持语言</td>
+<td>Python, C++</td>
 <td>Python, C/C++, Java, Go, JavaScript, R, Julia, Swift</td>
+</tr>
+<tr>
+<td>支持平台</td>
+<td>Linux, MacOS, Windows</td>
 <td>Linux, MacOS, Windows, iOS, Android</td>
+</tr>
+<tr>
+<td>编程类型</td>
+<td>命令式</td>
 <td>Graph: 声明式; Eager: 命令式</td>
+</tr>
+<tr>
+<td>辅助工具生态</td>
+<td>TorchVision, 官方模型库</td>
 <td>TensorBoard, Profiler, TFLite, TF-serving, tfdbg, 官方模型库</td>
 </tr>
 <tr>
-<td>PyTorch</td>
-<td>Facebook</td>
-<td>Python, C++</td>
-<td>Linux, MacOS, Windows</td>
-<td>命令式</td>
-<td>TorchVision, 官方模型库</td>
+<td>易用性</td>
+<td>语法更符合Python，调试更容易</td>
+<td>学习曲线较陡，需要更多模板代码</td>
+</tr>
+<tr>
+<td>动态计算图</td>
+<td>运行时更容易修改</td>
+<td>需要重新编译才能修改</td>
+</tr>
+<tr>
+<td>GPU 支持</td>
+<td>设置和使用多GPU更简单</td>
+<td>多GPU支持更复杂，需要更多设置，有专门的TF API</td>
+</tr>
+<tr>
+<td>社区支持</td>
+<td>相对较新，发展迅速</td>
+<td>大型且活跃，资源丰富</td>
+</tr>
+<tr>
+<td>生态系统</td>
+<td>与TensorFlow相比库和工具较少</td>
+<td>拥有广泛的预构建模型和工具库</td>
+</tr>
+<tr>
+<td>调试</td>
+<td>由于Python语法和动态计算图，调试更容易</td>
+<td>由于静态计算图，调试可能更具挑战性</td>
+</tr>
+<tr>
+<td>研究应用</td>
+<td>由于其灵活性和易用性，常用于研究</td>
+<td>由于速度和可扩展性，常用于生产应用</td>
+</tr>
+<tr>
+<td>数学库</td>
+<td>使用TorchScript进行张量操作，NumPy进行数值计算</td>
+<td>使用自有数学库进行张量操作和数值计算</td>
+</tr>
+<tr>
+<td>Keras 集成</td>
+<td>没有原生Keras集成</td>
+<td>有原生Keras集成，简化模型构建和训练</td>
 </tr>
 </tbody>
 </table>
+<br>
+<h2 id="22-性能比较"><a class="markdownIt-Anchor" href="#22-性能比较"></a> 2.2 <code>性能比较</code></h2>
+<p>通过对PyTorch和TensorFlow两个深度学习框架进行性能基准测试，以对比和分析这两个框架在单机热切模式下的性能表现。本次性能测试使用了32位浮点数的两个不同的模型，分别为AlexNet、VGG-19、ResNet-50、MobileNet、GNMTv2和NCF模型。测试指标包括各模型的吞吐率，分别以每秒图像数、每秒令牌数和每秒样本数为单位来测量。基准测试的结果表明，PyTorch在性能方面优于TensorFlow。具体而言，PyTorch在处理相同的模型时表现出更高的吞吐率。这一性能优势可能源于PyTorch和TensorFlow都将计算任务主要卸载给了同版本的cuDNN和cuBLAS库。</p>
+<p><img src="https://viso.ai/wp-content/uploads/2021/03/performance-benchmark-pytorch-vs-tensorflow-02.jpg" alt="" /></p>
+<br>
+<h2 id="23-精度比较"><a class="markdownIt-Anchor" href="#23-精度比较"></a> 2.3 <code>精度比较</code></h2>
+<p>通过对两个框架下的模型进行训练精度和验证精度的对比，评估模型在记忆训练信息和学习新信息的能力。精度数据收集是在经过20个epoch的训练后进行的。结果显示，PyTorch和TensorFlow在模型精度方面表现相似。两个框架中的模型在经过20个epoch的训练后，平均验证精度约为78%。这表明两个框架都能够准确实现神经网络，并在相同的模型和数据集条件下产生类似的结果。<br />
+<img src="https://viso.ai/wp-content/uploads/2021/03/pytorch-vs-tensorflow-accuracy.jpg" alt="" /></p>
+<br>
+<h2 id="24-训练时间和内存使用上图"><a class="markdownIt-Anchor" href="#24-训练时间和内存使用上图"></a> 2.4 <code>训练时间和内存使用(上图)</code></h2>
+<p>通过测量并对比两个框架下的模型训练时间以及内存使用情况。结果显示，TensorFlow的平均训练时间（11.19秒）明显高于PyTorch（7.67秒）。在内存使用方面，TensorFlow的使用率（1.7 GB RAM）低于PyTorch（3.5 GB RAM）。两个框架在初始加载数据期间的内存使用更高，分别为TensorFlow的4.8 GB和PyTorch的5 GB。这些结果表明，PyTorch不仅在训练速度上有优势，而且在内存使用上更为高效。</p>
+<br>
+<h2 id="25-pytorch优势"><a class="markdownIt-Anchor" href="#25-pytorch优势"></a> 2.5 <code>Pytorch优势</code></h2>
+<p><strong>以Python为中心的设计</strong>：PyTorch深度集成于Python，提供了与Python代码高度一致的“Python风格”的编程体验。这使得PyTorch尤其受到使用Python作为主要编程语言的数据科学家和机器学习研究人员的青睐。</p>
+<p><strong>易于学习和使用</strong>：PyTorch的语法类似于传统的编程语言，如Python，因此相比于其他深度学习框架，它更容易学习和使用。</p>
+<p><strong>动态计算图</strong>：PyTorch支持动态计算图，这意味着网络的行为可以在运行时编程方式地更改，从而使得优化模型变得更加简单。</p>
+<p><strong>高效的调试工具</strong>：PyTorch可以使用Python中广泛可用的调试工具进行调试，例如pdb和ipdb。</p>
+<p><strong>数据并行处理</strong>：PyTorch的数据并行特性允许在多个CPU或GPU核心之间分配计算工作，这种并行处理在PyTorch中实现起来比其他机器学习工具更为简单。</p>
+<p><strong>活跃的社区和优秀的文档</strong>：PyTorch拥有一个活跃的社区和论坛，其文档整洁有序，对初学者非常友好，同时与PyTorch的发布版本保持同步。</p>
+<p><strong>分布式训练支持</strong>：PyTorch原生支持集体操作的异步执行和端到端通信，既可以从Python访问，也可以从C++访问。</p>
+<p><strong>适合研究用途</strong>：由于其灵活性和易用性，PyTorch常用于研究领域，尤其适合自然语言处理（NLP）等任务。</p>
+<p><strong>更快的原型设计</strong>：与TensorFlow相比，PyTorch允许更快速的原型设计，尤其在需要快速迭代和实验的研究和开发环境中表现突出。</p>
+<p><strong>对ONNX的原生支持</strong>：PyTorch提供对ONNX（开放神经网络交换）格式的原生支持，允许无缝模型导出并与ONNX兼容的平台和工具兼容。</p>
 <br>
 <h2 id="3给出torchnn和torchnnfunctional之间的区别"><a class="markdownIt-Anchor" href="#3给出torchnn和torchnnfunctional之间的区别"></a> 3.给出torch.nn和torch.nn.functional之间的区别。</h2>
 <ul>
@@ -333,7 +411,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4.0</span></span><br></pre></td></tr></table></figure>
 <br>
 <h2 id="5请实现一个矩阵乘法数据类型和规模自定并分别使用-cpu和gpu-执行"><a class="markdownIt-Anchor" href="#5请实现一个矩阵乘法数据类型和规模自定并分别使用-cpu和gpu-执行"></a> 5.请实现一个矩阵乘法，数据类型和规模自定，并分别使用 CPU和GPU 执行。</h2>
-<p>由于我使用的是macbook，所以在 PyTorch 中使用 Metal Performance Shaders (MPS) 作为后端进行计算</p>
+<p>由于我使用的是MacOS设备，所以在 PyTorch 中使用 Metal Performance Shaders (MPS) 作为后端进行计算</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run_matrix_multiplication_on_device</span>(<span class="params">device</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    在指定的设备（MPS）上执行矩阵乘法。</span></span><br><span class="line"><span class="string">    测量并打印操作所需的时间。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数:</span></span><br><span class="line"><span class="string">    device: str，指定使用的设备，即&#x27;mps&#x27;。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    start_time = time.time()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置 PyTorch 张量使用的设备</span></span><br><span class="line">    device = torch.device(device)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 初始化两个 4000x4000 的随机矩阵，并将它们转移到指定设备</span></span><br><span class="line">    matrix_A = torch.randn(<span class="number">4000</span>, <span class="number">4000</span>, device=device)</span><br><span class="line">    matrix_B = torch.randn(<span class="number">4000</span>, <span class="number">4000</span>, device=device)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 执行矩阵乘法</span></span><br><span class="line">    product_matrix = torch.matmul(matrix_A, matrix_B)</span><br><span class="line"></span><br><span class="line">    elapsed_time = time.time() - start_time</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;device&#125;</span> 上的矩阵乘法：耗时 = <span class="subst">&#123;elapsed_time&#125;</span> 秒&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 在 CPU 上运行矩阵乘法</span></span><br><span class="line">    run_matrix_multiplication_on_device(<span class="string">&#x27;cpu&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 如果可用，在 MPS 上运行矩阵乘法，否则打印消息</span></span><br><span class="line">    <span class="keyword">if</span> torch.backends.mps.is_available():</span><br><span class="line">        run_matrix_multiplication_on_device(<span class="string">&#x27;mps&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;无可用 MPS&quot;</span>)</span><br></pre></td></tr></table></figure>
 <br>
 <p>输出结果：</p>
@@ -411,6 +489,7 @@
 <h2 id="1什么是pytorchpytorch的基本要素是什么"><a class="markdownIt-Anchor" href="#1什么是pytorchpytorch的基本要素是什么"></a> 1.什么是PyTorch?PyTorch的基本要素是什么?</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/gu1857035894/article/details/125235535">pytorch是什么？解释pytorch的基本概念</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43539854/article/details/108626803">什么是 PyTorch以及PyTorch 的特点</a></li>
 </ul>
 <p>PyTorch是一个由Facebook的人工智能研究团队开发的开源深度学习框架。在2016年发布后，PyTorch很快就因其易用性、灵活性和强大的功能而在科研社区中广受欢迎。</p>
 <p>在2016年，Facebook的AI研究团队（FAIR）公开了PyTorch，其旨在提供一个快速，灵活且动态的深度学习框架。PyTorch的设计哲学与Python的设计哲学非常相似：易读性和简洁性优于隐式的复杂性。PyTorch用Python语言编写，是Python的一种扩展，这使得其更易于学习和使用。</p>
@@ -439,10 +518,245 @@
 <p>数据加载和处理（Data loading and Processing）：PyTorch提供了数据加载器和转换器，方便用户高效地加载和处理数据集。</p>
 </li>
 </ul>
+<br>
 <h2 id="2-pytorch如何使用多gpu列举出两种方法并将两种方法进行对比"><a class="markdownIt-Anchor" href="#2-pytorch如何使用多gpu列举出两种方法并将两种方法进行对比"></a> 2. Pytorch如何使用多GPU?列举出两种方法，并将两种方法进行对比。</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Mr_health/article/details/122822483">pytorch的多GPU训练的两种方式</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38076506/article/details/124227219">pytorch多卡训练nn.DataParallel和nn.DistributedDataParallel比较</a></li>
+</ul>
+<h3 id="torchnndataparallel"><a class="markdownIt-Anchor" href="#torchnndataparallel"></a> <code>torch.nn.DataParallel</code></h3>
+<p><strong>工作原理</strong>:</p>
+<p>这种方式只有一个进程，假设我们有一个8卡的机器，然后设置的batchsize是128，那么单卡的batchsize就是32，在训练的时候，他把我们的模型分发到每个GPU上，然后在每个GPU上面对着32张图进行前向和反向传播得到loss，之后将所有的loss汇总到0卡上，对0卡的参数进行更新，然后，非常重要的一点：他再把更新后的模型传给其他7张卡，这个操作是在每个batch跑完都会执行一次的。<br />
+可以想象一下，每个batch，GPU之间都要互相传模型，GPU的通信显然成为了一个极大的瓶颈，直接导致GPU在一段时间是闲着的，也就导致了GPU的利用率低的问题。</p>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>GPU利用率低</li>
+<li>不支持多机多卡</li>
+<li>不支持混合精度</li>
+</ul>
+<br>
+<h3 id="torchdistributed"><a class="markdownIt-Anchor" href="#torchdistributed"></a> <code>torch.distributed</code></h3>
+<p><strong>工作原理</strong>:<br />
+每个进程控制一个GPU，然后每个GPU计算自己分得的数据的梯度后，通过进程之间的通信进行综合所有梯度的操作(all-reduce)，每个GPU独立更新参数(实际上就是同样的东西算了好多遍)，但是这里更新完每个GPU的模型参数是一样的。</p>
+<br>
+<br>
+<p>以下是对<code>nn.DataParallel</code>和<code>nn.DistributedDataParallel</code>的对比表格：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>torch.nn.DataParallel</th>
+<th>torch.distributed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>设计用途</td>
+<td>适用于单机多GPU的场景。</td>
+<td>适用于单机多GPU，甚至多机多GPU的场景。</td>
+</tr>
+<tr>
+<td>工作原理</td>
+<td>将模型复制到每个GPU上，然后将输入数据的一个batch分割成多个小batch，分别送到不同的GPU上进行计算。每个GPU完成自己的前向和反向计算后，梯度被收集到主GPU上进行汇总，然后进行梯度平均，接着在主GPU上更新模型参数。</td>
+<td>采用多进程方式，为每个GPU创建一个进程。模型在所有GPU上复制，每个进程处理输入数据的一部分。所有进程独立完成前向和反向计算，然后通过all-reduce操作汇总梯度信息，确保每个进程的模型参数同步更新。</td>
+</tr>
+<tr>
+<td>优点</td>
+<td>实现简单，只需几行代码即可设置。</td>
+<td>相比DataParallel，DistributedDataParallel在扩展性和效率上更优，更适合大规模并行训练。它解决了负载不均衡问题，并且通过有效的通信策略减少了通信开销。</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>可能存在负载不均衡问题（通常主GPU负担更重），并且随着GPU数量的增加，由于数据传输和同步的开销，效率可能不是线性提升。</td>
+<td>实现相对复杂，需要更多的设置和配置。</td>
+</tr>
+</tbody>
+</table>
+<br>
 <h2 id="3如何在pytorch中找到函数的导数"><a class="markdownIt-Anchor" href="#3如何在pytorch中找到函数的导数"></a> 3.如何在PyTorch中找到函数的导数?</h2>
-<h2 id="4-对比四种求导方法的优劣并分析为什么选择自动求导机制"><a class="markdownIt-Anchor" href="#4-对比四种求导方法的优劣并分析为什么选择自动求导机制"></a> 4. 对比四种求导方法的优劣并分析为什么选择自动求导机制。</h2>
+<p>生成一个从 -10 到 10，步长为 0.01 的输入值序列。对每个输入值，使用 PyTorch 计算 sin(x) 及其导数,将计算结果存储在列表中。使用 Matplotlib 绘制 sin(x)、sin’(x)（即导数），以及 cos(x) 的图像。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义范围和步长</span></span><br><span class="line">start, end, step = -<span class="number">10</span>, <span class="number">10</span>, <span class="number">0.01</span></span><br><span class="line">aList = np.arange(start, end, step)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化结果列表</span></span><br><span class="line">results = []</span><br><span class="line">gradients = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义函数</span></span><br><span class="line">function = torch.sin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算函数值和梯度</span></span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> aList:</span><br><span class="line">    a = nn.Parameter(torch.tensor(<span class="built_in">float</span>(value)))</span><br><span class="line">    b = function(a)</span><br><span class="line">    results.append(b.item())</span><br><span class="line">    b.backward()</span><br><span class="line">    gradients.append(a.grad.item())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制函数和梯度图</span></span><br><span class="line">plt.plot(aList, results, label=<span class="string">&#x27;sin(x)&#x27;</span>)</span><br><span class="line">plt.plot(aList, gradients, label=<span class="string">&quot;grad&quot;</span>)</span><br><span class="line">plt.plot(aList, [np.cos(i) <span class="keyword">for</span> i <span class="keyword">in</span> aList], <span class="string">&#x27;-.&#x27;</span>, label=<span class="string">&#x27;cos(x)&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加图例和保存图像</span></span><br><span class="line">plt.legend()</span><br><span class="line">plt.savefig(<span class="string">&#x27;derivative_plot.jpg&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://pbs.twimg.com/media/GCF_bUraEAAUS-9?format=jpg&amp;name=small" alt="" /></p>
+<p>生成了三条曲线：sin(x)，sin’(x)，以及 cos(x)。sin(x) 的导数曲线（sin’(x)）与 cos(x) 的曲线完美重合，验证了微分的正确性。</p>
+<br>
+<h2 id="4对比四种求导方法的优劣并分析为什么选择自动求导机制"><a class="markdownIt-Anchor" href="#4对比四种求导方法的优劣并分析为什么选择自动求导机制"></a> 4.对比四种求导方法的优劣并分析为什么选择自动求导机制。</h2>
+<ul>
+<li>第五章ppt</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>对图像的调用方法</th>
+<th>顺序</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>手动分类法</td>
+<td>NA</td>
+<td>高</td>
+<td>实现复杂</td>
+</tr>
+<tr>
+<td>数值求导法</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>l</mi></msub><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n_l + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></td>
+<td>低</td>
+<td>计算量大，速度慢</td>
+</tr>
+<tr>
+<td>符号求导法</td>
+<td>NA</td>
+<td>高</td>
+<td>表达式膨胀</td>
+</tr>
+<tr>
+<td>自动求导法</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>o</mi></msub><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n_o + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></td>
+<td>高</td>
+<td>对输入人维度较大的情况优势明显</td>
+</tr>
+</tbody>
+</table>
+<h3 id="手动求解法"><a class="markdownIt-Anchor" href="#手动求解法"></a> <code>手动求解法</code></h3>
+<p><strong>即传统的反向传播算法:</strong> 手动用链式法则求解出梯度公式，代入数值，得到最终梯度值</p>
+<p>优点：</p>
+<ul>
+<li>通过手动计算，可以更深入地理解梯度和链式法则的工作原理。</li>
+<li>对特定问题可以定制化梯度求解，优化计算效率</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>对于大规模的深度学习算法，手动用链式法则进行梯度计算并转换成计算机程序非常困难</li>
+<li>需要手动编写梯度求解代码</li>
+<li>每次修改算法模型，都要修改对应的梯度求解算法</li>
+</ul>
+<br>
+<h3 id="数值求导法"><a class="markdownIt-Anchor" href="#数值求导法"></a> <code>数值求导法</code></h3>
+<p><strong>利用导数的原始定义求解</strong>: 𝑓′(𝑥) = lim(h→0) [𝑓(𝑥+h) − 𝑓(𝑥)] / h</p>
+<p>优点:</p>
+<ul>
+<li>易操作</li>
+<li>可对用户隐藏求解过程</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>计算量大，求解速度慢</li>
+<li>可能引起舍入误差和截断误差</li>
+</ul>
+<br>
+<h3 id="符号求导法"><a class="markdownIt-Anchor" href="#符号求导法"></a> <code>符号求导法</code></h3>
+<p><strong>利用求导规则来对表达式进行自动操作，从而获得导数</strong></p>
+<p><strong>常见求导规则:</strong></p>
+<ul>
+<li>𝑑(𝑓(𝑥)+𝑔(𝑥))/𝑑𝑥 = 𝑑𝑓(𝑥)/𝑑𝑥 + 𝑑𝑔(𝑥)/𝑑𝑥</li>
+<li>𝑑(𝑓(𝑥)𝑔(𝑥))/𝑑𝑥 = 𝑑𝑓(𝑥)/𝑑𝑥 𝑔(𝑥) + 𝑓(𝑥) 𝑑𝑔(𝑥)/𝑑𝑥</li>
+<li>𝑑𝑓(𝑥)/𝑑𝑥 = 𝑓′(𝑥) 𝑔(𝑥) − 𝑓(𝑥)𝑔′(𝑥) / 𝑔(𝑥)²</li>
+</ul>
+<p>优点:</p>
+<ul>
+<li>准确性: 可以得到精确的导数表达式。</li>
+<li>自动化: 适合自动化工具，不需要像数值方法那样进行迭代计算。</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>表达式膨胀问题</li>
+</ul>
+<br>
+<h3 id="自动求导"><a class="markdownIt-Anchor" href="#自动求导"></a> <code>自动求导</code></h3>
+<p>计算图结构天然适用于自动求导</p>
+<p>计算图将多输入的复杂计算表达成了由多个基本二元计算组成的有向图，并保留了所有中间变量，有助于程序自动利用链式法则进行求导</p>
+<p>优点:</p>
+<ul>
+<li>灵活，可以完全向用户隐藏求导过程</li>
+<li>只对基本函数运用符号求导法，因此可以灵活结合编程语言的循环结构、条件结构等</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>在处理小维度数据时候优势不明显</li>
+</ul>
+<br>
+<h3 id="为什么使用自动求导"><a class="markdownIt-Anchor" href="#为什么使用自动求导"></a> <code>为什么使用自动求导</code></h3>
+<p>在深度学习领域，自动求导（Automatic Differentiation，简称Auto-Diff）的应用已成为研究和实践中的核心技术。本综述旨在深入探讨自动求导在训练深度学习模型中的重要性，特别是在处理现代复杂神经网络时的优势和影响。</p>
+<p>首先，现代深度神经网络的架构通常非常复杂，涉及大量层次、非线性激活函数和多维度数据处理。这种复杂性使得手动计算梯度（即传统的链式法则）不仅效率低下，而且在实际操作中几乎不可行。自动求导通过计算图的形式，有效地管理和优化这些复杂的梯度计算过程，确保了计算的准确性和效率。</p>
+<p>其次，自动求导在计算效率和可扩展性方面表现卓越。随着模型规模的增长，自动求导能够适应性地扩展，有效地处理大型模型中的高维梯度计算。此外，自动求导与现代硬件加速器（如GPU）紧密集成，进一步提升了梯度计算的速度。</p>
+<p>在数值稳定性和准确性方面，自动求导避免了传统数值求导方法中常见的截断误差和舍入误差，提供了更加稳定和精确的梯度值。这对于深度学习模型的训练尤为重要，因为准确的梯度直接影响到模型的收敛速度和最终性能。</p>
+<p>从用户的角度来看，自动求导极大地降低了深度学习模型开发的门槛。通过抽象化复杂的微分操作，深度学习框架（如TensorFlow和PyTorch）使研究人员和开发人员能够专注于模型架构的设计和优化，而不必深入了解底层的数学运算。这促进了快速原型设计和迭代实验，加速了新模型和算法的开发。</p>
+<p>最后，自动求导的灵活性和泛化能力也是其在深度学习领域广泛应用的关键因素。自动求导不仅适用于标准的神经网络结构，还可以灵活地适应自定义的复杂模型和新颖的算法设计。</p>
+<p>综上所述，自动求导技术在深度学习模型的训练中发挥着至关重要的作用。它不仅优化了计算过程，提高了效率和精度，还降低了模型开发的复杂性，为深度学习的研究和应用提供了强大的支持。随着深度学习技术的不断进步和发展，自动求导仍将是一个不断演进和优化的关键领域。</p>
+<br>
 <h2 id="5使用gpu计算时试分析在单机单卡-单机多卡-多机多卡的设备上训练卷积神经网络流程上的区别-其中哪些步骤是可以并行的哪些步骤是必须串行的"><a class="markdownIt-Anchor" href="#5使用gpu计算时试分析在单机单卡-单机多卡-多机多卡的设备上训练卷积神经网络流程上的区别-其中哪些步骤是可以并行的哪些步骤是必须串行的"></a> 5.使用GPU计算时，试分析在单机单卡、单机多卡、多机多卡的设备上训练卷积神经网络流程上的区别。其中哪些步骤是可以并行的，哪些步骤是必须串行的?</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/70312627">深度学习分布式训练相关介绍 - Part 1 多GPU训练</a></li>
+</ul>
+<br>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>单机单卡</th>
+<th>单机多卡</th>
+<th>多机多卡</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据处理</td>
+<td>所有数据在单个GPU上加载和处理。</td>
+<td>数据在CPU上加载，然后分布到多个GPU上。</td>
+<td>数据在多个机器上分布加载，然后每台机器分布到其GPU上。</td>
+</tr>
+<tr>
+<td>计算流程</td>
+<td>前向传播：在单个GPU上计算。反向传播：梯度计算也在同一GPU上完成。权重更新：权重更新同样在单个GPU上进行。</td>
+<td>前向传播：每个GPU处理数据的一个子集。反向传播：每个GPU独立计算梯度。权重更新：需要跨GPU合并梯度，然后更新权重。</td>
+<td>前向传播：类似单机多卡，但在更多的GPU上进行。反向传播：每个GPU独立计算梯度。权重更新：需要在多个机器间同步合并梯度，然后更新权重。</td>
+</tr>
+<tr>
+<td>资源限制和扩展</td>
+<td>由于只有一块GPU，模型的大小和批次大小受到限制。</td>
+<td>可以处理更大的模型和更大批次的数据。</td>
+<td>进一步扩展了处理能力，适合非常大规模的模型训练。</td>
+</tr>
+<tr>
+<td>并行性</td>
+<td>没有并行处理，所有步骤顺序执行。</td>
+<td>有一定的并行处理，但梯度合并和权重更新可能需要同步操作。</td>
+<td>高度并行，但跨机器的通信和同步可能成为瓶颈。</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>单机单卡：基本都是串行的步骤</p>
+<p>单机多卡:</p>
+<ul>
+<li><strong>并行的步骤</strong>：
+<ul>
+<li><strong>前向传播</strong>：每个GPU处理数据的一个子集，因此可以并行进行。</li>
+<li><strong>反向传播</strong>：每个GPU独立计算自己部分数据的梯度，这个过程也是并行的。</li>
+</ul>
+</li>
+<li><strong>串行的步骤</strong>：
+<ul>
+<li><strong>梯度聚合和权重更新</strong>：虽然各个GPU可以同时计算梯度，但最终这些梯度需要合并（通常在CPU上或一个指定的GPU上进行），然后进行权重更新。这个合并和更新过程是串行的。</li>
+</ul>
+</li>
+</ul>
+<p>多机多卡:</p>
+<ul>
+<li><strong>并行的步骤</strong>：
+<ul>
+<li><strong>前向传播</strong>：跨多个机器和GPU进行，每个机器的GPU处理数据的一个子集。</li>
+<li><strong>反向传播</strong>：每个GPU独立计算梯度，整个过程在多个机器和GPU上并行进行。</li>
+</ul>
+</li>
+<li><strong>串行的步骤</strong>：
+<ul>
+<li><strong>梯度聚合和权重更新</strong>：需要跨多个机器进行梯度合并和权重更新，这通常涉及复杂的通信和同步机制。尽管各个机器可以同时计算梯度，但最终的聚合和更新步骤是串行的，并且通常是分布式训练中的性能瓶颈。</li>
+</ul>
+</li>
+</ul>
 
             
         </div>
@@ -624,10 +938,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    478.5k
+                    482.7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    30:31
+                    30:46
                 </div>
             
             
