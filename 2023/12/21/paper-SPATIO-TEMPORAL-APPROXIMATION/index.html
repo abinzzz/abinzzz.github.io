@@ -25,19 +25,22 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Abstract 尖峰神经网络（SNN）的能源效率和大规模推断潜力。由于从头开始训练SNN代价高昂且性能有限，将预训练的人工神经网络（ANN）转换为SNN成为一种吸引人的方法，因为它能保持强大的性能，同时不需要额外的训">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   论文十问   模型之所以好：这个模型通过创新的时空近似方法，实现了无需额外训练即可将传统的人工神经网络（ANN）转换为尖峰神经网络（SNN）。这种转换保持了高效的能源利用和高精度，特别适合于在神经形态硬件上部署。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper:SPATIO-TEMPORAL APPROXIMATION">
 <meta property="og:url" content="https://abinzzz.github.io/2023/12/21/paper-SPATIO-TEMPORAL-APPROXIMATION/index.html">
 <meta property="og:site_name" content="あまのひな‘s Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   Abstract 尖峰神经网络（SNN）的能源效率和大规模推断潜力。由于从头开始训练SNN代价高昂且性能有限，将预训练的人工神经网络（ANN）转换为SNN成为一种吸引人的方法，因为它能保持强大的性能，同时不需要额外的训">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   论文十问   模型之所以好：这个模型通过创新的时空近似方法，实现了无需额外训练即可将传统的人工神经网络（ANN）转换为尖峰神经网络（SNN）。这种转换保持了高效的能源利用和高精度，特别适合于在神经形态硬件上部署。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pbs.twimg.com/media/GCLTBRDWsAAlIcq?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GCLUrRoX0AAzc3k?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2023-12-21T06:15:37.000Z">
-<meta property="article:modified_time" content="2023-12-21T06:24:51.072Z">
+<meta property="article:modified_time" content="2023-12-25T10:04:45.451Z">
 <meta property="article:author" content="あまのひな">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="SNN">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/GCLTBRDWsAAlIcq?format=jpg&amp;name=medium">
     
         <link rel="alternate" href="/atom.xml" title="あまのひな‘s Blog" type="application/atom+xml">
     
@@ -201,8 +204,98 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
+<h2 id="论文十问"><a class="markdownIt-Anchor" href="#论文十问"></a> 论文十问</h2>
+<ol>
+<li>
+<p><strong>模型之所以好</strong>：这个模型通过创新的时空近似方法，实现了无需额外训练即可将传统的人工神经网络（ANN）转换为尖峰神经网络（SNN）。这种转换保持了高效的能源利用和高精度，特别适合于在神经形态硬件上部署。</p>
+</li>
+<li>
+<p><strong>以前模型的不足</strong>：传统的ANN到SNN的转换方法通常依赖于额外的训练和微调，这不仅耗时而且可能导致性能下降。此外，这些方法在处理复杂的变换器模型时效果不佳，因为它们无法处理非因果、非线性的交互。</p>
+</li>
+<li>
+<p><strong>性能提升的关键点</strong>：论文提出的“时空近似”方法是关键，它通过空间近似处理非线性操作，并通过时间近似处理乘法操作。特别是，时间校正自注意层（Temporal-Corrective Self-Attention Layer, TCSA）的引入，通过估算-校正机制有效地近似了时序数据的乘法操作。</p>
+</li>
+<li>
+<p><strong>编程实现</strong>：论文详细描述了将ANN转换为SNN的具体步骤，包括使用通用组操作符（Universal Group Operators, UGOs）来空间近似非线性操作，以及使用TCSA来时间近似乘法操作。</p>
+</li>
+<li>
+<p><strong>源代码与论文匹配度</strong>：论文详细描述了转换过程和实现方法，但没有提供具体的源代码。通常，论文会提供足够的细节来复现其方法，但实际代码的实现可能需要依赖于论文中的描述。</p>
+</li>
+<li>
+<p><strong>关键的数学运算</strong>：关键的数学运算包括非线性函数的空间近似（如GELU），以及乘法操作的时间近似。</p>
+</li>
+<li>
+<p><strong>整个流程</strong>：整个转换流程包括两个主要部分：空间近似和时间近似。空间近似用于处理非线性函数，而时间近似主要用于处理乘法操作。</p>
+</li>
+<li>
+<p><strong>数据流动和变换</strong>：数据在神经网络中流动时，通过UGOs进行空间近似，通过TCSA进行时间近似。这些变换使得SNN能够以分散的时间步处理复杂的计算，而每个变换都有助于近似原始ANN模型的功能。</p>
+</li>
+<li>
+<p><strong>实现思路与抽象意义</strong>：作者的灵感可能来自于将复杂的ANN模型有效转换为SNN的需求，特别是在处理如Transformer这样的高级模型时。作者既关注具体的算法实现，也关注如何保持模型的抽象功能和高效性。</p>
+</li>
+<li>
+<p><strong>作者思考路线</strong>：作者首先识别了现有转换方法的局限性，然后通过创新的时空近似方法来解决这些问题，最终实现了一个高效且精确的ANN到SNN的转换框架。</p>
+</li>
+</ol>
+<br>
 <h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
-<p>尖峰神经网络（SNN）的能源效率和大规模推断潜力。由于从头开始训练SNN代价高昂且性能有限，将预训练的人工神经网络（ANN）转换为SNN成为一种吸引人的方法，因为它能保持强大的性能，同时不需要额外的训练数据和资源。然而，现有的转换方法虽然在卷积网络上表现良好，但新兴的变压器模型引入了自注意力和测试时归一化等独特机制，导致无法通过当前SNN实现的非因果非线性交互。为了解决这一问题，作者在时间和空间维度上逼近这些操作，提出了第一个适用于变压器的SNN转换流程。他们提出通用组操作以空间上逼近非线性操作，以及一个在推断时通过估计-校正方法逼近尖峰乘法的时间校正自注意层。该算法在预训练的ViT-B/32（来自CLIP）上实现，继承了其零样本分类能力，同时提高了对转换损失的控制。据作者所知，这是首个直接无训练地将预训练的变压器转换为纯事件驱动SNN的案例，对于神经形态硬件部署具有前景。</p>
+<p>脉冲神经网络（SNNs）因其高能效和大规模推理潜力而受到关注。尽管从头开始训练SNNs代价高昂且性能有限，但将预训练的人工神经网络（ANNs）转换为SNNs是一种保持稳健性能而无需额外训练数据和资源的有吸引力的方法。</p>
+<p><strong>目前存在的问题</strong>：尽管现有的转换方法适用于卷积网络，新兴的Transformer模型引入了自注意力和测试时标准化等独特机制，导致当前SNNs难以实现的非因果非线性交互。</p>
+<p><strong>解决方法</strong>：该研究在时间和空间维度上近似这些操作，提出了针对Transformers的首个SNN转换管道。</p>
+<br>
+<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<p>文章的第一部分介绍了大型变压器模型在高效推理方面的需求，并提出了尖峰神经网络（SNN）作为替代方案。由于尖峰神经元的不可微分性质，开发大规模SNN仍然面临挑战。现有方法需要从零开始训练，复杂且性能有限。</p>
+<p>文章提出了一种<strong>无需训练</strong>的ANN到SNN的转换方法，该方法通过时空近似（STA）将ANN激活转换为时间尖峰序列，几乎保留了源模型的所有功能。</p>
+<p>STA方法包括两个新颖的尖峰模块，用于在空间和时间上近似ANN计算。文章展示了如何将ViT-B/32模型转换为SNN，保留了原始模型的泛化性能，并在多个基准测试上实现了SNN的最高精度，同时允许在神经形态硬件上高能效部署。</p>
+<br>
+<h2 id="related-work"><a class="markdownIt-Anchor" href="#related-work"></a> Related Work</h2>
+<p>将人工神经网络（ANN）转换为尖峰神经网络（SNN）是一项活跃的研究领域，目的是提高大规模任务的性能和训练效率。在这一过程中，ANN中的ReLU激活被替换为“软重置”IF神经元。</p>
+<br>
+<h3 id="ann-to-snn-conversion"><a class="markdownIt-Anchor" href="#ann-to-snn-conversion"></a> <code>ANN-TO-SNN CONVERSION</code></h3>
+<p>主要方向包括无需训练的转换和依赖训练的转换:</p>
+<ul>
+<li>无需训练的转换直接在预训练的ANN上进行，通过阈值平衡、参数校准和功能性尖峰发射来转换为SNN，并仅通过少量示例校准而无需重新训练或微调。<strong>然而，这些方法大多限于CNN，不适用于transformer</strong>。依赖训练的转换在转换前使ANN适应SNN，或在转换后微调SNN。尽管减少了转换损失和延迟，但它们依赖于给定的数据集，导致更高的训练成本和较弱的泛化能力，同时保持了类似CNN的结构限制。</li>
+<li>我们的工作提出了一种无需训练的方法，将转换扩展到变压器之外。我们提出的模块作为注意力模块的尖峰等效物，在空间和时间上近似它们，从而保留了大规模预训练模型对复杂场景的适用性。</li>
+</ul>
+<br>
+<h3 id="transformer-and-spike-based-transformer"><a class="markdownIt-Anchor" href="#transformer-and-spike-based-transformer"></a> <code>TRANSFORMER AND SPIKE-BASED TRANSFORMER</code></h3>
+<p>变压器通过自注意机制在空间维度上聚合特征，捕获全局依赖，在自然语言处理和计算机视觉任务上取得了显著成果。它们与CNN在空间特征交互和复杂非线性/规范化方面有所不同，这些都是现有SNN无法实现的。基于尖峰的变压器是最近提出的直接针对SNN训练的模型，它们在结构上与ANN变压器不同，需要从头开始训练。而本文的方法通过转换直接继承了预训练ANN变压器的能力，无需训练。</p>
+<br>
+<h2 id="3-preliminaries-and-problem-analysis"><a class="markdownIt-Anchor" href="#3-preliminaries-and-problem-analysis"></a> 3. PRELIMINARIES AND PROBLEM ANALYSIS</h2>
+<h3 id="31-neurons-for-ann-snn"><a class="markdownIt-Anchor" href="#31-neurons-for-ann-snn"></a> 3.1 <code>NEURONS FOR ANN &amp; SNN</code></h3>
+<h3 id="32-operations-in-transformers"><a class="markdownIt-Anchor" href="#32-operations-in-transformers"></a> 3.2 <code>OPERATIONS IN TRANSFORMERS</code></h3>
+<p><img src="https://pbs.twimg.com/media/GCLTBRDWsAAlIcq?format=jpg&amp;name=medium" alt="" /></p>
+<ul>
+<li>
+<p><strong>非线性运算符</strong> 变压器涉及更复杂的非线性函数，如GELU、平方根、指数等，这些无法通过IF神经元的分段线性动态直接实现，需要在空间域中进行近似。</p>
+</li>
+<li>
+<p><strong>可变标量/矩阵乘法</strong> cnn中的推理是通过变量特征乘以恒定权重矩阵来进行的，而transformer包含更多的变量-变量乘法，如self-attention中的查询键乘积。此外，transformer中的LayerNorm在推理过程中动态计算归一化系数，防止像cnn中的BatchNorm那样集成到权重矩阵中(Rueckauer等人，2017)。因此，用脉冲神经元计算这些乘法是具有挑战性的，可能需要对时间进行修改。</p>
+</li>
+</ul>
+<br>
+<h2 id="4-spatial-approximation-for-non-linearity"><a class="markdownIt-Anchor" href="#4-spatial-approximation-for-non-linearity"></a> 4. <code>SPATIAL APPROXIMATION FOR NON-LINEARITY</code></h2>
+<p>由于变压器的<strong>浮点非线性给SNN转换带来挑战</strong>，目标是开发尖峰神经元对应物来模拟其空间反应。所提出的近似器应该：</p>
+<ul>
+<li>1）只由IF神经元组成；</li>
+<li>2）对所有操作、模型和数据普遍适用。由于单个神经元的表示能力不足，因此采用神经元组来替代单个操作符。这些近似器通过与真实样例无关的合成浮点数据预先训练，因此可以普遍适用于所有场景。</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/GCLUrRoX0AAzc3k?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h3 id="41-neuron-groups-for-universal-approximation"><a class="markdownIt-Anchor" href="#41-neuron-groups-for-universal-approximation"></a> 4.1 <code>NEURON GROUPS FOR UNIVERSAL APPROXIMATION</code></h3>
+<h3 id="42-integration-for-high-dimensional-operations"><a class="markdownIt-Anchor" href="#42-integration-for-high-dimensional-operations"></a> 4.2 <code>INTEGRATION FOR HIGH-DIMENSIONAL OPERATIONS</code></h3>
+<h2 id="5temporal-approximation-for-multiplications"><a class="markdownIt-Anchor" href="#5temporal-approximation-for-multiplications"></a> 5.<code>TEMPORAL APPROXIMATION FOR MULTIPLICATIONS</code></h2>
+<p>与传统网络不同，Transformer中的自注意力在可变特征矩阵之间执行乘法，而不是固定权重。在推理过程中，这些矩阵是由不完全时间序列编码的，因此直接计算它们的乘积是非因果的。天真地避免这可能会导致不均匀的脉冲输出和性能下降。为解决这个问题，本文提出时间纠正自注意力层(TCSA)，采用一种估计-纠正机制。该产品首先使用时间上可用的序列估计，然后由下一个实际脉冲输入校正。这将每个尖峰对乘积的贡献分布在所有时间步骤中，平滑输出以增强乘法的稳定性。</p>
+<h3 id="51-temporal-split-for-spike-based-multiplication"><a class="markdownIt-Anchor" href="#51-temporal-split-for-spike-based-multiplication"></a> 5.1 <code>TEMPORAL SPLIT FOR SPIKE-BASED MULTIPLICATION</code></h3>
+<p>基于脉冲的乘法的时间分割</p>
+<h3 id="52-estimation-correction-for-firing-rate-stability"><a class="markdownIt-Anchor" href="#52-estimation-correction-for-firing-rate-stability"></a> 5.2 <code>ESTIMATION-CORRECTION FOR FIRING-RATE STABILITY</code></h3>
+<p>如何通过估计-校正方法提高脉冲神经网络（SNN）中脉冲发放率的稳定性</p>
+<br>
+<h2 id="6-实验"><a class="markdownIt-Anchor" href="#6-实验"></a> 6. 实验</h2>
+<p>转换实现：论文描述了一种将人工神经网络（ANN）转换为尖峰神经网络（SNN）的方法，使用空间和时间近似。这涉及使用通用组操作符（UGO）进行空间近似和时间修正自注意层（TCSA）进行时间近似。<br />
+零样本分类：转换后的模型在零样本分类任务上进行测试，使用的是CLIP的图像编码器。这评估了模型在未经明确训练的分类任务上的能力。<br />
+标准分类和消融研究：转换模型还在标准图像分类任务上进行测试。进行消融研究以分析转换过程中不同组件的影响。<br />
+能源估算：论文讨论了转换模型的能效，强调了SNN在计算成本和能源消耗方面的优势。</p>
 
             
         </div>
@@ -279,7 +372,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">227</div>
+                <div class="sidebar-state-number">228</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -384,10 +477,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    482.7k
+                    486k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    30:46
+                    30:57
                 </div>
             
             
@@ -414,7 +507,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">227</div>
+                <div class="sidebar-state-number">228</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>

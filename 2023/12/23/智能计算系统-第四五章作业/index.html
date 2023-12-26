@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/GCCJdZTXsAAkolR?format=jpg&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/GCF_bUraEAAUS-9?format=jpg&amp;name=small">
 <meta property="article:published_time" content="2023-12-23T08:48:59.000Z">
-<meta property="article:modified_time" content="2023-12-24T07:41:54.145Z">
+<meta property="article:modified_time" content="2023-12-24T15:56:16.314Z">
 <meta property="article:author" content="あまのひな">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="chapter04">
@@ -254,12 +254,30 @@
 <strong>直接减法</strong>和<strong>使用 <code>torch.sub</code></strong> 方法在功能上是等效的，均成功执行了减法操作。这两种方法利用了PyTorch的广播机制，自动扩展张量维度以匹配形状，最终得到形状为 <code>[2, 3]</code> 的结果张量。<strong>原地减法</strong>尝试在 <code>tensor_n</code> 的副本上直接减去 <code>tensor_m</code>。然而，由于原地操作不支持广播机制，形状不兼容导致实验失败，产生 <code>RuntimeError</code>。</p>
 <p><strong>直接减法和使用 <code>torch.sub</code></strong> 是较为简单且安全的选择，因为它们都支持广播机制，适用于形状不同的张量之间的运算。相比之下，<strong>原地减法</strong>在节省内存方面有优势，但由于不支持广播，需要更谨慎地处理张量形状以确保兼容性。</p>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <h2 id="2全面对比pytorch和tensorflow分析pytorch的优势"><a class="markdownIt-Anchor" href="#2全面对比pytorch和tensorflow分析pytorch的优势"></a> 2.全面对比Pytorch和Tensorflow，分析Pytorch的优势。</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://docs.pingcode.com/ask/47199.html">PyTorch与TensorFlow全面对比：哪个更适合工业界</a></li>
-<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2212225">实例分析</a></li>
-<li>第五章ppt P89</li>
-</ul>
+<!-- - [PyTorch与TensorFlow全面对比：哪个更适合工业界](https://docs.pingcode.com/ask/47199.html)
+- [实例分析](https://cloud.tencent.com/developer/article/2212225)
+- 第五章ppt P89 -->
 <h2 id="21-主要内容比较"><a class="markdownIt-Anchor" href="#21-主要内容比较"></a> 2.1 <code>主要内容比较</code></h2>
 <table>
 <thead>
@@ -348,8 +366,8 @@
 <p><img src="https://viso.ai/wp-content/uploads/2021/03/performance-benchmark-pytorch-vs-tensorflow-02.jpg" alt="" /></p>
 <br>
 <h2 id="23-精度比较"><a class="markdownIt-Anchor" href="#23-精度比较"></a> 2.3 <code>精度比较</code></h2>
-<p>通过对两个框架下的模型进行训练精度和验证精度的对比，评估模型在记忆训练信息和学习新信息的能力。精度数据收集是在经过20个epoch的训练后进行的。结果显示，PyTorch和TensorFlow在模型精度方面表现相似。两个框架中的模型在经过20个epoch的训练后，平均验证精度约为78%。这表明两个框架都能够准确实现神经网络，并在相同的模型和数据集条件下产生类似的结果。<br />
-<img src="https://viso.ai/wp-content/uploads/2021/03/pytorch-vs-tensorflow-accuracy.jpg" alt="" /></p>
+<p>通过对两个框架下的模型进行训练精度和验证精度的对比，评估模型在记忆训练信息和学习新信息的能力。精度数据收集是在经过20个epoch的训练后进行的。结果显示，PyTorch和TensorFlow在模型精度方面表现相似。两个框架中的模型在经过20个epoch的训练后，平均验证精度约为78%。这表明两个框架都能够准确实现神经网络，并在相同的模型和数据集条件下产生类似的结果。</p>
+<p><img src="https://viso.ai/wp-content/uploads/2021/03/pytorch-vs-tensorflow-accuracy.jpg" alt="" /></p>
 <br>
 <h2 id="24-训练时间和内存使用上图"><a class="markdownIt-Anchor" href="#24-训练时间和内存使用上图"></a> 2.4 <code>训练时间和内存使用(上图)</code></h2>
 <p>通过测量并对比两个框架下的模型训练时间以及内存使用情况。结果显示，TensorFlow的平均训练时间（11.19秒）明显高于PyTorch（7.67秒）。在内存使用方面，TensorFlow的使用率（1.7 GB RAM）低于PyTorch（3.5 GB RAM）。两个框架在初始加载数据期间的内存使用更高，分别为TensorFlow的4.8 GB和PyTorch的5 GB。这些结果表明，PyTorch不仅在训练速度上有优势，而且在内存使用上更为高效。</p>
@@ -366,15 +384,38 @@
 <p><strong>更快的原型设计</strong>：与TensorFlow相比，PyTorch允许更快速的原型设计，尤其在需要快速迭代和实验的研究和开发环境中表现突出。</p>
 <p><strong>对ONNX的原生支持</strong>：PyTorch提供对ONNX（开放神经网络交换）格式的原生支持，允许无缝模型导出并与ONNX兼容的平台和工具兼容。</p>
 <br>
-<h2 id="3给出torchnn和torchnnfunctional之间的区别"><a class="markdownIt-Anchor" href="#3给出torchnn和torchnnfunctional之间的区别"></a> 3.给出torch.nn和torch.nn.functional之间的区别。</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/MRZHUGH/article/details/113199202">Pytorch中torch.nn和torch.nn.functional的区别及实例详解</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/66782101">PyTorch 中，nn 与 nn.functional 有什么区别？</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangweiwells/article/details/100531264">【pytorch】torch.nn 与 torch.nn.functional 的区别</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42804713/article/details/125208925">TensorFlow vs PyTorch的优缺点与区别</a></li>
-<li><a target="_blank" rel="noopener" href="https://viso.ai/deep-learning/pytorch-vs-tensorflow/">Pytorch vs Tensorflow: A Head-to-Head Comparison</a></li>
-</ul>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2 id="3给出torchnn和torchnnfunctional之间的区别"><a class="markdownIt-Anchor" href="#3给出torchnn和torchnnfunctional之间的区别"></a> 3.给出torch.nn和torch.nn.functional之间的区别。</h2>
+<!-- - [Pytorch中torch.nn和torch.nn.functional的区别及实例详解](https://blog.csdn.net/MRZHUGH/article/details/113199202)
+- [PyTorch 中，nn 与 nn.functional 有什么区别？](https://www.zhihu.com/question/66782101)
+- [【pytorch】torch.nn 与 torch.nn.functional 的区别](https://blog.csdn.net/wangweiwells/article/details/100531264)
+- [TensorFlow vs PyTorch的优缺点与区别](https://blog.csdn.net/qq_42804713/article/details/125208925)
+- [Pytorch vs Tensorflow: A Head-to-Head Comparison](https://viso.ai/deep-learning/pytorch-vs-tensorflow/) -->
 <h3 id="31-两者的区别"><a class="markdownIt-Anchor" href="#31-两者的区别"></a> 3.1 <code>两者的区别</code></h3>
 <p><strong>相同之处：</strong></p>
 <ul>
@@ -404,11 +445,34 @@
 例如:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">FunctionalConvolutionalModel</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(FunctionalConvolutionalModel, self).__init__()</span><br><span class="line">        <span class="comment"># 初始化权重和偏置作为模型的参数</span></span><br><span class="line">        self.weights = nn.Parameter(torch.randn(<span class="number">6</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>))  <span class="comment"># 假设输出通道为6，输入通道为3，卷积核为3x3</span></span><br><span class="line">        self.bias = nn.Parameter(torch.randn(<span class="number">6</span>))</span><br><span class="line">        <span class="comment"># 初始化激活函数为ReLU</span></span><br><span class="line">        self.activation_function = nn.ReLU()</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, input_tensor</span>):</span><br><span class="line">        <span class="comment"># 使用functional接口应用卷积，传入权重和偏置</span></span><br><span class="line">        conv_output = F.conv2d(input_tensor, self.weights, self.bias)</span><br><span class="line">        <span class="comment"># 应用ReLU激活函数</span></span><br><span class="line">        activated_output = self.activation_function(conv_output)</span><br><span class="line">        <span class="keyword">return</span> activated_output</span><br></pre></td></tr></table></figure>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <h2 id="4请实现两个数的加法即计算-ab并输出其中-a-是常量b是占位符数据类型自定"><a class="markdownIt-Anchor" href="#4请实现两个数的加法即计算-ab并输出其中-a-是常量b是占位符数据类型自定"></a> 4.请实现两个数的加法，即计算 A+B并输出，其中 A 是常量，B是占位符，数据类型自定。</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow.compat.v1 <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="comment">#由于我的tf版本是2.13.0，所以需要启用 TensorFlow 1.x 兼容模式，才能使用tf.placeholder 和 tf.Session</span></span><br><span class="line">tf.disable_v2_behavior()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 TensorFlow 常量 A，值为 2，数据类型为 float32</span></span><br><span class="line">A = tf.constant(<span class="number">2</span>, dtype=tf.float32)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 TensorFlow 占位符 B，用于稍后输入数据，数据类型为 float32</span></span><br><span class="line">B = tf.placeholder(tf.float32)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算和</span></span><br><span class="line">C = tf.add(A, B)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 TensorFlow 会话来执行图</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    <span class="comment"># 运行会话，计算 C 的值，同时通过 feed_dict 提供 B 的值</span></span><br><span class="line">    result = sess.run(C, feed_dict=&#123;B: <span class="number">2</span>&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
 <br>
 <p>输出结果：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4.0</span></span><br></pre></td></tr></table></figure>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <h2 id="5请实现一个矩阵乘法数据类型和规模自定并分别使用-cpu和gpu-执行"><a class="markdownIt-Anchor" href="#5请实现一个矩阵乘法数据类型和规模自定并分别使用-cpu和gpu-执行"></a> 5.请实现一个矩阵乘法，数据类型和规模自定，并分别使用 CPU和GPU 执行。</h2>
 <p>由于我使用的是MacOS设备，所以在 PyTorch 中使用 Metal Performance Shaders (MPS) 作为后端进行计算</p>
@@ -419,11 +483,9 @@
 <p>GPU上的矩阵乘法明显比 CPU 上的矩阵乘法更快，执行时间仅为 CPU 执行时间的约十分之一，显示了其加速的强大性能</p>
 <br>
 <h2 id="6-请调研了解常用的图像数据预处理和数据增强方法-实现一个函数从imagenet2012_val数据集中选择一张图片文件并读入数据调整为2562563大小的图片然后居中裁剪为2242243大小的图片再实现一个函数读入数据后居中裁剪为0875-width0875-height3大小的图片再调整为2242243-大小的图片"><a class="markdownIt-Anchor" href="#6-请调研了解常用的图像数据预处理和数据增强方法-实现一个函数从imagenet2012_val数据集中选择一张图片文件并读入数据调整为2562563大小的图片然后居中裁剪为2242243大小的图片再实现一个函数读入数据后居中裁剪为0875-width0875-height3大小的图片再调整为2242243-大小的图片"></a> 6. 请调研了解常用的图像数据预处理和数据增强方法。实现一个函数，从ImageNet2012_val数据集中选择一张图片文件并读入数据，调整为(256，256，3)大小的图片，然后居中裁剪为(224，224，3)大小的图片;再实现一个函数，读入数据后居中裁剪为(0.875* width，0.875 * height，3)大小的图片，再调整为(224，224，3) 大小的图片。</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44289607/article/details/122853933">图片数据的基本预处理与数据增强</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/mzpmzk/article/details/80039481">数据增强及预处理</a></li>
-<li><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1MEjNh6evha2hcdrQXjNv8w?pwd=yzza">imagenet下载地址</a></li>
-</ul>
+<!-- - [图片数据的基本预处理与数据增强](https://blog.csdn.net/qq_44289607/article/details/122853933)
+- [数据增强及预处理](https://blog.csdn.net/mzpmzk/article/details/80039481)
+- [imagenet下载地址](https://pan.baidu.com/s/1MEjNh6evha2hcdrQXjNv8w?pwd=yzza) -->
 <h2 id="61-数据增强"><a class="markdownIt-Anchor" href="#61-数据增强"></a> 6.1 <code>数据增强</code></h2>
 <p>(1)翻转（Flip）：将图像沿水平或垂直方法随机翻转一定角度；<br />
 <img src="https://pbs.twimg.com/media/GCB2JB-WgAAOhBV?format=jpg&amp;name=medium" alt="" /></p>
@@ -479,18 +541,61 @@
 <img src="https://pbs.twimg.com/media/GCCJdZNWgAA15ue?format=jpg&amp;name=900x900" alt="" /><br />
 <img src="https://pbs.twimg.com/media/GCCJdZTXsAAkolR?format=jpg&amp;name=900x900" alt="" /></p>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <h2 id="7-计算t1-t2的结果-t1torchtensor1234dtypetorchfloat32t2torchtensor9876dtypetorchfloat32"><a class="markdownIt-Anchor" href="#7-计算t1-t2的结果-t1torchtensor1234dtypetorchfloat32t2torchtensor9876dtypetorchfloat32"></a> 7. 计算t1 + t2的结果。 t1=torch.tensor([[1,2],[3,4]],dtype=torch.float32),t2=torch.tensor([[9,8],[7,6]],dtype=torch.float32)</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">t1=torch.tensor([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]],dtype=torch.float32)</span><br><span class="line">t2=torch.tensor([[<span class="number">9</span>,<span class="number">8</span>],[<span class="number">7</span>,<span class="number">6</span>]],dtype=torch.float32)</span><br><span class="line"></span><br><span class="line">res=t1+t2</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
 <br>
 <p>输出结果：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tensor([[<span class="number">10.</span>, <span class="number">10.</span>],</span><br><span class="line">        [<span class="number">10.</span>, <span class="number">10.</span>]])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <h1 id="第五章"><a class="markdownIt-Anchor" href="#第五章"></a> 第五章</h1>
 <h2 id="1什么是pytorchpytorch的基本要素是什么"><a class="markdownIt-Anchor" href="#1什么是pytorchpytorch的基本要素是什么"></a> 1.什么是PyTorch?PyTorch的基本要素是什么?</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/gu1857035894/article/details/125235535">pytorch是什么？解释pytorch的基本概念</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43539854/article/details/108626803">什么是 PyTorch以及PyTorch 的特点</a></li>
-</ul>
+<!-- - [pytorch是什么？解释pytorch的基本概念](https://blog.csdn.net/gu1857035894/article/details/125235535)
+- [什么是 PyTorch以及PyTorch 的特点](https://blog.csdn.net/qq_43539854/article/details/108626803) -->
 <p>PyTorch是一个由Facebook的人工智能研究团队开发的开源深度学习框架。在2016年发布后，PyTorch很快就因其易用性、灵活性和强大的功能而在科研社区中广受欢迎。</p>
 <p>在2016年，Facebook的AI研究团队（FAIR）公开了PyTorch，其旨在提供一个快速，灵活且动态的深度学习框架。PyTorch的设计哲学与Python的设计哲学非常相似：易读性和简洁性优于隐式的复杂性。PyTorch用Python语言编写，是Python的一种扩展，这使得其更易于学习和使用。</p>
 <p>PyTorch在设计上取了一些大胆的决定，其中最重要的一项就是选择动态计算图（Dynamic Computation Graph）作为其核心。动态计算图与其他框架（例如TensorFlow和Theano）中的静态计算图有着本质的区别，它允许我们在运行时改变计算图。这使得PyTorch在处理复杂模型时更具灵活性，并且对于研究人员来说，更易于理解和调试。</p>
@@ -519,11 +624,12 @@
 </li>
 </ul>
 <br>
+<br>
+<br>
+<br>
 <h2 id="2-pytorch如何使用多gpu列举出两种方法并将两种方法进行对比"><a class="markdownIt-Anchor" href="#2-pytorch如何使用多gpu列举出两种方法并将两种方法进行对比"></a> 2. Pytorch如何使用多GPU?列举出两种方法，并将两种方法进行对比。</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Mr_health/article/details/122822483">pytorch的多GPU训练的两种方式</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38076506/article/details/124227219">pytorch多卡训练nn.DataParallel和nn.DistributedDataParallel比较</a></li>
-</ul>
+<!-- - [pytorch的多GPU训练的两种方式](https://blog.csdn.net/Mr_health/article/details/122822483)
+- [pytorch多卡训练nn.DataParallel和nn.DistributedDataParallel比较](https://blog.csdn.net/weixin_38076506/article/details/124227219) -->
 <h3 id="torchnndataparallel"><a class="markdownIt-Anchor" href="#torchnndataparallel"></a> <code>torch.nn.DataParallel</code></h3>
 <p><strong>工作原理</strong>:</p>
 <p>这种方式只有一个进程，假设我们有一个8卡的机器，然后设置的batchsize是128，那么单卡的batchsize就是32，在训练的时候，他把我们的模型分发到每个GPU上，然后在每个GPU上面对着32张图进行前向和反向传播得到loss，之后将所有的loss汇总到0卡上，对0卡的参数进行更新，然后，非常重要的一点：他再把更新后的模型传给其他7张卡，这个操作是在每个batch跑完都会执行一次的。<br />
@@ -580,9 +686,6 @@
 <p>生成了三条曲线：sin(x)，sin’(x)，以及 cos(x)。sin(x) 的导数曲线（sin’(x)）与 cos(x) 的曲线完美重合，验证了微分的正确性。</p>
 <br>
 <h2 id="4对比四种求导方法的优劣并分析为什么选择自动求导机制"><a class="markdownIt-Anchor" href="#4对比四种求导方法的优劣并分析为什么选择自动求导机制"></a> 4.对比四种求导方法的优劣并分析为什么选择自动求导机制。</h2>
-<ul>
-<li>第五章ppt</li>
-</ul>
 <table>
 <thead>
 <tr>
@@ -687,9 +790,7 @@
 <p>综上所述，自动求导技术在深度学习模型的训练中发挥着至关重要的作用。它不仅优化了计算过程，提高了效率和精度，还降低了模型开发的复杂性，为深度学习的研究和应用提供了强大的支持。随着深度学习技术的不断进步和发展，自动求导仍将是一个不断演进和优化的关键领域。</p>
 <br>
 <h2 id="5使用gpu计算时试分析在单机单卡-单机多卡-多机多卡的设备上训练卷积神经网络流程上的区别-其中哪些步骤是可以并行的哪些步骤是必须串行的"><a class="markdownIt-Anchor" href="#5使用gpu计算时试分析在单机单卡-单机多卡-多机多卡的设备上训练卷积神经网络流程上的区别-其中哪些步骤是可以并行的哪些步骤是必须串行的"></a> 5.使用GPU计算时，试分析在单机单卡、单机多卡、多机多卡的设备上训练卷积神经网络流程上的区别。其中哪些步骤是可以并行的，哪些步骤是必须串行的?</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/70312627">深度学习分布式训练相关介绍 - Part 1 多GPU训练</a></li>
-</ul>
+<!-- - [深度学习分布式训练相关介绍 - Part 1 多GPU训练](https://zhuanlan.zhihu.com/p/70312627) -->
 <br>
 <table>
 <thead>
@@ -833,7 +934,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">227</div>
+                <div class="sidebar-state-number">228</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -938,10 +1039,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    482.7k
+                    486k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    30:46
+                    30:57
                 </div>
             
             
@@ -968,7 +1069,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">227</div>
+                <div class="sidebar-state-number">228</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
