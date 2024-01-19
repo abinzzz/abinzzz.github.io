@@ -1,0 +1,1063 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN"
+            
+          
+    >
+    <head>
+    <!--pjax：防止跳转页面音乐暂停-->
+    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        智能计算系统课设:实验大作业(mid) |
+        
+        Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    目录  引言 1.1. 实验目的和重要性 1.2. 实验的基本概述 实验背景 2.1. 问答模型 2.2. SQuAD数据集的介绍 2.3. BERT算法的原理和特点 2.3.1. 模型设计与参数调整 2.3.2.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="智能计算系统课设:实验大作业(mid)">
+<meta property="og:url" content="https://abinzzz.github.io/2024/01/15/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE-%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    目录  引言 1.1. 实验目的和重要性 1.2. 实验的基本概述 实验背景 2.1. 问答模型 2.2. SQuAD数据集的介绍 2.3. BERT算法的原理和特点 2.3.1. 模型设计与参数调整 2.3.2.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pbs.twimg.com/media/GD3wX0nWMAAtNlC?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GD319CmWwAAcJhN?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GEIfXxbWQAAGWS7?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GEIQv6iWIAArJqm?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GEInAIpXcAAB4ad?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GEMYvc6XsAAp9Vo?format=jpg&amp;name=medium">
+<meta property="article:published_time" content="2024-01-15T07:37:18.000Z">
+<meta property="article:modified_time" content="2024-01-19T11:06:52.179Z">
+<meta property="article:author" content="宫园香织">
+<meta property="article:tag" content="专业知识">
+<meta property="article:tag" content="智能计算系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/GD3wX0nWMAAtNlC?format=jpg&amp;name=medium">
+    
+        <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/katex@0.16.7/dist/katex.min.css">
+
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">Loading...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+    
+        <img data-src="https://pbs.twimg.com/media/GD3Tj6fXoAAgsgz?format=png&amp;name=small" data-sizes="auto" alt="智能计算系统课设:实验大作业(mid)" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>智能计算系统课设:实验大作业(mid)</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">首页</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">归档</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">关于</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">友链</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS 订阅"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://abinzzz.github.io"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-智能计算系统课设-实验报告" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2024/01/15/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE-%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="article-date-link">
+        <time datetime="2024-01-15T07:37:18.000Z"
+              itemprop="datePublished">2024-01-15</time>
+    </a>
+</div>
+
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><a class="article-category-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/">智能计算系统</a>
+    </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<!-- ### 1. 实验报告概述
+   - 目的
+   - 格式要求
+   - 截止时间与提交地址
+
+### 2. 实验背景与原理
+   - 7.3 BERT在SQuAD任务上的应用
+   - 7.3.1 实验目的
+   - 7.3.2 背景介绍
+     - 7.3.2.1 问答模型与SQuAD数据集
+     - 7.3.2.2 BERT算法原理
+       - BERT概述
+       - Transformer网络
+       - BERT网络结构
+
+### 3. 实验环境
+   - 硬件平台
+   - 软件环境
+   - 数据集信息
+
+### 4. 实验内容与步骤
+   - 7.3.4 实验内容概述
+   - 7.3.5 实验步骤
+     - 7.3.5.1 数据加载模块
+     - 7.3.5.2 网络训练模块
+     - 7.3.5.3 精度验证模块
+     - 7.3.5.4 主体函数实现模块
+     - 7.3.5.5 实验运行
+
+### 5. 实验评估与标准
+   - 实验评分标准
+   - 成功完成的标准
+
+### 6. 实验思考与讨论
+   - Transformer计算Attention中的数学原理
+   - BERT模型初始参数的重要性
+
+### 7. 实验数据及分析
+   - 数据收集方法
+   - 数据分析技术
+   - 实验结果
+
+### 8. 实验心得与课程反馈
+   - 实验过程中的感受
+   - 对实验课的建议
+   - 课程难度与个人收获
+
+### 9. 结论
+   - 实验结果总结
+   - 实验的学术或实际意义
+   - 对未来学习或研究的展望
+
+
+----- -->
+<h1 id="目录"><a class="markdownIt-Anchor" href="#目录"></a> 目录</h1>
+<ol>
+<li><a href="#1-%E5%BC%95%E8%A8%80">引言</a><br />
+1.1. <a href="#11-%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84%E5%92%8C%E9%87%8D%E8%A6%81%E6%80%A7">实验目的和重要性</a><br />
+1.2. <a href="#12-%E5%AE%9E%E9%AA%8C%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E8%BF%B0">实验的基本概述</a></li>
+<li><a href="#2-%E5%AE%9E%E9%AA%8C%E8%83%8C%E6%99%AF">实验背景</a><br />
+2.1. <a href="#21-%E9%97%AE%E7%AD%94%E6%A8%A1%E5%9E%8B">问答模型</a><br />
+2.2. <a href="#22-SQuAD%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E4%BB%8B%E7%BB%8D">SQuAD数据集的介绍</a><br />
+2.3. <a href="#23-BERT%E7%AE%97%E6%B3%95%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E7%89%B9%E7%82%B9">BERT算法的原理和特点</a><br />
+2.3.1. <a href="#231-%E6%A8%A1%E5%9E%8B%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4">模型设计与参数调整</a><br />
+2.3.2. <a href="#232-BERT%E7%9A%84%E8%BE%93%E5%85%A5%E8%A1%A8%E7%A4%BA">BERT的输入表示</a><br />
+2.3.3. <a href="#233-pre-training">pre-training</a><br />
+2.3.4. <a href="#234-fine-tuning">fine-tuning</a></li>
+<li><a href="#3-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83">实验环境</a></li>
+<li><a href="#4-%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95%E5%8F%8A%E6%B5%81%E7%A8%8B">实验方法及流程</a><br />
+4.1. <a href="#41-%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97">数据加载模块</a><br />
+4.2. <a href="#42-%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9D%97">网络训练模块</a><br />
+4.3. <a href="#43-%E7%B2%BE%E5%BA%A6%E9%AA%8C%E8%AF%81%E6%A8%A1%E5%9D%97">精度验证模块</a><br />
+4.4. <a href="#44-%E4%B8%BB%E4%BD%93%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9D%97">主体函数实现模块</a></li>
+<li><a href="#5-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%92%8C%E5%88%86%E6%9E%90">实验结果和分析</a></li>
+<li><a href="#6-%E5%AE%9E%E9%AA%8C%E6%80%9D%E8%80%83">实验思考</a><br />
+6.1. <a href="#61-Transformer%E7%9A%84%E8%AE%A1%E7%AE%97Attention%E6%97%B6%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%9C%A8Softmax%E4%B9%8B%E5%89%8D%E9%99%A4%E4%BB%A5-sqrt-d_k">Transformer的计算Attention时，为什么要在Softmax之前除以<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><msub><mi>d</mi><mi>k</mi></msub></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{d_k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.18278000000000005em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.85722em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.81722em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.18278000000000005em;"><span></span></span></span></span></span></span></span></span>?</a><br />
+6.2. <a href="#62-%E5%A6%82%E6%9E%9CBERT%E6%A8%A1%E5%9E%8B%E5%88%9D%E5%A7%8B%E5%8F%82%E6%95%B0%E6%98%AF%E9%9A%8F%E6%9C%BA%E7%9A%84%E5%8D%B3%E4%BD%BF%E7%BB%8F%E8%BF%87%E8%B6%B3%E5%A4%9F%E9%95%BF%E6%97%B6%E9%97%B4%E7%9A%84%E8%AE%AD%E7%BB%83%E4%B9%9F%E9%9A%BE%E4%BB%A5%E5%8F%96%E5%BE%97%E5%A5%BD%E7%9A%84%E6%8E%A8%E7%90%86%E6%95%88%E6%9E%9C%E8%AF%B7%E9%97%AE%E8%BF%99%E6%98%AF%E4%B8%BA%E4%BB%80%E4%B9%88">如果BERT模型初始参数是随机的，即使经过足够长时间的训练也难以取得好的推理效果，请问这是为什么？</a></li>
+<li><a href="#7-%E7%BB%93%E8%AE%BA">结论</a><br />
+7.1. <a href="#71-%E5%AE%9E%E9%AA%8C%E7%9A%84%E6%80%BB%E7%BB%93">实验的总结</a><br />
+7.2. <a href="#72-%E5%AE%9E%E9%AA%8C%E7%9A%84%E6%84%8F%E4%B9%89%E5%92%8C%E5%AF%B9%E6%9C%AA%E6%9D%A5%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%B1%95%E6%9C%9B">实验的意义和对未来工作的展望</a></li>
+</ol>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2 id="1-引言"><a class="markdownIt-Anchor" href="#1-引言"></a> 1. <strong>引言</strong></h2>
+<h2 id="11-实验目的和重要性"><a class="markdownIt-Anchor" href="#11-实验目的和重要性"></a> 1.1 实验目的和重要性</h2>
+<p>本实验旨在深入理解和掌握自然语言处理（NLP）中的代表性算法BERT（Bidirectional Encoder Representations from Transformers）。通过实验，我们将熟悉BERT算法的基本原理，并学习如何在DLP平台MLU370上移植BERT模型，特别是对已经完成预训练的BERT网络模型进行针对问答任务的微调训练。这一过程不仅涵盖了对SQuAD（Stanford Question Answering Dataset）数据集的深入了解，还包括使用Pytorch编写问答系统应用以及将其移植到DLP平台的技术。实验的重要性在于，它不仅提供了对NLP中关键技术的实践体验，而且加深了理论知识与实际应用之间的联系，这对于在自然语言处理领域的进一步研究和工作至关重要。</p>
+<h2 id="12-实验的基本概述"><a class="markdownIt-Anchor" href="#12-实验的基本概述"></a> 1.2 实验的基本概述</h2>
+<p>本实验围绕在MLU370平台上对BERT模型进行微调并应用于SQuAD任务展开。实验内容包括数据加载、模型训练、精度验证等关键环节，涉及的技术包括BERT算法的理解、Transformer网络结构的掌握、以及Pytorch在自然语言处理中的应用。通过实验，我们期望达到对BERT原理的深入理解，掌握其在问答系统中的应用，并能够有效地在DLP平台上实施模型训练和调优。此外，实验还包括对实验结果的分析和评估，以及对所学知识的反思和总结。</p>
+<h2 id="2-实验背景"><a class="markdownIt-Anchor" href="#2-实验背景"></a> 2. <strong>实验背景</strong></h2>
+<h2 id="21-问答模型"><a class="markdownIt-Anchor" href="#21-问答模型"></a> 2.1 问答模型</h2>
+<p><img src="https://pbs.twimg.com/media/GD3wX0nWMAAtNlC?format=jpg&amp;name=medium" alt="" /></p>
+<ul>
+<li><strong>query</strong>: 用户的提问</li>
+<li><strong>passage</strong>: 文章</li>
+</ul>
+<p>问答模型设计的是简单问题模型，即query的答案是从passage中抽取出的。query和passage经过数据预处理，得到id形式的输入，然后把query，passage的id形式输入到BERT模型，BERT模型经过处理会输出答案的位置，输出位置以后就可以得到相应的答案了。</p>
+<br>
+<p>举例说明，对于以下一段文本:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">James Bryant Conant led the university through the Great Depression and World War Il andbegan to reform the curriculum and liberalize admissions after the war.</span><br></pre></td></tr></table></figure>
+<p>其对应问题:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">What was the name of the leader through the Great Depression and World War Il?·</span><br></pre></td></tr></table></figure>
+<p>一个问答模型应当给出正确的回答:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">James Brvant Conant</span><br></pre></td></tr></table></figure>
+<h2 id="22-squad数据集的介绍"><a class="markdownIt-Anchor" href="#22-squad数据集的介绍"></a> 2.2 SQuAD数据集的介绍</h2>
+<p>SQuAD是Stanford Question Answering Dataset 的首字母缩写。这是一个阅读理解数据集，由维基百科的一系列文章、问题和答案组成，每个问题的答案都来自于一个段落内的某个范围。问答模型需要根据文章的语义和上下文，根据问题的要求推理答案的范围。</p>
+<p>分类：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1606.05250"><strong>SQuAD 1.1</strong></a>：SQuAD 1.1 包含针对500+文章的10万+问答对。</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.03822"><strong>SQuAD 2.0</strong></a>: SQuAD2.0组合了SQuAD1.1中的10万个问题，并增加了超过5万个无法回答的问题，这些问题由众包工作者以对抗（adversarially）的方式设计，看起来与可回答的问题相似。为了在SQuAD2.0数据集上表现出色。系统不仅必须在可能的情况下回答问题，还必须确定篇章数据何时不支持回答，并避免回答。</li>
+</ul>
+<br>
+<p>数据集例子：<br />
+<img src="https://pbs.twimg.com/media/GD319CmWwAAcJhN?format=jpg&amp;name=medium" alt="" /></p>
+<ul>
+<li><strong>文章 Passage</strong>：文章挑选自英文维基中比较高质量的10000篇维基百科中。先随机抽取了536篇文章，把它们按自然段划分。然后去除图片，表格，和过短的段落。最后保留了23，125个段落来作为数据集的passage。</li>
+<li><strong>问题Question</strong>：问题由外包工作者人工提出。对于每一个passage，工作者需要提出5个问题，并且标记出文中的text span作为答案。而且还有一个额外的要求，工作者们需要以自己的词汇来提问，而不是简单地复制文章中出现的词，这样可以避免model 直接进行token match的问题。</li>
+<li><strong>答案Answer</strong>：工作者们标记出来的text span就是问题的答案。</li>
+</ul>
+<br>
+<h2 id="23-bert算法的原理和特点"><a class="markdownIt-Anchor" href="#23-bert算法的原理和特点"></a> 2.3 BERT算法的原理和特点</h2>
+<p>BERT这个名字是从 Bidirectional Encoder Representations from Transformers得来的，猜测是为了凑出Bert这个词，因为前面的著名工作ELMo就是美国家喻户晓的动画片芝麻街中的主角之一。在BERT出来之后，后面的研究者就开始想方设法地把芝麻街中的重要人物都用了个遍。</p>
+<p>主要对比对象是ELMo和GPT。最大的作用就是我们可以只是使用预训练好的BERT模型，添加一个任务相关的输出层，就可以在下游任务上达到SOTA水平，极大地降低了NLP任务的门槛。而前面的ELMo则需要对模型进行修改。</p>
+<p>下面将解释BERT和ELMo、GPT的区别：</p>
+<ul>
+<li>GPT使用新的 Transformers结构，用左侧信息取预测未来信息，单向模型的主要缺点在于不能获得足够好的词表示；</li>
+<li>ELMo通过从左向右(LTR)和从右向左(RTL)两个模型的输出拼接获得词的表示，双向信息融合的很浅，且由于基于RNN的架构，在应用到下游任务时，需要对架构做一些调整；</li>
+<li>BERT是基于Transformer，用了左右侧信息，使用的是没有标号的数据，用到一些下游任务的时候，和GPT一样只需要微调输出层就可以了</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/GEIfXxbWQAAGWS7?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3 id="231-模型设计与参数"><a class="markdownIt-Anchor" href="#231-模型设计与参数"></a> 2.3.1 模型设计与参数</h3>
+<p>本节分为两个主要步骤：pre-training和fine-tuning。</p>
+<p>在<strong>pre-training阶段</strong>，BERT模型利用大量无标签数据进行学习。随后，在<strong>fine-tuning阶段</strong>，模型采用之前预训练得到的权重作为初始值，并使用特定下游任务的有标签数据进行进一步的调整和优化。<br />
+<img src="https://pbs.twimg.com/media/GEIQv6iWIAArJqm?format=jpg&amp;name=medium" alt="" /></p>
+<p>模型的核心结构基于原始的<strong>Transformer的Encoder部分</strong>。BERT的设计中，主要采用了两种不同的架构：<strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>E</mi><mi>R</mi><msub><mi>T</mi><mrow><mi>B</mi><mi>A</mi><mi>S</mi><mi>E</mi></mrow></msub></mrow><annotation encoding="application/x-tex">BERT_{BASE}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></strong>（层数L=12，隐藏层大小H=768，头数A=12，总参数量约110M）和 <strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>E</mi><mi>R</mi><msub><mi>T</mi><mrow><mi>L</mi><mi>A</mi><mi>R</mi><mi>G</mi><mi>E</mi></mrow></msub></mrow><annotation encoding="application/x-tex">BERT_{LARGE}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span><span class="mord mathnormal mtight">G</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></strong>（层数L=24，隐藏层大小H=1024，头数A=16，总参数量约340M）。</p>
+<p>参数的主要组成部分来自于Transformer的几个关键组件：</p>
+<ul>
+<li><strong>嵌入层（Embedding Layer）</strong>：词汇量为V，每个词向量的维度为H，因此这部分的参数量为 <code>V × H</code>。</li>
+<li><strong>多头注意力机制（Multi-head Attention）</strong>：这部分包含了A个小型投影矩阵，用于将原本的H维向量分解为多个低维向量。这些矩阵合并后形成一个 <code>H × H</code> 的大矩阵。由于self-attention分为Q（查询）、K（键）和V（值）三部分，因此这里有3个 <code>H²</code> 的矩阵。此外，在多头注意力操作后，向量会重新组合并通过另一个 <code>H²</code> 的投影矩阵，使得这一部分总共有 <code>4H²</code> 的参数。</li>
+<li><strong>多层感知机（MLP）层</strong>：Transformer中的MLP由两个全连接层组成，第一个层将维度扩大4倍，第二个则将其还原至H维。因此，这里的参数量为 <code>H × 4H + 4H × H = 8H²</code>。</li>
+</ul>
+<p>由于这些组件均属于一个Transformer block，而模型中包含L个这样的blocks，所以总体参数量可以表示为 <code>VH + 12LH²</code>。</p>
+<p>综上所述，<strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>E</mi><mi>R</mi><msub><mi>T</mi><mrow><mi>B</mi><mi>A</mi><mi>S</mi><mi>E</mi></mrow></msub></mrow><annotation encoding="application/x-tex">BERT_{BASE}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></strong> 的参数量大约为108M，而 <strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>E</mi><mi>R</mi><msub><mi>T</mi><mrow><mi>L</mi><mi>A</mi><mi>R</mi><mi>G</mi><mi>E</mi></mrow></msub></mrow><annotation encoding="application/x-tex">BERT_{LARGE}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span><span class="mord mathnormal mtight">G</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></strong> 的参数量则接近330M，与原文描述相符。</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3 id="232-bert的输入表示"><a class="markdownIt-Anchor" href="#232-bert的输入表示"></a> 2.3.2 BERT的输入表示</h3>
+<p>在BERT的预训练阶段，输入统一被称为<strong>输入序列（input sequence）</strong>。下游任务可能是处理单个句子，或处理两个句子。为了使BERT能够处理所有类型的任务，输入序列可以是单个句子，也可以是一个句子对（这里的“句子”指一段连续的文字，并非严格意义上的单个语义句子）。</p>
+<p><strong>WordPiece</strong>切词方法：如果使用空格切词，每个词成为一个token。这会导致词表过大，可能达到百万级别。WordPiece原理是对频率低的词进行切分，保留高频的子序列（通常是词根），以此减少词表大小（约3万）。</p>
+<p>BERT中的<strong>特殊记号</strong>：</p>
+<ul>
+<li><strong>[CLS]</strong>：每个序列的第一个词总是特殊记号[CLS]（classification）。它的输出代表整个序列的信息，用于分类任务。</li>
+<li><strong>区分句子对的方法</strong>：
+<ol>
+<li>使用特殊词 <strong>[SEP]</strong>（separate）在句子对的结尾处分隔两个句子。</li>
+<li>在词嵌入层使用向量标识每个token属于句子A还是句子B。</li>
+</ol>
+</li>
+</ul>
+<br>
+<p>给定的token输入表征由以下三部分相加构成：</p>
+<ul>
+<li><strong>Token Embedding</strong>：将词元转换成固定维度的向量。</li>
+<li><strong>Segment Embedding</strong>：用于句子对任务，区分两个句子。</li>
+<li><strong>Position Embedding</strong>：反映词元在序列中的位置信息。</li>
+</ul>
+<br>
+<p>这些向量序列随后进入Transformer块。下图展示了嵌入层的结构：</p>
+<p><img src="https://pbs.twimg.com/media/GEInAIpXcAAB4ad?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3 id="233-pre-training"><a class="markdownIt-Anchor" href="#233-pre-training"></a> 2.3.3 pre-training</h3>
+<p>以往的模型如ELMo和GPT主要使用单向语言模型来学习通用的语言表示。例如，GPT采用了从左到右的结构，每个标记仅能关注其前面的标记,而基于RNN架构的ELMo本质上是单向的。这种单向方法在任务中，如命名实体识别（NER），因不能充分利用上下文信息而大打折扣。</p>
+<p>BERT主要就是为了解决这种单向的限制，设计了一种&quot;mask language modeling&quot;(MLM)的方式，来进行双向的语言模型预训练。这一点是借鉴了完形填空（cloze）任务。另外，作者还设计了一个叫&quot;next sentence prediction&quot;(NSP)的任务来预训练，即判断两个句子是否是相邻的，还是随机的，这样可以学习句子层面的信息。</p>
+<br>
+<h3 id="mlm"><a class="markdownIt-Anchor" href="#mlm"></a> <code>MLM</code></h3>
+<p>随机地把原文中的15%的token给遮盖住，即用一个 [MASK] token来替换原来的词。然后把mask之后的文本输入到模型中，让模型去预测这些被mask掉的词。这样就实现了双向的语言模型。</p>
+<p>但这样做会导致预训练和微调阶段的不一致性：预训练的时候输入都是带有 [MASK] token的，而这个token在微调阶段是看不到的，这样自然会影响微调时的效果。为了缓解这个问题，作者使用了如下的操作：</p>
+<p>当挑到某个词去mask的时候，80%的概率会真的被替换成[MASK]，10%的概率会被替换成一个随机的真实token，还有10%的概率不进行任何操作。</p>
+<ul>
+<li>80%的概率是采用[mask]，<code>my dog is hairy → my dog is [MASK]</code></li>
+<li>10%的概率是随机取一个词来代替mask的词，<code>my dog is hairy -&gt; my dog is apple</code></li>
+<li>10%的概率保持不变，my dog is hairy -&gt; <code>my dog is hairy</code></li>
+</ul>
+<br>
+<h3 id="nsp"><a class="markdownIt-Anchor" href="#nsp"></a> <code>NSP</code></h3>
+<p>很多的下游任务，比如QA（问答）和NLI（自然语言推理）任务，都需要模型能够理解句子之间的关系，而这种关系难以被MLM所学习到。因此作者设计了一个输入句子对的二分类的NSP任务：</p>
+<p>选择的句子对A和B，B有50%的概率是A的下一个句子（标记为is next），50%的概率是语料库中随机挑选句子（标记为not next），这就意味着有50%的样本是正例，50%的样本是负例。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Input = [CLS] the man went to [MASK] store [SEP]</span><br><span class="line">he bought a gallon [MASK] milk [SEP]</span><br><span class="line"></span><br><span class="line">Label = IsNext</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Input = [CLS] the man [MASK] to the store [SEP]</span><br><span class="line">penguin [MASK] are flight ##less birds [SEP]</span><br><span class="line"></span><br><span class="line">Label = NotNext</span><br></pre></td></tr></table></figure>
+<p>在原文中 flightless 是一个词，但是由于这个词出现的概率不高，所以在WordPiece中把它砍成了两个词 flight 和 less ，他们都是比较常见的词，##表示在原文中后面的词跟在前面那个词后面</p>
+<br>
+<h3 id="234-fine-tuning"><a class="markdownIt-Anchor" href="#234-fine-tuning"></a> 2.3.4 fine-tuning</h3>
+<p>Transformer是编码器-解码器结构，编码器和解码器之间是不能直接看到的。而BERT只用了编码器，整个句子对都可以输入模型，self-attention机制能够允许两端相互看，所以self-attention编码的连续文本对，有效的包含了两个序列之间的双向交叉attention。（相比Transformer会做得好一点）</p>
+<p>对于每个下游任务，我们只需将特定于任务的输入和输出连接到BERT中，然后端到端微调所有参数。</p>
+<p>对于输入，预训练中的句子A和句子B类似于（1）释义中的句子对，（2）文本蕴含中的前提和假设对，（3）问答中的问句和段落对，（4）文本分类或者序列标注中不全的text-∅ \varnothing∅ 对。</p>
+<p>对于输出，token 表示会被喂入token级任务的输出层，例如序列的标注或者问题的答句，并且[CLS]喂入输出层用于分类，例如情感分析和文本蕴含。</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2 id="3实验环境"><a class="markdownIt-Anchor" href="#3实验环境"></a> 3.<strong>实验环境</strong></h2>
+<p><strong>硬件平台</strong>:DLP 云平台环境。</p>
+<p><strong>软件环境</strong>: 编程框架 Pytorch1.6.0、CNNL 高性能 AI 运算库，CNRT 运行时库，以及python 环境及相关的扩展库。</p>
+<p><strong>数据集</strong>: 斯坦福问答数据集(Stanford Question AnsweringDataset 1.1,SQuAD 1.1)231。它包含了来自500篇文章的10万个以上问题-答案对(question-answerpairs)。</p>
+<br>
+<h2 id="4实验方法及流程"><a class="markdownIt-Anchor" href="#4实验方法及流程"></a> 4.实验方法及流程</h2>
+<p>实验的目的是使用BERT模型在SQuAD数据集上进行问答任务的微调训练，涉及到数据加载、模型训练、模型评估等步骤。</p>
+<h2 id="41-数据加载模块"><a class="markdownIt-Anchor" href="#41-数据加载模块"></a> 4.1 数据加载模块</h2>
+<p><strong>目的</strong>：加载SQuAD数据集，并将其转换为模型可以处理的格式。</p>
+<p>以下是该模块的方法（<code>def load_and_cache_examples</code>）：</p>
+<ul>
+<li><strong>分布式训练环境设置</strong>：在分布式训练的设置中，使用<code>torch.distributed.barrier()</code>确保仅有一个进程处理数据集，其余进程待处理完成后使用缓存数据，保证了数据处理的一致性和效率。</li>
+<li><strong>缓存文件的使用</strong>：设定缓存文件路径<code>cached_features_file</code>。若此文件已存在且无需更新，则直接从缓存加载数据，减少重复的数据处理时间。</li>
+<li><strong>数据处理</strong>：对于缓存文件不存在的情况，根据训练或评估模式，使用<code>SquadV1Processor</code>或<code>SquadV2Processor</code>从数据文件中加载原始数据。运用<code>squad_convert_examples_to_features</code>函数将数据转换成模型可处理的特征，包括文本的令牌化、序列的截断或填充等。</li>
+<li><strong>缓存文件的生成</strong>：处理后的数据（特征、数据集、原始样本）被保存在缓存文件中，以便后续使用，从而避免重复的数据预处理步骤。</li>
+<li><strong>函数输出</strong>：根据<code>output_examples</code>参数的值，函数输出处理后的数据集<code>dataset</code>，或者连同原始样本<code>examples</code>和特征<code>features</code>一起输出。</li>
+</ul>
+<h2 id="42-网络训练模块"><a class="markdownIt-Anchor" href="#42-网络训练模块"></a> 4.2 网络训练模块</h2>
+<p><strong>目的</strong>：在SQuAD数据集上对BERT模型进行训练。</p>
+<p>该模块的实现方法（<code>def train</code>）：</p>
+<ul>
+<li><strong>数据准备和设置</strong>：使用<code>SummaryWriter</code>记录训练过程，计算每个GPU的训练批次大小并初始化数据加载器<code>train_dataloader</code>，根据设置的最大步数或训练轮数计算总训练步数<code>t_total</code>。</li>
+<li><strong>优化器和调度器的设置</strong>：配置优化器参数，区分需要权重衰减的参数和不需要的参数。使用<code>AdamW</code>作为优化器，设置学习率和<code>epsilon</code>值。创建学习率调度器<code>scheduler</code>，使用<code>get_linear_schedule_with_warmup</code>进行线性预热和衰减。</li>
+<li><strong>分布式混合精度训练设置</strong>：如果启用了<code>args.fp16</code>，则使用<code>torch.cuda.amp.GradScaler</code>实现混合精度训练。在多GPU训练中使用<code>DataParallel</code>，在分布式训练中使用<code>DistributedDataParallel</code>。</li>
+<li><strong>训练过程</strong>：
+<ul>
+<li>初始化全局步数和训练损失。</li>
+<li>遍历每个训练周期，加载批次数据。</li>
+<li>将模型设置为训练模式，将数据移至指定设备。</li>
+<li>根据模型类型处理输入数据。</li>
+<li>计算模型输出和损失，进行梯度反向传播。</li>
+<li>根据设定的步数进行梯度裁剪和优化器更新。</li>
+<li>每隔一定步数记录训练指标并保存模型检查点。</li>
+</ul>
+</li>
+<li><strong>保存训练结果</strong>：如果启用了定期保存，保存模型到指定的输出目录，并记录优化器和调度器的状态。</li>
+</ul>
+<h2 id="43-精度验证模块"><a class="markdownIt-Anchor" href="#43-精度验证模块"></a> 4.3 精度验证模块</h2>
+<p><strong>目的</strong>：评估训练好的模型在SQuAD数据集上的性能。</p>
+<p>模块实现方法如下(<code>def eval</code>)：</p>
+<ul>
+<li><strong>准备评估</strong>：使用<code>load_and_cache_examples</code>函数加载测试样例，包括数据集、示例和特征。根据每个GPU设置评估批次大小并初始化评估数据加载器<code>eval_dataloader</code>。</li>
+<li><strong>执行评估</strong>：在评估过程中，首先设置模型为评估模式。遍历评估数据加载器中的批次，将批次数据加载到设备上，并在无梯度的环境下进行预测。收集每个批次的输出，存储评估结果。</li>
+<li><strong>计算评估指标</strong>：记录评估所用的总时间及每个样本的平均评估时间，根据模型输出计算预测结果，包括每个问题的最佳回答及其置信度，使用SQuAD评估脚本计算F1和精确度等指标。</li>
+<li><strong>结果输出</strong>：将预测结果保存到指定的输出文件中，包括完整预测结果和最佳预测。如果任务包含无答案的情况（SQuAD 2.0），还会输出空答案的置信度。</li>
+<li><strong>性能判定</strong>：根据F1分数和精确度来评估模型的性能，输出评估结果，包括是否达到预设的分数标准。</li>
+</ul>
+<h2 id="44-主体函数实现模块"><a class="markdownIt-Anchor" href="#44-主体函数实现模块"></a> 4.4 主体函数实现模块</h2>
+<p><strong>目的</strong>：整合前面的步骤，实现模型训练和评估的整体流程。</p>
+<p>模块实现方法(<code>def main</code>)：</p>
+<ul>
+<li><strong>参数解析与设置</strong>：使用<code>argparse.ArgumentParser</code>创建参数解析器，解析命令行参数，包括模型类型、路径、训练与评估文件路径等。设置数据处理、训练和评估的相关参数，如序列长度、批次大小、学习率等。</li>
+<li><strong>模型和训练环境配置</strong>：根据参数设置CUDA、GPU和分布式训练环境，加载预训练的BERT模型和分词器（Tokenizer），配置日志记录器，记录训练和评估过程中的关键信息。</li>
+<li><strong>模型训练</strong>：如果启用训练(<code>do_train</code>)，加载训练数据集并执行<code>train</code>函数进行训练，得到全局步数和平均损失，保存训练后的模型和分词器到指定输出目录。</li>
+<li><strong>模型评估</strong>：如果启用评估(<code>do_eval</code>)，则对训练得到的所有模型检查点进行评估。加载每个检查点的模型，使用<code>evaluate</code>函数对模型进行评估，并收集评估结果。</li>
+<li><strong>结果输出</strong>：汇总所有检查点的评估结果，并打印到日志中，返回汇总后的评估结果。</li>
+</ul>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2 id="5实验结果和分析"><a class="markdownIt-Anchor" href="#5实验结果和分析"></a> 5.<strong>实验结果和分析</strong></h2>
+<p>在本实验中，我们采用了以下评估标准来衡量BERT模型在SQuAD任务上的性能：</p>
+<ul>
+<li><strong>准确率 (Exact Match)</strong>： 此指标衡量模型预测的答案与实际答案完全匹配的比例。</li>
+<li><strong>F1得分</strong>： F1得分是精确率和召回率的调和平均，用于衡量模型预测答案的准确性和完整性</li>
+</ul>
+<p>通过精确地调整学习率和批处理大小，我们发现当学习率设为3e-5且批处理大小为12时，模型表现达到最佳。</p>
+<br>
+<p>以下是不同参数模型性能对比：</p>
+<p><strong>学习率对比：</strong></p>
+<table>
+<thead>
+<tr>
+<th>学习率</th>
+<th>批处理大小</th>
+<th>准确率 (Exact Match)</th>
+<th>F1得分</th>
+<th>总题数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3e-5</td>
+<td>12</td>
+<td>77.77%</td>
+<td>86.10%</td>
+<td>10570</td>
+</tr>
+<tr>
+<td>3e-4</td>
+<td>12</td>
+<td>76.05%</td>
+<td>84.42%</td>
+<td>10570</td>
+</tr>
+<tr>
+<td>3e-6</td>
+<td>12</td>
+<td>58.30%</td>
+<td>69.33%</td>
+<td>10570</td>
+</tr>
+</tbody>
+</table>
+<p><strong>批处理大小对比：</strong></p>
+<table>
+<thead>
+<tr>
+<th>学习率</th>
+<th>批处理大小</th>
+<th>准确率 (Exact Match)</th>
+<th>F1得分</th>
+<th>总题数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3e-5</td>
+<td>12</td>
+<td>77.77%</td>
+<td>86.10%</td>
+<td>10570</td>
+</tr>
+<tr>
+<td>3e-5</td>
+<td>24</td>
+<td>74.84%</td>
+<td>83.88%</td>
+<td>10570</td>
+</tr>
+<tr>
+<td>3e-5</td>
+<td>36</td>
+<td>72.99%</td>
+<td>82.34%</td>
+<td>10570</td>
+</tr>
+</tbody>
+</table>
+<p>从实验结果中，我们观察到学习率对模型性能有显著影响。在学习率为3e-5时，模型达到了最高的准确率和F1得分。当学习率增加到3e-4时，性能略有下降，而学习率降低到3e-6时，性能显著下降。这表明过高或过低的学习率都不利于模型优化。过高的学习率可能导致模型在寻找最优解时跳过关键点，而过低的学习率可能导致模型收敛速度慢，甚至陷入局部最优解。</p>
+<p>在批处理大小的实验中，随着批处理大小从12增加到36，模型的准确率和F1得分均有所下降。这可能是因为较大的批处理大小减少了梯度更新的频率，导致模型在学习过程中的灵活性降低。此外，较大的批处理可能导致内存压力增加，影响模型训练的效率。</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2 id="6实验思考"><a class="markdownIt-Anchor" href="#6实验思考"></a> 6.<strong>实验思考</strong></h2>
+<h2 id="61-transformer的计算attention时为什么要在softmax之前除以sqrtd_k"><a class="markdownIt-Anchor" href="#61-transformer的计算attention时为什么要在softmax之前除以sqrtd_k"></a> 6.1 Transformer的计算Attention时，为什么要在Softmax之前除以<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><msub><mi>d</mi><mi>k</mi></msub></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{d_k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.18278000000000005em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.85722em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.81722em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.18278000000000005em;"><span></span></span></span></span></span></span></span></span>?</h2>
+<p>self-attention的公式如下：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Attention</mtext><mo stretchy="false">(</mo><mi>Q</mi><mo separator="true">,</mo><mi>K</mi><mo separator="true">,</mo><mi>V</mi><mo stretchy="false">)</mo><mo>=</mo><mtext>softmax</mtext><mrow><mo fence="true">(</mo><mfrac><mrow><mi>Q</mi><msup><mi>K</mi><mi>T</mi></msup></mrow><msqrt><msub><mi>d</mi><mi>k</mi></msub></msqrt></mfrac><mo fence="true">)</mo></mrow><mi>V</mi><mspace linebreak="newline"></mspace></mrow><annotation encoding="application/x-tex">\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V \\
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Attention</span></span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.468361em;vertical-align:-0.95003em;"></span><span class="mord text"><span class="mord">softmax</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5183309999999999em;"><span style="top:-2.25278em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.85722em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.81722em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.18278000000000005em;"><span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.93em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span><span class="mspace newline"></span></span></span></span></p>
+<p>这里我们引用一下<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1706.03762.pdf">Transformer论文</a>中的解释:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">While for small values of d_k, the two mechanisms perform similarly, additive attention outperforms dot product attention without scaling for larger values of d_k. We suspect that for large values of $d_k$, the dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients. To counteract this effect, we scale the dot products by 1/√dk.</span><br></pre></td></tr></table></figure>
+<p>通过上面内容，可以将该思考题分为两部分进行描述：</p>
+<ul>
+<li>问题1: Transformer的计算Attention时为什么要除以一个数</li>
+<li>问题2: 这个数为什么是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><msqrt><msub><mi>d</mi><mi>k</mi></msub></msqrt></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{\sqrt{d_k}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.383108em;vertical-align:-0.538em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.5864385em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8622307142857143em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight" style="padding-left:0.833em;"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.8222307142857144em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.17776928571428574em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.538em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+</ul>
+<Br>
+<h3 id="问题1-transformer的计算attention时为什么要除以一个数"><a class="markdownIt-Anchor" href="#问题1-transformer的计算attention时为什么要除以一个数"></a> <code>问题1: Transformer的计算Attention时为什么要除以一个数</code></h3>
+<p>当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">d_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 很大的时候,<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><msup><mi>K</mi><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">QK^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.035771em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span> 的结果里面会有很大,如果不进行scale，softmax将会作用于一些很大的值，那么根据softmax函数的分布，大多数值会堆积在分布的两端、也就是那些分布曲线平缓、梯度很小的地方，梯度很小就会导致梯度消失。</p>
+<h3 id="问题2-这个数为什么是1dk"><a class="markdownIt-Anchor" href="#问题2-这个数为什么是1dk"></a> <code>问题2: 这个数为什么是1/√dk</code></h3>
+<p>设文中提出的向量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">q_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>i</mi></msub><mo>∈</mo><msup><mi>R</mi><mrow><mi>n</mi><mo>×</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">q_i \in R^{n \times 1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">×</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>∈</mo><msup><mi>R</mi><mrow><mi>n</mi><mo>×</mo><msub><mi>d</mi><mi>k</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">Q \in R^{n \times d_k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8491079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">×</span><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>)和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>k</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">k_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>k</mi><mi>i</mi></msub><mo>∈</mo><msup><mi>R</mi><mrow><mi>m</mi><mo>×</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">k_i \in R^{m \times 1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="mbin mtight">×</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>∈</mo><msup><mi>R</mi><mrow><mi>m</mi><mo>×</mo><msub><mi>d</mi><mi>k</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">K \in R^{m \times d_k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8491079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="mbin mtight">×</span><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>)都是相互独立的、均值为0,方差为1的随机变量，那么根据独立变量性质有:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Var</mtext><mo stretchy="false">(</mo><mi>Q</mi><msup><mi>K</mi><mi>T</mi></msup><mo stretchy="false">)</mo><mo>=</mo><mtext>Var</mtext><mrow><mo fence="true">(</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>d</mi><mi>k</mi></msub></munderover><msub><mi>q</mi><mi>i</mi></msub><msubsup><mi>k</mi><mi>i</mi><mi>T</mi></msubsup><mo fence="true">)</mo></mrow><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>d</mi><mi>k</mi></msub></munderover><mtext>Var</mtext><mo stretchy="false">(</mo><msub><mi>q</mi><mi>i</mi></msub><msubsup><mi>k</mi><mi>i</mi><mi>T</mi></msubsup><mo stretchy="false">)</mo><mo>=</mo><msub><mi>d</mi><mi>k</mi></msub><mspace linebreak="newline"></mspace></mrow><annotation encoding="application/x-tex">\text{Var}(QK^T) = \text{Var}\left(\sum_{i=1}^{d_k} q_i k_i^T\right) = \sum_{i=1}^{d_k} \text{Var}(q_i k_i^T) = d_k \\
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1413309999999999em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Var</span></span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913309999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.130642em;vertical-align:-1.277669em;"></span><span class="mord text"><span class="mord">Var</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">(</span></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8529730000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.316865em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913309999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size4">)</span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.130642em;vertical-align:-1.277669em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8529730000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.316865em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">Var</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913309999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mspace newline"></span></span></span></span></p>
+<p>因为有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Var</mtext><mo stretchy="false">(</mo><mi>a</mi><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mi>a</mi><mn>2</mn></msup><mtext>Var</mtext><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\text{Var}(ax) = a^2 \text{Var}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Var</span></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord text"><span class="mord">Var</span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></p>
+<p>所以在softmax之前除以 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><msub><mi>d</mi><mi>k</mi></msub></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{d_k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.18278000000000005em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.85722em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.81722em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.18278000000000005em;"><span></span></span></span></span></span></span></span></span> 可以将 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><msup><mi>K</mi><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">QK^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.035771em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span> 的分布的方差缩小至1。</p>
+<p>这样一来，大部分数值都会分布在softmax梯度适当的位置，也就避免了梯度消失的问题。</p>
+<br>
+<br>
+<br>
+<h3 id="实验验证"><a class="markdownIt-Anchor" href="#实验验证"></a> <code>实验验证</code></h3>
+<p>以下是用于实验的Python代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.special <span class="keyword">import</span> softmax  </span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np  </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_gradient</span>(<span class="params">dimension, time_steps=<span class="number">50</span>, scaling_factor=<span class="number">1.0</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    - dimension: 查询向量和键向量的维度。</span></span><br><span class="line"><span class="string">    - time_steps: 生成键向量的数量。</span></span><br><span class="line"><span class="string">    - scaling_factor: 应用于点积的缩放因子。</span></span><br><span class="line"><span class="string">    - return: 梯度矩阵中最大的绝对值分量。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 生成随机的查询向量和键向量，其组成部分从标准正态分布中抽取</span></span><br><span class="line">    query_vector = np.random.randn(dimension)</span><br><span class="line">    key_vectors = np.random.randn(time_steps, dimension)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算点积，应用缩放，然后计算softmax</span></span><br><span class="line">    dot_products = np.<span class="built_in">sum</span>(query_vector * key_vectors, axis=<span class="number">1</span>) / scaling_factor</span><br><span class="line">    softmax_output = softmax(dot_products)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算softmax输出的梯度</span></span><br><span class="line">    gradient_matrix = np.diag(softmax_output) - np.outer(softmax_output, softmax_output)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 返回梯度矩阵中的最大绝对值</span></span><br><span class="line">    <span class="keyword">return</span> np.<span class="built_in">max</span>(np.<span class="built_in">abs</span>(gradient_matrix))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实验次数</span></span><br><span class="line">NUMBER_OF_EXPERIMENTS = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行没有缩放的实验</span></span><br><span class="line">results_without_scaling_100 = [test_gradient(<span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(NUMBER_OF_EXPERIMENTS)]</span><br><span class="line">results_without_scaling_1000 = [test_gradient(<span class="number">1000</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(NUMBER_OF_EXPERIMENTS)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行有缩放的实验</span></span><br><span class="line">results_with_scaling_100 = [test_gradient(<span class="number">100</span>, scaling_factor=np.sqrt(<span class="number">100</span>)) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(NUMBER_OF_EXPERIMENTS)]</span><br><span class="line">results_with_scaling_1000 = [test_gradient(<span class="number">1000</span>, scaling_factor=np.sqrt(<span class="number">1000</span>)) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(NUMBER_OF_EXPERIMENTS)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;没有缩放的结果（维度=100）:&quot;</span>, results_without_scaling_100)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;没有缩放的结果（维度=1000）:&quot;</span>, results_without_scaling_1000)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;有缩放的结果（维度=100）:&quot;</span>, results_with_scaling_100)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;有缩放的结果（维度=1000）:&quot;</span>, results_with_scaling_1000)</span><br></pre></td></tr></table></figure>
+<p><strong>实验结果</strong>：通过散点图展示，对比了不同实验条件下梯度最大绝对值分量的分布：<br />
+<img src="https://pbs.twimg.com/media/GEMYvc6XsAAp9Vo?format=jpg&amp;name=medium" alt="" /></p>
+<p><strong>实验结果对比分析：</strong></p>
+<p><strong>不带scaling的结果（维度=1000）：</strong> 在没有缩放处理的情况下，维度为1000的实验组中，梯度的最大绝对值分量出现了极小的值，如<code>1.8829382497642655e-11</code>，这表明在高维空间中不进行缩放可能会导致梯度消失。这是因为在高维空间中，点积的结果通常会非常大，导致softmax函数饱和，从而在反向传播时梯度接近于零。</p>
+<p><strong>不带scaling的结果（维度=100）：</strong> 在维度为100时，没有缩放处理的情况下，梯度的最大绝对值分量显得较大且变化范围宽，比如从<code>0.059398546712975064</code>到<code>0.2498360169388831</code>。这表明在较低维度的空间中，梯度消失的问题不像在高维空间那么显著。</p>
+<p><strong>带scaling的结果（维度=1000和100）：</strong> 在应用了缩放处理后，无论是维度为1000还是100的情况下，梯度的最大绝对值分量都较为稳定，没有出现接近于零的情况。例如，维度为1000时的输出值在<code>0.08899382001739972</code>到<code>0.1312868174831885</code>之间。这表明通过缩放可以有效避免梯度消失，确保了梯度流的稳定性。</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2 id="62-如果bert模型初始参数是随机的即使经过足够长时间的训练也难以取得好的推理效果请问这是为什么"><a class="markdownIt-Anchor" href="#62-如果bert模型初始参数是随机的即使经过足够长时间的训练也难以取得好的推理效果请问这是为什么"></a> 6.2 <strong>如果BERT模型初始参数是随机的，即使经过足够长时间的训练也难以取得好的推理效果，请问这是为什么？</strong></h2>
+<p>BERT模型依赖于大规模语料库上的预训练来获得一个良好的参数起点。这种预训练过程使得模型在处理真实世界数据时能够更有效，因为它已经学习了大量语言的通用特征。</p>
+<p>在高维参数空间中，随机初始化可能使模型陷入局部最优解。对于复杂的模型如BERT，理想的参数空间是非常庞大和复杂的，从随机点出发找到全局最优解的难度极高。</p>
+<p>在深度学习模型中，特别是在深度网络中，梯度消失或爆炸问题很常见。如果参数初始化不当，网络在训练过程中可能会遇到这些问题，导致训练效果不佳。</p>
+<br>
+<h2 id="7-结论"><a class="markdownIt-Anchor" href="#7-结论"></a> 7. <strong>结论</strong></h2>
+<h2 id="71-实验的总结"><a class="markdownIt-Anchor" href="#71-实验的总结"></a> 7.1 <strong>实验的总结</strong></h2>
+<p>本实验通过在DLP平台上对BERT模型进行微调并应用于SQuAD任务，成功展示了BERT在自然语言处理任务中的高效性和准确性。</p>
+<h2 id="72-实验的意义和对未来工作的展望"><a class="markdownIt-Anchor" href="#72-实验的意义和对未来工作的展望"></a> 7.2 <strong>实验的意义和对未来工作的展望</strong></h2>
+<p>此次实验强调了理论知识与实践技能的结合在自然语言处理领域的重要性。通过对BERT模型的实际应用和调优，我们更加深入地理解了模型背后的原理及其在复杂任务中的应用。未来，我们可以探索更多先进的模型和策略，如对BERT的变体进行研究，或者在更复杂的数据集上应用BERT模型。此外，探索如何有效地将这些模型应用于不同语言和专业领域的文本，也是一个值得考虑的方向。</p>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="https://abinzzz.github.io/2024/01/15/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE-%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" data-id="clrklpmml0005l1693xfccl8c" data-title="智能计算系统课设:实验大作业(mid)"
+               class="article-share-link">分享</a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" rel="tag">专业知识</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/" rel="tag">智能计算系统</a></li></ul>
+
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    <img data-src="https://pbs.twimg.com/media/GD3Tj6fXoAAgsgz?format=png&amp;name=small" data-sizes="auto" alt="d2l:Softmax回归+损失函数"
+                         class="lazyload">
+                
+                <a href="/2024/01/16/d2l-Softmax%E5%9B%9E%E5%BD%92-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        d2l:Softmax回归+损失函数
+                    
+                </h3>
+            </div>
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    <img data-src="https://pbs.twimg.com/media/GDsgXtnWwAAogq9?format=png&amp;name=small" data-sizes="auto" alt="PyTorch:torch.cat()和torch.stack()"
+                         class="lazyload">
+                
+                <a href="/2024/01/13/PyTorch-torch-cat/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        PyTorch:torch.cat()和torch.stack()
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="宫园香织" class="lazyload">
+            <div class="sidebar-author-name">宫园香织</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">271</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">23</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">321</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=28854246&auto=1&height=66"></iframe>
+
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Accumulate/">Accumulate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Future/">Future</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/bug/">bug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/internship/SNN/">SNN</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/spikeBERT/">spikeBERT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/spikingjelly/">spikingjelly</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reading/">reading</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Missing-Semester-of-CS/">Missing Semester of CS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/NNDL/">NNDL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/OS/">OS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/SE/">SE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/d2l/">d2l</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/">智能计算系统</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/0/" style="font-size: 10px;">0</a> <a href="/tags/1/" style="font-size: 10.59px;">1</a> <a href="/tags/11-11/" style="font-size: 10px;">11.11</a> <a href="/tags/17/" style="font-size: 10px;">17</a> <a href="/tags/2/" style="font-size: 11.76px;">2</a> <a href="/tags/2-2/" style="font-size: 10px;">2-2</a> <a href="/tags/3/" style="font-size: 10.59px;">3</a> <a href="/tags/3-1/" style="font-size: 10px;">3-1</a> <a href="/tags/4/" style="font-size: 10.59px;">4</a> <a href="/tags/5/" style="font-size: 10px;">5</a> <a href="/tags/6/" style="font-size: 10px;">6</a> <a href="/tags/7/" style="font-size: 10px;">7</a> <a href="/tags/A4/" style="font-size: 10px;">A4</a> <a href="/tags/A6/" style="font-size: 10px;">A6</a> <a href="/tags/A9/" style="font-size: 11.18px;">A9</a> <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/AI-Ethics/" style="font-size: 10px;">AI Ethics</a> <a href="/tags/Accumulate/" style="font-size: 15.88px;">Accumulate</a> <a href="/tags/Advanced-SQL/" style="font-size: 10px;">Advanced SQL</a> <a href="/tags/Advancing-Spiking-Neural-Networks-towards-Deep-Residual-Learning/" style="font-size: 11.18px;">Advancing Spiking Neural Networks towards Deep Residual Learning</a> <a href="/tags/Ai-Ethics/" style="font-size: 10px;">Ai Ethics</a> <a href="/tags/AimGraduate/" style="font-size: 12.35px;">AimGraduate</a> <a href="/tags/An-Overview-of-the-BLITZ-Computer-Hardware/" style="font-size: 10px;">An Overview of the BLITZ Computer Hardware</a> <a href="/tags/An-Overview-of-the-BLITZ-System/" style="font-size: 10px;">An Overview of the BLITZ System</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/Artificial-neural-networks/" style="font-size: 10px;">Artificial neural networks</a> <a href="/tags/Attention/" style="font-size: 10px;">Attention</a> <a href="/tags/BLIP/" style="font-size: 10px;">BLIP</a> <a href="/tags/BLIP-2/" style="font-size: 10px;">BLIP-2</a> <a href="/tags/BasciConception/" style="font-size: 10px;">BasciConception</a> <a href="/tags/Benchmark/" style="font-size: 10px;">Benchmark</a> <a href="/tags/Blitz/" style="font-size: 11.76px;">Blitz</a> <a href="/tags/CAS/" style="font-size: 10px;">CAS</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/CV/" style="font-size: 10.59px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 12.94px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Chapter01/" style="font-size: 10px;">Chapter01</a> <a href="/tags/Container/" style="font-size: 10px;">Container</a> <a href="/tags/Convolutional-SNN-to-Classify-FMNIST/" style="font-size: 10px;">Convolutional SNN to Classify FMNIST</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Database/" style="font-size: 16.47px;">Database</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Deep-learning/" style="font-size: 10px;">Deep learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 10.59px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Fine-Tuning/" style="font-size: 10px;">Fine-Tuning</a> <a href="/tags/Future/" style="font-size: 10px;">Future</a> <a href="/tags/GB/" style="font-size: 10px;">GB</a> <a href="/tags/GNN/" style="font-size: 10px;">GNN</a> <a href="/tags/GPU/" style="font-size: 10px;">GPU</a> <a href="/tags/GiB/" style="font-size: 10px;">GiB</a> <a href="/tags/Git/" style="font-size: 10.59px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/GoAbroad/" style="font-size: 17.06px;">GoAbroad</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 10.59px;">IELTS</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/Intermediate-SQL/" style="font-size: 10px;">Intermediate SQL</a> <a href="/tags/Introduction/" style="font-size: 10px;">Introduction</a> <a href="/tags/Introduction-to-SQL/" style="font-size: 10px;">Introduction to SQL</a> <a href="/tags/Introduction-to-the-Relational-Model/" style="font-size: 10px;">Introduction to the Relational Model</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/LLM/" style="font-size: 10px;">LLM</a> <a href="/tags/LMUFORMER/" style="font-size: 10px;">LMUFORMER</a> <a href="/tags/Lab1/" style="font-size: 10px;">Lab1</a> <a href="/tags/Lab3/" style="font-size: 10px;">Lab3</a> <a href="/tags/Lab4/" style="font-size: 10px;">Lab4</a> <a href="/tags/Lec01/" style="font-size: 11.18px;">Lec01</a> <a href="/tags/Lec01s/" style="font-size: 10.59px;">Lec01s</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/Linux/" style="font-size: 11.18px;">Linux</a> <a href="/tags/M2/" style="font-size: 10.59px;">M2</a> <a href="/tags/MIT6-S081/" style="font-size: 12.35px;">MIT6.S081</a> <a href="/tags/ML/" style="font-size: 12.94px;">ML</a> <a href="/tags/MS-ResNet/" style="font-size: 10px;">MS-ResNet</a> <a href="/tags/Mac/" style="font-size: 10.59px;">Mac</a> <a href="/tags/Missing-Semester/" style="font-size: 10px;">Missing Semester</a> <a href="/tags/Monitor/" style="font-size: 10px;">Monitor</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/NNDL/" style="font-size: 17.65px;">NNDL</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Neural-Network/" style="font-size: 10px;">Neural Network</a> <a href="/tags/Neural-Network-from-Shallow-to-Deep/" style="font-size: 10px;">Neural Network from Shallow to Deep</a> <a href="/tags/Neuromorphic-computing/" style="font-size: 10px;">Neuromorphic computing</a> <a href="/tags/Neuron/" style="font-size: 10px;">Neuron</a> <a href="/tags/OS/" style="font-size: 12.35px;">OS</a> <a href="/tags/PSN/" style="font-size: 10px;">PSN</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/Qingyao-Ai/" style="font-size: 10.59px;">Qingyao Ai</a> <a href="/tags/RISC-V/" style="font-size: 10px;">RISC-V</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/Readme/" style="font-size: 10px;">Readme</a> <a href="/tags/ResNet/" style="font-size: 10px;">ResNet</a> <a href="/tags/Rethinking-the-performance-comparison-between-SNNS-and-ANNS/" style="font-size: 10px;">Rethinking the performance comparison between SNNS and ANNS</a> <a href="/tags/SE/" style="font-size: 11.18px;">SE</a> <a href="/tags/SE-3-0/" style="font-size: 10px;">SE-3.0</a> <a href="/tags/SNN/" style="font-size: 12.35px;">SNN</a> <a href="/tags/SNN-vs-RNN/" style="font-size: 10px;">SNN vs RNN</a> <a href="/tags/SPIKEBERT/" style="font-size: 10px;">SPIKEBERT</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/Single-Fully-Connected-Layer-SNN-to-Classify-MNIST/" style="font-size: 10px;">Single Fully Connected Layer SNN to Classify MNIST</a> <a href="/tags/Spiking-Neural-Network-for-Ultra-low-latency-and-High-accurate-Object-Detection/" style="font-size: 10px;">Spiking Neural Network for Ultra-low-latency and High-accurate Object Detection</a> <a href="/tags/Spiking-neural-network/" style="font-size: 10.59px;">Spiking neural network</a> <a href="/tags/Spiking-neural-networks/" style="font-size: 10px;">Spiking neural networks</a> <a href="/tags/SpikingBERT/" style="font-size: 10px;">SpikingBERT</a> <a href="/tags/Surrogate-Gradient-Method/" style="font-size: 10px;">Surrogate Gradient Method</a> <a href="/tags/T1-fighting/" style="font-size: 10.59px;">T1 fighting</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/The-Thread-Scheduler-and-Concurrency-Control-Primitives/" style="font-size: 10px;">The Thread Scheduler and Concurrency Control Primitives</a> <a href="/tags/University/" style="font-size: 12.94px;">University</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ViT/" style="font-size: 10.59px;">ViT</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 10.59px;">Yuxiao Dong</a> <a href="/tags/Zero/" style="font-size: 10px;">Zero</a> <a href="/tags/ai-ethics/" style="font-size: 10px;">ai ethics</a> <a href="/tags/alexnet/" style="font-size: 10px;">alexnet</a> <a href="/tags/arxiv/" style="font-size: 10px;">arxiv</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bert/" style="font-size: 11.76px;">bert</a> <a href="/tags/blitz/" style="font-size: 10px;">blitz</a> <a href="/tags/bug/" style="font-size: 14.71px;">bug</a> <a href="/tags/cat/" style="font-size: 10px;">cat</a> <a href="/tags/chapter00/" style="font-size: 10px;">chapter00</a> <a href="/tags/chapter01/" style="font-size: 11.18px;">chapter01</a> <a href="/tags/chapter02/" style="font-size: 10.59px;">chapter02</a> <a href="/tags/chapter03/" style="font-size: 10px;">chapter03</a> <a href="/tags/chapter04/" style="font-size: 10.59px;">chapter04</a> <a href="/tags/chapter05/" style="font-size: 10.59px;">chapter05</a> <a href="/tags/chatgpt/" style="font-size: 10px;">chatgpt</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/classification/" style="font-size: 10px;">classification</a> <a href="/tags/code/" style="font-size: 11.18px;">code</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/commit/" style="font-size: 10px;">commit</a> <a href="/tags/conv2d/" style="font-size: 10px;">conv2d</a> <a href="/tags/copilot/" style="font-size: 10px;">copilot</a> <a href="/tags/courseinfo/" style="font-size: 10px;">courseinfo</a> <a href="/tags/cpu/" style="font-size: 10px;">cpu</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/d2l/" style="font-size: 13.53px;">d2l</a> <a href="/tags/database/" style="font-size: 14.12px;">database</a> <a href="/tags/dataloader/" style="font-size: 10px;">dataloader</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/deep-neural-network/" style="font-size: 10.59px;">deep neural network</a> <a href="/tags/delete/" style="font-size: 10px;">delete</a> <a href="/tags/discussion/" style="font-size: 10px;">discussion</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/dowhy/" style="font-size: 10.59px;">dowhy</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/echo/" style="font-size: 10px;">echo</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/explainer/" style="font-size: 10.59px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/file/" style="font-size: 10px;">file</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.76px;">github</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gpu/" style="font-size: 10.59px;">gpu</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 11.76px;">instructor</a> <a href="/tags/intern-00/" style="font-size: 10px;">intern-00</a> <a href="/tags/intern00/" style="font-size: 11.76px;">intern00</a> <a href="/tags/internship/" style="font-size: 18.82px;">internship</a> <a href="/tags/introduction/" style="font-size: 11.18px;">introduction</a> <a href="/tags/iterm2/" style="font-size: 10px;">iterm2</a> <a href="/tags/knowledge-distillaion/" style="font-size: 10px;">knowledge distillaion</a> <a href="/tags/l1/" style="font-size: 10px;">l1</a> <a href="/tags/l2/" style="font-size: 10px;">l2</a> <a href="/tags/l3/" style="font-size: 10px;">l3</a> <a href="/tags/lab1/" style="font-size: 10px;">lab1</a> <a href="/tags/lab2/" style="font-size: 10.59px;">lab2</a> <a href="/tags/lec01/" style="font-size: 10px;">lec01</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/llava/" style="font-size: 10px;">llava</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/lstm/" style="font-size: 10px;">lstm</a> <a href="/tags/mac/" style="font-size: 11.18px;">mac</a> <a href="/tags/memory/" style="font-size: 11.18px;">memory</a> <a href="/tags/mentor/" style="font-size: 10px;">mentor</a> <a href="/tags/mid/" style="font-size: 10.59px;">mid</a> <a href="/tags/ml/" style="font-size: 10px;">ml</a> <a href="/tags/mlp/" style="font-size: 10px;">mlp</a> <a href="/tags/mnist/" style="font-size: 10px;">mnist</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysqlclient/" style="font-size: 10px;">mysqlclient</a> <a href="/tags/neuromorphic-computing/" style="font-size: 10.59px;">neuromorphic computing</a> <a href="/tags/nndl/" style="font-size: 10.59px;">nndl</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/nvidia/" style="font-size: 10px;">nvidia</a> <a href="/tags/ohmyzsh/" style="font-size: 10px;">ohmyzsh</a> <a href="/tags/os/" style="font-size: 15.88px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/overview/" style="font-size: 10px;">overview</a> <a href="/tags/p1/" style="font-size: 10px;">p1</a> <a href="/tags/p2/" style="font-size: 11.18px;">p2</a> <a href="/tags/p3/" style="font-size: 10px;">p3</a> <a href="/tags/paper/" style="font-size: 19.41px;">paper</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/player/" style="font-size: 10px;">player</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 11.76px;">prml</a> <a href="/tags/profile/" style="font-size: 10px;">profile</a> <a href="/tags/pycharm/" style="font-size: 10px;">pycharm</a> <a href="/tags/pytorch/" style="font-size: 13.53px;">pytorch</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/reading/" style="font-size: 10.59px;">reading</a> <a href="/tags/regression/" style="font-size: 10px;">regression</a> <a href="/tags/review/" style="font-size: 15.29px;">review</a> <a href="/tags/rnn/" style="font-size: 10px;">rnn</a> <a href="/tags/rsa/" style="font-size: 10px;">rsa</a> <a href="/tags/se/" style="font-size: 15.88px;">se</a> <a href="/tags/self-attention/" style="font-size: 10px;">self-attention</a> <a href="/tags/shap/" style="font-size: 10px;">shap</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/shell-vs-terminal/" style="font-size: 10px;">shell vs terminal</a> <a href="/tags/simple/" style="font-size: 10px;">simple</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/spike/" style="font-size: 10.59px;">spike</a> <a href="/tags/spikeBERT/" style="font-size: 10.59px;">spikeBERT</a> <a href="/tags/spikeBert/" style="font-size: 10px;">spikeBert</a> <a href="/tags/spikingjelly/" style="font-size: 12.35px;">spikingjelly</a> <a href="/tags/spikngjelly/" style="font-size: 10.59px;">spikngjelly</a> <a href="/tags/ssh/" style="font-size: 10.59px;">ssh</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/thu/" style="font-size: 10px;">thu</a> <a href="/tags/tips/" style="font-size: 10.59px;">tips</a> <a href="/tags/tool/" style="font-size: 18.24px;">tool</a> <a href="/tags/transformer/" style="font-size: 11.76px;">transformer</a> <a href="/tags/uml/" style="font-size: 10px;">uml</a> <a href="/tags/vit/" style="font-size: 10px;">vit</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/wakatime/" style="font-size: 10px;">wakatime</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/xv6/" style="font-size: 10px;">xv6</a> <a href="/tags/zero/" style="font-size: 10px;">zero</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 20px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%85%AC%E9%80%89%E8%AF%BE/" style="font-size: 10px;">公选课</a> <a href="/tags/%E5%86%85%E5%AD%98/" style="font-size: 10.59px;">内存</a> <a href="/tags/%E5%86%99%E4%BD%9C%E5%BF%83%E5%BE%97/" style="font-size: 10px;">写作心得</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" style="font-size: 10px;">分布式训练</a> <a href="/tags/%E5%8A%A0%E5%88%86/" style="font-size: 10px;">加分</a> <a href="/tags/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">动手学深度学习</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E6%8F%8F%E8%BF%B0%E7%94%9F%E6%88%90/" style="font-size: 10px;">图像描述生成</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" style="font-size: 10px;">基础优化方法</a> <a href="/tags/%E5%A4%8D%E4%B9%A0/" style="font-size: 10px;">复习</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 10px;">多模态</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" style="font-size: 10px;">大作业</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 10.59px;">审稿意见</a> <a href="/tags/%E5%BC%BA%E5%BC%B1com/" style="font-size: 10px;">强弱com</a> <a href="/tags/%E5%BD%A2%E5%8A%BF%E4%B8%8E%E6%94%BF%E7%AD%96/" style="font-size: 10px;">形势与政策</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%80%80%E6%8F%A3%E7%9D%80%E4%B8%80%E5%AE%9A%E5%8F%AF%E4%BB%A5%E5%81%9A%E5%A5%BD%E7%9A%84%E7%A1%AE%E4%BF%A1/" style="font-size: 10px;">怀揣着一定可以做好的确信</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%94%B9%E7%BB%B4%E5%BA%A6/" style="font-size: 10px;">改维度</a> <a href="/tags/%E6%95%99%E8%82%B2%E8%AE%B8%E5%8F%AF/" style="font-size: 10px;">教育许可</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C-%E9%A2%84%E5%A4%84%E7%90%86/" style="font-size: 10px;">数据操作+预处理</a> <a href="/tags/%E6%98%BE%E5%8D%A1/" style="font-size: 10px;">显卡</a> <a href="/tags/%E6%98%BE%E5%AD%98/" style="font-size: 10.59px;">显存</a> <a href="/tags/%E6%99%BA%E6%85%A7%E6%A0%91/" style="font-size: 10px;">智慧树</a> <a href="/tags/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/" style="font-size: 14.12px;">智能计算系统</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10.59px;">服务器</a> <a href="/tags/%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/" style="font-size: 10px;">期中复习</a> <a href="/tags/%E6%9C%9F%E6%9C%AB/" style="font-size: 10px;">期末</a> <a href="/tags/%E6%9C%B1%E8%80%81%E5%B8%88/" style="font-size: 10px;">朱老师</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 10px;">杂项</a> <a href="/tags/%E6%9D%8E%E5%AE%8F%E6%AF%85/" style="font-size: 10.59px;">李宏毅</a> <a href="/tags/%E6%9D%8E%E6%B2%90/" style="font-size: 10px;">李沐</a> <a href="/tags/%E6%A6%82%E8%AE%BA/" style="font-size: 10px;">概论</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">模型训练流程</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 12.94px;">毛概</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%AD%A6%E4%B9%A0/" style="font-size: 10.59px;">特征学习</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%94%A8%E4%BE%8B%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">用例模型</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">矩阵计算</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E7%AB%A0/" style="font-size: 10px;">第三章</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE%E4%B9%A6/" style="font-size: 10px;">系统开发建议书</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 10px;">线性代数</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">线性回归</a> <a href="/tags/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3/" style="font-size: 10px;">脑机接口</a> <a href="/tags/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" style="font-size: 10px;">脑机接口信号处理</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC/" style="font-size: 10px;">自动求导</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a> <a href="/tags/%E8%A7%84%E5%88%99/" style="font-size: 10px;">规则</a> <a href="/tags/%E8%A7%A3%E5%8E%8B%E7%BC%A9/" style="font-size: 10px;">解压缩</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/" style="font-size: 10px;">评测指标</a> <a href="/tags/%E8%AF%BE%E5%A0%82%E8%AE%A8%E8%AE%BA/" style="font-size: 10px;">课堂讨论</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88/" style="font-size: 10px;">课程概览</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%AF%BE%E8%AE%BE/" style="font-size: 10px;">课设</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 11.18px;">调研</a> <a href="/tags/%E8%B4%A1%E7%8C%AE%E8%80%85/" style="font-size: 10px;">贡献者</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">软件概要设计</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">软件生命周期模型</a> <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" style="font-size: 10px;">输入法</a> <a href="/tags/%E9%87%8F%E5%8C%96/" style="font-size: 10px;">量化</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/" style="font-size: 10px;">需求分析</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%BB%BA%E6%A8%A1/" style="font-size: 10px;">面向对象的需求分析建模</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">领域模型</a>
+        </div>
+    </div>
+
+
+    
+        
+
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    
+
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2024
+                <span class="footer-info-sep"></span>
+                宫园香织
+            </div>
+            
+                <div>
+                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    560.8k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    35:57
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="宫园香织" class="lazyload">
+            <div class="sidebar-author-name">宫园香织</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">271</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">23</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">321</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
