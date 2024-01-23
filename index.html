@@ -459,10 +459,10 @@ tensors（张量序列）
             <div class="post-meta">
                 <a><span class="icon-calendar"></span>2024-01-13</a>
                 
-                    <a><span class="icon-pencil"></span>2.4k 字</a>
+                    <a><span class="icon-pencil"></span>996 字</a>
                 
                 
-                    <a><span class="icon-clock"></span>8 分钟</a>
+                    <a><span class="icon-clock"></span>3 分钟</a>
                 
             </div>
             <h2 class="post-title">paper: SUHD</h2>
@@ -474,19 +474,18 @@ tensors（张量序列）
 
 
 
-论文十问1.模型的优点这篇论文讨论了一种名为SUHD的模型，它是用于超低延迟和高精度目标检测的尖峰神经网络（SNNs）。
-SUHD模型的主要创新之处包括：
 
 
-压缩时间步，减少在ANN-SNN转换中所需的时间步，实现更快的处理和部署；
+ 1.absract
+针对的问题： Spiking-YOLO将SNN扩展到目标检测，但存在高延迟和低检测准确性，难以部署在对延迟敏感的移动平台上
+
+方法：
+
+时间步压缩：通过压缩信息减少了ANN-SNN转换中所需的时间步数
+时序相关的集成编码（STDI）： 通过设置一个时变阈值来扩展信息容量
 
 
-
-依赖于脉冲时间的集成编码（STDI），提高信息容量，进一步减少推理时间；
-
-
-
-转换Spike-SPPF结构，以无损转换Maxpool层。SUHD在PASCAL VOC和MS
+提出了一种基于SNN的超低延迟和高准确性的目标检测模型（SUHD），在PASCAL VOC和MS COCO等非平凡
                 
             </article>
         </div>
@@ -739,10 +738,10 @@ Alexnet论文介绍（超详细）——ImageNet Classification with Deep Convol
             
                 <div>
                     <span class="icon-brush"></span>
-                    562k
+                    560.6k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    36:02
+                    35:57
                 </div>
             
             
