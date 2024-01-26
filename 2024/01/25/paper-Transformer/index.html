@@ -25,17 +25,17 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  Attention Is All You Need 面试：关于Transformer的问题 Neural Machine Translation by Jointly Learning to Align a">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接 Attention Is All You Need 面试：关于Transformer的问题 Neural Machine Translation by Jointly Learning to Align an">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper:Transformer">
 <meta property="og:url" content="https://abinzzz.github.io/2024/01/25/paper-Transformer/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  Attention Is All You Need 面试：关于Transformer的问题 Neural Machine Translation by Jointly Learning to Align a">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接 Attention Is All You Need 面试：关于Transformer的问题 Neural Machine Translation by Jointly Learning to Align an">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GEscybAbUAAdxSC?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GEv8pBNbsAA-GzK?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2024-01-25T10:17:38.000Z">
-<meta property="article:modified_time" content="2024-01-26T06:41:37.035Z">
+<meta property="article:modified_time" content="2024-01-26T11:02:23.298Z">
 <meta property="article:author" content="ab">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="transformer">
@@ -204,55 +204,49 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
-<ul>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1706.03762.pdf">Attention Is All You Need</a></li>
 <li><a href="https://abinzzz.github.io/2024/01/25/%E5%85%B3%E4%BA%8ETransformer%E7%9A%84%E9%97%AE%E9%A2%98/">面试：关于Transformer的问题</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1409.0473">Neural Machine Translation by Jointly Learning to Align and Translate</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1308.0850">Generating Sequences With Recurrent Neural Networks</a></li>
 <li><a target="_blank" rel="noopener" href="https://aclanthology.org/W18-2509.pdf">The Annotated Transformer</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_56591814/article/details/127313216#Attention_is_All_You_Need_148"></a></li>
 </ul>
-<br>
-<h2 id="1abstract"><a class="markdownIt-Anchor" href="#1abstract"></a> 1.abstract</h2>
-<p><strong>主流的序列转换模型都是基于复杂的循环或卷积神经网络</strong>，我们的模型包含一个编码器和一个解码器。具有<strong>最好性能的模型在编码和解码之间通过一个注意力机制链接编解码器</strong>。我们提出了一个新的简单网络结构——<code>Transformer</code>，其仅仅是基于注意力机制，而<strong>完全不需要之前的循环或卷积</strong>。在两个机器翻译任务上的实验表明，该模型具有更好的性能，同时并行度更好，并且训练时间更少。（泛化到其它任务效果也不错）</p>
+<p><br></p>
+<h2 id="1-abstract"><a href="#1-abstract" class="headerlink" title="1.abstract"></a>1.abstract</h2><p><strong>主流的序列转换模型都是基于复杂的循环或卷积神经网络</strong>，我们的模型包含一个编码器和一个解码器。具有<strong>最好性能的模型在编码和解码之间通过一个注意力机制链接编解码器</strong>。我们提出了一个新的简单网络结构——<code>Transformer</code>，其仅仅是基于注意力机制，而<strong>完全不需要之前的循环或卷积</strong>。在两个机器翻译任务上的实验表明，该模型具有更好的性能，同时并行度更好，并且训练时间更少。（泛化到其它任务效果也不错）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在WMT 2014英语到德语翻译任务上，我们的模型达到了28.4 BLEU，比之前最好的结果提高了2 BLEU。在WMT 2014英语到法语翻译任务上，我们的模型在8个GPU上训练3.5天后，所得到的单个模型获得了41.8 BLEU分数。我们在大型和有限的训练数据中，通过将其成功应用于英语句法解析，表明了Transformer可以很好地适用于其他任务。</span><br><span class="line"></span><br><span class="line">可以看到这篇文章最开始只是针对机器翻译来写的，transformer在机器翻译上效果也很好。但是随着bert、GPT等把这种架构用在更多的NLP任务上，甚至后面CV和video等也可以使用注意力机制，整个工作就火出圈了。</span><br></pre></td></tr></table></figure>
-<br>
-<h2 id="2结论"><a class="markdownIt-Anchor" href="#2结论"></a> 2.结论</h2>
-<p>本文介绍了Transformer，这是第一个完全基于注意力的序列转换模型，用多头自注意力（<strong>multi-headed self-attention</strong>）代替了 <strong>encoder-decoder</strong> 架构中最常用的循环层。</p>
+<p><br></p>
+<h2 id="2-结论"><a href="#2-结论" class="headerlink" title="2.结论"></a>2.结论</h2><p>本文介绍了Transformer，这是第一个完全基于注意力的序列转换模型，用多头自注意力（<strong>multi-headed self-attention</strong>）代替了 <strong>encoder-decoder</strong> 架构中最常用的循环层。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对于翻译任务，Transformer可以比基于循环或卷积层的体系结构训练更快。在WMT 2014 English-to-German和 WMT 2014 English-to-French翻译任务中，我们取得了最好的结果。在前面的任务中，我们最好的模型甚至胜过以前发表过的所有整合模型。</span><br></pre></td></tr></table></figure>
 <p>我们对基于注意力的模型的未来感到兴奋，<strong>并计划将Transformer应用于文本之外的涉及输入和输出模式的问题中任务，以有效处理大型输入&amp;输出任务，如图像、音频和视频等,让生成不那么时序化是我们的另一个研究目标。</strong></p>
 <p>我们用于训练和评估模型的代码可以在<a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensor2tensor">https://github.com/tensorflow/tensor2tensor</a>上获得。</p>
 <Br>
-<h2 id="3导论"><a class="markdownIt-Anchor" href="#3导论"></a> 3.导论</h2>
-<p>序列建模和转换问题（如机器翻译）最新方法是<code>LSTM</code>和<code>GRN</code>等。后面许多研究都围绕循环语言模型和编码器-解码器体系结构进行。</p>
+
+<h2 id="3-导论"><a href="#3-导论" class="headerlink" title="3.导论"></a>3.导论</h2><p>序列建模和转换问题（如机器翻译）最新方法是<code>LSTM</code>和<code>GRN</code>等。后面许多研究都围绕循环语言模型和编码器-解码器体系结构进行。</p>
 <p><strong>循环网络模型通常是考虑了输入和输出序列的中字符位置的计算</strong>。当前时刻隐藏状态<code>ht</code>，是由上一时刻隐藏状态<code>ht−1</code>和 t时刻输入共同决定的。（把之前的信息都放在隐藏状态里，一个个传递下去，是RNN处理时序信息的关键）。这种固有的时序模型难以并行化处理，计算性能就很差。这些年做了一些并行化改进，但是问题依然存在。</p>
 <p>另外还存在长距离衰减问题，解码阶段，越靠后的内容，翻译效果越差。除非你把ht维度设置的很高，可以把每一个时间步的信息都存下来。但这样会造成内存开销很大。</p>
 <p>attention在此之前，已经成功的应用在encoder-decoder 架构中，但主要是用在如何把编码器的信息有效的传递给解码器，所以是和RNN一起使用的。</p>
 <p>本文提出的Transformer，不再使用循环神经层，而是纯基于注意力机制，来构造输入和输出之间的全局依赖关系。Transformer可以进行更多的并行化，训练时间更短但翻译效果更好。</p>
-<br>
-<h2 id="4-背景"><a class="markdownIt-Anchor" href="#4-背景"></a> 4. 背景</h2>
-<p>使用卷积神经网络替换循环神经网络，并行计算所有输入和输出位置的隐藏表示，是扩展神经GPU，ByteNet和ConvS2S的基础，因为这样可以减少时序计算。但是CNN对长序列难以建模（因为卷积计算时，<strong>卷积核/感受野比较小</strong>，如果序列很长，需要使用多层卷积才可以将两个比较远的位置关联起来）。但是<strong>使用Transformer的注意力机制的话，每次（一层）就能看到序列中所有的位置</strong>，就不存在这个问题。</p>
+<p><br></p>
+<h2 id="4-背景"><a href="#4-背景" class="headerlink" title="4. 背景"></a>4. 背景</h2><p>使用卷积神经网络替换循环神经网络，并行计算所有输入和输出位置的隐藏表示，是扩展神经GPU，ByteNet和ConvS2S的基础，因为这样可以减少时序计算。但是CNN对长序列难以建模（因为卷积计算时，<strong>卷积核/感受野比较小</strong>，如果序列很长，需要使用多层卷积才可以将两个比较远的位置关联起来）。但是<strong>使用Transformer的注意力机制的话，每次（一层）就能看到序列中所有的位置</strong>，就不存在这个问题。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关联来自两个任意输入或输出位置的数据所需的操作数量，随着距离增长，对于ConvS2S呈线性，对于ByteNet呈对数，而对于Transformer是常数，因为一次就看到了。</span><br></pre></td></tr></table></figure>
 <p>但是卷积的好处是，输出可以有多个通道，每个通道可以认为是识别不同的模式，作者也<strong>想得到这种多通道输出的效果，所以提出了Multi-Head Attention多头注意力机制。</strong>（模拟卷积多通道输出效果）</p>
 <p>Self-attention，有时称为intra-attention，是一种关联单个序列的不同位置以计算序列表示的关联机制。在此之前已成功用于多种任务。但据我们所知，Transformer是第一个完全依靠self-attention，而不使用卷积或循环的的<code>encoder-decoder</code> 转换模型。</p>
-<br>
-<h2 id="5-模型架构"><a class="markdownIt-Anchor" href="#5-模型架构"></a> 5. 模型架构</h2>
-<p>大部分神经序列转换模型都使用<code>encoder-decoder</code>结构。编码器将一个输入序列<code>(x1, ..., xn)</code>映射到一个连续的表示<code>z = (z1, ..., zn)</code>中。解码器根据<code>z</code>中的每个元素，逐步生成输出序列<code>(y1, ..., ym)</code>，每个时间步生成一个元素。在每一步中，<strong>模型都是自回归的，在生成下一个结果时，会将先前生成的结果作为当前的输入</strong>。</p>
+<p><br></p>
+<h2 id="5-模型架构"><a href="#5-模型架构" class="headerlink" title="5. 模型架构"></a>5. 模型架构</h2><p>大部分神经序列转换模型都使用<code>encoder-decoder</code>结构。编码器将一个输入序列<code>(x1, ..., xn)</code>映射到一个连续的表示<code>z = (z1, ..., zn)</code>中。解码器根据<code>z</code>中的每个元素，逐步生成输出序列<code>(y1, ..., ym)</code>，每个时间步生成一个元素。在每一步中，<strong>模型都是自回归的，在生成下一个结果时，会将先前生成的结果作为当前的输入</strong>。</p>
 <p>编码器和解码器的序列可以不一样长，且编码器可以一次性看到整个序列，但解码器是逐步输出的。</p>
-<p>Transformer遵循这种整体架构，但对编码器和解码器使用堆叠的自注意力和逐点全连接层，如下图所示:<br />
-<img src="https://pbs.twimg.com/media/GEscybAbUAAdxSC?format=jpg&amp;name=medium" alt="" /></p>
+<p>Transformer遵循这种整体架构，但对编码器和解码器使用堆叠的自注意力和逐点全连接层，如下图所示:<br><img src="https://pbs.twimg.com/media/GEscybAbUAAdxSC?format=jpg&amp;name=medium" alt=""></p>
 <ul>
-<li><strong>Outputs（shifted right）</strong>：解码器在初始时刻实际上没有输入，它的输入是编码器的输出。所以这里的&quot;Outputs&quot;表示输出序列，&quot;shifted right&quot;是指序列逐个右移的意思。</li>
+<li><strong>Outputs（shifted right）</strong>：解码器在初始时刻实际上没有输入，它的输入是编码器的输出。所以这里的”Outputs”表示输出序列，”shifted right”是指序列逐个右移的意思。</li>
 <li><strong>Nx</strong>：表示模块堆叠了N次。</li>
 </ul>
 <p>图画得好，一张图能搞定所有东西，所以画图是一个基础技能。</p>
-<br>
-<h2 id="51-encoder"><a class="markdownIt-Anchor" href="#51-encoder"></a> 5.1 Encoder</h2>
-<p>编码器由N=6个相同的encoder层堆叠组成。每层有两个子层：</p>
+<p><br></p>
+<h2 id="5-1-Encoder"><a href="#5-1-Encoder" class="headerlink" title="5.1 Encoder"></a>5.1 Encoder</h2><p>编码器由N=6个相同的encoder层堆叠组成。每层有两个子层：</p>
 <ul>
 <li><strong>multi-head self-attention</strong></li>
-<li><strong>FFNN层</strong>（前馈神经网络层，Feed Forward Neural Network），实际上是MLP（多层感知器），为了更加专业，名称被设置得较长。每个子层都使用以下特点：
-<ul>
+<li><strong>FFNN层</strong>（前馈神经网络层，Feed Forward Neural Network），实际上是MLP（多层感知器），为了更加专业，名称被设置得较长。每个子层都使用以下特点：<ul>
 <li><strong>残差连接(residual connection)</strong> 后进行层归一化（layer normalization）。</li>
 <li>每个子层的输出是<code>LayerNorm(x + Sublayer(x))</code>，其中<code>Sublayer(x)</code>是当前子层的输出。</li>
 <li>为简化模型，所有子层以及嵌入层的向量维度都是<code>d_model = 512</code>。如果输入输出维度不一样，残差连接会进行投影以映射到统一维度。这种做法不同于传统的CNN或MLP，它们通常会进行一些下采样。</li>
@@ -260,17 +254,16 @@
 </li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这种各层统一维度使得模型结构相对简单，只有`N`和`d_model`这两个参数需要调整。这个设计也影响到后面一系列的网络发展，如BERT和GPT等。</span><br></pre></td></tr></table></figure>
-<br>
-<h2 id="52-decoder"><a class="markdownIt-Anchor" href="#52-decoder"></a> 5.2 Decoder</h2>
-<p>解码器：解码器同样由 N=6个相同的decoder层堆栈组成，每个层有三个子层。</p>
+<p><br></p>
+<h2 id="5-2-Decoder"><a href="#5-2-Decoder" class="headerlink" title="5.2 Decoder"></a>5.2 Decoder</h2><p>解码器：解码器同样由 N=6个相同的decoder层堆栈组成，每个层有三个子层。</p>
 <ul>
 <li><strong>Masked multi-head self-attention</strong>：在解码器里，Self Attention 层只允许关注到输出序列中早于当前位置之前的单词。具体做法是：在 Self Attention 分数经过 Softmax 层之前，使用attention mask，屏蔽当前位置之后的那些位置。所以叫Masked multi-head self Attention。（对应masked位置使用一个很大的负数-inf，使得softmax之后其对应值为0）</li>
 <li><strong>Encoder-Decoder Attention</strong> ：编码器输出最终向量，将会输入到每个解码器的Encoder-Decoder Attention层，用来帮解码器把注意力集中中输入序列的合适位置。</li>
 <li><strong>FFNN</strong>: 与编码器类似，每个子层都使用残差连接，然后进行层归一化。假设一个 Transformer 是由 2 层编码器和两层解码器组成的</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/GEv8pBNbsAA-GzK?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<h2 id="53-ln-vs-bn"><a class="markdownIt-Anchor" href="#53-ln-vs-bn"></a> 5.3 LN VS BN</h2>
+<p><img src="https://pbs.twimg.com/media/GEv8pBNbsAA-GzK?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h2 id="5-3-LN-VS-BN"><a href="#5-3-LN-VS-BN" class="headerlink" title="5.3 LN VS BN"></a>5.3 LN VS BN</h2><p>参考该文章：</p>
 
             
         </div>

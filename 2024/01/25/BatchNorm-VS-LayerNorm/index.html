@@ -14,7 +14,7 @@
 
     
     <title>
-        Normalization - &#39;https://pbs.twimg.com/media/GD3Tj6fXoAAgsgz?format=png&amp;name=small&#39; |
+        Normalization |
         
         Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,12 +25,12 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  一文浅析transformer–李沐带你深入浅出transformer 归一化层(Normalization layers) Batch Normalization Layer Normalization">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });       参考链接 一文浅析transformer—李沐带你深入浅出transformer 归一化层(Normalization layers)&#x2F;#%E5%BD%92%E4%B8%80%E5%8C%96%E5%B1%82">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Normalization - &#39;https:&#x2F;&#x2F;pbs.twimg.com&#x2F;media&#x2F;GD3Tj6fXoAAgsgz?format&#x3D;png&amp;name&#x3D;small&#39;">
+<meta property="og:title" content="Normalization">
 <meta property="og:url" content="https://abinzzz.github.io/2024/01/25/BatchNorm-VS-LayerNorm/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  一文浅析transformer–李沐带你深入浅出transformer 归一化层(Normalization layers) Batch Normalization Layer Normalization">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });       参考链接 一文浅析transformer—李沐带你深入浅出transformer 归一化层(Normalization layers)&#x2F;#%E5%BD%92%E4%B8%80%E5%8C%96%E5%B1%82">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GEv93DraYAAvXaJ?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GEwE-8KaIAAwkQB?format=png&amp;name=900x900">
@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/GEwnoNPaAAASZr_?format=png&amp;name=360x360">
 <meta property="og:image" content="https://pbs.twimg.com/media/GEwHjUXbYAAAoBW?format=jpg&amp;name=large">
 <meta property="article:published_time" content="2024-01-25T14:08:14.000Z">
-<meta property="article:modified_time" content="2024-01-26T10:35:48.906Z">
+<meta property="article:modified_time" content="2024-01-26T11:01:59.268Z">
 <meta property="article:author" content="ab">
 <meta property="article:tag" content="Accumulate">
 <meta property="article:tag" content="BatchNorm">
@@ -131,7 +131,7 @@
             <header id="header">
     
     
-        <img data-src="/images/banner.jpg" data-sizes="auto" alt="Normalization - &#39;https://pbs.twimg.com/media/GD3Tj6fXoAAgsgz?format=png&amp;name=small&#39;" class="lazyload">
+        <img data-src="https://pbs.twimg.com/media/GD3Tj6fXoAAgsgz?format=png&amp;name=small" data-sizes="auto" alt="Normalization" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -139,7 +139,7 @@
                 
                     
                     
-                        <a href="/" id="logo"><h1>Normalization - &#39;https://pbs.twimg.com/media/GD3Tj6fXoAAgsgz?format=png&amp;name=small&#39;</h1></a>
+                        <a href="/" id="logo"><h1>Normalization</h1></a>
                     
                 
             </div>
@@ -215,81 +215,47 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/452663865">一文浅析transformer–李沐带你深入浅出transformer</a></li>
-<li><a target="_blank" rel="noopener" href="https://litianbo243.github.io/2019/09/14/%E5%BD%92%E4%B8%80%E5%8C%96%E5%B1%82(Normalization-layers)/#%E5%BD%92%E4%B8%80%E5%8C%96%E5%B1%82-Normalization-layers">归一化层(Normalization layers)</a></li>
+
+
+
+
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/452663865">一文浅析transformer—李沐带你深入浅出transformer</a></li>
+<li><a target="_blank" rel="noopener" href="https://litianbo243.github.io/2019/09/14/%E5%BD%92%E4%B8%80%E5%8C%96%E5%B1%82(Normalization-layers">归一化层(Normalization layers)</a>/#%E5%BD%92%E4%B8%80%E5%8C%96%E5%B1%82-Normalization-layers)</li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1502.03167.pdf">Batch Normalization</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1607.06450v1.pdf">Layer Normalization</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1607.08022.pdf">Instance Normalization:The Missing Ingredient for Fast Stylization</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1803.08494.pdf">Group Normalization</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1806.10779.pdf">DIFFERENTIABLE LEARNING-TO-NORMALIZE VIA SWITCHABLE NORMALIZATION</a></li>
 </ul>
-<br>
-<h2 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h2>
-<p>归一化层，目前主要有这几个方法，Batch Normalization（2015年）、Layer Normalization（2016年）、Instance Normalization（2017年）、Group Normalization（2018年）、Switchable Normalization（2018年）；</p>
-<p>将输入的图像shape记为[N, C, H, W]，这几个方法主要的区别就是在：</p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>归一化维度</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BatchNorm</td>
-<td>NHW</td>
-<td>在batch上归一化，小batchsize效果不佳</td>
-</tr>
-<tr>
-<td>LayerNorm</td>
-<td>CHW</td>
-<td>在通道方向上归一化，对RNN作用明显</td>
-</tr>
-<tr>
-<td>InstanceNorm</td>
-<td>HW</td>
-<td>在图像像素上归一化，适用于风格化迁移</td>
-</tr>
-<tr>
-<td>GroupNorm</td>
-<td>分组的CHW</td>
-<td>将channel分组后归一化</td>
-</tr>
-<tr>
-<td>SwitchableNorm</td>
-<td>BN/LN/IN</td>
-<td>结合BN、LN、IN，赋予权重，网络自学习归一化方法选择</td>
-</tr>
-</tbody>
-</table>
-<p><img src="https://pbs.twimg.com/media/GEv93DraYAAvXaJ?format=jpg&amp;name=medium" alt="" /></p>
+<p><br></p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>归一化层，目前主要有这几个方法，Batch Normalization（2015年）、Layer Normalization（2016年）、Instance Normalization（2017年）、Group Normalization（2018年）、Switchable Normalization（2018年）；</p>
+<p>将输入的图像shape记为[N, C, H, W]，这几个方法主要的区别就是在：<br>| 方法            | 归一化维度 | 特点                                              |<br>|————————-|——————|—————————————————————————-|<br>| BatchNorm       | NHW        | 在batch上归一化，小batchsize效果不佳               |<br>| LayerNorm       | CHW        | 在通道方向上归一化，对RNN作用明显                 |<br>| InstanceNorm    | HW         | 在图像像素上归一化，适用于风格化迁移              |<br>| GroupNorm       | 分组的CHW  | 将channel分组后归一化                             |<br>| SwitchableNorm  | BN/LN/IN   | 结合BN、LN、IN，赋予权重，网络自学习归一化方法选择 |</p>
+<p><img src="https://pbs.twimg.com/media/GEv93DraYAAvXaJ?format=jpg&amp;name=medium" alt=""></p>
 <Br>
-<h2 id="batch-noirmalization"><a class="markdownIt-Anchor" href="#batch-noirmalization"></a> Batch Noirmalization</h2>
-<p>首先，在进行训练之前，一般要对数据做归一化，使其分布一致，但是在深度神经网络训练过程中，通常以送入网络的每一个batch训练，这样每个batch具有不同的分布；此外，为了解决internal covarivate shift问题，这个问题定义是随着batch normalizaiton这篇论文提出的，在训练过程中，数据分布会发生变化，对下一层网络的学习带来困难。</p>
+
+
+<h2 id="Batch-Noirmalization"><a href="#Batch-Noirmalization" class="headerlink" title="Batch Noirmalization"></a>Batch Noirmalization</h2><p>首先，在进行训练之前，一般要对数据做归一化，使其分布一致，但是在深度神经网络训练过程中，通常以送入网络的每一个batch训练，这样每个batch具有不同的分布；此外，为了解决internal covarivate shift问题，这个问题定义是随着batch normalizaiton这篇论文提出的，在训练过程中，数据分布会发生变化，对下一层网络的学习带来困难。</p>
 <p>所以batch normalization就是强行将数据拉回到均值为0，方差为1的正太分布上，这样不仅数据分布一致，而且避免发生梯度消失。</p>
 <p>此外，internal corvariate shift和covariate shift是两回事，前者是网络内部，后者是针对输入数据，比如我们在训练数据前做归一化等预处理操作。</p>
-<p><img src="https://pbs.twimg.com/media/GEwE-8KaIAAwkQB?format=png&amp;name=900x900" alt="" /></p>
+<p><img src="https://pbs.twimg.com/media/GEwE-8KaIAAwkQB?format=png&amp;name=900x900" alt=""></p>
 <p>加入缩放平移变量的原因是：保证每一次数据经过归一化后还保留原有学习来的特征，同时又能完成归一化操作，加速训练。 这两个参数是用来学习的参数。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注：BatchNorm2d的情况则是在每个通道C上计算H、W和N的均值和方差，即每个通道上的N张图像所有像素计算均值和方差。</span><br></pre></td></tr></table></figure>
-<br>
-<h2 id="layer-normalization"><a class="markdownIt-Anchor" href="#layer-normalization"></a> Layer Normalization</h2>
-<p><strong>batch normalization存在以下缺点</strong>：<strong>对batchsize的大小比较敏感</strong>，由于每次计算均值和方差是在一个batch上，所以如果batchsize太小，则计算的均值、方差不足以代表整个数据分布；</p>
+<p><br></p>
+<h2 id="Layer-Normalization"><a href="#Layer-Normalization" class="headerlink" title="Layer Normalization"></a>Layer Normalization</h2><p><strong>batch normalization存在以下缺点</strong>：<strong>对batchsize的大小比较敏感</strong>，由于每次计算均值和方差是在一个batch上，所以如果batchsize太小，则计算的均值、方差不足以代表整个数据分布；</p>
 <p>BN实际使用时需要计算并且保存某一层神经网络batch的均值和方差等统计信息，对于对一个固定深度的前向神经网络（DNN，CNN）使用BN，很方便；但对于RNN来说，sequence的长度是不一致的，换句话说RNN的深度不是固定的，不同的time-step需要保存不同的statics特征，可能存在一个特殊sequence比其他sequence长很多，这样training时，计算很麻烦。</p>
 <p>与BN不同，LN是针对深度网络的某一层的所有神经元的输入按以下公式进行normalize操作。</p>
-<p><img src="https://pbs.twimg.com/media/GEwFCi7aMAATSia?format=png&amp;name=small" alt="" /></p>
+<p><img src="https://pbs.twimg.com/media/GEwFCi7aMAATSia?format=png&amp;name=small" alt=""></p>
 <p>BN与LN的区别在于：</p>
 <ul>
 <li>LN中同层神经元输入拥有相同的均值和方差，不同的输入样本有不同的均值和方差；</li>
 <li>BN中则针对不同神经元输入计算均值和方差，同一个batch中的输入拥有相同的均值和方差。</li>
 </ul>
 <p>所以，LN不依赖于batch的大小和输入sequence的深度，因此可以用于batchsize为1和RNN中对边长的输入sequence的normalize操作。LN用于RNN效果比较明显，但是在CNN上，不如BN</p>
-<br>
-<hr />
-<h2 id="bn-vs-ln"><a class="markdownIt-Anchor" href="#bn-vs-ln"></a> BN VS LN</h2>
-<p><strong>Batch Normalization</strong>：在特征d/通道维度做归一化，即归一化不同样本的同一特征。缺点是：</p>
+<p><br></p>
+<hr>
+<h2 id="BN-VS-LN"><a href="#BN-VS-LN" class="headerlink" title="BN VS LN"></a>BN VS LN</h2><p><strong>Batch Normalization</strong>：在特征d/通道维度做归一化，即归一化不同样本的同一特征。缺点是：</p>
 <ul>
 <li>计算变长序列时，变长序列后面会pad 0，这些pad部分是没有意义的，这样进行特征维度做归一化缺少实际意义。</li>
 <li>序列长度变化大时，计算出来的均值和方差抖动很大。</li>
@@ -301,56 +267,49 @@
 <li>因为实是在每个样本内做的，序列变长时相比BN，计算的数值更稳定。</li>
 <li>不需要存一个全局的均值和方差，预测样本长度不影响最终结果。</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/GEwcpD7bsAAHMdc?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<h3 id="二维情况下的对比"><a class="markdownIt-Anchor" href="#二维情况下的对比"></a> 二维情况下的对比</h3>
-<p>BatchNorm：</p>
+<p><img src="https://pbs.twimg.com/media/GEwcpD7bsAAHMdc?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h3 id="二维情况下的对比"><a href="#二维情况下的对比" class="headerlink" title="二维情况下的对比"></a>二维情况下的对比</h3><p>BatchNorm：</p>
 <p>我们模拟简单的二维的情况：每一行是一个样本 X，每一列是一个feature；</p>
 <p>每次把一列（1 个 feature）放在一个 mini-batch 里，均值变成 0， 方差变成 1 的标准化</p>
 <p>计算方法：（该列向量 - mini-batch 该列向量的均值）/（mini - batch 该列向量的方差）</p>
 <p>训练时：mini-batch 计算均值；</p>
 <p>测试时：使用 全局 均值、方差。</p>
 <p>同样，BatchNorm 还会学 lambda和beta，BatchNorm 可以通过学习将向量 放缩成 任意均值、任意方差 的一个向量。</p>
-<p><img src="https://pbs.twimg.com/media/GEwdEw2aoAAELmT?format=png&amp;name=small" alt="" /></p>
-<br>
+<p><img src="https://pbs.twimg.com/media/GEwdEw2aoAAELmT?format=png&amp;name=small" alt=""></p>
+<p><br></p>
 <p>Layernorm：</p>
 <p>同样模拟简单的二维输入：LayerNorm：对每个样本做 Normalization（把每一行变成 均值为 0、方差为 1），不是对每个特征做 normalization。</p>
 <p>LayerNorm 在操作上 和 BatchNorm (二维输入) 的关系 ：LayerNorm 整个把数据转置一次，放到 BatchNorm 里面出来的结果，再转置回去，基本上可以得到LayerNorm的结果。</p>
 <p>上面在二维输入的情况下，简单的介绍了LN和BN之间的区别和联系，现在我们换到三维的输入来看一下。</p>
 <p>在transformer和RNN中，输入的维度经常是三维：一个句子有n个词，每个词对应一个向量，再加上batch size就是三维的了。</p>
-<p><img src="https://pbs.twimg.com/media/GEwkpXca8AAqt_o?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<h3 id="三维情况下的对比"><a class="markdownIt-Anchor" href="#三维情况下的对比"></a> 三维情况下的对比</h3>
-<p>列是sequence的输入的长度，为n。第三位是feature，是每个词的向量，在transformer里这个维度d=512。</p>
+<p><img src="https://pbs.twimg.com/media/GEwkpXca8AAqt_o?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h3 id="三维情况下的对比"><a href="#三维情况下的对比" class="headerlink" title="三维情况下的对比"></a>三维情况下的对比</h3><p>列是sequence的输入的长度，为n。第三位是feature，是每个词的向量，在transformer里这个维度d=512。</p>
 <p>在三维输入的情况下，BN和LN的计算逻辑：</p>
 <p>BN：每次取一个维度的特征，蓝色框表示，拉成一个向量，均值为0，方差为1进行标准化。</p>
-<p><img src="https://pbs.twimg.com/media/GEwlMEza4AA3G62?format=jpg&amp;name=medium" alt="" /></p>
+<p><img src="https://pbs.twimg.com/media/GEwlMEza4AA3G62?format=jpg&amp;name=medium" alt=""></p>
 <p>LN：从抽取一个特征，变成抽取一个样本，如黄色线表示</p>
-<p><img src="https://pbs.twimg.com/media/GEwlVL0aoAAvZFU?format=png&amp;name=small" alt="" /></p>
-<br>
-<h3 id="举例分析"><a class="markdownIt-Anchor" href="#举例分析"></a> 举例分析</h3>
-<p>为什么在时序数据中，LN的使用比BN更多呢？因为在时序样本中，可能很多的样本他们的长度都不一致。</p>
-<p><img src="https://pbs.twimg.com/media/GEww9YQaYAAfoTw?format=png&amp;name=small" alt="" /></p>
+<p><img src="https://pbs.twimg.com/media/GEwlVL0aoAAvZFU?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<h3 id="举例分析"><a href="#举例分析" class="headerlink" title="举例分析"></a>举例分析</h3><p>为什么在时序数据中，LN的使用比BN更多呢？因为在时序样本中，可能很多的样本他们的长度都不一致。</p>
+<p><img src="https://pbs.twimg.com/media/GEww9YQaYAAfoTw?format=png&amp;name=small" alt=""></p>
 <p>举例分析：以四个样本为例：</p>
-<p>BN切出来的结果：</p>
-<p>BatchNorm 计算均值和方差，有效的是阴影部分，其余是 0。</p>
+<p>BN切出来的结果： </p>
+<p>BatchNorm 计算均值和方差，有效的是阴影部分，其余是 0。  </p>
 <p>Mini-batch 的均值和方差：如果样本长度变化比较大的时候，每次计算小批量的均值和方差，均值和方差的抖动大。全局的均值和方差：测试时遇到一个特别长的全新样本 （红框），训练时未见过，训练时计算的均值和方差可能不好用。</p>
-<p><img src="https://pbs.twimg.com/media/GEwnkDAaIAAxUYL?format=png&amp;name=360x360" alt="" /></p>
-<br>
+<p><img src="https://pbs.twimg.com/media/GEwnkDAaIAAxUYL?format=png&amp;name=360x360" alt=""></p>
+<p><br></p>
 <p>LN切出来的结果如下：LayerNorm 每个样本自己算均值和方差，不需要存全局的均值和方差。LayerNorm 更稳定，不管样本长还是短，均值和方差是在每个样本内计算。</p>
-<p><img src="https://pbs.twimg.com/media/GEwnoNPaAAASZr_?format=png&amp;name=360x360" alt="" /></p>
-<hr />
-<h2 id="instance-normalization"><a class="markdownIt-Anchor" href="#instance-normalization"></a> Instance Normalization</h2>
-<p>BN注重对每个batch进行归一化，保证数据分布一致，因为判别模型中结果取决于数据整体分布。</p>
+<p><img src="https://pbs.twimg.com/media/GEwnoNPaAAASZr_?format=png&amp;name=360x360" alt=""></p>
+<hr>
+<h2 id="Instance-Normalization"><a href="#Instance-Normalization" class="headerlink" title="Instance Normalization"></a>Instance Normalization</h2><p>BN注重对每个batch进行归一化，保证数据分布一致，因为判别模型中结果取决于数据整体分布。</p>
 <p>但是图像风格化中，生成结果主要依赖于某个图像实例，所以对整个batch归一化不适合图像风格化中，因而对HW做归一化。可以加速模型收敛，并且保持每个图像实例之间的独立。</p>
-<p>和BatchNorm的区别：<br />
-<img src="https://pbs.twimg.com/media/GEwHjUXbYAAAoBW?format=jpg&amp;name=large" alt="" /></p>
-<br>
-<h2 id="group-normalization"><a class="markdownIt-Anchor" href="#group-normalization"></a> Group Normalization</h2>
-<p>主要是针对Batch Normalization对小batchsize效果差，GN将channel方向分group，然后每个group内做归一化，算(C//G)HW的均值，这样与batchsize无关，不受其约束。</p>
-<br>
-<h2 id="normalization-layer的作用"><a class="markdownIt-Anchor" href="#normalization-layer的作用"></a> Normalization layer的作用</h2>
-<p>没有它之前，需要小心的调整学习率和权重初始化，但是有了BN可以放心的使用大学习率，但是使用了BN，就不用小心的调参了，较大的学习率极大的提高了学习速度；</p>
+<p>和BatchNorm的区别：<br><img src="https://pbs.twimg.com/media/GEwHjUXbYAAAoBW?format=jpg&amp;name=large" alt=""></p>
+<p><br></p>
+<h2 id="Group-Normalization"><a href="#Group-Normalization" class="headerlink" title="Group Normalization"></a>Group Normalization</h2><p>主要是针对Batch Normalization对小batchsize效果差，GN将channel方向分group，然后每个group内做归一化，算(C//G)HW的均值，这样与batchsize无关，不受其约束。</p>
+<p><br></p>
+<h2 id="Normalization-layer的作用"><a href="#Normalization-layer的作用" class="headerlink" title="Normalization layer的作用"></a>Normalization layer的作用</h2><p>没有它之前，需要小心的调整学习率和权重初始化，但是有了BN可以放心的使用大学习率，但是使用了BN，就不用小心的调参了，较大的学习率极大的提高了学习速度；</p>
 <ul>
 <li>Batchnorm本身上也是一种正则的方式，可以代替其他正则方式如dropout等；</li>
 <li>另外，个人认为，batchnorm降低了数据之间的绝对差异，有一个去相关的性质，更多的考虑相对差异性，因此在分类任务上具有更好的效果。</li>
@@ -360,7 +319,7 @@
             
         </div>
         <footer class="article-footer">
-            <a data-url="https://abinzzz.github.io/2024/01/25/BatchNorm-VS-LayerNorm/" data-id="clruifpmu0000y9690fiqd57z" data-title="Normalization - &#39;https://pbs.twimg.com/media/GD3Tj6fXoAAgsgz?format=png&amp;name=small&#39;"
+            <a data-url="https://abinzzz.github.io/2024/01/25/BatchNorm-VS-LayerNorm/" data-id="clruifpmu0000y9690fiqd57z" data-title="Normalization"
                class="article-share-link">分享</a>
             
             
