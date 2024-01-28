@@ -25,12 +25,12 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接   Chapter02   1.1 进程定义，组成，组织方式 进程定义：进程实体的运行过程，是系统进行资源分配和调度的一个独立单位 与程序的区别：  程序：静态 进程：动态   进行进程切换的时候需要把当前的">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  王道考研—操作系统原理笔记- Roshin    Chapter02   1.1 进程定义，组成，组织方式 进程定义：进程实体的运行过程，是系统进行资源分配和调度的一个独立单位 与程序的区别：  程序：静态">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OS:chapter02-Review">
 <meta property="og:url" content="https://abinzzz.github.io/2024/01/06/OS-chapter02-Review/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接   Chapter02   1.1 进程定义，组成，组织方式 进程定义：进程实体的运行过程，是系统进行资源分配和调度的一个独立单位 与程序的区别：  程序：静态 进程：动态   进行进程切换的时候需要把当前的">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  王道考研—操作系统原理笔记- Roshin    Chapter02   1.1 进程定义，组成，组织方式 进程定义：进程实体的运行过程，是系统进行资源分配和调度的一个独立单位 与程序的区别：  程序：静态">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GDJW7IVWcAApGz1?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GDJW9MYWEAAPzq7?format=jpg&amp;name=medium">
@@ -42,8 +42,10 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/GDKE6rBWsAA2QpO?format=jpg&amp;name=large">
 <meta property="og:image" content="https://pbs.twimg.com/media/GDKE-LdWQAAoizz?format=jpg&amp;name=small">
 <meta property="og:image" content="https://pbs.twimg.com/media/GDKFCecXYAAs8wF?format=jpg&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/GE7iD7KbEAAjjQn?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GE7k1T3bEAA5jMB?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2024-01-06T06:56:40.000Z">
-<meta property="article:modified_time" content="2024-01-06T11:56:37.649Z">
+<meta property="article:modified_time" content="2024-01-28T13:16:15.991Z">
 <meta property="article:author" content="ab">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="2">
@@ -214,6 +216,9 @@
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
 <h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Roshin/p/WangDao_OS_notes.html#%E7%AC%AC%E4%BA%8C%E7%AB%A0---%E8%BF%9B%E7%A8%8B">王道考研—操作系统原理笔记- Roshin</a></li>
+</ul>
 <br>
 <h2 id="chapter02"><a class="markdownIt-Anchor" href="#chapter02"></a> Chapter02</h2>
 <br>
@@ -265,7 +270,7 @@
 <p><img src="https://pbs.twimg.com/media/GDJW7IVWcAApGz1?format=jpg&amp;name=medium" alt="" /></p>
 <p><img src="https://pbs.twimg.com/media/GDJW9MYWEAAPzq7?format=jpg&amp;name=medium" alt="" /></p>
 <br>
-<p>特征：</p>
+<p>进程的特征：</p>
 <ul>
 <li>动态：动态产生，变化，消亡</li>
 <li>并发：</li>
@@ -294,6 +299,8 @@
 <li>使用开关中断来实现(核心态下执行的特权指令)</li>
 <li>一气呵成</li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// ...</span><br><span class="line">关中断指令</span><br><span class="line">原语 code 1</span><br><span class="line">原语 code 2</span><br><span class="line">开中断指令</span><br><span class="line">// ..., </span><br></pre></td></tr></table></figure>
+<p>显然，<strong>关/开中断指令</strong>的权限非常大，必然是只允许在<strong>核心态</strong>下执行的特权指令</p>
 <p><img src="https://pbs.twimg.com/media/GDJdtFyXUAALAcu?format=png&amp;name=small" alt="" /></p>
 <br>
 <p>进程控制相关原语：</p>
@@ -318,28 +325,28 @@
 <br>
 <h2 id="14-进程通信"><a class="markdownIt-Anchor" href="#14-进程通信"></a> 1.4 进程通信</h2>
 <p>进程通信：指进程之间的信息交换</p>
-<p>各进程拥有的内存地址空间相互独立，一个进程不能直接访问另一个进程的地址空间</p>
+<p>各进程拥有的内存<strong>地址空间相互独立</strong>，<strong>一个进程不能直接访问另一个进程的地址空间</strong></p>
 <p>分类：</p>
 <ul>
 <li>（1）共享存储：互斥访问共享空间
 <ul>
 <li>基于数据结构 low</li>
-<li>基于存储区</li>
+<li>基于存储区 high</li>
 </ul>
 </li>
-<li>（2）消息传递：传递结构化信息，两个原语
+<li>（2）消息传递：传递结构化信息 <strong>（消息头+消息体）</strong>，两个原语 <strong>(发送消息 + 接受消息)</strong>
 <ul>
 <li>直接通信：放到对方消息队列中</li>
 <li>间接通信：先发到中间体</li>
 </ul>
 </li>
-<li>（3）管道通信: 设置一个特殊共享文件(管道),其实就是一个缓存区；一个管道智能实现双半工通信；各进程要互斥访问通道；写满不能写，读空不能读。</li>
+<li>（3）管道通信: 设置一个特殊共享文件(管道),其实就是一个缓存区；一个管道智能实现<strong>半双工通信</strong>；<strong>各进程要互斥访问通道</strong>；<strong>写满不能写，读空不能读</strong>；<strong>读进程最多只能有一个</strong>。</li>
 </ul>
 <p><img src="https://pbs.twimg.com/media/GDJ_p8kW0AAK0Ny?format=jpg&amp;name=medium" alt="" /></p>
 <p><img src="https://pbs.twimg.com/media/GDJ_t2OXgAApUDC?format=jpg&amp;name=medium" alt="" /></p>
 <br>
 <h2 id="15-线程和多线程模型"><a class="markdownIt-Anchor" href="#15-线程和多线程模型"></a> 1.5 线程和多线程模型</h2>
-<p>线程定义：轻量级线程</p>
+<p>线程定义：轻量级进程</p>
 <table>
 <thead>
 <tr>
@@ -379,13 +386,112 @@
 </ul>
 <p>线程实现方式：</p>
 <ul>
-<li>用户级线程</li>
-<li>内核级线程</li>
+<li>用户级线程：所有的线程管理工作都由应用程序负责（包括线程切换）</li>
+<li>内核级线程：内核级线程的管理工作由操作系统内核完成。</li>
 <li>组合方式</li>
 </ul>
 <p><img src="https://pbs.twimg.com/media/GDKE6rBWsAA2QpO?format=jpg&amp;name=large" alt="" /></p>
 <p><img src="https://pbs.twimg.com/media/GDKE-LdWQAAoizz?format=jpg&amp;name=small" alt="" /></p>
 <p><img src="https://pbs.twimg.com/media/GDKFCecXYAAs8wF?format=jpg&amp;name=small" alt="" /></p>
+<br>
+<h2 id="21-处理机调度的概念层次"><a class="markdownIt-Anchor" href="#21-处理机调度的概念层次"></a> 2.1 处理机调度的概念层次</h2>
+<table>
+<thead>
+<tr>
+<th>调度类型</th>
+<th>要做什么</th>
+<th>调度发生在</th>
+<th>发生频率</th>
+<th>对进程状态的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>高级调度（作业调度）</td>
+<td>按照某种规则，从后备队列中选择合适的作业将其调入内存，并为其创建进程</td>
+<td>外存 -&gt; 内存（面向作业）</td>
+<td>最低</td>
+<td>无 -&gt; 创建态 -&gt; 就绪态</td>
+</tr>
+<tr>
+<td>中级调度（内存调度）</td>
+<td>按照某种规则，从挂起队列中选择合适的进程将其数据调回内存</td>
+<td>外存 -&gt; 内存（面向进程）</td>
+<td>中等</td>
+<td>挂起态 -&gt; 就绪态（阻塞挂起 -&gt; 阻塞态）</td>
+</tr>
+<tr>
+<td>低级调度(进程调度)</td>
+<td>按照某种规则，从就绪队列中选择一个进程为其分配CPU</td>
+<td>内存 -&gt; CPU</td>
+<td>最高</td>
+<td>就绪态 -&gt; 运行态</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://pbs.twimg.com/media/GE7iD7KbEAAjjQn?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p>挂起与阻塞的区别：</p>
+<ul>
+<li>挂起是进程映像在外存</li>
+<li>阻塞还在内存</li>
+</ul>
+<h2 id="22-进程调度的时机-切换过程-方式"><a class="markdownIt-Anchor" href="#22-进程调度的时机-切换过程-方式"></a> 2.2 进程调度的时机, 切换过程, 方式</h2>
+<p>进程调度： 就绪态 -&gt; 运行态</p>
+<p>什么时候需要调度：</p>
+<ul>
+<li>主动放弃
+<ul>
+<li>正常终止</li>
+<li>发生异常终止</li>
+<li>主动请求阻塞</li>
+</ul>
+</li>
+<li>被迫中断
+<ul>
+<li>时间片用完</li>
+<li>更加紧急的事情</li>
+<li>更高优先级的进程进入</li>
+</ul>
+</li>
+</ul>
+<br>
+<p>什么时候不可以调度：</p>
+<ul>
+<li>处理中断时</li>
+<li>OS内核程序临界区</li>
+<li>原子操作过程</li>
+</ul>
+<br>
+<p>关于进程在操作系统内核程序临界区中不能进行调度与切换(<strong>普通临界区可以进行调度和切换</strong>):</p>
+<ul>
+<li><strong>临界资源</strong>：一个时间段内只允许一个进程使用的资源。各进程需要互斥地访问临界资源。</li>
+<li><strong>临界区</strong>：访问临界资源的那段代码。</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/GE7k1T3bEAA5jMB?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p>进程调度方式：</p>
+<ul>
+<li>非抢占式</li>
+<li>抢占式</li>
+</ul>
+<br>
+<p><strong>狭义进程调度与进程切换</strong>：</p>
+<ul>
+<li><strong>狭义的进程调度</strong>： 指的是从就绪队列中选中一个要运行的进程。（这个进程可以是刚刚被暂停执行的进程，也可能是另一个进程，后一种情况就需要进程切换）</li>
+<li><strong>进程切&quot;换&quot;</strong>：重点在换，是指一个进程让出处理机，由另一个进程占用处理机的过程。</li>
+</ul>
+<p>举例说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">假设有三个进程A、B和C在就绪队列中。</span><br><span class="line"></span><br><span class="line">当前进程A正在执行，而进程调度器决定下一个要执行的进程是B。</span><br><span class="line">在这个决策点，狭义的进程调度完成了它的任务，即确定了进程B是下一个要执行的进程。</span><br><span class="line">但是，为了让进程B真正执行，系统必须进行进程切换，这意味着保存进程A的状态（如CPU寄存器等），并将进程B的状态载入处理器，然后才能开始执行进程B。</span><br><span class="line"></span><br><span class="line">如果调度器决定进程A继续执行，则不需要进程切换。进程A会继续占用CPU，执行其任务。</span><br></pre></td></tr></table></figure>
+<br>
+<p><strong>广义的进程调度</strong> = 选择一个进程 + 进程切换</p>
+<br>
+<p>进程切换的过程主要完成了：</p>
+<ul>
+<li>对原来运行进程各种数据的保存</li>
+<li>对新的进程各种数据的恢复 (程序计数器、程序状态字、各种数据寄存器等处理机现场信息，这些信息一般保存在进程控制块)</li>
+</ul>
+<p><strong>注意</strong>：<strong>进程切换是有代价的</strong>，因此如果过于频繁的进行进程调度、切换，必然会使整个系统的效率降低，使系统大部分时间都花在了进程切换上，而真正用于执行进程的时间减少</p>
 
             
         </div>
@@ -567,10 +673,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    582.7k
+                    583.7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    37:11
+                    37:14
                 </div>
             
             
