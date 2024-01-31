@@ -25,12 +25,12 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    数据库系统和文件系统的区别左边是数据库系统，dbms作为单独一部分被提了出来，右边是文件系统   C&#x2F;S 和 B&#x2F;S的区别B&#x2F;S也是C&#x2F;S   Summary A database-management system">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   数据库系统和文件系统的区别 左边是数据库系统，dbms作为单独一部分被提了出来，右边是文件系统    C&#x2F;S 和 B&#x2F;S的区别 B&#x2F;S也是C&#x2F;S    Summary   A database-management s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Database:Review-Chapter01">
 <meta property="og:url" content="https://abinzzz.github.io/2023/12/14/Database-Review-Chapter01/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    数据库系统和文件系统的区别左边是数据库系统，dbms作为单独一部分被提了出来，右边是文件系统   C&#x2F;S 和 B&#x2F;S的区别B&#x2F;S也是C&#x2F;S   Summary A database-management system">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   数据库系统和文件系统的区别 左边是数据库系统，dbms作为单独一部分被提了出来，右边是文件系统    C&#x2F;S 和 B&#x2F;S的区别 B&#x2F;S也是C&#x2F;S    Summary   A database-management s">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GBS31-1WMAAnGFL?format=png&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/GBTJfOSW8AAT8em?format=png&amp;name=900x900">
@@ -39,8 +39,8 @@
 <meta property="article:author" content="ab">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="Database">
-<meta property="article:tag" content="Chapter01">
 <meta property="article:tag" content="review">
+<meta property="article:tag" content="Chapter01">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pbs.twimg.com/media/GBS31-1WMAAnGFL?format=png&amp;name=900x900">
     
@@ -206,63 +206,78 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-
-
-<h2 id="数据库系统和文件系统的区别"><a href="#数据库系统和文件系统的区别" class="headerlink" title="数据库系统和文件系统的区别"></a>数据库系统和文件系统的区别</h2><p>左边是数据库系统，dbms作为单独一部分被提了出来，右边是文件系统</p>
-<p><img src="https://pbs.twimg.com/media/GBS31-1WMAAnGFL?format=png&amp;name=900x900" alt=""></p>
-<p><br></p>
-<h2 id="C-S-和-B-S的区别"><a href="#C-S-和-B-S的区别" class="headerlink" title="C/S 和 B/S的区别"></a>C/S 和 B/S的区别</h2><p>B/S也是C/S</p>
-<p><img src="https://pbs.twimg.com/media/GBTJfOSW8AAT8em?format=png&amp;name=900x900" alt=""></p>
-<p><br></p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li>A database-management system (DBMS) consists of a collection of interrelated data and a collection of programs to access those data. The data describe one particular enterprise.</li>
-</ul>
+<h2 id="数据库系统和文件系统的区别"><a class="markdownIt-Anchor" href="#数据库系统和文件系统的区别"></a> 数据库系统和文件系统的区别</h2>
+<p>左边是数据库系统，dbms作为单独一部分被提了出来，右边是文件系统</p>
+<p><img src="https://pbs.twimg.com/media/GBS31-1WMAAnGFL?format=png&amp;name=900x900" alt="" /></p>
+<br>
+<h2 id="cs-和-bs的区别"><a class="markdownIt-Anchor" href="#cs-和-bs的区别"></a> C/S 和 B/S的区别</h2>
+<p>B/S也是C/S</p>
+<p><img src="https://pbs.twimg.com/media/GBTJfOSW8AAT8em?format=png&amp;name=900x900" alt="" /></p>
+<br>
+<h2 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h2>
 <ul>
-<li>The primary goal of a DBMS is to provide an environment that is both convenient and efficient for people to use in <strong>retrieving</strong> and storing information.</li>
-</ul>
-<ul>
-<li><p>Database systems are <strong>ubiquitous</strong> today, and most people interact, either directly or indirectly, with databases many times every day.</p>
+<li>
+<p>A database-management system (DBMS) consists of a collection of interrelated data and a collection of programs to access those data. The data describe one particular enterprise.</p>
 </li>
-<li><p>Database systems are designed to store large bodies of information. The management of data involves both the definition of structures for the storage of information and the <strong>provision</strong> of mechanisms for the manipulation of information. In addition, the database system must provide for the safety of the information stored in the face of system crashes or attempts at unauthorized access. If data are to be shared among several users, the system must avoid possible <strong>anomalous</strong> results.</p>
+<li>
+<p>The primary goal of a DBMS is to provide an environment that is both convenient and efficient for people to use in <strong>retrieving</strong> and storing information.</p>
 </li>
-<li><p>A major <strong>purpose of a database system</strong> is to provide users with an abstract view of the data. That is, the system hides certain details of how the data are stored and maintained.</p>
+<li>
+<p>Database systems are <strong>ubiquitous</strong> today, and most people interact, either directly or indirectly, with databases many times every day.</p>
 </li>
-</ul>
-<ul>
-<li><p><strong>Underlying the structure of a database is the data model</strong> : a collection of conceptual tools for describing data, data relationships, data semantics, and data constraints.</p>
+<li>
+<p>Database systems are designed to store large bodies of information. The management of data involves both the definition of structures for the storage of information and the <strong>provision</strong> of mechanisms for the manipulation of information. In addition, the database system must provide for the safety of the information stored in the face of system crashes or attempts at unauthorized access. If data are to be shared among several users, the system must avoid possible <strong>anomalous</strong> results.</p>
 </li>
-<li><p>The relational data model is the most widely deployed model for storing data in databases. Other data models are the object-oriented model, the object-relational model, and semi-structured data models.</p>
+<li>
+<p>A major <strong>purpose of a database system</strong> is to provide users with an abstract view of the data. That is, the system hides certain details of how the data are stored and maintained.</p>
 </li>
-<li><p>A data-manipulation language(DML)is a language that enables users to accessor manipulate data. Nonprocedural DMLs, which require a user to specify only what data are needed, without specifying exactly how to get those data, are widely used today.</p>
+<li>
+<p><strong>Underlying the structure of a database is the data model</strong> : a collection of conceptual tools for describing data, data relationships, data semantics, and data constraints.</p>
 </li>
-<li><p>A data-definition language(DDL)is a language for specifying the database schema and other properties of the data.</p>
+<li>
+<p>The relational data model is the most widely deployed model for storing data in databases. Other data models are the object-oriented model, the object-relational model, and semi-structured data models.</p>
 </li>
-<li><p>Database design mainly involves the design of the database schema. The entity- relationship (E-R) data model is a widely used model for database design. It provides a convenient graphical representation to view data, relationships, and con- straints.</p>
+<li>
+<p>A data-manipulation language(DML)is a language that enables users to accessor manipulate data. Nonprocedural DMLs, which require a user to specify only what data are needed, without specifying exactly how to get those data, are widely used today.</p>
 </li>
-<li><p>A database system has several subsystems.</p>
+<li>
+<p>A data-definition language(DDL)is a language for specifying the database schema and other properties of the data.</p>
+</li>
+<li>
+<p>Database design mainly involves the design of the database schema. The entity- relationship (E-R) data model is a widely used model for database design. It provides a convenient graphical representation to view data, relationships, and con- straints.</p>
+</li>
+<li>
+<p>A database system has several subsystems.</p>
 <ul>
 <li>The storage manager subsystem provides the interface between the low-level data stored in the database and the application programs and queries submitted to the system.</li>
 <li>The query processor subsystem compiles and executes DDL and DML statements.</li>
 </ul>
 </li>
-<li><p>Transaction management ensures that the database remains in a consistent (cor- rect) state despite system failures. The transaction manager ensures that concur- rent transaction executions proceed without conflicts.</p>
+<li>
+<p>Transaction management ensures that the database remains in a consistent (cor- rect) state despite system failures. The transaction manager ensures that concur- rent transaction executions proceed without conflicts.</p>
+</li>
+<li>
+<p>The architecture of a database system is greatly influenced by the underlying computer system on which the database system runs. Database systems can be centralized, or parallel, involving multiple machines. Distributed databases span multiple geographically separated machines.</p>
+</li>
+<li>
+<p>Database applications are typically broken up into a front-end part that runs at client machines and a part that runs at the backend. In two-tier architectures, the front end directly communicates with a database running at the back end. In three- tier architectures, the back end part is itself broken up into an application server and a database server.</p>
+</li>
+<li>
+<p>There are four different types of database-system users, differentiated by the way they expect to interact with the system. Different types of user interfaces have been designed for the different types of users.</p>
 </li>
 </ul>
-<ul>
-<li>The architecture of a database system is greatly influenced by the underlying computer system on which the database system runs. Database systems can be centralized, or parallel, involving multiple machines. Distributed databases span multiple geographically separated machines.</li>
-<li>Database applications are typically broken up into a front-end part that runs at client machines and a part that runs at the backend. In two-tier architectures, the front end directly communicates with a database running at the back end. In three- tier architectures, the back end part is itself broken up into an application server and a database server.</li>
-<li>There are four different types of database-system users, differentiated by the way they expect to interact with the system. Different types of user interfaces have been designed for the different types of users.</li>
-</ul>
-<p><br></p>
-<h2 id="Review-Terms"><a href="#Review-Terms" class="headerlink" title="Review Terms"></a>Review Terms</h2><p><strong>Database-management system (DBMS)</strong>：一组相互关联的数据和一组访问这些数据的程序。</p>
-<hr>
+<br>
+<h2 id="review-terms"><a class="markdownIt-Anchor" href="#review-terms"></a> Review Terms</h2>
+<p><strong>Database-management system (DBMS)</strong>：一组相互关联的数据和一组访问这些数据的程序。</p>
+<hr />
 <p><strong>数据库(Data Base，DB)</strong> 是按一定结构组织并长期存储在计算机内的、可共享的大量数据的有机集合。其实就是存放数据的仓库，只不过这些数据存在一定的关联、并按一定的格式存放在计算机上。例如，把一个学校的学生、课程、学生成绩等数据有序的组织并存放在计算机内，就可以构成一个数据库。</p>
 <p><strong>数据库管理系统（Data Base Management System，DBMS）</strong> 是管理和维护数据库的系统软件。常用的DBMS有：Oracle、DB2、SqlServer、MySql等</p>
 <p><strong>数据库管理员(Date Base Administrator ,DBA)</strong> 管理操作数据库人员。</p>
 <p><strong>数据库系统（Data Base System，DBS）</strong> 是实现有组织的、动态地存储大量关联数据、方便多用户访问的计算机软件、硬件和数据资源组成的系统，简化为：DBS=计算机系统（硬件、软件平台、人）+DBMS+DB</p>
-<hr>
+<hr />
 <p><strong>Database-system applications</strong>: 一种计算机程序，其主要目的是从计算机化的数据库中输入和检索信息。</p>
-<p><strong>Online transaction processing</strong>: 这指的是管理面向事务应用程序的系统。OLTP系统旨在支持大量的短在线交易，如订单输入、金融交易和客户记录管理。<br><strong>Data analytics</strong>: 对数据进行处理以得出结论，并推断规则或决策过程，然后将其用于驱动业务决策。</p>
+<p><strong>Online transaction processing</strong>: 这指的是管理面向事务应用程序的系统。OLTP系统旨在支持大量的短在线交易，如订单输入、金融交易和客户记录管理。<br />
+<strong>Data analytics</strong>: 对数据进行处理以得出结论，并推断规则或决策过程，然后将其用于驱动业务决策。</p>
 <p><strong>File-processing systems</strong>： 这些系统将永久记录存储在各种文件中，并需要不同的应用程序将记录提取并添加到适当的文件中。在文件处理系统中，由于文件结构的不同以及不同文件中信息的重复，会导致数据冗余和不一致</p>
 <p><strong>Data inconsistency</strong>: 当同一数据的不同副本不一致时，就会发生这种情况。例如，如果一个学生的地址发生了变化，更新反映在一个部门的记录中，但没有反映在另一个部门中，这将导致数据不一致</p>
 <p><strong>Consistency constraints</strong>: 这些规则确保数据库中数据的完整性。它们确保存储在数据库中的数据值满足某些类型的约束。例如，一致性约束可能要求部门帐户的余额永远不能低于零</p>
@@ -289,24 +304,27 @@
 </ul>
 <p><strong>Database languages</strong></p>
 <ul>
-<li><strong>Data-definition language</strong>：这用于指定数据库模式和定义数据的附加属性。DDL允许创建、修改和删除数据库结构，如表、索引和约束。</li>
-</ul>
+<li>
+<p><strong>Data-definition language</strong>：这用于指定数据库模式和定义数据的附加属性。DDL允许创建、修改和删除数据库结构，如表、索引和约束。</p>
+</li>
+<li>
+<p><strong>Data-manipulation language</strong>：DML用于表达数据库查询和更新。它包括允许用户从数据库插入、更新、删除和检索数据的命令</p>
 <ul>
-<li><strong>Data-manipulation language</strong>：DML用于表达数据库查询和更新。它包括允许用户从数据库插入、更新、删除和检索数据的命令<ul>
 <li><strong>Procedural DML</strong>：指定需要哪些数据以及如何获取数据</li>
 <li><strong>Declarative DML</strong>：指定需要哪些数据，而不显式说明如何获取数据。</li>
 <li><strong>nonprocedural DML</strong>：结合了Procedural和Declarative的特性。</li>
 </ul>
 </li>
-</ul>
+<li>
+<p><strong>Query language</strong>：它是DML的一个子集，专门为查询数据而设计。这允许用户通过指定标准从数据库检索特定信息</p>
+</li>
+<li>
+<p><strong>Data-definition language</strong></p>
 <ul>
-<li><strong>Query language</strong>：它是DML的一个子集，专门为查询数据而设计。这允许用户通过指定标准从数据库检索特定信息</li>
-</ul>
-<ul>
-<li><strong>Data-definition language</strong><ul>
 <li><strong>Domain Constraints</strong>：定义关于某个属性的允许值的规则</li>
 <li><strong>Referential Integrity</strong>：确保表之间的关系保持一致</li>
-<li><strong>Authorization</strong>：包括向用户授予不同操作的权限，如读取、插入、更新和删除<ul>
+<li><strong>Authorization</strong>：包括向用户授予不同操作的权限，如读取、插入、更新和删除
+<ul>
 <li>Read authorization</li>
 <li>Insert authorization</li>
 <li>Update authorization</li>
@@ -316,7 +334,8 @@
 </ul>
 </li>
 </ul>
-<p><strong>Metadata</strong>： 元数据是关于数据的数据。它描述了数据库中存储的数据的结构和性质，例如表的结构、列的类型和约束等<br><strong>Application program</strong>：在数据库环境中，应用程序指的是用于访问和操作数据库中数据的软件程序</p>
+<p><strong>Metadata</strong>： 元数据是关于数据的数据。它描述了数据库中存储的数据的结构和性质，例如表的结构、列的类型和约束等<br />
+<strong>Application program</strong>：在数据库环境中，应用程序指的是用于访问和操作数据库中数据的软件程序</p>
 <p><strong>Database design</strong>：</p>
 <ul>
 <li><strong>Conceptual design</strong>： 设计数据库的高级结构，通常使用实体-关系模型来表示。</li>
@@ -326,7 +345,8 @@
 </ul>
 <p><strong>Database Engine</strong>：负责存储、查询、更新和管理数据库数据的核心服务和组件</p>
 <ul>
-<li><p><strong>Storage manager</strong>：负责数据库数据的存储和检索</p>
+<li>
+<p><strong>Storage manager</strong>：负责数据库数据的存储和检索</p>
 <ul>
 <li><strong>Authorization and integrity manager</strong>：负责维护数据的安全性和完整性。</li>
 <li><strong>Transaction manager</strong>：监督数据库事务的执行，确保原子性、一致性、持久性，并管理并发和恢复</li>
@@ -337,7 +357,8 @@
 <li><strong>Indices</strong>：提高数据库上数据检索操作速度的数据结构，但代价是额外的写操作和维护它们所需的存储空间</li>
 </ul>
 </li>
-<li><p><strong>Query processor</strong>：由几个组件组成，包括DDL解释器、DML编译器、查询优化器和查询求值引擎。它将用户查询和数据操作命令转换为用于数据检索和修改的低级指令</p>
+<li>
+<p><strong>Query processor</strong>：由几个组件组成，包括DDL解释器、DML编译器、查询优化器和查询求值引擎。它将用户查询和数据操作命令转换为用于数据检索和修改的低级指令</p>
 <ul>
 <li><strong>DDL interpreter</strong>：解释数据定义语言语句并在数据字典中记录定义</li>
 <li><strong>DML compiler</strong>：将数据操作语言语句转换为由查询求值引擎可以理解的低级指令组成的求值计划</li>
@@ -345,7 +366,8 @@
 <li><strong>Query evaluation engine</strong>：执行由DML编译生成的低级指令</li>
 </ul>
 </li>
-<li><p><strong>Transactions</strong>：作为单个逻辑工作单元执行的操作序列</p>
+<li>
+<p><strong>Transactions</strong>：作为单个逻辑工作单元执行的操作序列</p>
 <ul>
 <li><strong>Atomicity</strong>：确保事务要么全有，要么全无</li>
 <li><strong>Consistency</strong>：确保事务将数据库从一种有效状态转换为另一种有效状态</li>
@@ -364,38 +386,47 @@
 </ul>
 <p><strong>Database Application Architecture</strong>：应用程序使用数据库的设计</p>
 <ul>
-<li><strong>Two-tier</strong>：客户端和服务器</li>
-<li><p><strong>Three-tier</strong>：客户端、应用服务器和数据库服务器</p>
+<li>
+<p><strong>Two-tier</strong>：客户端和服务器</p>
 </li>
-<li><p><strong>Application server</strong>：</p>
+<li>
+<p><strong>Three-tier</strong>：客户端、应用服务器和数据库服务器</p>
+</li>
+<li>
+<p><strong>Application server</strong>：</p>
 </li>
 </ul>
 <p><strong>Database administrator (DBA)</strong>：负责管理数据库的人员，包括模式定义、存储结构、修改、访问授权和日常维护</p>
-<p><br></p>
-<h2 id="Practice-Exercises"><a href="#Practice-Exercises" class="headerlink" title="Practice Exercises"></a>Practice Exercises</h2><h3 id="1-1-本章描述了数据库系统的几个主要优点。两个缺点是什么"><a href="#1-1-本章描述了数据库系统的几个主要优点。两个缺点是什么" class="headerlink" title="1.1 本章描述了数据库系统的几个主要优点。两个缺点是什么?"></a>1.1 本章描述了数据库系统的几个主要优点。两个缺点是什么?</h3><p>下面列出了与数据库系统相关的两个缺点:</p>
+<br>
+<h2 id="practice-exercises"><a class="markdownIt-Anchor" href="#practice-exercises"></a> Practice Exercises</h2>
+<h3 id="11-本章描述了数据库系统的几个主要优点-两个缺点是什么"><a class="markdownIt-Anchor" href="#11-本章描述了数据库系统的几个主要优点-两个缺点是什么"></a> 1.1 本章描述了数据库系统的几个主要优点。两个缺点是什么?</h3>
+<p>下面列出了与数据库系统相关的两个缺点:</p>
 <ul>
-<li>建立数据库系统需要更多的知识、金钱、技能等。<br>时间。</li>
+<li>建立数据库系统需要更多的知识、金钱、技能等。<br />
+时间。</li>
 <li>数据库的复杂性可能会导致性能低下。</li>
 </ul>
-<p><br></p>
-<h3 id="1-2-列出Java或C等语言的类型声明系统与数据库中使用的数据定义语言的五种不同之处。"><a href="#1-2-列出Java或C等语言的类型声明系统与数据库中使用的数据定义语言的五种不同之处。" class="headerlink" title="1.2 列出Java或C等语言的类型声明系统与数据库中使用的数据定义语言的五种不同之处。"></a>1.2 列出Java或C等语言的类型声明系统与数据库中使用的数据定义语言的五种不同之处。</h3><ul>
+<br>
+<h3 id="12-列出java或c等语言的类型声明系统与数据库中使用的数据定义语言的五种不同之处"><a class="markdownIt-Anchor" href="#12-列出java或c等语言的类型声明系统与数据库中使用的数据定义语言的五种不同之处"></a> 1.2 列出Java或C等语言的类型声明系统与数据库中使用的数据定义语言的五种不同之处。</h3>
+<ul>
 <li>执行数据库DDL(数据定义语言)语句会在数据库中创建一个对象,而编程语言中的类型声明只是在程序中使用的一种抽象。</li>
 </ul>
-<hr>
+<hr />
 <p>数据库中的DDL(Data Definition Language,数据定义语言)主要包括创建、修改、删除数据库对象的语句,比如CREATE TABLE、ALTER TABLE、DROP TABLE等。</p>
 <p>执行DDL语句比如CREATE TABLE,会真正在数据库中创建一个表对象,这个表有具体的物理存储,可以在表中插入数据。</p>
 <p>而在编程语言如Java或C中,类型声明如:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">  <span class="type">int</span> id;</span><br><span class="line">  String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这样的类型声明只是在程序中创建了一个抽象的Student类,仅仅用于表示学生这一概念,并没有实际创建或者存储学生对象的内存或磁盘空间。它仅仅是为了程序逻辑使用的一种抽象。</p>
-<hr>
+<hr />
 <ul>
 <li>数据库DDL支持指定一致性约束,比如域约束、参照完整性约束等,而编程语言的类型系统一般不允许指定这些。</li>
 <li>数据库DDL支持权限控制,可以给不同的用户不同的访问权限。编程语言的类型系统不提供这样的保护机制。</li>
 <li>编程语言的类型系统通常比数据库系统支持的类型要丰富得多。大多数数据库只支持基本类型比如数字、字符串,尽管一些数据库也支持数组、对象等复杂类型。</li>
 <li>数据库DDL更专注于指定关系的属性类型;而编程语言允许创建对象和对象的集合。</li>
 </ul>
-<p><br></p>
-<h3 id="1-3-列出为特定企业设置数据库时需要执行的六个主要步骤。"><a href="#1-3-列出为特定企业设置数据库时需要执行的六个主要步骤。" class="headerlink" title="1.3 列出为特定企业设置数据库时需要执行的六个主要步骤。"></a>1.3 列出为特定企业设置数据库时需要执行的六个主要步骤。</h3><ul>
+<br>
+<h3 id="13-列出为特定企业设置数据库时需要执行的六个主要步骤"><a class="markdownIt-Anchor" href="#13-列出为特定企业设置数据库时需要执行的六个主要步骤"></a> 1.3 列出为特定企业设置数据库时需要执行的六个主要步骤。</h3>
+<ul>
 <li>定义企业的高级需求(此步骤生成称为系统需求规范的文档)</li>
 <li>定义一个包含所有适当类型的数据和数据关系的模型</li>
 <li>定义数据上的完整性约束</li>
@@ -403,33 +434,40 @@
 <li>对于每个需要定期解决的已知问题(例如，由职员或网络用户执行的任务)，定义一个用户界面来执行该任务，并编写必要的应用程序来实现该用户界面。</li>
 <li>创建/初始化数据库</li>
 </ul>
-<p><br></p>
-<h3 id="1-4-假设你想构建一个类似YouTube的视频网站。将1-2节列出的每一点都视为在文件处理系统中保存数据的缺点。讨论每个点与实际视频数据存储的相关性，以及与视频相关的元数据-如标题、上传用户、标签和哪些用户观看了视频-的相关性。"><a href="#1-4-假设你想构建一个类似YouTube的视频网站。将1-2节列出的每一点都视为在文件处理系统中保存数据的缺点。讨论每个点与实际视频数据存储的相关性，以及与视频相关的元数据-如标题、上传用户、标签和哪些用户观看了视频-的相关性。" class="headerlink" title="1.4 假设你想构建一个类似YouTube的视频网站。将1.2节列出的每一点都视为在文件处理系统中保存数据的缺点。讨论每个点与实际视频数据存储的相关性，以及与视频相关的元数据(如标题、上传用户、标签和哪些用户观看了视频)的相关性。"></a>1.4 假设你想构建一个类似YouTube的视频网站。将1.2节列出的每一点都视为在文件处理系统中保存数据的缺点。讨论每个点与实际视频数据存储的相关性，以及与视频相关的元数据(如标题、上传用户、标签和哪些用户观看了视频)的相关性。</h3><p><strong>数据冗余和不一致</strong>。这在某种程度上与元数据相关，尽管与未更新的实际视频数据无关。这里很少有关系，它们都不会导致冗余。</p>
+<br>
+<h3 id="14-假设你想构建一个类似youtube的视频网站-将12节列出的每一点都视为在文件处理系统中保存数据的缺点-讨论每个点与实际视频数据存储的相关性以及与视频相关的元数据如标题-上传用户-标签和哪些用户观看了视频的相关性"><a class="markdownIt-Anchor" href="#14-假设你想构建一个类似youtube的视频网站-将12节列出的每一点都视为在文件处理系统中保存数据的缺点-讨论每个点与实际视频数据存储的相关性以及与视频相关的元数据如标题-上传用户-标签和哪些用户观看了视频的相关性"></a> 1.4 假设你想构建一个类似YouTube的视频网站。将1.2节列出的每一点都视为在文件处理系统中保存数据的缺点。讨论每个点与实际视频数据存储的相关性，以及与视频相关的元数据(如标题、上传用户、标签和哪些用户观看了视频)的相关性。</h3>
+<p><strong>数据冗余和不一致</strong>。这在某种程度上与元数据相关，尽管与未更新的实际视频数据无关。这里很少有关系，它们都不会导致冗余。</p>
 <p><strong>访问数据困难</strong>。如果视频数据只能通过几个预定义的接口访问，就像现在的视频共享网站那样，这将不是问题。然而，如果一个组织需要根据特定的搜索条件(而不是简单的关键字查询)找到视频数据，如果元数据存储在文件中，那么在不编写应用程序的情况下很难找到相关数据。使用数据库对于查找数据的任务很重要。</p>
 <p><strong>数据隔离</strong>。由于数据通常不会更新，而是新创建的，因此数据隔离不是一个主要问题。即使是跟踪谁观看了什么视频的任务(概念上)也只是追加，再次使隔离不是一个主要问题。但是，如果添加授权，可能会出现授权信息并发更新的问题。</p>
 <p><strong>完整性问题</strong>。除了主键之外，这个应用程序似乎不太可能有什么重要的完整性约束。如果数据是分布式的，在强制主键约束时可能会出现问题。完整性问题可能不是一个大问题。</p>
 <p><strong>原子性问题</strong>。在视频上传时，关于视频和视频的元数据应该以原子方式添加，否则会出现数据不一致的情况。需要底层的恢复机制来确保发生故障时的原子性。</p>
 <p><strong>并发访问异常</strong>。由于数据不会更新，因此不太可能发生并发访问异常。</p>
 <p><strong>安全问题</strong>。如果系统支持授权，这将是一个问题</p>
-<p><br></p>
-<h3 id="1-5-web搜索中的关键字查询与数据库查询有很大的不同。列出两者之间的关键区别，包括指定查询的方式和查询的结果"><a href="#1-5-web搜索中的关键字查询与数据库查询有很大的不同。列出两者之间的关键区别，包括指定查询的方式和查询的结果" class="headerlink" title="1.5 web搜索中的关键字查询与数据库查询有很大的不同。列出两者之间的关键区别，包括指定查询的方式和查询的结果"></a>1.5 web搜索中的关键字查询与数据库查询有很大的不同。列出两者之间的关键区别，包括指定查询的方式和查询的结果</h3><p>在web上使用的查询是通过提供一个没有特定语法的关键字列表来指定的。结果通常是一个有序的url列表，以及关于url内容的信息片段。相比之下，数据库查询有特定的语法，允许指定复杂的查询。在关系世界中，查询的结果总是一张表。</p>
-<p><br></p>
-<h2 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h2><h3 id="1-6-列出四个最可能使用数据库系统来存储持久数据的应用程序。"><a href="#1-6-列出四个最可能使用数据库系统来存储持久数据的应用程序。" class="headerlink" title="1.6 列出四个最可能使用数据库系统来存储持久数据的应用程序。"></a>1.6 列出四个最可能使用数据库系统来存储持久数据的应用程序。</h3><ul>
+<br>
+<h3 id="15-web搜索中的关键字查询与数据库查询有很大的不同-列出两者之间的关键区别包括指定查询的方式和查询的结果"><a class="markdownIt-Anchor" href="#15-web搜索中的关键字查询与数据库查询有很大的不同-列出两者之间的关键区别包括指定查询的方式和查询的结果"></a> 1.5 web搜索中的关键字查询与数据库查询有很大的不同。列出两者之间的关键区别，包括指定查询的方式和查询的结果</h3>
+<p>在web上使用的查询是通过提供一个没有特定语法的关键字列表来指定的。结果通常是一个有序的url列表，以及关于url内容的信息片段。相比之下，数据库查询有特定的语法，允许指定复杂的查询。在关系世界中，查询的结果总是一张表。</p>
+<br>
+<h2 id="exercise"><a class="markdownIt-Anchor" href="#exercise"></a> Exercise</h2>
+<h3 id="16-列出四个最可能使用数据库系统来存储持久数据的应用程序"><a class="markdownIt-Anchor" href="#16-列出四个最可能使用数据库系统来存储持久数据的应用程序"></a> 1.6 列出四个最可能使用数据库系统来存储持久数据的应用程序。</h3>
+<ul>
 <li><strong>银行系统</strong>：银行系统用数据库来存储客户信息、账户信息、交易记录、信用卡信息等。数据库的一致性、安全性和恢复机制对银行业务至关重要。</li>
 <li><strong>在线零售商店</strong>：电子商务平台，如亚马逊或eBay，使用数据库来管理商品信息、用户数据、订单记录、库存信息和支付信息。数据库支持高效的数据检索和更新，对电子商务的运行至关重要。</li>
 <li><strong>医疗保健系统</strong>：医疗保健系统使用数据库来存储患者记录、治疗历史、药物信息、医生信息和预约数据。这些系统通常要求高水平的数据保密性和完整性。</li>
 <li><strong>社交媒体平台</strong>：像Facebook、Twitter或LinkedIn这样的社交媒体平台使用数据库来存储用户的个人资料、帖子、图片、视频、消息记录和网络关系。数据库支持这些应用程序处理大量数据和复杂查询的需求。</li>
 </ul>
-<p><br></p>
-<h3 id="1-7-List-four-significant-differences-between-a-file-processing-system-and-a-DBMS"><a href="#1-7-List-four-significant-differences-between-a-file-processing-system-and-a-DBMS" class="headerlink" title="1.7 List four significant differences between a file-processing system and a DBMS."></a>1.7 List four significant differences between a file-processing system and a DBMS.</h3><p><strong>物理和逻辑访问的协调</strong>: DBMS协调对数据的物理和逻辑访问，而文件处理系统只协调物理访问。这意味着DBMS理解数据的结构，并且能够以比文件系统更抽象的方式处理数据，而文件系统只处理数据在存储介质上的位置。</p>
+<br>
+<h3 id="17-list-four-significant-differences-between-a-file-processing-system-and-a-dbms"><a class="markdownIt-Anchor" href="#17-list-four-significant-differences-between-a-file-processing-system-and-a-dbms"></a> 1.7 List four significant differences between a file-processing system and a DBMS.</h3>
+<p><strong>物理和逻辑访问的协调</strong>: DBMS协调对数据的物理和逻辑访问，而文件处理系统只协调物理访问。这意味着DBMS理解数据的结构，并且能够以比文件系统更抽象的方式处理数据，而文件系统只处理数据在存储介质上的位置。</p>
 <p><strong>数据复制</strong>: DBMS通过确保所有被授权访问的程序都可以使用单个数据块来减少数据复制。相反，一个程序在文件处理系统中写入的数据可能无法被另一个程序读取，从而导致潜在的数据冗余</p>
 <p><strong>灵活地访问数据</strong>: DBMS被设计为允许通过查询灵活地访问数据。另一方面，文件处理系统被设计为允许预先确定对数据的访问，通常是通过编译程序。这意味着dbms可以处理特殊查询，并提供多种查看和分析数据的方法，而文件系统仅限于程序开发人员预期的操作。</p>
 <p><strong>并发访问</strong>: DBMS是为协调多个用户同时访问相同数据而设计的，而文件处理系统通常是为一个或多个程序同时访问不同的数据文件而设计的。在文件处理系统中，只有当两个程序都对文件具有只读访问权限时，才能同时访问该文件。这证明了DBMS处理复杂场景的能力，其中多个用户或进程可能需要并发地读取或写入相同的数据，而不会导致冲突或数据损坏</p>
-<p><br></p>
-<h3 id="1-8-解释物理数据独立性的概念及其在数据库系统中的重要性。"><a href="#1-8-解释物理数据独立性的概念及其在数据库系统中的重要性。" class="headerlink" title="1.8 解释物理数据独立性的概念及其在数据库系统中的重要性。"></a>1.8 解释物理数据独立性的概念及其在数据库系统中的重要性。</h3><p>物理数据独立性是指不需要重写应用程序就能修改物理方案的能力。这些修改包括从非阻塞记录存储到阻塞记录存储，或者从顺序访问文件到随机访问文件。</p>
+<br>
+<h3 id="18-解释物理数据独立性的概念及其在数据库系统中的重要性"><a class="markdownIt-Anchor" href="#18-解释物理数据独立性的概念及其在数据库系统中的重要性"></a> 1.8 解释物理数据独立性的概念及其在数据库系统中的重要性。</h3>
+<p>物理数据独立性是指不需要重写应用程序就能修改物理方案的能力。这些修改包括从非阻塞记录存储到阻塞记录存储，或者从顺序访问文件到随机访问文件。</p>
 <p>逻辑数据独立性是指无需重写应用程序就能修改概念方案的能力。这样的修改可能是向记录添加一个字段，应用程序可以从程序中看到这种更改。</p>
-<p><br></p>
-<h3 id="1-9-List-five-responsibilities-of-a-database-management-system-For-each-responsi-bility-explain-the-problems-that-would-arise-if-the-responsibility-were-not-dis-charged"><a href="#1-9-List-five-responsibilities-of-a-database-management-system-For-each-responsi-bility-explain-the-problems-that-would-arise-if-the-responsibility-were-not-dis-charged" class="headerlink" title="1.9 List five responsibilities of a database-management system. For each responsi- bility, explain the problems that would arise if the responsibility were not dis- charged."></a>1.9 List five responsibilities of a database-management system. For each responsi- bility, explain the problems that would arise if the responsibility were not dis- charged.</h3><p>通用数据库管理器(DBM)有五个职责:</p>
+<br>
+<h3 id="19-list-five-responsibilities-of-a-database-management-system-for-each-responsi-bility-explain-the-problems-that-would-arise-if-the-responsibility-were-not-dis-charged"><a class="markdownIt-Anchor" href="#19-list-five-responsibilities-of-a-database-management-system-for-each-responsi-bility-explain-the-problems-that-would-arise-if-the-responsibility-were-not-dis-charged"></a> 1.9 List five responsibilities of a database-management system. For each responsi- bility, explain the problems that would arise if the responsibility were not dis- charged.</h3>
+<p>通用数据库管理器(DBM)有五个职责:</p>
 <ul>
 <li>a. interaction with the file manager.</li>
 <li>b. integrity enforcement.</li>
@@ -443,32 +481,35 @@
 <li>一致性约束可能无法得到满足，账户余额可能低于允许的最低限度，员工可能加班赚得太多or航空公司飞行员可能飞行超过法律允许的时间。</li>
 <li>未授权的用户可能访问数据库，或者被授权访问数据库的一部分的用户可能能够访问他们没有权限的数据库部分。例如，一个高中生可以接触到国防密码，员工可以知道他们的上司挣多少钱。数据可能会永久丢失，而不是至少在故障前的一致状态下可用。尽管适当地强制完整性，一致性约束仍然可能被违反。在每笔交易中。例如，由于同时取款和存款，可能会反映不正确的银行余额，等等</li>
 </ul>
-<p><br></p>
-<h3 id="1-10-请列出至少两个原因，说明为什么数据库系统支持使用声明性查询语言-如SQL-进行数据操作，而不是仅仅提供一个C或C函数库来执行数据操作"><a href="#1-10-请列出至少两个原因，说明为什么数据库系统支持使用声明性查询语言-如SQL-进行数据操作，而不是仅仅提供一个C或C函数库来执行数据操作" class="headerlink" title="1.10 请列出至少两个原因，说明为什么数据库系统支持使用声明性查询语言(如SQL)进行数据操作，而不是仅仅提供一个C或C函数库来执行数据操作"></a>1.10 请列出至少两个原因，说明为什么数据库系统支持使用声明性查询语言(如SQL)进行数据操作，而不是仅仅提供一个C或C函数库来执行数据操作</h3><p>抽象级别的提高：声明性查询语言允许用户指定他们想要什么（即所需的数据），而不是如何完成一个任务（即获取数据的具体步骤）。这种高级别的抽象允许用户专注于数据的逻辑结构而不是数据的物理布局，从而简化了数据库查询的编写和理解。</p>
+<br>
+<h3 id="110-请列出至少两个原因说明为什么数据库系统支持使用声明性查询语言如sql进行数据操作而不是仅仅提供一个c或c函数库来执行数据操作"><a class="markdownIt-Anchor" href="#110-请列出至少两个原因说明为什么数据库系统支持使用声明性查询语言如sql进行数据操作而不是仅仅提供一个c或c函数库来执行数据操作"></a> 1.10 请列出至少两个原因，说明为什么数据库系统支持使用声明性查询语言(如SQL)进行数据操作，而不是仅仅提供一个C或C函数库来执行数据操作</h3>
+<p>抽象级别的提高：声明性查询语言允许用户指定他们想要什么（即所需的数据），而不是如何完成一个任务（即获取数据的具体步骤）。这种高级别的抽象允许用户专注于数据的逻辑结构而不是数据的物理布局，从而简化了数据库查询的编写和理解。</p>
 <p>简化查询优化：使用声明性语言，数据库系统可以自动优化查询，以便高效地检索数据。系统可以决定数据访问的最佳路径，而无需用户干预。相比之下，使用程序库，优化负担通常落在了程序员身上，这要求他们具备深厚的专业知识，并可能导致非最优的数据访问路径。</p>
 <p>跨平台兼容性：SQL作为标准化查询语言，具有跨平台的兼容性。它可以在多种数据库系统上运行而不需要修改，这为数据库操作提供了更大的灵活性和可移植性。而特定语言的函数库则通常依赖于特定的平台或数据库系统。</p>
 <p>易于学习和使用：SQL的语法相对简单直观，易于学习，这使得非程序员也能够编写和理解查询，从而使得更广泛的用户群体能够利用数据库系统。</p>
 <p>安全性和访问控制：数据库系统通过SQL提供了细粒度的安全性和访问控制。管理员可以精确地控制哪些用户可以执行哪些SQL操作，这种控制通常比直接使用程序库更细致和更易于管理。</p>
 <p>维护和可扩展性：由于SQL是高度抽象的，当底层数据库结构变化时，通常不需要修改SQL查询。这与使用程序库相比，任何底层变化都可能需要更新和重新编译代码，导致维护困难和成本高昂。</p>
-<p><br></p>
-<h3 id="1-11-假设两个学生想要注册一门只有一个名额的课程。数据库系统的什么组件可以防止两个学生都被分配到最后一个座位"><a href="#1-11-假设两个学生想要注册一门只有一个名额的课程。数据库系统的什么组件可以防止两个学生都被分配到最后一个座位" class="headerlink" title="1.11 假设两个学生想要注册一门只有一个名额的课程。数据库系统的什么组件可以防止两个学生都被分配到最后一个座位?"></a>1.11 假设两个学生想要注册一门只有一个名额的课程。数据库系统的什么组件可以防止两个学生都被分配到最后一个座位?</h3><p>锁定机制（Locking Mechanisms）：数据库系统使用锁来控制对数据库对象（如行、页或表）的并发访问。在这种情况下，当第一个学生尝试注册课程时，数据库系统会在相应的数据库记录上放置一个锁。只有当这个学生的事务完成（提交或回滚）后，锁才会释放，其他学生才能尝试注册。</p>
+<br>
+<h3 id="111-假设两个学生想要注册一门只有一个名额的课程-数据库系统的什么组件可以防止两个学生都被分配到最后一个座位"><a class="markdownIt-Anchor" href="#111-假设两个学生想要注册一门只有一个名额的课程-数据库系统的什么组件可以防止两个学生都被分配到最后一个座位"></a> 1.11 假设两个学生想要注册一门只有一个名额的课程。数据库系统的什么组件可以防止两个学生都被分配到最后一个座位?</h3>
+<p>锁定机制（Locking Mechanisms）：数据库系统使用锁来控制对数据库对象（如行、页或表）的并发访问。在这种情况下，当第一个学生尝试注册课程时，数据库系统会在相应的数据库记录上放置一个锁。只有当这个学生的事务完成（提交或回滚）后，锁才会释放，其他学生才能尝试注册。</p>
 <p>多版本并发控制（Multiversion Concurrency Control, MVCC）：这是另一种并发控制技术，它允许多个事务看到同一数据的不同版本。在注册课程的情况下，每个学生的事务可能会看到课程有空位的不同“版本”。然而，实际提交事务时，只有第一个成功的事务会被接受，第二个会因为冲突而失败。</p>
 <p>事务隔离级别（Transaction Isolation Levels）：数据库通常提供不同的事务隔离级别，以控制一个事务所做的更改对其他并发运行的事务的可见性。较高的隔离级别可以防止并发事务中的问题，如脏读、不可重复读和幻读，这些都可能导致两个学生注册到同一个座位。</p>
 <p>序列化（Serialization）：在最高的隔离级别下，事务是序列化的，这意味着每个事务都是依次执行的，就好像没有其他事务并发执行一样。虽然这可能会减少系统的并发性能，但它确保了数据的完整性。</p>
-<p><br></p>
-<h3 id="1-12-解释两层和三层应用程序体系结构之间的区别。哪个更适合web应用程序-为什么"><a href="#1-12-解释两层和三层应用程序体系结构之间的区别。哪个更适合web应用程序-为什么" class="headerlink" title="1.12 解释两层和三层应用程序体系结构之间的区别。哪个更适合web应用程序?为什么?"></a>1.12 解释两层和三层应用程序体系结构之间的区别。哪个更适合web应用程序?为什么?</h3><p>两层架构，通常称为客户端/服务器架构，包括：</p>
+<br>
+<h3 id="112-解释两层和三层应用程序体系结构之间的区别-哪个更适合web应用程序为什么"><a class="markdownIt-Anchor" href="#112-解释两层和三层应用程序体系结构之间的区别-哪个更适合web应用程序为什么"></a> 1.12 解释两层和三层应用程序体系结构之间的区别。哪个更适合web应用程序?为什么?</h3>
+<p>两层架构，通常称为客户端/服务器架构，包括：</p>
 <ul>
 <li>客户端层：负责呈现用户界面和用户交互。在这层中，客户端直接与数据库服务器通信。</li>
 <li>服务器层：通常是一个数据库服务器，负责数据管理和查询处理。</li>
 </ul>
-<p><br></p>
+<br>
 <p>三层架构则更加分离，包括：</p>
 <ul>
 <li>表示层：即用户界面层，负责与用户交互并显示数据。</li>
 <li>业务逻辑层（应用服务器）：处理应用程序的业务逻辑，例如计算、数据查询的逻辑处理，以及执行特定任务的业务规则。</li>
 <li>数据层：即数据库层，负责存储和管理数据。</li>
 </ul>
-<p><br></p>
+<br>
 <p>对于Web应用程序来说，三层架构更为合适，原因包括：</p>
 <ul>
 <li>可伸缩性：三层架构允许每层独立地伸缩。随着用户数量的增加，你可以仅仅增强应用服务器层，而不必变动其他层。</li>
@@ -478,8 +519,9 @@
 <li>易于测试和部署：由于业务逻辑层是独立的，开发人员可以单独测试业务逻辑而无需关心数据存储和用户界面，这通常可以提高开发效率。</li>
 <li>技术多样性：三层架构允许在不同层使用最适合该层任务的技术，例如，在表示层使用JavaScript，在业务逻辑层使用Java或C#，在数据层使用SQL。</li>
 </ul>
-<p><br></p>
-<h3 id="1-13-描述至少三个可能用于在社交网络系统-如Facebook-中存储信息的表"><a href="#1-13-描述至少三个可能用于在社交网络系统-如Facebook-中存储信息的表" class="headerlink" title="1.13 描述至少三个可能用于在社交网络系统(如Facebook)中存储信息的表"></a>1.13 描述至少三个可能用于在社交网络系统(如Facebook)中存储信息的表</h3><p>用户表（Users）：</p>
+<br>
+<h3 id="113-描述至少三个可能用于在社交网络系统如facebook中存储信息的表"><a class="markdownIt-Anchor" href="#113-描述至少三个可能用于在社交网络系统如facebook中存储信息的表"></a> 1.13 描述至少三个可能用于在社交网络系统(如Facebook)中存储信息的表</h3>
+<p>用户表（Users）：</p>
 <ul>
 <li>UserID: 唯一标识每个用户的主键。</li>
 <li>Username: 用户名，用于登录和标识。</li>
@@ -491,7 +533,7 @@
 <li>JoinDate: 用户加入社交网络的日期。</li>
 <li>Location: 用户的地理位置信息。</li>
 </ul>
-<p><br></p>
+<br>
 <p>朋友关系表（Friendships）：</p>
 <ul>
 <li>FriendshipID: 表中每条朋友关系的唯一标识。</li>
@@ -501,7 +543,7 @@
 <li>StartDate: 成为朋友的日期。</li>
 <li>ActionUserID: 发起朋友请求的用户的ID。</li>
 </ul>
-<p><br></p>
+<br>
 <p>帖子表（Posts）：</p>
 <ul>
 <li>PostID: 帖子的唯一标识。</li>
@@ -517,7 +559,7 @@
             
         </div>
         <footer class="article-footer">
-            <a data-url="https://abinzzz.github.io/2023/12/14/Database-Review-Chapter01/" data-id="clq50k16g0000ob69dta99d6f" data-title="Database:Review-Chapter01"
+            <a data-url="https://abinzzz.github.io/2023/12/14/Database-Review-Chapter01/" data-id="cls1ihe9x001w98696h4e99o7" data-title="Database:Review-Chapter01"
                class="article-share-link">分享</a>
             
             
@@ -589,15 +631,15 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">284</div>
+                <div class="sidebar-state-number">288</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">23</div>
+                <div class="sidebar-state-number">24</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
-                <div class="sidebar-state-number">330</div>
+                <div class="sidebar-state-number">332</div>
             </div>
         </div>
         <div class="sidebar-social">
@@ -641,7 +683,7 @@
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Accumulate/">Accumulate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Future/">Future</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/bug/">bug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/internship/SNN/">SNN</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/spikeBERT/">spikeBERT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/spikingjelly/">spikingjelly</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reading/">reading</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Missing-Semester-of-CS/">Missing Semester of CS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/NNDL/">NNDL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/OS/">OS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/SE/">SE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/d2l/">d2l</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/">智能计算系统</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Accumulate/">Accumulate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Future/">Future</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/bug/">bug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/internship/SNN/">SNN</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/spikeBERT/">spikeBERT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/spikingjelly/">spikingjelly</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reading/">reading</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Missing-Semester-of-CS/">Missing Semester of CS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/NNDL/">NNDL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/OS/">OS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/SE/">SE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/d2l/">d2l</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/">智能计算系统</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
         </div>
     </div>
 
@@ -651,7 +693,7 @@
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/0/" style="font-size: 10px;">0</a> <a href="/tags/1/" style="font-size: 10.59px;">1</a> <a href="/tags/11-11/" style="font-size: 10px;">11.11</a> <a href="/tags/17/" style="font-size: 10px;">17</a> <a href="/tags/2/" style="font-size: 11.76px;">2</a> <a href="/tags/2-2/" style="font-size: 10px;">2-2</a> <a href="/tags/3/" style="font-size: 10.59px;">3</a> <a href="/tags/3-1/" style="font-size: 10px;">3-1</a> <a href="/tags/4/" style="font-size: 10.59px;">4</a> <a href="/tags/5/" style="font-size: 10px;">5</a> <a href="/tags/6/" style="font-size: 10px;">6</a> <a href="/tags/7/" style="font-size: 10px;">7</a> <a href="/tags/A4/" style="font-size: 10px;">A4</a> <a href="/tags/A6/" style="font-size: 10px;">A6</a> <a href="/tags/A9/" style="font-size: 11.18px;">A9</a> <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/AI-Ethics/" style="font-size: 10px;">AI Ethics</a> <a href="/tags/Accumulate/" style="font-size: 16.47px;">Accumulate</a> <a href="/tags/Advanced-SQL/" style="font-size: 10px;">Advanced SQL</a> <a href="/tags/Advancing-Spiking-Neural-Networks-towards-Deep-Residual-Learning/" style="font-size: 11.18px;">Advancing Spiking Neural Networks towards Deep Residual Learning</a> <a href="/tags/Ai-Ethics/" style="font-size: 10px;">Ai Ethics</a> <a href="/tags/AimGraduate/" style="font-size: 12.35px;">AimGraduate</a> <a href="/tags/An-Overview-of-the-BLITZ-Computer-Hardware/" style="font-size: 10px;">An Overview of the BLITZ Computer Hardware</a> <a href="/tags/An-Overview-of-the-BLITZ-System/" style="font-size: 10px;">An Overview of the BLITZ System</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/Artificial-neural-networks/" style="font-size: 10px;">Artificial neural networks</a> <a href="/tags/Attention/" style="font-size: 10px;">Attention</a> <a href="/tags/BLIP/" style="font-size: 10px;">BLIP</a> <a href="/tags/BLIP-2/" style="font-size: 10px;">BLIP-2</a> <a href="/tags/BasciConception/" style="font-size: 10px;">BasciConception</a> <a href="/tags/BatchNorm/" style="font-size: 10px;">BatchNorm</a> <a href="/tags/Benchmark/" style="font-size: 10px;">Benchmark</a> <a href="/tags/Blitz/" style="font-size: 11.76px;">Blitz</a> <a href="/tags/CAS/" style="font-size: 10.59px;">CAS</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/CV/" style="font-size: 10.59px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 12.94px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Chapter01/" style="font-size: 10px;">Chapter01</a> <a href="/tags/Container/" style="font-size: 10px;">Container</a> <a href="/tags/Convolutional-SNN-to-Classify-FMNIST/" style="font-size: 10px;">Convolutional SNN to Classify FMNIST</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Database/" style="font-size: 16.47px;">Database</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Deep-learning/" style="font-size: 10px;">Deep learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 10.59px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Fine-Tuning/" style="font-size: 10px;">Fine-Tuning</a> <a href="/tags/Future/" style="font-size: 11.18px;">Future</a> <a href="/tags/GB/" style="font-size: 10px;">GB</a> <a href="/tags/GNN/" style="font-size: 10px;">GNN</a> <a href="/tags/GPU/" style="font-size: 10px;">GPU</a> <a href="/tags/GiB/" style="font-size: 10px;">GiB</a> <a href="/tags/Git/" style="font-size: 10.59px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/GoAbroad/" style="font-size: 17.06px;">GoAbroad</a> <a href="/tags/Graduate/" style="font-size: 10px;">Graduate</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 10.59px;">IELTS</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/Intermediate-SQL/" style="font-size: 10px;">Intermediate SQL</a> <a href="/tags/Introduction/" style="font-size: 10px;">Introduction</a> <a href="/tags/Introduction-to-SQL/" style="font-size: 10px;">Introduction to SQL</a> <a href="/tags/Introduction-to-the-Relational-Model/" style="font-size: 10px;">Introduction to the Relational Model</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/LLM/" style="font-size: 10px;">LLM</a> <a href="/tags/LMUFORMER/" style="font-size: 10px;">LMUFORMER</a> <a href="/tags/Lab1/" style="font-size: 10px;">Lab1</a> <a href="/tags/Lab3/" style="font-size: 10px;">Lab3</a> <a href="/tags/Lab4/" style="font-size: 10px;">Lab4</a> <a href="/tags/LayerNorm/" style="font-size: 10px;">LayerNorm</a> <a href="/tags/Lec01/" style="font-size: 11.18px;">Lec01</a> <a href="/tags/Lec01s/" style="font-size: 10.59px;">Lec01s</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/Linux/" style="font-size: 11.18px;">Linux</a> <a href="/tags/M2/" style="font-size: 10.59px;">M2</a> <a href="/tags/MIT6-S081/" style="font-size: 12.35px;">MIT6.S081</a> <a href="/tags/ML/" style="font-size: 12.94px;">ML</a> <a href="/tags/MS-ResNet/" style="font-size: 10px;">MS-ResNet</a> <a href="/tags/Mac/" style="font-size: 10.59px;">Mac</a> <a href="/tags/Missing-Semester/" style="font-size: 10px;">Missing Semester</a> <a href="/tags/Monitor/" style="font-size: 10px;">Monitor</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/NNDL/" style="font-size: 17.65px;">NNDL</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Neural-Network/" style="font-size: 10px;">Neural Network</a> <a href="/tags/Neural-Network-from-Shallow-to-Deep/" style="font-size: 10px;">Neural Network from Shallow to Deep</a> <a href="/tags/Neuromorphic-computing/" style="font-size: 10px;">Neuromorphic computing</a> <a href="/tags/Neuron/" style="font-size: 10px;">Neuron</a> <a href="/tags/OS/" style="font-size: 12.35px;">OS</a> <a href="/tags/PSN/" style="font-size: 10px;">PSN</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/Qingyao-Ai/" style="font-size: 10.59px;">Qingyao Ai</a> <a href="/tags/RISC-V/" style="font-size: 10px;">RISC-V</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/Readme/" style="font-size: 10px;">Readme</a> <a href="/tags/ResNet/" style="font-size: 10.59px;">ResNet</a> <a href="/tags/Rethinking-the-performance-comparison-between-SNNS-and-ANNS/" style="font-size: 10px;">Rethinking the performance comparison between SNNS and ANNS</a> <a href="/tags/SE/" style="font-size: 11.18px;">SE</a> <a href="/tags/SE-3-0/" style="font-size: 10px;">SE-3.0</a> <a href="/tags/SNN/" style="font-size: 12.35px;">SNN</a> <a href="/tags/SNN-vs-RNN/" style="font-size: 10px;">SNN vs RNN</a> <a href="/tags/SPIKEBERT/" style="font-size: 10px;">SPIKEBERT</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/Single-Fully-Connected-Layer-SNN-to-Classify-MNIST/" style="font-size: 10px;">Single Fully Connected Layer SNN to Classify MNIST</a> <a href="/tags/Spiking-Neural-Network-for-Ultra-low-latency-and-High-accurate-Object-Detection/" style="font-size: 10px;">Spiking Neural Network for Ultra-low-latency and High-accurate Object Detection</a> <a href="/tags/Spiking-neural-network/" style="font-size: 10.59px;">Spiking neural network</a> <a href="/tags/Spiking-neural-networks/" style="font-size: 10px;">Spiking neural networks</a> <a href="/tags/SpikingBERT/" style="font-size: 10px;">SpikingBERT</a> <a href="/tags/Surrogate-Gradient-Method/" style="font-size: 10px;">Surrogate Gradient Method</a> <a href="/tags/T1-fighting/" style="font-size: 10.59px;">T1 fighting</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/The-Thread-Scheduler-and-Concurrency-Control-Primitives/" style="font-size: 10px;">The Thread Scheduler and Concurrency Control Primitives</a> <a href="/tags/Undergraduate/" style="font-size: 10px;">Undergraduate</a> <a href="/tags/University/" style="font-size: 12.94px;">University</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ViT/" style="font-size: 10.59px;">ViT</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 10.59px;">Yuxiao Dong</a> <a href="/tags/Zero/" style="font-size: 10px;">Zero</a> <a href="/tags/ai-ethics/" style="font-size: 10px;">ai ethics</a> <a href="/tags/alexnet/" style="font-size: 10px;">alexnet</a> <a href="/tags/arxiv/" style="font-size: 10px;">arxiv</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bert/" style="font-size: 11.76px;">bert</a> <a href="/tags/blitz/" style="font-size: 10px;">blitz</a> <a href="/tags/bug/" style="font-size: 15.88px;">bug</a> <a href="/tags/cat/" style="font-size: 10px;">cat</a> <a href="/tags/chapter00/" style="font-size: 10px;">chapter00</a> <a href="/tags/chapter01/" style="font-size: 11.18px;">chapter01</a> <a href="/tags/chapter02/" style="font-size: 10.59px;">chapter02</a> <a href="/tags/chapter03/" style="font-size: 10px;">chapter03</a> <a href="/tags/chapter04/" style="font-size: 10.59px;">chapter04</a> <a href="/tags/chapter05/" style="font-size: 10.59px;">chapter05</a> <a href="/tags/chatgpt/" style="font-size: 10px;">chatgpt</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/classification/" style="font-size: 10px;">classification</a> <a href="/tags/code/" style="font-size: 11.18px;">code</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/commit/" style="font-size: 10px;">commit</a> <a href="/tags/conv2d/" style="font-size: 10px;">conv2d</a> <a href="/tags/copilot/" style="font-size: 10.59px;">copilot</a> <a href="/tags/courseinfo/" style="font-size: 10px;">courseinfo</a> <a href="/tags/cpu/" style="font-size: 10px;">cpu</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/d2l/" style="font-size: 13.53px;">d2l</a> <a href="/tags/database/" style="font-size: 14.12px;">database</a> <a href="/tags/dataloader/" style="font-size: 10px;">dataloader</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/deep-neural-network/" style="font-size: 10.59px;">deep neural network</a> <a href="/tags/delete/" style="font-size: 10px;">delete</a> <a href="/tags/discussion/" style="font-size: 10px;">discussion</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/dowhy/" style="font-size: 10.59px;">dowhy</a> <a href="/tags/dp/" style="font-size: 10.59px;">dp</a> <a href="/tags/echo/" style="font-size: 10px;">echo</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/embedding/" style="font-size: 10px;">embedding</a> <a href="/tags/explainer/" style="font-size: 10.59px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/file/" style="font-size: 10px;">file</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 12.35px;">github</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gpu/" style="font-size: 10.59px;">gpu</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 11.76px;">instructor</a> <a href="/tags/intern-00/" style="font-size: 10px;">intern-00</a> <a href="/tags/intern00/" style="font-size: 11.76px;">intern00</a> <a href="/tags/internship/" style="font-size: 18.82px;">internship</a> <a href="/tags/introduction/" style="font-size: 11.18px;">introduction</a> <a href="/tags/iterm2/" style="font-size: 10px;">iterm2</a> <a href="/tags/knowledge-distillaion/" style="font-size: 10px;">knowledge distillaion</a> <a href="/tags/l1/" style="font-size: 10px;">l1</a> <a href="/tags/l2/" style="font-size: 10px;">l2</a> <a href="/tags/l3/" style="font-size: 10px;">l3</a> <a href="/tags/lab1/" style="font-size: 10px;">lab1</a> <a href="/tags/lab2/" style="font-size: 10.59px;">lab2</a> <a href="/tags/lec01/" style="font-size: 10px;">lec01</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/llava/" style="font-size: 10px;">llava</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/lstm/" style="font-size: 10px;">lstm</a> <a href="/tags/mac/" style="font-size: 12.35px;">mac</a> <a href="/tags/memory/" style="font-size: 11.18px;">memory</a> <a href="/tags/mentor/" style="font-size: 10px;">mentor</a> <a href="/tags/mid/" style="font-size: 10.59px;">mid</a> <a href="/tags/ml/" style="font-size: 10px;">ml</a> <a href="/tags/mlp/" style="font-size: 10px;">mlp</a> <a href="/tags/mnist/" style="font-size: 10px;">mnist</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysqlclient/" style="font-size: 10px;">mysqlclient</a> <a href="/tags/neuromorphic-computing/" style="font-size: 10.59px;">neuromorphic computing</a> <a href="/tags/nndl/" style="font-size: 10.59px;">nndl</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/nvidia/" style="font-size: 10px;">nvidia</a> <a href="/tags/ohmyzsh/" style="font-size: 10px;">ohmyzsh</a> <a href="/tags/os/" style="font-size: 15.29px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/overview/" style="font-size: 10px;">overview</a> <a href="/tags/p1/" style="font-size: 10px;">p1</a> <a href="/tags/p2/" style="font-size: 11.18px;">p2</a> <a href="/tags/p3/" style="font-size: 10px;">p3</a> <a href="/tags/paper/" style="font-size: 19.41px;">paper</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/player/" style="font-size: 10px;">player</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 11.76px;">prml</a> <a href="/tags/profile/" style="font-size: 10px;">profile</a> <a href="/tags/pycharm/" style="font-size: 10px;">pycharm</a> <a href="/tags/pytorch/" style="font-size: 14.12px;">pytorch</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/reading/" style="font-size: 10.59px;">reading</a> <a href="/tags/regression/" style="font-size: 10px;">regression</a> <a href="/tags/review/" style="font-size: 14.71px;">review</a> <a href="/tags/rnn/" style="font-size: 10px;">rnn</a> <a href="/tags/rsa/" style="font-size: 10px;">rsa</a> <a href="/tags/se/" style="font-size: 15.29px;">se</a> <a href="/tags/self-attention/" style="font-size: 10px;">self-attention</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/shap/" style="font-size: 10px;">shap</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/shell-vs-terminal/" style="font-size: 10px;">shell vs terminal</a> <a href="/tags/simple/" style="font-size: 10px;">simple</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/spike/" style="font-size: 10.59px;">spike</a> <a href="/tags/spikeBERT/" style="font-size: 10.59px;">spikeBERT</a> <a href="/tags/spikeBert/" style="font-size: 10px;">spikeBert</a> <a href="/tags/spikingjelly/" style="font-size: 12.35px;">spikingjelly</a> <a href="/tags/spikngjelly/" style="font-size: 10.59px;">spikngjelly</a> <a href="/tags/ssh/" style="font-size: 10.59px;">ssh</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/thu/" style="font-size: 10px;">thu</a> <a href="/tags/tips/" style="font-size: 10.59px;">tips</a> <a href="/tags/tool/" style="font-size: 18.24px;">tool</a> <a href="/tags/transformer/" style="font-size: 12.94px;">transformer</a> <a href="/tags/uml/" style="font-size: 10px;">uml</a> <a href="/tags/vit/" style="font-size: 10px;">vit</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/wakatime/" style="font-size: 10px;">wakatime</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/xv6/" style="font-size: 10px;">xv6</a> <a href="/tags/zero/" style="font-size: 10px;">zero</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 20px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%85%AC%E9%80%89%E8%AF%BE/" style="font-size: 10px;">公选课</a> <a href="/tags/%E5%86%85%E5%AD%98/" style="font-size: 10.59px;">内存</a> <a href="/tags/%E5%86%99%E4%BD%9C%E5%BF%83%E5%BE%97/" style="font-size: 10px;">写作心得</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" style="font-size: 10px;">分布式训练</a> <a href="/tags/%E5%8A%A0%E5%88%86/" style="font-size: 10px;">加分</a> <a href="/tags/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">动手学深度学习</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E6%8F%8F%E8%BF%B0%E7%94%9F%E6%88%90/" style="font-size: 10px;">图像描述生成</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" style="font-size: 10px;">基础优化方法</a> <a href="/tags/%E5%A4%8D%E4%B9%A0/" style="font-size: 10px;">复习</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 10px;">多模态</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" style="font-size: 10px;">大作业</a> <a href="/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 10px;">大创</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 10.59px;">审稿意见</a> <a href="/tags/%E5%BC%BA%E5%BC%B1com/" style="font-size: 10px;">强弱com</a> <a href="/tags/%E5%BD%A2%E5%8A%BF%E4%B8%8E%E6%94%BF%E7%AD%96/" style="font-size: 10px;">形势与政策</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%80%80%E6%8F%A3%E7%9D%80%E4%B8%80%E5%AE%9A%E5%8F%AF%E4%BB%A5%E5%81%9A%E5%A5%BD%E7%9A%84%E7%A1%AE%E4%BF%A1/" style="font-size: 10px;">怀揣着一定可以做好的确信</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%94%B9%E7%BB%B4%E5%BA%A6/" style="font-size: 10px;">改维度</a> <a href="/tags/%E6%95%99%E8%82%B2%E8%AE%B8%E5%8F%AF/" style="font-size: 10px;">教育许可</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C-%E9%A2%84%E5%A4%84%E7%90%86/" style="font-size: 10px;">数据操作+预处理</a> <a href="/tags/%E6%98%BE%E5%8D%A1/" style="font-size: 10px;">显卡</a> <a href="/tags/%E6%98%BE%E5%AD%98/" style="font-size: 10.59px;">显存</a> <a href="/tags/%E6%99%BA%E6%85%A7%E6%A0%91/" style="font-size: 10px;">智慧树</a> <a href="/tags/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/" style="font-size: 14.12px;">智能计算系统</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10.59px;">服务器</a> <a href="/tags/%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/" style="font-size: 10px;">期中复习</a> <a href="/tags/%E6%9C%9F%E6%9C%AB/" style="font-size: 10px;">期末</a> <a href="/tags/%E6%9C%B1%E8%80%81%E5%B8%88/" style="font-size: 10px;">朱老师</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 10px;">杂项</a> <a href="/tags/%E6%9D%8E%E5%AE%8F%E6%AF%85/" style="font-size: 10.59px;">李宏毅</a> <a href="/tags/%E6%9D%8E%E6%B2%90/" style="font-size: 10px;">李沐</a> <a href="/tags/%E6%A6%82%E8%AE%BA/" style="font-size: 10px;">概论</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">模型训练流程</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 12.94px;">毛概</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%AD%A6%E4%B9%A0/" style="font-size: 10.59px;">特征学习</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%94%A8%E4%BE%8B%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">用例模型</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">矩阵计算</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E7%AB%A0/" style="font-size: 10px;">第三章</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE%E4%B9%A6/" style="font-size: 10px;">系统开发建议书</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 10px;">线性代数</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">线性回归</a> <a href="/tags/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3/" style="font-size: 10px;">脑机接口</a> <a href="/tags/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" style="font-size: 10px;">脑机接口信号处理</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC/" style="font-size: 10px;">自动求导</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a> <a href="/tags/%E8%A7%84%E5%88%99/" style="font-size: 10px;">规则</a> <a href="/tags/%E8%A7%A3%E5%8E%8B%E7%BC%A9/" style="font-size: 10px;">解压缩</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/" style="font-size: 10px;">评测指标</a> <a href="/tags/%E8%AF%BE%E5%A0%82%E8%AE%A8%E8%AE%BA/" style="font-size: 10px;">课堂讨论</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88/" style="font-size: 10px;">课程概览</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%AF%BE%E8%AE%BE/" style="font-size: 10px;">课设</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 11.18px;">调研</a> <a href="/tags/%E8%B4%A1%E7%8C%AE%E8%80%85/" style="font-size: 10px;">贡献者</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">软件概要设计</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">软件生命周期模型</a> <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" style="font-size: 10px;">输入法</a> <a href="/tags/%E9%87%8F%E5%8C%96/" style="font-size: 10px;">量化</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/" style="font-size: 10px;">需求分析</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%BB%BA%E6%A8%A1/" style="font-size: 10px;">面向对象的需求分析建模</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">领域模型</a>
+            <a href="/tags/0/" style="font-size: 10px;">0</a> <a href="/tags/1/" style="font-size: 10.59px;">1</a> <a href="/tags/11-11/" style="font-size: 10px;">11.11</a> <a href="/tags/17/" style="font-size: 10px;">17</a> <a href="/tags/2/" style="font-size: 11.76px;">2</a> <a href="/tags/2-2/" style="font-size: 10px;">2-2</a> <a href="/tags/3/" style="font-size: 10.59px;">3</a> <a href="/tags/3-1/" style="font-size: 10px;">3-1</a> <a href="/tags/4/" style="font-size: 10.59px;">4</a> <a href="/tags/5/" style="font-size: 10px;">5</a> <a href="/tags/6/" style="font-size: 10px;">6</a> <a href="/tags/7/" style="font-size: 10px;">7</a> <a href="/tags/A4/" style="font-size: 10px;">A4</a> <a href="/tags/A6/" style="font-size: 10px;">A6</a> <a href="/tags/A9/" style="font-size: 11.18px;">A9</a> <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/AI-Ethics/" style="font-size: 10px;">AI Ethics</a> <a href="/tags/Accumulate/" style="font-size: 16.47px;">Accumulate</a> <a href="/tags/Advanced-SQL/" style="font-size: 10px;">Advanced SQL</a> <a href="/tags/Advancing-Spiking-Neural-Networks-towards-Deep-Residual-Learning/" style="font-size: 11.18px;">Advancing Spiking Neural Networks towards Deep Residual Learning</a> <a href="/tags/Ai-Ethics/" style="font-size: 10px;">Ai Ethics</a> <a href="/tags/AimGraduate/" style="font-size: 12.35px;">AimGraduate</a> <a href="/tags/An-Overview-of-the-BLITZ-Computer-Hardware/" style="font-size: 10px;">An Overview of the BLITZ Computer Hardware</a> <a href="/tags/An-Overview-of-the-BLITZ-System/" style="font-size: 10px;">An Overview of the BLITZ System</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/Artificial-neural-networks/" style="font-size: 10px;">Artificial neural networks</a> <a href="/tags/Attention/" style="font-size: 10px;">Attention</a> <a href="/tags/BLIP/" style="font-size: 10px;">BLIP</a> <a href="/tags/BLIP-2/" style="font-size: 10px;">BLIP-2</a> <a href="/tags/BasciConception/" style="font-size: 10px;">BasciConception</a> <a href="/tags/BatchNorm/" style="font-size: 10px;">BatchNorm</a> <a href="/tags/Benchmark/" style="font-size: 10px;">Benchmark</a> <a href="/tags/Blitz/" style="font-size: 11.76px;">Blitz</a> <a href="/tags/CAS/" style="font-size: 10.59px;">CAS</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/CV/" style="font-size: 10.59px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 12.94px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Chapter01/" style="font-size: 10px;">Chapter01</a> <a href="/tags/Container/" style="font-size: 10px;">Container</a> <a href="/tags/Convolutional-SNN-to-Classify-FMNIST/" style="font-size: 10px;">Convolutional SNN to Classify FMNIST</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Database/" style="font-size: 16.47px;">Database</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Deep-learning/" style="font-size: 10px;">Deep learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 10.59px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Fine-Tuning/" style="font-size: 10px;">Fine-Tuning</a> <a href="/tags/Future/" style="font-size: 11.76px;">Future</a> <a href="/tags/GB/" style="font-size: 10px;">GB</a> <a href="/tags/GNN/" style="font-size: 10px;">GNN</a> <a href="/tags/GPU/" style="font-size: 10px;">GPU</a> <a href="/tags/GiB/" style="font-size: 10px;">GiB</a> <a href="/tags/Git/" style="font-size: 10.59px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/GoAbroad/" style="font-size: 17.06px;">GoAbroad</a> <a href="/tags/Graduate/" style="font-size: 10px;">Graduate</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 10.59px;">IELTS</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/Intermediate-SQL/" style="font-size: 10px;">Intermediate SQL</a> <a href="/tags/Introduction/" style="font-size: 10px;">Introduction</a> <a href="/tags/Introduction-to-SQL/" style="font-size: 10px;">Introduction to SQL</a> <a href="/tags/Introduction-to-the-Relational-Model/" style="font-size: 10px;">Introduction to the Relational Model</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/LLM/" style="font-size: 10px;">LLM</a> <a href="/tags/LMUFORMER/" style="font-size: 10px;">LMUFORMER</a> <a href="/tags/Lab1/" style="font-size: 10px;">Lab1</a> <a href="/tags/Lab3/" style="font-size: 10px;">Lab3</a> <a href="/tags/Lab4/" style="font-size: 10px;">Lab4</a> <a href="/tags/LayerNorm/" style="font-size: 10px;">LayerNorm</a> <a href="/tags/Lec01/" style="font-size: 11.18px;">Lec01</a> <a href="/tags/Lec01s/" style="font-size: 10.59px;">Lec01s</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/Linux/" style="font-size: 11.18px;">Linux</a> <a href="/tags/M2/" style="font-size: 10.59px;">M2</a> <a href="/tags/MIT6-S081/" style="font-size: 12.35px;">MIT6.S081</a> <a href="/tags/ML/" style="font-size: 13.53px;">ML</a> <a href="/tags/MS-ResNet/" style="font-size: 10px;">MS-ResNet</a> <a href="/tags/Mac/" style="font-size: 10.59px;">Mac</a> <a href="/tags/Missing-Semester/" style="font-size: 10px;">Missing Semester</a> <a href="/tags/Monitor/" style="font-size: 10px;">Monitor</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/NNDL/" style="font-size: 17.65px;">NNDL</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Neural-Network/" style="font-size: 10px;">Neural Network</a> <a href="/tags/Neural-Network-from-Shallow-to-Deep/" style="font-size: 10px;">Neural Network from Shallow to Deep</a> <a href="/tags/Neuromorphic-computing/" style="font-size: 10px;">Neuromorphic computing</a> <a href="/tags/Neuron/" style="font-size: 10px;">Neuron</a> <a href="/tags/OS/" style="font-size: 12.35px;">OS</a> <a href="/tags/PSN/" style="font-size: 10px;">PSN</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/Qingyao-Ai/" style="font-size: 10.59px;">Qingyao Ai</a> <a href="/tags/RISC-V/" style="font-size: 10px;">RISC-V</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/Readme/" style="font-size: 10px;">Readme</a> <a href="/tags/ResNet/" style="font-size: 10.59px;">ResNet</a> <a href="/tags/Rethinking-the-performance-comparison-between-SNNS-and-ANNS/" style="font-size: 10px;">Rethinking the performance comparison between SNNS and ANNS</a> <a href="/tags/SE/" style="font-size: 11.18px;">SE</a> <a href="/tags/SE-3-0/" style="font-size: 10px;">SE-3.0</a> <a href="/tags/SNN/" style="font-size: 12.35px;">SNN</a> <a href="/tags/SNN-vs-RNN/" style="font-size: 10px;">SNN vs RNN</a> <a href="/tags/SPIKEBERT/" style="font-size: 10px;">SPIKEBERT</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/Single-Fully-Connected-Layer-SNN-to-Classify-MNIST/" style="font-size: 10px;">Single Fully Connected Layer SNN to Classify MNIST</a> <a href="/tags/Spiking-Neural-Network-for-Ultra-low-latency-and-High-accurate-Object-Detection/" style="font-size: 10px;">Spiking Neural Network for Ultra-low-latency and High-accurate Object Detection</a> <a href="/tags/Spiking-neural-network/" style="font-size: 10.59px;">Spiking neural network</a> <a href="/tags/Spiking-neural-networks/" style="font-size: 10px;">Spiking neural networks</a> <a href="/tags/SpikingBERT/" style="font-size: 10px;">SpikingBERT</a> <a href="/tags/Surrogate-Gradient-Method/" style="font-size: 10px;">Surrogate Gradient Method</a> <a href="/tags/T1-fighting/" style="font-size: 10.59px;">T1 fighting</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/The-Thread-Scheduler-and-Concurrency-Control-Primitives/" style="font-size: 10px;">The Thread Scheduler and Concurrency Control Primitives</a> <a href="/tags/Undergraduate/" style="font-size: 10px;">Undergraduate</a> <a href="/tags/University/" style="font-size: 12.94px;">University</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ViT/" style="font-size: 10.59px;">ViT</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 10.59px;">Yuxiao Dong</a> <a href="/tags/Zero/" style="font-size: 10px;">Zero</a> <a href="/tags/ai-ethics/" style="font-size: 10px;">ai ethics</a> <a href="/tags/alexnet/" style="font-size: 10px;">alexnet</a> <a href="/tags/arxiv/" style="font-size: 10px;">arxiv</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bert/" style="font-size: 11.76px;">bert</a> <a href="/tags/blitz/" style="font-size: 10px;">blitz</a> <a href="/tags/bug/" style="font-size: 15.88px;">bug</a> <a href="/tags/cat/" style="font-size: 10px;">cat</a> <a href="/tags/chapter00/" style="font-size: 10px;">chapter00</a> <a href="/tags/chapter01/" style="font-size: 11.18px;">chapter01</a> <a href="/tags/chapter02/" style="font-size: 10.59px;">chapter02</a> <a href="/tags/chapter03/" style="font-size: 10px;">chapter03</a> <a href="/tags/chapter04/" style="font-size: 10.59px;">chapter04</a> <a href="/tags/chapter05/" style="font-size: 10.59px;">chapter05</a> <a href="/tags/chatgpt/" style="font-size: 10px;">chatgpt</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/classification/" style="font-size: 10px;">classification</a> <a href="/tags/code/" style="font-size: 11.18px;">code</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/commit/" style="font-size: 10px;">commit</a> <a href="/tags/conv2d/" style="font-size: 10px;">conv2d</a> <a href="/tags/copilot/" style="font-size: 10.59px;">copilot</a> <a href="/tags/courseinfo/" style="font-size: 10px;">courseinfo</a> <a href="/tags/cpu/" style="font-size: 10px;">cpu</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/d2l/" style="font-size: 13.53px;">d2l</a> <a href="/tags/database/" style="font-size: 14.12px;">database</a> <a href="/tags/dataloader/" style="font-size: 10px;">dataloader</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/deep-neural-network/" style="font-size: 10.59px;">deep neural network</a> <a href="/tags/delete/" style="font-size: 10px;">delete</a> <a href="/tags/discussion/" style="font-size: 10px;">discussion</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/dowhy/" style="font-size: 10.59px;">dowhy</a> <a href="/tags/dp/" style="font-size: 10.59px;">dp</a> <a href="/tags/echo/" style="font-size: 10px;">echo</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/embedding/" style="font-size: 10px;">embedding</a> <a href="/tags/explainer/" style="font-size: 10.59px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/file/" style="font-size: 10px;">file</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 12.35px;">github</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gpu/" style="font-size: 10.59px;">gpu</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/hexo/" style="font-size: 10.59px;">hexo</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/instructor/" style="font-size: 11.76px;">instructor</a> <a href="/tags/intern-00/" style="font-size: 10px;">intern-00</a> <a href="/tags/intern00/" style="font-size: 11.76px;">intern00</a> <a href="/tags/internship/" style="font-size: 18.82px;">internship</a> <a href="/tags/introduction/" style="font-size: 11.18px;">introduction</a> <a href="/tags/iterm2/" style="font-size: 10px;">iterm2</a> <a href="/tags/knowledge-distillaion/" style="font-size: 10px;">knowledge distillaion</a> <a href="/tags/l1/" style="font-size: 10px;">l1</a> <a href="/tags/l2/" style="font-size: 10px;">l2</a> <a href="/tags/l3/" style="font-size: 10px;">l3</a> <a href="/tags/lab1/" style="font-size: 10px;">lab1</a> <a href="/tags/lab2/" style="font-size: 10.59px;">lab2</a> <a href="/tags/lec01/" style="font-size: 10px;">lec01</a> <a href="/tags/linux/" style="font-size: 10.59px;">linux</a> <a href="/tags/llava/" style="font-size: 10px;">llava</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/lstm/" style="font-size: 10px;">lstm</a> <a href="/tags/mac/" style="font-size: 12.35px;">mac</a> <a href="/tags/memory/" style="font-size: 11.18px;">memory</a> <a href="/tags/mentor/" style="font-size: 10px;">mentor</a> <a href="/tags/mid/" style="font-size: 10.59px;">mid</a> <a href="/tags/ml/" style="font-size: 10px;">ml</a> <a href="/tags/mlp/" style="font-size: 10px;">mlp</a> <a href="/tags/mnist/" style="font-size: 10px;">mnist</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysqlclient/" style="font-size: 10px;">mysqlclient</a> <a href="/tags/neuromorphic-computing/" style="font-size: 10.59px;">neuromorphic computing</a> <a href="/tags/nndl/" style="font-size: 10.59px;">nndl</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/nvidia/" style="font-size: 10px;">nvidia</a> <a href="/tags/ohmyzsh/" style="font-size: 10px;">ohmyzsh</a> <a href="/tags/os/" style="font-size: 15.29px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/overview/" style="font-size: 10px;">overview</a> <a href="/tags/p1/" style="font-size: 10px;">p1</a> <a href="/tags/p2/" style="font-size: 11.18px;">p2</a> <a href="/tags/p3/" style="font-size: 10px;">p3</a> <a href="/tags/paper/" style="font-size: 19.41px;">paper</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/player/" style="font-size: 10px;">player</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 11.76px;">prml</a> <a href="/tags/profile/" style="font-size: 10px;">profile</a> <a href="/tags/pycharm/" style="font-size: 10px;">pycharm</a> <a href="/tags/pytorch/" style="font-size: 14.12px;">pytorch</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/reading/" style="font-size: 10.59px;">reading</a> <a href="/tags/regression/" style="font-size: 10px;">regression</a> <a href="/tags/review/" style="font-size: 14.71px;">review</a> <a href="/tags/rnn/" style="font-size: 10px;">rnn</a> <a href="/tags/rsa/" style="font-size: 10px;">rsa</a> <a href="/tags/se/" style="font-size: 15.29px;">se</a> <a href="/tags/self-attention/" style="font-size: 10px;">self-attention</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/shap/" style="font-size: 10px;">shap</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/shell-vs-terminal/" style="font-size: 10px;">shell vs terminal</a> <a href="/tags/simple/" style="font-size: 10px;">simple</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/spike/" style="font-size: 10.59px;">spike</a> <a href="/tags/spikeBERT/" style="font-size: 10.59px;">spikeBERT</a> <a href="/tags/spikeBert/" style="font-size: 10px;">spikeBert</a> <a href="/tags/spikebert/" style="font-size: 10px;">spikebert</a> <a href="/tags/spikingjelly/" style="font-size: 12.35px;">spikingjelly</a> <a href="/tags/spikngjelly/" style="font-size: 10.59px;">spikngjelly</a> <a href="/tags/ssh/" style="font-size: 10.59px;">ssh</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/thu/" style="font-size: 10px;">thu</a> <a href="/tags/tips/" style="font-size: 10.59px;">tips</a> <a href="/tags/tool/" style="font-size: 18.24px;">tool</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/transformer/" style="font-size: 12.94px;">transformer</a> <a href="/tags/uml/" style="font-size: 10px;">uml</a> <a href="/tags/vit/" style="font-size: 10px;">vit</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/wakatime/" style="font-size: 10px;">wakatime</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/xv6/" style="font-size: 10px;">xv6</a> <a href="/tags/zero/" style="font-size: 10px;">zero</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 20px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E5%85%AC%E9%80%89%E8%AF%BE/" style="font-size: 10px;">公选课</a> <a href="/tags/%E5%86%85%E5%AD%98/" style="font-size: 10.59px;">内存</a> <a href="/tags/%E5%86%99%E4%BD%9C%E5%BF%83%E5%BE%97/" style="font-size: 10px;">写作心得</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" style="font-size: 10px;">分布式训练</a> <a href="/tags/%E5%8A%A0%E5%88%86/" style="font-size: 10px;">加分</a> <a href="/tags/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">动手学深度学习</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E6%8F%8F%E8%BF%B0%E7%94%9F%E6%88%90/" style="font-size: 10px;">图像描述生成</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" style="font-size: 10px;">基础优化方法</a> <a href="/tags/%E5%A4%8D%E4%B9%A0/" style="font-size: 10px;">复习</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 10px;">多模态</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" style="font-size: 10px;">大作业</a> <a href="/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 10px;">大创</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 10.59px;">审稿意见</a> <a href="/tags/%E5%BC%BA%E5%BC%B1com/" style="font-size: 10px;">强弱com</a> <a href="/tags/%E5%BD%A2%E5%8A%BF%E4%B8%8E%E6%94%BF%E7%AD%96/" style="font-size: 10px;">形势与政策</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%80%80%E6%8F%A3%E7%9D%80%E4%B8%80%E5%AE%9A%E5%8F%AF%E4%BB%A5%E5%81%9A%E5%A5%BD%E7%9A%84%E7%A1%AE%E4%BF%A1/" style="font-size: 10px;">怀揣着一定可以做好的确信</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%94%B9%E7%BB%B4%E5%BA%A6/" style="font-size: 10px;">改维度</a> <a href="/tags/%E6%95%99%E8%82%B2%E8%AE%B8%E5%8F%AF/" style="font-size: 10px;">教育许可</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C-%E9%A2%84%E5%A4%84%E7%90%86/" style="font-size: 10px;">数据操作+预处理</a> <a href="/tags/%E6%98%BE%E5%8D%A1/" style="font-size: 10px;">显卡</a> <a href="/tags/%E6%98%BE%E5%AD%98/" style="font-size: 10.59px;">显存</a> <a href="/tags/%E6%99%BA%E6%85%A7%E6%A0%91/" style="font-size: 10px;">智慧树</a> <a href="/tags/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/" style="font-size: 14.12px;">智能计算系统</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10.59px;">服务器</a> <a href="/tags/%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/" style="font-size: 10px;">期中复习</a> <a href="/tags/%E6%9C%9F%E6%9C%AB/" style="font-size: 10px;">期末</a> <a href="/tags/%E6%9C%B1%E8%80%81%E5%B8%88/" style="font-size: 10px;">朱老师</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 10px;">杂项</a> <a href="/tags/%E6%9D%8E%E5%AE%8F%E6%AF%85/" style="font-size: 10.59px;">李宏毅</a> <a href="/tags/%E6%9D%8E%E6%B2%90/" style="font-size: 10px;">李沐</a> <a href="/tags/%E6%A6%82%E8%AE%BA/" style="font-size: 10px;">概论</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">模型训练流程</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 12.94px;">毛概</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%AD%A6%E4%B9%A0/" style="font-size: 10.59px;">特征学习</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%94%A8%E4%BE%8B%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">用例模型</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">矩阵计算</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E7%AB%A0/" style="font-size: 10px;">第三章</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE%E4%B9%A6/" style="font-size: 10px;">系统开发建议书</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 10px;">线性代数</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">线性回归</a> <a href="/tags/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3/" style="font-size: 10px;">脑机接口</a> <a href="/tags/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" style="font-size: 10px;">脑机接口信号处理</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC/" style="font-size: 10px;">自动求导</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a> <a href="/tags/%E8%A7%84%E5%88%99/" style="font-size: 10px;">规则</a> <a href="/tags/%E8%A7%A3%E5%8E%8B%E7%BC%A9/" style="font-size: 10px;">解压缩</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/" style="font-size: 10px;">评测指标</a> <a href="/tags/%E8%AF%BE%E5%A0%82%E8%AE%A8%E8%AE%BA/" style="font-size: 10px;">课堂讨论</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88/" style="font-size: 10px;">课程概览</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%AF%BE%E8%AE%BE/" style="font-size: 10px;">课设</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 11.18px;">调研</a> <a href="/tags/%E8%B4%A1%E7%8C%AE%E8%80%85/" style="font-size: 10px;">贡献者</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">软件概要设计</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">软件生命周期模型</a> <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" style="font-size: 10px;">输入法</a> <a href="/tags/%E9%87%8F%E5%8C%96/" style="font-size: 10px;">量化</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/" style="font-size: 10px;">需求分析</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%BB%BA%E6%A8%A1/" style="font-size: 10px;">面向对象的需求分析建模</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">领域模型</a>
         </div>
     </div>
 
@@ -694,10 +736,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    583.7k
+                    592.9k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    37:14
+                    37:56
                 </div>
             
             
@@ -724,15 +766,15 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">284</div>
+                <div class="sidebar-state-number">288</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">23</div>
+                <div class="sidebar-state-number">24</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
-                <div class="sidebar-state-number">330</div>
+                <div class="sidebar-state-number">332</div>
             </div>
         </div>
         <div class="sidebar-social">
