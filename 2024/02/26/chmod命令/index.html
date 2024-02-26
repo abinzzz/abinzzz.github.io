@@ -25,15 +25,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });  chmod命令用于改变linux系统文件或目录的访问权限。用它控制文件或目录的访问权限。该命令有两种用法。一种是包含字母和操作符表达式的文字设定法；另一种是包含数字的数字设定法。 Linux系统中的每个文件和目录都有访问">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   概述 chmod命令用于改变linux系统文件或目录的访问权限。用它控制文件或目录的访问权限。 该命令有两种用法:  一种是包含字母和操作符表达式的文字设定法 另一种是包含数字的数字设定法。  Linux系统中的每个文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="chmod命令">
 <meta property="og:url" content="https://abinzzz.github.io/2024/02/26/chmod%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });  chmod命令用于改变linux系统文件或目录的访问权限。用它控制文件或目录的访问权限。该命令有两种用法。一种是包含字母和操作符表达式的文字设定法；另一种是包含数字的数字设定法。 Linux系统中的每个文件和目录都有访问">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   概述 chmod命令用于改变linux系统文件或目录的访问权限。用它控制文件或目录的访问权限。 该命令有两种用法:  一种是包含字母和操作符表达式的文字设定法 另一种是包含数字的数字设定法。  Linux系统中的每个文">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-26T14:19:41.000Z">
-<meta property="article:modified_time" content="2024-02-26T14:20:40.344Z">
+<meta property="article:modified_time" content="2024-02-26T14:39:34.910Z">
 <meta property="article:author" content="ab">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="chmod">
@@ -201,10 +201,64 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-<p>chmod命令用于改变linux系统文件或目录的访问权限。用它控制文件或目录的访问权限。该命令有两种用法。一种是包含字母和操作符表达式的文字设定法；另一种是包含数字的数字设定法。</p>
+<h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
+<p>chmod命令用于改变linux系统文件或目录的访问权限。用它控制文件或目录的访问权限。</p>
+<p>该命令有两种用法:</p>
+<ul>
+<li>一种是包含字母和操作符表达式的文字设定法</li>
+<li>另一种是包含数字的数字设定法。</li>
+</ul>
 <p>Linux系统中的每个文件和目录都有访问许可权限，用它来确定谁可以通过何种方式对文件和目录进行访问和操作。<br />
-　　文件或目录的访问权限分为只读，只写和可执行三种。以文件为例，只读权限表示只允许读其内容，而禁止对其做任何的更改操作。可执行权限表示允许将该文件作为一个程序执行。文件被创建时，文件所有者自动拥有对该文件的读、写和可执行权限，以便于对文件的阅读和修改。用户也可根据需要把访问权限设置为需要的任何组合。<br />
-　　有三种不同类型的用户可对文件或目录进行访问：文件所有者，同组用户、其他用户。所有者一般是文件的创建者。所有者可以允许同组用户有权访问文件，还可以将文件的访问权限赋予系统中的其他用户。在这种情况下，系统中每一位用户都能访问该用户拥有的文件或目录。</p>
+　　<br />
+文件或目录的访问权限分为只读，只写和可执行三种。以文件为例:只读权限表示只允许读其内容，而禁止对其做任何的更改操作。可执行权限表示允许将该文件作为一个程序执行。文件被创建时，文件所有者自动拥有对该文件的读、写和可执行权限，以便于对文件的阅读和修改。用户也可根据需要把访问权限设置为需要的任何组合。</p>
+<p>有三种不同类型的用户可对文件或目录进行访问：</p>
+<ul>
+<li>文件所有者</li>
+<li>同组用户</li>
+<li>其他用户</li>
+</ul>
+<p>所有者一般是文件的创建者。所有者可以允许同组用户有权访问文件，还可以将文件的访问权限赋予系统中的其他用户。在这种情况下，系统中每一位用户都能访问该用户拥有的文件或目录。</p>
+<p>每一文件或目录的访问权限都有三组，每组用三位表示，分别为文件属主的读、写和执行权限；与属主同组的用户的读、写和执行权限；系统中其他用户的读、写和执行权限。当用ls -l命令显示文件或目录的详细信息时，最左边的一列为文件的访问权限。</p>
+<br>
+<p>------------ 举例说明 ------------</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ll -al</span></span><br><span class="line"></span><br><span class="line">总计 316lrwxrwxrwx 1 root root     11 11-22 06:58 linklog.log -&gt; log2012.log</span><br><span class="line"></span><br><span class="line">-rw-r--r-- 1 root root 302108 11-13 06:03 log2012.log</span><br><span class="line"></span><br><span class="line">-rw-r--r-- 1 root root     61 11-13 06:03 log2013.log</span><br><span class="line"></span><br><span class="line">-rw-r--r-- 1 root root      0 11-13 06:03 log2014.log</span><br><span class="line"></span><br><span class="line">-rw-r--r-- 1 root root      0 11-13 06:06 log2015.log</span><br><span class="line"></span><br><span class="line">-rw-r--r-- 1 root root      0 11-16 14:41 log2016.log</span><br><span class="line"></span><br><span class="line">-rw-r--r-- 1 root root      0 11-16 14:43 log2017.log</span><br></pre></td></tr></table></figure>
+<br>
+<p>我们以log2012.log为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-rw-r--r-- 1 root root 296K 11-13 06:03 log2012.log</span><br></pre></td></tr></table></figure>
+<p>第一列共有10个位置，第一个字符指定了文件类型。在通常意义上，一个目录也是一个文件。如果第一个字符是横线，表示是一个非目录的文件。如果是d，表示是一个目录。从第二个字符开始到第十个共9个字符，3个字符一组，分别表示了3组用户对文件或者目录的权限。权限字符用横线代表空许可，r代表只读，w代表写，x代表可执行</p>
+<Br>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- rw- r-- r--</span><br></pre></td></tr></table></figure>
+<p>表示log2012.log是一个普通文件；log2012.log的属主有读写权限；与log2012.log属主同组的用户只有读权限；其他用户也只有读权限。</p>
+<p>------------ 举例说明 ------------</p>
+<br>
+<h2 id="chmod命令"><a class="markdownIt-Anchor" href="#chmod命令"></a> chmod命令</h2>
+<h3 id="1-命令格式"><a class="markdownIt-Anchor" href="#1-命令格式"></a> 1. 命令格式:</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> [-cfvR] [--<span class="built_in">help</span>] [--version] mode file  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="comment">### 2. 命令功能：</span></span><br><span class="line"></span><br><span class="line">用于改变文件或目录的访问权限，用它控制文件或目录的访问权限。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 3. 命令参数：</span></span><br><span class="line"></span><br><span class="line">**必要参数**：</span><br><span class="line">- -c 当发生改变时，报告处理信息</span><br><span class="line">- -f 错误信息不输出</span><br><span class="line">- -R 处理指定目录以及其子目录下的所有文件</span><br><span class="line">- -v 运行时显示详细处理信息</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**选择参数**：</span><br><span class="line">--reference=&lt;目录或者文件&gt; 设置成具有指定目录或者文件具有相同的权限</span><br><span class="line"></span><br><span class="line">--version 显示版本信息</span><br><span class="line"></span><br><span class="line">&lt;权限范围&gt;+&lt;权限设置&gt; 使权限范围内的目录或者文件具有指定的权限  </span><br><span class="line">&lt;权限范围&gt;-&lt;权限设置&gt; 删除权限范围的目录或者文件的指定权限  </span><br><span class="line">&lt;权限范围&gt;=&lt;权限设置&gt; 设置权限范围内的目录或者文件的权限为指定的值  </span><br><span class="line"></span><br><span class="line">**权限范围**：</span><br><span class="line">- -u ：目录或者文件的当前的用户</span><br><span class="line">- -g ：目录或者文件的当前的群组</span><br><span class="line">- -o ：除了目录或者文件的当前用户或群组之外的用户或者群组</span><br><span class="line">- -a ：所有的用户及群组</span><br><span class="line"></span><br><span class="line">**权限代号**：</span><br><span class="line">- -r ：读权限，用数字4表示</span><br><span class="line">- -w ：写权限，用数字2表示</span><br><span class="line">- -x ：执行权限，用数字1表示</span><br><span class="line">- \- ：删除权限，用数字0表示</span><br><span class="line">- -s ：特殊权限 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 使用方法</span></span><br><span class="line">该命令有两种用法。一种是包含字母和操作符表达式的文字设定法；另一种是包含数字的数字设定法。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 文字设定法</span></span><br><span class="line">```bash</span><br><span class="line"> <span class="built_in">chmod</span> ［<span class="built_in">who</span>］ ［+ | - | =］ ［mode］ 文件名</span><br></pre></td></tr></table></figure>
+<br>
+<h3 id="数字设定法"><a class="markdownIt-Anchor" href="#数字设定法"></a> 数字设定法</h3>
+<p>数字设定法的一般形式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod ［mode］ 文件名</span><br></pre></td></tr></table></figure>
+<p>我们必须首先了解用数字表示的属性的含义：0表示没有权限，1表示可执行权限，2表示可写权限，4表示可读权限，然后将其相加。所以数字属性的格式应为3个从0到7的八进制数，其顺序是（u）（g）（o）。</p>
+<p>例如，如果想让某个文件的属主有“读/写”二种权限，需要把4（可读）+2（可写）＝6（读/写）。</p>
+<p>数字与字符对应关系如下：r=4，w=2，x=1</p>
+<ul>
+<li>若要rwx属性则4+2+1=7</li>
+<li>若要rw-属性则4+2=6；</li>
+<li>若要r-x属性则4+1=5</li>
+</ul>
+<br>
+<h2 id="举例说明"><a class="markdownIt-Anchor" href="#举例说明"></a> 举例说明</h2>
+<h3 id="增加文件所有用户组可执行权限"><a class="markdownIt-Anchor" href="#增加文件所有用户组可执行权限"></a> 增加文件所有用户组可执行权限</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls -al log2012.log </span></span><br><span class="line"></span><br><span class="line">-rw-r--r-- 1 root root 302108 11-13 06:03 log2012.log</span><br><span class="line"></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># chmod a+x log2012.log </span></span><br><span class="line"></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls -al log2012.log </span></span><br><span class="line"></span><br><span class="line">-rwxr-xr-x 1 root root 302108 11-13 06:03 log2012.log</span><br></pre></td></tr></table></figure>
+<p>即设定文件log2012.log的属性为：文件属主（u） 增加执行权限；与文件属主同组用户（g） 增加执行权限；其他用户（o） 增加执行权限</p>
+<br>
+<h3 id="删除文件权限"><a class="markdownIt-Anchor" href="#删除文件权限"></a> 删除文件权限</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls -al log2012.log </span></span><br><span class="line"></span><br><span class="line">-rwxrwxr-- 1 root root 302108 11-13 06:03 log2012.log</span><br><span class="line"></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># chmod a-x log2012.log </span></span><br><span class="line"></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls -al log2012.log </span></span><br><span class="line"></span><br><span class="line">-rw-rw-r-- 1 root root 302108 11-13 06:03 log2012.log</span><br></pre></td></tr></table></figure>
+<p>删除所有用户的可执行权限</p>
+<br>
+<h3 id="使用设置权限"><a class="markdownIt-Anchor" href="#使用设置权限"></a> 使用“=”设置权限</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls -al log2012.log </span></span><br><span class="line"></span><br><span class="line">-rw-rw-r-- 1 root root 302108 11-13 06:03 log2012.log</span><br><span class="line"></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># chmod u=x log2012.log </span></span><br><span class="line"></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls -al log2012.log </span></span><br><span class="line"></span><br><span class="line">---xrw-r-- 1 root root 302108 11-13 06:03 log2012.log</span><br></pre></td></tr></table></figure>
+<p>撤销原来所有的权限，然后使拥有者具有可读权限</p>
 
             
         </div>
@@ -374,10 +428,10 @@ allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen
             
                 <div>
                     <span class="icon-brush"></span>
-                    609.7k
+                    610.9k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    38:52
+                    38:57
                 </div>
             
             
