@@ -176,14 +176,55 @@
         
     <div class="post-wrap-left wow fadeInUp">
         
-            <a class="post-link" href="/2023/12/18/%E4%B8%8A%E6%B8%B8%E4%BB%BB%E5%8A%A1-and-%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1/"></a>
+            <a class="post-link" href="/2023/12/18/loss%E6%BC%82%E6%B5%AE%E4%B8%8D%E5%AE%9A/"></a>
         
         
         <div class="post-cover-left">
             
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="上游任务 and 下游任务" class="lazyload">
+                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="LossFlow" class="lazyload">
             
 
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-12-18</a>
+                
+                    <a><span class="icon-pencil"></span>202 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">LossFlow</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 问题描述
+发现训练出来的loss忽大忽小的
+
+
+ 问题所在
+每个epoch计算得出的loss是最后一个batch的loss，而不是整个epoch的平均loss
+123456789101112131415for epoch in range(50):    for data in train_loader:        img, _ = data        img = img.view(img.size(0),
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/12/18/%E4%B8%8A%E6%B8%B8%E4%BB%BB%E5%8A%A1-and-%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="上游任务 and 下游任务" class="lazyload">
+            
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -223,14 +264,16 @@
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/12/18/paper-%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E5%90%88%E9%9B%86/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:多模态论文合集" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -293,16 +336,14 @@ ALBEF
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/12/18/paper-BLIP-2/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:BLIP-2" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -340,14 +381,16 @@ B
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/12/18/paper-BLIP/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:BLIP" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -385,16 +428,14 @@ code:BLIP
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/12/18/LLM-%E5%BE%AE%E8%B0%83/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="LLM 微调" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -429,14 +470,16 @@ https://redian.news/wxnews/370210
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/12/17/OS-p5/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="OS:p5" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -468,16 +511,14 @@ https://redian.news/wxnews/370210
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/12/17/Google-Gemini-Pro%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="Google Gemini Pro使用教程" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -505,14 +546,16 @@ https://redian.news/wxnews/370210
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/12/16/NNDL-Feature-Learning/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="NNDL:Feature Learning" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -562,16 +605,14 @@ https://redian.news/wxnews/370210
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/12/16/OS-Review-Chapter01/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="OS:Chapter01-习题" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -607,45 +648,6 @@ https://redian.news/wxnews/370210
 
 
     
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/16/NNDL-A7-%E7%89%B9%E5%BE%81%E5%AD%A6%E4%B9%A0/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="NNDL:A7-Feature Learning" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-16</a>
-                
-                    <a><span class="icon-pencil"></span>282 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>1 分钟</a>
-                
-            </div>
-            <h2 class="post-title">NNDL:A7-Feature Learning</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 题目要求
-任务1. PCA 或 kernel PCA (10 points)
-使用PCA或kernel PCA对手写数字数据集MINST进行降维。观察前两个特征向量所对应的图像，即将数据嵌入到R2空间。绘制降维后的数据，并分析二维特征是否能够足以完成对输入的分类，对结果进行分析和评价。
-任务2. Autoencoder (10 points)
-使用自动编码器学习输入的特征表示。尝试设计一个全链接前馈神经网络或卷积神
-                
-            </article>
-        </div>
-    </div>
-
-
-    
 
 
     <nav id="page-nav" class="wow fadeInUp">
@@ -666,7 +668,7 @@ https://redian.news/wxnews/370210
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">311</div>
+                <div class="sidebar-state-number">312</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -740,7 +742,7 @@ https://redian.news/wxnews/370210
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
         </div>
     </div>
 
@@ -772,10 +774,10 @@ https://redian.news/wxnews/370210
             
                 <div>
                     <span class="icon-brush"></span>
-                    623.7k
+                    624.9k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    39:42
+                    39:47
                 </div>
             
             
@@ -802,7 +804,7 @@ https://redian.news/wxnews/370210
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">311</div>
+                <div class="sidebar-state-number">312</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>

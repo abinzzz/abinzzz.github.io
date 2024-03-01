@@ -25,12 +25,12 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="参考链接 计算机硬件的基本组成（冯·诺依曼、现代计算机组织结构、计算机功能部件：输入、输出、存储器、运算器、控制器设备） 3.1.1 什么是内存？进程的基本原理，深入指令理解其过程   3.1 内存及进程运行的基本原理计组前置知识先插播一下计组相关知识:  计算机的五大功能部件：  输入设备：将程序和数据输入计算机 输出设备：将计算机结果输出 存储器 主存&#x2F;内存：CPU可以直接访问 辅存&#x2F;外存">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  计算机硬件的基本组成（冯·诺依曼、现代计算机组织结构、计算机功能部件：输入、输出、存储器、运算器、控制器设备） 3.1.1 什么是内存？进程的基本原理，深入指令理解其过程    3.1 内存及进程运行的基本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OS:Chapter03-Review">
 <meta property="og:url" content="https://abinzzz.github.io/2024/02/29/OS-Chapter03-Review/index.html">
 <meta property="og:site_name" content="布洛戈">
-<meta property="og:description" content="参考链接 计算机硬件的基本组成（冯·诺依曼、现代计算机组织结构、计算机功能部件：输入、输出、存储器、运算器、控制器设备） 3.1.1 什么是内存？进程的基本原理，深入指令理解其过程   3.1 内存及进程运行的基本原理计组前置知识先插播一下计组相关知识:  计算机的五大功能部件：  输入设备：将程序和数据输入计算机 输出设备：将计算机结果输出 存储器 主存&#x2F;内存：CPU可以直接访问 辅存&#x2F;外存">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  计算机硬件的基本组成（冯·诺依曼、现代计算机组织结构、计算机功能部件：输入、输出、存储器、运算器、控制器设备） 3.1.1 什么是内存？进程的基本原理，深入指令理解其过程    3.1 内存及进程运行的基本">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GHeSsLbXoAEE_OM?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GHeUkVvXQAEBNfs?format=jpg&amp;name=medium">
@@ -49,8 +49,11 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/GHe4GvDWgAAtRkh?format=png&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/GHfF7O0bAAA55d_?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GHfMGtba0AErNru?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHf7nhqXAAApxWe?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHgEEUcWwAANaEF?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHgGQlIXQAA9Zgs?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2024-02-29T02:56:22.000Z">
-<meta property="article:modified_time" content="2024-02-29T07:43:04.564Z">
+<meta property="article:modified_time" content="2024-03-01T01:23:36.983Z">
 <meta property="article:author" content="ab">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="3">
@@ -216,31 +219,40 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
+<ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43914604/article/details/104099953">计算机硬件的基本组成（冯·诺依曼、现代计算机组织结构、计算机功能部件：输入、输出、存储器、运算器、控制器设备）</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43914604/article/details/105662331">3.1.1 什么是内存？进程的基本原理，深入指令理解其过程</a></li>
 </ul>
-<p><br></p>
-<h2 id="3-1-内存及进程运行的基本原理"><a href="#3-1-内存及进程运行的基本原理" class="headerlink" title="3.1 内存及进程运行的基本原理"></a>3.1 内存及进程运行的基本原理</h2><h3 id="计组前置知识"><a href="#计组前置知识" class="headerlink" title="计组前置知识"></a>计组前置知识</h3><p>先插播一下计组相关知识:</p>
-<p><img src="https://pbs.twimg.com/media/GHeSsLbXoAEE_OM?format=jpg&amp;name=medium" alt=""></p>
+<br>
+<h2 id="31-内存及进程运行的基本原理"><a class="markdownIt-Anchor" href="#31-内存及进程运行的基本原理"></a> 3.1 内存及进程运行的基本原理</h2>
+<h3 id="计组前置知识"><a class="markdownIt-Anchor" href="#计组前置知识"></a> 计组前置知识</h3>
+<p>先插播一下计组相关知识:</p>
+<p><img src="https://pbs.twimg.com/media/GHeSsLbXoAEE_OM?format=jpg&amp;name=medium" alt="" /></p>
 <p><strong>计算机的五大功能部件：</strong></p>
 <ul>
 <li>输入设备：将程序和数据输入计算机</li>
 <li>输出设备：将计算机结果输出</li>
-<li>存储器<ul>
+<li>存储器
+<ul>
 <li>主存/内存：CPU可以直接访问</li>
 <li>辅存/外存</li>
 </ul>
 </li>
-<li>运算器：<ul>
+<li>运算器：
+<ul>
 <li>组成：算术运算+逻辑运算</li>
 <li>基本结构：ALU + 寄存器 + 累加器</li>
 </ul>
 </li>
 <li>控制器：产生指令执行过程中的所有控制信号</li>
 </ul>
-<p><br></p>
-<p><img src="https://pbs.twimg.com/media/GHeUkVvXQAEBNfs?format=jpg&amp;name=medium" alt=""></p>
+<br>
+<p><img src="https://pbs.twimg.com/media/GHeUkVvXQAEBNfs?format=jpg&amp;name=medium" alt="" /></p>
 <p>这里详细来说一下主存的组成(因为比较重要)：</p>
 <ul>
 <li>每个<strong>存储元件</strong>存储<strong>一位</strong>二进制代码</li>
@@ -248,20 +260,25 @@
 <li>存储字长可以是<strong>1B或者字节的偶数倍</strong>(1B=8bit)</li>
 <li>工作方式：按地址存取方式</li>
 </ul>
-<h3 id="内存及作用"><a href="#内存及作用" class="headerlink" title="内存及作用"></a>内存及作用</h3><p>内存的<strong>作用</strong>：缓和CPU和硬盘之间的速度矛盾  </p>
+<h3 id="内存及作用"><a class="markdownIt-Anchor" href="#内存及作用"></a> 内存及作用</h3>
+<p>内存的<strong>作用</strong>：缓和CPU和硬盘之间的速度矛盾</p>
 <p>区分各个程序的数据：给内存的存储单元编地址，内存地址从0开始，每个地址对应一个存储单元</p>
-<p><img src="https://pbs.twimg.com/media/GHeVeaBWYAA7L20?format=png&amp;name=small" alt=""></p>
+<p><img src="https://pbs.twimg.com/media/GHeVeaBWYAA7L20?format=png&amp;name=small" alt="" /></p>
 <p>小房间=存储单元</p>
 <p>编址的不同方式</p>
 <ul>
 <li>按字节编址：每个存储单元大小为1B,即8个二进制位</li>
 <li>按字编址：每个存储单元大小为一个<strong>字长</strong>(字长定义在上面)</li>
 </ul>
-<p><strong>举例说明：</strong><br>一台手机4GB内存，那么内存可以存4 x $2^{30}$ ,如果按照字节编址那么就有$2^{32}$个存储单元，需要$2^{32}$个地址才能一一标识，需要32个二进制位来表示0~$2^{32}$-1</p>
-<p>换算关系:<br>$2^{10}=1K$<br>$2^{20}=1M$<br>$2^{30}=1G$</p>
-<h3 id="进程运行的基本原理"><a href="#进程运行的基本原理" class="headerlink" title="进程运行的基本原理"></a>进程运行的基本原理</h3><p><strong>指令工作原理</strong>：操作码+若干参数  </p>
+<p><strong>举例说明：</strong><br />
+一台手机4GB内存，那么内存可以存4 x <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>30</mn></msup></mrow><annotation encoding="application/x-tex">2^{30}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></span> ,如果按照字节编址那么就有<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>32</mn></msup></mrow><annotation encoding="application/x-tex">2^{32}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>个存储单元，需要<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>32</mn></msup></mrow><annotation encoding="application/x-tex">2^{32}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>个地址才能一一标识，需要32个二进制位来表示0~<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>32</mn></msup></mrow><annotation encoding="application/x-tex">2^{32}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>-1</p>
+<p>换算关系:<br />
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>10</mn></msup><mo>=</mo><mn>1</mn><mi>K</mi></mrow><annotation encoding="application/x-tex">2^{10}=1K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">0</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span><br />
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>20</mn></msup><mo>=</mo><mn>1</mn><mi>M</mi></mrow><annotation encoding="application/x-tex">2^{20}=1M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">0</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span><br />
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>30</mn></msup><mo>=</mo><mn>1</mn><mi>G</mi></mrow><annotation encoding="application/x-tex">2^{30}=1G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">0</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathnormal">G</span></span></span></span></p>
+<h3 id="进程运行的基本原理"><a class="markdownIt-Anchor" href="#进程运行的基本原理"></a> 进程运行的基本原理</h3>
+<p><strong>指令工作原理</strong>：操作码+若干参数</p>
 <p>举例说明：X=X+1</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -292,22 +309,22 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>在这个例子中，指令中直接给出了变量x的实际存放地址(物理地址：01001111)但实际在生成机器指令的时候并不知道该进程的数据会被放到什么位置。所以<strong>编译生成的指令中一般是使用逻辑地址(相对地址)</strong>，那么逻辑地址和物理地址都是什么呢？</p>
-<p>逻辑地址：相对地址<br>物理地址：绝对地址</p>
-<p><br></p>
-<p>写程序-&gt;程序运行所需步骤如下：  </p>
+<p>逻辑地址：相对地址<br />
+物理地址：绝对地址</p>
+<br>
+<p>写程序-&gt;程序运行所需步骤如下：</p>
 <ul>
 <li>1.<strong>编译</strong>：用户源代码 -&gt; 机器语言</li>
 <li>2.<strong>链接</strong>：编译后的一组目标模块链接在一起</li>
 <li>3.<strong>装入</strong>：装入程序将装入模块放到内存中运行</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/GHedfmOWoAA2dih?format=jpg&amp;name=medium" alt=""></p>
-<p><br></p>
+<p><img src="https://pbs.twimg.com/media/GHedfmOWoAA2dih?format=jpg&amp;name=medium" alt="" /></p>
+<br>
 <p>接下来我们详细说一下上面的<strong>装入步骤和链接步骤</strong>，首先来说一下装入步骤,如果<strong>不修改装入模块中的装入指令就装入内存</strong>就可能出现错误，一般分为两种情况：</p>
 <ul>
-<li>(✅)逻辑地址(0~79)=物理地址(100~179)</li>
-<li>(❌)逻辑地址(0~79)!=物理地址(100~179)，如果想要在30上写入信息，实际上却写在了130，造成了错误，所以我们<strong>需要将逻辑地址和物理地址之间进行转换</strong></li>
+<li>(✅)逻辑地址(0<sub>79)=物理地址(100</sub>179)</li>
+<li>(❌)逻辑地址(0<sub>79)!=物理地址(100</sub>179)，如果想要在30上写入信息，实际上却写在了130，造成了错误，所以我们<strong>需要将逻辑地址和物理地址之间进行转换</strong></li>
 </ul>
 <p><strong>装入的三种方式</strong>(逻辑地址和物理地址之间进行转换):</p>
 <ul>
@@ -315,49 +332,71 @@
 <li>静态重定位(多道)</li>
 <li>动态重定位(现代)</li>
 </ul>
-<p><strong>绝对装入</strong>：<strong>编译</strong>的时候使用的是<strong>物理地址</strong>(之前用的是<strong>逻辑地址</strong>，详见上面例子)<br><img src="https://pbs.twimg.com/media/GHegpMRWAAAhdZg?format=jpg&amp;name=medium" alt=""></p>
+<p><strong>绝对装入</strong>：<strong>编译</strong>的时候使用的是<strong>物理地址</strong>(之前用的是<strong>逻辑地址</strong>，详见上面例子)<br />
+<img src="https://pbs.twimg.com/media/GHegpMRWAAAhdZg?format=jpg&amp;name=medium" alt="" /></p>
 <p><strong>静态重定位/重定位装入</strong>：<strong>装入(与上面的区别)</strong> 的时候将逻辑地址变为物理地址，缺点是必须分配要求的全部内存空间，运行期间不可移动</p>
 <p><strong>动态重定位/动态运行时装入</strong>：装入的时候仍使用逻辑地址，把地址转换推迟到<strong>实际执行</strong>(区别)时候开始，需要<strong>重定位寄存</strong>器支持，允许程序在内存中发生移动，将程序分配到不连续的存储区中，提供更大的地址空间</p>
-<p><br></p>
+<br>
 <p>接下来我们来说一下链接步骤,链接的三种方式：</p>
 <ul>
 <li>静态链接</li>
 <li>装入时动态链接</li>
 <li>运行时动态链接</li>
 </ul>
-<p><strong>静态链接</strong>：运行前将所需库函数链接成.exe文件<br><img src="https://pbs.twimg.com/media/GHejfO-WAAAkqql?format=jpg&amp;name=medium" alt=""><br><strong>装入时动态链接</strong>：边装入边链接<br><img src="https://pbs.twimg.com/media/GHej1ueW4AAwK76?format=png&amp;name=900x900" alt=""><br><strong>运行时动态链接</strong>:程序执行需要目标模块的时候，进行链接,优点便于修改和更新<br><img src="https://pbs.twimg.com/media/GHekXHxWcAApXmU?format=jpg&amp;name=medium" alt=""></p>
-<p><br></p>
-<h2 id="1-2-操作系统内存管理"><a href="#1-2-操作系统内存管理" class="headerlink" title="1.2 操作系统内存管理"></a>1.2 操作系统内存管理</h2><p>操作系统是系统资源的管理者</p>
+<p><strong>静态链接</strong>：运行前将所需库函数链接成.exe文件<br />
+<img src="https://pbs.twimg.com/media/GHejfO-WAAAkqql?format=jpg&amp;name=medium" alt="" /><br />
+<strong>装入时动态链接</strong>：边装入边链接<br />
+<img src="https://pbs.twimg.com/media/GHej1ueW4AAwK76?format=png&amp;name=900x900" alt="" /><br />
+<strong>运行时动态链接</strong>:程序执行需要目标模块的时候，进行链接,优点便于修改和更新<br />
+<img src="https://pbs.twimg.com/media/GHekXHxWcAApXmU?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="12-操作系统内存管理"><a class="markdownIt-Anchor" href="#12-操作系统内存管理"></a> 1.2 操作系统内存管理</h2>
+<p>操作系统是系统资源的管理者</p>
 <ul>
-<li>负责内存空间的分配与回收 </li>
+<li>负责内存空间的分配与回收</li>
 <li>内存空间进行扩充</li>
-<li>逻辑地址与物理地址的转换/地址重定位，即三种装入方式<ul>
+<li>逻辑地址与物理地址的转换/地址重定位，即三种装入方式
+<ul>
 <li>绝对装入(单道程序)</li>
 <li>可重定位装入(多道批处理系统)</li>
 <li>动态运行时装入(现代操作系统)</li>
 </ul>
 </li>
-<li>内存保护：各进程在各自的存储空间运行，互不干扰<ul>
+<li>内存保护：各进程在各自的存储空间运行，互不干扰
+<ul>
 <li>上下限寄存器</li>
 <li>重定位寄存器(基址)+界地址寄存器(限长)</li>
 </ul>
 </li>
 </ul>
-<p><br></p>
-<p>下面将着重说一下内存保护方法:<br><strong>上下限寄存器</strong>：存放进程物理地址的上下限地址，每次访问某个指令地址的时候需要检查是否越界.<br><img src="https://pbs.twimg.com/media/GHes0WXW4AED3ZV?format=jpg&amp;name=medium" alt=""><br><strong>重定位寄存器+界地址寄存器</strong>：上限为物理地址的上限，下限为逻辑地址的下限<br><img src="https://pbs.twimg.com/media/GHes0WXW4AED3ZV?format=jpg&amp;name=medium" alt=""></p>
-<p><br></p>
-<h2 id="1-3-覆盖技术与交换技术"><a href="#1-3-覆盖技术与交换技术" class="headerlink" title="1.3 覆盖技术与交换技术"></a>1.3 覆盖技术与交换技术</h2><p>目的：内存空间的扩充  </p>
-<h3 id="覆盖技术"><a href="#覆盖技术" class="headerlink" title="覆盖技术"></a>覆盖技术</h3><p>目的：解决程序大小超过物理内存总和<br>思想：程序分为多个段，常用的段常驻内存(称为<strong>固定区</strong>)，不常用的在需要时调入内存(称为<strong>覆盖区</strong>)<br>缺点：不洗声明覆盖结构，对用户不透明</p>
-<h3 id="交换技术"><a href="#交换技术" class="headerlink" title="交换技术"></a>交换技术</h3><p>思想：内存和磁盘间动态调度<br><strong>内存调度(中级调度)</strong>：将挂起状态的进程重新调入内存</p>
-<p>进程调度的回顾：<br><img src="https://pbs.twimg.com/media/GHewhhwXsAACzqF?format=jpg&amp;name=medium" alt=""></p>
+<br>
+<p>下面将着重说一下内存保护方法:<br />
+<strong>上下限寄存器</strong>：存放进程物理地址的上下限地址，每次访问某个指令地址的时候需要检查是否越界.<br />
+<img src="https://pbs.twimg.com/media/GHes0WXW4AED3ZV?format=jpg&amp;name=medium" alt="" /><br />
+<strong>重定位寄存器+界地址寄存器</strong>：上限为物理地址的上限，下限为逻辑地址的下限<br />
+<img src="https://pbs.twimg.com/media/GHes0WXW4AED3ZV?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="13-覆盖技术与交换技术"><a class="markdownIt-Anchor" href="#13-覆盖技术与交换技术"></a> 1.3 覆盖技术与交换技术</h2>
+<p>目的：内存空间的扩充</p>
+<h3 id="覆盖技术"><a class="markdownIt-Anchor" href="#覆盖技术"></a> 覆盖技术</h3>
+<p>目的：解决程序大小超过物理内存总和<br />
+思想：程序分为多个段，常用的段常驻内存(称为<strong>固定区</strong>)，不常用的在需要时调入内存(称为<strong>覆盖区</strong>)<br />
+缺点：不洗声明覆盖结构，对用户不透明</p>
+<h3 id="交换技术"><a class="markdownIt-Anchor" href="#交换技术"></a> 交换技术</h3>
+<p>思想：内存和磁盘间动态调度<br />
+<strong>内存调度(中级调度)</strong>：将挂起状态的进程重新调入内存</p>
+<p>进程调度的回顾：<br />
+<img src="https://pbs.twimg.com/media/GHewhhwXsAACzqF?format=jpg&amp;name=medium" alt="" /></p>
 <p><strong>外存(磁盘存储空间)的划分</strong>：</p>
 <ul>
 <li>文件区(占比大)：放文件，离散分配</li>
 <li>交换区(占比小，<strong>交换技术进行位置</strong>)：放进程数据，连续分配</li>
 </ul>
-<p>交换进行<strong>时机</strong>：内存吃紧时<br><strong>被换出</strong>的进程：阻塞进程、优先级低进程(<strong>注：PCB常驻内存</strong>)</p>
-<p><br></p>
-<h2 id="1-4-内存的分配与回收"><a href="#1-4-内存的分配与回收" class="headerlink" title="1.4 内存的分配与回收"></a>1.4 内存的分配与回收</h2><p>分配方式的分类：</p>
+<p>交换进行<strong>时机</strong>：内存吃紧时<br />
+<strong>被换出</strong>的进程：阻塞进程、优先级低进程(<strong>注：PCB常驻内存</strong>)</p>
+<br>
+<h2 id="14-内存的分配与回收"><a class="markdownIt-Anchor" href="#14-内存的分配与回收"></a> 1.4 内存的分配与回收</h2>
+<p>分配方式的分类：</p>
 <ul>
 <li>连续分配：为用户进程分配的必须是一个连续的内存空间</li>
 <li>非连续分配</li>
@@ -373,33 +412,139 @@
 <li><strong>外部碎片</strong>：内存中的某些空闲分区太小，难以利用</li>
 <li><strong>内部碎片</strong>：分配给进程的内存区域中有些部分没有用上，可以通过<strong>紧凑</strong>来解决</li>
 </ul>
-<h3 id="单一连续分配"><a href="#单一连续分配" class="headerlink" title="单一连续分配"></a>单一连续分配</h3><p>内存区的划分(注意要和上面的<strong>外存划分</strong>区别开来)：</p>
+<h3 id="单一连续分配"><a class="markdownIt-Anchor" href="#单一连续分配"></a> 单一连续分配</h3>
+<p>内存区的划分(注意要和上面的<strong>外存划分</strong>区别开来)：</p>
 <ul>
 <li><strong>系统区</strong>：内存的低地址部分，放操作系统相关数据</li>
 <li><strong>用户区</strong>：放用户进程相关数据</li>
 </ul>
 <p>特点：用户程序<strong>仅一且独占</strong>整个用户区</p>
-<p>优点：简单，<strong>无外部碎片</strong><br>缺点：仅用于单用户单任务系统，<strong>有内部碎片</strong>，存储器利用率低<br><img src="https://pbs.twimg.com/media/GHezZBZW8AAItVH?format=png&amp;name=900x900" alt=""></p>
-<h3 id="固定分区分配"><a href="#固定分区分配" class="headerlink" title="固定分区分配"></a>固定分区分配</h3><p>思想：为了能装入多道程序，将用户空间划分为若干个固定大小的分区，每个分区只装入一道作业<br>固定分区分配的分类：</p>
+<p>优点：简单，<strong>无外部碎片</strong><br />
+缺点：仅用于单用户单任务系统，<strong>有内部碎片</strong>，存储器利用率低<br />
+<img src="https://pbs.twimg.com/media/GHezZBZW8AAItVH?format=png&amp;name=900x900" alt="" /></p>
+<h3 id="固定分区分配"><a class="markdownIt-Anchor" href="#固定分区分配"></a> 固定分区分配</h3>
+<p>思想：为了能装入多道程序，将用户空间划分为若干个固定大小的分区，每个分区只装入一道作业<br />
+固定分区分配的分类：</p>
 <ul>
 <li>分区大小相等：缺乏灵活性，适用于一台计算机控制多个对象</li>
 <li>分区大小不等:灵活</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/GHe00v_XUAAXBIO?format=png&amp;name=900x900" alt=""></p>
-<p>记录内存的使用情况的数据结构：<strong>分区说明表</strong>，实例如下<br>| 分区号 | 大小 (MB) | 磁盘地址 (M) | 状态   |<br>|————|—————-|———————|————|<br>| 1      | 2         | 8            | 未分配 |<br>| 2      | 2         | 10           | 未分配 |<br>| 3      | 4         | 12           | 已分配 |<br>| …… | ……    | ……       | …… |</p>
-<p>优点：简单，<strong>无外部碎片</strong><br>缺点:程序太大可能所有分区都不满足，<strong>会产生内部碎片</strong></p>
-<h3 id="动态分区分配-可变分区分配"><a href="#动态分区分配-可变分区分配" class="headerlink" title="动态分区分配/可变分区分配"></a>动态分区分配/可变分区分配</h3><p>思想:不会预先划分内存分区，而是进程装入内存时，<strong>根据进程的大小动态建立分区</strong><br>记录内存的使用情况的数据结构，实例如下：</p>
+<p><img src="https://pbs.twimg.com/media/GHe00v_XUAAXBIO?format=png&amp;name=900x900" alt="" /></p>
+<p>记录内存的使用情况的数据结构：<strong>分区说明表</strong>，实例如下</p>
+<table>
+<thead>
+<tr>
+<th>分区号</th>
+<th>大小 (MB)</th>
+<th>磁盘地址 (M)</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>8</td>
+<td>未分配</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>10</td>
+<td>未分配</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+<td>12</td>
+<td>已分配</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>优点：简单，<strong>无外部碎片</strong><br />
+缺点:程序太大可能所有分区都不满足，<strong>会产生内部碎片</strong></p>
+<h3 id="动态分区分配可变分区分配"><a class="markdownIt-Anchor" href="#动态分区分配可变分区分配"></a> 动态分区分配/可变分区分配</h3>
+<p>思想:不会预先划分内存分区，而是进程装入内存时，<strong>根据进程的大小动态建立分区</strong><br />
+记录内存的使用情况的数据结构，实例如下：</p>
 <ul>
 <li>空闲分区表</li>
-<li>空闲分区链<br><img src="https://pbs.twimg.com/media/GHe2AxxWQAA2c2j?format=png&amp;name=900x900" alt=""></li>
+<li>空闲分区链<br />
+<img src="https://pbs.twimg.com/media/GHe2AxxWQAA2c2j?format=png&amp;name=900x900" alt="" /></li>
 </ul>
-<p>优点：<strong>无内部碎片</strong><br>缺点：<strong>有外部碎片</strong></p>
-<p>分区如何进行<strong>分配</strong>：动态分区分配算法(详细节会有，这里将展示几个示例) </p>
-<p><br></p>
-<p><strong>举个例子(分配)</strong>：<br>| 分区号 | 分区大小 (MB) | 磁盘地址 (M) | 状态 |<br>|————|———————-|———————|———|<br>| 1      | 20            | 8            | 空闲 |<br>| 2      | 10            | 32           | 空闲 |<br>| 3      | 4             | 60           | 空闲 |</p>
-<p>想要将大小为4MB的进程放入内存，分区表将如下变化：<br>| 分区号 | 分区大小 (MB) | 磁盘地址 (M) | 状态 |<br>|————|———————-|———————|———|<br>| 1      | 16(20-4)           | 12(8+4)           | 空闲 |<br>| 2      | 10            | 32           | 空闲 |<br>| 3      | 4             | 60           | 空闲 |</p>
-<p><strong>举个例子(回收)</strong>：<br><img src="https://pbs.twimg.com/media/GHe4GvDWgAAtRkh?format=png&amp;name=900x900" alt=""></p>
-<div class="table-container">
+<p>优点：<strong>无内部碎片</strong><br />
+缺点：<strong>有外部碎片</strong></p>
+<p>分区如何进行<strong>分配</strong>：动态分区分配算法(详细节会有，这里将展示几个示例)</p>
+<br>
+<p><strong>举个例子(分配)</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>分区号</th>
+<th>分区大小 (MB)</th>
+<th>磁盘地址 (M)</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>20</td>
+<td>8</td>
+<td>空闲</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>32</td>
+<td>空闲</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+<td>60</td>
+<td>空闲</td>
+</tr>
+</tbody>
+</table>
+<p>想要将大小为4MB的进程放入内存，分区表将如下变化：</p>
+<table>
+<thead>
+<tr>
+<th>分区号</th>
+<th>分区大小 (MB)</th>
+<th>磁盘地址 (M)</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>16(20-4)</td>
+<td>12(8+4)</td>
+<td>空闲</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>32</td>
+<td>空闲</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+<td>60</td>
+<td>空闲</td>
+</tr>
+</tbody>
+</table>
+<p><strong>举个例子(回收)</strong>：<br />
+<img src="https://pbs.twimg.com/media/GHe4GvDWgAAtRkh?format=png&amp;name=900x900" alt="" /></p>
 <table>
 <thead>
 <tr>
@@ -418,9 +563,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>分区表将发生如下变化：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -445,9 +588,9 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><br></p>
-<h2 id="1-5-动态分区分配的四种算法"><a href="#1-5-动态分区分配的四种算法" class="headerlink" title="1.5 动态分区分配的四种算法"></a>1.5 动态分区分配的四种算法</h2><p>本篇文章是对上一篇文章内存的分配与回收提到的动态分区分配算法的补充  </p>
+<br>
+<h2 id="15-动态分区分配的四种算法"><a class="markdownIt-Anchor" href="#15-动态分区分配的四种算法"></a> 1.5 动态分区分配的四种算法</h2>
+<p>本篇文章是对上一篇文章内存的分配与回收提到的动态分区分配算法的补充</p>
 <p>动态分区分配算法的分类：</p>
 <ul>
 <li>首次适应算法</li>
@@ -455,11 +598,22 @@
 <li>最坏适应算法</li>
 <li>临近适应算法</li>
 </ul>
-<h3 id="首次适应算法"><a href="#首次适应算法" class="headerlink" title="首次适应算法"></a>首次适应算法</h3><p>思想：每次从低地址开始，找到一个能满足大小的空闲分区<br>实现：空闲分区以<strong>地址递增</strong>链接，在空闲分区炼/表中找到第一个满足大小的空闲分区</p>
-<h3 id="最佳适应算法"><a href="#最佳适应算法" class="headerlink" title="最佳适应算法"></a>最佳适应算法</h3><p>思想：尽可能留下大片空闲区，使用更小的空闲区<br>实现：空闲分区按<strong>容量递增</strong>链接,…<br>缺点：会留下很多很小的内存块，外部碎片</p>
-<h3 id="最坏适应算法"><a href="#最坏适应算法" class="headerlink" title="最坏适应算法"></a>最坏适应算法</h3><p>思想：为了解决上者的缺点，优先使用最大的连续空闲区<br>实现：按照<strong>容量递减</strong>链接,…<br>缺点：大连续空间消耗快，大进程来临无可用   </p>
-<h3 id="临近适应算法"><a href="#临近适应算法" class="headerlink" title="临近适应算法"></a>临近适应算法</h3><p>思想：<strong>首次适应算法</strong>每次从链头查找，增加开销，从上次结束开始查找<br>实现：每次分配内存<strong>从上次结束开始</strong>查找空闲分区,..<br>缺点：高低地址部分空闲分区使用概率相同，也导致了高低之部分大分区更快使用，导致无大分区可用</p>
-<h3 id="四种算法对比"><a href="#四种算法对比" class="headerlink" title="四种算法对比"></a>四种算法对比</h3><div class="table-container">
+<h3 id="首次适应算法"><a class="markdownIt-Anchor" href="#首次适应算法"></a> 首次适应算法</h3>
+<p>思想：每次从低地址开始，找到一个能满足大小的空闲分区<br />
+实现：空闲分区以<strong>地址递增</strong>链接，在空闲分区炼/表中找到第一个满足大小的空闲分区</p>
+<h3 id="最佳适应算法"><a class="markdownIt-Anchor" href="#最佳适应算法"></a> 最佳适应算法</h3>
+<p>思想：尽可能留下大片空闲区，使用更小的空闲区<br />
+实现：空闲分区按<strong>容量递增</strong>链接,…<br />
+缺点：会留下很多很小的内存块，外部碎片</p>
+<h3 id="最坏适应算法"><a class="markdownIt-Anchor" href="#最坏适应算法"></a> 最坏适应算法</h3>
+<p>思想：为了解决上者的缺点，优先使用最大的连续空闲区<br />
+实现：按照<strong>容量递减</strong>链接,…<br />
+缺点：大连续空间消耗快，大进程来临无可用</p>
+<h3 id="临近适应算法"><a class="markdownIt-Anchor" href="#临近适应算法"></a> 临近适应算法</h3>
+<p>思想：<strong>首次适应算法</strong>每次从链头查找，增加开销，从上次结束开始查找<br />
+实现：每次分配内存<strong>从上次结束开始</strong>查找空闲分区,…<br />
+缺点：高低地址部分空闲分区使用概率相同，也导致了高低之部分大分区更快使用，导致无大分区可用</p>
+<h3 id="四种算法对比"><a class="markdownIt-Anchor" href="#四种算法对比"></a> 四种算法对比</h3>
 <table>
 <thead>
 <tr>
@@ -501,9 +655,9 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><br></p>
-<h2 id="1-6-分页存储"><a href="#1-6-分页存储" class="headerlink" title="1.6 分页存储"></a>1.6 分页存储</h2><p>上面讲完了连续分配这里来讲一下非连续分配，考虑到多道程序的两种连续分配方式：固定分区分配(缺乏灵活性，内部碎片)、动态分区分配(外部碎片)，于是非连续分配方式诞生了。  </p>
+<br>
+<h2 id="16-分页存储"><a class="markdownIt-Anchor" href="#16-分页存储"></a> 1.6 分页存储</h2>
+<p>上面讲完了连续分配这里来讲一下非连续分配，考虑到多道程序的两种连续分配方式：固定分区分配(缺乏灵活性，内部碎片)、动态分区分配(外部碎片)，于是非连续分配方式诞生了。</p>
 <p>非连续分配管理方式的分类：</p>
 <ul>
 <li>基本分页存储管理</li>
@@ -513,13 +667,14 @@
 <p>思想：把内存分为一个个相等的小分区，再按照分区大小把进程拆分成一个个小部分</p>
 <p>重要概念：</p>
 <ul>
-<li><strong>页框</strong>(页帧/内存块/物理块)：内存空间中一个个大小相等的分区 ，<strong>操作系统为进程分配内存空间的单位</strong> </li>
-<li><strong>页框号</strong>(同上+号)：页框的编号，从0开始  </li>
+<li><strong>页框</strong>(页帧/内存块/物理块)：内存空间中一个个大小相等的分区 ，<strong>操作系统为进程分配内存空间的单位</strong></li>
+<li><strong>页框号</strong>(同上+号)：页框的编号，从0开始</li>
 <li><strong>页/页面</strong>：用户进程中的一个个区域(与页框大小<strong>相等且一一对应</strong>)</li>
 <li><strong>页号</strong>：页面的编号，从0开始</li>
 </ul>
 <p><strong>注</strong>：进程的最后一个页面没有页框那么大，所以页框不能太大，否则产生内碎</p>
-<h3 id="地址空间的转换"><a href="#地址空间的转换" class="headerlink" title="地址空间的转换"></a>地址空间的转换</h3><p><img src="https://pbs.twimg.com/media/GHfF7O0bAAA55d_?format=jpg&amp;name=medium" alt=""></p>
+<h3 id="地址空间的转换"><a class="markdownIt-Anchor" href="#地址空间的转换"></a> 地址空间的转换</h3>
+<p><img src="https://pbs.twimg.com/media/GHfF7O0bAAA55d_?format=jpg&amp;name=medium" alt="" /></p>
 <p>CPU执行指令1需要访问<strong>逻辑地址80</strong>，如何转化为<strong>物理地址呢</strong></p>
 <ul>
 <li>计算逻辑地址的页号</li>
@@ -527,20 +682,130 @@
 <li>算出逻辑地址在页面内的<strong>偏移量</strong></li>
 <li>物理地址=<strong>页面起始地址</strong>+<strong>偏移量</strong></li>
 </ul>
-<h3 id="计算页号和页偏移量"><a href="#计算页号和页偏移量" class="headerlink" title="计算页号和页偏移量"></a>计算页号和页偏移量</h3><p>页号(取整)=逻辑地址/页面长度<br>页内偏移量=逻辑地址%页面长度<br>页面在内存中的起始位置=页表中查找</p>
-<p>还是上面的问题，<strong>举例说明</strong>：<br>页号=80/50=1<br>页内偏移量=80%50=30<br>1号页起始位置450<br>物理地址=450+30=480</p>
-<h3 id="页面大小为什么是2的整数次幂"><a href="#页面大小为什么是2的整数次幂" class="headerlink" title="页面大小为什么是2的整数次幂"></a>页面大小为什么是2的整数次幂</h3><p>假设32个二进制位表示逻辑地址，页面大小为1KB=$2^{10}B$<br>| 页号 | 起始地址二进制表示          | 结束地址二进制表示          | 地址范围         |<br>|————|—————————————-|—————————————-|—————————|<br>| 0号    | <strong>0000000000000000</strong>000000000 | <strong>0000000000000000</strong>111111111 | 0~4095           |<br>| 1号    | <strong>0000000000000001</strong>000000000 | <strong>0000000000000001</strong>111111111 | 4096~8191        |<br>| 2号    | <strong>0000000000000010</strong>000000000 | <strong>0000000000000010</strong>111111111 | 8192~12287       |</p>
-<p>结论：每个页面大小为$2^kB$，用二进制数表示逻辑地址，某位K位表示<strong>页内偏移量</strong>，其余部分是<strong>页号</strong>，即<strong>逻辑地址=页号+偏移量</strong></p>
-<p>如果有k位表示页内偏移量，则说明系统中一个页面的大小是$2^k$个内存单元<br>如果有m位表示页号，则说明系统中一个进程最多允许$2^m$个页面  </p>
-<h3 id="页面的起始地址"><a href="#页面的起始地址" class="headerlink" title="页面的起始地址"></a>页面的起始地址</h3><p>页表：进程的每个页面在内存中的存放位置<br><img src="https://pbs.twimg.com/media/GHfMGtba0AErNru?format=jpg&amp;name=medium" alt=""></p>
+<h3 id="计算页号和页偏移量"><a class="markdownIt-Anchor" href="#计算页号和页偏移量"></a> 计算页号和页偏移量</h3>
+<p>页号(取整)=逻辑地址/页面长度<br />
+页内偏移量=逻辑地址%页面长度<br />
+页面在内存中的起始位置=页表中查找 qob</p>
+<p>还是上面的问题，<strong>举例说明</strong>：<br />
+页号=80/50=1<br />
+页内偏移量=80%50=30<br />
+1号页起始位置450<br />
+物理地址=450+30=480</p>
+<h3 id="页面大小为什么是2的整数次幂"><a class="markdownIt-Anchor" href="#页面大小为什么是2的整数次幂"></a> 页面大小为什么是2的整数次幂</h3>
+<p>假设32个二进制位表示逻辑地址，页面大小为1KB=<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>10</mn></msup><mi>B</mi></mrow><annotation encoding="application/x-tex">2^{10}B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">0</span></span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></p>
+<table>
+<thead>
+<tr>
+<th>页号</th>
+<th>起始地址二进制表示</th>
+<th>结束地址二进制表示</th>
+<th>地址范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0号</td>
+<td><strong>0000000000000000</strong>000000000</td>
+<td><strong>0000000000000000</strong>111111111</td>
+<td>0~4095</td>
+</tr>
+<tr>
+<td>1号</td>
+<td><strong>0000000000000001</strong>000000000</td>
+<td><strong>0000000000000001</strong>111111111</td>
+<td>4096~8191</td>
+</tr>
+<tr>
+<td>2号</td>
+<td><strong>0000000000000010</strong>000000000</td>
+<td><strong>0000000000000010</strong>111111111</td>
+<td>8192~12287</td>
+</tr>
+</tbody>
+</table>
+<p>结论：每个页面大小为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup><mi>B</mi></mrow><annotation encoding="application/x-tex">2^kB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>，用二进制数表示逻辑地址，某位K位表示<strong>页内偏移量</strong>，其余部分是<strong>页号</strong>，即<strong>逻辑地址=页号+偏移量</strong></p>
+<p>如果有k位表示页内偏移量，则说明系统中一个页面的大小是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">2^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span>个内存单元<br />
+如果有m位表示页号，则说明系统中一个进程最多允许<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>m</mi></msup></mrow><annotation encoding="application/x-tex">2^m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span></span></span></span></span></span></span></span>个页面</p>
+<h3 id="页面的起始地址"><a class="markdownIt-Anchor" href="#页面的起始地址"></a> 页面的起始地址</h3>
+<p>页表：进程的每个页面在内存中的存放位置<br />
+<img src="https://pbs.twimg.com/media/GHfMGtba0AErNru?format=jpg&amp;name=medium" alt="" /></p>
 <p><strong>注意</strong>：各页表项会顺序连续的放在内存中，如果页表在内存中存放的<strong>起始地址为X</strong>，在上面页表中，则M号页对应的页表项一定存放在页表项地址X+3*M</p>
-<p><br></p>
-<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
-</script>
-
-
+<br>
+<h2 id="17-分页存储管理的基本地址变换结构"><a class="markdownIt-Anchor" href="#17-分页存储管理的基本地址变换结构"></a> 1.7 分页存储管理的基本地址变换结构</h2>
+<h3 id="页表寄存器"><a class="markdownIt-Anchor" href="#页表寄存器"></a> 页表寄存器</h3>
+<p>基本地址变换机构(<strong>硬件</strong>)可以借助进程的页表将逻辑地址转换为物理地址<br />
+<strong>页表寄存器PTR</strong>：存放页表在内存中的<strong>起始地址</strong>F和<strong>页表长度M</strong></p>
+<p>注意：页面大小是2的整数幂</p>
+<p><strong>长度</strong>区分：</p>
+<ul>
+<li><strong>页表大小</strong>：整个页表占多大的存储空间</li>
+<li><strong>页表长度!=页表大小</strong>：页表中有多少个页表项，即有多少个页</li>
+<li><strong>页表项长度</strong>：每个页表项占多大的存储空间</li>
+<li><strong>页面长度</strong>：一个页面占多大的存储空间</li>
+</ul>
+<p><strong>地址变换过程</strong>：设页面大小为L，逻辑地址A到物理地址E的变换过程<br />
+<img src="https://pbs.twimg.com/media/GHf7nhqXAAApxWe?format=jpg&amp;name=medium" alt="" /></p>
+<ul>
+<li>根据逻辑地址计算<strong>页号</strong>(逻辑地址/页面长度)以及<strong>页内偏移量</strong>(逻辑地址%页面长度)</li>
+<li>判断页号是否<strong>越界</strong>:<strong>页号&lt;页表长度</strong>,则不越界</li>
+<li>页表地址=页表起始地址+页号x页表项长度，取出该表中的内容即<strong>内存块号</strong></li>
+<li>物理地址=<strong>内存块号</strong>x<strong>内存块长度</strong>(=页面长度)+<strong>内存偏移量</strong></li>
+</ul>
+<br>
+<h2 id="18-快表的地址变换结构"><a class="markdownIt-Anchor" href="#18-快表的地址变换结构"></a> 1.8 快表的地址变换结构</h2>
+<p>上一节学习了分页存储管理的基本地址变换结构,这一篇文章是对基本地址变换结构的<strong>改进</strong>版。</p>
+<h3 id="局部性原理"><a class="markdownIt-Anchor" href="#局部性原理"></a> 局部性原理</h3>
+<p><strong>时间局部性</strong>：某条指令/数据不久之后很可能再次执行/访问<br />
+<strong>空间局部性</strong>：某个存储单元不久之后很可能再次被访问</p>
+<p>由于局部性原理，可以让连续很多次查到的都是同一个页表项访问速度更快，于是引入了页表</p>
+<h3 id="快表tlb"><a class="markdownIt-Anchor" href="#快表tlb"></a> 快表(TLB)</h3>
+<p>快表(联想寄存器TLB)：<strong>访问速度比内存快很多</strong>的高速缓冲存储器</p>
+<p>引入快表后的地址变换过程：</p>
+<ul>
+<li>通过逻辑地址计算<strong>页号</strong>和页内偏移量，将得到的<strong>页号</strong>与快表中所有<strong>页号</strong>比较</li>
+<li><strong>匹配</strong>则将该页对应的<strong>内存块号</strong>与<strong>页内偏移量</strong>拼接形成<strong>物理地址</strong>，最后访问<strong>物理地址</strong>对应的<strong>内存单元</strong></li>
+<li><strong>未匹配</strong>则访问内存中的<strong>页表</strong>，找到页表对应的页表项，得到页表项存放的<strong>内存块号</strong>，后面同上。(<strong>多出来的过程是访问了页表</strong>)</li>
+</ul>
+<p><strong>举例说明</strong>：<br />
+某系统在处理某个操作时，访问快表用了时间1us，快表命中率为90%，访问一次内存消耗100us，那么访问一个逻辑地址的平均耗时是多少？<br />
+(1+100) * 0.9 + (1+100+100) * 0.1 = 111us</p>
+<p>有的系统支持快速执行同样的操作，如果是这样，平均耗时的应该是 (1+100) * 0.9 + (100+100) * 0.1 = 110.9us</p>
+<p>未采用快表为100+100=200us</p>
+<h3 id="对比"><a class="markdownIt-Anchor" href="#对比"></a> 对比</h3>
+<p><img src="https://pbs.twimg.com/media/GHgEEUcWwAANaEF?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="19-二级页表的原理和地址结构"><a class="markdownIt-Anchor" href="#19-二级页表的原理和地址结构"></a> 1.9 二级页表的原理和地址结构</h2>
+<h3 id="二级页表"><a class="markdownIt-Anchor" href="#二级页表"></a> 二级页表</h3>
+<p><strong>单级页表</strong>存在的问题：</p>
+<ul>
+<li>(1)页表必须连续存放</li>
+<li>(2)没有必要让整个页表常驻内存</li>
+</ul>
+<p>二级页表<strong>原理</strong>：为了解决上面的问题1,对页表再次分组<br />
+页目录表/外层页表/顶层页表：w为离散分配的页表建立一张页表</p>
+<p><img src="https://pbs.twimg.com/media/GHgGQlIXQAA9Zgs?format=jpg&amp;name=medium" alt="" /></p>
+<p>二级页表的地址变换过程：</p>
+<ul>
+<li>将地址结构分为三部分</li>
+<li>PCB中读出页目录表起始地址，通过一级页号在页目录表找到下一级页表的存放位置</li>
+<li>通过二级页号找到内存块号</li>
+<li>结合页内偏移找到物理地址</li>
+</ul>
+<p><strong>问题二</strong>的解决：在页表项中加入一个<strong>标志位</strong>，表示该页面是否调入，在需要访问页面时再把页面调入内存即可(<strong>虚拟存储技术</strong>)<br />
+<strong>缺页</strong>：想要访问的页面不在内存中，会发生<strong>缺页中断</strong>，将目标页面从外存到内存</p>
+<p>注意：</p>
+<ul>
+<li>各级页表的大小不能超过页面(页框)(<strong>因为页表也在内存中，所以一个页表不能比一个页面大</strong>)</li>
+<li>访存次数分析：
+<ul>
+<li>第一次访问内内存中的页目录表</li>
+<li>第二次访问内存中的二级页表</li>
+<li>第三次访问目标内存单元</li>
+</ul>
+</li>
+</ul>
+<br>
+<h2 id="110-基本分段存储管理"><a class="markdownIt-Anchor" href="#110-基本分段存储管理"></a> 1.10 基本分段存储管理</h2>
 
             
         </div>
@@ -617,7 +882,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">311</div>
+                <div class="sidebar-state-number">312</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -691,7 +956,7 @@
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
         </div>
     </div>
 
@@ -723,10 +988,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    623.7k
+                    624.9k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    39:42
+                    39:47
                 </div>
             
             
@@ -753,7 +1018,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">311</div>
+                <div class="sidebar-state-number">312</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
