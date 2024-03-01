@@ -39,8 +39,15 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/GHjciTkXIAA9m9I?format=png&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/GHjdQMyX0AAHwOU?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GHjd87vXkAAbFjm?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHjk3KLWkAA7bEl?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHjne3LXgAAnPGK?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHjpHPFW0AAXtYE?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHju-SeWIAAPEpI?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHjwSTqXAAA40uC?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHjwsM1W4AAff0c?format=png&amp;name=900x900">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHjxUv1XcAAeX7M?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2024-03-01T01:21:29.000Z">
-<meta property="article:modified_time" content="2024-03-01T03:34:25.692Z">
+<meta property="article:modified_time" content="2024-03-01T04:46:47.671Z">
 <meta property="article:author" content="ab">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="4">
@@ -568,9 +575,227 @@
 <p>外存中也会分页，被分为一个个<strong>块/物理块/磁盘块</strong>(与内存块/页面大小相同)，是磁盘与内存的数据交换单位</p>
 <p><strong>文件块</strong>：文件的逻辑地址空间被分为一个个的块<br />
 文件的逻辑地址：逻辑块号+块内地址</p>
-<br>
 <h3 id="连续分配"><a class="markdownIt-Anchor" href="#连续分配"></a> 连续分配</h3>
-<p>连续分配：每个文件在磁盘上占有一组连续的块</p>
+<p><strong>连续分配</strong>：每个文件在磁盘上占有一组连续的块，支持<strong>顺序访问和随机访问</strong><br />
+逻辑地址 -&gt; 物理地址：(<strong>逻辑块号</strong>，块内地址) -&gt; (<strong>物理块号</strong>，块内地址)<br />
+<strong>物理块号</strong> = 起始块号 + <strong>逻辑块号</strong></p>
+<p><img src="https://pbs.twimg.com/media/GHjk3KLWkAA7bEl?format=png&amp;name=900x900" alt="" /></p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>…</th>
+<th>起始块号</th>
+<th>长度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aaa</td>
+<td>…</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr>
+<td>bbb</td>
+<td>…</td>
+<td>10</td>
+<td>4</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>优点：支持顺序和随机访问，顺序读写最快<br />
+缺点：物理上连续分配不方便拓展，存储空间利用率低，会产生碎片</p>
+<p>为了解决该缺点，我们提出了<strong>链接分配</strong></p>
+<h3 id="链接分配"><a class="markdownIt-Anchor" href="#链接分配"></a> 链接分配</h3>
+<p><strong>链接分配</strong>：采用离散分配的方式，可以将文件<br />
+链接分配的分类：</p>
+<ul>
+<li>隐式链接</li>
+<li>显示链接</li>
+</ul>
+<p><strong>隐式链接</strong>：</p>
+<ul>
+<li>增加了<strong>结束块号</strong></li>
+<li>除了最后一个磁盘块，每个磁盘块都会保存指向下一个磁盘块的指针(用户可见)</li>
+<li>优点：空闲磁盘块充分利用，方便拓展</li>
+<li>缺点：只支持顺序访问，<strong>不可随机访问</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>…</th>
+<th>起始块号</th>
+<th>结束块号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aaa</td>
+<td>…</td>
+<td>9</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://pbs.twimg.com/media/GHjne3LXgAAnPGK?format=png&amp;name=small" alt="" /></p>
+<p><strong>显示链接</strong>：</p>
+<ul>
+<li>目录现在只有起始块号</li>
+<li>用于链接文件各物理块的指针放在<strong>文件分配表FA</strong>T中</li>
+<li>优点：可顺序访问可随机访问，会产生外部碎片，相比于<strong>隐式链接</strong>不需要访问磁盘</li>
+<li>缺点：FAT需要占空间</li>
+</ul>
+<p>目录：</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>…</th>
+<th>起始块号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aaa</td>
+<td>…</td>
+<td>2</td>
+</tr>
+<tr>
+<td>bbb</td>
+<td>…</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>FAT：一个磁盘仅一张FAT，常驻内存</p>
+<table>
+<thead>
+<tr>
+<th>物理块号(连续存储可隐含)</th>
+<th>下一块</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>23</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>22</td>
+<td>…</td>
+</tr>
+<tr>
+<td>23</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://pbs.twimg.com/media/GHjpHPFW0AAXtYE?format=png&amp;name=small" alt="" /></p>
+<h3 id="索引分配"><a class="markdownIt-Anchor" href="#索引分配"></a> 索引分配</h3>
+<p>索引分配：允许文件分散地在各个磁盘中，<strong>每个文件建一张索引表</strong><br />
+<strong>索引表</strong>：记录文件各个逻辑块对应的物理块<br />
+<strong>索引块</strong>：索引表存放的磁盘块<br />
+<strong>数据块</strong>：文件数据存放的磁盘块<br />
+<strong>索引表 VS FAT</strong>: 索引表是一个文件对应一个，FAT是一个磁盘对应一个</p>
+<p>优点：支持随机访问，文件拓展也容易实现<br />
+缺点：索引表占空间</p>
+<p>目录：</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>…</th>
+<th>索引块</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aaa</td>
+<td>…</td>
+<td>7</td>
+</tr>
+<tr>
+<td>bbb</td>
+<td>…</td>
+<td>23</td>
+</tr>
+</tbody>
+</table>
+<p>文件aaa的索引表：</p>
+<table>
+<thead>
+<tr>
+<th>逻辑块号(顺序存储可隐含)</th>
+<th>物理块号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>13</td>
+</tr>
+<tr>
+<td>3</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://pbs.twimg.com/media/GHju-SeWIAAPEpI?format=png&amp;name=small" alt="" /></p>
+<p>数据太大，索引表无法装下：</p>
+<ul>
+<li>方案1:链接方案</li>
+<li>方案2:多层索引</li>
+<li>方案3:混和索引</li>
+</ul>
+<br>
+<p><strong>链接方案</strong>：多个索引块链接起来存放,<strong>低效</strong><br />
+<img src="https://pbs.twimg.com/media/GHjwSTqXAAA40uC?format=jpg&amp;name=medium" alt="" /></p>
+<p><strong>多层索引</strong>：建立多层索引(类比<strong>多级页表</strong>)，但<strong>各层索引表大小不能超过一个磁盘块</strong><br />
+<img src="https://pbs.twimg.com/media/GHjwsM1W4AAff0c?format=png&amp;name=900x900" alt="" /></p>
+<p><strong>混和索引</strong>：多种索引分配方式结合,顶级索引表中包含<strong>直接地址索引</strong>，<strong>一级间接索引</strong>，<strong>二级间接索引</strong><br />
+<img src="https://pbs.twimg.com/media/GHjxUv1XcAAeX7M?format=jpg&amp;name=medium" alt="" /></p>
+<h3 id="对比总结"><a class="markdownIt-Anchor" href="#对比总结"></a> 对比总结</h3>
+<p>表格待完成…</p>
 
             
         </div>
@@ -739,10 +964,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    627.6k
+                    628.3k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    39:55
+                    39:57
                 </div>
             
             
