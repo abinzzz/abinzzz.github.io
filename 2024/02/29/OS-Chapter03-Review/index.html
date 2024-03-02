@@ -52,8 +52,13 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/GHf7nhqXAAApxWe?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GHgEEUcWwAANaEF?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GHgGQlIXQAA9Zgs?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHoZf8vaUAArI4S?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHogxXuaMAAvSQc?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHooi1zaMAACuAf?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHorU4ubQAAHO8N?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GHosmn3aYAArWke?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2024-02-29T02:56:22.000Z">
-<meta property="article:modified_time" content="2024-03-02T02:11:22.599Z">
+<meta property="article:modified_time" content="2024-03-02T04:12:43.749Z">
 <meta property="article:author" content="ab">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="3">
@@ -808,7 +813,192 @@
 <h2 id="110-基本分段存储管理"><a class="markdownIt-Anchor" href="#110-基本分段存储管理"></a> 1.10 基本分段存储管理</h2>
 <p>进程的<strong>地址空间</strong>：按照<strong>自身逻辑</strong>关系划分为若干个段，每个段都有段名<br />
 内存，<strong>每段从0开始编址</strong><br />
-内存分配规则：以<strong>段</strong>为单位，每个段在内存中占据连续空间，各段之间可以不相邻</p>
+内存<strong>分配规则</strong>：以<strong>段</strong>为单位，每个段在内存中占据连续空间，各段之间可以不相邻<br />
+<strong>段名</strong>：函数名称<br />
+<strong>段号</strong>：段的序号，位数决定了每个进程最多可以分为几个段<br />
+<strong>段内地址</strong>：段内偏移量，位数决定每个段的最大长度是多少<br />
+逻辑地址结构=段号(段名)+段内地址(段内偏移量)</p>
+<p>下面是逻辑地址的组成：</p>
+<table>
+<thead>
+<tr>
+<th>31 … 16</th>
+<th>15 … 0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>段号</td>
+<td>段内地址</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://pbs.twimg.com/media/GHoZf8vaUAArI4S?format=jpg&amp;name=medium" alt="" /></p>
+<h3 id="段表"><a class="markdownIt-Anchor" href="#段表"></a> 段表</h3>
+<p><strong>段表</strong>：段映射表，记录该段在内存中的<strong>起始位置(基址)<strong>和</strong>段的长度</strong>，段表中每个项的长度相同</p>
+<p>区分：</p>
+<ul>
+<li><strong>段的长度</strong>：程序中每个段的长度</li>
+<li><strong>段表长度</strong>：段表中有多少个项</li>
+</ul>
+<p>区分：</p>
+<ul>
+<li><strong>段内地址</strong>：段内偏移量，其实不是地址是一个偏移的长度</li>
+<li><strong>段表始址</strong>：段表中第一个项的地址</li>
+<li><strong>段起始地址(基址)</strong>：段在内存中的起始位置</li>
+</ul>
+<h3 id="地址变换"><a class="markdownIt-Anchor" href="#地址变换"></a> 地址变换</h3>
+<ul>
+<li>逻辑地址=段号(段名)+段内地址(段内偏移量)</li>
+<li>判断段号是否&lt;段表长度</li>
+<li>查段表，找到对表项存放地址=段表<strong>起始地址</strong>+<strong>段号</strong>x<strong>段表项长度</strong></li>
+<li>判断段内地址是否&lt;段长</li>
+<li>物理地址=段基址+段内地址</li>
+<li>访问内存单元</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/GHogxXuaMAAvSQc?format=jpg&amp;name=medium" alt="" /></p>
+<h3 id="分段-分页管理对比"><a class="markdownIt-Anchor" href="#分段-分页管理对比"></a> 分段、分页管理对比</h3>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>分页</th>
+<th>分段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单位</td>
+<td>信息的物理单位</td>
+<td>信息的逻辑单位</td>
+</tr>
+<tr>
+<td>主要目的</td>
+<td>为了实现离散分配，提高内存利用率。分页仅仅是系统管理上的需要，完全是系统行为，对用户是不可见的</td>
+<td>更好地满足用户需求。一个段通常包含着一组属于一个逻辑模块的信息。分段对用户是可见的，用户编程时需要显式地给出段名</td>
+</tr>
+<tr>
+<td>大小/长度</td>
+<td>页的大小<strong>固定且由系统决定</strong></td>
+<td><strong>段的长度却不固定</strong>，决定于用户编写的程序</td>
+</tr>
+<tr>
+<td>地址空间维度</td>
+<td>分页的用户进程地址空间是<strong>一维</strong>的，程序员只需给出一个记忆符即可表示一个地址</td>
+<td>分段的用户进程地址空间是<strong>二维</strong>的，程序员在标识一个地址时，既要给出段名，也要给出段内地址</td>
+</tr>
+<tr>
+<td>信息共享与保护</td>
+<td>因为不是按逻辑划分的，所以很难共享</td>
+<td>分段比分页更容易实现信息的共享和保护。不能被修改的代码称为纯代码或可重入代码(不属于临界资源)，这样的代码是可以共享的</td>
+</tr>
+<tr>
+<td>访问一个逻辑地址需要几次访存?</td>
+<td>分页(单级页表):<br><strong>第一次访存</strong>–查内存中的页表<br><strong>第二次访存</strong>–访问目标内存单元</td>
+<td>分段:<br><strong>第一次访存</strong>–查内存中的段表，<br><strong>第二次访存</strong>–访问目标内存单元。<br>分段系统中也可以引入快表机构，将近期访问过的段表项放到快表中，这样可以少一次访问，加快地址变换速度</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h2 id="111-段页式存储管理"><a class="markdownIt-Anchor" href="#111-段页式存储管理"></a> 1.11 段页式存储管理</h2>
+<p>分页、分段的分析：</p>
+<table>
+<thead>
+<tr>
+<th>管理方式</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分页管理</td>
+<td>内存空间利用率高，<strong>不会产生外部碎片</strong>，只会有少量的页内碎片</td>
+<td>不方便按照逻辑模块实现信息的共享和保护</td>
+</tr>
+<tr>
+<td>分段管理</td>
+<td>很方便按照逻辑模块实现信息的共享和保护</td>
+<td>如果段长过大，为其分配很大的连续空间会很不方便。另外，段式管理会<strong>产生外部碎片</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="分段分页段页式管理"><a class="markdownIt-Anchor" href="#分段分页段页式管理"></a> 分段+分页=段页式管理</h3>
+<p>思想：将进程按逻辑分段，再将各段分页<br />
+<img src="https://pbs.twimg.com/media/GHooi1zaMAACuAf?format=jpg&amp;name=medium" alt="" /></p>
+<p>逻辑地址结构=段号+页号+页内偏移量</p>
+<ul>
+<li>段号：位数决定了每个进程可以分为几个段</li>
+<li>页号(用户不可见)：决定了每个段最多可以分为几个页</li>
+<li>页内偏移量：决定了页面/内存块大小</li>
+</ul>
+<h3 id="段表页表"><a class="markdownIt-Anchor" href="#段表页表"></a> 段表+页表</h3>
+<p><strong>段表</strong>：每个段对应一个段表项，每个段表项由<strong>段号</strong>,<strong>页表长度</strong>,<strong>页表存放块号</strong>组成；每个页表项长度相等<br />
+<strong>页表</strong>：每个页面对应一个页表项，每个页表项由<strong>页号，页面存放的内存块号</strong>组成；每个页表项长度相等</p>
+<p><img src="https://pbs.twimg.com/media/GHorU4ubQAAHO8N?format=jpg&amp;name=medium" alt="" /></p>
+<h3 id="地址转换过程"><a class="markdownIt-Anchor" href="#地址转换过程"></a> 地址转换过程</h3>
+<ul>
+<li>逻辑地址 -&gt; 段号+页号+页内偏移量</li>
+<li>判断<strong>段号</strong>是否&lt;<strong>段表长度</strong></li>
+<li>查询段表，对应的<strong>段表项存放地址为=段表始址+段号x段表项长度</strong></li>
+<li>判断<strong>页号</strong>是否&lt;<strong>页表长度</strong></li>
+<li>根据<strong>页号</strong>找到对应页表项的<strong>内存块号</strong></li>
+<li>根据<strong>内存块号</strong>和<strong>页内偏移量</strong>找到最终物理地址</li>
+<li>访问内存单元</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/GHosmn3aYAArWke?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="21-虚拟内存的基本概念"><a class="markdownIt-Anchor" href="#21-虚拟内存的基本概念"></a> 2.1 虚拟内存的基本概念</h2>
+<p>传统存储管理的分类：</p>
+<ul>
+<li>连续分配
+<ul>
+<li>单一连续分配</li>
+<li>固定分区分配</li>
+<li>动态分区分配</li>
+</ul>
+</li>
+<li>非连续分配
+<ul>
+<li>基本分页存储管理</li>
+<li>基本分段存储管理</li>
+<li>基本段页式存储管理</li>
+</ul>
+</li>
+</ul>
+<p>传统存储管理特性：</p>
+<ul>
+<li><strong>一次性</strong>：作业必须一次性全部装入内存才能开始运行，会导致大作业慢，多道程序并发度下降</li>
+<li><strong>驻留性</strong>：作业装入内存就会一直驻留在内存中</li>
+</ul>
+<p>局部性原理：</p>
+<ul>
+<li><strong>时间局部性</strong>：程序中的某条指令执行不久后可能再次执行</li>
+<li><strong>空间局部性</strong>：程序访问了存储单元不久后很可能再次访问</li>
+</ul>
+<h3 id="虚拟内存的定义和特征"><a class="markdownIt-Anchor" href="#虚拟内存的定义和特征"></a> 虚拟内存的定义和特征</h3>
+<p>由于<strong>传统存储管理特性</strong>和<strong>局部性原理</strong>，提出了虚拟内存技术</p>
+<p>虚拟内存主要特征：</p>
+<ul>
+<li><strong>多次性</strong>：作业被分成多次调入内存</li>
+<li><strong>对换性</strong>：允许作业运行时作业换入和换出</li>
+<li><strong>虚拟性</strong>：用户可以看到的内存容量远大于实际的容量</li>
+</ul>
+<h3 id="虚拟内存技术的实现"><a class="markdownIt-Anchor" href="#虚拟内存技术的实现"></a> 虚拟内存技术的实现</h3>
+<p>虚拟内存技术实现的基础：<strong>离散分配</strong>的内存管理方式</p>
+<p>虚拟内存技术实现的分类：</p>
+<ul>
+<li>请求分页存储管理</li>
+<li>请求分段存储管理</li>
+<li>请求段页式存储管理</li>
+</ul>
+<p>操作系统需要提供：</p>
+<ul>
+<li>请求调页</li>
+<li>置换调页</li>
+</ul>
+<br>
+<h2 id="22-请求分页管理方式"><a class="markdownIt-Anchor" href="#22-请求分页管理方式"></a> 2.2 请求分页管理方式</h2>
 
             
         </div>
@@ -991,10 +1181,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    634.7k
+                    636.2k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    40:18
+                    40:23
                 </div>
             
             
