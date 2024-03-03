@@ -25,12 +25,12 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    参考链接 4.1.1 OS之初识文件管理概念和功能   目录1. 文件管理系统概述  参考链接 目录 1.1 初识文件管理概念和功能 文件的属性 文件内的组织方式 文件间的组织方式 文件的基本功能 文件存放在外存 操">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  4.1.1 OS之初识文件管理概念和功能    目录 1. 文件管理系统概述  参考链接 目录 1.1 初识文件管理概念和功能  文件的属性 文件内的组织方式 文件间的组织方式 文件的基本功能 文件存放在外">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OS:Chapter04-Review">
 <meta property="og:url" content="https://abinzzz.github.io/2024/03/01/OS-Chapter04-Review/index.html">
 <meta property="og:site_name" content="布洛戈">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    参考链接 4.1.1 OS之初识文件管理概念和功能   目录1. 文件管理系统概述  参考链接 目录 1.1 初识文件管理概念和功能 文件的属性 文件内的组织方式 文件间的组织方式 文件的基本功能 文件存放在外存 操">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接  4.1.1 OS之初识文件管理概念和功能    目录 1. 文件管理系统概述  参考链接 目录 1.1 初识文件管理概念和功能  文件的属性 文件内的组织方式 文件间的组织方式 文件的基本功能 文件存放在外">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GHjQ1GDW0AAq1ex?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GHjWyrzWAAEUtqz?format=png&amp;name=900x900">
@@ -62,7 +62,7 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/GHlYMVVaMAABo09?format=png&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/GHlawCha4AAlVpn?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2024-03-01T01:21:29.000Z">
-<meta property="article:modified_time" content="2024-03-02T01:41:58.544Z">
+<meta property="article:modified_time" content="2024-03-02T14:14:19.209Z">
 <meta property="article:author" content="ab">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="4">
@@ -232,144 +232,150 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-
-
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
+<ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43914604/article/details/106276876">4.1.1 OS之初识文件管理概念和功能</a></li>
 </ul>
-<p><br></p>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><a href="#1-文件管理系统概述">1. 文件管理系统概述</a></p>
+<br>
+<h2 id="目录"><a class="markdownIt-Anchor" href="#目录"></a> 目录</h2>
+<p><a href="#1-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0">1. 文件管理系统概述</a></p>
 <ul>
-<li><a href="#参考链接">参考链接</a></li>
-<li><a href="#目录">目录</a></li>
-<li><a href="#11-初识文件管理概念和功能">1.1 初识文件管理概念和功能</a><ul>
-<li><a href="#文件的属性">文件的属性</a></li>
-<li><a href="#文件内的组织方式">文件内的组织方式</a></li>
-<li><a href="#文件间的组织方式">文件间的组织方式</a></li>
-<li><a href="#文件的基本功能">文件的基本功能</a></li>
-<li><a href="#文件存放在外存">文件存放在外存</a></li>
-<li><a href="#操作系统实现的文件管理功能">操作系统实现的文件管理功能</a></li>
-</ul>
-</li>
-<li><a href="#12-文件逻辑结构">1.2 文件逻辑结构</a><ul>
-<li><a href="#无结构文件">无结构文件</a></li>
-<li><a href="#有结构文件">有结构文件</a></li>
-<li><a href="#有结构文件顺序文件">有结构文件：顺序文件</a></li>
-<li><a href="#有结构文件索引文件">有结构文件：索引文件</a></li>
-<li><a href="#有结构文件索引顺序文件">有结构文件：索引顺序文件</a></li>
-</ul>
-</li>
-<li><a href="#13-文件目录目录结构">1.3 文件目录目录结构</a><ul>
-<li><a href="#文件控制块">文件控制块</a></li>
-<li><a href="#单级目录结构">单级目录结构</a></li>
-<li><a href="#两级目录结构">两级目录结构</a></li>
-<li><a href="#多级目录结构树形目录结构">多级目录结构(树形目录结构)</a></li>
-<li><a href="#无环图目录结构">无环图目录结构</a></li>
-<li><a href="#fcb的改进">FCB的改进</a></li>
-</ul>
-</li>
-<li><a href="#14-文件的物理结构">1.4 文件的物理结构</a><ul>
-<li><a href="#文件块与磁盘块">文件块与磁盘块</a></li>
-<li><a href="#连续分配">连续分配</a></li>
-<li><a href="#链接分配">链接分配</a></li>
-<li><a href="#索引分配">索引分配</a></li>
-<li><a href="#对比总结">对比总结</a></li>
-</ul>
-</li>
-<li><a href="#15-空闲磁盘块的几种算法">1.5 空闲磁盘块的几种算法</a><ul>
-<li><a href="#存储空间的划分与初始化">存储空间的划分与初始化</a></li>
-<li><a href="#空闲表法">空闲表法</a></li>
-<li><a href="#空闲链表法">空闲链表法</a></li>
-<li><a href="#位示图法">位示图法</a></li>
-<li><a href="#成组链接法">成组链接法</a></li>
-</ul>
-</li>
-<li><a href="#16-文件的基本操作原理">1.6 文件的基本操作原理</a><ul>
-<li><a href="#创建文件">创建文件</a></li>
-<li><a href="#删除文件">删除文件</a></li>
-<li><a href="#打开文件">打开文件</a></li>
-<li><a href="#关闭文件">关闭文件</a></li>
-<li><a href="#读文件">读文件</a></li>
-<li><a href="#写文件">写文件</a></li>
-</ul>
-</li>
-<li><a href="#17-文件共享与复制不同">1.7 文件共享(与复制不同)</a><ul>
-<li><a href="#硬链接">硬链接</a></li>
-<li><a href="#软链接">软链接</a></li>
-</ul>
-</li>
-<li><a href="#18-文件保护">1.8 文件保护</a><ul>
-<li><a href="#口令保护">口令保护</a></li>
-<li><a href="#加密保护">加密保护</a></li>
-<li><a href="#访问控制">访问控制</a></li>
-</ul>
-</li>
-<li><a href="#19-文件系统的层次结构">1.9 文件系统的层次结构</a></li>
-<li><a href="#21-磁盘的结构">2.1 磁盘的结构</a><ul>
-<li><a href="#磁盘磁道扇区">磁盘、磁道、扇区</a></li>
-</ul>
-</li>
-<li><a href="#如何读写数据">如何读写数据</a><ul>
-<li><a href="#盘面柱面">盘面、柱面</a></li>
-<li><a href="#磁盘分类">磁盘分类</a></li>
-</ul>
-</li>
-<li><a href="#22-磁盘调度算法">2.2 磁盘调度算法</a><ul>
-<li><a href="#一次磁盘读写操作需要的时间">一次磁盘读写操作需要的时间</a></li>
-<li><a href="#先来先服务">先来先服务</a></li>
-<li><a href="#最短寻找时间优先算法">最短寻找时间优先算法</a></li>
-<li><a href="#扫描算法">扫描算法</a></li>
-<li><a href="#look算法">LOOK算法</a></li>
-<li><a href="#循环扫描算法c-scan">循环扫描算法C-SCAN</a></li>
-<li><a href="#c-look算法">C-LOOK算法</a></li>
-</ul>
-</li>
-<li><a href="#42-磁盘管理">4.2 磁盘管理</a><ul>
-<li><a href="#磁盘初始化">磁盘初始化</a></li>
-<li><a href="#引导块">引导块</a></li>
-<li><a href="#坏块的管理">坏块的管理</a></li>
-</ul>
-</li>
-<li><a href="#23-减少磁盘延迟时间的方法">2.3 减少磁盘延迟时间的方法</a><ul>
-<li><a href="#交替编号">交替编号</a></li>
-<li><a href="#磁盘地址结构设计">磁盘地址结构设计</a></li>
-<li><a href="#错位命名">错位命名</a></li>
-</ul>
-</li>
-</ul>
-<p><a href="#2-磁盘管理">2. 磁盘管理</a></p>
+<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#11-%E5%88%9D%E8%AF%86%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8A%9F%E8%83%BD">1.1 初识文件管理概念和功能</a>
 <ul>
-<li><a href="#21-磁盘结构与基本概念">2.1 磁盘结构与基本概念</a><ul>
-<li><a href="#磁盘磁道扇区">磁盘、磁道、扇区</a></li>
-<li><a href="#盘面柱面">盘面、柱面</a></li>
-<li><a href="#磁盘分类">磁盘分类</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E7%9A%84%E5%B1%9E%E6%80%A7">文件的属性</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E5%86%85%E7%9A%84%E7%BB%84%E7%BB%87%E6%96%B9%E5%BC%8F">文件内的组织方式</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E9%97%B4%E7%9A%84%E7%BB%84%E7%BB%87%E6%96%B9%E5%BC%8F">文件间的组织方式</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD">文件的基本功能</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E5%AD%98%E6%94%BE%E5%9C%A8%E5%A4%96%E5%AD%98">文件存放在外存</a></li>
+<li><a href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD">操作系统实现的文件管理功能</a></li>
 </ul>
 </li>
-<li><a href="#22-磁盘调度算法">2.2 磁盘调度算法</a><ul>
-<li><a href="#先来先服务">先来先服务</a></li>
-<li><a href="#最短寻找时间优先">最短寻找时间优先</a></li>
-<li><a href="#扫描算法">扫描算法</a></li>
-<li><a href="#循环扫描算法">循环扫描算法</a></li>
-</ul>
-</li>
-<li><a href="#23-减少磁盘延迟时间的方法">2.3 减少磁盘延迟时间的方法</a><ul>
-<li><a href="#交替编号">交替编号</a></li>
-<li><a href="#磁盘地址结构设计">磁盘地址结构设计</a></li>
-<li><a href="#错位命名">错位命名</a></li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<h2 id="1-1-初识文件管理概念和功能"><a href="#1-1-初识文件管理概念和功能" class="headerlink" title="1.1 初识文件管理概念和功能"></a>1.1 初识文件管理概念和功能</h2><p>文件：一组有意义的信息/数据集合</p>
-<h3 id="文件的属性"><a href="#文件的属性" class="headerlink" title="文件的属性"></a>文件的属性</h3><p><strong>文件名</strong>：由用户决定，同目录下不许重名<br><strong>标识符</strong>：一个<strong>系统</strong>内的各文件标识符(<strong>唯一</strong>)<br><strong>类型</strong>：文件的类型<br><strong>位置</strong>：文件存放的路径(用户)、外存中的地址(系统)<br><strong>大小</strong><br><strong>创建时间</strong><br><strong>上次修改时间</strong><br><strong>文件所有者信息</strong><br><strong>保护信息</strong>：对文件进行保护的访问控制信息</p>
-<h3 id="文件内的组织方式"><a href="#文件内的组织方式" class="headerlink" title="文件内的组织方式"></a>文件内的组织方式</h3><p>文件的分类：</p>
+<li><a href="#12-%E6%96%87%E4%BB%B6%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84">1.2 文件逻辑结构</a>
 <ul>
-<li><strong>无结构文件/流式文件</strong>：由一些二进制或字符流组成   </li>
-<li><strong>有结构文件/记录式文件</strong>：由一组相似的记录组成  </li>
+<li><a href="#%E6%97%A0%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6">无结构文件</a></li>
+<li><a href="#%E6%9C%89%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6">有结构文件</a></li>
+<li><a href="#%E6%9C%89%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E9%A1%BA%E5%BA%8F%E6%96%87%E4%BB%B6">有结构文件：顺序文件</a></li>
+<li><a href="#%E6%9C%89%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E7%B4%A2%E5%BC%95%E6%96%87%E4%BB%B6">有结构文件：索引文件</a></li>
+<li><a href="#%E6%9C%89%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E7%B4%A2%E5%BC%95%E9%A1%BA%E5%BA%8F%E6%96%87%E4%BB%B6">有结构文件：索引顺序文件</a></li>
 </ul>
-<p><strong>数据项</strong>：文件系统中最基本的数据单位<br><strong>记录</strong>:一组相关数据项的集合</p>
-<h3 id="文件间的组织方式"><a href="#文件间的组织方式" class="headerlink" title="文件间的组织方式"></a>文件间的组织方式</h3><p>使用目录/文件夹<br>目录也是一种特殊的<strong>有结构文件</strong></p>
-<h3 id="文件的基本功能"><a href="#文件的基本功能" class="headerlink" title="文件的基本功能"></a>文件的基本功能</h3><ul>
+</li>
+<li><a href="#13-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">1.3 文件目录目录结构</a>
+<ul>
+<li><a href="#%E6%96%87%E4%BB%B6%E6%8E%A7%E5%88%B6%E5%9D%97">文件控制块</a></li>
+<li><a href="#%E5%8D%95%E7%BA%A7%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">单级目录结构</a></li>
+<li><a href="#%E4%B8%A4%E7%BA%A7%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">两级目录结构</a></li>
+<li><a href="#%E5%A4%9A%E7%BA%A7%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E6%A0%91%E5%BD%A2%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">多级目录结构(树形目录结构)</a></li>
+<li><a href="#%E6%97%A0%E7%8E%AF%E5%9B%BE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">无环图目录结构</a></li>
+<li><a href="#fcb%E7%9A%84%E6%94%B9%E8%BF%9B">FCB的改进</a></li>
+</ul>
+</li>
+<li><a href="#14-%E6%96%87%E4%BB%B6%E7%9A%84%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84">1.4 文件的物理结构</a>
+<ul>
+<li><a href="#%E6%96%87%E4%BB%B6%E5%9D%97%E4%B8%8E%E7%A3%81%E7%9B%98%E5%9D%97">文件块与磁盘块</a></li>
+<li><a href="#%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D">连续分配</a></li>
+<li><a href="#%E9%93%BE%E6%8E%A5%E5%88%86%E9%85%8D">链接分配</a></li>
+<li><a href="#%E7%B4%A2%E5%BC%95%E5%88%86%E9%85%8D">索引分配</a></li>
+<li><a href="#%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93">对比总结</a></li>
+</ul>
+</li>
+<li><a href="#15-%E7%A9%BA%E9%97%B2%E7%A3%81%E7%9B%98%E5%9D%97%E7%9A%84%E5%87%A0%E7%A7%8D%E7%AE%97%E6%B3%95">1.5 空闲磁盘块的几种算法</a>
+<ul>
+<li><a href="#%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E7%9A%84%E5%88%92%E5%88%86%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96">存储空间的划分与初始化</a></li>
+<li><a href="#%E7%A9%BA%E9%97%B2%E8%A1%A8%E6%B3%95">空闲表法</a></li>
+<li><a href="#%E7%A9%BA%E9%97%B2%E9%93%BE%E8%A1%A8%E6%B3%95">空闲链表法</a></li>
+<li><a href="#%E4%BD%8D%E7%A4%BA%E5%9B%BE%E6%B3%95">位示图法</a></li>
+<li><a href="#%E6%88%90%E7%BB%84%E9%93%BE%E6%8E%A5%E6%B3%95">成组链接法</a></li>
+</ul>
+</li>
+<li><a href="#16-%E6%96%87%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86">1.6 文件的基本操作原理</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6">创建文件</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6">删除文件</a></li>
+<li><a href="#%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6">打开文件</a></li>
+<li><a href="#%E5%85%B3%E9%97%AD%E6%96%87%E4%BB%B6">关闭文件</a></li>
+<li><a href="#%E8%AF%BB%E6%96%87%E4%BB%B6">读文件</a></li>
+<li><a href="#%E5%86%99%E6%96%87%E4%BB%B6">写文件</a></li>
+</ul>
+</li>
+<li><a href="#17-%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E4%B8%8E%E5%A4%8D%E5%88%B6%E4%B8%8D%E5%90%8C">1.7 文件共享(与复制不同)</a>
+<ul>
+<li><a href="#%E7%A1%AC%E9%93%BE%E6%8E%A5">硬链接</a></li>
+<li><a href="#%E8%BD%AF%E9%93%BE%E6%8E%A5">软链接</a></li>
+</ul>
+</li>
+<li><a href="#18-%E6%96%87%E4%BB%B6%E4%BF%9D%E6%8A%A4">1.8 文件保护</a>
+<ul>
+<li><a href="#%E5%8F%A3%E4%BB%A4%E4%BF%9D%E6%8A%A4">口令保护</a></li>
+<li><a href="#%E5%8A%A0%E5%AF%86%E4%BF%9D%E6%8A%A4">加密保护</a></li>
+<li><a href="#%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6">访问控制</a></li>
+</ul>
+</li>
+<li><a href="#19-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84">1.9 文件系统的层次结构</a></li>
+<li><a href="#21-%E7%A3%81%E7%9B%98%E7%9A%84%E7%BB%93%E6%9E%84">2.1 磁盘的结构</a>
+<ul>
+<li><a href="#%E7%A3%81%E7%9B%98%E7%A3%81%E9%81%93%E6%89%87%E5%8C%BA">磁盘、磁道、扇区</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A6%82%E4%BD%95%E8%AF%BB%E5%86%99%E6%95%B0%E6%8D%AE">如何读写数据</a>
+<ul>
+<li><a href="#%E7%9B%98%E9%9D%A2%E6%9F%B1%E9%9D%A2">盘面、柱面</a></li>
+<li><a href="#%E7%A3%81%E7%9B%98%E5%88%86%E7%B1%BB">磁盘分类</a></li>
+</ul>
+</li>
+<li><a href="#22-%E7%A3%81%E7%9B%98%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95">2.2 磁盘调度算法</a>
+<ul>
+<li><a href="#%E4%B8%80%E6%AC%A1%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C%E9%9C%80%E8%A6%81%E7%9A%84%E6%97%B6%E9%97%B4">一次磁盘读写操作需要的时间</a></li>
+<li><a href="#%E5%85%88%E6%9D%A5%E5%85%88%E6%9C%8D%E5%8A%A1">先来先服务</a></li>
+<li><a href="#%E6%9C%80%E7%9F%AD%E5%AF%BB%E6%89%BE%E6%97%B6%E9%97%B4%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95">最短寻找时间优先算法</a></li>
+<li><a href="#%E6%89%AB%E6%8F%8F%E7%AE%97%E6%B3%95">扫描算法</a></li>
+<li><a href="#look%E7%AE%97%E6%B3%95">LOOK算法</a></li>
+<li><a href="#%E5%BE%AA%E7%8E%AF%E6%89%AB%E6%8F%8F%E7%AE%97%E6%B3%95c-scan">循环扫描算法C-SCAN</a></li>
+<li><a href="#c-look%E7%AE%97%E6%B3%95">C-LOOK算法</a></li>
+</ul>
+</li>
+<li><a href="#42-%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86">4.2 磁盘管理</a>
+<ul>
+<li><a href="#%E7%A3%81%E7%9B%98%E5%88%9D%E5%A7%8B%E5%8C%96">磁盘初始化</a></li>
+<li><a href="#%E5%BC%95%E5%AF%BC%E5%9D%97">引导块</a></li>
+<li><a href="#%E5%9D%8F%E5%9D%97%E7%9A%84%E7%AE%A1%E7%90%86">坏块的管理</a></li>
+</ul>
+</li>
+<li><a href="#23-%E5%87%8F%E5%B0%91%E7%A3%81%E7%9B%98%E5%BB%B6%E8%BF%9F%E6%97%B6%E9%97%B4%E7%9A%84%E6%96%B9%E6%B3%95">2.3 减少磁盘延迟时间的方法</a>
+<ul>
+<li><a href="#%E4%BA%A4%E6%9B%BF%E7%BC%96%E5%8F%B7">交替编号</a></li>
+<li><a href="#%E7%A3%81%E7%9B%98%E5%9C%B0%E5%9D%80%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1">磁盘地址结构设计</a></li>
+<li><a href="#%E9%94%99%E4%BD%8D%E5%91%BD%E5%90%8D">错位命名</a></li>
+</ul>
+</li>
+</ul>
+<br>
+<h2 id="11-初识文件管理概念和功能"><a class="markdownIt-Anchor" href="#11-初识文件管理概念和功能"></a> 1.1 初识文件管理概念和功能</h2>
+<p>文件：一组有意义的信息/数据集合</p>
+<h3 id="文件的属性"><a class="markdownIt-Anchor" href="#文件的属性"></a> 文件的属性</h3>
+<p><strong>文件名</strong>：由用户决定，同目录下不许重名<br />
+<strong>标识符</strong>：一个<strong>系统</strong>内的各文件标识符(<strong>唯一</strong>)<br />
+<strong>类型</strong>：文件的类型<br />
+<strong>位置</strong>：文件存放的路径(用户)、外存中的地址(系统)<br />
+<strong>大小</strong><br />
+<strong>创建时间</strong><br />
+<strong>上次修改时间</strong><br />
+<strong>文件所有者信息</strong><br />
+<strong>保护信息</strong>：对文件进行保护的访问控制信息</p>
+<h3 id="文件内的组织方式"><a class="markdownIt-Anchor" href="#文件内的组织方式"></a> 文件内的组织方式</h3>
+<p>文件的分类：</p>
+<ul>
+<li><strong>无结构文件/流式文件</strong>：由一些二进制或字符流组成</li>
+<li><strong>有结构文件/记录式文件</strong>：由一组相似的记录组成</li>
+</ul>
+<p><strong>数据项</strong>：文件系统中最基本的数据单位<br />
+<strong>记录</strong>:一组相关数据项的集合</p>
+<h3 id="文件间的组织方式"><a class="markdownIt-Anchor" href="#文件间的组织方式"></a> 文件间的组织方式</h3>
+<p>使用目录/文件夹<br />
+目录也是一种特殊的<strong>有结构文件</strong></p>
+<h3 id="文件的基本功能"><a class="markdownIt-Anchor" href="#文件的基本功能"></a> 文件的基本功能</h3>
+<ul>
 <li>创建文件：create</li>
 <li>删除文件：delete</li>
 <li>读文件：read</li>
@@ -377,29 +383,40 @@
 <li>打开文件：open(read/write之前必须进行)</li>
 <li>关闭文件：close(read/write之后必须进行)</li>
 </ul>
-<h3 id="文件存放在外存"><a href="#文件存放在外存" class="headerlink" title="文件存放在外存"></a>文件存放在外存</h3><p><strong>块/磁盘块/物理块(外存)</strong>：文件分配存储单位，每个块相等且包含<strong>2的整数幂</strong>个地址<br>文件的逻辑地址：(逻辑块号，块内地址)<br>文件的物理地址：(物理块号，块内地址)<br>外存和内存的相同点：由一个个<strong>存储单元</strong>组成，每个存储单元可以存储一定量的数据且对应一个<strong>物理地址</strong></p>
-<h3 id="操作系统实现的文件管理功能"><a href="#操作系统实现的文件管理功能" class="headerlink" title="操作系统实现的文件管理功能"></a>操作系统实现的文件管理功能</h3><p><strong>文件共享</strong>：多个用户共享同一个文件<br><strong>文件保护</strong>：保证不同用户对文件由不同的操作权限  </p>
-<p><br></p>
-<h2 id="1-2-文件逻辑结构"><a href="#1-2-文件逻辑结构" class="headerlink" title="1.2 文件逻辑结构"></a>1.2 文件逻辑结构</h2><p>文件的<strong>逻辑结构</strong>：用户看来，文件内部的数据应该是如何组织起来<br>文件的<strong>物理结构</strong>：操作系统看来，文件的数据是如何存放在外存中的</p>
+<h3 id="文件存放在外存"><a class="markdownIt-Anchor" href="#文件存放在外存"></a> 文件存放在外存</h3>
+<p><strong>块/磁盘块/物理块(外存)</strong>：文件分配存储单位，每个块相等且包含<strong>2的整数幂</strong>个地址<br />
+文件的逻辑地址：(逻辑块号，块内地址)<br />
+文件的物理地址：(物理块号，块内地址)<br />
+外存和内存的相同点：由一个个<strong>存储单元</strong>组成，每个存储单元可以存储一定量的数据且对应一个<strong>物理地址</strong></p>
+<h3 id="操作系统实现的文件管理功能"><a class="markdownIt-Anchor" href="#操作系统实现的文件管理功能"></a> 操作系统实现的文件管理功能</h3>
+<p><strong>文件共享</strong>：多个用户共享同一个文件<br />
+<strong>文件保护</strong>：保证不同用户对文件由不同的操作权限</p>
+<br>
+<h2 id="12-文件逻辑结构"><a class="markdownIt-Anchor" href="#12-文件逻辑结构"></a> 1.2 文件逻辑结构</h2>
+<p>文件的<strong>逻辑结构</strong>：用户看来，文件内部的数据应该是如何组织起来<br />
+文件的<strong>物理结构</strong>：操作系统看来，文件的数据是如何存放在外存中的</p>
 <p>文件的逻辑结构分类：</p>
 <ul>
 <li>无结构文件</li>
-<li>有结构文件<ul>
+<li>有结构文件
+<ul>
 <li>顺序文件</li>
 <li>索引文件</li>
 <li>索引顺序文件</li>
 </ul>
 </li>
 </ul>
-<h3 id="无结构文件"><a href="#无结构文件" class="headerlink" title="无结构文件"></a>无结构文件</h3><p>无结构文件又称流式文件(例如.txt文件)，由一系列二进制或字符流组成，没有明显的结构特点，所以不探讨该文件的逻辑结构</p>
-<h3 id="有结构文件"><a href="#有结构文件" class="headerlink" title="有结构文件"></a>有结构文件</h3><p>有结构文件/记录式文件：一组相似记录组成<br>记录：若干数据项组成，每条记录又一个数据项可作为<strong>关键字</strong>(类比database中的primary key)</p>
+<h3 id="无结构文件"><a class="markdownIt-Anchor" href="#无结构文件"></a> 无结构文件</h3>
+<p>无结构文件又称流式文件(例如.txt文件)，由一系列二进制或字符流组成，没有明显的结构特点，所以不探讨该文件的逻辑结构</p>
+<h3 id="有结构文件"><a class="markdownIt-Anchor" href="#有结构文件"></a> 有结构文件</h3>
+<p>有结构文件/记录式文件：一组相似记录组成<br />
+记录：若干数据项组成，每条记录又一个数据项可作为<strong>关键字</strong>(类比database中的primary key)</p>
 <p>按照记录的长度进行分类：</p>
 <ul>
 <li>定长记录</li>
 <li>不定长记录</li>
 </ul>
 <p><strong>举例说明</strong>：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -430,8 +447,6 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -462,37 +477,44 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><br></p>
+<br>
 <p>按照逻辑结构分类：</p>
 <ul>
 <li>顺序文件</li>
 <li>索引文件</li>
 <li>索引顺序文件</li>
 </ul>
-<h3 id="有结构文件：顺序文件"><a href="#有结构文件：顺序文件" class="headerlink" title="有结构文件：顺序文件"></a>有结构文件：顺序文件</h3><p><strong>顺序文件</strong>：文件中的记录一个接一个顺序排序(逻辑上)<br><strong>链式存储(类比链表)</strong>：逻辑上相邻的记录物理上也相邻， <strong>无法随机存取</strong>，每次只能从第一个记录开始查找<br><strong>顺序存储(类比顺序表)</strong>：逻辑上相邻但物理上不一定相邻，变长无法随机存取，定长可以<strong>随机存取</strong>(记录长度为L，第i个记录存放的相对位置为i<em>L)；<strong>串结构</strong>无法快速找到关键字对应记录<em>*顺序结构</em></em>(按关键字排序)可以<br>缺点：增加/删除一个记录困难  </p>
-<p><img src="https://pbs.twimg.com/media/GHjQ1GDW0AAq1ex?format=jpg&amp;name=medium" alt=""></p>
-<h3 id="有结构文件：索引文件"><a href="#有结构文件：索引文件" class="headerlink" title="有结构文件：索引文件"></a>有结构文件：索引文件</h3><p>由于上面只有定长的顺序存储的顺序文件可以实现随机存取，但不定长的却无法解决，所以我们使用索引文件，每条记录对应一个索引，每个索引都是定长的，这样对于不定长的记录，就可以使用定长的顺序存储的顺序文件来进行随机存取啦</p>
+<h3 id="有结构文件顺序文件"><a class="markdownIt-Anchor" href="#有结构文件顺序文件"></a> 有结构文件：顺序文件</h3>
+<p><strong>顺序文件</strong>：文件中的记录一个接一个顺序排序(逻辑上)<br />
+<strong>链式存储(类比链表)</strong>：逻辑上相邻的记录物理上也相邻， <strong>无法随机存取</strong>，每次只能从第一个记录开始查找<br />
+<strong>顺序存储(类比顺序表)</strong>：逻辑上相邻但物理上不一定相邻，变长无法随机存取，定长可以<strong>随机存取</strong>(记录长度为L，第i个记录存放的相对位置为i*L)；<strong>串结构</strong>无法快速找到关键字对应记录<strong>顺序结构</strong>(按关键字排序)可以<br />
+缺点：增加/删除一个记录困难</p>
+<p><img src="https://pbs.twimg.com/media/GHjQ1GDW0AAq1ex?format=jpg&amp;name=medium" alt="" /></p>
+<h3 id="有结构文件索引文件"><a class="markdownIt-Anchor" href="#有结构文件索引文件"></a> 有结构文件：索引文件</h3>
+<p>由于上面只有定长的顺序存储的顺序文件可以实现随机存取，但不定长的却无法解决，所以我们使用索引文件，每条记录对应一个索引，每个索引都是定长的，这样对于不定长的记录，就可以使用定长的顺序存储的顺序文件来进行随机存取啦</p>
 <p>思想：记录不是定长，索引是定长的</p>
-<p><strong>索引表</strong>：定长记录的顺序文件，根据上面内容我们可以知道能快速找到第i个记录对应的索引项<br><img src="https://pbs.twimg.com/media/GHjWyrzWAAEUtqz?format=png&amp;name=900x900" alt=""></p>
-<h3 id="有结构文件：索引顺序文件"><a href="#有结构文件：索引顺序文件" class="headerlink" title="有结构文件：索引顺序文件"></a>有结构文件：索引顺序文件</h3><p>对于索引文件，每个记录对应一个索引表项，因此索引表会很大，存储空间利用率太低    </p>
+<p><strong>索引表</strong>：定长记录的顺序文件，根据上面内容我们可以知道能快速找到第i个记录对应的索引项<br />
+<img src="https://pbs.twimg.com/media/GHjWyrzWAAEUtqz?format=png&amp;name=900x900" alt="" /></p>
+<h3 id="有结构文件索引顺序文件"><a class="markdownIt-Anchor" href="#有结构文件索引顺序文件"></a> 有结构文件：索引顺序文件</h3>
+<p>对于索引文件，每个记录对应一个索引表项，因此索引表会很大，存储空间利用率太低</p>
 <p>索引顺序文件：索引文件+顺序文件，一组记录对应一个索引表项</p>
-<p><img src="https://pbs.twimg.com/media/GHjYdf1XsAEvwDp?format=png&amp;name=900x900" alt=""></p>
+<p><img src="https://pbs.twimg.com/media/GHjYdf1XsAEvwDp?format=png&amp;name=900x900" alt="" /></p>
 <p><strong>效率分析</strong>：</p>
 <ul>
-<li>顺序文件有10000个记录，从头顺序查找，平均需要查找<strong>5000</strong>个  </li>
+<li>顺序文件有10000个记录，从头顺序查找，平均需要查找<strong>5000</strong>个</li>
 <li>索引顺序文件10000=100x100，在100个索引表中找到分组，平均查找<strong>50</strong>次；在分组中顺序查找记录，平均需要查找<strong>50</strong>次，总的查找次数<strong>50+50=100</strong></li>
 </ul>
-<p><br></p>
-<h2 id="1-3-文件目录目录结构"><a href="#1-3-文件目录目录结构" class="headerlink" title="1.3 文件目录目录结构"></a>1.3 文件目录目录结构</h2><h3 id="文件控制块"><a href="#文件控制块" class="headerlink" title="文件控制块"></a>文件控制块</h3><p>文件控制块(FCB)：包含了文件的基本信息(<strong>文件名</strong>，<strong>物理地址</strong>，逻辑结构…),存取控制信息，使用信息；也实现了文件名与文件之间的映射，可以<strong>按名存取</strong></p>
-<div class="table-container">
+<br>
+<h2 id="13-文件目录目录结构"><a class="markdownIt-Anchor" href="#13-文件目录目录结构"></a> 1.3 文件目录目录结构</h2>
+<h3 id="文件控制块"><a class="markdownIt-Anchor" href="#文件控制块"></a> 文件控制块</h3>
+<p>文件控制块(FCB)：包含了文件的基本信息(<strong>文件名</strong>，<strong>物理地址</strong>，逻辑结构…),存取控制信息，使用信息；也实现了文件名与文件之间的映射，可以<strong>按名存取</strong></p>
 <table>
 <thead>
 <tr>
 <th>文件名</th>
 <th>类型</th>
 <th>格式化</th>
-<th>….</th>
+<th>…</th>
 <th>物理位置</th>
 </tr>
 </thead>
@@ -512,7 +534,7 @@
 <td>外存278号扇区</td>
 </tr>
 <tr>
-<td>……</td>
+<td>…</td>
 <td>…</td>
 <td>…</td>
 <td>…</td>
@@ -526,7 +548,7 @@
 <td>外存152号扇区</td>
 </tr>
 <tr>
-<td>……</td>
+<td>…</td>
 <td>…</td>
 <td>…</td>
 <td>…</td>
@@ -541,7 +563,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>目录的操作：</p>
 <ul>
 <li>搜索</li>
@@ -550,31 +571,39 @@
 <li>显示目录</li>
 <li>修改目录</li>
 </ul>
-<h3 id="单级目录结构"><a href="#单级目录结构" class="headerlink" title="单级目录结构"></a>单级目录结构</h3><p>单级目录结构，按名存取，不允许文件重名，但不适用与多用户OS<br><img src="https://pbs.twimg.com/media/GHjb8p6W4AAz_Qc?format=png&amp;name=small" alt=""></p>
-<h3 id="两级目录结构"><a href="#两级目录结构" class="headerlink" title="两级目录结构"></a>两级目录结构</h3><p>两级目录结构(多用户操作系统中可用，<strong>可以重名</strong>):</p>
+<h3 id="单级目录结构"><a class="markdownIt-Anchor" href="#单级目录结构"></a> 单级目录结构</h3>
+<p>单级目录结构，按名存取，不允许文件重名，但不适用与多用户OS<br />
+<img src="https://pbs.twimg.com/media/GHjb8p6W4AAz_Qc?format=png&amp;name=small" alt="" /></p>
+<h3 id="两级目录结构"><a class="markdownIt-Anchor" href="#两级目录结构"></a> 两级目录结构</h3>
+<p>两级目录结构(多用户操作系统中可用，<strong>可以重名</strong>):</p>
 <ul>
-<li>主文件目录  </li>
-<li>用户文件目录<br><img src="https://pbs.twimg.com/media/GHjciTkXIAA9m9I?format=png&amp;name=900x900" alt=""></li>
+<li>主文件目录</li>
+<li>用户文件目录<br />
+<img src="https://pbs.twimg.com/media/GHjciTkXIAA9m9I?format=png&amp;name=900x900" alt="" /></li>
 </ul>
-<h3 id="多级目录结构-树形目录结构"><a href="#多级目录结构-树形目录结构" class="headerlink" title="多级目录结构(树形目录结构)"></a>多级目录结构(树形目录结构)</h3><p>系统根据绝对路径一层一层地找到下一级目录<br><strong>当前目录+相对路径</strong>：解决每次都从根目录查找的低效问题<br><img src="https://pbs.twimg.com/media/GHjdQMyX0AAHwOU?format=jpg&amp;name=medium" alt=""></p>
-<h3 id="无环图目录结构"><a href="#无环图目录结构" class="headerlink" title="无环图目录结构"></a>无环图目录结构</h3><p>树形目录结构方便分类，但是不便于<strong>文件的分享</strong>，于是提出了<strong>无环图目录结构</strong></p>
+<h3 id="多级目录结构树形目录结构"><a class="markdownIt-Anchor" href="#多级目录结构树形目录结构"></a> 多级目录结构(树形目录结构)</h3>
+<p>系统根据绝对路径一层一层地找到下一级目录<br />
+<strong>当前目录+相对路径</strong>：解决每次都从根目录查找的低效问题<br />
+<img src="https://pbs.twimg.com/media/GHjdQMyX0AAHwOU?format=jpg&amp;name=medium" alt="" /></p>
+<h3 id="无环图目录结构"><a class="markdownIt-Anchor" href="#无环图目录结构"></a> 无环图目录结构</h3>
+<p>树形目录结构方便分类，但是不便于<strong>文件的分享</strong>，于是提出了<strong>无环图目录结构</strong></p>
 <p>改进点：</p>
 <ul>
 <li>不同文件名可以指向同一个文件/目录(称为共享节点)</li>
 <li>共享节点设置共享计数器：多少个地方在共享节点(不同于<strong>复制文件</strong>，一个用户更改了文件，其他用户也会看到变化)</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/GHjd87vXkAAbFjm?format=jpg&amp;name=medium" alt=""></p>
-<h3 id="FCB的改进"><a href="#FCB的改进" class="headerlink" title="FCB的改进"></a>FCB的改进</h3><p>思想：查找各级目录的时候只需要用到<strong>文件名</strong>，只有文件名匹配的时候，才需要读出文件的其他信息   </p>
+<p><img src="https://pbs.twimg.com/media/GHjd87vXkAAbFjm?format=jpg&amp;name=medium" alt="" /></p>
+<h3 id="fcb的改进"><a class="markdownIt-Anchor" href="#fcb的改进"></a> FCB的改进</h3>
+<p>思想：查找各级目录的时候只需要用到<strong>文件名</strong>，只有文件名匹配的时候，才需要读出文件的其他信息</p>
 <p>索引节点：存放除了<strong>文件名以外</strong>的文件描述信息，外存中叫<strong>磁盘索引节点</strong>，内存中叫<strong>内存索引节点</strong></p>
 <p>原FCB：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>文件名</th>
 <th>类型</th>
 <th>权限</th>
-<th>….</th>
+<th>…</th>
 <th>物理位置</th>
 </tr>
 </thead>
@@ -594,7 +623,7 @@
 <td>外存18号扇区</td>
 </tr>
 <tr>
-<td>……</td>
+<td>…</td>
 <td>…</td>
 <td>…</td>
 <td>…</td>
@@ -608,7 +637,7 @@
 <td><strong>外存643号扇区</strong></td>
 </tr>
 <tr>
-<td>……</td>
+<td>…</td>
 <td>…</td>
 <td>…</td>
 <td>…</td>
@@ -623,9 +652,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>改进后的FCB：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -643,7 +670,7 @@
 <td></td>
 </tr>
 <tr>
-<td>……</td>
+<td>…</td>
 <td>…</td>
 </tr>
 <tr>
@@ -651,36 +678,42 @@
 <td></td>
 </tr>
 <tr>
-<td>……</td>
+<td>…</td>
 <td>…</td>
 </tr>
 <tr>
 <td>对账单4.txt</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-</div>
-<p><br></p>
-<h2 id="1-4-文件的物理结构"><a href="#1-4-文件的物理结构" class="headerlink" title="1.4 文件的物理结构"></a>1.4 文件的物理结构</h2><p>文件的物理结构：</p>
+<br>
+<h2 id="14-文件的物理结构"><a class="markdownIt-Anchor" href="#14-文件的物理结构"></a> 1.4 文件的物理结构</h2>
+<p>文件的物理结构：</p>
 <ul>
 <li>连续分配</li>
-<li>链式分配<ul>
+<li>链式分配
+<ul>
 <li>隐式链接</li>
 <li>显示链接</li>
 </ul>
 </li>
 <li>索引分配</li>
 </ul>
-<h3 id="文件块与磁盘块"><a href="#文件块与磁盘块" class="headerlink" title="文件块与磁盘块"></a>文件块与磁盘块</h3><p>外存中也会分页，被分为一个个<strong>块/物理块/磁盘块</strong>(与内存块/页面大小相同)，是磁盘与内存的数据交换单位</p>
-<p><strong>文件块</strong>：文件的逻辑地址空间被分为一个个的块<br>文件的逻辑地址：逻辑块号+块内地址</p>
-<h3 id="连续分配"><a href="#连续分配" class="headerlink" title="连续分配"></a>连续分配</h3><p><strong>连续分配</strong>：每个文件在磁盘上占有一组连续的块，支持<strong>顺序访问和随机访问</strong><br>逻辑地址 -&gt; 物理地址：(<strong>逻辑块号</strong>，块内地址) -&gt; (<strong>物理块号</strong>，块内地址)<br><strong>物理块号</strong> = 起始块号 + <strong>逻辑块号</strong></p>
-<p><img src="https://pbs.twimg.com/media/GHjk3KLWkAA7bEl?format=png&amp;name=900x900" alt=""></p>
-<div class="table-container">
+<h3 id="文件块与磁盘块"><a class="markdownIt-Anchor" href="#文件块与磁盘块"></a> 文件块与磁盘块</h3>
+<p>外存中也会分页，被分为一个个<strong>块/物理块/磁盘块</strong>(与内存块/页面大小相同)，是磁盘与内存的数据交换单位</p>
+<p><strong>文件块</strong>：文件的逻辑地址空间被分为一个个的块<br />
+文件的逻辑地址：逻辑块号+块内地址</p>
+<h3 id="连续分配"><a class="markdownIt-Anchor" href="#连续分配"></a> 连续分配</h3>
+<p><strong>连续分配</strong>：每个文件在磁盘上占有一组连续的块，支持<strong>顺序访问和随机访问</strong><br />
+逻辑地址 -&gt; 物理地址：(<strong>逻辑块号</strong>，块内地址) -&gt; (<strong>物理块号</strong>，块内地址)<br />
+<strong>物理块号</strong> = 起始块号 + <strong>逻辑块号</strong></p>
+<p><img src="https://pbs.twimg.com/media/GHjk3KLWkAA7bEl?format=png&amp;name=900x900" alt="" /></p>
 <table>
 <thead>
 <tr>
 <th>文件名</th>
-<th>….</th>
+<th>…</th>
 <th>起始块号</th>
 <th>长度</th>
 </tr>
@@ -699,34 +732,35 @@
 <td>4</td>
 </tr>
 <tr>
-<td>……</td>
+<td>…</td>
 <td>…</td>
 <td>…</td>
 <td>…</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>优点：支持顺序和随机访问，顺序读写最快<br>缺点：物理上连续分配不方便拓展，存储空间利用率低，会产生碎片</p>
+<p>优点：支持顺序和随机访问，顺序读写最快<br />
+缺点：物理上连续分配不方便拓展，存储空间利用率低，会产生碎片</p>
 <p>为了解决该缺点，我们提出了<strong>链接分配</strong></p>
-<h3 id="链接分配"><a href="#链接分配" class="headerlink" title="链接分配"></a>链接分配</h3><p><strong>链接分配</strong>：采用离散分配的方式，可以将文件<br>链接分配的分类：</p>
+<h3 id="链接分配"><a class="markdownIt-Anchor" href="#链接分配"></a> 链接分配</h3>
+<p><strong>链接分配</strong>：采用离散分配的方式，可以将文件<br />
+链接分配的分类：</p>
 <ul>
 <li>隐式链接</li>
 <li>显示链接</li>
 </ul>
 <p><strong>隐式链接</strong>：</p>
 <ul>
-<li>增加了<strong>结束块号</strong>  </li>
+<li>增加了<strong>结束块号</strong></li>
 <li>除了最后一个磁盘块，每个磁盘块都会保存指向下一个磁盘块的指针(用户可见)</li>
 <li>优点：空闲磁盘块充分利用，方便拓展</li>
 <li>缺点：只支持顺序访问，<strong>不可随机访问</strong></li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>文件名</th>
-<th>….</th>
+<th>…</th>
 <th>起始块号</th>
 <th>结束块号</th>
 </tr>
@@ -740,8 +774,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><img src="https://pbs.twimg.com/media/GHjne3LXgAAnPGK?format=png&amp;name=small" alt=""></p>
+<p><img src="https://pbs.twimg.com/media/GHjne3LXgAAnPGK?format=png&amp;name=small" alt="" /></p>
 <p><strong>显示链接</strong>：</p>
 <ul>
 <li>目录现在只有起始块号</li>
@@ -750,12 +783,11 @@
 <li>缺点：FAT需要占空间</li>
 </ul>
 <p>目录：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>文件名</th>
-<th>….</th>
+<th>…</th>
 <th>起始块号</th>
 </tr>
 </thead>
@@ -772,9 +804,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>FAT：一个磁盘仅一张FAT，常驻内存</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -808,7 +838,7 @@
 <td>0</td>
 </tr>
 <tr>
-<td>……</td>
+<td>…</td>
 <td>…</td>
 </tr>
 <tr>
@@ -821,12 +851,16 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><img src="https://pbs.twimg.com/media/GHjpHPFW0AAXtYE?format=png&amp;name=small" alt=""></p>
-<h3 id="索引分配"><a href="#索引分配" class="headerlink" title="索引分配"></a>索引分配</h3><p>索引分配：允许文件分散地在各个磁盘中，<strong>每个文件建一张索引表</strong><br><strong>索引表</strong>：记录文件各个逻辑块对应的物理块<br><strong>索引块</strong>：索引表存放的磁盘块<br><strong>数据块</strong>：文件数据存放的磁盘块<br><strong>索引表 VS FAT</strong>: 索引表是一个文件对应一个，FAT是一个磁盘对应一个</p>
-<p>优点：支持随机访问，文件拓展也容易实现<br>缺点：索引表占空间  </p>
+<p><img src="https://pbs.twimg.com/media/GHjpHPFW0AAXtYE?format=png&amp;name=small" alt="" /></p>
+<h3 id="索引分配"><a class="markdownIt-Anchor" href="#索引分配"></a> 索引分配</h3>
+<p>索引分配：允许文件分散地在各个磁盘中，<strong>每个文件建一张索引表</strong><br />
+<strong>索引表</strong>：记录文件各个逻辑块对应的物理块<br />
+<strong>索引块</strong>：索引表存放的磁盘块<br />
+<strong>数据块</strong>：文件数据存放的磁盘块<br />
+<strong>索引表 VS FAT</strong>: 索引表是一个文件对应一个，FAT是一个磁盘对应一个</p>
+<p>优点：支持随机访问，文件拓展也容易实现<br />
+缺点：索引表占空间</p>
 <p>目录：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -848,9 +882,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>文件aaa的索引表：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -877,19 +909,21 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><img src="https://pbs.twimg.com/media/GHju-SeWIAAPEpI?format=png&amp;name=small" alt=""></p>
+<p><img src="https://pbs.twimg.com/media/GHju-SeWIAAPEpI?format=png&amp;name=small" alt="" /></p>
 <p>数据太大，索引表无法装下：</p>
 <ul>
 <li>方案1:链接方案</li>
 <li>方案2:多层索引</li>
-<li>方案3:混和索引  </li>
+<li>方案3:混和索引</li>
 </ul>
-<p><br></p>
-<p><strong>链接方案</strong>：多个索引块链接起来存放,<strong>低效</strong><br><img src="https://pbs.twimg.com/media/GHjwSTqXAAA40uC?format=jpg&amp;name=medium" alt=""></p>
-<p><strong>多层索引</strong>：建立多层索引(类比<strong>多级页表</strong>)，但<strong>各层索引表大小不能超过一个磁盘块</strong><br><img src="https://pbs.twimg.com/media/GHjwsM1W4AAff0c?format=png&amp;name=900x900" alt=""></p>
-<p><strong>混和索引</strong>：多种索引分配方式结合,顶级索引表中包含<strong>直接地址索引</strong>，<strong>一级间接索引</strong>，<strong>二级间接索引</strong><br><img src="https://pbs.twimg.com/media/GHjxUv1XcAAeX7M?format=jpg&amp;name=medium" alt=""></p>
-<h3 id="对比总结"><a href="#对比总结" class="headerlink" title="对比总结"></a>对比总结</h3><div class="table-container">
+<br>
+<p><strong>链接方案</strong>：多个索引块链接起来存放,<strong>低效</strong><br />
+<img src="https://pbs.twimg.com/media/GHjwSTqXAAA40uC?format=jpg&amp;name=medium" alt="" /></p>
+<p><strong>多层索引</strong>：建立多层索引(类比<strong>多级页表</strong>)，但<strong>各层索引表大小不能超过一个磁盘块</strong><br />
+<img src="https://pbs.twimg.com/media/GHjwsM1W4AAff0c?format=png&amp;name=900x900" alt="" /></p>
+<p><strong>混和索引</strong>：多种索引分配方式结合,顶级索引表中包含<strong>直接地址索引</strong>，<strong>一级间接索引</strong>，<strong>二级间接索引</strong><br />
+<img src="https://pbs.twimg.com/media/GHjxUv1XcAAeX7M?format=jpg&amp;name=medium" alt="" /></p>
+<h3 id="对比总结"><a class="markdownIt-Anchor" href="#对比总结"></a> 对比总结</h3>
 <table>
 <thead>
 <tr>
@@ -931,13 +965,14 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><br></p>
-<h2 id="1-5-空闲磁盘块的几种算法"><a href="#1-5-空闲磁盘块的几种算法" class="headerlink" title="1.5 空闲磁盘块的几种算法"></a>1.5 空闲磁盘块的几种算法</h2><p>磁盘可以分为非空闲磁盘块和空闲磁盘块，上面已经对<strong>非空闲磁盘块</strong>的管理方式(文件的物理结构)进行了介绍，下面就来介绍对<strong>空闲磁盘块</strong>的管理方式</p>
+<br>
+<h2 id="15-空闲磁盘块的几种算法"><a class="markdownIt-Anchor" href="#15-空闲磁盘块的几种算法"></a> 1.5 空闲磁盘块的几种算法</h2>
+<p>磁盘可以分为非空闲磁盘块和空闲磁盘块，上面已经对<strong>非空闲磁盘块</strong>的管理方式(文件的物理结构)进行了介绍，下面就来介绍对<strong>空闲磁盘块</strong>的管理方式</p>
 <p>空闲磁盘块管理方法的分类：</p>
 <ul>
 <li>空闲表法</li>
-<li>空闲链表法<ul>
+<li>空闲链表法
+<ul>
 <li>空闲盘块链</li>
 <li>空闲盘区链</li>
 </ul>
@@ -945,8 +980,11 @@
 <li>位示图法</li>
 <li>成组链接法</li>
 </ul>
-<h3 id="存储空间的划分与初始化"><a href="#存储空间的划分与初始化" class="headerlink" title="存储空间的划分与初始化"></a>存储空间的划分与初始化</h3><p>磁盘需要<strong>分区</strong>：C:盘、D:盘、E:盘(文件卷C，D，E)…<br>存储空间初始化(各个文件卷划分):目录区和文件区   </p>
-<h3 id="空闲表法"><a href="#空闲表法" class="headerlink" title="空闲表法"></a>空闲表法</h3><p>适用：连续分配方式  </p>
+<h3 id="存储空间的划分与初始化"><a class="markdownIt-Anchor" href="#存储空间的划分与初始化"></a> 存储空间的划分与初始化</h3>
+<p>磁盘需要<strong>分区</strong>：C:盘、D:盘、E:盘(文件卷C，D，E)…<br />
+存储空间初始化(各个文件卷划分):目录区和文件区</p>
+<h3 id="空闲表法"><a class="markdownIt-Anchor" href="#空闲表法"></a> 空闲表法</h3>
+<p>适用：连续分配方式</p>
 <p>分配方法：与<strong>动态分区分配</strong>类似，为一个文件分配连续的存储空间，同样可使用<strong>首次适应，最佳适应，最坏适应</strong>等…</p>
 <p>回收方法：与<strong>动态分区分配</strong>类似，回收有四种情况：</p>
 <ul>
@@ -955,36 +993,57 @@
 <li>前面是空闲区</li>
 <li>后面是空闲区</li>
 </ul>
-<h3 id="空闲链表法"><a href="#空闲链表法" class="headerlink" title="空闲链表法"></a>空闲链表法</h3><p>空闲链表法分类：</p>
+<h3 id="空闲链表法"><a class="markdownIt-Anchor" href="#空闲链表法"></a> 空闲链表法</h3>
+<p>空闲链表法分类：</p>
 <ul>
 <li>空闲盘块链：<strong>盘块</strong>为单位</li>
 <li>空闲盘曲链：<strong>盘区</strong>为单位</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/GHkpkH5WkAAMVrn?format=jpg&amp;name=medium" alt=""></p>
-<p><br></p>
-<p><strong>空闲盘块链</strong>：OS保存<strong>链头链尾</strong>指针<br>适用：<strong>离散分配</strong>的物理结构<br>分配：申请K个盘块，则从链头开始依次摘K个盘块分配，修改链头指针<br>回收：挂到链尾，修改链尾指针   </p>
-<p><strong>空闲盘区链</strong>：OS保存<strong>链头链尾</strong>指针<br>适用：离散、连续都适用<br>分配：申请K个盘块，采用<strong>首次适应，最佳适应，最坏适应</strong>等找到一个符合大小的空闲分区<br>回收分两种情况：</p>
+<p><img src="https://pbs.twimg.com/media/GHkpkH5WkAAMVrn?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p><strong>空闲盘块链</strong>：OS保存<strong>链头链尾</strong>指针<br />
+适用：<strong>离散分配</strong>的物理结构<br />
+分配：申请K个盘块，则从链头开始依次摘K个盘块分配，修改链头指针<br />
+回收：挂到链尾，修改链尾指针</p>
+<p><strong>空闲盘区链</strong>：OS保存<strong>链头链尾</strong>指针<br />
+适用：离散、连续都适用<br />
+分配：申请K个盘块，采用<strong>首次适应，最佳适应，最坏适应</strong>等找到一个符合大小的空闲分区<br />
+回收分两种情况：</p>
 <ul>
 <li>回收区和空闲盘区相邻，合并</li>
-<li>不相邻，回收区单独作为空闲盘区挂到链尾   </li>
+<li>不相邻，回收区单独作为空闲盘区挂到链尾</li>
 </ul>
-<h3 id="位示图法"><a href="#位示图法" class="headerlink" title="位示图法"></a>位示图法</h3><p>位示图：每个二进制位对应一个盘块,0是空闲，1是已分配<br>盘块号 = 字长 x 字号 + 位号<br>b号盘对应的字号=b/字长，位号b%字长<br>分配：顺序扫描扎到K个相邻/不相邻的0，<strong>根据字号、位号推算出盘块号</strong>，分配给文件后<strong>设置为1</strong><br>回收：根据回收的<strong>盘块号计算字号、位号</strong>，<strong>设置为0</strong></p>
-<p><img src="https://pbs.twimg.com/media/GHkrkMLXEAATH-8?format=jpg&amp;name=medium" alt=""><br><img src="https://pbs.twimg.com/media/GHkrn1QXgAAnigB?format=png&amp;name=900x900" alt=""></p>
-<h3 id="成组链接法"><a href="#成组链接法" class="headerlink" title="成组链接法"></a>成组链接法</h3><p>由于前面的方法不适用于<strong>大型文件系统</strong>，于是我们使用成组链接法<br>文件卷的<strong>目录区</strong>专门有一个磁盘块作为<strong>超级块</strong>，超级块要被<strong>读入内存</strong>且内外存中要一致  </p>
-<p>分配：检查第一个分组是否足够，足够则修改第一个分组中的空闲块数，更新超级块的信息指向新的空闲块组和空闲块<br>回收：类似链表头插法<br><img src="https://pbs.twimg.com/media/GHkt-J5XsAAiixT?format=jpg&amp;name=medium" alt=""></p>
-<p><br></p>
-<h2 id="1-6-文件的基本操作原理"><a href="#1-6-文件的基本操作原理" class="headerlink" title="1.6 文件的基本操作原理"></a>1.6 文件的基本操作原理</h2><h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><p>Create系统调用(外存空间大小，文件存放路径，文件名)：</p>
+<h3 id="位示图法"><a class="markdownIt-Anchor" href="#位示图法"></a> 位示图法</h3>
+<p>位示图：每个二进制位对应一个盘块,0是空闲，1是已分配<br />
+盘块号 = 字长 x 字号 + 位号<br />
+b号盘对应的字号=b/字长，位号b%字长<br />
+分配：顺序扫描扎到K个相邻/不相邻的0，<strong>根据字号、位号推算出盘块号</strong>，分配给文件后<strong>设置为1</strong><br />
+回收：根据回收的<strong>盘块号计算字号、位号</strong>，<strong>设置为0</strong></p>
+<p><img src="https://pbs.twimg.com/media/GHkrkMLXEAATH-8?format=jpg&amp;name=medium" alt="" /><br />
+<img src="https://pbs.twimg.com/media/GHkrn1QXgAAnigB?format=png&amp;name=900x900" alt="" /></p>
+<h3 id="成组链接法"><a class="markdownIt-Anchor" href="#成组链接法"></a> 成组链接法</h3>
+<p>由于前面的方法不适用于<strong>大型文件系统</strong>，于是我们使用成组链接法<br />
+文件卷的<strong>目录区</strong>专门有一个磁盘块作为<strong>超级块</strong>，超级块要被<strong>读入内存</strong>且内外存中要一致</p>
+<p>分配：检查第一个分组是否足够，足够则修改第一个分组中的空闲块数，更新超级块的信息指向新的空闲块组和空闲块<br />
+回收：类似链表头插法<br />
+<img src="https://pbs.twimg.com/media/GHkt-J5XsAAiixT?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="16-文件的基本操作原理"><a class="markdownIt-Anchor" href="#16-文件的基本操作原理"></a> 1.6 文件的基本操作原理</h2>
+<h3 id="创建文件"><a class="markdownIt-Anchor" href="#创建文件"></a> 创建文件</h3>
+<p>Create系统调用(外存空间大小，文件存放路径，文件名)：</p>
 <ul>
-<li>外存中找到文件所需空间(1.5节中的空闲磁盘块算法)  </li>
+<li>外存中找到文件所需空间(1.5节中的空闲磁盘块算法)</li>
 <li>通过路径找到目录文件，目录中创建该文件对应的<strong>目录项</strong>(包含FCB)</li>
 </ul>
-<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>Delete系统调用(路径，文件名)</p>
+<h3 id="删除文件"><a class="markdownIt-Anchor" href="#删除文件"></a> 删除文件</h3>
+<p>Delete系统调用(路径，文件名)</p>
 <ul>
-<li>路径找目录文件，目录中找到<strong>文件名对应的目录项</strong>   </li>
+<li>路径找目录文件，目录中找到<strong>文件名对应的目录项</strong></li>
 <li>回收磁盘块(上一小节)</li>
 <li>删除文件对应的目录项</li>
 </ul>
-<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><p>open(路径，文件名，操作类型)</p>
+<h3 id="打开文件"><a class="markdownIt-Anchor" href="#打开文件"></a> 打开文件</h3>
+<p>open(路径，文件名，操作类型)</p>
 <ul>
 <li>找到文件名对应的目录项</li>
 <li>目录项复制到内存中的<strong>打开文件表</strong>中，使用<strong>打开文件表的编号来指明要操作的文件</strong></li>
@@ -994,47 +1053,109 @@
 <li>系统打开文件夹</li>
 <li>进程打开文件夹</li>
 </ul>
-<p><strong>系统打开文件夹</strong>：<br><img src="https://pbs.twimg.com/media/GHk2aKaa0AA9fVu?format=png&amp;name=900x900" alt=""></p>
-<p><strong>进程打开文件夹</strong>：<br><img src="https://pbs.twimg.com/media/GHk2cf4bkAALPHN?format=png&amp;name=small" alt=""></p>
-<h3 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h3><p>close</p>
+<p><strong>系统打开文件夹</strong>：<br />
+<img src="https://pbs.twimg.com/media/GHk2aKaa0AA9fVu?format=png&amp;name=900x900" alt="" /></p>
+<p><strong>进程打开文件夹</strong>：<br />
+<img src="https://pbs.twimg.com/media/GHk2cf4bkAALPHN?format=png&amp;name=small" alt="" /></p>
+<h3 id="关闭文件"><a class="markdownIt-Anchor" href="#关闭文件"></a> 关闭文件</h3>
+<p>close</p>
 <ul>
 <li><strong>进程打开文件表中相应的表项</strong>删除</li>
 <li>回收内存空间</li>
 <li>系统打开计数器count-1，=0则删除表项</li>
 </ul>
-<h3 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h3><p>read(文件，数据，放到内存中的位置)：从<strong>读指针</strong>指向的<strong>外存</strong>中将用户指定大小的数据读入用户制定的<strong>内存</strong>中</p>
-<h3 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h3><p>write(文件，数据，放到内存中的位置)：从用户指定的<strong>内存</strong>中，将指定大小的数据写回到<strong>写指针指向的外存</strong>   </p>
-<p><br></p>
-<h2 id="1-7-文件共享-与复制不同"><a href="#1-7-文件共享-与复制不同" class="headerlink" title="1.7 文件共享(与复制不同)"></a>1.7 文件共享(与复制不同)</h2><p>文件共享：</p>
+<h3 id="读文件"><a class="markdownIt-Anchor" href="#读文件"></a> 读文件</h3>
+<p>read(文件，数据，放到内存中的位置)：从<strong>读指针</strong>指向的<strong>外存</strong>中将用户指定大小的数据读入用户制定的<strong>内存</strong>中</p>
+<h3 id="写文件"><a class="markdownIt-Anchor" href="#写文件"></a> 写文件</h3>
+<p>write(文件，数据，放到内存中的位置)：从用户指定的<strong>内存</strong>中，将指定大小的数据写回到<strong>写指针指向的外存</strong></p>
+<br>
+<h2 id="17-文件共享与复制不同"><a class="markdownIt-Anchor" href="#17-文件共享与复制不同"></a> 1.7 文件共享(与复制不同)</h2>
+<p>文件共享：</p>
 <ul>
 <li>硬链接(索引结点)</li>
 <li>软链接(符号链)</li>
 </ul>
-<h3 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h3><p>索引结点：由于检索文件的时候只需要用到<strong>文件名</strong>，因此将文件名以外的信息放到索引结点中</p>
-<p>索引结点中设置一个链接计数变量count：<strong>链接到本索引结点上的用户目录项数</strong>  </p>
+<h3 id="硬链接"><a class="markdownIt-Anchor" href="#硬链接"></a> 硬链接</h3>
+<p>索引结点：由于检索文件的时候只需要用到<strong>文件名</strong>，因此将文件名以外的信息放到索引结点中</p>
+<p>索引结点中设置一个链接计数变量count：<strong>链接到本索引结点上的用户目录项数</strong></p>
 <ul>
-<li>count=2:说明有两个用户目录项连接到该索引结点上  </li>
+<li>count=2:说明有两个用户目录项连接到该索引结点上</li>
 <li>count&gt;0:有人要用文件</li>
 <li>count=0:系统删除文件</li>
 </ul>
-<h3 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h3><p>Link型文件记录了文件的存放路径(类似于Windows中的<strong>快捷方式</strong>)</p>
-<p>系统访问”ccc“时候，操作系统判断文件”ccc“属于link类型文件，于是根据记录中的路径层层查找，找到”aaa”项于是就找到了文件的索引结点   </p>
-<p><br></p>
-<h2 id="1-8-文件保护"><a href="#1-8-文件保护" class="headerlink" title="1.8 文件保护"></a>1.8 文件保护</h2><p>文件保护分类：</p>
+<h3 id="软链接"><a class="markdownIt-Anchor" href="#软链接"></a> 软链接</h3>
+<p>Link型文件记录了文件的存放路径(类似于Windows中的<strong>快捷方式</strong>)</p>
+<p>系统访问”ccc“时候，操作系统判断文件”ccc“属于link类型文件，于是根据记录中的路径层层查找，找到&quot;aaa&quot;项于是就找到了文件的索引结点</p>
+<br>
+<h2 id="18-文件保护"><a class="markdownIt-Anchor" href="#18-文件保护"></a> 1.8 文件保护</h2>
+<p>文件保护分类：</p>
 <ul>
 <li>口令保护</li>
 <li>加密保护</li>
 <li>访问控制</li>
 </ul>
-<h3 id="口令保护"><a href="#口令保护" class="headerlink" title="口令保护"></a>口令保护</h3><p>为文件设置一个<strong>口令</strong>，用户请求访问该文件必须提供<strong>口令</strong><br>口令存放位置：FCB</p>
-<p>优点：时空开销小<br>缺点：口令放在系统内部，不够安全</p>
-<h3 id="加密保护"><a href="#加密保护" class="headerlink" title="加密保护"></a>加密保护</h3><p>访问文件时候，需要提供正确的密码仓能看到文件的正确解密 </p>
-<p>优点：保密性强<br>缺点：编码/译码花费时间  </p>
-<p><img src="https://pbs.twimg.com/media/GHk7SrcaoAAse5P?format=jpg&amp;name=medium" alt=""></p>
-<h3 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h3><p>FCB/索引结点中增加一个访问控制列表(ACL),该表记录用户可以对文件执行哪些操作  </p>
-<p>举例如下：<br>|        | 完全控制 | 执行 | 修改 | 读取 | 写入 |<br>|————|—————|———|———|———|———|<br>| 系统管理员 | 1        | 1    | 1    | 1    | 1    |<br>| 文件主 | 0        | 1    | 1    | 1    | 1    |<br>| 文件主的伙伴 | 0        | 1    | 0    | 0    | 0    |<br>| 其他用户 | 0        | 0    | 0    | 0    | 0    |</p>
-<p><br></p>
-<h2 id="1-9-文件系统的层次结构"><a href="#1-9-文件系统的层次结构" class="headerlink" title="1.9 文件系统的层次结构"></a>1.9 文件系统的层次结构</h2><ul>
+<h3 id="口令保护"><a class="markdownIt-Anchor" href="#口令保护"></a> 口令保护</h3>
+<p>为文件设置一个<strong>口令</strong>，用户请求访问该文件必须提供<strong>口令</strong><br />
+口令存放位置：FCB</p>
+<p>优点：时空开销小<br />
+缺点：口令放在系统内部，不够安全</p>
+<h3 id="加密保护"><a class="markdownIt-Anchor" href="#加密保护"></a> 加密保护</h3>
+<p>访问文件时候，需要提供正确的密码仓能看到文件的正确解密</p>
+<p>优点：保密性强<br />
+缺点：编码/译码花费时间</p>
+<p><img src="https://pbs.twimg.com/media/GHk7SrcaoAAse5P?format=jpg&amp;name=medium" alt="" /></p>
+<h3 id="访问控制"><a class="markdownIt-Anchor" href="#访问控制"></a> 访问控制</h3>
+<p>FCB/索引结点中增加一个访问控制列表(ACL),该表记录用户可以对文件执行哪些操作</p>
+<p>举例如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>完全控制</th>
+<th>执行</th>
+<th>修改</th>
+<th>读取</th>
+<th>写入</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>系统管理员</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>文件主</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>文件主的伙伴</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>其他用户</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h2 id="19-文件系统的层次结构"><a class="markdownIt-Anchor" href="#19-文件系统的层次结构"></a> 1.9 文件系统的层次结构</h2>
+<ul>
 <li>用户/应用程序</li>
 <li>用户接口：处理系统调用</li>
 <li>文件目录系统：根据路径找到对应的FCB或者索引结点，与目录紧密相关</li>
@@ -1044,63 +1165,105 @@
 <li>辅助分配模块：存储空间管理</li>
 <li>设备管理模块：与硬件交互</li>
 </ul>
-<p><br></p>
-<h2 id="2-1-磁盘的结构"><a href="#2-1-磁盘的结构" class="headerlink" title="2.1 磁盘的结构"></a>2.1 磁盘的结构</h2><h3 id="磁盘、磁道、扇区"><a href="#磁盘、磁道、扇区" class="headerlink" title="磁盘、磁道、扇区"></a>磁盘、磁道、扇区</h3><p><strong>磁道</strong>：磁盘盘面的一个个圈<br><strong>扇区/磁盘块</strong>：磁道被划分   </p>
-<h2 id="如何读写数据"><a href="#如何读写数据" class="headerlink" title="如何读写数据"></a>如何读写数据</h2><p>需要把<strong>磁头</strong>移动到想要读写扇区所在的<strong>磁道</strong><br><img src="https://pbs.twimg.com/media/GHk-q3CbwAA116q?format=jpg&amp;name=medium" alt=""></p>
-<h3 id="盘面、柱面"><a href="#盘面、柱面" class="headerlink" title="盘面、柱面"></a>盘面、柱面</h3><p>用<strong>柱面号/盘面号/扇区号</strong>来定位一个<strong>磁盘块</strong>，磁盘块号可以转换成<strong>柱面号/盘面号/扇区号</strong>的地址形式</p>
+<br>
+<h2 id="21-磁盘的结构"><a class="markdownIt-Anchor" href="#21-磁盘的结构"></a> 2.1 磁盘的结构</h2>
+<h3 id="磁盘-磁道-扇区"><a class="markdownIt-Anchor" href="#磁盘-磁道-扇区"></a> 磁盘、磁道、扇区</h3>
+<p><strong>磁道</strong>：磁盘盘面的一个个圈<br />
+<strong>扇区/磁盘块</strong>：磁道被划分</p>
+<h2 id="如何读写数据"><a class="markdownIt-Anchor" href="#如何读写数据"></a> 如何读写数据</h2>
+<p>需要把<strong>磁头</strong>移动到想要读写扇区所在的<strong>磁道</strong><br />
+<img src="https://pbs.twimg.com/media/GHk-q3CbwAA116q?format=jpg&amp;name=medium" alt="" /></p>
+<h3 id="盘面-柱面"><a class="markdownIt-Anchor" href="#盘面-柱面"></a> 盘面、柱面</h3>
+<p>用<strong>柱面号/盘面号/扇区号</strong>来定位一个<strong>磁盘块</strong>，磁盘块号可以转换成<strong>柱面号/盘面号/扇区号</strong>的地址形式</p>
 <p>根据地址读取块：</p>
 <ul>
 <li>根据<strong>柱面号</strong>让磁头指向指定柱面</li>
 <li>激活指定盘面对应的磁头</li>
 <li>既定扇区从磁头划过</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/GHk_Me_bsAArMYP?format=jpg&amp;name=medium" alt=""></p>
-<h3 id="磁盘分类"><a href="#磁盘分类" class="headerlink" title="磁盘分类"></a>磁盘分类</h3><p>按磁头可移动分类：</p>
+<p><img src="https://pbs.twimg.com/media/GHk_Me_bsAArMYP?format=jpg&amp;name=medium" alt="" /></p>
+<h3 id="磁盘分类"><a class="markdownIt-Anchor" href="#磁盘分类"></a> 磁盘分类</h3>
+<p>按磁头可移动分类：</p>
 <ul>
 <li>活动头磁盘</li>
 <li>固定头磁盘</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/GHlAOTWakAAwId6?format=jpg&amp;name=medium" alt=""></p>
+<p><img src="https://pbs.twimg.com/media/GHlAOTWakAAwId6?format=jpg&amp;name=medium" alt="" /></p>
 <p>按盘片是否可替换分类：</p>
 <ul>
 <li>可换盘磁盘</li>
 <li>固定盘磁盘</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/GHlAfF_b0AAur7I?format=png&amp;name=900x900" alt=""></p>
-<p><br></p>
-<h2 id="2-2-磁盘调度算法"><a href="#2-2-磁盘调度算法" class="headerlink" title="2.2 磁盘调度算法"></a>2.2 磁盘调度算法</h2><p>磁盘调度算法分类：</p>
+<p><img src="https://pbs.twimg.com/media/GHlAfF_b0AAur7I?format=png&amp;name=900x900" alt="" /></p>
+<br>
+<h2 id="22-磁盘调度算法"><a class="markdownIt-Anchor" href="#22-磁盘调度算法"></a> 2.2 磁盘调度算法</h2>
+<p>磁盘调度算法分类：</p>
 <ul>
 <li>先来先服务</li>
 <li>最短寻找时间优先</li>
 <li>扫描算法</li>
 <li>循环扫描算法</li>
 </ul>
-<h3 id="一次磁盘读写操作需要的时间"><a href="#一次磁盘读写操作需要的时间" class="headerlink" title="一次磁盘读写操作需要的时间"></a>一次磁盘读写操作需要的时间</h3><p>寻找时间$T_S$:读写数据之前，<strong>磁头移动到指定磁道</strong>花费的时间，$T_S$=启动磁头臂时间+磁道书x跨磁道耗时<br>延迟时间$T_R$:1/(2x磁盘转速)<br>传输时间$T_t$:磁盘读出到磁盘写入的时间，$T_t$=读写字节数/(磁盘转速x磁道字节数)<br>总时间$T_a$=上面求和</p>
-<h3 id="先来先服务"><a href="#先来先服务" class="headerlink" title="先来先服务"></a>先来先服务</h3><p>思想：根据<strong>进程请求访问磁盘的先后顺序</strong>进行调度<br>优点：公平<br>缺点：请求访问的磁盘很分桑，寻道时间长<br><img src="https://pbs.twimg.com/media/GHlEMb1bsAA0W7k?format=jpg&amp;name=medium" alt=""></p>
-<h3 id="最短寻找时间优先算法"><a href="#最短寻找时间优先算法" class="headerlink" title="最短寻找时间优先算法"></a>最短寻找时间优先算法</h3><p>思想：优先处理于当前磁头最近的磁道<br>优点：平均寻道时间短<br>缺点：可能饥饿</p>
-<h3 id="扫描算法"><a href="#扫描算法" class="headerlink" title="扫描算法"></a>扫描算法</h3><p>上面算法产生饥饿的原因：磁头可能在一个小区域中来回移动<br>思想：只有磁头移动到最外侧才能往内移动，移动到最内侧才能往外移动<br>优点：寻道时间短，不会饥饿<br><strong>缺点</strong>：只有到达最边上才能改变磁头移动方向，其实可以提前改变移动方向；各个位置相应频率不平均</p>
-<h3 id="LOOK算法"><a href="#LOOK算法" class="headerlink" title="LOOK算法"></a>LOOK算法</h3><p>为了解决上面的<strong>缺点(到达最边上才能改变磁头移动方向)</strong>，<strong>如果磁头移动方向没有别的请求可以立即改变磁头移动方向</strong></p>
-<h3 id="循环扫描算法C-SCAN"><a href="#循环扫描算法C-SCAN" class="headerlink" title="循环扫描算法C-SCAN"></a>循环扫描算法C-SCAN</h3><p>为了解决相应频率不平均，<strong>朝着特定方向移动才会处理磁道访问请求，返回时直接快速移动不处理任何请求</strong><br>优点：相应频率平均<br>缺点：到达最边上才能改变磁头移动方向   </p>
-<h3 id="C-LOOK算法"><a href="#C-LOOK算法" class="headerlink" title="C-LOOK算法"></a>C-LOOK算法</h3><p>上面两者的综合</p>
-<p><br></p>
-<h2 id="4-2-磁盘管理"><a href="#4-2-磁盘管理" class="headerlink" title="4.2 磁盘管理"></a>4.2 磁盘管理</h2><h3 id="磁盘初始化"><a href="#磁盘初始化" class="headerlink" title="磁盘初始化"></a>磁盘初始化</h3><p>扇区的组成：</p>
+<h3 id="一次磁盘读写操作需要的时间"><a class="markdownIt-Anchor" href="#一次磁盘读写操作需要的时间"></a> 一次磁盘读写操作需要的时间</h3>
+<p>寻找时间<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>S</mi></msub></mrow><annotation encoding="application/x-tex">T_S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>:读写数据之前，<strong>磁头移动到指定磁道</strong>花费的时间，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>S</mi></msub></mrow><annotation encoding="application/x-tex">T_S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>=启动磁头臂时间+磁道书x跨磁道耗时<br />
+延迟时间<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>R</mi></msub></mrow><annotation encoding="application/x-tex">T_R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>:1/(2x磁盘转速)<br />
+传输时间<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">T_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>:磁盘读出到磁盘写入的时间，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">T_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>=读写字节数/(磁盘转速x磁道字节数)<br />
+总时间<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">T_a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>=上面求和</p>
+<h3 id="先来先服务"><a class="markdownIt-Anchor" href="#先来先服务"></a> 先来先服务</h3>
+<p>思想：根据<strong>进程请求访问磁盘的先后顺序</strong>进行调度<br />
+优点：公平<br />
+缺点：请求访问的磁盘很分桑，寻道时间长<br />
+<img src="https://pbs.twimg.com/media/GHlEMb1bsAA0W7k?format=jpg&amp;name=medium" alt="" /></p>
+<h3 id="最短寻找时间优先算法"><a class="markdownIt-Anchor" href="#最短寻找时间优先算法"></a> 最短寻找时间优先算法</h3>
+<p>思想：优先处理于当前磁头最近的磁道<br />
+优点：平均寻道时间短<br />
+缺点：可能饥饿</p>
+<h3 id="扫描算法"><a class="markdownIt-Anchor" href="#扫描算法"></a> 扫描算法</h3>
+<p>上面算法产生饥饿的原因：磁头可能在一个小区域中来回移动<br />
+思想：只有磁头移动到最外侧才能往内移动，移动到最内侧才能往外移动<br />
+优点：寻道时间短，不会饥饿<br />
+<strong>缺点</strong>：只有到达最边上才能改变磁头移动方向，其实可以提前改变移动方向；各个位置相应频率不平均</p>
+<h3 id="look算法"><a class="markdownIt-Anchor" href="#look算法"></a> LOOK算法</h3>
+<p>为了解决上面的<strong>缺点(到达最边上才能改变磁头移动方向)</strong>，<strong>如果磁头移动方向没有别的请求可以立即改变磁头移动方向</strong></p>
+<h3 id="循环扫描算法c-scan"><a class="markdownIt-Anchor" href="#循环扫描算法c-scan"></a> 循环扫描算法C-SCAN</h3>
+<p>为了解决相应频率不平均，<strong>朝着特定方向移动才会处理磁道访问请求，返回时直接快速移动不处理任何请求</strong><br />
+优点：相应频率平均<br />
+缺点：到达最边上才能改变磁头移动方向</p>
+<h3 id="c-look算法"><a class="markdownIt-Anchor" href="#c-look算法"></a> C-LOOK算法</h3>
+<p>上面两者的综合</p>
+<br>
+<h2 id="42-磁盘管理"><a class="markdownIt-Anchor" href="#42-磁盘管理"></a> 4.2 磁盘管理</h2>
+<h3 id="磁盘初始化"><a class="markdownIt-Anchor" href="#磁盘初始化"></a> 磁盘初始化</h3>
+<p>扇区的组成：</p>
 <ul>
 <li>头(管理扇区所需的数据结构)</li>
 <li>数据区域</li>
 <li>尾(管理扇区所需要的数据结构)</li>
 </ul>
-<p>Step1：低级格式化(物理)，将磁盘的各个磁道划分为扇区<br>Step2:将磁盘分区，每个分区由若干柱面组成(C，D，E盘)<br>Step3:逻辑格式化，创建文件系统。</p>
-<p><img src="https://pbs.twimg.com/media/GHlV7IbbQAAtGth?format=png&amp;name=small" alt=""></p>
-<h3 id="引导块"><a href="#引导块" class="headerlink" title="引导块"></a>引导块</h3><p><strong>初始化程序/自举程序</strong>：完成计算机开机需要的一系列初始化工作<br>引导块：位于磁盘的固定位置，存放完整的<strong>自举程序</strong></p>
-<h3 id="坏块的管理"><a href="#坏块的管理" class="headerlink" title="坏块的管理"></a>坏块的管理</h3><p>坏块：无法正常使用的扇区<br>简单磁盘：在FAT上标名(对OS不透明)<br>复杂磁盘：扇区备用</p>
-<p><img src="https://pbs.twimg.com/media/GHlYMVVaMAABo09?format=png&amp;name=900x900" alt=""></p>
-<p><br></p>
-<h2 id="2-3-减少磁盘延迟时间的方法"><a href="#2-3-减少磁盘延迟时间的方法" class="headerlink" title="2.3 减少磁盘延迟时间的方法"></a>2.3 减少磁盘延迟时间的方法</h2><p>一次磁盘读写需要的时间=寻找时间+延迟时间+传输时间 </p>
-<p>磁头读入一个扇区数据后需要一小段时间处理，<strong>逻辑上相邻物理上也相邻</strong>，连续读入几个逻辑扇区可能需要很长的延迟时间   </p>
-<h3 id="交替编号"><a href="#交替编号" class="headerlink" title="交替编号"></a>交替编号</h3><p>让<strong>逻辑上相邻的扇区物理上有一定间隔</strong>，降低延迟</p>
-<h3 id="磁盘地址结构设计"><a href="#磁盘地址结构设计" class="headerlink" title="磁盘地址结构设计"></a>磁盘地址结构设计</h3><p>磁盘的物理地址=(柱面号，盘面号，扇区号)   </p>
-<h3 id="错位命名"><a href="#错位命名" class="headerlink" title="错位命名"></a>错位命名</h3><p>以前：相邻盘面相对位置扇区去编号相同<br>改进：使得不同</p>
-<p><img src="https://pbs.twimg.com/media/GHlawCha4AAlVpn?format=jpg&amp;name=medium" alt=""></p>
+<p>Step1：低级格式化(物理)，将磁盘的各个磁道划分为扇区<br />
+Step2:将磁盘分区，每个分区由若干柱面组成(C，D，E盘)<br />
+Step3:逻辑格式化，创建文件系统。</p>
+<p><img src="https://pbs.twimg.com/media/GHlV7IbbQAAtGth?format=png&amp;name=small" alt="" /></p>
+<h3 id="引导块"><a class="markdownIt-Anchor" href="#引导块"></a> 引导块</h3>
+<p><strong>初始化程序/自举程序</strong>：完成计算机开机需要的一系列初始化工作<br />
+引导块：位于磁盘的固定位置，存放完整的<strong>自举程序</strong></p>
+<h3 id="坏块的管理"><a class="markdownIt-Anchor" href="#坏块的管理"></a> 坏块的管理</h3>
+<p>坏块：无法正常使用的扇区<br />
+简单磁盘：在FAT上标名(对OS不透明)<br />
+复杂磁盘：扇区备用</p>
+<p><img src="https://pbs.twimg.com/media/GHlYMVVaMAABo09?format=png&amp;name=900x900" alt="" /></p>
+<br>
+<h2 id="23-减少磁盘延迟时间的方法"><a class="markdownIt-Anchor" href="#23-减少磁盘延迟时间的方法"></a> 2.3 减少磁盘延迟时间的方法</h2>
+<p>一次磁盘读写需要的时间=寻找时间+延迟时间+传输时间</p>
+<p>磁头读入一个扇区数据后需要一小段时间处理，<strong>逻辑上相邻物理上也相邻</strong>，连续读入几个逻辑扇区可能需要很长的延迟时间</p>
+<h3 id="交替编号"><a class="markdownIt-Anchor" href="#交替编号"></a> 交替编号</h3>
+<p>让<strong>逻辑上相邻的扇区物理上有一定间隔</strong>，降低延迟</p>
+<h3 id="磁盘地址结构设计"><a class="markdownIt-Anchor" href="#磁盘地址结构设计"></a> 磁盘地址结构设计</h3>
+<p>磁盘的物理地址=(柱面号，盘面号，扇区号)</p>
+<h3 id="错位命名"><a class="markdownIt-Anchor" href="#错位命名"></a> 错位命名</h3>
+<p>以前：相邻盘面相对位置扇区去编号相同<br />
+改进：使得不同</p>
+<p><img src="https://pbs.twimg.com/media/GHlawCha4AAlVpn?format=jpg&amp;name=medium" alt="" /></p>
 
             
         </div>
@@ -1283,7 +1446,7 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    639.5k
+                    639.4k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     40:35
