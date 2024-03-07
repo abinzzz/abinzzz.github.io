@@ -25,24 +25,29 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    Vector Semantics and Embeddingsdistributional hypothesis: This link between similarity in how words are dist">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });     Vector Semantics and Embeddings目录 Vector Semantics and Embeddings 目录 Introduction 1. Vector Semantics 2.Wor">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NLP:阅读作业1-JMBook Chap 6">
 <meta property="og:url" content="https://abinzzz.github.io/2024/03/05/NLP-%E9%98%85%E8%AF%BB%E4%BD%9C%E4%B8%9A1-JMBook-Chap-6/index.html">
 <meta property="og:site_name" content="布洛戈">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    Vector Semantics and Embeddingsdistributional hypothesis: This link between similarity in how words are dist">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });     Vector Semantics and Embeddings目录 Vector Semantics and Embeddings 目录 Introduction 1. Vector Semantics 2.Wor">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pbs.twimg.com/media/GH-dX0gWAAAEjng?format=jpg&amp;name=medium">
-<meta property="og:image" content="https://pbs.twimg.com/media/GH-e2ZrWEAMASch?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GH_OheSXgAAznPs?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GH_QxmyWsAA5len?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GH_U5wbXEAAyXu7?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GH_iN4WWkAADtHE?format=png&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GH_iSRxWkAELL7p?format=png&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GH_lAPyWAAAHvy9?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GH_mQDyX0AA5UCe?format=png&amp;name=medium">
 <meta property="article:published_time" content="2024-03-05T14:10:23.000Z">
-<meta property="article:modified_time" content="2024-03-06T12:05:14.429Z">
+<meta property="article:modified_time" content="2024-03-06T14:53:32.243Z">
 <meta property="article:author" content="ab">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="NLP">
 <meta property="article:tag" content="jmbook">
 <meta property="article:tag" content="chapter6">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pbs.twimg.com/media/GH-dX0gWAAAEjng?format=jpg&amp;name=medium">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/GH_OheSXgAAznPs?format=jpg&amp;name=medium">
     
         <link rel="alternate" href="/atom.xml" title="布洛戈" type="application/atom+xml">
     
@@ -208,80 +213,285 @@
 </script>
 
 
-<h1 id="Vector-Semantics-and-Embeddings"><a href="#Vector-Semantics-and-Embeddings" class="headerlink" title="Vector Semantics and Embeddings"></a>Vector Semantics and Embeddings</h1><p><strong>distributional hypothesis</strong>: This link between similarity in how words are distributed and similarity in what they mean<br><strong>vector semantics</strong>: instantiates this linguistic hypothesis by learning representations of the meaning of words<br><strong>embeddings</strong>: representations of the meaning of words</p>
-<h2 id="6-1-Lexical-Semantics"><a href="#6-1-Lexical-Semantics" class="headerlink" title="6.1 Lexical Semantics"></a>6.1 Lexical Semantics</h2><p><strong>lexical semantics</strong>:  these desiderata, drawing on results in the linguistic study of word meaning<br><strong>lemma</strong>:mouse的形式也是mice这个词的lemma;sing是sing, sang, sung的lemma<br><strong>wordforms</strong>:特定的形式,例如sung<br><strong>word sense</strong>： each of these aspects of the meaning of mouse(不只是mouse哦)<br><strong>polysemous</strong>：have multiple senses<br><strong>synonyms</strong>：(substitutable)identical to a sense of another word, or nearly identical<br><strong>word relatedness</strong>: The meaning of two words can be related in ways other than similarity.<br><strong>semantic field</strong>: One common kind of relatedness between words is if they belong to the same semantic field。举例：医院(外科医生、手术刀、护士、外科医生、医院)<br><strong>semantic frame</strong>：a set of words that denote perspectives or participants in a particular type of even，框架具有语义角色(如买方、卖方、货物、货币)<br><strong>connotations</strong>：words have affective meanings<br><strong>sentiment</strong>：Positive or negative evaluation language    </p>
+<!-- # Vector Semantics and Embeddings
+**distributional hypothesis**: This link between similarity in how words are distributed and similarity in what they mean  
+**vector semantics**: instantiates this linguistic hypothesis by learning representations of the meaning of words   
+**embeddings**: representations of the meaning of words
+
+
+## 6.1 Lexical Semantics
+**lexical semantics**:  these desiderata, drawing on results in the linguistic study of word meaning  
+**lemma**:mouse的形式也是mice这个词的lemma;sing是sing, sang, sung的lemma  
+**wordforms**:特定的形式,例如sung   
+**word sense**： each of these aspects of the meaning of mouse(不只是mouse哦)    
+**polysemous**：have multiple senses     
+**synonyms**：(substitutable)identical to a sense of another word, or nearly identical     
+**word relatedness**: The meaning of two words can be related in ways other than similarity.   
+**semantic field**: One common kind of relatedness between words is if they belong to the same semantic field。举例：医院(外科医生、手术刀、护士、外科医生、医院)  
+**semantic frame**：a set of words that denote perspectives or participants in a particular type of even，框架具有语义角色(如买方、卖方、货物、货币)   
+**connotations**：words have affective meanings     
+**sentiment**：Positive or negative evaluation language    
+
+
+<br>
+
+
+## 6.2 Vector Semantics
+**Vector semantics**: the standard way to represent word meaning in NLP  
+**Vector semantics的思想**: 将一个单词表示为多维语义空间中的一个点，这个多维语义空间是从单词邻居的分布中派生出来的(我们将看到的方式)。   
+**embeddings**: Vectors for representing words   
+
+![](https://pbs.twimg.com/media/GH-dX0gWAAAEjng?format=jpg&name=medium)
+
+
+## 6.3 Words and Vectors
+co-occurrence matrix:
+-  the term-document matrix
+-  the term-term matrix
+
+
+### 6.3.1 Vectors and documents
+term-document matrix:
+- 一行表示词汇表中的一个单词
+- 每一列表示某个文档集合中的一个文档
+
+![](https://pbs.twimg.com/media/GH-e2ZrWEAMASch?format=jpg&name=medium)  
+
+
+**vector**:本质是一个数字列表或数组，例如上图的Julius Caesar[7,62,1,2]   
+**vector space**: vector的集合，维数来表示特征     
+
+Information retrieval (IR)：从最匹配查询q的集合中的D个文档中查找文档d的任务
+
+
+### 6.3.2 Words as vectors: document dimensions
+我们已经看到document可以表示为向量空间中的向量,但是vector semantics也可以用来表示单词的意思(row vector)。term-document矩阵可以让我们通过单词出现在哪些文档中来表示单词的含义
+
+### 6.3.3 Words as vectors: word dimensions
+**word-word matrix**:区别是列由单词而不是文档标记
+
+
+
+### 6.4 Cosine for measuring similarity
+**cosine of the angle between the vectors**: 衡量两个目标单词v和w之间的相似度
+
+点积作为一个相似度度量，因为当两个向量在相同的维度上具有较大的值时，它会趋于高。另外，在不同维数上为零的向量——正交向量——的点积为0，表示它们之间有很强的不相似性
+
+缺点：倾向于长向量(向量较长，则点积越大，在每个维度上的值也越大)
+
+解决方法：点积除以两个向量的长度来归一化向量的长度
+
+
+### 6.5 TF-IDF:向量中的加权项
+原始频率并不是衡量单词之间关联的最佳指标。原始频率是非常偏斜的，没有很大的区别。如果我们想知道cherry和strawberry共享什么样的语境，而不是数字和信息，我们无法很好地区分像the、it或they这样的词，它们频繁地出现在各种单词中，并不能提供任何特定单词的信息。
+
+
+tf-idf权重，通常在维度是文档时使用。接下来我们将介绍PPMI算法(通常在维度为单词时使用)
+
+term frequency:文档d中单词t的频率
+
+tf-idf中的第二个因素用于为只在少数文档中出现的单词赋予更高的权重
+
+一个词t的文档频率dft: 是它出现在文档中的数量
+
+我们通过逆文档频率或idf项权重来强调像Romeo这样的判别词(Sparck Jones, 1972)。idf是使用分数N/dft定义的，其中N是集合中文档的总数，dft是出现术语t的文档的数量。
+
+
+## 6.6 Pointwise Mutual Information (PMI)
+PPMI利用直觉来衡量两个词之间的关联，最好的方法是问这两个词在我们的语料库中同时出现的次数比我们先验地预期它们偶然出现的次数多多少
+
+它衡量的是两个事件x和y发生的频率，与它们独立的情况下我们的期望相比
+
+PMI值的范围从负无穷到正无穷
+
+
+通常使用正PMI(称为PPMI)来取代所有负PMI值
+为零
+
+
+PMI存在偏向于不常见事件的问题;非常罕见的单词往往具有非常高的PMI值。有一种方法可以减少这种偏向于低频的偏差
+
+
+## 6.7 Applications of the tf-idf or PPMI vector models
+
+
+## 6.8 Word2vec
+我们看到了如何将单词表示为一个稀疏的长向量，其维度对应于词汇表中的单词或集合中的文档
+
+我们现在引入一个更短而密集的词表示:embeddings
+
+在本节中，我们介绍一种计算嵌入的方法:带负采样的skip-gram，有时称为SGNS(word2vec软件包中的两种算法之一)
+
+word2vec的直觉是，我们不是计算每个单词w出现在杏子附近的频率，而是训练一个分类器进行二元预测任务
+
+单词c出现在目标单词apricot附近，就相当于“单词c可能出现在apricot附近吗?”这种方法通常被称为自我监督
+
+
+### 6.8.1 The classifier
+我们的目标是训练一个分类器，给定目标词w的元组(w,c)与候选上下文词c配对(例如(apricot, jam)，或者(apricot, aardvark))，它将返回c是真实上下文词的概率(jam为真，aardvark为假)。
+
+分类器如何计算概率P?skip- gram模型的直觉是将这种概率建立在嵌入相似性的基础上:如果一个单词的嵌入向量与目标嵌入向量相似，那么它就可能出现在目标附近。为了计算这些密集嵌入之间的相似性，我们依赖于这样的直觉:如果两个向量具有较高的点积，则它们是相似的
+
+
+了将点积转化为概率，我们将使用逻辑函数或s型函数σ (x)
+
+
+总而言之，skip-gram训练了一个概率分类器，给定一个测试目标单词w及其L个单词的上下文窗口c1:L，根据上下文窗口与目标单词的相似程度分配概率
+
+
+### 6.8.2 Learning skip-gram embeddings
+skip-gram嵌入的学习算法将文本语料库和选定的词汇量N作为输入，首先为N个词汇中的每个单词分配一个随机嵌入向量，然后继续迭代地移动每个单词w的嵌入，使其更像文本中附近出现的单词的嵌入，而不是附近出现的单词的嵌入。
+
+为了训练二值分类器，我们还需要负例。事实上，带负采样的跳跃图(SGNS)使用的负样例多于正样例
+
+噪声词根据其加权单格频率pα (w)来选择，其中α是权重
+
+给定一组正训练和负训练实例，以及一组初始嵌入，学习算法的目标是将这些嵌入调整为:- 最大化从正例中提取的目标词，上下文词对(w,cpos)的相似性
+- 最小化(w,cneg)对与反例的相似性。
+
+
+如果我们考虑一个单词/上下文对(w, cpos)及其k个噪声单词cneg1…cnegk，我们可以将这两个目标表示为以下损失函数L最小化(因此有−);在这里，第一项表示我们希望分类器将真实上下文单词cpos分配为近邻的高概率，第二项表示我们希望将噪声单词分配为非近邻的高概率，所有相乘是因为我们假设独立性
+
+### 6.8.3 Other kinds of static embeddings
+有很多种静态嵌入。word2vec的扩展fasttext (Bojanowski等人，2017)解决了目前为止word2vec的一个问题:它没有很好的方法来处理未知单词——出现在测试语料库中但在训练语料库中未见过的单词
+
+Fasttext通过使用子单词模型来处理这些问题，每个单词表示为自身加上一个n元语法包，带有特殊的边界符号&lt;和比;添加到每个单词。例如，当n = 3时，单词where将由序列&lt;加上字符n元语法
+
+<br>
+
+
+## 6.9 Visualizing Embeddings
+Visualizing Embeddings: 帮助理解、应用和改进这些词义模型的一个重要目标。
+
+可视化嵌入在空间中的单词w的含义的最简单方法是通过将词汇表中所有单词的向量按其与w的向量的余弦进行排序，列出与w最相似的单词
+
+x
+
+
+## 6.10 Semantic properties of embeddings
+一阶共现(有时称为组合联想)，如果它们通常在彼此附近。这样写的是书或诗的一级联想。如果两个单词有相似的邻接词，则它们具有二级共现(有时称为聚合联想)。因此，written是said或remark等词的二级关联词
+
+
+类比/关系相似性:嵌入的另一个语义属性是它们捕获关系意义的能力。
+
+平行四边形方法通常过于简单，无法模拟人类形成这种类比的认知过程。
+
+### 6.10.1 Embeddings and Historical Semantics
+
+补
+
+嵌入也是研究意义如何随时间变化的有用工具，
+通过计算多个嵌入空间，每个嵌入空间来自在特定时间段内编写的文本。
+
+
+## 6.11 Bias and Embeddings
+除了他们从文本中学习词义的能力，嵌入，alas还重现了文本中潜在的内隐偏见和刻板印象。正如上一节所示，嵌入可以大致模拟关系相似性:“女王”是最接近“国王”的单词——“男人”+“女人”意味着类比:女人::国王:女王。但这些相同的嵌入类比也表现出性别刻板印象
+
+
+## 6.12 Evaluating Vector Models
+最常见的指标是测试它们在相似度上的表现，计算算法的单词相似度得分和人类分配的单词相似度评级之间的相关性。
+
+
+
+## 6.13 Summary
+embedding: 高维空间中的向量点，也称为嵌入
+
+static embed: word is mapped to a fixed embedding
+
+向量语义模型分为稀疏和稠密两类。在稀疏模型中，每个维度对应于词汇表V中的一个单词，单元格是共现计数的函数。词项-文档矩阵中，每个词(词)对应一行，每个文档对应一列。词-上下文或词-词矩阵的一行对应词汇表中的每个(目标)单词，一列对应词汇表中的每个上下文术语。两种稀疏加权是常见的:tf-idf加权，它通过词频和逆文档频率对每个单元格进行加权，以及PPMI (point- wise positive mutual information)，它在单词上下文矩阵中最常见。
+
+
+稠密向量模型的维度为50 ~ 1000。像skip-gram这样的Word2vec算法是计算密集嵌入的流行方法。Skip-gram训练一个逻辑回归分类器来计算两个单词“可能在文本中出现在附近”的概率。这个概率是通过两个单词的嵌入之间的点积来计算的
+
+Skip-gram使用随机梯度下降来训练分类器，通过学习与附近出现的词的嵌入具有高点积和与噪声词的低点积的嵌入
+
+其他重要的嵌入算法包括GloVe，这是一种基于单词共现概率比率的方法。
+
+无论是使用稀疏向量还是密集向量，单词和文档的相似度都是通过向量之间的点积函数来计算的。两个向量的余弦——一个归一化的点积——是这类度量中最流行的。
+
+
+---- -->
+<h1 id="Vector-Semantics-and-Embeddings"><a href="#Vector-Semantics-and-Embeddings" class="headerlink" title="Vector Semantics and Embeddings"></a>Vector Semantics and Embeddings</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#vector-semantics-and-embeddings">Vector Semantics and Embeddings</a><ul>
+<li><a href="#目录">目录</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#1-vector-semantics">1. Vector Semantics</a></li>
+<li><a href="#2words-and-vectors">2.Words and Vectors</a><ul>
+<li><a href="#21-words-as-vectors-document-dimensions">2.1 Words as vectors: document dimensions</a></li>
+<li><a href="#22-words-as-vectors-word-dimensions">2.2 Words as vectors: word dimensions</a></li>
+</ul>
+</li>
+<li><a href="#3-cosine-for-measuring-similarity">3. Cosine for measuring similarity</a></li>
+<li><a href="#4-tf-idf-weighing-terms-in-the-vector">4. TF-IDF: Weighing terms in the vector</a><ul>
+<li><a href="#41-tf">4.1 TF</a></li>
+<li><a href="#42-idf">4.2 IDF</a></li>
+<li><a href="#43-tf-idf">4.3 TF-IDF</a></li>
+</ul>
+</li>
+<li><a href="#5pointwise-mutual-information-pmi">5.Pointwise Mutual Information (PMI)</a></li>
+<li><a href="#6-word2vec">6. Word2vec</a><ul>
+<li><a href="#61-the-classifier">6.1 The classifier</a></li>
+<li><a href="#62-learning-skip-gram-embeddings">6.2 Learning skip-gram embeddings</a></li>
+<li><a href="#63-other-kinds-of-static-embeddings">6.3 Other kinds of static embeddings</a></li>
+</ul>
+</li>
+<li><a href="#7-bias-and-embeddings">7. Bias and Embeddings</a></li>
+<li><a href="#8-questions">8. Questions</a></li>
+</ul>
+</li>
+</ul>
 <p><br></p>
-<h2 id="6-2-Vector-Semantics"><a href="#6-2-Vector-Semantics" class="headerlink" title="6.2 Vector Semantics"></a>6.2 Vector Semantics</h2><p><strong>Vector semantics</strong>: the standard way to represent word meaning in NLP<br><strong>Vector semantics的思想</strong>: 将一个单词表示为多维语义空间中的一个点，这个多维语义空间是从单词邻居的分布中派生出来的(我们将看到的方式)。<br><strong>embeddings</strong>: Vectors for representing words   </p>
-<p><img src="https://pbs.twimg.com/media/GH-dX0gWAAAEjng?format=jpg&amp;name=medium" alt=""></p>
-<h2 id="6-3-Words-and-Vectors"><a href="#6-3-Words-and-Vectors" class="headerlink" title="6.3 Words and Vectors"></a>6.3 Words and Vectors</h2><p>co-occurrence matrix:</p>
-<ul>
-<li>the term-document matrix</li>
-<li>the term-term matrix</li>
-</ul>
-<h3 id="6-3-1-Vectors-and-documents"><a href="#6-3-1-Vectors-and-documents" class="headerlink" title="6.3.1 Vectors and documents"></a>6.3.1 Vectors and documents</h3><p>term-document matrix:</p>
-<ul>
-<li>一行表示词汇表中的一个单词</li>
-<li>每一列表示某个文档集合中的一个文档</li>
-</ul>
-<p><img src="https://pbs.twimg.com/media/GH-e2ZrWEAMASch?format=jpg&amp;name=medium" alt="">  </p>
-<p><strong>vector</strong>:本质是一个数字列表或数组，例如上图的Julius Caesar[7,62,1,2]<br><strong>vector space</strong>: vector的集合，维数来表示特征     </p>
-<p>Information retrieval (IR)：从最匹配查询q的集合中的D个文档中查找文档d的任务</p>
-<h3 id="6-3-2-Words-as-vectors-document-dimensions"><a href="#6-3-2-Words-as-vectors-document-dimensions" class="headerlink" title="6.3.2 Words as vectors: document dimensions"></a>6.3.2 Words as vectors: document dimensions</h3><p>我们已经看到document可以表示为向量空间中的向量,但是vector semantics也可以用来表示单词的意思(row vector)。term-document矩阵可以让我们通过单词出现在哪些文档中来表示单词的含义</p>
-<h3 id="6-3-3-Words-as-vectors-word-dimensions"><a href="#6-3-3-Words-as-vectors-word-dimensions" class="headerlink" title="6.3.3 Words as vectors: word dimensions"></a>6.3.3 Words as vectors: word dimensions</h3><p><strong>word-word matrix</strong>:区别是列由单词而不是文档标记</p>
-<h3 id="6-4-Cosine-for-measuring-similarity"><a href="#6-4-Cosine-for-measuring-similarity" class="headerlink" title="6.4 Cosine for measuring similarity"></a>6.4 Cosine for measuring similarity</h3><p><strong>cosine of the angle between the vectors</strong>: 衡量两个目标单词v和w之间的相似度</p>
-<p>点积作为一个相似度度量，因为当两个向量在相同的维度上具有较大的值时，它会趋于高。另外，在不同维数上为零的向量——正交向量——的点积为0，表示它们之间有很强的不相似性</p>
-<p>缺点：倾向于长向量(向量较长，则点积越大，在每个维度上的值也越大)</p>
-<p>解决方法：点积除以两个向量的长度来归一化向量的长度</p>
-<h3 id="6-5-TF-IDF-向量中的加权项"><a href="#6-5-TF-IDF-向量中的加权项" class="headerlink" title="6.5 TF-IDF:向量中的加权项"></a>6.5 TF-IDF:向量中的加权项</h3><p>原始频率并不是衡量单词之间关联的最佳指标。原始频率是非常偏斜的，没有很大的区别。如果我们想知道cherry和strawberry共享什么样的语境，而不是数字和信息，我们无法很好地区分像the、it或they这样的词，它们频繁地出现在各种单词中，并不能提供任何特定单词的信息。</p>
-<p>tf-idf权重，通常在维度是文档时使用。接下来我们将介绍PPMI算法(通常在维度为单词时使用)</p>
-<p>term frequency:文档d中单词t的频率</p>
-<p>tf-idf中的第二个因素用于为只在少数文档中出现的单词赋予更高的权重</p>
-<p>一个词t的文档频率dft: 是它出现在文档中的数量</p>
-<p>我们通过逆文档频率或idf项权重来强调像Romeo这样的判别词(Sparck Jones, 1972)。idf是使用分数N/dft定义的，其中N是集合中文档的总数，dft是出现术语t的文档的数量。</p>
-<h2 id="6-6-Pointwise-Mutual-Information-PMI"><a href="#6-6-Pointwise-Mutual-Information-PMI" class="headerlink" title="6.6 Pointwise Mutual Information (PMI)"></a>6.6 Pointwise Mutual Information (PMI)</h2><p>PPMI利用直觉来衡量两个词之间的关联，最好的方法是问这两个词在我们的语料库中同时出现的次数比我们先验地预期它们偶然出现的次数多多少</p>
-<p>它衡量的是两个事件x和y发生的频率，与它们独立的情况下我们的期望相比</p>
-<p>PMI值的范围从负无穷到正无穷</p>
-<p>通常使用正PMI(称为PPMI)来取代所有负PMI值<br>为零</p>
-<p>PMI存在偏向于不常见事件的问题;非常罕见的单词往往具有非常高的PMI值。有一种方法可以减少这种偏向于低频的偏差</p>
-<h2 id="6-7-Applications-of-the-tf-idf-or-PPMI-vector-models"><a href="#6-7-Applications-of-the-tf-idf-or-PPMI-vector-models" class="headerlink" title="6.7 Applications of the tf-idf or PPMI vector models"></a>6.7 Applications of the tf-idf or PPMI vector models</h2><h2 id="6-8-Word2vec"><a href="#6-8-Word2vec" class="headerlink" title="6.8 Word2vec"></a>6.8 Word2vec</h2><p>我们看到了如何将单词表示为一个稀疏的长向量，其维度对应于词汇表中的单词或集合中的文档</p>
-<p>我们现在引入一个更短而密集的词表示:embeddings</p>
-<p>在本节中，我们介绍一种计算嵌入的方法:带负采样的skip-gram，有时称为SGNS(word2vec软件包中的两种算法之一)</p>
-<p>word2vec的直觉是，我们不是计算每个单词w出现在杏子附近的频率，而是训练一个分类器进行二元预测任务</p>
-<p>单词c出现在目标单词apricot附近，就相当于“单词c可能出现在apricot附近吗?”这种方法通常被称为自我监督</p>
-<h3 id="6-8-1-The-classifier"><a href="#6-8-1-The-classifier" class="headerlink" title="6.8.1 The classifier"></a>6.8.1 The classifier</h3><p>我们的目标是训练一个分类器，给定目标词w的元组(w,c)与候选上下文词c配对(例如(apricot, jam)，或者(apricot, aardvark))，它将返回c是真实上下文词的概率(jam为真，aardvark为假)。</p>
-<p>分类器如何计算概率P?skip- gram模型的直觉是将这种概率建立在嵌入相似性的基础上:如果一个单词的嵌入向量与目标嵌入向量相似，那么它就可能出现在目标附近。为了计算这些密集嵌入之间的相似性，我们依赖于这样的直觉:如果两个向量具有较高的点积，则它们是相似的</p>
-<p>了将点积转化为概率，我们将使用逻辑函数或s型函数σ (x)</p>
-<p>总而言之，skip-gram训练了一个概率分类器，给定一个测试目标单词w及其L个单词的上下文窗口c1:L，根据上下文窗口与目标单词的相似程度分配概率</p>
-<h3 id="6-8-2-Learning-skip-gram-embeddings"><a href="#6-8-2-Learning-skip-gram-embeddings" class="headerlink" title="6.8.2 Learning skip-gram embeddings"></a>6.8.2 Learning skip-gram embeddings</h3><p>skip-gram嵌入的学习算法将文本语料库和选定的词汇量N作为输入，首先为N个词汇中的每个单词分配一个随机嵌入向量，然后继续迭代地移动每个单词w的嵌入，使其更像文本中附近出现的单词的嵌入，而不是附近出现的单词的嵌入。</p>
-<p>为了训练二值分类器，我们还需要负例。事实上，带负采样的跳跃图(SGNS)使用的负样例多于正样例</p>
-<p>噪声词根据其加权单格频率pα (w)来选择，其中α是权重</p>
-<p>给定一组正训练和负训练实例，以及一组初始嵌入，学习算法的目标是将这些嵌入调整为:- 最大化从正例中提取的目标词，上下文词对(w,cpos)的相似性</p>
-<ul>
-<li>最小化(w,cneg)对与反例的相似性。</li>
-</ul>
-<p>如果我们考虑一个单词/上下文对(w, cpos)及其k个噪声单词cneg1…cnegk，我们可以将这两个目标表示为以下损失函数L最小化(因此有−);在这里，第一项表示我们希望分类器将真实上下文单词cpos分配为近邻的高概率，第二项表示我们希望将噪声单词分配为非近邻的高概率，所有相乘是因为我们假设独立性</p>
-<h3 id="6-8-3-Other-kinds-of-static-embeddings"><a href="#6-8-3-Other-kinds-of-static-embeddings" class="headerlink" title="6.8.3 Other kinds of static embeddings"></a>6.8.3 Other kinds of static embeddings</h3><p>有很多种静态嵌入。word2vec的扩展fasttext (Bojanowski等人，2017)解决了目前为止word2vec的一个问题:它没有很好的方法来处理未知单词——出现在测试语料库中但在训练语料库中未见过的单词</p>
-<p>Fasttext通过使用子单词模型来处理这些问题，每个单词表示为自身加上一个n元语法包，带有特殊的边界符号&lt;和比;添加到每个单词。例如，当n = 3时，单词where将由序列&lt;加上字符n元语法</p>
+<p><Br><br><br></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>传统的NLP应用中，词语通常仅以字符串或在词汇表中的索引形式存在，这种表征方式未能捕捉到词义的深层含义。例如，将“狗”的意义仅表示为DOG，这显然是不够的。我们期望词义模型能够表达词义之间的相似性、反义关系、情感色彩等</p>
+<p>在词汇语义学中，词元(lemma)和词义(sense)是基础概念，一个词元可以有多个词义，例如“mouse”既可以指老鼠，也可以指鼠标。</p>
+<p><strong>同义词</strong>是词义关系中的重要组成部分，它涉及到两个词义几乎或完全相同的情况，如“sofa”与“couch”。除了同义关系，词语之间的<strong>相似性</strong>也是一个重要的研究领域，相似性关系帮助我们理解词语之间的近似关系，而非严格的同义关系，这对于语义相关任务如问答、改写和摘要等非常关键。与词义相似容易混淆的是<strong>词义相关性</strong>，它关注的是词语在特定事件或情境中的关联性，如“coffee”和“cup”的关系。</p>
+<p>最后，词语的<strong>情感含义</strong>或内涵反映了词语在情感、评价、意见方面的特征。这对于情感分析、立场检测等NLP应用领域具有重要意义。</p>
 <p><br></p>
-<h2 id="6-9-Visualizing-Embeddings"><a href="#6-9-Visualizing-Embeddings" class="headerlink" title="6.9 Visualizing Embeddings"></a>6.9 Visualizing Embeddings</h2><p>Visualizing Embeddings: 帮助理解、应用和改进这些词义模型的一个重要目标。</p>
-<p>可视化嵌入在空间中的单词w的含义的最简单方法是通过将词汇表中所有单词的向量按其与w的向量的余弦进行排序，列出与w最相似的单词</p>
-<p>x</p>
-<h2 id="6-10-Semantic-properties-of-embeddings"><a href="#6-10-Semantic-properties-of-embeddings" class="headerlink" title="6.10 Semantic properties of embeddings"></a>6.10 Semantic properties of embeddings</h2><p>一阶共现(有时称为组合联想)，如果它们通常在彼此附近。这样写的是书或诗的一级联想。如果两个单词有相似的邻接词，则它们具有二级共现(有时称为聚合联想)。因此，written是said或remark等词的二级关联词</p>
-<p>类比/关系相似性:嵌入的另一个语义属性是它们捕获关系意义的能力。</p>
-<p>平行四边形方法通常过于简单，无法模拟人类形成这种类比的认知过程。</p>
-<h3 id="6-10-1-Embeddings-and-Historical-Semantics"><a href="#6-10-1-Embeddings-and-Historical-Semantics" class="headerlink" title="6.10.1 Embeddings and Historical Semantics"></a>6.10.1 Embeddings and Historical Semantics</h3><p>补</p>
-<p>嵌入也是研究意义如何随时间变化的有用工具，<br>通过计算多个嵌入空间，每个嵌入空间来自在特定时间段内编写的文本。</p>
-<h2 id="6-11-Bias-and-Embeddings"><a href="#6-11-Bias-and-Embeddings" class="headerlink" title="6.11 Bias and Embeddings"></a>6.11 Bias and Embeddings</h2><p>除了他们从文本中学习词义的能力，嵌入，alas还重现了文本中潜在的内隐偏见和刻板印象。正如上一节所示，嵌入可以大致模拟关系相似性:“女王”是最接近“国王”的单词——“男人”+“女人”意味着类比:女人::国王:女王。但这些相同的嵌入类比也表现出性别刻板印象</p>
-<h2 id="6-12-Evaluating-Vector-Models"><a href="#6-12-Evaluating-Vector-Models" class="headerlink" title="6.12 Evaluating Vector Models"></a>6.12 Evaluating Vector Models</h2><p>最常见的指标是测试它们在相似度上的表现，计算算法的单词相似度得分和人类分配的单词相似度评级之间的相关性。</p>
-<h2 id="6-13-Summary"><a href="#6-13-Summary" class="headerlink" title="6.13 Summary"></a>6.13 Summary</h2><p>embedding: 高维空间中的向量点，也称为嵌入</p>
-<p>static embed: word is mapped to a fixed embedding</p>
-<p>向量语义模型分为稀疏和稠密两类。在稀疏模型中，每个维度对应于词汇表V中的一个单词，单元格是共现计数的函数。词项-文档矩阵中，每个词(词)对应一行，每个文档对应一列。词-上下文或词-词矩阵的一行对应词汇表中的每个(目标)单词，一列对应词汇表中的每个上下文术语。两种稀疏加权是常见的:tf-idf加权，它通过词频和逆文档频率对每个单元格进行加权，以及PPMI (point- wise positive mutual information)，它在单词上下文矩阵中最常见。</p>
-<p>稠密向量模型的维度为50 ~ 1000。像skip-gram这样的Word2vec算法是计算密集嵌入的流行方法。Skip-gram训练一个逻辑回归分类器来计算两个单词“可能在文本中出现在附近”的概率。这个概率是通过两个单词的嵌入之间的点积来计算的</p>
-<p>Skip-gram使用随机梯度下降来训练分类器，通过学习与附近出现的词的嵌入具有高点积和与噪声词的低点积的嵌入</p>
-<p>其他重要的嵌入算法包括GloVe，这是一种基于单词共现概率比率的方法。</p>
-<p>无论是使用稀疏向量还是密集向量，单词和文档的相似度都是通过向量之间的点积函数来计算的。两个向量的余弦——一个归一化的点积——是这类度量中最流行的。</p>
-<hr>
-<h1 id="Vector-Semantics-and-Embeddings-1"><a href="#Vector-Semantics-and-Embeddings-1" class="headerlink" title="Vector Semantics and Embeddings"></a>Vector Semantics and Embeddings</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>
+<Br>
+
+
+<h2 id="1-Vector-Semantics"><a href="#1-Vector-Semantics" class="headerlink" title="1. Vector Semantics"></a>1. Vector Semantics</h2><p>在前一节中讨论了词义的许多方面，<strong>Vector Semantics</strong> 是 NLP 中表示词义的标准方法，他的理念是将一个词表示为多维语义空间中的一个点，这个空间是根据词的分布派生出来的，而表示词的 vector 被称为<strong>Embeddings</strong>。<br><img src="https://pbs.twimg.com/media/GH_OheSXgAAznPs?format=jpg&amp;name=medium" alt=""></p>
+<h2 id="2-Words-and-Vectors"><a href="#2-Words-and-Vectors" class="headerlink" title="2.Words and Vectors"></a>2.Words and Vectors</h2><p>在 Vector Semantics 中，单词共同出现频率通常使用基于共现矩阵的模型来表示，我们主要关注两种矩阵：<strong>term-document矩阵</strong>和<strong>term-term矩阵</strong>。</p>
+<h3 id="2-1-Words-as-vectors-document-dimensions"><a href="#2-1-Words-as-vectors-document-dimensions" class="headerlink" title="2.1 Words as vectors: document dimensions"></a>2.1 Words as vectors: document dimensions</h3><p>在<strong>term-document矩阵</strong>中，每一行表示词汇表中的一个单词，每一列表示某个文档集合中的一个文档，这种矩阵展示了在给定文档中每个词出现的次数。因此，这两个向量的第一个维度对应于单词”battle”出现的次数，我们可以比较每个维度，例如，注意到”As You Like It”和”Twelfth Night”的向量在第一个维度(battle)上具有相似的值(分别为1和0),…</p>
+<p>举例：下面展现了四部莎士比亚戏剧中四个单词的term-document矩阵：<br><img src="https://pbs.twimg.com/media/GH_QxmyWsAA5len?format=jpg&amp;name=medium" alt=""></p>
+<h3 id="2-2-Words-as-vectors-word-dimensions"><a href="#2-2-Words-as-vectors-word-dimensions" class="headerlink" title="2.2 Words as vectors: word dimensions"></a>2.2 Words as vectors: word dimensions</h3><p>与使用term-document矩阵表示词向量的文档计数不同，我们还可以使用term-term矩阵，也称为term-term矩阵或term-context矩阵，其中<strong>列是词而不是文档</strong>，这种矩阵记录了在某个训练语料中行词(target)和列词(contaxt)共现的次数。</p>
+<p>举例：下面是从维基百科语料库中计算的四个词的term-term矩阵，可以看出单词”digital”在单词”aardvark”附近出现了0次但在单词”computer”附近出现了1670次,这反映了<strong>词义相似性</strong>的概念.<br><img src="https://pbs.twimg.com/media/GH_U5wbXEAAyXu7?format=jpg&amp;name=medium" alt=""></p>
+<h2 id="3-Cosine-for-measuring-similarity"><a href="#3-Cosine-for-measuring-similarity" class="headerlink" title="3. Cosine for measuring similarity"></a>3. Cosine for measuring similarity</h2><p>余弦相似度是衡量两个目标词v 和 w 之间相似度的常用度量指标。它通过计算两个同维度向量之间角度的余弦值并除两个向量的长度来给出它们的相似度，其计算公式为：</p>
+<script type="math/tex; mode=display">\text{cosine}(v, w) = \frac{v \cdot w}{|v||w|} = \frac{\sum_{i=1}^{N} v_i w_i}{\sqrt{\sum_{i=1}^{N} v_i^2} \sqrt{\sum_{i=1}^{N} w_i^2}}</script><p>余弦值的范围从1（两个向量方向完全相同）通过0（正交向量）到-1（两个向量方向完全相反）。但由于原始频率值非负，这些向量的余弦值范围从0到1。</p>
+<h2 id="4-TF-IDF-Weighing-terms-in-the-vector"><a href="#4-TF-IDF-Weighing-terms-in-the-vector" class="headerlink" title="4. TF-IDF: Weighing terms in the vector"></a>4. TF-IDF: Weighing terms in the vector</h2><p>上面的共现矩阵用频率表示每个单元格,但频率并不是衡量单词之间关联的最佳指标。例如，我们无法很好地区分像the、it或they这样的词，它们频繁地出现在各种单词中，并不能提供任何特定单词的信息。有两种方法来解决上面的问题：TF-IDF(适用于term-document矩阵)和PMI(适用于term-term矩阵)，接下来我们要讲的TF-IDF这种方法。</p>
+<p>TF-IDF（Term Frequency-Inverse Document Frequency）是在向量中衡量词项重要性的一种方法，它结合了词频（TF）和逆文档频率（IDF）两个指标。TF-IDF旨在减少常用词对文档相似度计算的影响，同时强调对文档内容有较好区分度的词</p>
+<h3 id="4-1-TF"><a href="#4-1-TF" class="headerlink" title="4.1 TF"></a>4.1 TF</h3><p>词频是词项在文档中出现的频率，公式为：</p>
+<script type="math/tex; mode=display">\text{tf}(t, d) = 1 + \log_{10}(\text{count}(t, d))</script><p>其中，$\text{count}(t, d)$是单词t在文件d中出现的次数，<strong>如果词项在文档中未出现，则词频为0</strong>。这种处理方式是基于出现次数较多的词项对文档意义的影响并不是线性增长的这一观点。</p>
+<h3 id="4-2-IDF"><a href="#4-2-IDF" class="headerlink" title="4.2 IDF"></a>4.2 IDF</h3><p>逆文档频率是用来减少在整个文档集合中出现频率高的词项的权重的指标。它是基于一个词项在多少不同的文档中出现来计算的，旨在给予罕见词更高的权重。IDF的计算公式为：</p>
+<script type="math/tex; mode=display">\text{idf}(t) = \log_{10}\left(\frac{N}{\text{df}(t)}\right)</script><p>其中，N 是文档集合中文档的总数，$\text{df}(t)$ 是包含词项 t 的文档数。如果一个词项在许多文档中出现，它的IDF值会变小，反之则会变大。</p>
+<p><br></p>
+<h3 id="4-3-TF-IDF"><a href="#4-3-TF-IDF" class="headerlink" title="4.3 TF-IDF"></a>4.3 TF-IDF</h3><p>一个词项在特定文档中的TF-IDF加权值是其TF值和IDF值的乘积：</p>
+<script type="math/tex; mode=display">\text{w}(t, d) = \text{tf}(t, d) \times \text{idf}(t)</script><p>这个加权值越高，词项在文档中的重要性就越大。TF-IDF加权有效地平衡了词项在文档中的局部重要性和在整个文档集合中的区分度。因此，TF-IDF是信息检索和文本挖掘中常用的特征加权技术，广泛应用于文档相似性计算、文本分类和搜索引擎的相关性评分等。</p>
+<h2 id="5-Pointwise-Mutual-Information-PMI"><a href="#5-Pointwise-Mutual-Information-PMI" class="headerlink" title="5.Pointwise Mutual Information (PMI)"></a>5.Pointwise Mutual Information (PMI)</h2><p>点对互信息（PMI）是用于term-term矩阵的另一种权重函数，适用于向量维度对应于词而非文档的情况。PMI基于这样一种思路：衡量两个词之间关联的最佳方式是询问这两个词在语料库中共同出现的频率超出了我们预先期望它们偶然出现的频率多少。</p>
+<p>PMI是衡量两个事件 x 和 y共同发生的频率与它们独立发生的预期频率之比的度量。对于目标词 w 和上下文词 c之间的PMI定义为：</p>
+<script type="math/tex; mode=display">\text{PMI}(w, c) = \log_2 \frac{P(w, c)}{P(w)P(c)}</script><p>分子告诉我们我们观察到两个词一起出现的频率,分母告诉我们假设每个词独立出现时，我们期望两个词共同出现的频率；然而，PMI的值范围从负无穷到正无穷,负的PMI值（意味着事物比我们通过偶然预期的出现得更少）除非我们的语料库非常大，否则往往不可靠。因此，更常见的做法是使用正的点对互信息（PPMI），它将所有负的PMI值替换为零：</p>
+<script type="math/tex; mode=display">\text{PPMI}(w, c) = \max\left(\log_2 \frac{P(w, c)}{P(w)P(c)}, 0\right)</script><p>通过一个共现矩阵 F，我们可以将它转换为PPMI矩阵，其中$PPMI_{ij}$ 给出了词 $w_i$ 与上下文 $c_j$的PPMI值。</p>
+<h2 id="6-Word2vec"><a href="#6-Word2vec" class="headerlink" title="6. Word2vec"></a>6. Word2vec</h2><p>Word2vec，特别是其skip-gram和SGNS，代表了一种生成密集词向量的方法(<br>embedding)。与之前讨论的稀疏、长向量不同，embedding是短而密集的向量，其维度 d 通常介于50到1000之间，而非词汇量 $|V|$ 或文档数量 D的规模。</p>
+<p>密集向量在每项NLP任务中的表现都优于稀疏向量。虽然我们不完全理解这背后的所有原因，但实验表示，使用300维的密集向量表示词语，比起使用50,000维的向量，需要学习的参数更少，这可能有助于泛化并避免过拟合，可能也更好地捕捉同义词之间的关系。</p>
+<h3 id="6-1-The-classifier"><a href="#6-1-The-classifier" class="headerlink" title="6.1 The classifier"></a>6.1 The classifier</h3><p>我们的目标是训练一个分类器，让其判断一个候选的上下文词 c是否为目标词 w 的真实上下文。例如，对于给定的目标词对组合（apricot, jam）或（apricot, aardvark），分类器将返回c是w真实上下文词的概率 $P(+|w, c)$。</p>
+<p><strong>Skip-gram模型的思路</strong>：如果一个词的embedding向量与目标embedding向量相似，那么这个词很可能出现在目标词附近。为了计算这些密集嵌入之间的相似度，我们依赖于一个想法，即如果两个向量进行点积运算后的逻辑回归值(为了映射到0~1)高，那么它们相似。其公式如下：</p>
+<script type="math/tex; mode=display">P(+|w,c) = \sigma(c \cdot w) = \frac{1}{1 + \exp(-c \cdot w)}</script><p>Skip-gram模型还做了一个简化的假设，即所有上下文词都是独立的，允许我们简单地将它们的概率相乘：</p>
+<script type="math/tex; mode=display">\log P(+|w,c_{1:L}) = \sum_{i=1}^{L} \log \sigma(c_i \cdot w)</script><p>总结来说，Skip-gram模型训练了一个概率分类器，给定一个测试目标词 w 及其上下文窗口 $L$个词 $c_{1:L}$，基于这个上下文窗口与目标词的相似度分配概率。</p>
+<h3 id="6-2-Learning-skip-gram-embeddings"><a href="#6-2-Learning-skip-gram-embeddings" class="headerlink" title="6.2 Learning skip-gram embeddings"></a>6.2 Learning skip-gram embeddings</h3><p>Skip-gram模型的学习算法以文本语料和选择的词汇表大小 N 作为输入。它首先为词汇表中的每个词随机分配一个embedding向量，然后迭代地调整每个词 w的嵌入，使其与文本中出现的近邻词的嵌入更相似。</p>
+<p>对于单个训练数据来说，Skip-gram模型训练了一个二元分类器，需要正例和负例。对于每一个目标词 w和正例上下文词 $c_{\text{pos}}$ 的组合，我们将创建 k个负样本，每个负样本由目标词 w加上一个”噪声词” $c_{\text{neg}}$ 组成。噪声词是从词典中随机选取的，不是目标词 w,且负样本多于正样本，比例由参数 k 设置。</p>
+<p>具体例子如下：<br><img src="https://pbs.twimg.com/media/GH_iN4WWkAADtHE?format=png&amp;name=medium" alt=""></p>
+<p><img src="https://pbs.twimg.com/media/GH_iSRxWkAELL7p?format=png&amp;name=medium" alt=""></p>
+<p>给定正负训练实例集和初始嵌入集合，学习算法的目标是调整这些嵌入以最大化正例中目标词和上下文词对（$w,c_{\text{pos}}$）的相似度，同时最小化负例中的（$w,c_{\text{neg}}$）对的相似度。如果我们考虑一个词/上下文对（$w, c_{\text{pos}}$）及其 k个噪声词 $c_{\text{neg1}} … c_{\text{negk}}$，我们可以将这两个目标表达为一个要最小化的损失函数 L，其中第一项表达了我们希望分类器将真实上下文词 $c_{\text{pos}}$ 分配高概率为邻居，第二项表达了我们希望为每个噪声词 $c_{\text{negi}}$ 分配高概率为非邻居。</p>
+<p><img src="https://pbs.twimg.com/media/GH_lAPyWAAAHvy9?format=jpg&amp;name=medium" alt=""></p>
+<p>最后使用随机梯度下降法来最小化这个损失函数，获得最优解。</p>
+<h3 id="6-3-Other-kinds-of-static-embeddings"><a href="#6-3-Other-kinds-of-static-embeddings" class="headerlink" title="6.3 Other kinds of static embeddings"></a>6.3 Other kinds of static embeddings</h3><p>目前为止word2vec的一个问题,即它没有很好的方法来处理未知单词，FastText通过使用子词模型来处理这些问题，它将每个词表示为自身加上一个由构成词的n-gram组成的包，并在每个词的开头和结尾添加特殊边界符号 &lt; 和 &gt;。</p>
+<p><img src="https://pbs.twimg.com/media/GH_mQDyX0AA5UCe?format=png&amp;name=medium" alt=""></p>
+<p>例如，当 n=3 时，单词 “where” 将由序列 <where> 加上字符 n-gram <wh, whe, her, ere, re> 来表示。然后为每个构成的n-gram学习一个跳字嵌入，单词 “where” 由其所有构成n-gram的嵌入之和来表示。未知词则可以仅由构成n-gram的和来表示。</p>
+<h2 id="7-Bias-and-Embeddings"><a href="#7-Bias-and-Embeddings" class="headerlink" title="7. Bias and Embeddings"></a>7. Bias and Embeddings</h2><p>嵌入编码了人类推理的隐性关联性质。隐性关联测试通过测量人们标记各种类别词语的延迟差异来衡量人们对概念（如“花”或“昆虫”）和属性（如“愉悦”和“不愉悦”）之间的关联。使用这种方法，美国人已被证明将非裔美国人的名字与不愉悦的词联系在一起（比欧裔美国人的名字更多），男性名字更多与数学联系在一起，女性名字与艺术联系在一起，老年人的名字与不愉悦的词联系在一起。</p>
+<p>最近的研究专注于尝试消除这些偏见的方法，例如通过开发转换嵌入空间的方法来去除性别刻板印象，但保留定义上的性别（Bolukbasi等人，2016；Zhao等人，2017），或改变训练程序（Zhao等人，2018）。然而，尽管这些去偏见的方法可能减少了嵌入中的偏见，它们并没有消除它（Gonen和Goldberg，2019），这仍然是一个开放的问题。</p>
+<h2 id="8-Questions"><a href="#8-Questions" class="headerlink" title="8. Questions"></a>8. Questions</h2><p>对于一词多义，在空间上是同一位置吗，如果是同一位置如何区分不同的语义呢？</p>
+<p>如果是多语言任务，如何调整不同语言的Embeddings呢？</p>
+
             
         </div>
         <footer class="article-footer">
@@ -463,10 +673,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    648.6k
+                    649.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    41:10
+                    41:11
                 </div>
             
             
