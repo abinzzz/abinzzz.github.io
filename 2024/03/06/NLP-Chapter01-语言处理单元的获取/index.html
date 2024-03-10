@@ -14,7 +14,7 @@
 
     
     <title>
-        [待完成]NLP:Chapter01-语言处理单元的获取 |
+        NLP:Chapter01-语言处理单元的获取 |
         
         布洛戈</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,19 +25,25 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  引言 语料：计算机可读的语言数据 语料的单元识别：  文本切割 句子分割 短语识别：找出有价值的短语 词形态分析：找出句子中的词 字词切割   词形态分析基本任务：  断词(Tokeniztion): 词形还原">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  目录 引言 词形态分析：英语  英语-Tokenization(确定外界) 英语Lemmatization(内部结构分析)   词形态分析：汉语  汉语切分任务  边界歧义(Boundary Ambiguity">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[待完成]NLP:Chapter01-语言处理单元的获取">
+<meta property="og:title" content="NLP:Chapter01-语言处理单元的获取">
 <meta property="og:url" content="https://abinzzz.github.io/2024/03/06/NLP-Chapter01-%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%8D%95%E5%85%83%E7%9A%84%E8%8E%B7%E5%8F%96/index.html">
 <meta property="og:site_name" content="布洛戈">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  引言 语料：计算机可读的语言数据 语料的单元识别：  文本切割 句子分割 短语识别：找出有价值的短语 词形态分析：找出句子中的词 字词切割   词形态分析基本任务：  断词(Tokeniztion): 词形还原">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  目录 引言 词形态分析：英语  英语-Tokenization(确定外界) 英语Lemmatization(内部结构分析)   词形态分析：汉语  汉语切分任务  边界歧义(Boundary Ambiguity">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIPDAiGaYAAbCjI?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIPDxluXgAAgLNx?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIPEaArXMAA5sZv?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIPIE3BWMAQchIJ?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GIS3L7eXUAAQFUh?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GIS3ex3W8AAGhKs?format=jpg&amp;name=large">
+<meta property="og:image" content="https://pbs.twimg.com/media/GIS3hq4WgAA9M2t?format=jpg&amp;name=large">
+<meta property="og:image" content="https://pbs.twimg.com/media/GIS46vSWoAAdLPA?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GIS5UctWUAgtqQa?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GIS5lyVWQAEkrlb?format=jpg&amp;name=medium">
 <meta property="article:published_time" content="2024-03-06T01:57:55.000Z">
-<meta property="article:modified_time" content="2024-03-10T07:55:09.830Z">
+<meta property="article:modified_time" content="2024-03-10T08:26:06.773Z">
 <meta property="article:author" content="ab">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="NLP">
@@ -122,7 +128,7 @@
             <header id="header">
     
     
-        <img data-src="https://pbs.twimg.com/media/GH91GXWW4AAwR9A?format=jpg&amp;name=medium" data-sizes="auto" alt="[待完成]NLP:Chapter01-语言处理单元的获取" class="lazyload">
+        <img data-src="https://pbs.twimg.com/media/GH91GXWW4AAwR9A?format=jpg&amp;name=medium" data-sizes="auto" alt="NLP:Chapter01-语言处理单元的获取" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -130,7 +136,7 @@
                 
                     
                     
-                        <a href="/" id="logo"><h1>[待完成]NLP:Chapter01-语言处理单元的获取</h1></a>
+                        <a href="/" id="logo"><h1>NLP:Chapter01-语言处理单元的获取</h1></a>
                     
                 
             </div>
@@ -207,6 +213,40 @@
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
 <h2 id="目录"><a class="markdownIt-Anchor" href="#目录"></a> 目录</h2>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E5%BC%95%E8%A8%80">引言</a></li>
+<li><a href="#%E8%AF%8D%E5%BD%A2%E6%80%81%E5%88%86%E6%9E%90%E8%8B%B1%E8%AF%AD">词形态分析：英语</a>
+<ul>
+<li><a href="#%E8%8B%B1%E8%AF%AD-tokenization%E7%A1%AE%E5%AE%9A%E5%A4%96%E7%95%8C">英语-Tokenization(确定外界)</a></li>
+<li><a href="#%E8%8B%B1%E8%AF%ADlemmatization%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90">英语Lemmatization(内部结构分析)</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AF%8D%E5%BD%A2%E6%80%81%E5%88%86%E6%9E%90%E6%B1%89%E8%AF%AD">词形态分析：汉语</a>
+<ul>
+<li><a href="#%E6%B1%89%E8%AF%AD%E5%88%87%E5%88%86%E4%BB%BB%E5%8A%A1">汉语切分任务</a>
+<ul>
+<li><a href="#%E8%BE%B9%E7%95%8C%E6%AD%A7%E4%B9%89boundary-ambiguity">边界歧义(Boundary Ambiguity)</a></li>
+<li><a href="#%E6%9C%AA%E7%99%BB%E5%BD%95%E8%AF%8Dout-of-vocabularyoov">未登录词(Out of Vocabulary:OOV)</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9F%BA%E4%BA%8E%E8%A7%84%E5%88%99%E7%9A%84%E5%88%87%E5%88%86">基于规则的切分</a></li>
+<li><a href="#%E5%9F%BA%E4%BA%8E%E5%88%86%E7%B1%BB%E7%9A%84%E5%88%87%E5%88%86">基于分类的切分</a></li>
+</ul>
+</li>
+<li><a href="#%E6%94%B9%E8%BF%9B%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%A5%E5%AD%A6%E4%B9%A0%E7%89%B9%E5%BE%81"><strong>改进方法</strong>：使用深度学习来学习特征</a></li>
+<li><a href="#%E5%9F%BA%E4%BA%8E%E5%BA%8F%E6%A0%87%E7%9A%84%E5%88%87%E5%88%86">基于序标的切分</a>
+<ul>
+<li><a href="#%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89">问题定义</a></li>
+<li><a href="#hmm%E6%96%B9%E6%B3%95">HMM方法</a></li>
+<li><a href="#%E5%9F%BA%E4%BA%8Ecrf%E7%9A%84%E6%96%B9%E6%B3%95">基于CRF的方法</a></li>
+<li><a href="#dlcrf">DL+CRF</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%97%E8%AF%8D%E5%88%86%E9%9A%94">字词分隔</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
+</ul>
+<br>
 <h2 id="引言"><a class="markdownIt-Anchor" href="#引言"></a> 引言</h2>
 <p><strong>语料</strong>：计算机可读的语言数据</p>
 <p>语料的单元识别：</p>
@@ -351,23 +391,35 @@
 <strong>问题的定义</strong>:设置<strong>标签集</strong>S={B(开始字),I(非开始字),O(单独成词)}<br />
 <strong>思想</strong>：联合分类&lt;-&gt;序列标注，<strong>求解最优标签序列</strong></p>
 <h3 id="hmm方法"><a class="markdownIt-Anchor" href="#hmm方法"></a> HMM方法</h3>
-<p>关于HMM的回顾可以看<a href="">这里</a></p>
-<h2 id="基于crf的方法"><a class="markdownIt-Anchor" href="#基于crf的方法"></a> 基于CRF的方法</h2>
-<p>HMM的缺点：当前词之和当前状态有关系，这显然是不现实的</p>
-<p>CRF找各种特种比较难，特征工程</p>
-<p>如何自动找特征？</p>
-<p>神经网络模型可以在不同的数据集上取得非常好的效果</p>
-<p>汉语切分llm很少使用</p>
-<p>bpe？</p>
+<p>关于HMM的回顾可以看<a href="https://abinzzz.github.io/2024/03/10/Hidden-Markov-Model/">这里</a></p>
+<p><strong>原因</strong>:<strong>局部最优</strong>标准仅考虑在每一个孤立时刻位于某一 状态的可能，而没有考虑整个内部状态序列是否存 在出现的可能性。<strong>全局最优</strong>是状态序列在观察序列O的条件下，最可能的内部状态序列(HMM通过viterbi算法求的)</p>
+<p><strong>具体实例</strong>：<br />
+<img src="https://pbs.twimg.com/media/GIS3L7eXUAAQFUh?format=jpg&amp;name=medium" alt="" /></p>
+<p>计算过程：<br />
+<img src="https://pbs.twimg.com/media/GIS3ex3W8AAGhKs?format=jpg&amp;name=large" alt="" /><br />
+<img src="https://pbs.twimg.com/media/GIS3hq4WgAA9M2t?format=jpg&amp;name=large" alt="" /></p>
+<h3 id="基于crf的方法"><a class="markdownIt-Anchor" href="#基于crf的方法"></a> 基于CRF的方法</h3>
+<p>HMM的缺点：当前词<strong>只和当前状态有关</strong>系，这显然是不现实的</p>
+<p><img src="https://pbs.twimg.com/media/GIS46vSWoAAdLPA?format=jpg&amp;name=medium" alt="" /></p>
+<p><img src="https://pbs.twimg.com/media/GIS5UctWUAgtqQa?format=jpg&amp;name=medium" alt="" /><br />
+<img src="https://pbs.twimg.com/media/GIS5lyVWQAEkrlb?format=jpg&amp;name=medium" alt="" /></p>
+<p><strong>CRF的缺点</strong>：找各种特种比较难，特征工程</p>
+<h3 id="dlcrf"><a class="markdownIt-Anchor" href="#dlcrf"></a> DL+CRF</h3>
+<p>使用深度学习自动找特征</p>
+<br>
+<h2 id="字词分隔"><a class="markdownIt-Anchor" href="#字词分隔"></a> 字词分隔</h2>
+<p>前面提到，词边界分割中的一个难点问题是<strong>未登录词 (OOV, Out-Of-Vocabulary)</strong>:词在训练语料中未见，但出现在测试 语料中，不论是英语还是汉语都有此问题。</p>
+<p><strong>解决方法</strong>：从语料中自动获取一些比词更小的构词单元Subwords(子词)，以子词作为后续分析的基本单元，例如BPE，Kudo，WordPiece</p>
 <h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8">朴素贝叶斯分类器</a></li>
+<li><a href="https://abinzzz.github.io/2024/03/10/Hidden-Markov-Model/">HMM</a></li>
 </ul>
 
             
         </div>
         <footer class="article-footer">
-            <a data-url="https://abinzzz.github.io/2024/03/06/NLP-Chapter01-%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%8D%95%E5%85%83%E7%9A%84%E8%8E%B7%E5%8F%96/" data-id="cltfe9yzm0000os697dvhgg8x" data-title="[待完成]NLP:Chapter01-语言处理单元的获取"
+            <a data-url="https://abinzzz.github.io/2024/03/06/NLP-Chapter01-%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%8D%95%E5%85%83%E7%9A%84%E8%8E%B7%E5%8F%96/" data-id="cltfe9yzm0000os697dvhgg8x" data-title="NLP:Chapter01-语言处理单元的获取"
                class="article-share-link">分享</a>
             
             
@@ -545,10 +597,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    667k
+                    667.3k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    42:17
+                    42:18
                 </div>
             
             
