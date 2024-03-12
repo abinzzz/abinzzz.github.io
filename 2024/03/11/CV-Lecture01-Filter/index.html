@@ -25,12 +25,12 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  图像的种类和表示 图像的分类：  二值图像Binary 灰度图像Gray Scale 彩色图像Color: 可以理解为红度+绿度+蓝度   二值图像：   灰度图像:   彩色图像：    动机和基本原理 动机">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });     目录图像的种类和表示图像的分类：  二值图像Binary 灰度图像Gray Scale 彩色图像Color: 可以理解为红度+绿度+蓝度   二值图像：  灰度图像:  彩色图像：  动机和基本原理动机：  去噪d">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CV:Lecture01-Filter">
 <meta property="og:url" content="https://abinzzz.github.io/2024/03/11/CV-Lecture01-Filter/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  图像的种类和表示 图像的分类：  二值图像Binary 灰度图像Gray Scale 彩色图像Color: 可以理解为红度+绿度+蓝度   二值图像：   灰度图像:   彩色图像：    动机和基本原理 动机">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });     目录图像的种类和表示图像的分类：  二值图像Binary 灰度图像Gray Scale 彩色图像Color: 可以理解为红度+绿度+蓝度   二值图像：  灰度图像:  彩色图像：  动机和基本原理动机：  去噪d">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZMcqOXcAAXDTj?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZMj23XsAAV1CT?format=jpg&amp;name=medium">
@@ -42,7 +42,7 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZUamUWIAAzRcL?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZXJZCWsAAkdkk?format=png&amp;name=medium">
 <meta property="article:published_time" content="2024-03-11T13:34:29.000Z">
-<meta property="article:modified_time" content="2024-03-11T14:49:26.186Z">
+<meta property="article:modified_time" content="2024-03-12T01:31:41.872Z">
 <meta property="article:author" content="Jerome">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="CV">
@@ -128,7 +128,7 @@
             <header id="header">
     
     
-        <img data-src="https://pbs.twimg.com/media/GHVZM28XUAEbhJW?format=jpg&amp;name=medium" data-sizes="auto" alt="CV:Lecture01-Filter" class="lazyload">
+        <img data-src="https://pbs.twimg.com/media/GIbuV-WXwAA5Juo?format=png&amp;name=small" data-sizes="auto" alt="CV:Lecture01-Filter" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -212,33 +212,30 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-<h2 id="目录"><a class="markdownIt-Anchor" href="#目录"></a> 目录</h2>
-<h2 id="图像的种类和表示"><a class="markdownIt-Anchor" href="#图像的种类和表示"></a> 图像的种类和表示</h2>
-<p>图像的分类：</p>
+
+
+
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h2 id="图像的种类和表示"><a href="#图像的种类和表示" class="headerlink" title="图像的种类和表示"></a>图像的种类和表示</h2><p>图像的分类：</p>
 <ul>
 <li><strong>二值图像Binary</strong></li>
 <li><strong>灰度图像Gray Scale</strong></li>
 <li><strong>彩色图像Color</strong>: 可以理解为红度+绿度+蓝度</li>
 </ul>
-<br>
-<p><strong>二值图像</strong>：<br />
-<img src="https://pbs.twimg.com/media/GIZMcqOXcAAXDTj?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<p><strong>灰度图像</strong>:<br />
-<img src="https://pbs.twimg.com/media/GIZMj23XsAAV1CT?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<p><strong>彩色图像</strong>：<br />
-<img src="https://pbs.twimg.com/media/GIZMpI7XoAAnDME?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<h2 id="动机和基本原理"><a class="markdownIt-Anchor" href="#动机和基本原理"></a> 动机和基本原理</h2>
-<p>动机：</p>
+<p><br></p>
+<p><strong>二值图像</strong>：<br><img src="https://pbs.twimg.com/media/GIZMcqOXcAAXDTj?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<p><strong>灰度图像</strong>:<br><img src="https://pbs.twimg.com/media/GIZMj23XsAAV1CT?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<p><strong>彩色图像</strong>：<br><img src="https://pbs.twimg.com/media/GIZMpI7XoAAnDME?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h2 id="动机和基本原理"><a href="#动机和基本原理" class="headerlink" title="动机和基本原理"></a>动机和基本原理</h2><p>动机：</p>
 <ol>
 <li>去噪denoising</li>
 <li>各领域加权平均</li>
 </ol>
-<p>定义：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>f</mi><mo>∗</mo><mi>g</mi><mo stretchy="false">)</mo><mo stretchy="false">[</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">]</mo><mo>=</mo><msubsup><mo>∑</mo><mi>k</mi><mi>l</mi></msubsup><mi>f</mi><mo stretchy="false">[</mo><mi>m</mi><mo>−</mo><mi>k</mi><mo separator="true">,</mo><mi>n</mi><mo>−</mo><mi>l</mi><mo stretchy="false">]</mo><mi>g</mi><mo stretchy="false">[</mo><mi>k</mi><mo separator="true">,</mo><mi>l</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">(f * g)[m, n] = \sum_{k}^{l} f[m - k, n - l]g[k, l]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mclose">)</span><span class="mopen">[</span><span class="mord mathnormal">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2887179999999998em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9890079999999999em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mclose">]</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mclose">]</span></span></span></span></p>
-<p><img src="https://pbs.twimg.com/media/GIZR720WMAAI-SG?format=jpg&amp;name=medium" alt="" /></p>
-<br>
+<p>定义：$(f * g)[m, n] = \sum_{k}^{l} f[m - k, n - l]g[k, l]$</p>
+<p><img src="https://pbs.twimg.com/media/GIZR720WMAAI-SG?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
 <p>靠近边缘的地方如何卷积：</p>
 <ul>
 <li>clip filter (black即填0)</li>
@@ -246,8 +243,8 @@
 <li>copy edge</li>
 <li>reflect across edge(对称)</li>
 </ul>
-<br>
-<h2 id="filter的性质和定律"><a class="markdownIt-Anchor" href="#filter的性质和定律"></a> filter的性质和定律</h2>
+<p><br></p>
+<h2 id="filter的性质和定律"><a href="#filter的性质和定律" class="headerlink" title="filter的性质和定律"></a>filter的性质和定律</h2><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -258,67 +255,59 @@
 <tbody>
 <tr>
 <td>Linearity (线性)</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mi>i</mi><mi>l</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo stretchy="false">(</mo><msub><mi>f</mi><mn>1</mn></msub><mo>+</mo><msub><mi>f</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mi>i</mi><mi>l</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo stretchy="false">(</mo><msub><mi>f</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>+</mo><mi>f</mi><mi>i</mi><mi>l</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo stretchy="false">(</mo><msub><mi>f</mi><mn>2</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">filter(f_1 + f_2) = filter(f_1) + filter(f_2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></td>
+<td>$filter(f_1 + f_2) = filter(f_1) + filter(f_2)$</td>
 </tr>
 <tr>
 <td>Shift Invariance (平移不变性)</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mi>i</mi><mi>l</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo stretchy="false">(</mo><mi>s</mi><mi>h</mi><mi>i</mi><mi>f</mi><mi>t</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mi>s</mi><mi>h</mi><mi>i</mi><mi>f</mi><mi>t</mi><mo stretchy="false">(</mo><mi>f</mi><mi>i</mi><mi>l</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">filter(shift(f)) = shift(filter(f))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mord mathnormal">h</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">t</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">h</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">t</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></td>
+<td>$filter(shift(f)) = shift(filter(f))$</td>
 </tr>
 <tr>
 <td>Commutative (交换律)</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∗</mo><mi>b</mi><mo>=</mo><mi>b</mi><mo>∗</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">a * b = b * a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span></td>
+<td>$a <em> b = b </em> a$</td>
 </tr>
 <tr>
 <td>Associative (结合律)</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∗</mo><mo stretchy="false">(</mo><mi>b</mi><mo>∗</mo><mi>c</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>a</mi><mo>∗</mo><mi>b</mi><mo stretchy="false">)</mo><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">a * (b * c) = (a * b) * c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">c</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span></td>
+<td>$a <em> (b </em> c) = (a <em> b) </em> c$</td>
 </tr>
 <tr>
 <td>Distributive (分配律) over addition</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∗</mo><mo stretchy="false">(</mo><mi>b</mi><mo>+</mo><mi>c</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>a</mi><mo>∗</mo><mi>b</mi><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mi>a</mi><mo>∗</mo><mi>c</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">a * (b + c) = (a * b) + (a * c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">c</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">c</span><span class="mclose">)</span></span></span></span></td>
+<td>$a <em> (b + c) = (a </em> b) + (a * c)$</td>
 </tr>
 <tr>
 <td>Scalars factor out (标量因子外提)</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo stretchy="false">(</mo><mi>a</mi><mo>∗</mo><mi>b</mi><mo stretchy="false">)</mo><mo>=</mo><mi>k</mi><mi>a</mi><mo>∗</mo><mi>b</mi><mo>=</mo><mi>a</mi><mo>∗</mo><mi>k</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">k(a * b) = ka * b = a * kb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal">b</span></span></span></span></td>
+<td>$k(a <em> b) = ka </em> b = a * kb$</td>
 </tr>
 <tr>
 <td>Identity (单位元素)</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∗</mo><mi>e</mi><mo>=</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">a * e = a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span></td>
+<td>$a * e = a$</td>
 </tr>
 </tbody>
 </table>
-<br>
-<h2 id="linear-filter应用"><a class="markdownIt-Anchor" href="#linear-filter应用"></a> linear filter应用</h2>
-<p><strong>无变化</strong>：<br />
-<img src="https://pbs.twimg.com/media/GIZTfyaXQAAiFb-?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<p>左平移：<br />
-<img src="https://pbs.twimg.com/media/GIZTkeXXsAMt5ik?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<p>模糊：<br />
-<img src="https://pbs.twimg.com/media/GIZTpjLWQAE5sdZ?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<p>锐化：<br />
-<img src="https://pbs.twimg.com/media/GIZUamUWIAAzRcL?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<h2 id="gaussian-filter"><a class="markdownIt-Anchor" href="#gaussian-filter"></a> Gaussian Filter</h2>
-<p><strong>标准偏差</strong>:决定平滑程度   (越大越宽，越平滑)<br />
-<strong>经验法则</strong>: 将滤波器半宽度设置为约3σ</p>
-<br>
+</div>
+<p><br></p>
+<h2 id="linear-filter应用"><a href="#linear-filter应用" class="headerlink" title="linear filter应用"></a>linear filter应用</h2><p><strong>无变化</strong>：<br><img src="https://pbs.twimg.com/media/GIZTfyaXQAAiFb-?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<p>左平移：<br><img src="https://pbs.twimg.com/media/GIZTkeXXsAMt5ik?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<p>模糊：<br><img src="https://pbs.twimg.com/media/GIZTpjLWQAE5sdZ?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<p>锐化：<br><img src="https://pbs.twimg.com/media/GIZUamUWIAAzRcL?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h2 id="Gaussian-Filter"><a href="#Gaussian-Filter" class="headerlink" title="Gaussian Filter"></a>Gaussian Filter</h2><p><strong>标准偏差</strong>:决定平滑程度   (越大越宽，越平滑)<br><strong>经验法则</strong>: 将滤波器半宽度设置为约3σ</p>
+<p><br></p>
 <p>高斯滤波器的特性：</p>
 <ul>
 <li>主要用于取出<strong>高频</strong>成分(边缘,噪声)</li>
 <li>与自身的卷积仍然是高斯</li>
 <li>两次使用标准差为σ的高斯核等同于一次使用标准差为√2σ的核</li>
-<li><strong>可分离</strong>核：二维(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><msup><mi>m</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2m^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>) -&gt; 1维 x 1维 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathnormal">m</span><span class="mclose">)</span></span></span></span>)</li>
+<li><strong>可分离</strong>核：二维($O(n^2m^2)$) -&gt; 1维 x 1维 ($O(n^2m)$)</li>
 </ul>
-<br>
-<h2 id="噪声"><a class="markdownIt-Anchor" href="#噪声"></a> 噪声</h2>
-<p>Noise:</p>
+<p><br></p>
+<h2 id="噪声"><a href="#噪声" class="headerlink" title="噪声"></a>噪声</h2><p>Noise:</p>
 <ol>
 <li>Salt and pepper noise:包含随机出现的黑色和白色像素</li>
 <li>Impulsenoise:包含随机出现的白色像素</li>
-<li>Gaussiannoise: 由高斯正态分布得出的强度变化<br />
-<img src="https://pbs.twimg.com/media/GIZXJZCWsAAkdkk?format=png&amp;name=medium" alt="" /></li>
+<li>Gaussiannoise: 由高斯正态分布得出的强度变化<br><img src="https://pbs.twimg.com/media/GIZXJZCWsAAkdkk?format=png&amp;name=medium" alt=""></li>
 </ol>
 
             
@@ -488,7 +477,7 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    675.2k
+                    675.3k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     42:47
