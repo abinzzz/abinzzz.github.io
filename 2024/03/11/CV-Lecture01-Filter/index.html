@@ -25,12 +25,12 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  目录 图像的种类和表示 滤波器 动机和基本原理 filter的性质和定律 linear filter应用 noise Gaussian Filter Median filter    图像的种类和表示 图像的分">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  目录 图像的种类和表示 卷积基本原理 滤波器  box filter Gaussian Filter linear filter应用 Median filter   filter的性质和定律 noise 参考链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CV:Lecture01-Filter">
 <meta property="og:url" content="https://abinzzz.github.io/2024/03/11/CV-Lecture01-Filter/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  目录 图像的种类和表示 滤波器 动机和基本原理 filter的性质和定律 linear filter应用 noise Gaussian Filter Median filter    图像的种类和表示 图像的分">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  目录 图像的种类和表示 卷积基本原理 滤波器  box filter Gaussian Filter linear filter应用 Median filter   filter的性质和定律 noise 参考链">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZMcqOXcAAXDTj?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZMj23XsAAV1CT?format=jpg&amp;name=medium">
@@ -40,11 +40,11 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZTkeXXsAMt5ik?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZTpjLWQAE5sdZ?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZUamUWIAAzRcL?format=jpg&amp;name=medium">
-<meta property="og:image" content="https://pbs.twimg.com/media/GIZXJZCWsAAkdkk?format=png&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIjIMQPWkAASOkl?format=png&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIjJDsBXIAAEwvQ?format=png&amp;name=small">
+<meta property="og:image" content="https://pbs.twimg.com/media/GIZXJZCWsAAkdkk?format=png&amp;name=medium">
 <meta property="article:published_time" content="2024-03-11T13:34:29.000Z">
-<meta property="article:modified_time" content="2024-03-13T14:43:13.396Z">
+<meta property="article:modified_time" content="2024-03-14T01:26:10.429Z">
 <meta property="article:author" content="Jerome">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="CV">
@@ -218,13 +218,18 @@
 <ul>
 <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
 <li><a href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E7%A7%8D%E7%B1%BB%E5%92%8C%E8%A1%A8%E7%A4%BA">图像的种类和表示</a></li>
-<li><a href="#%E6%BB%A4%E6%B3%A2%E5%99%A8">滤波器</a></li>
-<li><a href="#%E5%8A%A8%E6%9C%BA%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86">动机和基本原理</a></li>
-<li><a href="#filter%E7%9A%84%E6%80%A7%E8%B4%A8%E5%92%8C%E5%AE%9A%E5%BE%8B">filter的性质和定律</a></li>
-<li><a href="#linear-filter%E5%BA%94%E7%94%A8">linear filter应用</a></li>
-<li><a href="#noise">noise</a></li>
+<li><a href="#%E5%8D%B7%E7%A7%AF%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86">卷积基本原理</a></li>
+<li><a href="#%E6%BB%A4%E6%B3%A2%E5%99%A8">滤波器</a>
+<ul>
+<li><a href="#box-filter">box filter</a></li>
 <li><a href="#gaussian-filter">Gaussian Filter</a></li>
+<li><a href="#linear-filter%E5%BA%94%E7%94%A8">linear filter应用</a></li>
 <li><a href="#median-filter">Median filter</a></li>
+</ul>
+</li>
+<li><a href="#filter%E7%9A%84%E6%80%A7%E8%B4%A8%E5%92%8C%E5%AE%9A%E5%BE%8B">filter的性质和定律</a></li>
+<li><a href="#noise">noise</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
 </ul>
 <br>
 <h2 id="图像的种类和表示"><a class="markdownIt-Anchor" href="#图像的种类和表示"></a> 图像的种类和表示</h2>
@@ -234,15 +239,25 @@
 <li><strong>灰度图像Gray Scale</strong></li>
 <li><strong>彩色图像Color</strong>: 可以理解为红度+绿度+蓝度</li>
 </ul>
-<br>
 <p><strong>二值图像</strong>：<br />
 <img src="https://pbs.twimg.com/media/GIZMcqOXcAAXDTj?format=jpg&amp;name=medium" alt="" /></p>
-<br>
 <p><strong>灰度图像</strong>:<br />
 <img src="https://pbs.twimg.com/media/GIZMj23XsAAV1CT?format=jpg&amp;name=medium" alt="" /></p>
-<br>
 <p><strong>彩色图像</strong>：<br />
 <img src="https://pbs.twimg.com/media/GIZMpI7XoAAnDME?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="卷积基本原理"><a class="markdownIt-Anchor" href="#卷积基本原理"></a> 卷积基本原理</h2>
+<p><strong>操作方式</strong>：将滤波器翻转，与输入信号相乘求和之后，不断滑动</p>
+<p>定义：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>f</mi><mo>∗</mo><mi>g</mi><mo stretchy="false">)</mo><mo stretchy="false">[</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">]</mo><mo>=</mo><msubsup><mo>∑</mo><mi>k</mi><mi>l</mi></msubsup><mi>f</mi><mo stretchy="false">[</mo><mi>m</mi><mo>−</mo><mi>k</mi><mo separator="true">,</mo><mi>n</mi><mo>−</mo><mi>l</mi><mo stretchy="false">]</mo><mi>g</mi><mo stretchy="false">[</mo><mi>k</mi><mo separator="true">,</mo><mi>l</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">(f * g)[m, n] = \sum_{k}^{l} f[m - k, n - l]g[k, l]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mclose">)</span><span class="mopen">[</span><span class="mord mathnormal">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2887179999999998em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9890079999999999em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mclose">]</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mclose">]</span></span></span></span></p>
+<p><img src="https://pbs.twimg.com/media/GIZR720WMAAI-SG?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p>图像的边缘处理(区分<strong>边缘检测</strong>)：</p>
+<ul>
+<li>clip filter (black即填0)</li>
+<li>wrap around(不同侧拓展)</li>
+<li>copy edge(复制拓展)</li>
+<li>reflect across edge(同一侧对称)</li>
+</ul>
 <br>
 <h2 id="滤波器"><a class="markdownIt-Anchor" href="#滤波器"></a> 滤波器</h2>
 <p>滤波器这个词来源于信号处理中的频率域处理。图片完全可以看成一种二维的信号，也具有频率的特性。<strong>高频</strong>的地方是变化剧烈的地方，可以称之为<strong>边缘（contours/edges）</strong>。<strong>低频</strong>的地方是变化缓慢的地方，表现为总体趋势的变化。</p>
@@ -251,23 +266,42 @@
 <li>低通滤波器（平滑图像,消除噪声）</li>
 <li>高通滤波器（保留边缘）</li>
 </ol>
-<br>
-<h2 id="动机和基本原理"><a class="markdownIt-Anchor" href="#动机和基本原理"></a> 动机和基本原理</h2>
-<p>动机：</p>
+<p>滤波器的分类：</p>
 <ol>
-<li>去噪denoising</li>
-<li>各领域加权平均</li>
+<li>线性滤波器：<strong>低通</strong>，系数为<strong>正</strong>，归一化系数求<strong>和为1</strong>。例如，<strong>gaussian filter</strong>和<strong>box filter</strong>。</li>
+<li>非线性滤波器：例如median filer</li>
 </ol>
-<p>定义：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>f</mi><mo>∗</mo><mi>g</mi><mo stretchy="false">)</mo><mo stretchy="false">[</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">]</mo><mo>=</mo><msubsup><mo>∑</mo><mi>k</mi><mi>l</mi></msubsup><mi>f</mi><mo stretchy="false">[</mo><mi>m</mi><mo>−</mo><mi>k</mi><mo separator="true">,</mo><mi>n</mi><mo>−</mo><mi>l</mi><mo stretchy="false">]</mo><mi>g</mi><mo stretchy="false">[</mo><mi>k</mi><mo separator="true">,</mo><mi>l</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">(f * g)[m, n] = \sum_{k}^{l} f[m - k, n - l]g[k, l]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mclose">)</span><span class="mopen">[</span><span class="mord mathnormal">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2887179999999998em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9890079999999999em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mclose">]</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mclose">]</span></span></span></span></p>
-<p><img src="https://pbs.twimg.com/media/GIZR720WMAAI-SG?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<p>靠近边缘的地方如何卷积：</p>
-<ul>
-<li>clip filter (black即填0)</li>
-<li>wrap around()</li>
-<li>copy edge</li>
-<li>reflect across edge(对称)</li>
-</ul>
+<h3 id="box-filter"><a class="markdownIt-Anchor" href="#box-filter"></a> box filter</h3>
+<p><strong>特点</strong>：将每个点的值用附近的值的<strong>平均值</strong>代替</p>
+<h3 id="gaussian-filter"><a class="markdownIt-Anchor" href="#gaussian-filter"></a> Gaussian Filter</h3>
+<p>对于box filter我们认为box中的所有值<strong>对中心值的贡献是一样的</strong>，这个还是不太符合直觉，还是有权重的平均更符合直觉一些。那权重怎么给呢？直觉告诉我们利用<strong>高斯分布</strong>就挺好的。高斯滤波器就这么来了。</p>
+<p><strong>特征</strong>：卷积核按照高斯分布<br />
+<strong>标准偏差</strong>:决定平滑程度(平滑效果与<strong>标准差</strong>,<strong>滤波器大小</strong>正相关)<br />
+<strong>经验法则</strong>: 将滤波器半宽度设置为约3σ<br />
+<strong>适用</strong>：高斯噪声</p>
+<Br>
+<p>高斯滤波器的特性：</p>
+<ol>
+<li>主要用于取出<strong>高频</strong>成分(边缘,噪声)</li>
+<li>与自身的卷积仍然是高斯</li>
+<li>两次使用标准差为σ的高斯核等同于一次使用标准差为√2σ的核</li>
+<li><strong>可分离</strong>核：二维(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><msup><mi>m</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2m^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>) -&gt; 1维 x 1维 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathnormal">m</span><span class="mclose">)</span></span></span></span>)</li>
+</ol>
+<h3 id="linear-filter应用"><a class="markdownIt-Anchor" href="#linear-filter应用"></a> linear filter应用</h3>
+<p><strong>无变化</strong>：<br />
+<img src="https://pbs.twimg.com/media/GIZTfyaXQAAiFb-?format=jpg&amp;name=medium" alt="" /></p>
+<p>左平移：<br />
+<img src="https://pbs.twimg.com/media/GIZTkeXXsAMt5ik?format=jpg&amp;name=medium" alt="" /></p>
+<p>模糊：<br />
+<img src="https://pbs.twimg.com/media/GIZTpjLWQAE5sdZ?format=jpg&amp;name=medium" alt="" /></p>
+<p>锐化：<br />
+<img src="https://pbs.twimg.com/media/GIZUamUWIAAzRcL?format=jpg&amp;name=medium" alt="" /></p>
+<h3 id="median-filter"><a class="markdownIt-Anchor" href="#median-filter"></a> Median filter</h3>
+<p><strong>特点</strong>：将感受野范围内的中值替换原来数值<br />
+<strong>适用</strong>：Salt and pepper noise和Impulsenoise</p>
+<p><img src="https://pbs.twimg.com/media/GIjIMQPWkAASOkl?format=png&amp;name=900x900" alt="" /></p>
+<p>重点<strong>区分</strong>：中值滤波器与均值滤波器</p>
+<p><img src="https://pbs.twimg.com/media/GIjJDsBXIAAEwvQ?format=png&amp;name=small" alt="" /></p>
 <br>
 <h2 id="filter的性质和定律"><a class="markdownIt-Anchor" href="#filter的性质和定律"></a> filter的性质和定律</h2>
 <table>
@@ -309,19 +343,6 @@
 </tbody>
 </table>
 <br>
-<h2 id="linear-filter应用"><a class="markdownIt-Anchor" href="#linear-filter应用"></a> linear filter应用</h2>
-<p><strong>无变化</strong>：<br />
-<img src="https://pbs.twimg.com/media/GIZTfyaXQAAiFb-?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<p>左平移：<br />
-<img src="https://pbs.twimg.com/media/GIZTkeXXsAMt5ik?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<p>模糊：<br />
-<img src="https://pbs.twimg.com/media/GIZTpjLWQAE5sdZ?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<p>锐化：<br />
-<img src="https://pbs.twimg.com/media/GIZUamUWIAAzRcL?format=jpg&amp;name=medium" alt="" /></p>
-<br>
 <h2 id="noise"><a class="markdownIt-Anchor" href="#noise"></a> noise</h2>
 <p>Noise:</p>
 <ol>
@@ -331,25 +352,11 @@
 <img src="https://pbs.twimg.com/media/GIZXJZCWsAAkdkk?format=png&amp;name=medium" alt="" /></li>
 </ol>
 <br>
-<h2 id="gaussian-filter"><a class="markdownIt-Anchor" href="#gaussian-filter"></a> Gaussian Filter</h2>
-<p><strong>特征</strong>：卷积核按照高斯分布<br />
-<strong>标准偏差</strong>:决定平滑程度   (越大越宽，越平滑)<br />
-<strong>经验法则</strong>: 将滤波器半宽度设置为约3σ<br />
-<strong>适用</strong>：高斯噪声</p>
-<p>高斯滤波器的特性：</p>
-<ol>
-<li>主要用于取出<strong>高频</strong>成分(边缘,噪声)</li>
-<li>与自身的卷积仍然是高斯</li>
-<li>两次使用标准差为σ的高斯核等同于一次使用标准差为√2σ的核</li>
-<li><strong>可分离</strong>核：二维(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><msup><mi>m</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2m^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>) -&gt; 1维 x 1维 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathnormal">m</span><span class="mclose">)</span></span></span></span>)</li>
-</ol>
-<br>
-<h2 id="median-filter"><a class="markdownIt-Anchor" href="#median-filter"></a> Median filter</h2>
-<p><strong>特点</strong>：将感受野范围内的中值替换原来数值<br />
-<strong>适用</strong>：Salt and pepper noise和Impulsenoise</p>
-<p><img src="https://pbs.twimg.com/media/GIjIMQPWkAASOkl?format=png&amp;name=900x900" alt="" /></p>
-<p>重点<strong>区分</strong>：中值滤波器与均值滤波器</p>
-<p><img src="https://pbs.twimg.com/media/GIjJDsBXIAAEwvQ?format=png&amp;name=small" alt="" /></p>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/HaoZiHuang/article/details/104856112">图像处理四种边界条件Python轮子实现——ZeroPadding、WrapAround、EdgeCopy、Reflect(同时应对各种size——valid、same、full)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/453205634">【VO】03 滤波器和边缘提取(Canny)</a></li>
+</ul>
 
             
         </div>
@@ -532,7 +539,7 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    680.6k
+                    680.8k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     43:08
