@@ -25,26 +25,26 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  目录 图像的种类和表示 卷积基本原理 滤波器  box filter Gaussian Filter linear filter应用 Median filter   filter的性质和定律 noise 参考链">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  目录 图像的种类和表示 卷积基本原理 noise 滤波器  box filter Gaussian Filter linear filter应用 Median filter   filter的性质和定律 参考链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CV:Lecture01-Filter">
 <meta property="og:url" content="https://abinzzz.github.io/2024/03/11/CV-Lecture01-Filter/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  目录 图像的种类和表示 卷积基本原理 滤波器  box filter Gaussian Filter linear filter应用 Median filter   filter的性质和定律 noise 参考链">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  目录 图像的种类和表示 卷积基本原理 noise 滤波器  box filter Gaussian Filter linear filter应用 Median filter   filter的性质和定律 参考链">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZMcqOXcAAXDTj?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZMj23XsAAV1CT?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZMpI7XoAAnDME?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZR720WMAAI-SG?format=jpg&amp;name=medium">
+<meta property="og:image" content="https://pbs.twimg.com/media/GIZXJZCWsAAkdkk?format=png&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZTfyaXQAAiFb-?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZTkeXXsAMt5ik?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZTpjLWQAE5sdZ?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIZUamUWIAAzRcL?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIjIMQPWkAASOkl?format=png&amp;name=900x900">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIjJDsBXIAAEwvQ?format=png&amp;name=small">
-<meta property="og:image" content="https://pbs.twimg.com/media/GIZXJZCWsAAkdkk?format=png&amp;name=medium">
 <meta property="article:published_time" content="2024-03-11T13:34:29.000Z">
-<meta property="article:modified_time" content="2024-03-14T01:26:10.429Z">
+<meta property="article:modified_time" content="2024-03-14T01:52:00.165Z">
 <meta property="article:author" content="Jerome">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="CV">
@@ -219,6 +219,7 @@
 <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
 <li><a href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E7%A7%8D%E7%B1%BB%E5%92%8C%E8%A1%A8%E7%A4%BA">图像的种类和表示</a></li>
 <li><a href="#%E5%8D%B7%E7%A7%AF%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86">卷积基本原理</a></li>
+<li><a href="#noise">noise</a></li>
 <li><a href="#%E6%BB%A4%E6%B3%A2%E5%99%A8">滤波器</a>
 <ul>
 <li><a href="#box-filter">box filter</a></li>
@@ -228,7 +229,6 @@
 </ul>
 </li>
 <li><a href="#filter%E7%9A%84%E6%80%A7%E8%B4%A8%E5%92%8C%E5%AE%9A%E5%BE%8B">filter的性质和定律</a></li>
-<li><a href="#noise">noise</a></li>
 <li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
 </ul>
 <br>
@@ -258,6 +258,15 @@
 <li>copy edge(复制拓展)</li>
 <li>reflect across edge(同一侧对称)</li>
 </ul>
+<br>
+<h2 id="noise"><a class="markdownIt-Anchor" href="#noise"></a> noise</h2>
+<p>Noise:</p>
+<ol>
+<li>Salt and pepper noise:包含随机出现的黑色和白色像素</li>
+<li>Impulsenoise:包含随机出现的白色像素</li>
+<li>Gaussiannoise: 由高斯正态分布得出的强度变化<br />
+<img src="https://pbs.twimg.com/media/GIZXJZCWsAAkdkk?format=png&amp;name=medium" alt="" /></li>
+</ol>
 <br>
 <h2 id="滤波器"><a class="markdownIt-Anchor" href="#滤波器"></a> 滤波器</h2>
 <p>滤波器这个词来源于信号处理中的频率域处理。图片完全可以看成一种二维的信号，也具有频率的特性。<strong>高频</strong>的地方是变化剧烈的地方，可以称之为<strong>边缘（contours/edges）</strong>。<strong>低频</strong>的地方是变化缓慢的地方，表现为总体趋势的变化。</p>
@@ -342,15 +351,6 @@
 </tr>
 </tbody>
 </table>
-<br>
-<h2 id="noise"><a class="markdownIt-Anchor" href="#noise"></a> noise</h2>
-<p>Noise:</p>
-<ol>
-<li>Salt and pepper noise:包含随机出现的黑色和白色像素</li>
-<li>Impulsenoise:包含随机出现的白色像素</li>
-<li>Gaussiannoise: 由高斯正态分布得出的强度变化<br />
-<img src="https://pbs.twimg.com/media/GIZXJZCWsAAkdkk?format=png&amp;name=medium" alt="" /></li>
-</ol>
 <br>
 <h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
 <ul>
@@ -539,10 +539,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    680.8k
+                    681k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    43:08
+                    43:09
                 </div>
             
             

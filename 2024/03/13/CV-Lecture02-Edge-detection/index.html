@@ -25,12 +25,12 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录   边缘的表征 边缘出现的原因：图像强度函数的快速变化，即图像强度函数一阶导数的极值  其他的偏导数滤波器:  Prewitt 滤波器包含两个核心矩阵：MxM_xMx​ 和 MyM_yMy​，分别用来检测图像中水">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  目录 Characterizing edges Image gradient Effects of noise The Canny edge detector 参考链接    Characterizing ed">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CV:Lecture02-Edge detection">
 <meta property="og:url" content="https://abinzzz.github.io/2024/03/13/CV-Lecture02-Edge-detection/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录   边缘的表征 边缘出现的原因：图像强度函数的快速变化，即图像强度函数一阶导数的极值  其他的偏导数滤波器:  Prewitt 滤波器包含两个核心矩阵：MxM_xMx​ 和 MyM_yMy​，分别用来检测图像中水">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  目录 Characterizing edges Image gradient Effects of noise The Canny edge detector 参考链接    Characterizing ed">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIjOeo8WIAAwjSD?format=jpg&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIjYVUQXkAM2Cyl?format=png&amp;name=medium">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://pbs.twimg.com/media/GIjgAq9WUAAoCOW?format=png&amp;name=medium">
 <meta property="og:image" content="https://pbs.twimg.com/media/GIjhqpbXkAAqEvV?format=png&amp;name=medium">
 <meta property="article:published_time" content="2024-03-13T12:14:23.000Z">
-<meta property="article:modified_time" content="2024-03-13T14:26:15.391Z">
+<meta property="article:modified_time" content="2024-03-14T01:51:06.198Z">
 <meta property="article:author" content="Jerome">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="CV">
@@ -211,8 +211,16 @@
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
 <h2 id="目录"><a class="markdownIt-Anchor" href="#目录"></a> 目录</h2>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#characterizing-edges">Characterizing edges</a></li>
+<li><a href="#image-gradient">Image gradient</a></li>
+<li><a href="#effects-of-noise">Effects of noise</a></li>
+<li><a href="#the-canny-edge-detector">The Canny edge detector</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
+</ul>
 <br>
-<h2 id="边缘的表征"><a class="markdownIt-Anchor" href="#边缘的表征"></a> 边缘的表征</h2>
+<h2 id="characterizing-edges"><a class="markdownIt-Anchor" href="#characterizing-edges"></a> Characterizing edges</h2>
 <p>边缘出现的<strong>原因</strong>：图像强度函数的<strong>快速变化</strong>，即图像强度函数<strong>一阶导数的极值</strong><br />
 <img src="https://pbs.twimg.com/media/GIjOeo8WIAAwjSD?format=jpg&amp;name=medium" alt="" /></p>
 <p>其他的偏导数滤波器:</p>
@@ -244,7 +252,7 @@ c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
 M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.25612499999999994em;"><span></span></span></span></span></span></span></span></span></span></p>
 <p><img src="https://pbs.twimg.com/media/GIjRxbrXIAAvKiE?format=jpg&amp;name=large" alt="" /></p>
 <br>
-<h2 id="带有噪声的梯度检测"><a class="markdownIt-Anchor" href="#带有噪声的梯度检测"></a> 带有噪声的梯度检测</h2>
+<h2 id="effects-of-noise"><a class="markdownIt-Anchor" href="#effects-of-noise"></a> Effects of noise</h2>
 <p>按照正常情况来说，图像是不可能没有一点噪声的。但噪声会对图像强度求导的影响见下图：<br />
 <img src="https://pbs.twimg.com/media/GIjfqkZXIAAQAVq?format=png&amp;name=medium" alt="" /></p>
 <br>
@@ -267,7 +275,7 @@ M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <tr>
 <td>目的</td>
 <td>去噪</td>
-<td>提取边缘</td>
+<td>平滑+提取边缘</td>
 </tr>
 <tr>
 <td>主要作用</td>
@@ -293,6 +301,22 @@ M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 </table>
 <br>
 <h2 id="the-canny-edge-detector"><a class="markdownIt-Anchor" href="#the-canny-edge-detector"></a> The Canny edge detector</h2>
+<p><strong>思想</strong>：沿梯度方向，看像素值是否比左右大；如果比左右大就留下，否则删除。(这里为什么是左右方向，而不是一周的范围内进行比较呢？因为梯度的方向只有一个方向。)</p>
+<br>
+<p>算法流程:</p>
+<ol>
+<li>转为灰度图像</li>
+<li>使用高斯偏导核进行卷积</li>
+<li>设定一个阈值,用来筛选边缘，低于threshold的像素改为0</li>
+<li>non maximum suppression(粗边缘-&gt;像素点)</li>
+</ol>
+<br>
+<p>threshold的影响：</p>
+<ol>
+<li><strong>过大</strong>：图像不连续</li>
+<li><strong>过小</strong>：会保留噪声</li>
+<li>解决方法：使用<strong>双门限</strong>(hysteresis thresholding)</li>
+</ol>
 <h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/453205634">滤波器和边缘提取(Canny)</a></li>
@@ -466,10 +490,10 @@ M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
             
                 <div>
                     <span class="icon-brush"></span>
-                    680.8k
+                    681k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    43:08
+                    43:09
                 </div>
             
             
