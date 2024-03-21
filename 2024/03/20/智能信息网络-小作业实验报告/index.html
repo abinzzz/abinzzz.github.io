@@ -25,15 +25,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  参考链接  SimCSE: Simple Contrastive Learning of Sentence Embeddings 丹琦女神新作：对比学习，简单到只需要Dropout两 Contrastive L">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    5.总结与展望  参考文献 附录—源代码及其注释（可选）   参考链接  SimCSE: Simple Contrastive Learning of Sentence Embeddings 丹琦女神新作：对比学习，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="智能信息网络:小作业实验报告">
 <meta property="og:url" content="https://abinzzz.github.io/2024/03/20/%E6%99%BA%E8%83%BD%E4%BF%A1%E6%81%AF%E7%BD%91%E7%BB%9C-%E5%B0%8F%E4%BD%9C%E4%B8%9A%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   目录  参考链接  SimCSE: Simple Contrastive Learning of Sentence Embeddings 丹琦女神新作：对比学习，简单到只需要Dropout两 Contrastive L">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    5.总结与展望  参考文献 附录—源代码及其注释（可选）   参考链接  SimCSE: Simple Contrastive Learning of Sentence Embeddings 丹琦女神新作：对比学习，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-20T13:22:33.000Z">
-<meta property="article:modified_time" content="2024-03-20T14:15:36.123Z">
+<meta property="article:modified_time" content="2024-03-21T14:37:04.366Z">
 <meta property="article:author" content="Jerome">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="智能信息网络">
@@ -202,7 +202,38 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-<h2 id="目录"><a class="markdownIt-Anchor" href="#目录"></a> 目录</h2>
+<!-- ## 目录
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">├── data</span><br><span class="line">│   ├── download_nli.sh</span><br><span class="line">│   ├── download_wiki.sh</span><br><span class="line">│   ├── nli_for_simcse.csv</span><br><span class="line">│   └── wiki1m_for_simcse.txt</span><br><span class="line">├── demo</span><br><span class="line">│   ├── flaskdemo.py</span><br><span class="line">│   ├── gradiodemo.py</span><br><span class="line">│   ├── README.md</span><br><span class="line">│   ├── run_demo_example.sh</span><br><span class="line">│   └── static</span><br><span class="line">├── evaluation.py <span class="comment">#X 评估句子性能用的感觉也可以去掉呢</span></span><br><span class="line">├── figure</span><br><span class="line">│   ├── demo.gif</span><br><span class="line">│   └── model.png</span><br><span class="line">├── README.md <span class="comment">#这个要重写</span></span><br><span class="line">├── requirements.txt <span class="comment">#保留</span></span><br><span class="line">├── run_sup_example.sh <span class="comment">#X 可以去掉，我们只做无监督训练</span></span><br><span class="line">├── run_unsup_example.sh</span><br><span class="line">├── SentEval <span class="comment"># 好像是评价spearmen那个？</span></span><br><span class="line">│   ├── data</span><br><span class="line">│   ├── examples</span><br><span class="line">│   ├── LICENSE</span><br><span class="line">│   ├── README.md</span><br><span class="line">│   ├── senteval</span><br><span class="line">│   └── setup.py</span><br><span class="line">├── setup.py <span class="comment">#X 安装东西用的 应该也可以去掉</span></span><br><span class="line">├── simcse</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── models.py</span><br><span class="line">│   ├── tool.py</span><br><span class="line">│   └── trainers.py</span><br><span class="line">├── simcse_to_huggingface.py</span><br><span class="line">└── train.py</span><br></pre></td></tr></table></figure>
+<p>对于无监督SimCSE，我们从英语Wikipedia中抽取了100万个句子；<strong>对于监督SimCSE，我们使用SNLI和MNLI数据集</strong>。您可以运行data/download_wiki.sh和data/download_nli.sh来下载这两个数据集。</p>
+<p>我使用的是无监督方法，所以不需要下载NLI数据集，<strong>只需要下载wiki数据集即可</strong></p>
+<p>正例：给定输入，用预训练语言模型编码两次得到的两个向量和作为正例对。</p>
+<p>负例：使用in-batch negatives的方式，即随机采样一个batch中另一个输入作为的负例。</p>
+<p>model文件夹里面存放的是我从hugging face上下载的文件 --&gt;</p>
+<h1 id="实验报告文本相似度分析"><a class="markdownIt-Anchor" href="#实验报告文本相似度分析"></a> 实验报告：文本相似度分析</h1>
+<h2 id="1简介"><a class="markdownIt-Anchor" href="#1简介"></a> 1.简介</h2>
+<h3 id="11-问题描述"><a class="markdownIt-Anchor" href="#11-问题描述"></a> 1.1 问题描述</h3>
+<p>文本相似度旨在识别两段文本在语义上是否相似。文本相似度在自然语言处理领域是一个重要研究方向，同时在信息检索、新闻推荐、智能客服等领域都发挥重要作用，具有很高的商业价值。</p>
+<h3 id="12-实验介绍"><a class="markdownIt-Anchor" href="#12-实验介绍"></a> 1.2 实验介绍</h3>
+<p>该实验使用对比学习的方法，将自身进行dropout mask后的样本作为正样本，在除自身外的样本中随机挑选一个作为负样本。</p>
+<h2 id="2相关工作"><a class="markdownIt-Anchor" href="#2相关工作"></a> 2.相关工作</h2>
+<h2 id="21-对比学习"><a class="markdownIt-Anchor" href="#21-对比学习"></a> 2.1 对比学习</h2>
+<h2 id="22-dropout-mask"><a class="markdownIt-Anchor" href="#22-dropout-mask"></a> 2.2 dropout mask</h2>
+<h2 id="23-bert"><a class="markdownIt-Anchor" href="#23-bert"></a> 2.3 Bert</h2>
+<h2 id="3系统"><a class="markdownIt-Anchor" href="#3系统"></a> 3.系统</h2>
+<ul>
+<li>3.1 系统架构</li>
+<li>3.2 各个部分介绍</li>
+<li>3.3 算法的伪代码</li>
+</ul>
+<h2 id="4-实验"><a class="markdownIt-Anchor" href="#4-实验"></a> 4. 实验</h2>
+<!-- - 3.1 实验环境
+- 3.2 数据
+- 3.3 实验结果：中间结果及最终输出结果（截屏显示） -->
+<h2 id="5总结与展望"><a class="markdownIt-Anchor" href="#5总结与展望"></a> 5.总结与展望</h2>
+<ul>
+<li>参考文献</li>
+<li>附录—源代码及其注释（可选）</li>
+</ul>
 <h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/368353121">SimCSE: Simple Contrastive Learning of Sentence Embeddings</a></li>
@@ -212,7 +243,6 @@
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38124427/article/details/131146016">论文笔记–SimCSE: Simple Contrastive Learning of Sentence Embeddings</a></li>
 <li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7230769010907791397">论文笔记：SimCSE: Simple Contrastive Learning of Sentence Embeddings</a></li>
 <li><a target="_blank" rel="noopener" href="http://114.132.151.144/article/2022/9/4/113.html">SimCSE详解</a></li>
-<li></li>
 </ul>
 
             
