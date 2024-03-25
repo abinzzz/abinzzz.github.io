@@ -191,7 +191,7 @@
             <div class="post-meta">
                 <a><span class="icon-calendar"></span>2024-03-25</a>
                 
-                    <a><span class="icon-pencil"></span>1k 字</a>
+                    <a><span class="icon-pencil"></span>1.1k 字</a>
                 
                 
                     <a><span class="icon-clock"></span>4 分钟</a>
@@ -205,13 +205,32 @@
     MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
 
 
+ 目录
 
+Train VS Eval
 
-[TOC]
-Train VS Eval在完成模型的训练后，我们需要在测试集/验证集上完成模型的验证，以确保模型具有泛化能力、不会出现过拟合等问题。在PyTorch中，训练和评估的流程基本一致，区别在于训练过程需要更新模型的参数，而评估过程则不需要更新参数。
 设置模型状态
-训练状态：模型的参数应该支持反向传播的修改。  1model.train()
-验证/测试状态：不应该修改模型参数。  1model.eval(
+训练流程
+验证/测试流程
+对比
+计算模型指标
+
+
+训练集、验证集和测试集
+
+模型设计
+模型训练的参数
+数据集分类
+数据集的作用与特点
+验证集和测试集的互相转化
+验证集的作用
+
+
+参考链接
+
+
+ Train VS Eval
+在完成模型的训练后，我们需要在测试集/验证集上完成模型的验证，以确保模型具有泛化能力、不会出现过拟合等问题。在PyTorch中，训练和评估的流
                 
             </article>
         </div>
@@ -753,7 +772,7 @@ Contrastive Learning（对比学习详解）
             
                 <div>
                     <span class="icon-brush"></span>
-                    720.1k
+                    720.2k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     45:35
