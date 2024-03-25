@@ -25,15 +25,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    目录  Train VS Eval  设置模型状态 训练流程 验证&#x2F;测试流程 对比 计算模型指标   训练集、验证集和测试集  模型设计 模型训练的参数 数据集分类 数据集的作用与特点 验证集和测试集的互相转化 验证">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });     目录 Train VS Eval 设置模型状态 训练流程 验证&#x2F;测试流程 对比 计算模型指标   训练集、验证集和测试集 模型设计 模型训练的参数 数据集分类 数据集的作用与特点 验证集和测试集的互相转化 验证集的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Train VS Eval">
 <meta property="og:url" content="https://abinzzz.github.io/2024/03/25/Train-VS-Eval/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    目录  Train VS Eval  设置模型状态 训练流程 验证&#x2F;测试流程 对比 计算模型指标   训练集、验证集和测试集  模型设计 模型训练的参数 数据集分类 数据集的作用与特点 验证集和测试集的互相转化 验证">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });     目录 Train VS Eval 设置模型状态 训练流程 验证&#x2F;测试流程 对比 计算模型指标   训练集、验证集和测试集 模型设计 模型训练的参数 数据集分类 数据集的作用与特点 验证集和测试集的互相转化 验证集的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-25T05:18:23.000Z">
-<meta property="article:modified_time" content="2024-03-25T06:11:33.563Z">
+<meta property="article:modified_time" content="2024-03-25T08:13:46.639Z">
 <meta property="article:author" content="Jerome">
 <meta property="article:tag" content="Accumulate">
 <meta name="twitter:card" content="summary">
@@ -200,83 +200,66 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
+
+
 <!-- omit in toc -->
-<h2 id="目录"><a class="markdownIt-Anchor" href="#目录"></a> 目录</h2>
-<ul>
-<li><a href="#train-vs-eval">Train VS Eval</a>
-<ul>
-<li><a href="#%E8%AE%BE%E7%BD%AE%E6%A8%A1%E5%9E%8B%E7%8A%B6%E6%80%81">设置模型状态</a></li>
-<li><a href="#%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B">训练流程</a></li>
-<li><a href="#%E9%AA%8C%E8%AF%81%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B">验证/测试流程</a></li>
-<li><a href="#%E5%AF%B9%E6%AF%94">对比</a></li>
-<li><a href="#%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B%E6%8C%87%E6%A0%87">计算模型指标</a></li>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#train-vs-eval">Train VS Eval</a><ul>
+<li><a href="#设置模型状态">设置模型状态</a></li>
+<li><a href="#训练流程">训练流程</a></li>
+<li><a href="#验证测试流程">验证/测试流程</a></li>
+<li><a href="#对比">对比</a></li>
+<li><a href="#计算模型指标">计算模型指标</a></li>
 </ul>
 </li>
-<li><a href="#%E8%AE%AD%E7%BB%83%E9%9B%86%E9%AA%8C%E8%AF%81%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86">训练集、验证集和测试集</a>
-<ul>
-<li><a href="#%E6%A8%A1%E5%9E%8B%E8%AE%BE%E8%AE%A1">模型设计</a></li>
-<li><a href="#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E7%9A%84%E5%8F%82%E6%95%B0">模型训练的参数</a></li>
-<li><a href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%86%E7%B1%BB">数据集分类</a></li>
-<li><a href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E7%89%B9%E7%82%B9">数据集的作用与特点</a></li>
-<li><a href="#%E9%AA%8C%E8%AF%81%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86%E7%9A%84%E4%BA%92%E7%9B%B8%E8%BD%AC%E5%8C%96">验证集和测试集的互相转化</a></li>
-<li><a href="#%E9%AA%8C%E8%AF%81%E9%9B%86%E7%9A%84%E4%BD%9C%E7%94%A8">验证集的作用</a></li>
+<li><a href="#训练集验证集和测试集">训练集、验证集和测试集</a><ul>
+<li><a href="#模型设计">模型设计</a></li>
+<li><a href="#模型训练的参数">模型训练的参数</a></li>
+<li><a href="#数据集分类">数据集分类</a></li>
+<li><a href="#数据集的作用与特点">数据集的作用与特点</a></li>
+<li><a href="#验证集和测试集的互相转化">验证集和测试集的互相转化</a></li>
+<li><a href="#验证集的作用">验证集的作用</a></li>
 </ul>
 </li>
-<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
+<li><a href="#参考链接">参考链接</a></li>
 </ul>
-<hr />
-<h2 id="train-vs-eval"><a class="markdownIt-Anchor" href="#train-vs-eval"></a> Train VS Eval</h2>
-<p>在完成模型的训练后，我们需要在测试集/验证集上完成模型的验证，以确保模型具有泛化能力、不会出现过拟合等问题。在PyTorch中，训练和评估的流程基本一致，区别在于训练过程需要更新模型的参数，而评估过程则不需要更新参数。</p>
-<h3 id="设置模型状态"><a class="markdownIt-Anchor" href="#设置模型状态"></a> 设置模型状态</h3>
-<ul>
-<li>训练状态：模型的参数应该支持反向传播的修改。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.train()</span><br></pre></td></tr></table></figure>
-</li>
+<hr>
+<h2 id="Train-VS-Eval"><a href="#Train-VS-Eval" class="headerlink" title="Train VS Eval"></a>Train VS Eval</h2><p>在完成模型的训练后，我们需要在测试集/验证集上完成模型的验证，以确保模型具有泛化能力、不会出现过拟合等问题。在PyTorch中，训练和评估的流程基本一致，区别在于训练过程需要更新模型的参数，而评估过程则不需要更新参数。</p>
+<h3 id="设置模型状态"><a href="#设置模型状态" class="headerlink" title="设置模型状态"></a>设置模型状态</h3><ul>
+<li>训练状态：模型的参数应该支持反向传播的修改。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.train()</span><br></pre></td></tr></table></figure></li>
 <li>验证/测试状态：不应该修改模型参数。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.<span class="built_in">eval</span>()</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="训练流程"><a class="markdownIt-Anchor" href="#训练流程"></a> 训练流程</h3>
-<ol>
-<li>读取数据：使用<code>for</code>循环从<code>DataLoader</code>中读取全部数据。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> data, label <span class="keyword">in</span> train_loader:</span><br></pre></td></tr></table></figure>
-</li>
-<li>将数据转移到GPU上（以<code>.cuda()</code>为例）： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data, label = data.cuda(), label.cuda()</span><br></pre></td></tr></table></figure>
-</li>
-<li>初始化优化器的梯度： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">optimizer.zero_grad()</span><br></pre></td></tr></table></figure>
-</li>
-<li>将数据输入模型进行训练，并计算损失函数： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">output = model(data)</span><br><span class="line">loss = criterion(output, label)</span><br></pre></td></tr></table></figure>
-</li>
+<h3 id="训练流程"><a href="#训练流程" class="headerlink" title="训练流程"></a>训练流程</h3><ol>
+<li>读取数据：使用<code>for</code>循环从<code>DataLoader</code>中读取全部数据。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> data, label <span class="keyword">in</span> train_loader:</span><br></pre></td></tr></table></figure></li>
+<li>将数据转移到GPU上（以<code>.cuda()</code>为例）： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data, label = data.cuda(), label.cuda()</span><br></pre></td></tr></table></figure></li>
+<li>初始化优化器的梯度： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">optimizer.zero_grad()</span><br></pre></td></tr></table></figure></li>
+<li>将数据输入模型进行训练，并计算损失函数： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">output = model(data)</span><br><span class="line">loss = criterion(output, label)</span><br></pre></td></tr></table></figure></li>
 <li>将损失反向传播回网络，并更新模型参数： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">loss.backward()</span><br><span class="line">optimizer.step()</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="验证测试流程"><a class="markdownIt-Anchor" href="#验证测试流程"></a> 验证/测试流程</h3>
-<p>与训练流程基本一致，但有以下不同：</p>
+<h3 id="验证-测试流程"><a href="#验证-测试流程" class="headerlink" title="验证/测试流程"></a>验证/测试流程</h3><p>与训练流程基本一致，但有以下不同：</p>
 <ul>
 <li>预先设置<code>torch.no_grad()</code>，并将模型调至eval模式。</li>
 <li>不需要将<strong>优化器的梯度置零</strong>。</li>
 <li>不需要将<strong>损失反向传播回网络</strong>。</li>
 <li>不需要<strong>更新优化器</strong>。</li>
 </ul>
-<h3 id="对比"><a class="markdownIt-Anchor" href="#对比"></a> 对比</h3>
-<p><strong>训练过程示例</strong>：</p>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p><strong>训练过程示例</strong>：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">epoch</span>):</span><br><span class="line">    model.train()</span><br><span class="line">    train_loss = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> data, label <span class="keyword">in</span> train_loader:</span><br><span class="line">        data, label = data.cuda(), label.cuda()</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model(data)</span><br><span class="line">        loss = criterion(output, label)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        train_loss += loss.item() * data.size(<span class="number">0</span>)</span><br><span class="line">    train_loss /= <span class="built_in">len</span>(train_loader.dataset)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Epoch: &#123;&#125; \tTraining Loss: &#123;:.6f&#125;&#x27;</span>.<span class="built_in">format</span>(epoch, train_loss))</span><br></pre></td></tr></table></figure>
 <p><strong>验证过程示例</strong>：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">val</span>(<span class="params">epoch</span>):</span><br><span class="line">    model.<span class="built_in">eval</span>()</span><br><span class="line">    val_loss = <span class="number">0</span></span><br><span class="line">    running_accu = <span class="number">0</span></span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        <span class="keyword">for</span> data, label <span class="keyword">in</span> val_loader:</span><br><span class="line">            data, label = data.cuda(), label.cuda()</span><br><span class="line">            output = model(data)</span><br><span class="line">            preds = torch.argmax(output, <span class="number">1</span>)</span><br><span class="line">            loss = criterion(output, label)</span><br><span class="line">            val_loss += loss.item() * data.size(<span class="number">0</span>)</span><br><span class="line">            running_accu += torch.<span class="built_in">sum</span>(preds == label.data)</span><br><span class="line">    val_loss /= <span class="built_in">len</span>(val_loader.dataset)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Epoch: &#123;&#125; \tValidation Loss: &#123;:.6f&#125;&#x27;</span>.<span class="built_in">format</span>(epoch, val_loss))</span><br></pre></td></tr></table></figure>
-<h3 id="计算模型指标"><a class="markdownIt-Anchor" href="#计算模型指标"></a> 计算模型指标</h3>
-<p>可以使用<code>sklearn.metrics</code>中的<code>classification_report</code>函数来计算模型的准确率、召回率、F1值等指标：</p>
+<h3 id="计算模型指标"><a href="#计算模型指标" class="headerlink" title="计算模型指标"></a>计算模型指标</h3><p>可以使用<code>sklearn.metrics</code>中的<code>classification_report</code>函数来计算模型的准确率、召回率、F1值等指标：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换以下代码中的labels和preds为模型预测出来的所有label和preds</span></span><br><span class="line"><span class="comment"># target_names替换为类别名称，即可得到模型的分类报告</span></span><br><span class="line"><span class="built_in">print</span>(classification_report(labels.cpu(), preds.cpu(), target_names=class_names))</span><br></pre></td></tr></table></figure>
-<br>
-<h2 id="训练集-验证集和测试集"><a class="markdownIt-Anchor" href="#训练集-验证集和测试集"></a> 训练集、验证集和测试集</h2>
-<h3 id="模型设计"><a class="markdownIt-Anchor" href="#模型设计"></a> 模型设计</h3>
-<ul>
+<p><br></p>
+<h2 id="训练集、验证集和测试集"><a href="#训练集、验证集和测试集" class="headerlink" title="训练集、验证集和测试集"></a>训练集、验证集和测试集</h2><h3 id="模型设计"><a href="#模型设计" class="headerlink" title="模型设计"></a>模型设计</h3><ul>
 <li><strong>模型架构</strong>：包括模型的层数以及每层的神经元数量。</li>
 <li><strong>可训练权重参数</strong>：模型内置的可训练参数。</li>
 </ul>
-<h3 id="模型训练的参数"><a class="markdownIt-Anchor" href="#模型训练的参数"></a> 模型训练的参数</h3>
-<p>这些是模型外置参数，如学习率、优化策略等。</p>
-<h3 id="数据集分类"><a class="markdownIt-Anchor" href="#数据集分类"></a> 数据集分类</h3>
-<ul>
+<h3 id="模型训练的参数"><a href="#模型训练的参数" class="headerlink" title="模型训练的参数"></a>模型训练的参数</h3><p>这些是模型外置参数，如学习率、优化策略等。</p>
+<h3 id="数据集分类"><a href="#数据集分类" class="headerlink" title="数据集分类"></a>数据集分类</h3><ul>
 <li><strong>训练集（Train Set）</strong>：用于模型拟合的数据样本，用于通过梯度下降进行学习。</li>
-<li><strong>验证集（Validation Set）</strong>：在模型训练过程中单独留出的样本集，用于调整模型的超参数和进行初步评估。
-<ul>
+<li><strong>验证集（Validation Set）</strong>：在模型训练过程中单独留出的样本集，用于调整模型的超参数和进行初步评估。<ul>
 <li>可以用来发现模型或参数问题，如模型在验证集上的发散、奇怪的结果、mAP不增等情况。</li>
 <li>有助于验证模型的泛化能力，并通过对比不同模型来选择最优模型。</li>
 <li>通常在几个epoch后运行一次，以观察效果，但过于频繁会影响训练速度。</li>
@@ -284,7 +267,14 @@
 </li>
 <li><strong>测试集（Test Set）</strong>：用来评估模型最终的泛化能力，不应用于调参或特征选择等。</li>
 </ul>
-<h3 id="数据集的作用与特点"><a class="markdownIt-Anchor" href="#数据集的作用与特点"></a> 数据集的作用与特点</h3>
+<p>测试集的分类：</p>
+<ul>
+<li><p>“test-dev” 代表开发测试集（Development Test Set），通常用于开发和调试阶段，用来评估模型的表现，并且通常会反复使用以进行参数调整和模型改进。</p>
+</li>
+<li><p>“test-std” 代表标准测试集（Standard Test Set），通常用于最终评估模型的性能，并且不会用于模型的开发或者调整。它可以看作是一个独立的、固定的测试集，用于评估模型在真实场景下的表现。</p>
+</li>
+</ul>
+<h3 id="数据集的作用与特点"><a href="#数据集的作用与特点" class="headerlink" title="数据集的作用与特点"></a>数据集的作用与特点</h3><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -312,20 +302,18 @@
 </tr>
 </tbody>
 </table>
-<h3 id="验证集和测试集的互相转化"><a class="markdownIt-Anchor" href="#验证集和测试集的互相转化"></a> 验证集和测试集的互相转化</h3>
-<ul>
+</div>
+<h3 id="验证集和测试集的互相转化"><a href="#验证集和测试集的互相转化" class="headerlink" title="验证集和测试集的互相转化"></a>验证集和测试集的互相转化</h3><ul>
 <li>验证集是必需的，用于“人工调参”过程。</li>
 <li>训练集、验证集和测试集应遵循相同的数据分布，以进行有效的调参。</li>
 <li>测试集存在的目的是为了验证模型的泛化能力。</li>
 </ul>
-<h3 id="验证集的作用"><a class="markdownIt-Anchor" href="#验证集的作用"></a> 验证集的作用</h3>
-<ul>
+<h3 id="验证集的作用"><a href="#验证集的作用" class="headerlink" title="验证集的作用"></a>验证集的作用</h3><ul>
 <li>使用提前终止（early stopping）策略，基于validation_data的分类精度来防止过拟合。</li>
 <li>通过validation_data而非test_data设置超参数，避免对test_data过拟合。</li>
 <li>validation_data被视为帮助学习合适超参数的训练数据，与test_data分离开，采用分离法（hold out method）。</li>
 </ul>
-<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://datawhalechina.github.io/thorough-pytorch/%E7%AC%AC%E4%B8%89%E7%AB%A0/3.7%20%E8%AE%AD%E7%BB%83%E4%B8%8E%E8%AF%84%E4%BC%B0.html">3.7 训练和评估</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/katrina1rani/article/details/113889183">训练集、验证集、测试集的作用和区别</a></li>
 </ul>
@@ -497,7 +485,7 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    721.6k
+                    721.7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     45:40
