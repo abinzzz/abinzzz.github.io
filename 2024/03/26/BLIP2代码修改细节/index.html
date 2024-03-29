@@ -33,7 +33,7 @@
 <meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   &#x2F;cyb&#x2F;LAVIS&#x2F;lavis&#x2F;models&#x2F;blip2_models&#x2F;blip2_opt.py  line:16~18  12from lavis.models.blip2_models.modeling_opt">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-26T11:05:01.000Z">
-<meta property="article:modified_time" content="2024-03-26T12:04:06.527Z">
+<meta property="article:modified_time" content="2024-03-28T11:17:14.501Z">
 <meta property="article:author" content="Jerome">
 <meta property="article:tag" content="internship">
 <meta property="article:tag" content="code">
@@ -209,7 +209,11 @@
 <p>更改为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lavis.models.blip2_models.modeling_opt <span class="keyword">import</span> OPTForCausalLM, OPTConfig</span><br><span class="line"><span class="comment">#from transformers import AutoTokenizer, OPTForCausalLM, OPTConfig</span></span><br><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> AutoTokenizer</span><br></pre></td></tr></table></figure>
 <p>修改前后的区别在于，后者<code>modeling_opt.py</code>文件中就是从huggingface上下载的opt模型实现文件，而前者则使用huggingface的transformers库调用opt模型</p>
-
+<h3 id="cyblavislavisdatasetsdatasetsimage_text_pair_datasetspy"><a class="markdownIt-Anchor" href="#cyblavislavisdatasetsdatasetsimage_text_pair_datasetspy"></a> /cyb/LAVIS/lavis/datasets/datasets/image_text_pair_datasets.py</h3>
+<ul>
+<li>line41,42 更改</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#image_path = os.path.join(self.vis_root, ann[&quot;image&quot;])</span></span><br><span class="line">image_path = os.path.join(self.vis_root, os.path.basename(ann[<span class="string">&quot;image&quot;</span>]))</span><br></pre></td></tr></table></figure>
             
         </div>
         <footer class="article-footer">
@@ -391,10 +395,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    729.9k
+                    730.2k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    46:17
+                    46:18
                 </div>
             
             
