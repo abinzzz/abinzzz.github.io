@@ -25,15 +25,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    基本信息Title: AnyGPT: Unified Multimodal Large Language Model with Discrete Sequence Modeling Authors and Affil">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   基本信息 Title: AnyGPT: Unified Multimodal Large Language Model with Discrete Sequence Modeling Authors and Affil">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper:AnyGPT">
 <meta property="og:url" content="https://abinzzz.github.io/2024/03/24/paper-AnyGPT/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    基本信息Title: AnyGPT: Unified Multimodal Large Language Model with Discrete Sequence Modeling Authors and Affil">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   基本信息 Title: AnyGPT: Unified Multimodal Large Language Model with Discrete Sequence Modeling Authors and Affil">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-24T06:44:59.000Z">
-<meta property="article:modified_time" content="2024-03-25T08:02:49.520Z">
+<meta property="article:modified_time" content="2024-03-29T13:15:57.177Z">
 <meta property="article:author" content="Jerome">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="anygpt">
@@ -201,12 +201,12 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-
-
-<h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>Title: <code>AnyGPT: Unified Multimodal Large Language Model with Discrete Sequence Modeling</code></p>
+<h2 id="基本信息"><a class="markdownIt-Anchor" href="#基本信息"></a> 基本信息</h2>
+<p>Title: <code>AnyGPT: Unified Multimodal Large Language Model with Discrete Sequence Modeling</code></p>
 <p>Authors and Affiliations:</p>
 <ul>
-<li><strong>Jun Zhan^1,∗</strong>, <strong>Junqi Dai^1,∗</strong>, <strong>Jiasheng Ye^1,∗</strong>, <strong>Yunhua Zhou^1</strong>, <strong>Dong Zhang^1</strong>, <strong>Zhigeng Liu^1</strong>, <strong>Xin Zhang^1</strong>, <strong>Ruibin Yuan^2</strong>, <strong>Ge Zhang^2</strong>, <strong>Linyang Li^1</strong>, <strong>Hang Yan^3</strong>, <strong>Jie Fu^2</strong>, <strong>Tao Gui^1</strong>, <strong>Tianxiang Sun^1</strong>, <strong>Yugang Jiang^1</strong>, <strong>Xipeng Qiu^1,†</strong><ul>
+<li><strong>Jun Zhan^1,∗</strong>, <strong>Junqi Dai^1,∗</strong>, <strong>Jiasheng Ye^1,∗</strong>, <strong>Yunhua Zhou^1</strong>, <strong>Dong Zhang^1</strong>, <strong>Zhigeng Liu^1</strong>, <strong>Xin Zhang^1</strong>, <strong>Ruibin Yuan^2</strong>, <strong>Ge Zhang^2</strong>, <strong>Linyang Li^1</strong>, <strong>Hang Yan^3</strong>, <strong>Jie Fu^2</strong>, <strong>Tao Gui^1</strong>, <strong>Tianxiang Sun^1</strong>, <strong>Yugang Jiang^1</strong>, <strong>Xipeng Qiu^1,†</strong>
+<ul>
 <li>^1 Fudan University</li>
 <li>^2 Multimodal Art Projection Research Community</li>
 <li>^3 Shanghai AI Laboratory</li>
@@ -226,13 +226,15 @@
 <ul>
 <li>arXiv Identifier: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2402.12226">2402.12226</a></li>
 </ul>
-<p><br></p>
+<br>
 <p>AnyGPT的突出之处在于，它维持了大型语言模型（LLM）架构和训练范式的不变，而是依赖于数据级预处理来整合新的模态——这类似于向LLM添加新语言。它合成了一个重要的多模态指令数据集，AnyInstruct-108k，包含108k个多回合对话，这些对话交织了多种模态的输入和输出，解决了缺乏全面多模态对齐数据的问题。</p>
 <p>实验评估展示了AnyGPT在任意多模态对话中的能力，与专门模型在所有考虑的模态中的性能相媲美。这一成就强调了在语言模型框架内统一多个模态的离散表示的有效性。</p>
 <p>文档进一步深入探讨了相关工作，详细说明了多模态LLM和离散化方法的进展和挑战。它详尽地解释了AnyGPT的组成部分，包括不同模态的标记化、语言模型的主干以及多模态生成的过程，提供了对统一多模态处理的创新方法的见解。</p>
 <p>文章突出了贡献，包括开发了一个基于令牌的任意多模态语言模型和创建了一个综合数据集以增强多模态对话。文档还概述了研究的未来方向，强调了在任意多模态LLM中需要基准测试以及改进标记器质量和扩展上下文中多模态数据处理的需求。</p>
 <p>这个综合概述捕捉了AnyGPT模型的本质和抱负，将其定位为多模态语言模型研究中的一个重要进步。</p>
-<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2>
+<h2 id=""><a class="markdownIt-Anchor" href="#"></a> </h2>
+<p>多模态交错指令数据集 AnyInstruct 的构建过程分为两个阶段：生成包含多模态元素的基于文本的对话和文本到多模态的转换。第一阶段生成主题、场景和文本对话，第二阶段生成最终的多模态对话。</p>
+
             
         </div>
         <footer class="article-footer">
@@ -414,7 +416,7 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    730.2k
+                    730.3k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     46:18
