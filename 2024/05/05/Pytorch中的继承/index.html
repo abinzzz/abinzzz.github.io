@@ -33,7 +33,7 @@
 <meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   1.继承是什么？ 如下定义一个动物类Animal为基类，它基本两个实例属性name和age、一个方法call。 12345678910111213141516171819202122232425262728293031">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-05T02:22:15.000Z">
-<meta property="article:modified_time" content="2024-05-05T13:01:54.127Z">
+<meta property="article:modified_time" content="2024-05-09T05:32:48.770Z">
 <meta property="article:author" content="ab">
 <meta property="article:tag" content="继承">
 <meta name="twitter:card" content="summary">
@@ -230,7 +230,6 @@
 <li>foward方法必须重写，实现各个层连接</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyNet</span>(torch.nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(MyNet, self).__init__()  <span class="comment"># 第一句话，调用父类的构造函数</span></span><br><span class="line">        self.conv1 = torch.nn.Conv2d(<span class="number">3</span>, <span class="number">32</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">        self.relu1=torch.nn.ReLU()</span><br><span class="line">        self.max_pooling1=torch.nn.MaxPool2d(<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line"> </span><br><span class="line">        self.conv2 = torch.nn.Conv2d(<span class="number">3</span>, <span class="number">32</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">        self.relu2=torch.nn.ReLU()</span><br><span class="line">        self.max_pooling2=torch.nn.MaxPool2d(<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line"> </span><br><span class="line">        self.dense1 = torch.nn.Linear(<span class="number">32</span> * <span class="number">3</span> * <span class="number">3</span>, <span class="number">128</span>)</span><br><span class="line">        self.dense2 = torch.nn.Linear(<span class="number">128</span>, <span class="number">10</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        x = self.relu1(x)</span><br><span class="line">        x = self.max_pooling1(x)</span><br><span class="line">        x = self.conv2(x)</span><br><span class="line">        x = self.relu2(x)</span><br><span class="line">        x = self.max_pooling2(x)</span><br><span class="line">        x = self.dense1(x)</span><br><span class="line">        x = self.dense2(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"> </span><br><span class="line">model = MyNet()</span><br><span class="line"><span class="built_in">print</span>(model)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;运行结果为：</span></span><br><span class="line"><span class="string">MyNet(</span></span><br><span class="line"><span class="string">  (conv1): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))</span></span><br><span class="line"><span class="string">  (relu1): ReLU()</span></span><br><span class="line"><span class="string">  (max_pooling1): MaxPool2d(kernel_size=2, stride=1, padding=0, dilation=1, ceil_mode=False)</span></span><br><span class="line"><span class="string">  (conv2): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))</span></span><br><span class="line"><span class="string">  (relu2): ReLU()</span></span><br><span class="line"><span class="string">  (max_pooling2): MaxPool2d(kernel_size=2, stride=1, padding=0, dilation=1, ceil_mode=False)</span></span><br><span class="line"><span class="string">  (dense1): Linear(in_features=288, out_features=128, bias=True)</span></span><br><span class="line"><span class="string">  (dense2): Linear(in_features=128, out_features=10, bias=True)</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-<h3 id="4nnmodule类的的多种实现"><a class="markdownIt-Anchor" href="#4nnmodule类的的多种实现"></a> 4.<code>nn.Module</code>类的的多种实现</h3>
 <h3 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h3>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_27825451/article/details/90550890">pytorch教程之nn.Module类详解——使用Module类来自定义模型</a></li>
@@ -312,7 +311,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">383</div>
+                <div class="sidebar-state-number">385</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -421,7 +420,7 @@
                     762.2k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    48:22
+                    48:24
                 </div>
             
             
@@ -448,7 +447,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">383</div>
+                <div class="sidebar-state-number">385</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
