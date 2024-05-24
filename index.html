@@ -374,7 +374,7 @@
             <div class="post-meta">
                 <a><span class="icon-calendar"></span>2024-05-05</a>
                 
-                    <a><span class="icon-pencil"></span>66 字</a>
+                    <a><span class="icon-pencil"></span>182 字</a>
                 
                 
                     <a><span class="icon-clock"></span>1 分钟</a>
@@ -395,7 +395,8 @@ Pipeline Parrallel：模型按层拆开
 Tensor Parrallel：每层的权重拆开
 3D并行：上面的合体
 
-
+ 2.Data Parrallel(nn.DataParallel)
+Data Parrallel：每个GPU上复制一份完整模型，但每个GPU上的训练数据不同;如果单卡无法运行
                 
             </article>
         </div>
@@ -742,7 +743,7 @@ Grou
             
                 <div>
                     <span class="icon-brush"></span>
-                    768.7k
+                    768.8k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     48:54
