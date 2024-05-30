@@ -172,6 +172,85 @@
         
     <div class="post-wrap-left wow fadeInUp">
         
+            <a class="post-link" href="/2023/12/28/RuntimeError-Parent-directory-model1-does-not-exist/"></a>
+        
+        
+        <div class="post-cover-left">
+            
+                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="RuntimeError: Parent directory /model1/ does not exist." class="lazyload">
+            
+
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-12-28</a>
+                
+                    <a><span class="icon-pencil"></span>72 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">RuntimeError: Parent directory /model1/ does not exist.</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 问题描述
+其实就是文件不存在，所以没找到存放模型的文件夹，导致模型没有保存：
+1RuntimeError: Parent directory /model1/ does not exist.
+
+ 解决方法
+12# 如果目录不存在，则创建该目录os.makedirs(args.model_path, exist_ok=True)
+
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/12/28/RuntimeError-CUDA-error-device-side-assert-triggered/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="RuntimeError: CUDA error: device-side assert triggered" class="lazyload">
+            
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-12-28</a>
+                
+                    <a><span class="icon-pencil"></span>171 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">RuntimeError: CUDA error: device-side assert triggered</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 报错说明
+1234RuntimeError: CUDA error: device-side assert triggeredCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.For debugging consider pass
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-left wow fadeInUp">
+        
             <a class="post-link" href="/2023/12/27/NNDL%E8%AF%BE%E8%AE%BE-%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87%E5%AE%9E%E7%8E%B0/"></a>
         
         
@@ -533,96 +612,6 @@ GPU与CUDA
 
 
     
-        
-    <div class="post-wrap-left wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/21/spikeBERT-%E4%BC%98%E5%8A%BF%E5%88%86%E6%9E%90/"></a>
-        
-        
-        <div class="post-cover-left">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="spikeBERT:优势分析以及可能会产生的问题" class="lazyload">
-            
-
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-21</a>
-                
-                    <a><span class="icon-pencil"></span>1.2k 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>4 分钟</a>
-                
-            </div>
-            <h2 class="post-title">spikeBERT:优势分析以及可能会产生的问题</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
-之前存在的问题：
-
-复制n份，没用充分利用snn动力学
-显存占用太大
-
-psn之后不进行reset得到的是0，1？
-多步lif的算法流程
- spikeBERT
- abstract
-脉冲神经网络(SNNs)为以更节能的方式实现深度神经网络提供了一条有前途的途径。然而，现有用于语言任务的snn的网络架构仍然是简单的和相对浅层的，深度架构尚未被充分探索，导致与主流的基于transformer的网络(如BERT)相比存在显著
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/21/paper-SPATIO-TEMPORAL-APPROXIMATION/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:SPATIO-TEMPORAL APPROXIMATION" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-21</a>
-                
-                    <a><span class="icon-pencil"></span>2.5k 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>8 分钟</a>
-                
-            </div>
-            <h2 class="post-title">paper:SPATIO-TEMPORAL APPROXIMATION</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 论文十问
-
-
-模型之所以好：这个模型通过创新的时空近似方法，实现了无需额外训练即可将传统的人工神经网络（ANN）转换为尖峰神经网络（SNN）。这种转换保持了高效的能源利用和高精度，特别适合于在神经形态硬件上部署。
-
-
-以前模型的不足：传统的ANN到SNN的转换方法通常依赖于额外的训练和微调，这不仅耗时而且可能导致性能下降。此外，这些方法在处理复杂的变换器模型时效果不佳，因为它们无法处理非因果、非线性的交互。
-
-
-性
-                
-            </article>
-        </div>
-    </div>
-
-
-    
 
 
     <nav id="page-nav" class="wow fadeInUp">
@@ -643,7 +632,7 @@ psn之后不进行reset得到的是0，1？
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">387</div>
+                <div class="sidebar-state-number">389</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -749,10 +738,10 @@ psn之后不进行reset得到的是0，1？
             
                 <div>
                     <span class="icon-brush"></span>
-                    769.2k
+                    770.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    48:57
+                    49:01
                 </div>
             
             
@@ -779,7 +768,7 @@ psn之后不进行reset得到的是0，1？
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">387</div>
+                <div class="sidebar-state-number">389</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>

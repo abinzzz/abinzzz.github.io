@@ -25,15 +25,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });">
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    A Survey on Detection of LLMs-Generated ContentDetectGPT: Zero-Shot Machine-Generated Text Detection using P">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AIGC检测调研">
 <meta property="og:url" content="https://abinzzz.github.io/2024/05/26/AIGC%E6%A3%80%E6%B5%8B%E8%B0%83%E7%A0%94/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });    A Survey on Detection of LLMs-Generated ContentDetectGPT: Zero-Shot Machine-Generated Text Detection using P">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-26T03:52:41.000Z">
-<meta property="article:modified_time" content="2024-05-26T03:53:35.408Z">
+<meta property="article:modified_time" content="2024-05-27T16:00:00.331Z">
 <meta property="article:author" content="ab">
 <meta property="article:tag" content="专业知识">
 <meta property="article:tag" content="NLP">
@@ -203,6 +203,30 @@
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
 
+
+<h2 id="A-Survey-on-Detection-of-LLMs-Generated-Content"><a href="#A-Survey-on-Detection-of-LLMs-Generated-Content" class="headerlink" title="A Survey on Detection of LLMs-Generated Content"></a>A Survey on Detection of LLMs-Generated Content</h2><h2 id="DetectGPT-Zero-Shot-Machine-Generated-Text-Detection-using-Probability-Curvature"><a href="#DetectGPT-Zero-Shot-Machine-Generated-Text-Detection-using-Probability-Curvature" class="headerlink" title="DetectGPT: Zero-Shot Machine-Generated Text Detection using Probability Curvature"></a>DetectGPT: Zero-Shot Machine-Generated Text Detection using Probability Curvature</h2><p>优点：</p>
+<ul>
+<li>不需要单独训练分类器</li>
+<li>zero-shot能力</li>
+<li></li>
+</ul>
+<p>《DetectGPT: Zero-Shot Machine-Generated Text Detection using Probability Curvature》这篇文章提出了一种新的检测大型语言模型（LLM）生成文本的方法，名为DetectGPT。以下是对这篇文章的总结：</p>
+<h3 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h3><p>随着大型语言模型（LLMs）的生成文本能力不断提高，对相应的检测工具的需求也日益增加。当前的方法往往需要训练额外的分类器、收集真实或生成的文本数据集，或者在生成的文本上显式地加水印。本文提出了一种新的基于曲率的方法，无需这些额外的步骤。</p>
+<h3 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h3><ol>
+<li><strong>曲率假设的提出和验证</strong>：文章假设LLM生成的文本往往位于模型对数概率函数的负曲率区域，而人类文本则不然。通过实验证明了这一假设的有效性。</li>
+<li><strong>DetectGPT算法</strong>：基于上述假设，作者设计了一种新的判别标准。该算法使用LLM计算的对数概率和另一通用预训练语言模型（如T5）生成的随机扰动文本来检测文本是否由LLM生成。</li>
+</ol>
+<h3 id="方法概述"><a href="#方法概述" class="headerlink" title="方法概述"></a>方法概述</h3><p>DetectGPT算法的核心是通过比较原始文本和其扰动版本在模型对数概率函数上的值来判断文本的来源。如果扰动文本的平均对数概率明显低于原始文本，则该文本更有可能是由LLM生成的。该方法的关键步骤如下：</p>
+<ol>
+<li>对候选文本进行小范围的扰动，生成多个扰动版本。</li>
+<li>计算原始文本和每个扰动版本的对数概率。</li>
+<li>比较原始文本的对数概率与扰动文本的平均对数概率。</li>
+</ol>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2310.15654">[1]  A Survey on Detection of LLMs-Generated Content, Yang et al.</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2301.11305"> [2] DetectGPT: Zero-Shot Machine-Generated Text Detection using Probability Curvature, Mitchell et al.</a><br>[3] A Watermark for Large Language Models, Kirchenbauer et al.<br>[4] How Close is ChatGPT to Human Experts? Comparison Corpus, Evaluation, and Detection, Guo et al.</li>
+</ul>
+
             
         </div>
         <footer class="article-footer">
@@ -220,6 +244,20 @@
     
         
     <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    <img data-src="https://w.wallhaven.cc/full/kx/wallhaven-kxg18m.png" data-sizes="auto" alt="Cars object detection"
+                         class="lazyload">
+                
+                <a href="/2024/05/29/Cars-object-detection/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        Cars object detection
+                    
+                </h3>
+            </div>
         
         
             <div class="article-nav-link-wrap article-nav-link-right">
@@ -264,7 +302,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">387</div>
+                <div class="sidebar-state-number">389</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -370,10 +408,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    769.2k
+                    770.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    48:57
+                    49:01
                 </div>
             
             
@@ -400,7 +438,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">387</div>
+                <div class="sidebar-state-number">389</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>

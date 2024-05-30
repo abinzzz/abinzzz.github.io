@@ -172,6 +172,104 @@
         
     <div class="post-wrap-left wow fadeInUp">
         
+            <a class="post-link" href="/2023/08/21/code-causal-analysis-churn/"></a>
+        
+        
+        <div class="post-cover-left">
+            
+                <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Code.org_logo.svg/1200px-Code.org_logo.svg.png" data-sizes="auto" alt="code:causal analysis churn" class="lazyload">
+            
+
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-08-21</a>
+                
+                    <a><span class="icon-pencil"></span>5.4k 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>28 分钟</a>
+                
+            </div>
+            <h2 class="post-title">code:causal analysis churn</h2>
+            <article class="post-article">
+                
+                    此篇文章是用来梳理&amp;quot;paper:Causal Analysis Churn&amp;quot;的代码
+
+流程：
+
+1.导入数据集
+2.将前两个数据集拼接在一起
+3.特征工程：
+
+3.1创建副本 删掉重复行
+3.2找到分类列和数量列
+3.3删掉高相关性特征
+3.4预处理：对类别特征进行one-hot编码
+
+
+4.模型评估
+
+4.1对训练数据进行欠采样处理
+4.2评估指标
+
+
+5.集成学习
+
+5.1建立集成学习分类器-hard
+5.2建立集成学习分类器-soft
+
+
+6.特征选择-随机森林变量的重要性
+
+6.1训练随机森林分类器
+6.2显示重要性最大的前180个
+6.3将重要性前100个存入列表
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/08/13/shap/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://shap.readthedocs.io/en/latest/_images/shap_header.png" data-sizes="auto" alt="shap" class="lazyload">
+            
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-08-13</a>
+                
+                    <a><span class="icon-pencil"></span>200 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">shap</h2>
+            <article class="post-article">
+                
+                     SHAP Values
+SHAP代表沙普利加性解释(SHapley Additive exPlanation)，有助于分解预测以显示每个特征的影响。它基于沙普利值(Shapley values)，这是一种用于博弈论的技术，用于确定协作游戏中每个玩家对其成功的贡献有多少¹。通常，正确地获得准确性和可解释性之间的权衡可能是一个困难的平衡行为，但SHAP值可以同时提供两者。
+SHAP values解释了给定功能具有特定值的影响，并与我们在该功能具有一些基线值时所做的预测进行比较。
+Shap值显示了给定功能对我们预测的改变程度(与我们在该功能的某个基线值上进行预测相比)。
+
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-left wow fadeInUp">
+        
             <a class="post-link" href="/2023/08/11/Causal-Reasoning/"></a>
         
         
@@ -500,76 +598,6 @@
 
 
     
-        
-    <div class="post-wrap-left wow fadeInUp">
-        
-            <a class="post-link" href="/2023/07/30/TUM/"></a>
-        
-        
-        <div class="post-cover-left">
-            
-                
-                
-                    <img data-src="/images/banner.jpg" data-sizes="auto" alt="TUM" class="lazyload">
-                
-            
-
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-07-30</a>
-                
-                    <a><span class="icon-pencil"></span>0 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>1 分钟</a>
-                
-            </div>
-            <h2 class="post-title">TUM</h2>
-            <article class="post-article">
-                
-                    
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/07/30/IC/"></a>
-        
-        <div class="post-cover-right">
-            
-                
-                
-                    <img data-src="/images/banner.jpg" data-sizes="auto" alt="IC" class="lazyload">
-                
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-07-30</a>
-                
-                    <a><span class="icon-pencil"></span>0 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>1 分钟</a>
-                
-            </div>
-            <h2 class="post-title">IC</h2>
-            <article class="post-article">
-                
-                    
-                
-            </article>
-        </div>
-    </div>
-
-
-    
 
 
     <nav id="page-nav" class="wow fadeInUp">
@@ -590,7 +618,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">387</div>
+                <div class="sidebar-state-number">389</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -696,10 +724,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    769.2k
+                    770.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    48:57
+                    49:01
                 </div>
             
             
@@ -726,7 +754,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">387</div>
+                <div class="sidebar-state-number">389</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
