@@ -1,0 +1,607 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN"
+            
+          
+    >
+    <head>
+    <!--pjax：防止跳转页面音乐暂停-->
+    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        paper:OLIVE |
+        
+        blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   基本信息 标题：Olive: Oblivious Federated Learning on Trusted Execution Environment Against the Risk of Sparsificati">
+<meta property="og:type" content="article">
+<meta property="og:title" content="paper:OLIVE">
+<meta property="og:url" content="https://abinzzz.github.io/2024/06/23/paper-OLIVE/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   基本信息 标题：Olive: Oblivious Federated Learning on Trusted Execution Environment Against the Risk of Sparsificati">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66783a1dd9c307b7e95b800f.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66783dc6d9c307b7e96362e1.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66783e23d9c307b7e9641831.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66783e4bd9c307b7e9646858.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66784015d9c307b7e9680ce1.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/667840c5d9c307b7e9697680.png">
+<meta property="article:published_time" content="2024-06-23T12:13:28.000Z">
+<meta property="article:modified_time" content="2024-06-25T06:07:37.644Z">
+<meta property="article:author" content="ab">
+<meta property="article:tag" content="paper">
+<meta property="article:tag" content="olive">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/66783a1dd9c307b7e95b800f.png">
+    
+        <link rel="alternate" href="/atom.xml" title="blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/katex@0.16.7/dist/katex.min.css">
+
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">Loading...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+    
+        <img data-src="https://pic.imgdb.cn/item/66797075d9c307b7e96c14ad.png" data-sizes="auto" alt="paper:OLIVE" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>paper:OLIVE</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">首页</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">归档</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">关于</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">友链</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS 订阅"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://abinzzz.github.io"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-paper-OLIVE" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2024/06/23/paper-OLIVE/" class="article-date-link">
+        <time datetime="2024-06-23T12:13:28.000Z"
+              itemprop="datePublished">2024-06-23</time>
+    </a>
+</div>
+
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="/categories/paper/">paper</a>
+    </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="基本信息"><a class="markdownIt-Anchor" href="#基本信息"></a> 基本信息</h2>
+<p><strong>标题</strong>：Olive: Oblivious Federated Learning on Trusted Execution Environment Against the Risk of Sparsification<br />
+<strong>作者</strong>：</p>
+<ul>
+<li>Fumiyuki Kato（京都大学）</li>
+<li>Yang Cao（北海道大学）</li>
+<li>Masatoshi Yoshikawa（大阪成蹊大学）</li>
+</ul>
+<p><strong>摘要</strong>：论文结合联邦学习（FL）和可信执行环境（TEE）提出了一种隐私保护的FL方法。通过在服务器端实现TEE，可以在不暴露客户端梯度信息的情况下进行FL。然而，TEE的漏洞需要考虑，特别是内存访问模式泄露的风险。论文主要贡献包括理论分析TEE在FL中的漏洞，设计推断攻击，以及提出防止内存访问模式泄露的高效聚合算法。实验结果表明，该方法在实际规模上运行高效。</p>
+<h2 id="1联邦学习"><a class="markdownIt-Anchor" href="#1联邦学习"></a> 1.联邦学习</h2>
+<h3 id="11-经典机器学习"><a class="markdownIt-Anchor" href="#11-经典机器学习"></a> 1.1 经典机器学习</h3>
+<p>在开始讨论联邦学习之前，让我们先快速回顾一下目前大多数机器学习的工作原理。</p>
+<p>在机器学习中，我们有一个模型和数据。模型可以是一个神经网络（如图所示），也可以是其他东西，比如经典的线性回归。我们使用数据来训练模型，以完成一项有用的任务。任务可以是检测图像中的物体、转录音频或玩围棋等游戏。</p>
+<p><img src="https://pic.imgdb.cn/item/66783a1dd9c307b7e95b800f.png" alt="" /></p>
+<p>实际上，我们使用的训练数据并不来自我们训练模型的机器。它是在其他地方创建的。</p>
+<p>它源于智能手机上用户与应用程序的交互、汽车上传感器数据的收集、笔记本电脑上键盘输入的接收，或者智能扬声器上某人试着唱的歌。值得一提的是，这个 &quot;其他地方 &quot;通常不只是一个地方，而是很多地方。它可能是多个运行同一应用程序的设备。但也可能是多个组织，都在为同一任务生成数据。因此，要使用机器学习或任何类型的数据分析，过去使用的方法是在中央服务器上收集所有数据。这个服务器可以在数据中心的某个地方，也可以在云端的某个地方。</p>
+<h3 id="12-经典机器学习的局限性"><a class="markdownIt-Anchor" href="#12-经典机器学习的局限性"></a> 1.2 经典机器学习的局限性</h3>
+<p>我们刚刚看到的经典机器学习方法可以在某些情况下使用。很好的例子包括对假日照片进行分类或分析网络流量。在这些案例中，所有数据自然都可以在中央服务器上获得。但这种方法并不适用于许多其他情况。例如，集中服务器上没有数据，或者一台服务器上的数据不足以训练出一个好的模型。</p>
+<p>传统的集中式机器学习方法无法满足现实世界中大量极为重要的使用案例，原因有很多。这些原因包括：</p>
+<ul>
+<li>法规</li>
+<li>用户偏好</li>
+<li>数据量</li>
+</ul>
+<h3 id="13-联邦学习"><a class="markdownIt-Anchor" href="#13-联邦学习"></a> 1.3 联邦学习</h3>
+<p>联邦学习简单地颠覆了这种方法。它通过将训练转移到数据上，而不是将数据转移到训练上，在分布式数据上实现机器学习。下面是一句话的解释：</p>
+<ul>
+<li>集中式机器学习：将数据转移到计算中心</li>
+<li>联邦式（机器）学习：将计算转移到数据上</li>
+</ul>
+<h4 id="131-初始化全局模型"><a class="markdownIt-Anchor" href="#131-初始化全局模型"></a> 1.3.1 初始化全局模型</h4>
+<p>在服务器上初始化模型，做法与传统机器学习一样。</p>
+<p><img src="https://pic.imgdb.cn/item/66783dc6d9c307b7e96362e1.png" alt="" /></p>
+<h4 id="132-将模型发送到多个连接的组织设备客户节点"><a class="markdownIt-Anchor" href="#132-将模型发送到多个连接的组织设备客户节点"></a> 1.3.2 将模型发送到多个连接的组织/设备（客户节点）</h4>
+<p>将全局模型的参数发送到连接的客户端节点。这是为了确保每个参与的节点都是用相同的模型参数。每次只会选择几个节点进行训练而不是所有节点，因为选择越来越多的客户端节点会导致收益递减，因为每个新加入的节点对全局模型改进的贡献会逐渐减少。<br />
+<img src="https://pic.imgdb.cn/item/66783e23d9c307b7e9641831.png" alt="" /></p>
+<h4 id="133-在本地对每个机构设备客户端节点的数据进行模型训练"><a class="markdownIt-Anchor" href="#133-在本地对每个机构设备客户端节点的数据进行模型训练"></a> 1.3.3 在本地对每个机构/设备（客户端节点）的数据进行模型训练</h4>
+<p>现在所有客户端节点都有了最新版本的全局模型参数，他们开始进行本地训练，也就是使用本地模型训练本地数据集。</p>
+<p><img src="https://pic.imgdb.cn/item/66783e4bd9c307b7e9646858.png" alt="" /></p>
+<h4 id="134-将模型参数更新返回服务器"><a class="markdownIt-Anchor" href="#134-将模型参数更新返回服务器"></a> 1.3.4 将模型参数更新返回服务器</h4>
+<p>经过本地训练之后，每个客户节点最初收到的模型参数都会略有不同，这是因为本地数据集不同。客户端节点将这些模型更新发送回服务器(可以使模型参数也可以是模型梯度)<br />
+<img src="https://pic.imgdb.cn/item/66784015d9c307b7e9680ce1.png" alt="" /></p>
+<h4 id="135-将模型更新聚合到新的全局模型中"><a class="markdownIt-Anchor" href="#135-将模型更新聚合到新的全局模型中"></a> 1.3.5 将模型更新聚合到新的全局模型中</h4>
+<p>服务器从选定的客户端节点接受模型更新。为了得到一个单一的模型，我们必须从客户端节点收到所有的模型参数更新合并起来，这个过程称之为聚合。有许多种不同的方法，最常见的是加权平均。</p>
+<p><img src="https://pic.imgdb.cn/item/667840c5d9c307b7e9697680.png" alt="" /></p>
+<p>然后重复以上步骤直至收敛</p>
+<h2 id="2差分隐私"><a class="markdownIt-Anchor" href="#2差分隐私"></a> 2.差分隐私</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/MaplesWCT/p/16311593.html">差分隐私（Differential Privacy）定义及其理解<br />
+</a></li>
+</ul>
+<h2 id="3可信执行环境tee"><a class="markdownIt-Anchor" href="#3可信执行环境tee"></a> 3.可信执行环境(TEE)</h2>
+<p>TEE 是一种具有运算和储存功能，能提供安全性和完整性保护的独立处理环境。其基本思想是：在硬件中为敏感数据单独分配一块隔离的内存，所有敏感数据的计算均在这块内存中进行，并且除了经过授权的接口外，硬件中的其他部分不能访问这块隔离的内存中的信息。以此来实现敏感数据的隐私计算。</p>
+<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<p><code>原文</code><br />
+在当前的大数据时代，保护隐私的机器学习(ML)技术面临的挑战越来越明显，GDPR[24]的提出就是一个例子。联邦学习(FL)[43]是一种创新的隐私保护ML范式，已在生产中进行了测试[8,53,55]。通常，在FL中，服务器不需要收集用户的原始数据(我们交替使用参与者和客户端)，它只收集每一轮模型训练期间在用户的本地数据上训练的<strong>梯度(或模型参数delta)</strong>。然后服务器将收集到的梯度聚合到全局模型中。因此，FL有望使数据分析人员避免收集和管理包含敏感信息的训练数据的费用和隐私风险。</p>
+<p><code>分析</code><br />
+GDPR:欧洲通用数据保护条例</p>
+<p><code>原文</code><br />
+然而，多项研究表明，由于FL的<strong>分散性</strong>，它容易遭受各种类型的攻击。其中研究最广泛的漏洞之一是，在聚合阶段，<strong>一个不可信的服务器对客户端的敏感训练数据进行推断攻击</strong>[21,63,72,79,84]。这种攻击是由于每个客户端都需要与中心聚合服务器共享原始梯度信息，这导致了训练数据的隐私泄露风险，使其成为脆弱的攻击面。这些攻击凸显了FL在不可信服务器上运行的隐私/安全问题。</p>
+<p>利用可信执行环境(Trusted Execution Environment, TEE)增强FL是实现隐私保护FL的一种很有前途的方法，近年来受到了广泛关注[45,50,77,78,80]。<strong>TEE[18, 57]是一种安全硬件技术，可以在不可信的环境中进行安全计算，而不会将数据或处理暴露给主机(即操作系统或hypervisor)</strong>。TEE保证了机密性、完整性、可验证性和远程证明等功能，充分证明了它在FL[29,77,78]中的不可信服务器端使用的合理性。梯度通过安全通道传输到TEE，并在机密内存中进行安全计算，从而消除了上述攻击面。</p>
+<p>从几个角度来看，TEE的使用是有利的。尽管基于成对屏蔽的安全聚合(SA)1提供了类似的功能，但它牺牲了可用性[10,19,32,40]。这需要在多个客户端之间生成耗时的同步分布式掩码，并且在参与者异步/dropouts[46]方面缺乏鲁棒性，这很难处理，并可能阻碍普通医师的实现。此外，SA不灵活，很难进行扩展，例如拜占庭抵抗[80]和异步[50]。此外，将梯度稀疏化应用于具有SA的FL需要随机稀疏化[19]或多个客户之间共同的稀疏化索引[40]，因为成对约束，影响了训练质量。解决这些问题的一个简单而重要的方法是使用TEE，尽管它需要额外的特殊硬件。</p>
+<p><code>分析</code><br />
+SA基本思想: 通过加密技术确保在数据聚合过程中，即使服务器或其他聚合节点不可信，也无法访问或推断出个体数据。</p>
+<p><code>原文</code><br />
+此外，带TEE的FL解决了差分隐私FLs[20,22,44]中的效用差距，即本地DP (LDP)和中央DP (CDP)之间的效用差距。最近研究的Shuffle DP-FL[20,23,38]旨在将最佳的LDP-FL信任模型[73,82]与CDP-FL[3,22,44]的模型效用相结合，但在效用[20]方面与CDP-FL存在差距。如图1所示，TEE促进了在不受信任的服务器上的安全模型聚合，这确保了服务器只能观察到差异私有的模型。在不信任服务器的情况下(如在LDP-FL中)，模型实用程序与传统的CDP-FL是等价的，因为TEE中可以实现任何DP机制，而SA[32]则限制了该机制。由于结合CDP-FL和TEE是我们所提出方法的有趣用例之一，为了完整</p>
+<p><code>分析</code><br />
+DP:差分隐私</p>
+<p><code>原文</code><br />
+然而，实现一个服务端TEE来实现上述好处需要仔细分析TEE的漏洞。众所周知，由于侧信道攻击[51,71,76]，几个严重的漏洞会影响TEE，即使加密也会导致隐私泄露。特别地，这类攻击可以暴露机密执行中依赖数据的内存访问模式，使攻击者能够窃取敏感信息，如RSA私钥和基因组信息[12]。从这些记忆访问模式中可能被窃取的特定信息是特定于领域的，对于FL还不知道，尽管一些研究试图将TEE用于FL[16, 45, 47, 77, 78]。因此，在这种情况下，对发球上FL的侧信道攻击的威胁程度和可能的攻击类型仍然是关键的开放问题。</p>
+<p><code>分析</code><br />
+<strong>目前存在的漏洞</strong>：侧信道攻击，这些攻击可以通过内存访问模式泄露敏感信息。<br />
+<strong>侧信道攻击</strong>：利用计算过程中产生的非直接信息（如电磁泄漏、功耗、时间分析和内存访问模式）来推断机密数据。<br />
+<strong>内存访问模式泄露</strong>：在TEE中，尽管数据本身是加密的，但内存访问模式可能仍然是可见的。例如，当一个应用程序访问内存时，不同的内存地址可能会暴露出某些模式，这些模式可以被攻击者利用来推断出数据的某些特征或内容。</p>
+<p><code>原文</code><br />
+Oblivous algorithms[25,52,65]是一种重要的防止泄漏的技术，<strong>它只生成与数据无关的内存访问模式</strong>。一种通用的方法是使RAM成为遗忘的，例如，oblivious RAM (ORAM)。PathORAM[65]被认为是最有效的技术。然而，它假设有一定大小的私有存储空间，不适用于实际的TEE，如Intel SGX[18]。尽管Zerotrace[59]解决了这个问题，但它仍然会带来很大的开销。因此，<strong>设计一种特定于算法的方法来获得高效的算法是一个重要的问题</strong>。在这种背景下，[52]针对特定的ML算法提出了一种高效的oblivious算法，并[83]研究了SQL处理。然而，针对FL特有的聚合算法可能成为FL与服务器端TEE的一个脆弱组件的问题，目前还没有一种有效的方法。</p>
+<p><code>分析</code><br />
+<strong>Oblivous algorithms</strong>:旨在防止敏感信息通过内存访问模式泄露,通过生成与数据<br />
+无关的内存访问模式，来隐藏数据访问的实际模式，进而保护数据的隐私。</p>
+<p>本文解决了上述差距:<strong>(1)通过设计特定的攻击并在真实世界场景中演示，阐明了与FL相关的隐私风险;(2)通过设计高效的oblivious algorithms，提出了一种针对这些攻击的新型防御机制，并在实际规模上对其进行了评估。</strong> 分析表明，FL在执行过程中会泄露参数位置信息稀疏化环境下的聚合算法。稀疏化是FL[19,37,40,58]中的一种常见技术，用于减少通信成本和/或提高模型精度[1]。我们假设攻击者的目标是推断出目标用户训练数据中包含的一组敏感标签，这与之前关于FL隐私攻击的工作[21,72]的目标类似。我们进一步假设攻击者可以访问每一轮的内存访问模式、用于模型验证的数据集和训练好的模型。尽管在之前的研究[38,40]中，FL中的稀疏化索引信息被认为是一些隐私信息，但与我们的研究不同，没有对特定的攻击进行调查。在真实数据集上演示了所提出的攻击后，本文提出了高效的不经意算法来完全阻止这类攻击。为此，我们精心构建了现有的不经意排序模块，如不经意排序[6]和我们设计的组件。本文提出了一种基于服务器端TEE的oblivious联邦学习系统Olive，该系统能够抵抗侧信道攻击，实现真正的隐私保护FL.除了完全oblivious联邦学习算法之外，本文还通过调整enclave中的数据大小对其进行了进一步优化，并通过放宽obliviousness的定义研究了更高效的算法。最后，在真实数据集上进行了大量实验，实验结果表明，与SGX[59]的通用PathORAM算法相比，该算法具有更高的效率。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>本研究的贡献总结如下:</p>
+<ul>
+<li>研究了在FL中使用TEE进行模型聚合时，向不可信服务器暴露内存访问模式的潜在风险，发现了与FL中经常使用的spar化梯度相关的风险。</li>
+<li>提出了一种基于监督学习的敏感标签推理攻击，利用从稀疏梯度的侧信道中获得的索引信息。在真实数据集上证明了这种攻击的有效性。我们的结果表明，当在CIFAR100上以top-1.25%的稀疏化训练CNN时，训练数据的敏感标签(其中每个参与者在100个标签中有2个)以90%或更高的精度泄露(图6)。</li>
+<li>我们通过深思熟虑地集成不经意基元，如不经意排序和我们的定制设计组件，引入了一种遗忘算法来高效地进行模型聚合。进行了广泛的实验，以展示所提出方法的效率。值得注意的是，它比基于patham的方法高出10倍以上，并在几秒钟内完成具有一百万个参数的模型的聚合过程(图9)。</li>
+</ul>
+<p>本文的其余部分组织如下。初步概念见第2节。建议系统的概述和问题设置在第3节中描述。第4节和第5节分别对所提出的攻击和防御进行了实证评估。第6节讨论相关工作，第7节总结。</p>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="https://abinzzz.github.io/2024/06/23/paper-OLIVE/" data-id="clxu09d5d0000ck696n5m0y5i" data-title="paper:OLIVE"
+               class="article-share-link">分享</a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/olive/" rel="tag">olive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/paper/" rel="tag">paper</a></li></ul>
+
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    <img data-src="https://pbs.twimg.com/media/GO1SQD0W0AAmWnk?format=jpg&amp;name=medium" data-sizes="auto" alt="[转载]互联网裁员"
+                         class="lazyload">
+                
+                <a href="/2024/06/16/%E4%BA%92%E8%81%94%E7%BD%91%E8%A3%81%E5%91%98/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        [转载]互联网裁员
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="ab" class="lazyload">
+            <div class="sidebar-author-name">ab</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">393</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">35</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">404</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0Si54sXCWmTfhvA8dSwNoR?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Accumulate/">Accumulate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Competition/">Competition</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Future/">Future</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/IELTS/">IELTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/bug/">bug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/internship/SNN/">SNN</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/spikeBERT/">spikeBERT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/spikingjelly/">spikingjelly</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/Multimudal/">Multimudal</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS224N/">CS224N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS231N/">CS231N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/Missing-Semester-of-CS/">Missing Semester of CS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/reading/">reading</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/CV/">CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Computer-Vision/">Computer Vision</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/NNDL/">NNDL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/OS/">OS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/SE/">SE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/d2l/">d2l</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E6%96%87%E5%8C%96%E8%AE%A1%E7%AE%97/">文化计算</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E6%99%BA%E8%83%BD%E4%BF%A1%E6%81%AF%E7%BD%91%E7%BB%9C/">智能信息网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/">智能计算系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%AF%AD%E9%9F%B3%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/">语音信息处理</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%91%A8%E8%AE%B0/">周记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/0/" style="font-size: 10px;">0</a> <a href="/tags/1/" style="font-size: 12.78px;">1</a> <a href="/tags/10/" style="font-size: 10px;">10</a> <a href="/tags/11-11/" style="font-size: 10px;">11.11</a> <a href="/tags/17/" style="font-size: 10px;">17</a> <a href="/tags/2/" style="font-size: 13.89px;">2</a> <a href="/tags/2-2/" style="font-size: 10px;">2-2</a> <a href="/tags/3/" style="font-size: 12.22px;">3</a> <a href="/tags/3-1/" style="font-size: 10px;">3-1</a> <a href="/tags/3-11/" style="font-size: 10px;">3.11</a> <a href="/tags/3-4/" style="font-size: 10px;">3.4</a> <a href="/tags/4/" style="font-size: 11.11px;">4</a> <a href="/tags/5/" style="font-size: 10.56px;">5</a> <a href="/tags/6/" style="font-size: 10px;">6</a> <a href="/tags/7/" style="font-size: 10px;">7</a> <a href="/tags/9/" style="font-size: 10px;">9</a> <a href="/tags/A4/" style="font-size: 10px;">A4</a> <a href="/tags/A6/" style="font-size: 10px;">A6</a> <a href="/tags/A9/" style="font-size: 11.11px;">A9</a> <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/AI-Ethics/" style="font-size: 10px;">AI Ethics</a> <a href="/tags/AIGC/" style="font-size: 10px;">AIGC</a> <a href="/tags/Accumulate/" style="font-size: 17.78px;">Accumulate</a> <a href="/tags/Advanced-SQL/" style="font-size: 10px;">Advanced SQL</a> <a href="/tags/Advancing-Spiking-Neural-Networks-towards-Deep-Residual-Learning/" style="font-size: 11.11px;">Advancing Spiking Neural Networks towards Deep Residual Learning</a> <a href="/tags/Ai-Ethics/" style="font-size: 10px;">Ai Ethics</a> <a href="/tags/AimGraduate/" style="font-size: 13.89px;">AimGraduate</a> <a href="/tags/An-Overview-of-the-BLITZ-Computer-Hardware/" style="font-size: 10px;">An Overview of the BLITZ Computer Hardware</a> <a href="/tags/An-Overview-of-the-BLITZ-System/" style="font-size: 10px;">An Overview of the BLITZ System</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/Artificial-neural-networks/" style="font-size: 10px;">Artificial neural networks</a> <a href="/tags/Attention/" style="font-size: 10px;">Attention</a> <a href="/tags/BLIP/" style="font-size: 10px;">BLIP</a> <a href="/tags/BLIP-2/" style="font-size: 10px;">BLIP-2</a> <a href="/tags/BasciConception/" style="font-size: 10px;">BasciConception</a> <a href="/tags/BatchNorm/" style="font-size: 10px;">BatchNorm</a> <a href="/tags/Benchmark/" style="font-size: 10px;">Benchmark</a> <a href="/tags/Blitz/" style="font-size: 11.67px;">Blitz</a> <a href="/tags/CAS/" style="font-size: 10.56px;">CAS</a> <a href="/tags/CMU15-445/" style="font-size: 10px;">CMU15-445</a> <a href="/tags/CNN/" style="font-size: 11.67px;">CNN</a> <a href="/tags/CS224N/" style="font-size: 10.56px;">CS224N</a> <a href="/tags/CS231N/" style="font-size: 10px;">CS231N</a> <a href="/tags/CV/" style="font-size: 14.44px;">CV</a> <a href="/tags/Causal-Analysis-Churn/" style="font-size: 12.78px;">Causal Analysis Churn</a> <a href="/tags/Causal-Reasoning/" style="font-size: 10px;">Causal Reasoning</a> <a href="/tags/Chapter01/" style="font-size: 10px;">Chapter01</a> <a href="/tags/ComPetition/" style="font-size: 10px;">ComPetition</a> <a href="/tags/Competition/" style="font-size: 14.44px;">Competition</a> <a href="/tags/Container/" style="font-size: 10px;">Container</a> <a href="/tags/Convolutional-SNN-to-Classify-FMNIST/" style="font-size: 10px;">Convolutional SNN to Classify FMNIST</a> <a href="/tags/Cover-Letter/" style="font-size: 10px;">Cover Letter</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Database/" style="font-size: 16.11px;">Database</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Deep-learning/" style="font-size: 10px;">Deep learning</a> <a href="/tags/DeepFM/" style="font-size: 10px;">DeepFM</a> <a href="/tags/English/" style="font-size: 10.56px;">English</a> <a href="/tags/Ensemble/" style="font-size: 10px;">Ensemble</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/Fine-Tuning/" style="font-size: 10px;">Fine-Tuning</a> <a href="/tags/Future/" style="font-size: 13.89px;">Future</a> <a href="/tags/GB/" style="font-size: 10px;">GB</a> <a href="/tags/GNN/" style="font-size: 10px;">GNN</a> <a href="/tags/GPU/" style="font-size: 10px;">GPU</a> <a href="/tags/GiB/" style="font-size: 10px;">GiB</a> <a href="/tags/Git/" style="font-size: 10.56px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/GoAbroad/" style="font-size: 17.22px;">GoAbroad</a> <a href="/tags/Graduate/" style="font-size: 10px;">Graduate</a> <a href="/tags/HKU/" style="font-size: 10px;">HKU</a> <a href="/tags/HMM/" style="font-size: 10px;">HMM</a> <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/IELTS/" style="font-size: 12.22px;">IELTS</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/Intermediate-SQL/" style="font-size: 10px;">Intermediate SQL</a> <a href="/tags/Introduction/" style="font-size: 10px;">Introduction</a> <a href="/tags/Introduction-to-SQL/" style="font-size: 10px;">Introduction to SQL</a> <a href="/tags/Introduction-to-the-Relational-Model/" style="font-size: 10px;">Introduction to the Relational Model</a> <a href="/tags/Jianfei-Chen/" style="font-size: 10px;">Jianfei Chen</a> <a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a> <a href="/tags/LLM/" style="font-size: 10px;">LLM</a> <a href="/tags/LMUFORMER/" style="font-size: 10px;">LMUFORMER</a> <a href="/tags/Lab1/" style="font-size: 10px;">Lab1</a> <a href="/tags/Lab3/" style="font-size: 10px;">Lab3</a> <a href="/tags/Lab4/" style="font-size: 10px;">Lab4</a> <a href="/tags/LayerNorm/" style="font-size: 10px;">LayerNorm</a> <a href="/tags/Lec01/" style="font-size: 11.11px;">Lec01</a> <a href="/tags/Lec01s/" style="font-size: 10.56px;">Lec01s</a> <a href="/tags/Lime/" style="font-size: 10px;">Lime</a> <a href="/tags/Linux/" style="font-size: 11.67px;">Linux</a> <a href="/tags/Listening/" style="font-size: 10px;">Listening</a> <a href="/tags/M2/" style="font-size: 10.56px;">M2</a> <a href="/tags/MIT6-S081/" style="font-size: 12.22px;">MIT6.S081</a> <a href="/tags/ML/" style="font-size: 13.89px;">ML</a> <a href="/tags/MS-ResNet/" style="font-size: 10px;">MS-ResNet</a> <a href="/tags/Mac/" style="font-size: 10.56px;">Mac</a> <a href="/tags/Missing-Semester/" style="font-size: 11.11px;">Missing Semester</a> <a href="/tags/Monitor/" style="font-size: 10px;">Monitor</a> <a href="/tags/NECCS/" style="font-size: 10px;">NECCS</a> <a href="/tags/NLP/" style="font-size: 13.89px;">NLP</a> <a href="/tags/NNDL/" style="font-size: 16.67px;">NNDL</a> <a href="/tags/NTU/" style="font-size: 10px;">NTU</a> <a href="/tags/Neural-Network/" style="font-size: 10px;">Neural Network</a> <a href="/tags/Neural-Network-from-Shallow-to-Deep/" style="font-size: 10px;">Neural Network from Shallow to Deep</a> <a href="/tags/Neuromorphic-computing/" style="font-size: 10px;">Neuromorphic computing</a> <a href="/tags/Neuron/" style="font-size: 10px;">Neuron</a> <a href="/tags/OCR/" style="font-size: 10px;">OCR</a> <a href="/tags/OS/" style="font-size: 13.89px;">OS</a> <a href="/tags/PSN/" style="font-size: 10px;">PSN</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/Qingyao-Ai/" style="font-size: 10.56px;">Qingyao Ai</a> <a href="/tags/RISC-V/" style="font-size: 10px;">RISC-V</a> <a href="/tags/RNN/" style="font-size: 10px;">RNN</a> <a href="/tags/ReadMemory/" style="font-size: 10px;">ReadMemory</a> <a href="/tags/Reading/" style="font-size: 10px;">Reading</a> <a href="/tags/Readme/" style="font-size: 10px;">Readme</a> <a href="/tags/ResNet/" style="font-size: 10.56px;">ResNet</a> <a href="/tags/Rethinking-the-performance-comparison-between-SNNS-and-ANNS/" style="font-size: 10px;">Rethinking the performance comparison between SNNS and ANNS</a> <a href="/tags/SE/" style="font-size: 11.11px;">SE</a> <a href="/tags/SE-3-0/" style="font-size: 10px;">SE-3.0</a> <a href="/tags/SNN/" style="font-size: 12.22px;">SNN</a> <a href="/tags/SNN-vs-RNN/" style="font-size: 10px;">SNN vs RNN</a> <a href="/tags/SPIKEBERT/" style="font-size: 10px;">SPIKEBERT</a> <a href="/tags/STGgameAI/" style="font-size: 10px;">STGgameAI</a> <a href="/tags/Script/" style="font-size: 10px;">Script</a> <a href="/tags/Shell/" style="font-size: 10.56px;">Shell</a> <a href="/tags/Single-Fully-Connected-Layer-SNN-to-Classify-MNIST/" style="font-size: 10px;">Single Fully Connected Layer SNN to Classify MNIST</a> <a href="/tags/Spiking-Neural-Network-for-Ultra-low-latency-and-High-accurate-Object-Detection/" style="font-size: 10px;">Spiking Neural Network for Ultra-low-latency and High-accurate Object Detection</a> <a href="/tags/Spiking-neural-network/" style="font-size: 10.56px;">Spiking neural network</a> <a href="/tags/Spiking-neural-networks/" style="font-size: 10px;">Spiking neural networks</a> <a href="/tags/SpikingBERT/" style="font-size: 10px;">SpikingBERT</a> <a href="/tags/Surrogate-Gradient-Method/" style="font-size: 10px;">Surrogate Gradient Method</a> <a href="/tags/T1-fighting/" style="font-size: 10.56px;">T1 fighting</a> <a href="/tags/THU/" style="font-size: 10px;">THU</a> <a href="/tags/TUM/" style="font-size: 10px;">TUM</a> <a href="/tags/Tai-Jiang-Mu/" style="font-size: 10px;">Tai-Jiang Mu</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/The-Thread-Scheduler-and-Concurrency-Control-Primitives/" style="font-size: 10px;">The Thread Scheduler and Concurrency Control Primitives</a> <a href="/tags/Transformer/" style="font-size: 10px;">Transformer</a> <a href="/tags/Undergraduate/" style="font-size: 10px;">Undergraduate</a> <a href="/tags/University/" style="font-size: 12.78px;">University</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ViT/" style="font-size: 11.11px;">ViT</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Yuxiao-Dong/" style="font-size: 10.56px;">Yuxiao Dong</a> <a href="/tags/Zero/" style="font-size: 10px;">Zero</a> <a href="/tags/ai-ethics/" style="font-size: 10px;">ai ethics</a> <a href="/tags/alexnet/" style="font-size: 10px;">alexnet</a> <a href="/tags/anygpt/" style="font-size: 10px;">anygpt</a> <a href="/tags/arxiv/" style="font-size: 10px;">arxiv</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bert/" style="font-size: 11.67px;">bert</a> <a href="/tags/blip2/" style="font-size: 10px;">blip2</a> <a href="/tags/blitz/" style="font-size: 10px;">blitz</a> <a href="/tags/bug/" style="font-size: 16.67px;">bug</a> <a href="/tags/cat/" style="font-size: 10px;">cat</a> <a href="/tags/chapter00/" style="font-size: 10px;">chapter00</a> <a href="/tags/chapter01/" style="font-size: 11.11px;">chapter01</a> <a href="/tags/chapter02/" style="font-size: 10px;">chapter02</a> <a href="/tags/chapter03/" style="font-size: 10px;">chapter03</a> <a href="/tags/chapter04/" style="font-size: 10.56px;">chapter04</a> <a href="/tags/chapter05/" style="font-size: 10.56px;">chapter05</a> <a href="/tags/chapter6/" style="font-size: 10px;">chapter6</a> <a href="/tags/chapter7/" style="font-size: 10px;">chapter7</a> <a href="/tags/chatgpt/" style="font-size: 10px;">chatgpt</a> <a href="/tags/chatgpt-prompt/" style="font-size: 10px;">chatgpt prompt</a> <a href="/tags/chmod/" style="font-size: 10px;">chmod</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/classification/" style="font-size: 10px;">classification</a> <a href="/tags/code/" style="font-size: 11.67px;">code</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/commit/" style="font-size: 10px;">commit</a> <a href="/tags/competition/" style="font-size: 10px;">competition</a> <a href="/tags/conv2d/" style="font-size: 10px;">conv2d</a> <a href="/tags/copilot/" style="font-size: 10.56px;">copilot</a> <a href="/tags/courseinfo/" style="font-size: 10px;">courseinfo</a> <a href="/tags/cpu/" style="font-size: 10px;">cpu</a> <a href="/tags/cuda/" style="font-size: 10.56px;">cuda</a> <a href="/tags/d2l/" style="font-size: 13.33px;">d2l</a> <a href="/tags/database/" style="font-size: 13.89px;">database</a> <a href="/tags/dataloader/" style="font-size: 10px;">dataloader</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/deep-neural-network/" style="font-size: 10.56px;">deep neural network</a> <a href="/tags/delete/" style="font-size: 10px;">delete</a> <a href="/tags/discussion/" style="font-size: 10px;">discussion</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/dowhy/" style="font-size: 10.56px;">dowhy</a> <a href="/tags/dp/" style="font-size: 10.56px;">dp</a> <a href="/tags/echo/" style="font-size: 10px;">echo</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/embedding/" style="font-size: 10px;">embedding</a> <a href="/tags/explainer/" style="font-size: 10.56px;">explainer</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/file/" style="font-size: 10px;">file</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 12.22px;">github</a> <a href="/tags/gpt/" style="font-size: 10px;">gpt</a> <a href="/tags/gpu/" style="font-size: 11.11px;">gpu</a> <a href="/tags/hacker/" style="font-size: 10px;">hacker</a> <a href="/tags/handout/" style="font-size: 10px;">handout</a> <a href="/tags/hexo/" style="font-size: 10.56px;">hexo</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/import/" style="font-size: 10px;">import</a> <a href="/tags/instructor/" style="font-size: 11.67px;">instructor</a> <a href="/tags/intern-00/" style="font-size: 10px;">intern-00</a> <a href="/tags/intern00/" style="font-size: 11.67px;">intern00</a> <a href="/tags/interns/" style="font-size: 10px;">interns</a> <a href="/tags/internship/" style="font-size: 18.89px;">internship</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/introduction/" style="font-size: 11.11px;">introduction</a> <a href="/tags/iterm2/" style="font-size: 10px;">iterm2</a> <a href="/tags/jmbook/" style="font-size: 10.56px;">jmbook</a> <a href="/tags/knowledge-distillaion/" style="font-size: 10px;">knowledge distillaion</a> <a href="/tags/l1/" style="font-size: 10px;">l1</a> <a href="/tags/l2/" style="font-size: 10px;">l2</a> <a href="/tags/l3/" style="font-size: 10px;">l3</a> <a href="/tags/lab/" style="font-size: 10px;">lab</a> <a href="/tags/lab1/" style="font-size: 10px;">lab1</a> <a href="/tags/lab2/" style="font-size: 10.56px;">lab2</a> <a href="/tags/lec01/" style="font-size: 10px;">lec01</a> <a href="/tags/linux/" style="font-size: 11.11px;">linux</a> <a href="/tags/llava/" style="font-size: 10px;">llava</a> <a href="/tags/llm/" style="font-size: 10px;">llm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/lr/" style="font-size: 10px;">lr</a> <a href="/tags/lstm/" style="font-size: 10px;">lstm</a> <a href="/tags/mac/" style="font-size: 12.22px;">mac</a> <a href="/tags/memory/" style="font-size: 11.67px;">memory</a> <a href="/tags/mentor/" style="font-size: 10.56px;">mentor</a> <a href="/tags/mid/" style="font-size: 10.56px;">mid</a> <a href="/tags/ml/" style="font-size: 10px;">ml</a> <a href="/tags/mlp/" style="font-size: 10px;">mlp</a> <a href="/tags/mnist/" style="font-size: 10px;">mnist</a> <a href="/tags/model-evaluation/" style="font-size: 10px;">model evaluation</a> <a href="/tags/multimudal/" style="font-size: 10px;">multimudal</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysqlclient/" style="font-size: 10px;">mysqlclient</a> <a href="/tags/neuromorphic-computing/" style="font-size: 10.56px;">neuromorphic computing</a> <a href="/tags/nlp/" style="font-size: 10px;">nlp</a> <a href="/tags/nndl/" style="font-size: 10.56px;">nndl</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/nvidia/" style="font-size: 10px;">nvidia</a> <a href="/tags/ohmyzsh/" style="font-size: 10px;">ohmyzsh</a> <a href="/tags/olive/" style="font-size: 10px;">olive</a> <a href="/tags/os/" style="font-size: 15px;">os</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/overview/" style="font-size: 10px;">overview</a> <a href="/tags/p1/" style="font-size: 10px;">p1</a> <a href="/tags/p2/" style="font-size: 11.11px;">p2</a> <a href="/tags/p3/" style="font-size: 10px;">p3</a> <a href="/tags/paper/" style="font-size: 19.44px;">paper</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/player/" style="font-size: 10px;">player</a> <a href="/tags/preparation/" style="font-size: 10px;">preparation</a> <a href="/tags/prml/" style="font-size: 11.67px;">prml</a> <a href="/tags/profile/" style="font-size: 10px;">profile</a> <a href="/tags/project/" style="font-size: 12.78px;">project</a> <a href="/tags/prompt/" style="font-size: 10px;">prompt</a> <a href="/tags/pycharm/" style="font-size: 10px;">pycharm</a> <a href="/tags/python/" style="font-size: 10.56px;">python</a> <a href="/tags/pytorch/" style="font-size: 14.44px;">pytorch</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/reading/" style="font-size: 10.56px;">reading</a> <a href="/tags/register/" style="font-size: 10px;">register</a> <a href="/tags/regression/" style="font-size: 10px;">regression</a> <a href="/tags/review/" style="font-size: 15px;">review</a> <a href="/tags/rnn/" style="font-size: 10px;">rnn</a> <a href="/tags/rsa/" style="font-size: 10px;">rsa</a> <a href="/tags/se/" style="font-size: 15.56px;">se</a> <a href="/tags/self-attention/" style="font-size: 10px;">self-attention</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/sgns/" style="font-size: 10px;">sgns</a> <a href="/tags/shap/" style="font-size: 10px;">shap</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/shell-vs-terminal/" style="font-size: 10px;">shell vs terminal</a> <a href="/tags/simple/" style="font-size: 10px;">simple</a> <a href="/tags/softmax/" style="font-size: 10px;">softmax</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/sora/" style="font-size: 10px;">sora</a> <a href="/tags/spike/" style="font-size: 10.56px;">spike</a> <a href="/tags/spikeBERT/" style="font-size: 10.56px;">spikeBERT</a> <a href="/tags/spikeBert/" style="font-size: 10px;">spikeBert</a> <a href="/tags/spikebert/" style="font-size: 10px;">spikebert</a> <a href="/tags/spikingjelly/" style="font-size: 12.22px;">spikingjelly</a> <a href="/tags/spikngjelly/" style="font-size: 10.56px;">spikngjelly</a> <a href="/tags/ssh/" style="font-size: 10.56px;">ssh</a> <a href="/tags/sta/" style="font-size: 10px;">sta</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/thu/" style="font-size: 10px;">thu</a> <a href="/tags/tips/" style="font-size: 10.56px;">tips</a> <a href="/tags/tittle/" style="font-size: 10px;">tittle</a> <a href="/tags/tmux/" style="font-size: 10px;">tmux</a> <a href="/tags/tool/" style="font-size: 18.33px;">tool</a> <a href="/tags/transformer/" style="font-size: 13.33px;">transformer</a> <a href="/tags/transformers/" style="font-size: 10px;">transformers</a> <a href="/tags/uml/" style="font-size: 10px;">uml</a> <a href="/tags/vit/" style="font-size: 10px;">vit</a> <a href="/tags/vscode/" style="font-size: 10.56px;">vscode</a> <a href="/tags/wakatime/" style="font-size: 10px;">wakatime</a> <a href="/tags/writing/" style="font-size: 10px;">writing</a> <a href="/tags/xv6/" style="font-size: 10px;">xv6</a> <a href="/tags/yeild/" style="font-size: 10px;">yeild</a> <a href="/tags/zero/" style="font-size: 10px;">zero</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 20px;">专业知识</a> <a href="/tags/%E4%B8%93%E7%A1%95/" style="font-size: 10px;">专硕</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B/" style="font-size: 10px;">中国大学生计算机设计大赛</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 10px;">代理</a> <a href="/tags/%E5%85%AC%E9%80%89%E8%AF%BE/" style="font-size: 10px;">公选课</a> <a href="/tags/%E5%86%85%E5%AD%98/" style="font-size: 10.56px;">内存</a> <a href="/tags/%E5%86%99%E4%BD%9C%E5%BF%83%E5%BE%97/" style="font-size: 10px;">写作心得</a> <a href="/tags/%E5%86%99%E4%BD%9C%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">写作技巧</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" style="font-size: 10px;">分布式训练</a> <a href="/tags/%E5%8A%A0%E5%88%86/" style="font-size: 10px;">加分</a> <a href="/tags/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">动手学深度学习</a> <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" style="font-size: 10px;">博弈论</a> <a href="/tags/%E5%91%A8%E8%AE%B0/" style="font-size: 11.67px;">周记</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E6%8F%8F%E8%BF%B0%E7%94%9F%E6%88%90/" style="font-size: 10px;">图像描述生成</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" style="font-size: 10px;">基础优化方法</a> <a href="/tags/%E5%A4%8D%E4%B9%A0/" style="font-size: 10px;">复习</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 10px;">多模态</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 10px;">大三上</a> <a href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" style="font-size: 10px;">大作业</a> <a href="/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 10px;">大创</a> <a href="/tags/%E5%A4%A7%E8%8B%B1%E8%B5%9B/" style="font-size: 10px;">大英赛</a> <a href="/tags/%E5%AD%A6%E7%A1%95/" style="font-size: 10px;">学硕</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 10px;">实验报告</a> <a href="/tags/%E5%AE%A1%E7%A8%BF%E6%84%8F%E8%A7%81/" style="font-size: 10.56px;">审稿意见</a> <a href="/tags/%E5%B0%8F%E4%BD%9C%E4%B8%9A/" style="font-size: 10.56px;">小作业</a> <a href="/tags/%E5%BC%BA%E5%BC%B1com/" style="font-size: 10px;">强弱com</a> <a href="/tags/%E5%BD%A2%E5%8A%BF%E4%B8%8E%E6%94%BF%E7%AD%96/" style="font-size: 10px;">形势与政策</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%80%80%E6%8F%A3%E7%9D%80%E4%B8%80%E5%AE%9A%E5%8F%AF%E4%BB%A5%E5%81%9A%E5%A5%BD%E7%9A%84%E7%A1%AE%E4%BF%A1/" style="font-size: 10px;">怀揣着一定可以做好的确信</a> <a href="/tags/%E6%82%84%E6%82%84%E8%AF%9D/" style="font-size: 10px;">悄悄话</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%9A%84%E7%A7%98%E5%AF%86/" style="font-size: 10px;">情绪的秘密</a> <a href="/tags/%E6%8F%90%E9%97%AE/" style="font-size: 10px;">提问</a> <a href="/tags/%E6%94%B9%E7%BB%B4%E5%BA%A6/" style="font-size: 10px;">改维度</a> <a href="/tags/%E6%95%99%E8%82%B2%E8%AE%B8%E5%8F%AF/" style="font-size: 10px;">教育许可</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C-%E9%A2%84%E5%A4%84%E7%90%86/" style="font-size: 10px;">数据操作+预处理</a> <a href="/tags/%E6%96%87%E5%8C%96%E8%AE%A1%E7%AE%97/" style="font-size: 11.67px;">文化计算</a> <a href="/tags/%E6%98%BE%E5%AD%98/" style="font-size: 10.56px;">显存</a> <a href="/tags/%E6%99%BA%E6%85%A7%E6%A0%91/" style="font-size: 10px;">智慧树</a> <a href="/tags/%E6%99%BA%E8%83%BD%E4%BF%A1%E6%81%AF%E7%BD%91%E7%BB%9C/" style="font-size: 11.11px;">智能信息网络</a> <a href="/tags/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/" style="font-size: 13.89px;">智能计算系统</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10.56px;">服务器</a> <a href="/tags/%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/" style="font-size: 10px;">期中复习</a> <a href="/tags/%E6%9C%9F%E6%9C%AB/" style="font-size: 10px;">期末</a> <a href="/tags/%E6%9C%B1%E8%80%81%E5%B8%88/" style="font-size: 10px;">朱老师</a> <a href="/tags/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/" style="font-size: 10px;">朴素贝叶斯</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 11.67px;">杂项</a> <a href="/tags/%E6%9D%8E%E5%AE%8F%E6%AF%85/" style="font-size: 10.56px;">李宏毅</a> <a href="/tags/%E6%9D%8E%E6%B2%90/" style="font-size: 10px;">李沐</a> <a href="/tags/%E6%A6%82%E8%AE%BA/" style="font-size: 10px;">概论</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">模型训练流程</a> <a href="/tags/%E6%AF%9B%E6%A6%82/" style="font-size: 12.78px;">毛概</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%AD%A6%E4%B9%A0/" style="font-size: 10.56px;">特征学习</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%94%A8%E4%BE%8B%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">用例模型</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">目标检测</a> <a href="/tags/%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80/" style="font-size: 10px;">知行合一</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">矩阵计算</a> <a href="/tags/%E7%A7%91%E8%BD%AF/" style="font-size: 10px;">科软</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" style="font-size: 10.56px;">第一次作业</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E7%AB%A0/" style="font-size: 10px;">第三章</a> <a href="/tags/%E7%AE%97%E6%B3%95%E8%AF%B4%E6%98%8E%E6%96%87%E4%BB%B6/" style="font-size: 10px;">算法说明文件</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE%E4%B9%A6/" style="font-size: 10px;">系统开发建议书</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 10px;">线性代数</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">线性回归</a> <a href="/tags/%E7%BB%A7%E6%89%BF/" style="font-size: 10px;">继承</a> <a href="/tags/%E7%BD%91%E6%98%93/" style="font-size: 10px;">网易</a> <a href="/tags/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3/" style="font-size: 10px;">脑机接口</a> <a href="/tags/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" style="font-size: 10px;">脑机接口信号处理</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC/" style="font-size: 10px;">自动求导</a> <a href="/tags/%E8%8A%82%E8%83%BD%E5%87%8F%E6%8E%92/" style="font-size: 11.11px;">节能减排</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a> <a href="/tags/%E8%A7%84%E5%88%99/" style="font-size: 10px;">规则</a> <a href="/tags/%E8%A7%A3%E5%8E%8B%E7%BC%A9/" style="font-size: 10px;">解压缩</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/" style="font-size: 10px;">评测指标</a> <a href="/tags/%E8%AF%AD%E4%B9%89%E7%A9%BA%E9%97%B4/" style="font-size: 10px;">语义空间</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/" style="font-size: 11.67px;">语音信息处理</a> <a href="/tags/%E8%AF%BE%E5%A0%82%E8%AE%A8%E8%AE%BA/" style="font-size: 10px;">课堂讨论</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 10px;">课程</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88/" style="font-size: 10px;">课程概览</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" style="font-size: 10px;">课程表</a> <a href="/tags/%E8%AF%BE%E8%AE%BE/" style="font-size: 10px;">课设</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 11.11px;">调研</a> <a href="/tags/%E8%B4%A1%E7%8C%AE%E8%80%85/" style="font-size: 10px;">贡献者</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">软件概要设计</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">软件生命周期模型</a> <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" style="font-size: 10px;">输入法</a> <a href="/tags/%E9%87%8F%E5%8C%96/" style="font-size: 10px;">量化</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a> <a href="/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/" style="font-size: 10px;">需求分析</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%BB%BA%E6%A8%A1/" style="font-size: 10px;">面向对象的需求分析建模</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">领域模型</a> <a href="/tags/%E9%B8%BF%E9%9B%81%E6%9D%AF/" style="font-size: 10px;">鸿雁杯</a>
+        </div>
+    </div>
+
+
+    
+        
+
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    
+
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2024
+                <span class="footer-info-sep"></span>
+                ab
+            </div>
+            
+                <div>
+                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    818.9k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    51:43
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="ab" class="lazyload">
+            <div class="sidebar-author-name">ab</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">393</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">35</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">404</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
