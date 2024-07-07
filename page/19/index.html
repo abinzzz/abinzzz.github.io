@@ -172,14 +172,145 @@
         
     <div class="post-wrap-left wow fadeInUp">
         
-            <a class="post-link" href="/2023/11/03/Django/"></a>
+            <a class="post-link" href="/2023/11/04/spikingjelly-Container/"></a>
         
         
         <div class="post-cover-left">
             
-                <img data-src="https://pbs.twimg.com/media/F-BMYETXAAAD1z4?format=jpg&amp;name=medium" data-sizes="auto" alt="Django" class="lazyload">
+                <img data-src="https://pbs.twimg.com/media/F-A07I-aMAAx1SU?format=jpg&amp;name=medium" data-sizes="auto" alt="spikingjelly:Container" class="lazyload">
             
 
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-11-04</a>
+                
+                    <a><span class="icon-pencil"></span>1.6k 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>7 分钟</a>
+                
+            </div>
+            <h2 class="post-title">spikingjelly:Container</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 容器
+SpikingJelly中主要提供了如下几种容器:
+
+
+函数风格的multi_step_forward和模块风格的MultiStepContainer
+
+
+函数风格的seq_to_ann_forward和模块风格的SeqToANNContainer
+
+
+对单步模块进行包装以进行单步/多步传播的StepModeContainer
+
+
+
+ 1. multi_step_forward可以将一个单步模块进行多步传播,
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/11/04/spikingjelly/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://pbs.twimg.com/media/F-DvzIvWAAAnSrs?format=png&amp;name=900x900" data-sizes="auto" alt="spikingjelly:Basic Conception" class="lazyload">
+            
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-11-04</a>
+                
+                    <a><span class="icon-pencil"></span>7.9k 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>45 分钟</a>
+                
+            </div>
+            <h2 class="post-title">spikingjelly:Basic Conception</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 基本概念
+ 1. 激活值的表示方法
+spikingjelly.activation_based 使用取值仅为0或1的张量表示脉冲,例如:
+1234567import torchv = torch.rand([8]) v_th = 0.5spike = (v &amp;gt;= v_th).to(v)print(&amp;#x27;spike =&amp;#x27;, spike)# spike = tensor([0., 0., 0., 
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-left wow fadeInUp">
+        
+            <a class="post-link" href="/2023/11/04/intern-02/"></a>
+        
+        
+        <div class="post-cover-left">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="intern-02" class="lazyload">
+            
+
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-11-04</a>
+                
+                    <a><span class="icon-pencil"></span>29 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">intern-02</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ TODO
+
+[ ] spikingjelly框架
+[ ] 代码：https://github.com/BICLab/Spike-Driven-Transformer
+[ ] 论文: Spike-driven Transformer
+[ ] LIF神经元
+
+
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/11/03/Django/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://pbs.twimg.com/media/F-BMYETXAAAD1z4?format=jpg&amp;name=medium" data-sizes="auto" alt="Django" class="lazyload">
+            
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -209,14 +340,16 @@
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/10/30/paper-SpikingBERT/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://pbs.twimg.com/media/F9rAEWBWwAAN3_v?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:SpikingBERT" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -246,16 +379,14 @@
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/10/28/%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="Knowledge Distillation" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -286,14 +417,16 @@
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/10/28/Transformer/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://pbs.twimg.com/media/F9hisvkaMAA4GtX?format=jpg&amp;name=medium" data-sizes="auto" alt="ML:Transformer" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -334,16 +467,14 @@
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/10/27/github%E5%B0%8F%E6%8A%80%E5%B7%A7/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="github小技巧" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -391,14 +522,16 @@
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/10/25/paper-SPIKEBERT-A-LANGUAGE-SPIKFORMER-LEARNED-FROM-BERT-WITH-KNOWLEDGE-DISTILLATION/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="paper: SPIKEBERT" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -429,16 +562,14 @@
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/10/25/Rational-Software-Architect/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="Rational Software Architect" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -470,142 +601,6 @@ IBM Rational Software Architect – IBM软件开发平台的一部分 – 是IBM
 
 
     
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/10/25/Bert/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="ML:Bert" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-10-25</a>
-                
-                    <a><span class="icon-pencil"></span>1.2k 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>4 分钟</a>
-                
-            </div>
-            <h2 class="post-title">ML:Bert</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 参考链接：
-🔗：李宏毅-ELMO, BERT, GPT讲解
-
- 一.Review
- 1.1 1-of-N Encoding
-最早采用的方法，显然一个词用一个向量表示不合理
-apple=[1 0 0 0 0]
-bag=[0 1 0 0 0]
-cat=[0 0 1 0 0]
-dog=[0 0  0 1 0]
-elephant=[0 0 0 0 1]
-
- 1.2 Word Class
-之后才用WOrd CLass，但是
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-left wow fadeInUp">
-        
-            <a class="post-link" href="/2023/10/24/paper-BERT-Pre-training-of-Deep-Bidirectional-Transformers-for-Language-Understanding/"></a>
-        
-        
-        <div class="post-cover-left">
-            
-                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="paper: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding" class="lazyload">
-            
-
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-10-24</a>
-                
-                    <a><span class="icon-pencil"></span>2.6k 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>9 分钟</a>
-                
-            </div>
-            <h2 class="post-title">paper: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 参考链接
-🔗：BERT 论文逐段精读【论文精读】
- BERT: Pre-training of Deep Bidirectional Transformers for Language
-题目理解：深的双向的transformer用来做预训练的针对语言理解的模型
-pre-train:在一个数据集上训练好模型，但模型是用于在别的任务上，这种训练叫预训练
- abtract
-本文提出一种新的语言表示模型BERT，即基于t
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/10/22/Blitz-question/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="Blitz:question" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-10-22</a>
-                
-                    <a><span class="icon-pencil"></span>3.4k 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>12 分钟</a>
-                
-            </div>
-            <h2 class="post-title">Blitz:question</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- Question?
- 一. Assemble
-asm: BLITZ汇编程序/汇编机
-1asm Hello.s
-结果：创建一个Hello.o的文件
-
-asm：命令行工具名称，通常是一个汇编器
-.s: 汇编语言源文件
-.o:二进制格式对象文件，包含了编译后但未链接的代码
-编译：将源代码（通常是高级编程语言写的）转化为机器语言或中间代码的过程，输出通常是对象文件
-链接：将一个或多个对象文件以及可能的其他库文件组合在一起，
-                
-            </article>
-        </div>
-    </div>
-
-
-    
 
 
     <nav id="page-nav" class="wow fadeInUp">
@@ -626,11 +621,11 @@ asm：命令行工具名称，通常是一个汇编器
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">264</div>
+                <div class="sidebar-state-number">267</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">20</div>
+                <div class="sidebar-state-number">22</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
@@ -679,7 +674,7 @@ asm：命令行工具名称，通常是一个汇编器
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Accumulate/">Accumulate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Competition/">Competition</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Future/">Future</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/IELTS/">IELTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/bug/">bug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/internship/SNN/">SNN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/Multimudal/">Multimudal</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS224N/">CS224N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS231N/">CS231N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/Missing-Semester-of-CS/">Missing Semester of CS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/d2l/">d2l</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Accumulate/">Accumulate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Competition/">Competition</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Future/">Future</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/IELTS/">IELTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/bug/">bug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/internship/SNN/">SNN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/FL/">FL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/Multimudal/">Multimudal</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS224N/">CS224N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS231N/">CS231N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/Missing-Semester-of-CS/">Missing Semester of CS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/d2l/">d2l</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
         </div>
     </div>
 
@@ -700,7 +695,7 @@ asm：命令行工具名称，通常是一个汇编器
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
         </div>
     </div>
 
@@ -732,10 +727,10 @@ asm：命令行工具名称，通常是一个汇编器
             
                 <div>
                     <span class="icon-brush"></span>
-                    553k
+                    554.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    34:28
+                    34:34
                 </div>
             
             
@@ -762,11 +757,11 @@ asm：命令行工具名称，通常是一个汇编器
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">264</div>
+                <div class="sidebar-state-number">267</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">20</div>
+                <div class="sidebar-state-number">22</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>

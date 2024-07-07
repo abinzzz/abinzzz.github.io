@@ -172,14 +172,136 @@
         
     <div class="post-wrap-left wow fadeInUp">
         
-            <a class="post-link" href="/2023/12/28/RuntimeError-CUDA-error-device-side-assert-triggered/"></a>
+            <a class="post-link" href="/2024/01/10/Git%E6%9C%AC%E5%9C%B0delete%E5%90%8Ecommit/"></a>
         
         
         <div class="post-cover-left">
             
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="RuntimeError: CUDA error: device-side assert triggered" class="lazyload">
+                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="Git本地delete后commit" class="lazyload">
             
 
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2024-01-10</a>
+                
+                    <a><span class="icon-pencil"></span>177 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">Git本地delete后commit</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 问题描述
+假设我们现在已经把所有文件都commit了，但是我在本地删除了一个文件，commit上面目前还是有这个文件。我的想法就是要把commit上也要删除这个文件，避免这个文件提交到远程仓库
+ 解决方法
+前提：我已经右键点击，并且删除了pytorch_model.bin文件
+step1: git rm google/vit-base-patch16-224/pytorch_model.bin
+step2: git
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2024/01/07/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E6%B1%87%E6%8A%A5/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="智能医学双创:论文阅读汇报" class="lazyload">
+            
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2024-01-07</a>
+                
+                    <a><span class="icon-pencil"></span>4k 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>15 分钟</a>
+                
+            </div>
+            <h2 class="post-title">智能医学双创:论文阅读汇报</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+
+ 论文阅读汇报：SPATIO-TEMPORAL APPROXIMATION: A TRAINING- FREE SNN CONVERSION FOR TRANSFORMERS
+ 1.研究背景
+ANN在处理复杂任务方面表现出色，但能耗较高。相反，SNN由于其生物学上的可解释性和低能耗特性，被视为下一代神经网络的有力候选。然而，SNN在处理某些复杂任务时存在性能限制。
+因此,将预训练的ANN转换为SNN成为一种吸引人的
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-left wow fadeInUp">
+        
+            <a class="post-link" href="/2023/12/28/RuntimeError-Parent-directory-model1-does-not-exist/"></a>
+        
+        
+        <div class="post-cover-left">
+            
+                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="RuntimeError: Parent directory /model1/ does not exist." class="lazyload">
+            
+
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-12-28</a>
+                
+                    <a><span class="icon-pencil"></span>72 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">RuntimeError: Parent directory /model1/ does not exist.</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 问题描述
+其实就是文件不存在，所以没找到存放模型的文件夹，导致模型没有保存：
+1RuntimeError: Parent directory /model1/ does not exist.
+
+ 解决方法
+12# 如果目录不存在，则创建该目录os.makedirs(args.model_path, exist_ok=True)
+
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/12/28/RuntimeError-CUDA-error-device-side-assert-triggered/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="RuntimeError: CUDA error: device-side assert triggered" class="lazyload">
+            
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -208,14 +330,16 @@
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/12/24/PyTorch-VS-TensorFlow/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="PyTorch VS TensorFlow" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -249,16 +373,14 @@ https://viso.ai/deep-learning/pytorch-vs-tensorflow/
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/12/24/Pytorch-torch-utils-data-DataLoader/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="Pytorch:torch.utils.data.DataLoader" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -295,14 +417,16 @@ torch.utils.data.DataLoader使用方法
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/12/23/Mac-M2%E4%BD%BF%E7%94%A8GPU%E8%BF%9B%E8%A1%8C%E8%AE%AD%E7%BB%83/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="Mac M2使用GPU进行训练" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -337,16 +461,14 @@ Mac M2芯片为了追求高性能和节能，在底层设计上使用的是一�
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/12/21/%E5%86%85%E5%AD%98%E4%B8%8E%E6%98%BE%E5%AD%98%E3%80%81CPU%E4%B8%8EGPU%E3%80%81GPU%E4%B8%8ECUDA/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="内存与显存、CPU与GPU、GPU与CUDA" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -385,14 +507,16 @@ GPU与CUDA
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/12/21/spikeBERT-%E4%BC%98%E5%8A%BF%E5%88%86%E6%9E%90/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="spikeBERT:优势分析以及可能会产生的问题" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -429,16 +553,14 @@ psn之后不进行reset得到的是0，1？
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/12/21/paper-SPATIO-TEMPORAL-APPROXIMATION/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:SPATIO-TEMPORAL APPROXIMATION" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -474,152 +596,6 @@ psn之后不进行reset得到的是0，1？
 
 
     
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/19/%E4%BF%9D%E7%A0%94%E6%8E%A8%E5%85%8D%E5%8A%A0%E5%88%86%E9%A1%B9%E7%9B%AE/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="保研推免加分项目" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-19</a>
-                
-                    <a><span class="icon-pencil"></span>1.7k 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>5 分钟</a>
-                
-            </div>
-            <h2 class="post-title">保研推免加分项目</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 基本原则
-
-最多4分
-同一竞赛/同一作品取最高
-ddl：每年8.31
-
-
- 加分标准
-学术竞赛：
-
-S上限3，A+上限2.5，A上限2，B+上限1.5，B上限1
-奖项等级之间相差0.5
-团队赛的负责人为北邮人，主力队员才能加分
-团队赛加分认定额度=学院对应竞赛的个人加分认定额度x系数
-系数=1+(x-1)x0.6,其中x&amp;lt;=6
-
-
-
-科研活动：
-
-一作才能加分
-
-
-
- 互联网+
-
-招募公告
-互联网+项目And
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-left wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/19/paper-LLM-QAT/"></a>
-        
-        
-        <div class="post-cover-left">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:LLM-QAT" class="lazyload">
-            
-
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-19</a>
-                
-                    <a><span class="icon-pencil"></span>7 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>1 分钟</a>
-                
-            </div>
-            <h2 class="post-title">paper:LLM-QAT</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
-
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/19/paper-Visual-Instruction-Tuning/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:Visual Instruction Tuning" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-19</a>
-                
-                    <a><span class="icon-pencil"></span>633 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>2 分钟</a>
-                
-            </div>
-            <h2 class="post-title">paper:Visual Instruction Tuning</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 参考链接
-
-项目地址
-文章链接
-Visual Instruction Tuning论文阅读（LLaVa）
-《Visual Instruction Tuning》论文笔记
-核心代码
-时间：2023.4
-第一作者：Haotian Liu
-
-
- Abstract
-在这篇论文中，作者首次尝试使用纯语言 GPT-4 生成多模态语言图像指令遵循数据（insruction-following data）。 通过对此类生成数据进行
-                
-            </article>
-        </div>
-    </div>
-
-
-    
 
 
     <nav id="page-nav" class="wow fadeInUp">
@@ -640,11 +616,11 @@ Visual Instruction Tuning论文阅读（LLaVa）
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">264</div>
+                <div class="sidebar-state-number">267</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">20</div>
+                <div class="sidebar-state-number">22</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
@@ -693,7 +669,7 @@ Visual Instruction Tuning论文阅读（LLaVa）
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Accumulate/">Accumulate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Competition/">Competition</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Future/">Future</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/IELTS/">IELTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/bug/">bug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/internship/SNN/">SNN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/Multimudal/">Multimudal</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS224N/">CS224N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS231N/">CS231N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/Missing-Semester-of-CS/">Missing Semester of CS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/d2l/">d2l</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Accumulate/">Accumulate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Competition/">Competition</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Future/">Future</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/IELTS/">IELTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/bug/">bug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/internship/SNN/">SNN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/FL/">FL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/Multimudal/">Multimudal</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS224N/">CS224N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS231N/">CS231N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/Missing-Semester-of-CS/">Missing Semester of CS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/d2l/">d2l</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
         </div>
     </div>
 
@@ -714,7 +690,7 @@ Visual Instruction Tuning论文阅读（LLaVa）
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
         </div>
     </div>
 
@@ -746,10 +722,10 @@ Visual Instruction Tuning论文阅读（LLaVa）
             
                 <div>
                     <span class="icon-brush"></span>
-                    553k
+                    554.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    34:28
+                    34:34
                 </div>
             
             
@@ -776,11 +752,11 @@ Visual Instruction Tuning论文阅读（LLaVa）
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">264</div>
+                <div class="sidebar-state-number">267</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">20</div>
+                <div class="sidebar-state-number">22</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
