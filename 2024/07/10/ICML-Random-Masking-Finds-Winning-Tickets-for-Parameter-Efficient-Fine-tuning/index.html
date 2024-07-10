@@ -32,10 +32,21 @@
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="基本信息 标题: Random Masking Finds Winning Tickets for Parameter Efficient Fine-tuning 作者: Jing Xu, Jingzhao Zhang 机构:  Institute for Interdisciplinary Information Sciences, Tsinghua University, China Sha">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/668e409dd9c307b7e97f4cab.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/668e414bd9c307b7e9802455.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/668e420cd9c307b7e9811297.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/668e42a8d9c307b7e981e57f.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/668e430bd9c307b7e98266d4.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/668e448dd9c307b7e98447a0.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/668e47bcd9c307b7e9887abc.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/668e4804d9c307b7e988dd87.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/668e4a55d9c307b7e98c00c5.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/668e4af4d9c307b7e98cdbbd.png">
 <meta property="article:published_time" content="2024-07-10T05:14:58.000Z">
-<meta property="article:modified_time" content="2024-07-10T05:35:05.823Z">
+<meta property="article:modified_time" content="2024-07-10T09:10:00.575Z">
 <meta property="article:author" content="ab">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/668e409dd9c307b7e97f4cab.png">
     
         <link rel="alternate" href="/atom.xml" title="blog" type="application/atom+xml">
     
@@ -325,6 +336,134 @@
 5. <strong>总结和展望</strong>：总结研究成果，并提出未来研究方向。</p>
 <h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
 <p>微调大型语言模型 (LLM) 的成本可能很高。参数高效微调（PEFT）通过训练一小部分参数来解决问题，其成功揭示了预训练模型的表现力和灵活性。本文通过进一步简化其设计并减少标准设置之外的可训练参数的数量来研究 PEFT 的局限性。为此，我们使用随机掩码来微调预训练模型。尽管它很简单，但我们证明了随机掩码非常有效：凭借比预期更大的学习率，随机掩码可以使用更少的可训练参数，在各种任务上与标准 PEFT 算法（例如 LoRA）的性能相匹配。我们对随机掩蔽的成功进行了实证和理论探索。我们表明，掩蔽会导致更平坦的损失景观和更远的解决方案，这允许并且需要大的学习率。</p>
+<h2 id="1-introduction"><a class="markdownIt-Anchor" href="#1-introduction"></a> 1. Introduction</h2>
+<p><code>原文</code><br />
+大规模预训练模型（如Brown等，2020；Chowdhery等，2023；Touvron等，2023a）已经彻底改变了深度学习，在自然语言处理和计算机视觉等多个领域展示了卓越的能力。这些模型使用大量参数来捕捉数据中的复杂模式。尽管它们取得了成功，但使用这些模型所需的资源非常高，特别是在需要微调以适应下游数据或对齐人类行为时。为了减少计算和存储需求，研究人员开发了多种参数高效微调（PEFT）算法，如<strong>LoRA</strong>（Hu等，2021）、<strong>Adapter</strong>（Houlsby等，2019）、<strong>Prompt Tuning</strong>（Li &amp; Liang，2021；Lester等，2021）。这些方法已广泛应用于语言和视觉任务中（如Shi等，2023；Lialin等，2023；Liu等，2022；Sung等，2022；Lin等，2023）。</p>
+<p><strong>PEFT方法使用极少量参数的成功激发了对这种现象的研究</strong>。例如，Aghajanyan等（2020）和Malladi等（2023b）表明，尽管预训练模型参数处于高维空间中，但微调任务在固有维度上具有低复杂度。此外，研究表明，与随机初始化的网络相比，预训练网络具有更好的优化景观（Hao等，2019；Zhou &amp; Srikumar，2021），使其更容易适应下游数据集。此外，Su等（2023b）强调了模型规模在PEFT中的重要性，表明它可以缓解PEFT方法之间设计差异的影响。</p>
+<p>受PEFT有效性观察和分析的启发，我们希望进一步探索PEFT的性能极限。具体来说，是否有可能<strong>进一步减少参数并简化PEFT模块的设计</strong>？</p>
+<p>受到神经网络剪枝和彩票假说成功的启发，本文研究了一种称为<strong>随机掩码（Random Masking）的PEFT</strong>方法。具体来说，<strong>随机掩码涉及对模型参数应用随机二进制掩码，并在微调过程中仅训练未被掩码的参数</strong>。随机掩码为我们提供了一种方便的方法，可以在当前极限之外进一步减少可训练参数，而且它的设计简单，几乎不包含关于模型结构或任务的归纳偏差。</p>
+<p>以前的研究通常将随机掩码视为表现不佳的基准方法。然而，我们的实验揭示了一个令人惊讶的现象：在对LLM进行SuperGLUE数据集微调时，<strong>随机掩码可以匹配全参数微调和标准PEFT方法在各种模型规模上的性能</strong>。随机掩码成功的关键在于<strong>选择合适的学习率</strong>。具体来说，我们发现稀疏的掩码需要较高的学习率。最佳学习率可以高达1e-1，而对于标准PEFT方法，这一数值通常会导致发散。</p>
+<p>随机掩码的有效性表明预训练模型具有比以前认识到的更大的表达能力。值得注意的是，我们的实验表明，<strong>即使只有0.001%的参数是可训练的，随机掩码仍然可以实现非平凡的准确性</strong>。这一可训练参数的比例大约<strong>是LoRA的100倍</strong>，这些结果表明实际PEFT方法中存在大量参数冗余。</p>
+<p>我们对随机掩码的成功进行了深入研究。通过实验证明，<strong>掩码会在损失Hessian谱方面引发更平坦的损失景观</strong>，这解释了为什么较高的学习率不会导致发散。同时，我们说明了平坦的损失景观会产生更远的解决方案，这解释了为什么稀疏掩码需要较大的学习率。</p>
+<p>在理论上，我们分析了过参数化线性回归模型。<strong>我们使用矩阵集中界证明了掩码模型的Hessian特征值界限，揭示了随着掩码变得稀疏，特征值的衰减</strong>。我们还证明了较小的Hessian特征值允许更大的学习率，并引发更远的解决方案。这些发现与我们的实验结果一致，并提供了随机掩码如何影响学习动态的连贯解释。</p>
+<p>我们的分析揭示了预训练模型的表达能力与优化难度之间的权衡。随机掩码模型通过牺牲模型的表达能力来获得良好的损失景观。剩余的模型容量不足以处理复杂的任务（如预训练）；然而，它已经足以适应各种微调任务的预训练LLM。这也解释了为什么PEFT方法在低数据情况下优于全参数微调（Zaken等，2021），因为它们用更好的优化景观替代了冗余参数。</p>
+<p>我们总结了我们的贡献如下：</p>
+<ul>
+<li>我们展示了通过适当调节的学习率，随机掩码可以在SuperGLUE基准上实现与标准PEFT方法相当的性能，同时显著减少了可训练参数数量。</li>
+<li>我们提供了广泛的实验结果，显示了预训练模型的良好损失景观和表达能力是随机掩码成功的关键因素。</li>
+<li>我们提供了关于过参数化线性回归模型的理论研究，阐明了学习率调节与随机掩码之间的相互作用。</li>
+</ul>
+<p><code>分析</code><br />
+<strong>表达能力</strong>：能够捕捉和表示复杂数据模式的能力<br />
+<strong>优化难度</strong>：训练过程中找到最佳参数的难度<br />
+<strong>损失景观</strong>：Loss LandScape，模型的损失函数在参数空间的分布</p>
+<p>预训练阶段，模型需要捕捉大量的复杂模式，随机掩码方法可能无法满足这种高要求。在微调阶段，任务通常较为专注且数据量较小，模型需要的表达能力较低，随机掩码后的模型仍能表现良好。</p>
+<h2 id="2-relate-work"><a class="markdownIt-Anchor" href="#2-relate-work"></a> 2. Relate Work</h2>
+<p>参数高效微调（PEFT）吸引了大量关注，催生了多种算法和架构创新。第一波PEFT方法涉及<strong>在预训练网络中整合小型可训练适配器</strong>（Houlsby等，2019；Pfeiffer等，2020；Rücklé等，2020；Karimi Mahabadi等，2021；He等，2021b；Zhu等，2021；Jie &amp; Deng，2022；Zhang等，2023e；Gao等，2023）。另一类方法是在<strong>提示中添加可训练的连续模块</strong>，称为<strong>提示调优或前缀调优</strong>（Li &amp; Liang，2021；Lester等，2021；Jia等，2022；Liu等，2023）。Hu等（2021）提出了<strong>LoRA算法</strong>，这是最广泛使用的PEFT方法之一，因其性能和多功能性而受到青睐。一系列工作提出了LoRA算法的变体，旨在进一步减少可训练参数数量（Zhang等，2023b；Kopiczko等，2023；Ding等，2023），增强低秩结构的表达能力（Koohpayegani等，2023；Zi等，2023），实现自适应参数分配（Zhang等，2023a；d），以及将LoRA与量化（Dettmers等，2023；Xu等，2023）和剪枝（Zhang等，2023c）等其他技术结合。</p>
+<p>除了直接设计PEFT模块外，一些研究建立了<strong>PEFT模块的统一框架</strong>（He等，2021a；Mao等，2021；Ding等，2022；Chen等，2023），从而促进更高效的配置选择（Zhou等，2023；Hu等，2022）。另一类工作则致力于<strong>设计适用于调优大模型的轻量级优化算法</strong>（Malladi等，2023a；Zelikman等，2023；Lv等，2023）。</p>
+<br>
+<p><strong>掩码</strong>（Sung等，2021；Jaiswal等，2022；Xu等，2021；Nikdan等，2024）是<strong>各种PEFT方法的关键组成部分</strong>，本质上与神经网络剪枝和彩票假说（Han等，2015；Molchanov等，2017；Liu等，2017；Frankle &amp; Carbin，2018）相关。Zaken等（2021）提出了BitFit，隐式地掩盖了模型权重，除了偏置向量。一些工作提出了训<strong>练掩码矩阵的算法</strong>（Guo等，2020；Zhao等，2020；Li等，2022）以微调网络。与这些方法相比，我们论文中的随机掩码<strong>不需要分配或训练掩码</strong>，并且在算法设计中引入的归纳偏差最小。</p>
+<p>Su等（2023a）利用掩码来实现少量可训练参数，但他们专注于将掩码添加到PEFT模块而非预训练网络中。Aghajanyan等（2020）应用随机投影方法计算预训练LLM的内在维度，这在概念上与我们论文中的随机掩码类似。然而，他们将内在维度定义为实现全参数微调90%准确度的参数数量，而我们表明随机掩码可以实现与全参数微调相同的准确度。</p>
+<h2 id="3随机掩码及其实现"><a class="markdownIt-Anchor" href="#3随机掩码及其实现"></a> 3.随机掩码及其实现</h2>
+<p>令N表示一个预训练神经网络，W = {W1,··· ,Wk}表示N中的参数。给定一个数据集D和损失函数l(D,W)，在D上微调N可以表示为</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>min</mi><mo>⁡</mo><mi>l</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mo stretchy="false">{</mo><mi>W</mi><mn>1</mn><mo>+</mo><mi mathvariant="normal">Δ</mi><mn>1</mn><mo separator="true">,</mo><mo separator="true">⋅</mo><mo separator="true">⋅</mo><mo separator="true">⋅</mo><mo separator="true">,</mo><mi>W</mi><mi>k</mi><mo>+</mo><mi mathvariant="normal">Δ</mi><mi>k</mi><mo stretchy="false">}</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\min l(D, \{W1 + \Delta1,··· ,Wk + \Delta k\}) 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">min</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">Δ</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Δ</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">}</span><span class="mclose">)</span></span></span></span></span></p>
+<p>其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">\Delta i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Δ</span><span class="mord mathnormal">i</span></span></span></span> 表示每个模块的权重增量，与Wi具有相同的维度。为确保微调从预训练权重Wi开始，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">\Delta i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Δ</span><span class="mord mathnormal">i</span></span></span></span> 被初始化为零。</p>
+<p>概念上，随机掩码在预训练模型每个参数的requires grad字段上应用一个随机掩码Mi（见图2(b)）。这个操作冻结了权重张量的掩盖元素，仅允许未掩盖的元素在微调过程中被优化。Mi的元素从Ber(p)中独立同分布地采样，即Bernoulli分布的参数p，其中p ∈ [0, 1]表示某个参数未被掩盖的概率。掩码矩阵Mi在初始化时生成，并在整个微调过程中固定。</p>
+<p>直接存储掩码矩阵Mi会导致巨大的存储和计算负担。因此，我们用一个稀疏矩阵Si实现稀疏参数更新。这个矩阵由未掩盖位置的坐标（由Mi确定）和可调权重组成，两者都被紧凑地存储为向量。因此，随机掩码可以表示为<br />
+[ \min l(D, {W1 + S1,··· ,Wk + Sk}) ]<br />
+可以应用现成的稀疏矩阵CUDA库（Gale等，2020；Nikdan等，2024）来实现稀疏矩阵Si并解决优化问题。</p>
+<p>随机掩码作为研究PEFT参数数量的理想基准，有以下两个原因。首先，随机掩码非常灵活，可以通过<strong>调整p的值来操控可训练参数的数量</strong>。其次，随机掩码是最直接的PEFT方法之一，<strong>对预训练网络引入的归纳偏差最小</strong>。这可以在分析参数数量对性能的影响时消除架构和算法设计等混杂因素。</p>
+<h2 id="4实验"><a class="markdownIt-Anchor" href="#4实验"></a> 4.实验</h2>
+<p>本节展示了随机掩码的实证结果。我们首先概述实验设置并呈现主要结果。然后，我们进行深入分析，以探索随机掩码的潜在机制。最后，我们进行了各种消融研究，以验证随机掩码的鲁棒性。代码可在以下链接获取：<a target="_blank" rel="noopener" href="https://github.com/JingXuTHU/Random-Masking-Finds-Winning-Tickets-for-Parameter-Efficient-Fine-tuning%E3%80%82">https://github.com/JingXuTHU/Random-Masking-Finds-Winning-Tickets-for-Parameter-Efficient-Fine-tuning。</a></p>
+<h3 id="41-设置"><a class="markdownIt-Anchor" href="#41-设置"></a> 4.1 设置</h3>
+<p><strong>模型和数据集</strong>：我们选择OPT模型系列（Zhang等，2022）作为预训练LLM，使用三个不同的模型规模：125m、1.3b和13b。我们在一系列不同的数据集和任务上进行实验，包括SuperGLUE基准（Wang等，2019）中的8个数据集和另外三个数据集。按照Malladi等（2023a）的方法，我们从每个数据集的原始训练集随机抽取1000个数据点进行训练，500个数据点进行验证，从原始验证集中随机抽取1000个数据点进行测试。SQuAD和DROP使用F1分数作为指标，其他数据集使用测试准确率。我们还使用了与Malladi等（2023a）相同的提示模板。</p>
+<p><strong>方法</strong>：我们使用随机掩码进行实验，并考虑各种基线方法，包括全参数微调、LoRA（Hu等，2021）。我们还实验了其他基线方法，包括Adapter（Houlsby等，2019）、Prefix-Tuning（Li &amp; Liang，2021）、BitFit（Zaken等，2021）和AdaLoRA（Zhang等，2023d），其结果见附录B.1。对于随机掩码，我们选择了从{10%, 5%, 1%, 0.5%, 0.1%, 0.05%, 0.01%, 0.005%, 0.001%}中选取可训练参数比例，并使用spops库（Nikdan等，2024）实现稀疏矩阵操作。对于LoRA，我们选择r=8和α=16。按照LoRA的原始实现（Hu等，2021），我们仅将LoRA和随机掩码应用于每个注意力层中的查询和值矩阵。</p>
+<h3 id="42-主要结果"><a class="markdownIt-Anchor" href="#42-主要结果"></a> 4.2 主要结果</h3>
+<p><code>原文</code><br />
+我们的实验提出了关于随机掩码的两个主要观察结果:<br />
+<strong>随机掩码与基线性能相当</strong>：在表1中，我们报告了使用最优网格搜索学习率获得的不同方法的测试性能。附录B的表5提供了不同可训练参数比例下随机掩码的完整结果。结果表明，尽管设计简单，随机掩码在不同模型规模上使用显著更少的可训练参数比例，性能与基线相当。此外，我们注意到更大的模型更适合稀疏掩码。例如，OPT-13b模型在0.1%和0.001%可训练参数比例下的随机掩码：尽管可训练参数数量相差百倍，后者的性能仅比前者低2%。</p>
+<p><code>表1</code><br />
+<img src="https://pic.imgdb.cn/item/668e409dd9c307b7e97f4cab.png" alt="" /><br />
+<strong>model</strong>：OPT-125m，OPT-1.3b，OPT-13b<br />
+<strong>Method</strong>：FT，LoRA，Masking<br />
+<strong>Datasets</strong>：SST-2, RTE, WSC, WiC, CB, BoolQ, MultiRC, COPA, ReCoRD, SQuAD, DROP</p>
+<p>masking尽管参数更少，但是也能达到baseline的水平。而且可以看出masking更加适合大参数模型，因为看到13b的模型这里，尽管参数相差了100倍，但是模型性能差别也不大。</p>
+<Br>
+<p><strong>稀疏随机掩码需要显著更大的学习率</strong>：我们在图3中绘制了随机掩码在不同学习率下的性能变化。表6和7列出了不同方法的最优学习率。这些结果强调了适当学习率对随机掩码成功的关键作用。我们的发现表明，具有更小可训练参数比例的随机掩码需要更大的学习率。对于非常稀疏的掩码（如0.001%可训练参数），最优学习率可高达1e-1，这在标准NLP训练中通常被认为过大且不稳定。实际上，我们的实验表明，如此激进的学习率会导致其他基线方法快速发散和性能下降。</p>
+<p><code>图3</code></p>
+<p><img src="https://pic.imgdb.cn/item/668e414bd9c307b7e9802455.png" alt="" /></p>
+<p>可以看出，可训练参数越小，达到高acc需要的学习率越大</p>
+<p><code>表6</code></p>
+<p><img src="https://pic.imgdb.cn/item/668e420cd9c307b7e9811297.png" alt="" /></p>
+<p>这张表格展示了Masking的最优学习率：</p>
+<p><code>表7</code></p>
+<p><img src="https://pic.imgdb.cn/item/668e42a8d9c307b7e981e57f.png" alt="" /></p>
+<p>这张表格展示了Baseline的最优学习率</p>
+<h3 id="43-调查与解释"><a class="markdownIt-Anchor" href="#43-调查与解释"></a> 4.3 调查与解释</h3>
+<p><code>原文</code><br />
+图3的结果提出了关于学习率选择的两个重要问题。第一个是为什么大学习率不会发散并且对随机掩码有效。第二个是为什么适合全参数微调和传统PEFT方法的小学习率对随机掩码无效。我们提供了以下实证观察来解释这些现象。</p>
+<p><code>图3</code></p>
+<p><img src="https://pic.imgdb.cn/item/668e430bd9c307b7e98266d4.png" alt="" /></p>
+<p>根据图3，不难发现一个规律，最优变的都是蓝色线和橙色线，也就是学习率最大的那两个。</p>
+<p><code>原文</code><br />
+<strong>大学习率的稳定性：稀疏随机掩码导致更平坦的损失景观</strong>。优化理论中的一个众所周知的结果表明，当学习率低于Θ(1/L)时，梯度下降保证收敛，其中L是目标函数Hessian的l2范数给出的平滑系数（Bubeck等，2015）。因此，大学习率的良好性能表明随机掩码后的损失景观是平坦的，即具有较小的Hessian范数。我们使用幂法数值计算训练前后的Hessian的l2范数。图4(a)的结果表明，随机掩码导致较小的Hessian范数，从而导致更平坦的损失景观。小Hessian范数还表明PEFT的损失景观几乎是线性的，这与Malladi等（2023b）的发现一致。</p>
+<p><strong>大学习率的必要性：稀疏随机掩码导致更远的解</strong>。图3显示小学习率对稀疏掩码效果很差。由于这些小学习率在掩码比例较低时足以收敛，我们将这种失败归因于小学习率的欠拟合。在图4(b)中，我们验证了这一点，该图展示了在较长训练周期和小学习率下SST-2数据集上的性能。我们观察到，随着训练周期的延长，性能单调增加。因此，小学习率的失败是由于优化而不是泛化，因为它们需要大量步骤来拟合数据集。</p>
+<p>所需步骤数量可以通过初始化和最终迭代之间的l2距离反映出来。图4(b)显示，随着掩码变得稀疏，这一距离变得更大，尽管只有较少数量的参数发生了变化。这表明迭代需要更远才能到达最小值。</p>
+<p><strong>随机掩码展示了预训练LLM的表达能力</strong>。上述调查揭示了以下总体情况：随机掩码停用了大量维度，排除了易于达到的最小值。然而，感谢预训练网络的表达能力，活跃维度中仍存在遥远的最小值，这需要更大的学习率才能有效到达。因此，随机掩码的成功不仅归因于方法本身，还归因于预训练LLM的潜在表达能力和泛化能力。随机掩码作为一种工具，揭示了预训练LLM的惊人表达能力，这是我们希望与社区分享的关键信息。</p>
+<p><code>图4</code></p>
+<p><img src="https://pic.imgdb.cn/item/668e448dd9c307b7e98447a0.png" alt="" /></p>
+<h3 id="44-消融研究和额外实验"><a class="markdownIt-Anchor" href="#44-消融研究和额外实验"></a> 4.4 消融研究和额外实验</h3>
+<p><code>原文</code><br />
+本节提供进一步的分析，以揭示任务、数据规模、基模型选择和掩码选择方式如何影响随机掩码的性能。</p>
+<p><strong>微调视觉模型</strong>：为了研究随机掩码在视觉任务上的性能，我们选择ClipViT-B/16作为预训练模型，并在5个图像分类任务上进行微调。结果见表2，显示与全参数微调相近的性能和与NLP任务类似的最优学习率趋势。详细设置见附录B.2。</p>
+<p><code>表2</code><br />
+<img src="https://pic.imgdb.cn/item/668e47bcd9c307b7e9887abc.png" alt="" /></p>
+<p>参数更少，性能相近</p>
+<p><code>原文</code><br />
+<strong>变化的数据规模</strong>：我们展示了随机掩码对训练集大小的鲁棒性。我们选择了SST-2和MultiRC数据集，训练集分别有67.3k和27.3k数据点。我们对它们进行了全数据集训练，结果见表3。结果表明，随机掩码的性能在不同大小的训练集中是一致的。此外，我们观察到，在全训练集场景中，可训练参数数量的影响更为明显。值得注意的是，全参数微调在低数据情况下的性能表现相对更好。这一现象归因于预训练模型容量相对于训练数据的关系，因为更大的数据集需要更多参数来拟合。这一发现再次强调了表达能力在微调预训练LLM中的关键作用。</p>
+<p><code>表3</code><br />
+<img src="https://pic.imgdb.cn/item/668e4804d9c307b7e988dd87.png" alt="" /></p>
+<p><code>原文</code><br />
+<strong>变化的基模型</strong>：接下来，我们展示了随机掩码对预训练模型选择的鲁棒性。我们选择Llama2-7b（Touvron等，2023b）作为预训练模型并进行了实验。结果见表4。与OPT系列模型相比，Llama2需要更精细的学习率搜索。结果表明，只要学习率选择得当，随机掩码在各种预训练基模型上的效果仍然一致。</p>
+<p><code>表4</code><br />
+<img src="https://pic.imgdb.cn/item/668e4a55d9c307b7e98c00c5.png" alt="" /></p>
+<p><code>原文</code><br />
+<strong>超越均匀随机的掩码</strong>：最后，我们深入探讨了随机掩码中的随机性的作用。当参数数量较大时，随机选择掩码会产生均匀性。为了研究其影响，我们提出了一种相反的方法，称为结构化掩码。与随机选择掩码不同，结构化掩码沿着权重矩阵的列选择可训练参数，如图2(d)所示。结构化掩码的结果见图5。与随机掩码相比，结构化掩码表现较低，并且随着可训练参数数量的减少，准确率下降得更快。随机选择掩码的性能提升表明，随机性所带来的均匀性对于微调预训练LLM可能是重要的。</p>
+<p><code>图5</code></p>
+<p><img src="https://pic.imgdb.cn/item/668e4af4d9c307b7e98cdbbd.png" alt="" /></p>
+<p>可以看出,大部分时间是蓝线在黄xian的上面的，所以Random方法相比Structured更好</p>
+<h2 id="5theoretical-explanations"><a class="markdownIt-Anchor" href="#5theoretical-explanations"></a> 5.Theoretical Explanations</h2>
+<p>在这一部分中，我们通过分析一个过参数化的线性回归模型，揭示了随机掩码、损失景观和学习率之间的相互作用。我们的理论结果显示，对于线性模型，随机掩码可以导致更平坦的损失景观、更大的稳定学习率和更远的解。</p>
+<h3 id="51-设置"><a class="markdownIt-Anchor" href="#51-设置"></a> 5.1. 设置</h3>
+<p>考虑在数据集 (({(x_i, y_i)}_{1 \le i \le n}) 上拟合一个线性模型 (f(w) = w^\top x)，其中 (x_i \in \mathbb{R}^d) 是特征向量，(y_i \in \mathbb{R}) 是目标。令 (X = (x_1, \cdots, x_n)^\top = (z_1, \cdots, z_d) \in \mathbb{R}^{n \times d})，(y = (y_1, \cdots, y_n) \in \mathbb{R}^n)。忽略偏差项（bias）不会影响一般性。由于预训练模型具有大量参数，这里我们考虑过参数化的设置，即 (d \gg n)。</p>
+<p>为了模拟随机掩码方法，我们在特征向量上应用一个随机掩码矩阵。我们将随机掩码矩阵表示为 (M := \text{diag}(m_1, \cdots, m_d))，其中每个 (m_i) 从 ( \text{Binom}(p)) 独立同分布采样，(p \in [0, 1]) 表示可训练参数的比例。我们将预训练模型的权重表示为 ( \tilde{w} )，将随机掩码中的可训练权重表示为 ( w )。</p>
+<p>我们考虑使用学习率 (\eta &gt; 0) 的梯度下降来最小化以下 ( \ell_2 ) 损失：<br />
+[ L(w) = \frac{1}{2n} |y - X(\tilde{w} + Mw)|^2 ]</p>
+<p>由于 (X\tilde{w}) 可以合并到 (y) 中，我们假设 (\tilde{w} = 0)。将训练轨迹表示为 ({w_i}<em>{i \ge 0})，其中 (w</em>{i+1} = w_i - \eta \nabla L(w_i)) 且 (w_0 = 0)。我们用 (\lambda(A)) 表示矩阵 (A) 的第 (i) 大特征值。当 (A = MX^\top XM) 时，我们省略矩阵，直接使用 (\lambda_i) 表示。注意，(L(w)) 的平滑性由 (\frac{1}{n} \lambda_1) 给出。</p>
+<h3 id="52-稀疏掩码导致小特征值"><a class="markdownIt-Anchor" href="#52-稀疏掩码导致小特征值"></a> 5.2. 稀疏掩码导致小特征值</h3>
+<p>我们首先给出矩阵 (MX^\top XM) 的特征值 (\lambda_i) 的以下集中界限。</p>
+<p><strong>定理 5.1</strong>：假设 (X) 的每个元素都在 ([0, r]) 范围内。那么，对于任何 (0 &lt; \delta &lt; 1)，以至少 (1 - \delta) 的概率，对于任何 (i)，(\lambda_i) 满足以下不等式：<br />
+[ |\lambda_i - p\lambda_i(X^\top X)| \le 2\frac{r^2}{\sqrt{dn}} \left( \sqrt{2\log\frac{1}{\delta}} \right) ]</p>
+<p>证明见附录A。该定理表明，(\lambda_i) 集中在 (p\lambda_i(X^\top X)) 附近，随着可训练参数比例 (p) 减小而趋向于零。定理5.1还包含一个偏差项，其随 (\sqrt{d}) 缩放，因为我们考虑的是过参数化设置，其中 (d \gg n)。注意，<br />
+[ \mathbb{E} \left( \sum_{i=1}^n \lambda_i \right) = \mathbb{E}\left( \text{Tr}(MX^\top XM) \right) = p\text{Tr}(X^\top X) = p|X|_F^2 = p ]</p>
+<p>因此，在特征分布的某些温和条件下，(\mathbb{E}(\sum_i \lambda_i)) 的缩放为 (\Theta(d) \gg O(\sqrt{d}))。这表明，尽管存在偏差项，定理5.1刻画了过参数化设置中 (\lambda_i) 的尖锐集中。</p>
+<h3 id="53-梯度下降轨迹分析"><a class="markdownIt-Anchor" href="#53-梯度下降轨迹分析"></a> 5.3. 梯度下降轨迹分析</h3>
+<p>接下来，我们展示了该问题的优化特性在很大程度上依赖于矩阵 (MX^\top XM) 的谱 (\lambda_i)。</p>
+<p>以下命题在优化文献中是标准的，表明最大的稳定学习率由最大的奇异值决定。</p>
+<p><strong>命题 5.2</strong>：训练轨迹 ({w_i}_{i \ge 0}) 对于任何初始化都收敛，当且仅当 (\eta &lt; \frac{2n}{\lambda_1})。</p>
+<p>结合定理5.1，我们知道，随着可训练参数数量的减少，学习率 (\eta) 可以变得很大。</p>
+<p>如果学习率 (\eta) 满足命题5.2中的界限，记 ( \hat{w} ) 为梯度下降的收敛点。以下命题给出了 ( \hat{w} ) 范数的下界。</p>
+<p><strong>命题 5.3</strong>：假设每个 (y_i) 是使用真实权重向量 (w^<em>) 和方差为 (\sigma^2) 的独立同分布高斯随机噪声 (\epsilon_i) 生成的，即 ( y_i = w^{</em>\top} x_i + \epsilon_i )。则<br />
+[ \mathbb{E} \left( |\hat{w}| \mid M \right) \ge \frac{\sigma^2}{\lambda_1} \sum_{i:\lambda_i &gt; 0} \lambda_i ]</p>
+<p>其中期望值取决于噪声 (\epsilon_i) 的随机性，(1 \le i \le n)。</p>
+<p>这个命题结合定理5.1表明，随着可训练参数比例 (p) 减小，梯度下降会收敛到更远的解，这与我们的经验结果一致。注意，(w^*) 可以包括预训练的权重 (\tilde{w})。</p>
+<h2 id="6结论与讨论"><a class="markdownIt-Anchor" href="#6结论与讨论"></a> 6.结论与讨论</h2>
+<p>本文展示了只要学习率设置得当，随机掩码的大型语言模型（LLM）也可以在标准自然语言处理（NLP）基准上成功微调。我们的实验表明，尽管随机掩码算法设计简单且可训练参数数量减少，但其性能与其他参数高效微调（PEFT）算法相当。我们从实证和理论两方面探讨了其机制，证明了预训练模型的巨大表达能力和良性的损失景观是其成功的关键因素。总体而言，我们的研究揭示了预训练模型的未被充分探索的潜力，表明PEFT在拥有更少可训练参数和更简单的算法设计时仍能保持有效。</p>
+<p>我们的研究提出了几个未来探索的有前景方向：</p>
+<p>首先，虽然随机掩码取得了成功，但它不应被视为最先进的PEFT算法，而是作为揭示预训练模型巨大表达能力的工具。因此，随机掩码在需要更大表达能力的复杂微调任务中可能会遇到挑战。我们将这一问题留待未来研究。</p>
+<p>其次，我们的结果显示，预训练和微调可能需要不同的优化算法。这两个阶段的任务难度和损失景观特性不同，表明需要开发专门针对大型预训练模型上的小规模模块微调的优化算法。</p>
+<p>第三，<strong>随机掩码与神经网络剪枝有深厚的联系</strong>，我们预期其在微调LLM中的成功将推动这一相关领域的进一步研究。</p>
 
             
         </div>
@@ -341,6 +480,20 @@
     
         
     <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    <img data-src="https://pic.imgdb.cn/item/668e5dd0d9c307b7e9a60a74.png" data-sizes="auto" alt="ACL:Light-PEFT"
+                         class="lazyload">
+                
+                <a href="/2024/07/10/ACL-Light-PEFT/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        ACL:Light-PEFT
+                    
+                </h3>
+            </div>
         
         
             <div class="article-nav-link-wrap article-nav-link-right">
@@ -385,7 +538,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">271</div>
+                <div class="sidebar-state-number">272</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -491,10 +644,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    600.4k
+                    616.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    37:15
+                    38:14
                 </div>
             
             
@@ -521,7 +674,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">271</div>
+                <div class="sidebar-state-number">272</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
