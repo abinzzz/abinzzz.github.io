@@ -25,15 +25,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="基本信息标题: ComPEFT: Compression for Communicating Parameter Efficient Updates via Sparsification and Quantization 作者: Prateek Yadav, Leshem Choshen, Colin Raffel, Mohit Bansal 研究机构:   University of North">
+    <meta name="description" content="基本信息 标题: ComPEFT: Compression for Communicating Parameter Efficient Updates via Sparsification and Quantization 作者: Prateek Yadav, Leshem Choshen, Colin Raffel, Mohit Bansal 研究机构:  University of Nort">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Arxiv:ComPEFT">
 <meta property="og:url" content="https://abinzzz.github.io/2024/07/16/Arxiv-ComPEFT/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="基本信息标题: ComPEFT: Compression for Communicating Parameter Efficient Updates via Sparsification and Quantization 作者: Prateek Yadav, Leshem Choshen, Colin Raffel, Mohit Bansal 研究机构:   University of North">
+<meta property="og:description" content="基本信息 标题: ComPEFT: Compression for Communicating Parameter Efficient Updates via Sparsification and Quantization 作者: Prateek Yadav, Leshem Choshen, Colin Raffel, Mohit Bansal 研究机构:  University of Nort">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-16T08:01:00.000Z">
-<meta property="article:modified_time" content="2024-07-16T08:03:57.995Z">
+<meta property="article:modified_time" content="2024-07-16T09:32:42.416Z">
 <meta property="article:author" content="ab">
 <meta name="twitter:card" content="summary">
     
@@ -195,9 +195,10 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p><strong>标题</strong>: ComPEFT: Compression for Communicating Parameter Efficient Updates via Sparsification and Quantization</p>
+                <h2 id="基本信息"><a class="markdownIt-Anchor" href="#基本信息"></a> 基本信息</h2>
+<p><strong>标题</strong>: ComPEFT: Compression for Communicating Parameter Efficient Updates via Sparsification and Quantization</p>
 <p><strong>作者</strong>: Prateek Yadav, Leshem Choshen, Colin Raffel, Mohit Bansal</p>
-<p><strong>研究机构</strong>: </p>
+<p><strong>研究机构</strong>:</p>
 <ol>
 <li>University of North Carolina at Chapel Hill</li>
 <li>IBM Research</li>
@@ -206,8 +207,156 @@
 <li>Vector Institute</li>
 </ol>
 <p><strong>代码仓库</strong>: <a target="_blank" rel="noopener" href="https://github.com/prateeky2806/compeft">GitHub - ComPEFT</a></p>
+<p><strong>DOI</strong>：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2311.13171">https://arxiv.org/pdf/2311.13171</a></p>
 <p><strong>出版日期</strong>: 提交至arXiv的日期是2023年11月22日</p>
 <p><strong>关键词</strong>: 参数高效微调（PEFT）、稀疏化、量化、模型压缩、组合泛化</p>
+<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
+<p>文章介绍了一种名为ComPEFT的新方法，用于通过稀疏化和量化来压缩参数高效微调（PEFT）模型的更新向量。ComPEFT利用稀疏化和三值量化技术来减少PEFT模块的大小，而无需进行额外的再训练，并且在某些情况下还能提升模型性能。在T5、T0和LLaMA等多个模型上的广泛评估中，ComPEFT实现了8倍到50倍的压缩比，并在某些情况下提高了模型性能。ComPEFT生成的压缩专家模型保持了少样本组合泛化能力，有助于高效通信和计算，并在模型合并时表现出色。</p>
+<h2 id="论文二十问"><a class="markdownIt-Anchor" href="#论文二十问"></a> 论文二十问</h2>
+<ol>
+<li>
+<p><strong>论文试图解决什么问题？</strong></p>
+<ul>
+<li>论文试图解决参数高效微调（PEFT）技术中由于专家模型的大小而导致的高延迟网络传输问题，尤其是在模型合并和组合泛化时的通信成本问题。</li>
+</ul>
+</li>
+<li>
+<p><strong>这是否是一个新的问题？</strong></p>
+<ul>
+<li>是的，这是一个相对较新的问题。虽然PEFT技术已经有了一些研究，但如何在保持或提高模型性能的同时显著减少模型大小，特别是在高延迟网络环境中的高效传输，仍然是一个挑战。</li>
+</ul>
+</li>
+<li>
+<p><strong>这篇文章要验证一个什么科学假设？</strong></p>
+<ul>
+<li>文章假设通过稀疏化和三值量化，可以在不进行额外训练的情况下，显著压缩PEFT模型的大小，同时保持或提升其性能。</li>
+</ul>
+</li>
+<li>
+<p><strong>有哪些相关研究？如何归类？谁是这一课题在领域内值得关注的研究员？</strong></p>
+<ul>
+<li>相关研究包括参数高效微调方法（如LoRA、(IA)3、QLoRA）、网络剪枝和量化技术，以及模型合并和组合泛化方法。值得关注的研究员包括提出LoRA的Hu et al.、提出QLoRA的Dettmers et al.以及在模型合并方面有重要贡献的Ilharco et al.。</li>
+</ul>
+</li>
+<li>
+<p><strong>论文中提到的解决方案之关键是什么？</strong></p>
+<ul>
+<li>解决方案的关键在于通过稀疏化和三值量化来压缩PEFT模型的任务向量，同时使用适当的标量常数来保持或提升模型性能。</li>
+</ul>
+</li>
+<li>
+<p><strong>论文中的实验是如何设计的？</strong></p>
+<ul>
+<li>实验设计包括在多个大型语言模型（如T5、T0和LLaMA）上应用ComPEFT方法进行压缩，并评估其在不同任务上的性能和压缩比。具体评估了模型的MMLU测试性能、存储节省、合并效果及组合泛化能力。</li>
+</ul>
+</li>
+<li>
+<p><strong>用于定量评估的数据集是什么？代码有没有开源？</strong></p>
+<ul>
+<li>用于定量评估的数据集包括MMLU测试集、GLUE基准测试集以及Big-Bench-Hard（BBH）基准测试集。代码已经开源，提供在<a target="_blank" rel="noopener" href="https://github.com/prateeky2806/compeft">GitHub - ComPEFT</a>。</li>
+</ul>
+</li>
+<li>
+<p><strong>论文中的实验及结果有没有很好地支持需要验证的科学假设？</strong></p>
+<ul>
+<li>是的，实验结果表明ComPEFT方法在多个模型和任务上实现了显著的压缩比，同时保持或提升了模型性能，验证了其科学假设。</li>
+</ul>
+</li>
+<li>
+<p><strong>这篇论文到底有什么贡献？</strong></p>
+<ul>
+<li>论文贡献在于提出了一种新颖的PEFT模型压缩方法ComPEFT，通过稀疏化和量化显著减少了模型大小，提高了通信效率，并在模型性能方面有显著提升。这为参数高效微调技术在高延迟网络环境中的应用提供了有效解决方案。</li>
+</ul>
+</li>
+<li>
+<p><strong>下一步呢？有什么工作可以继续深入？</strong></p>
+</li>
+</ol>
+<ul>
+<li>下一步工作可以包括进一步优化ComPEFT方法，提高压缩效率和模型性能；探索其在更多模型和任务上的应用；以及研究更复杂的模型合并和组合泛化技术，以进一步提高跨任务的泛化能力。</li>
+</ul>
+<ol start="11">
+<li><strong>要了解深入，一个模型为什么好？</strong></li>
+</ol>
+<ul>
+<li>ComPEFT模型好是因为它通过稀疏化和三值量化显著减少了PEFT模型的大小，同时在多个任务和模型上的性能都保持或有所提升。压缩后的模型在高延迟网络中的传输更为高效，且在少样本组合泛化能力上表现出色。</li>
+</ul>
+<ol start="12">
+<li><strong>以前的模型为什么不好？</strong></li>
+</ol>
+<ul>
+<li>以前的PEFT模型虽然在参数高效微调上表现良好，但在高延迟网络环境中传输较大模型时存在明显的通信成本问题。此外，传统压缩方法在不进行额外训练的情况下，通常会导致模型性能的显著下降。</li>
+</ul>
+<ol start="13">
+<li><strong>哪个关键点对性能提升最大？</strong></li>
+</ol>
+<ul>
+<li>关键点在于稀疏化和三值量化相结合，使得任务向量在大幅度压缩的同时仍能保持高性能。特别是选择合适的标量常数（α）用于量化，有助于恢复或提高模型性能。</li>
+</ul>
+<ol start="14">
+<li><strong>编程怎么实现？</strong></li>
+</ol>
+<ul>
+<li>编程实现包括以下步骤：
+<ol>
+<li>将任务向量分解为符号向量和幅值向量。</li>
+<li>对符号向量进行稀疏化，只保留幅值最大的参数。</li>
+<li>将幅值向量量化为一个标量常数。</li>
+</ol>
+</li>
+<li>具体实现代码可参考开源代码库：<a target="_blank" rel="noopener" href="https://github.com/prateeky2806/compeft">GitHub - ComPEFT</a>。</li>
+</ul>
+<ol start="15">
+<li><strong>论文源代码和paper匹配度怎么样、都覆盖了吗？</strong></li>
+</ol>
+<ul>
+<li>论文源代码和论文内容高度匹配，并覆盖了主要的方法和实验部分。开源代码提供了实现ComPEFT方法的具体步骤和实验设置。</li>
+</ul>
+<ol start="16">
+<li><strong>哪些数学运算是关键的？</strong></li>
+</ol>
+<ul>
+<li>关键的数学运算包括符号向量的稀疏化、任务向量的分解以及幅值向量的量化。特别是稀疏化过程中需要计算每个参数的幅值，并选择幅值最大的参数进行保留。</li>
+</ul>
+<ol start="17">
+<li><strong>整个全流程是怎么走的？</strong></li>
+</ol>
+<ul>
+<li>全流程如下：
+<ol>
+<li>分解任务向量为符号向量和幅值向量。</li>
+<li>对符号向量进行稀疏化，保留幅值最大的参数。</li>
+<li>将幅值向量量化为单一标量常数。</li>
+<li>对压缩后的任务向量进行实验评估，验证其在不同任务上的性能。</li>
+</ol>
+</li>
+</ul>
+<ol start="18">
+<li><strong>数据是怎样流动的？其中是怎样变换的？各个变换有什么实际意义？</strong></li>
+</ol>
+<ul>
+<li>数据流动过程如下：
+<ol>
+<li>任务向量通过分解，变换为符号向量和幅值向量。</li>
+<li>符号向量经过稀疏化，只保留重要参数。</li>
+<li>幅值向量经过量化，减少了存储需求。</li>
+</ol>
+</li>
+<li>这些变换的实际意义在于显著减少任务向量的存储大小和传输成本，同时保持或提升模型性能。</li>
+</ul>
+<ol start="19">
+<li><strong>既要关注具体实现思路、也要关注上层抽象意义。作者灵感从何而来？</strong></li>
+</ol>
+<ul>
+<li>具体实现思路在于通过稀疏化和量化来压缩任务向量，灵感来源于现有的稀疏化和量化技术，以及在高延迟网络环境中有效传输大规模模型的需求。</li>
+</ul>
+<ol start="20">
+<li><strong>作者思考路线如何？</strong>
+<ul>
+<li>作者首先识别了PEFT模型在高延迟网络中的通信瓶颈，然后探索了稀疏化和量化的可能性。通过实验验证了这些方法的有效性，并逐步优化了稀疏化和量化策略，以实现最佳的性能和压缩比。最终，作者提出了ComPEFT方法，并通过一系列实验证明了其优越性。</li>
+</ul>
+</li>
+</ol>
 
             
         </div>
@@ -224,6 +373,20 @@
     
         
     <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    <img data-src="https://pbs.twimg.com/media/GO1SQD0W0AAmWnk?format=jpg&amp;name=medium" data-sizes="auto" alt="Arxiv:Towards Better Parameter-Efficient Fine-Tuning for Large Language Models"
+                         class="lazyload">
+                
+                <a href="/2024/07/16/Arxiv-Towards-Better-Parameter-Efficient-Fine-Tuning-for-Large-Language-Models/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        Arxiv:Towards Better Parameter-Efficient Fine-Tuning for Large Language Models
+                    
+                </h3>
+            </div>
         
         
             <div class="article-nav-link-wrap article-nav-link-right">
@@ -268,7 +431,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">279</div>
+                <div class="sidebar-state-number">282</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -374,10 +537,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    630.5k
+                    640.1k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    39:04
+                    39:34
                 </div>
             
             
@@ -404,7 +567,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">279</div>
+                <div class="sidebar-state-number">282</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
