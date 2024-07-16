@@ -14,7 +14,7 @@
 
     
     <title>
-        ICML:LoRA+ |
+        ICML:LoRA Plus |
         
         blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,15 +25,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="基本信息 文章标题: LoRA+: Efficient Low Rank Adaptation of Large Models 作者: Soufiane Hayou, Nikhil Ghosh, Bin Yu 机构: Simons Institute, UC Berkeley, Department of Statistics, UC Berkeley 会议: 41st Internationa">
+    <meta name="description" content="基本信息文章标题: LoRA+: Efficient Low Rank Adaptation of Large Models作者: Soufiane Hayou, Nikhil Ghosh, Bin Yu机构: Simons Institute, UC Berkeley, Department of Statistics, UC Berkeley会议: 41st International Con">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ICML:LoRA+">
+<meta property="og:title" content="ICML:LoRA Plus">
 <meta property="og:url" content="https://abinzzz.github.io/2024/07/16/ICML-LoRA/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="基本信息 文章标题: LoRA+: Efficient Low Rank Adaptation of Large Models 作者: Soufiane Hayou, Nikhil Ghosh, Bin Yu 机构: Simons Institute, UC Berkeley, Department of Statistics, UC Berkeley 会议: 41st Internationa">
+<meta property="og:description" content="基本信息文章标题: LoRA+: Efficient Low Rank Adaptation of Large Models作者: Soufiane Hayou, Nikhil Ghosh, Bin Yu机构: Simons Institute, UC Berkeley, Department of Statistics, UC Berkeley会议: 41st International Con">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-16T10:39:12.000Z">
-<meta property="article:modified_time" content="2024-07-16T10:45:39.078Z">
+<meta property="article:modified_time" content="2024-07-16T10:48:04.295Z">
 <meta property="article:author" content="ab">
 <meta name="twitter:card" content="summary">
     
@@ -115,7 +115,7 @@
             <header id="header">
     
     
-        <img data-src="https://pic.imgdb.cn/item/66964f4ad9c307b7e9f0473f.png" data-sizes="auto" alt="ICML:LoRA+" class="lazyload">
+        <img data-src="https://pic.imgdb.cn/item/66964f4ad9c307b7e9f0473f.png" data-sizes="auto" alt="ICML:LoRA Plus" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -123,7 +123,7 @@
                 
                     
                     
-                        <a href="/" id="logo"><h1>ICML:LoRA+</h1></a>
+                        <a href="/" id="logo"><h1>ICML:LoRA Plus</h1></a>
                     
                 
             </div>
@@ -195,11 +195,7 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <h2 id="基本信息"><a class="markdownIt-Anchor" href="#基本信息"></a> 基本信息</h2>
-<p><strong>文章标题</strong>: LoRA+: Efficient Low Rank Adaptation of Large Models<br />
-<strong>作者</strong>: Soufiane Hayou, Nikhil Ghosh, Bin Yu<br />
-<strong>机构</strong>: Simons Institute, UC Berkeley, Department of Statistics, UC Berkeley<br />
-<strong>会议</strong>: 41st International Conference on Machine Learning (ICML), Vienna, Austria, 2024</p>
+                <h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p><strong>文章标题</strong>: LoRA+: Efficient Low Rank Adaptation of Large Models<br><strong>作者</strong>: Soufiane Hayou, Nikhil Ghosh, Bin Yu<br><strong>机构</strong>: Simons Institute, UC Berkeley, Department of Statistics, UC Berkeley<br><strong>会议</strong>: 41st International Conference on Machine Learning (ICML), Vienna, Austria, 2024</p>
 <p><strong>关键术语</strong>：</p>
 <ul>
 <li><strong>LoRA</strong>: 低秩适配（Low Rank Adaptation），一种资源高效的微调方法。</li>
@@ -207,17 +203,11 @@
 <li><strong>大宽度网络</strong>: 指模型的嵌入维度（宽度）非常大的网络。</li>
 <li><strong>学习率</strong>: 控制模型训练时权重更新步长的参数。</li>
 </ul>
-<h2 id="基本信息-2"><a class="markdownIt-Anchor" href="#基本信息-2"></a> 基本信息</h2>
-<p>在这篇文章中，我们展示了最初在 (Hu et al., 2021) 中引入的低秩适配 (LoRA) 方法在处理大宽度（嵌入维度）模型时，微调效果不佳。这是因为 LoRA 中的适配器矩阵 A 和 B 使用相同的学习率进行更新。通过对大宽度网络进行缩放分析，我们证明了为 A 和 B 使用相同的学习率无法实现高效的特征学习。接着，我们展示了可以通过为 LoRA 适配器矩阵 A 和 B 设置不同的学习率并选择一个合适的固定比例，来纠正这种次优性。我们将这个改进算法称为 LoRA+。在我们广泛的实验中，LoRA+ 在保持与 LoRA 相同计算成本的情况下，提高了性能（1%-2%的改进）和微调速度（高达约 2 倍的加速）。</p>
-<h2 id="论文二十问"><a class="markdownIt-Anchor" href="#论文二十问"></a> 论文二十问</h2>
-<h3 id="1-论文试图解决什么问题"><a class="markdownIt-Anchor" href="#1-论文试图解决什么问题"></a> 1. 论文试图解决什么问题？</h3>
-<p>论文试图解决 LoRA（低秩适配）在大宽度模型中微调效果不佳的问题。具体来说，LoRA 适配器矩阵 A 和 B 使用相同的学习率，导致特征学习效率低下。</p>
-<h3 id="2-这是否是一个新的问题"><a class="markdownIt-Anchor" href="#2-这是否是一个新的问题"></a> 2. 这是否是一个新的问题？</h3>
-<p>是的，这是一个新的问题。尽管 LoRA 在许多任务上表现良好，但其在大宽度网络中性能的次优性和特征学习效率低下的问题尚未得到充分研究和解决。</p>
-<h3 id="3-这篇文章要验证一个什么科学假设"><a class="markdownIt-Anchor" href="#3-这篇文章要验证一个什么科学假设"></a> 3. 这篇文章要验证一个什么科学假设？</h3>
-<p>科学假设是：通过为 LoRA 适配器矩阵 A 和 B 设置不同的学习率，可以提高大宽度模型的特征学习效率，从而改进模型性能和微调速度。</p>
-<h3 id="4-有哪些相关研究如何归类谁是这一课题在领域内值得关注的研究员"><a class="markdownIt-Anchor" href="#4-有哪些相关研究如何归类谁是这一课题在领域内值得关注的研究员"></a> 4. 有哪些相关研究？如何归类？谁是这一课题在领域内值得关注的研究员？</h3>
-<p>相关研究包括：</p>
+<h2 id="基本信息-1"><a href="#基本信息-1" class="headerlink" title="基本信息"></a>基本信息</h2><p>在这篇文章中，我们展示了最初在 (Hu et al., 2021) 中引入的低秩适配 (LoRA) 方法在处理大宽度（嵌入维度）模型时，微调效果不佳。这是因为 LoRA 中的适配器矩阵 A 和 B 使用相同的学习率进行更新。通过对大宽度网络进行缩放分析，我们证明了为 A 和 B 使用相同的学习率无法实现高效的特征学习。接着，我们展示了可以通过为 LoRA 适配器矩阵 A 和 B 设置不同的学习率并选择一个合适的固定比例，来纠正这种次优性。我们将这个改进算法称为 LoRA+。在我们广泛的实验中，LoRA+ 在保持与 LoRA 相同计算成本的情况下，提高了性能（1%-2%的改进）和微调速度（高达约 2 倍的加速）。</p>
+<h2 id="论文二十问"><a href="#论文二十问" class="headerlink" title="论文二十问"></a>论文二十问</h2><h3 id="1-论文试图解决什么问题？"><a href="#1-论文试图解决什么问题？" class="headerlink" title="1. 论文试图解决什么问题？"></a>1. 论文试图解决什么问题？</h3><p>论文试图解决 LoRA（低秩适配）在大宽度模型中微调效果不佳的问题。具体来说，LoRA 适配器矩阵 A 和 B 使用相同的学习率，导致特征学习效率低下。</p>
+<h3 id="2-这是否是一个新的问题？"><a href="#2-这是否是一个新的问题？" class="headerlink" title="2. 这是否是一个新的问题？"></a>2. 这是否是一个新的问题？</h3><p>是的，这是一个新的问题。尽管 LoRA 在许多任务上表现良好，但其在大宽度网络中性能的次优性和特征学习效率低下的问题尚未得到充分研究和解决。</p>
+<h3 id="3-这篇文章要验证一个什么科学假设？"><a href="#3-这篇文章要验证一个什么科学假设？" class="headerlink" title="3. 这篇文章要验证一个什么科学假设？"></a>3. 这篇文章要验证一个什么科学假设？</h3><p>科学假设是：通过为 LoRA 适配器矩阵 A 和 B 设置不同的学习率，可以提高大宽度模型的特征学习效率，从而改进模型性能和微调速度。</p>
+<h3 id="4-有哪些相关研究？如何归类？谁是这一课题在领域内值得关注的研究员？"><a href="#4-有哪些相关研究？如何归类？谁是这一课题在领域内值得关注的研究员？" class="headerlink" title="4. 有哪些相关研究？如何归类？谁是这一课题在领域内值得关注的研究员？"></a>4. 有哪些相关研究？如何归类？谁是这一课题在领域内值得关注的研究员？</h3><p>相关研究包括：</p>
 <ul>
 <li><strong>Prompt Tuning</strong>: 例如 Lester et al. (2021)，学习并附加“软提示”到输入中。</li>
 <li><strong>Adapters Method</strong>: 例如 Houlsby et al. (2019)，插入并训练轻量级“适配器”层。</li>
@@ -229,41 +219,31 @@
 <li><strong>Edward J. Hu</strong>: LoRA 的提出者之一。</li>
 <li><strong>Tim Dettmers</strong>: 提出了 QLoRA。</li>
 </ul>
-<h3 id="5-论文中提到的解决方案之关键是什么"><a class="markdownIt-Anchor" href="#5-论文中提到的解决方案之关键是什么"></a> 5. 论文中提到的解决方案之关键是什么？</h3>
-<p>解决方案的关键是为 LoRA 适配器矩阵 A 和 B 设置不同的学习率，并通过缩放理论确定一个合适的固定比例。这种方法被称为 LoRA+，它在相同计算成本下提高了特征学习效率和模型性能。</p>
-<h3 id="6-论文中的实验是如何设计的"><a class="markdownIt-Anchor" href="#6-论文中的实验是如何设计的"></a> 6. 论文中的实验是如何设计的？</h3>
-<p>论文中的实验包括：</p>
+<h3 id="5-论文中提到的解决方案之关键是什么？"><a href="#5-论文中提到的解决方案之关键是什么？" class="headerlink" title="5. 论文中提到的解决方案之关键是什么？"></a>5. 论文中提到的解决方案之关键是什么？</h3><p>解决方案的关键是为 LoRA 适配器矩阵 A 和 B 设置不同的学习率，并通过缩放理论确定一个合适的固定比例。这种方法被称为 LoRA+，它在相同计算成本下提高了特征学习效率和模型性能。</p>
+<h3 id="6-论文中的实验是如何设计的？"><a href="#6-论文中的实验是如何设计的？" class="headerlink" title="6. 论文中的实验是如何设计的？"></a>6. 论文中的实验是如何设计的？</h3><p>论文中的实验包括：</p>
 <ul>
 <li>使用不同的学习率对 LoRA 和 LoRA+ 进行比较。</li>
 <li>在多种语言模型（如 Roberta-base、GPT-2 和 Llama-7b）和不同任务（如 MNLI、QQP、SST2、QNLI 和 Flan-v2）上进行微调实验。</li>
 <li>评估模型在这些任务上的性能和微调速度。</li>
 </ul>
-<h3 id="7-用于定量评估的数据集是什么代码有没有开源"><a class="markdownIt-Anchor" href="#7-用于定量评估的数据集是什么代码有没有开源"></a> 7. 用于定量评估的数据集是什么？代码有没有开源？</h3>
-<p>用于定量评估的数据集包括 GLUE 基准测试中的 MNLI、QQP、SST2 和 QNLI 任务，以及 Flan-v2 数据集。代码已经开源，链接为：<a target="_blank" rel="noopener" href="https://github.com/nikhil-ghosh-berkeley/loraplus%E3%80%82">https://github.com/nikhil-ghosh-berkeley/loraplus。</a></p>
-<h3 id="8-论文中的实验及结果有没有很好地支持需要验证的科学假设"><a class="markdownIt-Anchor" href="#8-论文中的实验及结果有没有很好地支持需要验证的科学假设"></a> 8. 论文中的实验及结果有没有很好地支持需要验证的科学假设？</h3>
-<p>是的，论文中的实验和结果很好地支持了需要验证的科学假设。实验结果显示 LoRA+ 在性能和微调速度上均优于标准 LoRA，特别是在大宽度模型和复杂任务中表现尤为显著。</p>
-<h3 id="9-这篇论文到底有什么贡献"><a class="markdownIt-Anchor" href="#9-这篇论文到底有什么贡献"></a> 9. 这篇论文到底有什么贡献？</h3>
-<p>论文的主要贡献包括：</p>
+<h3 id="7-用于定量评估的数据集是什么？代码有没有开源？"><a href="#7-用于定量评估的数据集是什么？代码有没有开源？" class="headerlink" title="7. 用于定量评估的数据集是什么？代码有没有开源？"></a>7. 用于定量评估的数据集是什么？代码有没有开源？</h3><p>用于定量评估的数据集包括 GLUE 基准测试中的 MNLI、QQP、SST2 和 QNLI 任务，以及 Flan-v2 数据集。代码已经开源，链接为：<a target="_blank" rel="noopener" href="https://github.com/nikhil-ghosh-berkeley/loraplus。">https://github.com/nikhil-ghosh-berkeley/loraplus。</a></p>
+<h3 id="8-论文中的实验及结果有没有很好地支持需要验证的科学假设？"><a href="#8-论文中的实验及结果有没有很好地支持需要验证的科学假设？" class="headerlink" title="8. 论文中的实验及结果有没有很好地支持需要验证的科学假设？"></a>8. 论文中的实验及结果有没有很好地支持需要验证的科学假设？</h3><p>是的，论文中的实验和结果很好地支持了需要验证的科学假设。实验结果显示 LoRA+ 在性能和微调速度上均优于标准 LoRA，特别是在大宽度模型和复杂任务中表现尤为显著。</p>
+<h3 id="9-这篇论文到底有什么贡献？"><a href="#9-这篇论文到底有什么贡献？" class="headerlink" title="9. 这篇论文到底有什么贡献？"></a>9. 这篇论文到底有什么贡献？</h3><p>论文的主要贡献包括：</p>
 <ul>
 <li>提出了 LoRA+ 方法，通过为适配器矩阵设置不同的学习率提高特征学习效率。</li>
 <li>提供了设置学习率的理论指南，验证了标准 LoRA 的次优性。</li>
 <li>在多个语言模型和任务上进行了广泛的实验，证明了 LoRA+ 的有效性和优越性。</li>
 </ul>
-<h3 id="10-下一步呢有什么工作可以继续深入"><a class="markdownIt-Anchor" href="#10-下一步呢有什么工作可以继续深入"></a> 10. 下一步呢？有什么工作可以继续深入？</h3>
-<p>下一步工作可以包括：</p>
+<h3 id="10-下一步呢？有什么工作可以继续深入？"><a href="#10-下一步呢？有什么工作可以继续深入？" class="headerlink" title="10. 下一步呢？有什么工作可以继续深入？"></a>10. 下一步呢？有什么工作可以继续深入？</h3><p>下一步工作可以包括：</p>
 <ul>
 <li>进一步优化 LoRA+ 中学习率比例的选择，以适应不同的任务和模型。</li>
 <li>探索 LoRA+ 在更多不同类型的模型和任务上的应用，验证其广泛适用性。</li>
 <li>研究如何在 LoRA+ 中结合其他资源高效的微调方法，如 QLoRA 和 VeRA，以进一步提高微调效率和效果。</li>
 </ul>
-<h3 id="1-要了解深入一个模型为什么好"><a class="markdownIt-Anchor" href="#1-要了解深入一个模型为什么好"></a> 1. 要了解深入，一个模型为什么好？</h3>
-<p>LoRA+ 通过为 LoRA 适配器矩阵 A 和 B 设置不同的学习率，提高了特征学习效率，使得大宽度模型在微调时能够更有效地学习和适应新任务，从而在性能和速度上都有显著提升。</p>
-<h3 id="2-以前的模型为什么不好"><a class="markdownIt-Anchor" href="#2-以前的模型为什么不好"></a> 2. 以前的模型为什么不好？</h3>
-<p>以前的 LoRA 模型在处理大宽度模型时效果不佳，因为它为适配器矩阵 A 和 B 设置相同的学习率，导致特征学习效率低下，微调效果不理想。</p>
-<h3 id="3-哪个关键点对性能提升最大"><a class="markdownIt-Anchor" href="#3-哪个关键点对性能提升最大"></a> 3. 哪个关键点对性能提升最大？</h3>
-<p>关键点是为 LoRA 适配器矩阵 A 和 B 设置不同的学习率，并且根据理论分析选择合适的固定比例。这一策略显著提高了特征学习效率和模型性能。</p>
-<h3 id="4-编程怎么实现"><a class="markdownIt-Anchor" href="#4-编程怎么实现"></a> 4. 编程怎么实现？</h3>
-<p>实现 LoRA+ 的关键代码步骤包括：</p>
+<h3 id="1-要了解深入，一个模型为什么好？"><a href="#1-要了解深入，一个模型为什么好？" class="headerlink" title="1. 要了解深入，一个模型为什么好？"></a>1. 要了解深入，一个模型为什么好？</h3><p>LoRA+ 通过为 LoRA 适配器矩阵 A 和 B 设置不同的学习率，提高了特征学习效率，使得大宽度模型在微调时能够更有效地学习和适应新任务，从而在性能和速度上都有显著提升。</p>
+<h3 id="2-以前的模型为什么不好？"><a href="#2-以前的模型为什么不好？" class="headerlink" title="2. 以前的模型为什么不好？"></a>2. 以前的模型为什么不好？</h3><p>以前的 LoRA 模型在处理大宽度模型时效果不佳，因为它为适配器矩阵 A 和 B 设置相同的学习率，导致特征学习效率低下，微调效果不理想。</p>
+<h3 id="3-哪个关键点对性能提升最大？"><a href="#3-哪个关键点对性能提升最大？" class="headerlink" title="3. 哪个关键点对性能提升最大？"></a>3. 哪个关键点对性能提升最大？</h3><p>关键点是为 LoRA 适配器矩阵 A 和 B 设置不同的学习率，并且根据理论分析选择合适的固定比例。这一策略显著提高了特征学习效率和模型性能。</p>
+<h3 id="4-编程怎么实现？"><a href="#4-编程怎么实现？" class="headerlink" title="4. 编程怎么实现？"></a>4. 编程怎么实现？</h3><p>实现 LoRA+ 的关键代码步骤包括：</p>
 <ol>
 <li>初始化适配器矩阵 A 和 B。</li>
 <li>为 A 和 B 设置不同的学习率。</li>
@@ -271,35 +251,29 @@
 </ol>
 <p>以下是一个简化的代码示例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LoRAAdapter</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input_dim, output_dim, rank, alpha</span>):</span><br><span class="line">        <span class="built_in">super</span>(LoRAAdapter, self).__init__()</span><br><span class="line">        self.A = nn.Parameter(torch.randn(input_dim, rank) * alpha)</span><br><span class="line">        self.B = nn.Parameter(torch.randn(rank, output_dim) * alpha)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> x + self.A @ self.B</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化模型</span></span><br><span class="line">input_dim = <span class="number">768</span></span><br><span class="line">output_dim = <span class="number">768</span></span><br><span class="line">rank = <span class="number">8</span></span><br><span class="line">alpha = <span class="number">0.1</span></span><br><span class="line">model = LoRAAdapter(input_dim, output_dim, rank, alpha)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置不同的学习率</span></span><br><span class="line">learning_rate_A = <span class="number">1e-4</span></span><br><span class="line">learning_rate_B = <span class="number">1e-2</span></span><br><span class="line">optimizer = optim.Adam([</span><br><span class="line">    &#123;<span class="string">&#x27;params&#x27;</span>: model.A, <span class="string">&#x27;lr&#x27;</span>: learning_rate_A&#125;,</span><br><span class="line">    &#123;<span class="string">&#x27;params&#x27;</span>: model.B, <span class="string">&#x27;lr&#x27;</span>: learning_rate_B&#125;</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 微调过程</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">    <span class="keyword">for</span> batch <span class="keyword">in</span> dataloader:</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model(batch)</span><br><span class="line">        loss = loss_fn(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br></pre></td></tr></table></figure>
-<h3 id="5-论文源代码和-paper-匹配度怎么样-都覆盖了吗"><a class="markdownIt-Anchor" href="#5-论文源代码和-paper-匹配度怎么样-都覆盖了吗"></a> 5. 论文源代码和 paper 匹配度怎么样、都覆盖了吗？</h3>
-<p>论文源代码和 paper 匹配度较高，实验部分和理论分析都在代码中有详细实现。代码开源链接为：<a target="_blank" rel="noopener" href="https://github.com/nikhil-ghosh-berkeley/loraplus%EF%BC%8C%E8%A6%86%E7%9B%96%E4%BA%86%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE%E5%92%8C%E7%BB%93%E6%9E%9C%E9%AA%8C%E8%AF%81%E3%80%82">https://github.com/nikhil-ghosh-berkeley/loraplus，覆盖了论文中的所有实验设置和结果验证。</a></p>
-<h3 id="6-哪些数学运算是关键的"><a class="markdownIt-Anchor" href="#6-哪些数学运算是关键的"></a> 6. 哪些数学运算是关键的？</h3>
-<p>关键的数学运算包括：</p>
+<h3 id="5-论文源代码和-paper-匹配度怎么样、都覆盖了吗？"><a href="#5-论文源代码和-paper-匹配度怎么样、都覆盖了吗？" class="headerlink" title="5. 论文源代码和 paper 匹配度怎么样、都覆盖了吗？"></a>5. 论文源代码和 paper 匹配度怎么样、都覆盖了吗？</h3><p>论文源代码和 paper 匹配度较高，实验部分和理论分析都在代码中有详细实现。代码开源链接为：<a target="_blank" rel="noopener" href="https://github.com/nikhil-ghosh-berkeley/loraplus，覆盖了论文中的所有实验设置和结果验证。">https://github.com/nikhil-ghosh-berkeley/loraplus，覆盖了论文中的所有实验设置和结果验证。</a></p>
+<h3 id="6-哪些数学运算是关键的？"><a href="#6-哪些数学运算是关键的？" class="headerlink" title="6. 哪些数学运算是关键的？"></a>6. 哪些数学运算是关键的？</h3><p>关键的数学运算包括：</p>
 <ul>
 <li>适配器矩阵 A 和 B 的初始化及其低秩分解。</li>
 <li>不同学习率下的梯度更新规则。</li>
 <li>特征学习效率和稳定性的理论分析。</li>
 </ul>
-<h3 id="7-整个全流程是怎么走的"><a class="markdownIt-Anchor" href="#7-整个全流程是怎么走的"></a> 7. 整个全流程是怎么走的？</h3>
-<p>全流程包括：</p>
+<h3 id="7-整个全流程是怎么走的？"><a href="#7-整个全流程是怎么走的？" class="headerlink" title="7. 整个全流程是怎么走的？"></a>7. 整个全流程是怎么走的？</h3><p>全流程包括：</p>
 <ol>
 <li>理论分析：通过缩放理论分析不同学习率的影响。</li>
 <li>方法提出：根据理论分析提出 LoRA+ 方法。</li>
 <li>实验验证：在多种语言模型和任务上进行实验验证 LoRA+ 的效果。</li>
 <li>结果分析：比较 LoRA 和 LoRA+ 的性能和微调速度。</li>
 </ol>
-<h3 id="8-数据是怎样流动的其中是怎样变换的各个变换有什么实际意义"><a class="markdownIt-Anchor" href="#8-数据是怎样流动的其中是怎样变换的各个变换有什么实际意义"></a> 8. 数据是怎样流动的？其中是怎样变换的？各个变换有什么实际意义？</h3>
-<p>数据流动和变换过程如下：</p>
+<h3 id="8-数据是怎样流动的？其中是怎样变换的？各个变换有什么实际意义？"><a href="#8-数据是怎样流动的？其中是怎样变换的？各个变换有什么实际意义？" class="headerlink" title="8. 数据是怎样流动的？其中是怎样变换的？各个变换有什么实际意义？"></a>8. 数据是怎样流动的？其中是怎样变换的？各个变换有什么实际意义？</h3><p>数据流动和变换过程如下：</p>
 <ol>
 <li>数据输入到预训练模型中，生成初始特征表示。</li>
 <li>经过 LoRA 适配器模块，适配器矩阵 A 和 B 进行低秩分解，并在特定学习率下更新。</li>
 <li>通过微调后的模型生成新的特征表示，并用于特定任务的预测。</li>
 <li>不同学习率下的特征学习使得模型能够更好地适应新任务，提高了预测性能。</li>
 </ol>
-<h3 id="9-既要关注具体实现思路-也要关注上层抽象意义-作者灵感从何而来"><a class="markdownIt-Anchor" href="#9-既要关注具体实现思路-也要关注上层抽象意义-作者灵感从何而来"></a> 9. 既要关注具体实现思路、也要关注上层抽象意义。作者灵感从何而来？</h3>
-<p>作者灵感来源于对大宽度模型特征学习效率的观察，认为不同的适配器矩阵学习率会对特征学习产生重要影响，从而提出通过缩放理论分析优化学习率的思路。</p>
-<h3 id="10-作者思考路线如何"><a class="markdownIt-Anchor" href="#10-作者思考路线如何"></a> 10. 作者思考路线如何？</h3>
-<p>作者的思考路线如下：</p>
+<h3 id="9-既要关注具体实现思路、也要关注上层抽象意义。作者灵感从何而来？"><a href="#9-既要关注具体实现思路、也要关注上层抽象意义。作者灵感从何而来？" class="headerlink" title="9. 既要关注具体实现思路、也要关注上层抽象意义。作者灵感从何而来？"></a>9. 既要关注具体实现思路、也要关注上层抽象意义。作者灵感从何而来？</h3><p>作者灵感来源于对大宽度模型特征学习效率的观察，认为不同的适配器矩阵学习率会对特征学习产生重要影响，从而提出通过缩放理论分析优化学习率的思路。</p>
+<h3 id="10-作者思考路线如何？"><a href="#10-作者思考路线如何？" class="headerlink" title="10. 作者思考路线如何？"></a>10. 作者思考路线如何？</h3><p>作者的思考路线如下：</p>
 <ol>
 <li>识别问题：发现现有 LoRA 方法在大宽度模型中的次优性。</li>
 <li>理论分析：通过缩放理论分析不同学习率的影响，验证问题的存在性。</li>
@@ -311,7 +285,7 @@
             
         </div>
         <footer class="article-footer">
-            <a data-url="https://abinzzz.github.io/2024/07/16/ICML-LoRA/" data-id="clyoafj200002pu695ize33ua" data-title="ICML:LoRA+"
+            <a data-url="https://abinzzz.github.io/2024/07/16/ICML-LoRA/" data-id="clyoafj200002pu695ize33ua" data-title="ICML:LoRA Plus"
                class="article-share-link">分享</a>
             
             
@@ -323,6 +297,20 @@
     
         
     <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    <img data-src="https://pic.imgdb.cn/item/66965670d9c307b7e9fb2b6f.png" data-sizes="auto" alt="DAC:EDGE-LLM"
+                         class="lazyload">
+                
+                <a href="/2024/07/16/DAC-EDGE-LLM/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        DAC:EDGE-LLM
+                    
+                </h3>
+            </div>
         
         
             <div class="article-nav-link-wrap article-nav-link-right">
@@ -367,7 +355,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">282</div>
+                <div class="sidebar-state-number">283</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -473,10 +461,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    640.1k
+                    641.6k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    39:34
+                    39:39
                 </div>
             
             
@@ -503,7 +491,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">282</div>
+                <div class="sidebar-state-number">283</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
