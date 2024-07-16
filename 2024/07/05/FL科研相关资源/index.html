@@ -50,7 +50,7 @@
 <meta property="og:image" content="https://img.shields.io/github/stars/LINs-lab/CapaBoost.svg?style=social&amp;label=Star">
 <meta property="og:image" content="https://img.shields.io/badge/Conference-ACL&#39;24%20PrivateNLP-blue">
 <meta property="article:published_time" content="2024-07-05T08:07:48.000Z">
-<meta property="article:modified_time" content="2024-07-16T07:07:23.958Z">
+<meta property="article:modified_time" content="2024-07-16T07:52:08.487Z">
 <meta property="article:author" content="ab">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img.shields.io/github/stars/liziniu/ReMax.svg?style=social&amp;label=Star">
@@ -626,6 +626,20 @@
 <li><strong>优势</strong>：DEFT-UCS通过无监督核心集选择方法，实现了在减少数据量的情况下高效微调预训练语言模型。实验结果表明，DEFT-UCS在多个文本编辑任务中，使用70%的训练数据可以达到与使用全部数据的传统方法相当的性能。</li>
 <li><strong>关键</strong>：无监督核心集选择（UCS）方法。UCS通过K-Means聚类选择代表性数据子集，从而减少微调所需的数据量</li>
 </ul>
+<p>LongQLoRA: Efficient and Effective Method to Extend Context Length of Large Language Models</p>
+<ul>
+<li><strong>机构</strong>: Sun Yat-sen University</li>
+<li><strong>问题</strong>：论文试图解决大型语言模型（如LLaMA2）在有限的训练资源下，如何有效地扩展其上下文长度的问题。当前许多模型在处理超出预定义上下文长度的输入时，性能显著下降，导致在处理长文本任务（如多文档问答、书籍总结等）时表现不佳。</li>
+<li><strong>优势</strong>：它在单个32GB V100 GPU上高效地扩展了大型语言模型（LLaMA2）的上下文长度，同时保持了良好的性能。这一方法结合了位置插值（Position Interpolation）、QLoRA和Shift Short Attention的优点，实现了计算资源的节约和性能的提升。</li>
+<li><strong>关键</strong>：结合了位置插值（Position Interpolation）、QLoRA和Shift Short Attention。位置插值用于扩展上下文长度，QLoRA通过量化预训练模型权重和添加可学习的低秩适配器来节省GPU内存，而Shift Short Attention通过分组计算注意力来进一步节省计算资源。</li>
+</ul>
+<p>Sparse Fine-tuning for Inference Acceleration of Large Language Models</p>
+<ul>
+<li><strong>机构</strong>：IST Austria</li>
+<li><strong>问题</strong>：以前的模型在高稀疏度下微调时，容易出现训练不稳定的问题，导致准确性下降。此外，现有的量化方法在进一步压缩时（如到3比特）会导致准确性难以恢复，限制了推理速度的提升。</li>
+<li><strong>优势</strong>：因为它能够在高效运行的同时保持高准确性。本文提出的SquareHead蒸馏方法能够在高稀疏度下进行微调，既能加速推理速度，又能保持模型的准确性，这使得模型在实践中更有用。</li>
+<li><strong>关键</strong>：论文中解决方案的关键在于提出了一种基于L2的蒸馏方法SquareHead，通过这种方法在高稀疏度下进行微调时，能够有效地恢复模型的准确性。同时，展示了利用稀疏性实现推理加速的方法。</li>
+</ul>
 
             
         </div>
@@ -700,7 +714,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">276</div>
+                <div class="sidebar-state-number">279</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -806,10 +820,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    625.3k
+                    630.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    38:46
+                    39:04
                 </div>
             
             
@@ -836,7 +850,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">276</div>
+                <div class="sidebar-state-number">279</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
