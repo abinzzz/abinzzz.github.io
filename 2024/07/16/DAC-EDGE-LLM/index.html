@@ -25,17 +25,19 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="基本信息标题:EDGE-LLM: Enabling Efficient Large Language Model Adaptation on Edge Devices via Layerwise Unified Compression and Adaptive Layer Tuning &amp; Voting 作者:Zhongzhi Yu, Zheng Wang, Yuhan Li, Haora">
+    <meta name="description" content="基本信息 标题: EDGE-LLM: Enabling Efficient Large Language Model Adaptation on Edge Devices via Layerwise Unified Compression and Adaptive Layer Tuning &amp; Voting 作者: Zhongzhi Yu, Zheng Wang, Yuhan Li, H">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DAC:EDGE-LLM">
 <meta property="og:url" content="https://abinzzz.github.io/2024/07/16/DAC-EDGE-LLM/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="基本信息标题:EDGE-LLM: Enabling Efficient Large Language Model Adaptation on Edge Devices via Layerwise Unified Compression and Adaptive Layer Tuning &amp; Voting 作者:Zhongzhi Yu, Zheng Wang, Yuhan Li, Haora">
+<meta property="og:description" content="基本信息 标题: EDGE-LLM: Enabling Efficient Large Language Model Adaptation on Edge Devices via Layerwise Unified Compression and Adaptive Layer Tuning &amp; Voting 作者: Zhongzhi Yu, Zheng Wang, Yuhan Li, H">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6696933cd9c307b7e97a0333.png">
 <meta property="article:published_time" content="2024-07-16T11:06:35.000Z">
-<meta property="article:modified_time" content="2024-07-16T11:16:08.626Z">
+<meta property="article:modified_time" content="2024-07-17T00:47:43.018Z">
 <meta property="article:author" content="ab">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/6696933cd9c307b7e97a0333.png">
     
         <link rel="alternate" href="/atom.xml" title="blog" type="application/atom+xml">
     
@@ -195,120 +197,117 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p><strong>标题</strong>:<br>EDGE-LLM: Enabling Efficient Large Language Model Adaptation on Edge Devices via Layerwise Unified Compression and Adaptive Layer Tuning &amp; Voting</p>
-<p><strong>作者</strong>:<br>Zhongzhi Yu, Zheng Wang, Yuhan Li, Haoran You, Ruijie Gao, Xiaoya Zhou, Sreenidhi Reedy Bommu, Yang (Katie) Zhao, Yingyan (Celine) Lin</p>
-<p><strong>作者单位</strong>: </p>
+                <h2 id="基本信息"><a class="markdownIt-Anchor" href="#基本信息"></a> 基本信息</h2>
+<p><strong>标题</strong>:<br />
+EDGE-LLM: Enabling Efficient Large Language Model Adaptation on Edge Devices via Layerwise Unified Compression and Adaptive Layer Tuning &amp; Voting</p>
+<p><strong>作者</strong>:<br />
+Zhongzhi Yu, Zheng Wang, Yuhan Li, Haoran You, Ruijie Gao, Xiaoya Zhou, Sreenidhi Reedy Bommu, Yang (Katie) Zhao, Yingyan (Celine) Lin</p>
+<p><strong>作者单位</strong>:</p>
 <ul>
 <li>Georgia Institute of Technology</li>
 <li>University of Minnesota, Twin Cities</li>
 <li>University of California, Santa Barbara</li>
 </ul>
-<p><strong>会议</strong>:<br>61st ACM/IEEE Design Automation Conference (DAC ’24), June 23–27, 2024, San Francisco, CA, USA</p>
-<p><strong>DOI</strong>:<br><a target="_blank" rel="noopener" href="https://doi.org/10.1145/3649329.3658473">https://doi.org/10.1145/3649329.3658473</a></p>
-<p><strong>代码仓库</strong>:<br><a target="_blank" rel="noopener" href="https://github.com/GATECH-EIC/Edge-LLM">https://github.com/GATECH-EIC/Edge-LLM</a></p>
-<h2 id="论文二十问"><a href="#论文二十问" class="headerlink" title="论文二十问"></a>论文二十问</h2><ol>
-<li><p><strong>论文试图解决什么问题？</strong></p>
-<ul>
-<li>论文试图解决大语言模型（LLMs）在边缘设备上的高效调整问题，以满足需要持续和隐私保护的适应和推理应用。</li>
-</ul>
-</li>
-<li><p><strong>这是否是一个新的问题？</strong></p>
-<ul>
-<li>是的，这是一个新的问题，因为现有的调优技术在计算和内存开销上存在不足，难以在资源受限的边缘设备上实现。</li>
-</ul>
-</li>
-<li><p><strong>这篇文章要验证一个什么科学假设？</strong></p>
-<ul>
-<li>文章要验证的假设是通过分层统一压缩（LUC）和自适应层调优与投票机制，可以在边缘设备上实现大语言模型的高效调整，减少计算和内存开销的同时保持任务准确度。</li>
-</ul>
-</li>
-<li><p><strong>有哪些相关研究？如何归类？谁是这一课题在领域内值得关注的研究员？</strong></p>
-<ul>
-<li>相关研究包括参数高效调优（PET）、内存高效调优（MET）、压缩-然后-调优技术。值得关注的研究员包括参与该领域相关研究的作者如Dettmers等人。</li>
-</ul>
-</li>
-<li><p><strong>论文中提到的解决方案之关键是什么？</strong></p>
-<ul>
-<li>关键在于Edge-LLM框架的三个核心组件：分层统一压缩（LUC）、自适应层调优与投票机制、互补的硬件调度策略。</li>
-</ul>
-</li>
-<li><p><strong>论文中的实验是如何设计的？</strong></p>
-<ul>
-<li>实验通过在MMLU和WikiText数据集上评估Edge-LLM的性能，与现有的调优方法进行对比，检验计算效率和内存开销的改进。</li>
-</ul>
-</li>
-<li><p><strong>用于定量评估的数据集是什么？代码有没有开源？</strong></p>
-<ul>
-<li>使用的定量评估数据集包括MMLU和WikiText-2数据集。代码已开源，链接为<a target="_blank" rel="noopener" href="https://github.com/GATECH-EIC/Edge-LLM。">https://github.com/GATECH-EIC/Edge-LLM。</a></li>
-</ul>
-</li>
-<li><p><strong>论文中的实验及结果有没有很好地支持需要验证的科学假设？</strong></p>
-<ul>
-<li>是的，实验结果表明Edge-LLM在保持任务准确度的情况下，实现了显著的速度提升和内存开销减少，支持了科学假设。</li>
-</ul>
-</li>
-<li><p><strong>这篇论文到底有什么贡献？</strong></p>
-<ul>
-<li>论文贡献包括提出了Edge-LLM框架，展示了通过分层压缩和自适应层调优可以在边缘设备上高效地调整大语言模型。</li>
-</ul>
-</li>
-<li><p><strong>下一步呢？有什么工作可以继续深入？</strong></p>
-<ul>
-<li>下一步可以继续优化Edge-LLM框架，进一步降低计算和内存开销，并在更多类型的边缘设备和应用场景中验证其效果。</li>
-</ul>
-</li>
-</ol>
+<p><strong>会议</strong>:<br />
+61st ACM/IEEE Design Automation Conference (DAC ’24), June 23–27, 2024, San Francisco, CA, USA</p>
+<p><strong>DOI</strong>:<br />
+<a target="_blank" rel="noopener" href="https://doi.org/10.1145/3649329.3658473">https://doi.org/10.1145/3649329.3658473</a></p>
+<p><strong>代码仓库</strong>:<br />
+<a target="_blank" rel="noopener" href="https://github.com/GATECH-EIC/Edge-LLM">https://github.com/GATECH-EIC/Edge-LLM</a></p>
+<h2 id="论文二十问"><a class="markdownIt-Anchor" href="#论文二十问"></a> 论文二十问</h2>
+<h3 id="1-论文试图解决什么问题"><a class="markdownIt-Anchor" href="#1-论文试图解决什么问题"></a> 1. 论文试图解决什么问题？</h3>
+<p>论文试图解决大型语言模型（LLMs）在边缘设备（如边缘GPU和智能手机）上的高效适配问题，具体来说，是减少计算和内存开销，使得这些模型能够在资源有限的设备上进行连续和隐私保护的推理和调整。</p>
+<h3 id="2-这是否是一个新的问题"><a class="markdownIt-Anchor" href="#2-这是否是一个新的问题"></a> 2. 这是否是一个新的问题？</h3>
+<p>这不是一个全新的问题，但随着LLMs规模的增加和对隐私保护需求的提高，这个问题变得越来越重要。现有的调优技术在计算和内存开销上仍然存在显著不足，因此需要新的方法来应对这些挑战。</p>
+<h3 id="3-这篇文章要验证一个什么科学假设"><a class="markdownIt-Anchor" href="#3-这篇文章要验证一个什么科学假设"></a> 3. 这篇文章要验证一个什么科学假设？</h3>
+<p>本文要验证的科学假设是，通过层级统一压缩（LUC）和自适应层调优与投票机制，可以在计算和内存资源有限的边缘设备上实现高效的LLM适配，同时保持模型的性能。</p>
+<h3 id="4-有哪些相关研究如何归类谁是这一课题在领域内值得关注的研究员"><a class="markdownIt-Anchor" href="#4-有哪些相关研究如何归类谁是这一课题在领域内值得关注的研究员"></a> 4. 有哪些相关研究？如何归类？谁是这一课题在领域内值得关注的研究员？</h3>
+<p>相关研究主要包括参数高效调优（PET）、内存高效调优（MET）和压缩-再调优技术。PET方法减少需要训练的参数数量，但在内存开销上仍有不足；MET方法通过减少反向传播深度来降低内存占用；压缩-再调优技术则通过先压缩模型来减少计算和数据移动开销。值得关注的研究员包括LoRA提出者（Hu et al.）和QLoRA提出者（Dettmers et al.）。</p>
+<h3 id="5-论文中提到的解决方案之关键是什么"><a class="markdownIt-Anchor" href="#5-论文中提到的解决方案之关键是什么"></a> 5. 论文中提到的解决方案之关键是什么？</h3>
+<p>解决方案的关键包括：</p>
 <ol>
-<li><p><strong>要了解深入，一个模型为什么好？</strong></p>
+<li><strong>层级统一压缩（LUC）：</strong> 基于对LLMs不同层级对量化和剪枝敏感性的实证观察，生成层级压缩策略，以优化计算和内存效率。</li>
+<li><strong>自适应层调优与投票机制：</strong> 动态选择不同层进行调优，并通过多层输出投票机制来提高模型的推理准确性。</li>
+</ol>
+<h3 id="6-论文中的实验是如何设计的"><a class="markdownIt-Anchor" href="#6-论文中的实验是如何设计的"></a> 6. 论文中的实验是如何设计的？</h3>
+<p>实验设计包括对比不同调优方法（如LoRA、部分调优、LST）在MMLU和WikiText-2数据集上的性能，评估Edge-LLM框架在不同量化和剪枝策略下的表现。此外，还模拟了硬件加速器的性能，以评估硬件调度模块的效率。</p>
+<h3 id="7-用于定量评估的数据集是什么代码有没有开源"><a class="markdownIt-Anchor" href="#7-用于定量评估的数据集是什么代码有没有开源"></a> 7. 用于定量评估的数据集是什么？代码有没有开源？</h3>
+<p>用于定量评估的数据集包括MMLU和WikiText-2。代码已开源，链接为<a target="_blank" rel="noopener" href="https://github.com/GATECH-EIC/Edge-LLM">https://github.com/GATECH-EIC/Edge-LLM</a>。</p>
+<h3 id="8-论文中的实验及结果有没有很好地支持需要验证的科学假设"><a class="markdownIt-Anchor" href="#8-论文中的实验及结果有没有很好地支持需要验证的科学假设"></a> 8. 论文中的实验及结果有没有很好地支持需要验证的科学假设？</h3>
+<p>是的，实验结果表明，Edge-LLM在相同资源约束下，相比基准方法取得了更高的准确性和显著的内存开销减少，验证了提出的LUC和自适应层调优与投票机制的有效性。</p>
+<h3 id="9-这篇论文到底有什么贡献"><a class="markdownIt-Anchor" href="#9-这篇论文到底有什么贡献"></a> 9. 这篇论文到底有什么贡献？</h3>
+<p>论文的主要贡献包括：</p>
+<ol>
+<li>提出了一个综合性的LLM调优框架Edge-LLM，从算法和硬件角度解决了边缘设备上的计算和内存开销问题。</li>
+<li>开发了层级统一压缩（LUC）和自适应层调优与投票机制，提高了调优的效率和模型性能。</li>
+<li>实验验证了Edge-LLM框架在不同数据集上的优越性，并开源了相关代码。</li>
+</ol>
+<h3 id="10-下一步呢有什么工作可以继续深入"><a class="markdownIt-Anchor" href="#10-下一步呢有什么工作可以继续深入"></a> 10. 下一步呢？有什么工作可以继续深入？</h3>
+<p>未来工作可以包括：</p>
+<ol>
+<li>扩展Edge-LLM框架以支持更多类型的边缘设备和更大规模的LLMs。</li>
+<li>探索更多的量化和剪枝策略，以进一步优化计算和内存效率。</li>
+<li>研究如何在保持高效性的同时，进一步提高模型的推理准确性和适应性。</li>
+</ol>
+<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
+<p>大型语言模型（LLMs）在边缘设备上的高效适配对于需要持续且隐私保护的适配和推理的应用至关重要。然而，现有的调优技术由于高计算和内存开销而不足。为此，我们引入了一种<strong>计算和内存高效的LLM调优框架</strong>，称为Edge-LLM，以促进在边缘设备上进行经济高效的LLM适配。具体来说，Edge-LLM具有三个核心组件：（1）层级统一压缩（LUC）技术，通过生成层级修剪稀疏性和量化位宽策略来减少计算开销，（2）自适应层调优和投票机制，通过减少反向传播深度来降低内存开销，（3）互补硬件调度策略，处理由LUC和自适应层调优引入的不规则计算模式，从而实现高效的计算和数据移动。大量实验表明，与传统调优方法相比，Edge-LLM实现了2.92倍的速度提升和4倍的内存开销减少，同时任务准确性相当。我们的代码已在 <a target="_blank" rel="noopener" href="https://github.com/GATECH-EIC/Edge-LLM">https://github.com/GATECH-EIC/Edge-LLM</a> 上开源。</p>
+<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<p>近年来，大型语言模型（LLMs）如GPT-4在各类应用中表现出色，改变了人类生活。顺应这一趋势，开发高效的调优技术以支持需要持续和隐私保护适配的应用变得越来越重要。然而，LLMs庞大的模型规模使得在边缘设备（如边缘GPU和智能手机）上直接进行LLM适配变得困难重重。这主要有两个挑战：(1) 在计算LLM的<strong>前向和后向传递时遇到的过高计算开销</strong>，(2) 在调优过程中<strong>存储庞大模型权重和激活值</strong>带来的繁琐内存开销。正如最近的研究所示，LLMs通常在前沿的GPU上进行调优（例如，使用40GB或80GB的GPU内存），需要超过一天的GPU时间来完成。即使是最先进的高效调优方法，在边缘设备上有效调优相对较小规模的LLMs（如LLaMA-7B）仍然是不现实的。</p>
+<p>尽管一些现有的努力试图解决上述挑战，但每种方法都有其缺点。(1) 为了减少计算开销，常见的方法是先压缩目标LLM以减少模型规模。然而，如何在保持LLM适应性的同时有效减少其冗余仍然是一个未充分探索的问题。(2) 为了减轻内存开销，现有方法主要集中在缩短反向传播深度。不幸的是，减少的反向传播深度导致LLM中只有一部分块被更新，限制了可实现的性能。</p>
+<p>在本文中，我们开发了一个综合解决方案来解决上述内存和计算挑战，实现有效的LLM适配。具体而言，我们做出了以下贡献：</p>
 <ul>
-<li>Edge-LLM通过分层压缩和自适应层调优，在有限资源条件下保持了高性能，显著降低了计算和内存开销。</li>
+<li>我们提出了一个名为Edge-LLM的综合框架，从算法和硬件的角度解决LLM适配的内存和计算挑战，使其能够在内存和计算资源有限的边缘设备上实现有效的LLM适配。</li>
+<li>在算法方面，我们从两个方向实现这一目标，每个方向主要集中在上述挑战之一：(1) 为了减少<strong>计算开销</strong>，我们提出了一种基于LLM层级对<strong>量化和修剪</strong>敏感性实证观察的低成本层级统一压缩（LUC）方法。(2) 为了减少内存开销，我们引入了一种<strong>自适应层调优和投票机制</strong>。在自适应层调优中，我们建议有选择地更新目标LLM的不同部分，并通过直接连接当前更新部分的输出到最终层来减少内存占用。此外，在自适应层投票中，我们利用目标LLM不同部分的输出进行投票，以获得优化的输出。</li>
+<li>在硬件方面，为了更好地处理由提出的算法引入的不规则计算模式（即不同层级的量化位宽、层级修剪稀疏性和LLM段的更新），我们进一步将一个互补的硬件调度模块集成到Edge-LLM中。硬件调度模块包括一个搜索空间和搜索策略，考虑潜在的卸载策略、计算计划和张量放置，旨在更好地将理论上的计算开销减少转化为硬件效率的提高。</li>
+<li>实验结果和消融研究验证了我们提出的Edge-LLM框架的有效性。具体而言，与在相同资源约束下调优的基线方法相比，Edge-LLM在MMLU得分上提高了0.70%至1.29%，在WikiText-2上的困惑度与LoRA调优相当，但每次迭代的延迟降低了2.92倍，内存开销减少了4倍。</li>
 </ul>
-</li>
-<li><p><strong>以前的模型为什么不好？</strong></p>
+<h2 id="2background-and-motivation"><a class="markdownIt-Anchor" href="#2background-and-motivation"></a> 2.Background and Motivation</h2>
+<h3 id="21-efficient-tuning-techniques"><a class="markdownIt-Anchor" href="#21-efficient-tuning-techniques"></a> 2.1 Efficient Tuning Techniques</h3>
+<p><img src="https://pic.imgdb.cn/item/6696933cd9c307b7e97a0333.png" alt="" /><br />
+<strong>图1展示了在Alpaca数据集上使用LoRA和QLoRA对LLaMA-7B进行调优时的内存占用情况</strong>。现有的内存高效调优（MET）技术通过减少反向传播深度，从而减少需要存储的激活数来实现内存占用的最小化。这些技术要么通过部分调优只调优最后几层，要么通过侧调优在每个适配器模块与最终输出之间添加旁路连接。虽然在调优过程中减少内存占用是非常理想的，但现有的MET技术在LLM调优中仍面临着精度和内存占用之间的不满意权衡。具体而言，对于部分调优，现有方法需要调优目标LLM的80%以上的层才能达到满意的任务精度，而侧调优由于偏置优化，难以达到与最先进的PET技术相媲美的任务精度。</p>
+<p>压缩-再调优是一系列新兴的高效调优技术，其动机是由于LLM调优中的计算开销主要由LLM骨干网络的前向和后向传递所主导。因此，一些先驱性工作提出在调优前压缩LLM骨干网络，以减少计算和数据移动开销。然而，现有的最先进的压缩-再调优技术主要旨在提高调优速度，忽视了极端的内存开销（例如，最先进的压缩-再调优方法仍需使用具有40GB内存的A100 GPU才能在Llama-70B模型上实现有效调优）。这一忽视限制了压缩-再调优技术在资源受限的边缘设备上调优LLM的有效性。</p>
+<h3 id="22-memory-overhead-during-tuning"><a class="markdownIt-Anchor" href="#22-memory-overhead-during-tuning"></a> 2.2 Memory Overhead During Tuning</h3>
+<p>为了更好地理解现有调优技术所需的内存与边缘设备可用内存之间的差距，我们对LLaMA-7B模型使用LoRA（最先进的PET技术之一）和QLoRA（最先进的压缩-再调优技术之一）进行了内存需求分析。图1显示，LoRA的内存开销主要来自存储LLM的<strong>骨干权重和反向传播的激活</strong>。即使QLoRA将LLM骨干压缩到4-bit，并使整体内存占用减少了41.2%，与LoRA相比，调优所需的内存仍然比常用的边缘设备（如8GB的TX2和12GB的Quest Pro）可用内存高出1.48倍至2.22倍。</p>
+<h3 id="23-opportunities-for-efficient-llm-tuning"><a class="markdownIt-Anchor" href="#23-opportunities-for-efficient-llm-tuning"></a> 2.3 Opportunities for Efficient LLM Tuning</h3>
+<p>为了应对现有调优方法的上述限制，我们识别了改进这些方法以开发有效LLM调优框架的潜在机会。</p>
+<p>一方面，为了进一步减少计算开销，我们识别出现有压缩-再调优技术中用于减少模型冗余的成功实践与采用的原始压缩技术之间的不匹配。具体而言，以往的研究观察到深度学习模型在不同维度（如位宽和稀疏性）和不同层次上表现出冗余，而现有的压缩-再调优技术通常采用统一压缩方法，仅从一个维度减少冗余。</p>
+<p>另一方面，为了进一步减少内存开销，根据我们在第2.1节中的分析，我们总结出提高可实现的精度-内存权衡的关键在于能够以有限的反向传播深度更新LLM中的所有层。受用于高效模型推理的早退出机制的启发，我们假设LLM中早期层的输出可以为预测提供有意义的信息。因此，可以从早退出层开始反向传播，并仍然有效地更新模型。在这种情况下，由于反向传播可以从多个早退出层开始，更新LLM所有层所需的反向传播深度可以最小化。</p>
+<h2 id="3-edge-llm算法"><a class="markdownIt-Anchor" href="#3-edge-llm算法"></a> 3 Edge-LLM算法</h2>
+<h3 id="31-概述"><a class="markdownIt-Anchor" href="#31-概述"></a> 3.1 概述</h3>
+<p>受第2.3节中提到的机会启发，我们介绍了Edge-LLM框架的算法设计，以便在计算和内存开销有限的情况下，实现高效的LLM适配。正如图2所示，我们提出的Edge-LLM调优算法结合了两个关键要素，每个要素都利用了减少计算和内存开销的机会。具体来说：(1) 为了减少计算开销，我们提出了LUC技术来减少目标LLM的冗余。该技术基于我们对LLM层级对量化和修剪敏感性的实证观察。基于上述观察，我们在LUC中开发了一种低成本的基于均方误差（MSE）的识别器，以生成层级压缩策略（例如，层级位宽和修剪稀疏分配），旨在改善LUC在压缩-再调优框架中相对于现有压缩技术的准确性-效率权衡（见第3.2节）。(2) 为了减少内存开销，我们提出了一种自适应层调优方案，该方案在前向传递过程中通过跳跃连接动态地将所选层（每次迭代可能不同）的输出连接到最终分类层。在反向传播过程中，只有所选层的前几个层接收梯度更新。由于选择更新的层因不同输入而异，这种方法确保了所有层都能有效更新，同时最小化了内存开销。通过引入跳跃连接减少了反向传播的深度，从而实现了效率。此外，在推理过程中，我们引入了一种投票机制，以提高自适应层调优的LLM的准确性。该方法利用自适应调优LLM从多个层生成合理输出的能力。因此，每个层生成的logits，通过投票过程确定最终输出（见第3.3节）。</p>
+<h3 id="32-层级统一压缩luc"><a class="markdownIt-Anchor" href="#32-层级统一压缩luc"></a> 3.2 层级统一压缩（LUC）</h3>
+<h5 id="llm层级敏感性观察"><a class="markdownIt-Anchor" href="#llm层级敏感性观察"></a> LLM层级敏感性观察</h5>
+<p>在先前的模型压缩研究中，一个普遍的理解是模型的不同层对不同压缩技术表现出不同的敏感性。然而，LLM中不同层对不同压缩技术的敏感性仍是一个未解的问题。为了解决这个问题，我们首先探讨了目标LLM对修剪和量化的层级敏感性。具体来说，我们对预训练的LLaMA-7B模型的每一层应用不同的量化位宽和修剪稀疏度。通过比较从WikiText数据集获得的相同输入的压缩层和原始层输出的平均MSE，我们观察到，如图3所示，LLM中只有一小部分层对压缩表现出高敏感性。</p>
+<h5 id="我们的假设和提出的luc"><a class="markdownIt-Anchor" href="#我们的假设和提出的luc"></a> 我们的假设和提出的LUC</h5>
+<p>基于上述观察，我们假设高敏感性（即高MSE）是由于相应层的冗余有限，因此需要较低的压缩比率。为此，我们提出以下映射函数，将层级MSE映射到层级量化位宽和修剪稀疏度。对于量化，给定一个具有L层的LLM M，表示为C={l0, l1, …, lL-1}，基本量化位宽为B，层li的量化敏感性（即原始层输出和B位量化层输出之间的MSE）为s_quant，我们定义层lj的优化量化位宽b_j为：<br />
+[ b_j = B + 1(s_quant_j \ge \frac{\sum_{i=0}^{L-1} s_quant_i}{L}) ]<br />
+其中1(.)为指示函数。对于修剪，给定目标总体修剪稀疏度P，我们定义层lj的修剪稀疏度p_j为：<br />
+[ p_j = P \times \frac{L \times s_prune_j}{\sum_{i=0}^{L-1} s_prune_i} ]<br />
+其中<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>p</mi></msub><mi>r</mi><mi>u</mi><mi>n</mi><msub><mi>e</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">s_prune_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>是层lj的修剪敏感性。</p>
+<h3 id="33-自适应层调优与投票"><a class="markdownIt-Anchor" href="#33-自适应层调优与投票"></a> 3.3 自适应层调优与投票</h3>
+<p>在此组件中，我们的目标是通过减少内存开销来实现有效调优，从而使调优过程适应内存容量有限的边缘设备。为此，我们识别的主要挑战是，在限制的反向传播深度下，实现目标LLM的所有层的高效更新，正如在第2.3节中分析的那样。</p>
+<p>在Edge-LLM中，我们通过构建一组退出层T = {t0, t1, …, tT-1}来缓解这一挑战。每个退出层ti连接到目标LLM中的第lCeil((i+1)×L/T)层的输出，作为最终输出层。需要注意的是，T代表可选择的退出层的数量，L表示目标LLM的总层数，确保T &lt; L。在每次调优迭代中，我们随机选择一个ti ∈ T作为唯一使用的退出层，并更新以下层集合：<br />
+[ {lCeil((i+1)×L/T)-m, lCeil((i+1)×L/T)-m+1, …, lCeil((i+1)×L/T), ti} ]<br />
+每个层都配备有LoRA适配器。这里，m = Ceil(L/T)表示在此配置中具有未冻结可训练参数的层数。</p>
+<p>此外，通过上述自适应层调优，调优后的LLM可以从所有退出层t ∈ T生成输出。尽管直接使用最终输出层tT-1可以实现有竞争力的性能，但拥有多个可用的退出层提供了在推理时通过自适应组合不同层的输出来进一步提高性能的机会。为此，我们提出了一种投票机制，通过基于所有退出层的输出进行预测来提高性能。具体来说，受关于后softmax概率与预测置信度关系的现有研究结果的启发，我们通过选择所有退出层中具有最高后softmax概率的索引来确定最终输出。具体来说，给定一个输出概率矩阵M，其中每个元素m(i,j)表示层ti的索引j的输出概率。我们首先找到M中最大值的位置（imax, jmax）= argmaxi,j(m(i,j))，然后生成最终输出o = jmax。</p>
+<h2 id="5-评估"><a class="markdownIt-Anchor" href="#5-评估"></a> 5 评估</h2>
+<h3 id="51-评估设置"><a class="markdownIt-Anchor" href="#51-评估设置"></a> 5.1 评估设置</h3>
 <ul>
-<li>现有模型在调整时需要高计算和内存资源，难以在资源受限的边缘设备上实现高效调整。</li>
+<li><strong>数据集：</strong> 使用两个常用的基准数据集，包括MMLU和WikiText。</li>
+<li><strong>模型：</strong> LLaMA-7B。</li>
+<li><strong>算法基准：</strong> 包括最先进的PET技术LoRA、最先进的MET技术LST、最先进的压缩技术Sparse-GPT和LLM-QAT，以及我们提出的七种方法的变体。</li>
+<li><strong>硬件基准：</strong> 用于Transformer训练的最先进的systolic加速器。</li>
+<li><strong>算法实现：</strong> 我们分别使用LLM-QAT和Sparse-GPT作为量化和修剪技术，并按照相关设置对模型进行调优。</li>
+<li><strong>硬件配置：</strong> 加速器的DRAM设置为8GB LPDDR4，片上SRAM设置为1MB，与最先进的边缘设备一致，其他硬件配置遵循基准训练加速器的设计。</li>
+<li><strong>评估方法：</strong> 我们使用最先进的Scale-Sim模拟器来模拟基准加速器及应用我们技术后的加速器。</li>
 </ul>
-</li>
-<li><p><strong>哪个关键点对性能提升最大？</strong></p>
-<ul>
-<li>分层统一压缩（LUC）和自适应层调优与投票机制是性能提升的关键点。</li>
-</ul>
-</li>
-<li><p><strong>编程怎么实现？</strong></p>
-<ul>
-<li>实现细节可以在开源代码库中找到，主要包括分层压缩策略的实现和自适应层调优机制的集成。</li>
-</ul>
-</li>
-<li><p><strong>论文源代码和paper匹配度怎么样、都覆盖了吗？</strong></p>
-<ul>
-<li>论文源代码与文章描述匹配度高，涵盖了论文中提到的主要技术和实验。</li>
-</ul>
-</li>
-<li><p><strong>哪些数学运算是关键的？</strong></p>
-<ul>
-<li>关键数学运算包括量化比特宽度和修剪稀疏性的计算、自适应层调优的跳跃连接和投票机制的实现。</li>
-</ul>
-</li>
-<li><p><strong>整个全流程是怎么走的？</strong></p>
-<ul>
-<li>全流程包括分层压缩策略的生成、自适应层调优的执行、硬件调度的优化以及最终的推理和评估。</li>
-</ul>
-</li>
-<li><p><strong>数据是怎样流动的？其中是怎样变换的？各个变换有什么实际意义？</strong></p>
-<ul>
-<li>数据在模型的各层之间流动，通过分层压缩减少冗余，通过自适应调优减少反向传播深度，优化计算和内存使用。</li>
-</ul>
-</li>
-<li><p><strong>既要关注具体实现思路、也要关注上层抽象意义。作者灵感从何而来？</strong></p>
-<ul>
-<li>灵感来源于大语言模型在边缘设备上的应用需求和现有调优技术的局限性。</li>
-</ul>
-</li>
-<li><p><strong>作者思考路线如何？</strong></p>
-<ul>
-<li>作者从问题的实际应用需求出发，分析现有技术的不足，提出了Edge-LLM框架，通过实验验证了其有效性。</li>
-</ul>
-</li>
+<h3 id="52-算法评估"><a class="markdownIt-Anchor" href="#52-算法评估"></a> 5.2 算法评估</h3>
+<p>为了评估我们提出的方法的性能，我们首先在常用的MMLU数据集上将我们的方法与现有基准方法（包括部分调优、LST和LoRA调优）进行比较。如表1所示，我们的方法在保持相同计算效率的情况下，精度比基准方法提高了0.70%到1.29%，内存使用减少了4倍。为了进一步验证Edge-LLM中的关键要素，我们首先在WikiText-2数据集上单独评估LUC的困惑度，与两种最先进的压缩技术（包括SparseGPT和LLM-QAT）和两种变体进行比较：（1）Uniform：在所有层使用相同的量化位宽和修剪稀疏度；（2）Random：随机分配我们生成的层级修剪稀疏度和量化位宽。如表2所示，在类似资源限制下，我们提出的方法比Uniform基准的困惑度低1.28到2.49，在相同效率下比Random基准的困惑度低0.50到1.68，展示了我们提出的LUC的有效性。</p>
+<h3 id="53-硬件评估"><a class="markdownIt-Anchor" href="#53-硬件评估"></a> 5.3 硬件评估</h3>
+<p>我们基于用于Transformer训练的基准systolic加速器设计对提出的技术进行评估，并进行了适当修改以支持提出的技术：</p>
+<ol>
+<li>由于提出的自适应层调优可以自然地在基准加速器上运行，因此无需修改基准加速器；</li>
+<li>对于LUC，我们做了以下修改：将基准更新为在DRAM和SSD上存储压缩权重。为了简化设计，我们没有修改计算核心的稀疏性，而是使用了简单的时空灵活精度MAC单元。我们应用提出的硬件调度搜索方法来找到最佳的算法到硬件的映射。Scale-Sim模拟结果显示，自适应层调优可以实现2.24倍的加速；修剪和自适应层调优可以实现2.37倍的加速；结合LUC（4-bit/5-bit）和自适应层调优可以分别实现3.38倍和2.92倍的总体加速。</li>
 </ol>
 
             
@@ -326,6 +325,20 @@
     
         
     <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    <img data-src="https://pbs.twimg.com/media/GO1SQD0W0AAmWnk?format=jpg&amp;name=medium" data-sizes="auto" alt="KDD:FedBiOT"
+                         class="lazyload">
+                
+                <a href="/2024/07/16/KDD-FedBiOT/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        KDD:FedBiOT
+                    
+                </h3>
+            </div>
         
         
             <div class="article-nav-link-wrap article-nav-link-right">
@@ -370,7 +383,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">283</div>
+                <div class="sidebar-state-number">287</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -476,10 +489,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    641.6k
+                    650k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    39:39
+                    40:08
                 </div>
             
             
@@ -506,7 +519,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">283</div>
+                <div class="sidebar-state-number">287</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
