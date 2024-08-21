@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://pic.imgdb.cn/item/66c3232ad9c307b7e9015252.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/66c32341d9c307b7e9016267.png">
 <meta property="article:published_time" content="2024-08-18T07:59:04.000Z">
-<meta property="article:modified_time" content="2024-08-19T10:51:58.083Z">
+<meta property="article:modified_time" content="2024-08-21T06:48:51.289Z">
 <meta property="article:author" content="ab">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pic.imgdb.cn/item/66c1bfd8d9c307b7e9f4bc3f.png">
@@ -281,7 +281,7 @@
 <li><strong>SST-2 [31]</strong>：斯坦福情感树库（SST-2）包含68,800个来自影评的句子及其情感标注。LLM的任务是预测给定句子的情感（正面或负面）。</li>
 </ul>
 <p><img src="https://pic.imgdb.cn/item/66c31744d9c307b7e9f00949.png" alt=""></p>
-<p>——————————————— 分析·Begin ———————————————<br>(1)输入：样本x，操作m，权重矩阵w，预热步骤Tw，组大小B，梯度裁剪界限C，失败概率$\delta$和初始隐私预算$\varepsilon$,k阶Edgeworth展开式<br>(2)计算采样概率q=B/N，根据操作m和$\delta$计算PLLRs [($X_i^a,Y_i^a$)]<br>(3)根据每个a计算Edgeworth近似，计算$\varepsilon^{(a)}(\delta)$和sup $\varepsilon^{(a)}(\delta)$<br>(4)初始化隐私预算$\varepsilon_{init}$和噪声系数$\sigma_{init}$<br>(5-7)直到当前隐私预算达到$\varepsilon_{init}$并且噪声系数$\sigma_{init}$不再降低<br>(8)选择一个梯度载体矩阵W用于模型的权重更新<br>(9)以概率q从样本中采样一个批次的数据用户fine-tuning<br>(10)计算历史更新，找到合适的梯度在途，并分解计算出低秩梯度载体L和R<br>(11)运行重新参数化后的forward和backward，并计算每个样本梯度<br>(12)根据梯度裁剪戒心啊C和噪声系数$\sigma$，对梯度进行裁剪并添加噪声<br>(13)构建最终的梯度更新矩阵W<br>(14)输出W,$\varepsilon 和 \sigma$</p>
+<p>——————————————— 分析·Begin ———————————————<br>(1)输入：样本x，操作m，权重矩阵w，预热步骤Tw，组大小B，梯度裁剪界限C，失败概率$\delta$和初始隐私预算$\varepsilon$,k阶Edgeworth展开式<br>(2)计算采样概率q=B/N，根据操作m和$\delta$计算PLLRs [($X_i^a,Y_i^a$)]<br>(3)根据每个a计算Edgeworth近似，计算$\varepsilon^{(a)}(\delta)$和sup $\varepsilon^{(a)}(\delta)$<br>(4)初始化隐私预算$\varepsilon_{init}$和噪声系数$\sigma_{init}$<br>(5-7)直到当前隐私预算达到$\varepsilon_{init}$并且噪声系数$\sigma_{init}$不再降低<br>(8)选择一个梯度载体矩阵W用于模型的权重更新<br>(9)以概率q从样本中采样一个批次的数据用户fine-tuning<br>(10)计算历史更新，找到合适的梯度在途，并分解计算出低秩梯度载体L和R<br>(11)运行重新参数化后的forward和backward，并计算每个样本梯度<br>(12)根据梯度裁剪界限C和噪声系数$\sigma$，对梯度进行裁剪并添加噪声<br>(13)构建最终的梯度更新矩阵W<br>(14)输出W,$\varepsilon 和 \sigma$</p>
 <p>——————————————— 分析·End$\quad$———————————————</p>
 <p><img src="https://pic.imgdb.cn/item/66c31260d9c307b7e9ebe302.png" alt=""><br>如上图所示，预训练的大型语言模型（LLM）是由一家大型AI公司（例如Google或OpenAI）从零开始在公共数据集（例如互联网）上进行训练的（如图1左侧所示）。随后，该预训练模型被用作EW-Tune的输入，以根据隐私参数（即隐私预算ε ∈ [0, ∞)和失败概率δ ∈ [0,1]）进行带有隐私保证的微调（如图1右侧所示）。隐私参数（ε，δ）由用户或从业者提供。较小的ε表示更好的隐私保护（但模型效用/性能较低）。δ表示训练样本意外泄露的概率。在LLM的背景下，适合的ε值通常在5到8之间，而δ的值建议取为训练样本数量的倒数级别【13】。</p>
 <p>在用户提供了隐私参数后，利用Edgeworth会计算法【14】来（1）计算给定数据集的组合次数（即DP-SGD的应用次数）。（2）计算确保给定隐私预算所需的噪声量。随后，可以使用DP-SGD的任何变体【12】，如第II-B节所述，基于在上一步中获得的合适的噪声乘数σ，在私有数据上对LLM进行微调。由于其突破性的性能，我们使用了基于一种新方法——重新参数化的梯度扰动（RGP）【15】的最新版本的DP-SGD。在原始的DP-SGD【12】中，引入的噪声高度依赖于模型参数，且每个样本的梯度裁剪会导致非常高的内存和计算开销。RGP通过将每一层的权重矩阵W重新参数化为两个低秩梯度载体矩阵L和R以及一个残差权重矩阵W̃来解决DP-SGD的问题。最后，所有的变换器层（transformer layers）将在私有数据上通过DP-SGD进行微调。EW-Tune框架的输出是如图1右侧所示的微调后的LLM。</p>
@@ -311,6 +311,20 @@
     
         
     <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    <img data-src="https://pic.imgdb.cn/item/66c5b126d9c307b7e931f320.png" data-sizes="auto" alt="NACCL 2024:Synthetic Query Generation for Privacy-Preserving Deep Retrieval Systems using Differentially Private Language Models"
+                         class="lazyload">
+                
+                <a href="/2024/08/21/NACCL-2024-Synthetic-Query-Generation-for-Privacy-Preserving-Deep-Retrieval-Systems-using-Differentially-Private-Language-Models/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        NACCL 2024:Synthetic Query Generation for Privacy-Preserving Deep Retrieval Systems using Differentially Private Language Models
+                    
+                </h3>
+            </div>
         
         
             <div class="article-nav-link-wrap article-nav-link-right">
@@ -355,7 +369,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">296</div>
+                <div class="sidebar-state-number">297</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -461,10 +475,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    669.3k
+                    670.7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    41:12
+                    41:16
                 </div>
             
             
@@ -491,7 +505,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">296</div>
+                <div class="sidebar-state-number">297</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
