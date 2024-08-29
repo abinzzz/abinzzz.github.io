@@ -32,10 +32,12 @@
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="基本信息 标题: Privacy-Preserving Prompt Tuning for Large Language Model Services 作者: Yansong Li, Zhixing Tan, Yang Liu 所属机构:  Yansong Li: University of Ottawa, Ottawa, Canada Zhixing Tan: Zhongguancun Lab">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66d07389d9c307b7e9361ba3.png">
 <meta property="article:published_time" content="2024-08-28T12:55:49.000Z">
-<meta property="article:modified_time" content="2024-08-28T13:49:48.435Z">
+<meta property="article:modified_time" content="2024-08-29T13:11:46.818Z">
 <meta property="article:author" content="ab">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/66d07389d9c307b7e9361ba3.png">
     
         <link rel="alternate" href="/atom.xml" title="blog" type="application/atom+xml">
     
@@ -212,6 +214,7 @@
 <p>然而，在LLM服务的背景下进行隐私保护具有挑战性。首先，在LLM服务的背景下为私人数据提供隐私保障并不简单。现有关于LLM隐私保护的研究（Yu等，2021a；Shi等，2021；Anil等，2021；Hoory等，2021；Li等，2021；Shi等，2022）主要集中于中心化的隐私设置，依赖服务提供者保护用户免受隐私泄露。在诚实但好奇的服务提供者或中间窃听者的情况下，这种设置可能不令人满意（Lyu等，2020）。其次，实施隐私保护不可避免地会降低下游任务的性能，这被称为隐私-效用权衡。Yang和Liu（2022）发现提示微调缺乏鲁棒性，因此在提供隐私保护时，使用提示微调来定制LLM可能会遭遇不可接受的性能下降。</p>
 <p>为了解决上述挑战，我们提出了隐私保护提示微调（RAPT）框架，用于在保护隐私的同时定制和利用LLM服务。为实现隐私保护，RAPT采用本地隐私设置（Lyu等，2020；Qu等，2021），用户在发布数据之前在本地对数据应用隐私机制。<strong>具体而言，RAPT使用文本到文本的隐私化（Feyisetan等，2020），基于局部差分隐私（LDP）（Evfimievski等，2003）</strong>。为了减轻隐私保护带来的性能下降，我们提出了一种新颖的隐私化标记重建任务，基于最近的发现，即掩码语言建模目标可以学习可分离的深度表示（Voita等，2019；Mamou等，2020）。隐私化标记重建的目标是从LLM表示中恢复隐私化特殊标记序列的原始内容，这一灵感来自掩码语言建模的成功（Devlin等，2018）。与标准提示微调不同，RAPT在下游任务和隐私化标记重建任务上共同训练提示。通过这种方式，RAPT结合了提示微调的轻量和模块化的优点，同时通过隐私化标记重建提供了更高的效用（即性能）。图1展示了我们的RAPT框架的概述。</p>
 <p>我们进行了模拟隐私攻击，并在三项不同的大规模语言模型任务上进行实验，以研究我们提出的框架的有效性。实验表明，RAPT在提供隐私保护的同时，在不同任务和LLM上也能实现具有竞争力的性能。</p>
+<p><img src="https://pic.imgdb.cn/item/66d07389d9c307b7e9361ba3.png" alt="" /></p>
 <h2 id="related-work"><a class="markdownIt-Anchor" href="#related-work"></a> Related Work</h2>
 <p>最近关于大规模语言模型（LLM）隐私保护的研究大致可以分为集中式方法和本地方法。</p>
 <p><strong>集中式方法</strong>：大多数现有的研究聚焦于集中式隐私设置，这依赖一个中央数据管理员来保护数据免受隐私泄露。有许多研究探讨如何训练具有隐私保护功能的LLM（Carlini等人，2021；Hoory等人，2021；Li等人，2021；Yu等人，2021b），这些内容超出了本工作的范围。Kerrigan等人（2020）使用差分隐私微调来保护用于微调公共语言模型的私有数据。Yu等人（2021a）研究了在微调阶段使用轻量级微调方法（如适配器和PREFIX-TUNING）来保护隐私数据。我们的设置不同于所有这些工作。我们研究如何在使用LLM服务时保护用户的私人数据，并且不假设中央数据管理员的存在。</p>
