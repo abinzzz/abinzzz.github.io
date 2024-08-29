@@ -25,17 +25,23 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="基本信息 标题: Synthetic Query Generation for Privacy-Preserving Deep Retrieval Systems using Differentially Private Language Models 作者:  Aldo Gael Carranza (Stanford University) Rezsa Farahani (Google Inc.">
+    <meta name="description" content="基本信息  标题: Synthetic Query Generation for Privacy-Preserving Deep Retrieval Systems using Differentially Private Language Models 作者:  Aldo Gael Carranza (Stanford University) Rezsa Farahani (Google In">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NACCL 2024:Synthetic Query Generation for Privacy-Preserving Deep Retrieval Systems using Differentially Private Language Models">
 <meta property="og:url" content="https://abinzzz.github.io/2024/08/21/NACCL-2024-Synthetic-Query-Generation-for-Privacy-Preserving-Deep-Retrieval-Systems-using-Differentially-Private-Language-Models/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="基本信息 标题: Synthetic Query Generation for Privacy-Preserving Deep Retrieval Systems using Differentially Private Language Models 作者:  Aldo Gael Carranza (Stanford University) Rezsa Farahani (Google Inc.">
+<meta property="og:description" content="基本信息  标题: Synthetic Query Generation for Privacy-Preserving Deep Retrieval Systems using Differentially Private Language Models 作者:  Aldo Gael Carranza (Stanford University) Rezsa Farahani (Google In">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66cc2c2ed9c307b7e944ff26.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66c5bab7d9c307b7e93ae7ac.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66c5c12dd9c307b7e946db72.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66c5caecd9c307b7e952fbbc.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66c5cbffd9c307b7e956453d.png">
 <meta property="article:published_time" content="2024-08-21T07:00:10.000Z">
-<meta property="article:modified_time" content="2024-08-21T09:19:41.741Z">
+<meta property="article:modified_time" content="2024-08-26T08:35:18.049Z">
 <meta property="article:author" content="ab">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/66cc2c2ed9c307b7e944ff26.png">
     
         <link rel="alternate" href="/atom.xml" title="blog" type="application/atom+xml">
     
@@ -195,9 +201,11 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><ul>
+                <h2 id="基本信息"><a class="markdownIt-Anchor" href="#基本信息"></a> 基本信息</h2>
+<ul>
 <li><strong>标题</strong>: Synthetic Query Generation for Privacy-Preserving Deep Retrieval Systems using Differentially Private Language Models</li>
-<li><strong>作者</strong>: <ul>
+<li><strong>作者</strong>:
+<ul>
 <li>Aldo Gael Carranza (Stanford University)</li>
 <li>Rezsa Farahani (Google Inc.)</li>
 <li>Natalia Ponomareva (Google Research)</li>
@@ -209,19 +217,113 @@
 <li><strong>发表单位</strong>: Stanford University 和 Google Inc./Google Research/Google DeepMind</li>
 <li><strong>摘要</strong>: 文章探讨了一种通过差分隐私语言模型生成合成查询来保护深度检索系统中的用户隐私的方法。这种方法能够在不直接DP训练的情况下，保证查询隐私，并且提升了检索质量。</li>
 </ul>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>我们解决了在训练深度检索系统时确保差分隐私（DP）保障的挑战。训练这些系统通常涉及使用对比式损失，这种损失通常无法逐个样本分解，使得直接进行DP训练变得困难。为了解决这个问题，我们提出了一种方法，优先在训练深度检索系统之前确保查询隐私。我们的方法使用差分隐私语言模型（DP LMs）生成代表原始数据的私有合成查询，这些查询可以用于下游的检索系统训练，而不会妥协隐私。我们的方法在提高检索质量的同时，确保了查询级别的隐私保障。这项工作展示了利用语言模型克服传统DP训练方法局限性的潜力。</p>
-<p>——————————————— 分析·Begin ———————————————<br>为什么这种损失无法逐个分解，DP训练就会变的困难？</p>
+<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
+<p>我们解决了在训练深度检索系统时确保差分隐私（DP）保障的挑战。训练这些系统通常涉及使用对比式损失，这种损失通常无法逐个样本分解，使得直接进行DP训练变得困难。为了解决这个问题，我们提出了一种方法，优先在训练深度检索系统之前确保查询隐私。我们的方法使用差分隐私语言模型（DP LMs）生成代表原始数据的私有合成查询，这些查询可以用于下游的检索系统训练，而不会妥协隐私。我们的方法在提高检索质量的同时，确保了查询级别的隐私保障。这项工作展示了利用语言模型克服传统DP训练方法局限性的潜力。</p>
+<p>------------------------------ 分析·Begin ------------------------------<br />
+<strong>为什么这种损失无法逐个分解，DP训练就会变的困难？</strong><br />
+因为之前用的是DP-SGD，它对每一个样本即Xi进行梯度裁剪和添加噪音，如果不能分解成单个样本，也就无法适用这种方法，DP-SGD算法如下：<br />
+<img src="https://pic.imgdb.cn/item/66cc2c2ed9c307b7e944ff26.png" alt="" /></p>
+<br>
 <p>确保query privacy是什么？</p>
 <p>代表原始数据的 private synthetic queries是什么？</p>
-<p>——————————————— 分析·End$\quad$———————————————</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>深度检索系统已广泛应用于许多在线服务中，从搜索到广告，以匹配用户查询与相关推荐（Covington et al., 2016; Huang et al., 2020）。在许多应用中，检索的候选项通常是公开可用的非个人信息，意即它们不包含与任何单一用户相关的特定信息（例如，文章、产品、电影、广告）。然而，检索系统的输入查询往往可能包含用户的个人信息。因此，虽然在用户数据上训练深度检索系统可能通过及时的相关性增强用户体验，但它也可能无意中泄露用户隐私，因为<strong>已证明神经网络模型会在训练数据中隐式地记忆和泄露敏感的用户信息</strong>（Carlini et al., 2019）。这引发了关于数据收集、训练、推理以及托管这些系统的各个阶段的隐私敏感性问题。在这项工作中，<strong>我们旨在解决在不显著降低实用性的情况下，确保深度检索系统中的用户查询隐私的问题</strong>。</p>
+<p>------------------------------ 分析·End<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="1em"/></mrow><annotation encoding="application/x-tex">\quad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:1em;"></span></span></span></span>------------------------------</p>
+<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<p>深度检索系统已广泛应用于许多在线服务中，从搜索到广告，以匹配用户查询与相关推荐（Covington et al., 2016; Huang et al., 2020）。在许多应用中，检索的候选项通常是公开可用的非个人信息，意即它们不包含与任何单一用户相关的特定信息（例如，文章、产品、电影、广告）。然而，检索系统的输入查询往往可能包含用户的个人信息。因此，虽然在用户数据上训练深度检索系统可能通过及时的相关性增强用户体验，但它也可能无意中泄露用户隐私，因为<strong>已证明神经网络模型会在训练数据中隐式地记忆和泄露敏感的用户信息</strong>（Carlini et al., 2019）。这引发了关于数据收集、训练、推理以及托管这些系统的各个阶段的隐私敏感性问题。在这项工作中，<strong>我们旨在解决在不显著降低实用性的情况下，确保深度检索系统中的用户查询隐私的问题</strong>。</p>
 <p>在许多大规模机器学习模型中，确保训练数据隐私的标准方法是在训练期间直接引入差分隐私（DP）保证（Dwork et al., 2014）（Abadi et al., 2016; Ponomareva et al., 2023）。这些差分隐私训练策略通过限制每个单独数据实例对整体模型的影响来提供保证。然而，一些模型包含的设计元素本质上阻碍了限制每个示例贡献的能力，因此更难直接进行差分隐私训练。这些模型包括含有批次统计计算组件的模型，如<strong>批量归一化层</strong>（Ponomareva et al., 2023），以及那些损失无法分解为每个示例损失的模型，如<strong>成对和对比风格损失</strong>（Huai et al., 2020; Xue et al., 2021）。</p>
 <p>这限制了差分隐私训练在深度检索系统中的应用，<strong>因为这些系统通常使用不可分解为每个示例的对比风格损失来训练用户查询和候选项的语义神经表示</strong>，以便于高效的基于向量的检索策略。为了达到差分隐私保证所需的注入噪声可能会随着示例级损失计算中出现的候选项数量的增加而扩大，这可能导致检索质量的严重下降。因此，通常需要额外的考虑来调整深度检索模型的差分隐私训练，以实现适当的隐私与性能的权衡。</p>
 <p>在这项工作中，我们采取了一种在训练深度检索系统之前确保用户查询隐私的方法，以规避直接使用不可分解对比风格损失的差分隐私训练深度检索系统的各种问题。我们基于使用差分隐私语言模型（LMs）（Yue et al., 2022; Mattern et al., 2022）生成合成数据的框架，开发了一种用于私密查询共享的方法，以训练任何下游深度检索系统，并在查询级别上对原始训练数据提供隐私保证。通过实验证明，与直接差分隐私训练方法相比，我们的方法在<strong>不损害隐私保证的情况下显著提高了检索质量</strong>。更广泛地说，我们的工作展示了利用语言模型的突破性进展来克服直接差分隐私训练机器学习系统的关键限制的一个初步研究。</p>
-<p>——————————————— 分析·Begin ———————————————<br>生成合成数据？</p>
+<p>------------------------------ 分析·Begin ------------------------------<br />
+生成合成数据？</p>
 <p>私密查询共享？</p>
-<p>——————————————— 分析·End$\quad$———————————————</p>
-<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2>
+<p>------------------------------ 分析·End<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="1em"/></mrow><annotation encoding="application/x-tex">\quad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:1em;"></span></span></span></span>------------------------------</p>
+<h2 id="related-work"><a class="markdownIt-Anchor" href="#related-work"></a> Related Work</h2>
+<p><strong>使用差分隐私语言模型生成合成数据</strong><br />
+最近的几项研究（Yue et al., 2022; Mattern et al., 2022; Mireshghallah et al., 2022; Putta et al., 2022）探讨了使用差分隐私微调的语言模型（DP LMs）生成的私密合成数据在下游任务中的效用，这些任务包括文本分类和语义解析等基于点对点损失的任务。<strong>这些研究发现，在相同的隐私预算下，使用私密合成数据训练的下游模型比直接进行差分隐私训练的模型表现更好，而且在没有隐私约束的情况下，非私密的合成数据生成甚至可以提升性能。</strong> 其原因在于，差分隐私合成数据受益于预训练语言模型中注入的额外公共信息。我们的工作进一步探索了在不同学习范式下使用私密合成数据进行下游训练的优势，特别是在不可分解为逐例损失的情况下。我们的动机是实现深度检索系统中高效的查询隐私差分隐私保证。</p>
+<p><strong>非逐例可分解损失下的差分隐私训练</strong><br />
+探索更好的方法来对使用非逐例可分解损失的模型进行差分隐私训练，仍然是一个活跃的研究领域。在这方面的研究主要集中于成对损失（Huai et al., 2020; Xue et al., 2021; Kang et al., 2021），通过在特定条件下引入特殊的算法，如凸性、平滑性和Lipschitz连续性，以维持合理的敏感度边界。我们的工作提出了一种通用的方法，无需这些额外的假设，便能<strong>在使用非逐例可分解损失的系统中实现一定程度的隐私保护</strong>。</p>
+<h2 id="background"><a class="markdownIt-Anchor" href="#background"></a> Background</h2>
+<h3 id="31-deep-retrieval"><a class="markdownIt-Anchor" href="#31-deep-retrieval"></a> 3.1 Deep Retrieval</h3>
+<p><img src="https://pic.imgdb.cn/item/66c5bab7d9c307b7e93ae7ac.png" alt="" /><br />
+深度检索系统已成为一种高效且可扩展的信息检索系统，能够根据查询的语义相关性找到候选项（Huang et al., 2020; Ni et al., 2021）。这些系统通常由两个神经编码器组成，它们可以生成查询和项的丰富、密集的表示（参见图2），从而支持高效的近似最近邻搜索方法（Guo et al., 2020），以检索与给定查询语义相关的项。深度检索系统通常通过对比风格的损失进行训练，这类损失使用了两种类型的数据示例：正示例和负示例。<strong>正示例帮助训练编码器，使相关的查询-项对在嵌入空间中更接近，而负示例则有助于防止嵌入空间的崩溃</strong>。在深度检索中，一个流行的损失函数选择是<strong>批内软最大值损失（in-batch softmax loss）</strong>，它通过将已加载到小批次中的项作为随机采样的软负例来进行高效的内存利用（Gillick et al., 2019; Karpukhin et al., 2020; Qu et al., 2020）。具体而言，给定一批训练数据，其中包含查询-项对({(q_i, d_i)}<em>{i\in B})，每个(d_i)是查询(q_i)的正项文档，而批次中的所有其他项文档({d_j}</em>{j \neq i})都被视为负项。批内软最大值损失函数对于批次中的每个样本的定义为：<br />
+[<br />
+L_i = -\log\frac{e^{\text{sim}(q_i, d_i)}}{\sum_{j\in B} e^{\text{sim}(q_i, d_j)}},<br />
+]<br />
+其中(\text{sim}(q_i, d_j))是查询(q_i)和文档(d_j)的嵌入之间的余弦相似度。批次越大、越多样化，越有利于表示学习。</p>
+<h4 id="311-privacy-risks-of-deep-retrieval"><a class="markdownIt-Anchor" href="#311-privacy-risks-of-deep-retrieval"></a> 3.1.1 Privacy Risks of Deep Retrieval</h4>
+<p>深度检索系统中的神经编码器是高容量模型，已知它们会隐式地记忆训练数据中存在的敏感信息（Carlini et al., 2019）。这些经过训练的模型随后可能会泄露出这些敏感数据（Carlini et al., 2021；Lehman et al., 2021）。此外，使用深度检索系统来辅助文本生成的检索增强文本生成系统，已被证明比直接在私有数据上训练的语言模型更容易泄露其私有数据存储中的私人信息（Huang et al., 2023；Zeng et al., 2024）。这强调了与深度检索系统相关的隐私风险的增加。</p>
+<h3 id="32-conditional-text-generation"><a class="markdownIt-Anchor" href="#32-conditional-text-generation"></a> 3.2 Conditional Text Generation</h3>
+<p>条件文本生成是指在<strong>给定prompt的情况下生成一段文本序列的任务</strong>（Keskar et al., 2019；Schick 和 Schütze, 2021）。像GPT-3和T5这样的预训练生成式语言模型已经被证明在基于各种提示输入生成高质量文本方面非常有效（Raffel et al., 2020；Brown et al., 2020）。在给定一个上下文(c)的情况下，文本序列(x = (x_1, . . . , x_n))的概率分布可以分解为：<br />
+[<br />
+p(x|c) = \prod_{i=1}^{n} p(x_i|x_1, . . . , x_{i-1}, c)<br />
+]<br />
+一个神经网络(p_{\theta})被训练来模拟这些条件分布。然后，该模型可以用于在给定上下文(c)的条件下，通过依次采样(p_{\theta}(·|c))，(p_{\theta}(·|x_1, c))，…，(p_{\theta}(·|x_1, . . . , x_{m-1}, c))来生成一个新的样本(\tilde{x} = (\tilde{x}_1, . . . , \tilde{x}_m))。在这项工作中，我们使用一个公开预训练的语言模型来模拟在给定项文档作为上下文的条件下生成查询文本的分布。</p>
+<p>------------------------------ 分析·Begin ------------------------------<br />
+文本序列<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mo stretchy="false">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">x=(x_1,x_2,...,x_n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>,在给定上下文c的情况下，生成每个单词<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的概率依赖之前生成的单词<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">x_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">x_{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span>以及上下文c。</p>
+<p>------------------------------ 分析·End<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="1em"/></mrow><annotation encoding="application/x-tex">\quad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:1em;"></span></span></span></span>------------------------------</p>
+<h3 id="33-differential-privacy"><a class="markdownIt-Anchor" href="#33-differential-privacy"></a> 3.3 Differential Privacy</h3>
+<p>DP已成为确保数据匿名化的黄金标准（Dwork et al., 2014）。在这项工作中，我们使用了一个较为宽松的差分隐私概念，即(ε, δ)-DP。</p>
+<p><img src="https://pic.imgdb.cn/item/66c5c12dd9c307b7e946db72.png" alt="" /></p>
+<p><strong>定义3.1（差分隐私）</strong>：一个随机算法M: D → S是(ε, δ)-差分隐私的，如果对于所有S ⊂ S以及任意两个相邻的数据集D, D′ ∈ D（它们仅相差一个数据点），都有：<br />
+[<br />
+P[M(D) ∈ S] ≤ e^ε P[M(D′) ∈ S] + δ<br />
+]<br />
+需要注意的是，在这个定义下，检索数据集中的查询级别差分隐私意味着相邻的数据集是<strong>仅在一个查询上有所不同的数据集</strong>。这个定义提供了一种基于数据集中单个数据点的存在与否无法区分的隐私保证。参数ε和δ控制了这种隐私保证的强度，其中较小的值对应更强的隐私保证。差分隐私的一个有用性质是其<strong>后处理性质</strong>（Dwork et al., 2014），该性质表明，对于任何定义在机制M的输出范围上的确定性或随机函数f，如果M满足(ε, δ)-DP，则f ◦ M也满足(ε, δ)-DP。后处理性质确保了对差分隐私机制的输出进行的任意计算不会导致额外的隐私损失。</p>
+<h4 id="331-differentially-private-training"><a class="markdownIt-Anchor" href="#331-differentially-private-training"></a> 3.3.1  Differentially Private Training</h4>
+<p>在机器学习的背景下，差分隐私可以用来保护用于训练模型的数据隐私，从而防止攻击者推断出特定的训练样本。目前，引入差分隐私到非凸机器学习模型中最实用的方法是修改训练过程，以限制每个数据实例对整体模型的影响，这也被称为差分隐私训练（DP-training）（Ponomareva et al., 2023）。最常用的差分隐私训练方法是<strong>梯度噪声注入方法</strong>，如差分隐私随机梯度下降（DP-SGD）（Abadi et al., 2016）。DP-SGD通过将每个样本的梯度裁剪到不超过C的范数，然后在裁剪后的梯度上添加各向同性高斯噪声(N(0, \sigma^2 C^2 I))，再聚合并将梯度更新应用到模型权重。噪声乘数σ基于隐私参数ε和δ设定，并可通过隐私会计工具来确定（Abadi et al., 2016）。</p>
+<p>裁剪操作是为了限制梯度的敏感性，它衡量单个样本对训练模型的影响程度。C的具体值实际上并不会影响(ε, δ)-DP的保证，因为C值越大，注入的噪声也会随之增加以进行补偿。然而，设置裁剪范数的主要挑战在于找到一个能最大化模型效用的平衡。如果裁剪范数设置得太低，可能会过度限制训练过程中的梯度；如果设置得太高，敏感性控制不足，导致添加过多噪声。两种情况都会妨碍模型的学习能力，并降低其效用。</p>
+<h4 id="332-limitations-of-directly-differentially-private-training-retrieval-systems"><a class="markdownIt-Anchor" href="#332-limitations-of-directly-differentially-private-training-retrieval-systems"></a> 3.3.2 Limitations of Directly Differentially Private Training Retrieval Systems</h4>
+<p>我们的工作主要受到以下事实的推动：差分隐私随机梯度下降（DP-SGD）与用于训练双编码器的批内软最大值损失（in-batch softmax loss）不直接兼容。主要原因是，这种损失的每个样本梯度不仅依赖于该样本本身，还依赖于批次中的所有其他样本。因此，一个样本可以影响多个样本的梯度计算，这会导致梯度的敏感性随着批次大小的增加而增加。在差分隐私训练中，较高的敏感性意味着需要在梯度更新时添加更多的噪声以实现相同水平的隐私保证，而这会降低模型的效用。</p>
+<p>此外，DP-SGD提供的是样本级别的隐私保证，而每个样本在这种情况下包含一个查询和一个项。然而，<strong>在这项工作中，我们关注的是实现查询级别的隐私，这应该比同时保护查询和项要容易得多</strong>。标准的DP-SGD无法保证这种较低级别的隐私。</p>
+<p>最后，DP-SGD在批内软最大值损失上的系统级问题是，为了利用向量化和并行化策略更快速地计算每个样本的梯度（Subramani et al., 2021），批次中的每个查询-项示例必须被重复，以包含在批次中的每个实际样本中，这会导致内存需求的平方增长。在固定的内存资源下，这就需要显著减少批次的大小，这不仅影响了梯度裁剪和加噪声，还对表示学习的效果产生负面影响，因为在批内软最大值损失下，表示学习的有效性高度依赖于批次中样本的数量和多样性。我们通过使用私密合成查询进行训练的方法，避免了上述在训练下游双编码器深度检索模型时的局限性。</p>
+<h2 id="approach"><a class="markdownIt-Anchor" href="#approach"></a> Approach</h2>
+<p>我们描述了一种通用方法，用于获取差分隐私（DP）合成数据，以在训练下游深度检索系统时确保原始训练数据的查询级别隐私。</p>
+<ol>
+<li>
+<p><strong>在条件查询生成任务上进行DP训练语言模型</strong>：首先，我们选择一个合适的、未在私有训练数据的查询上进行预训练的公开预训练语言模型（LM）。然后，我们使用DP-Adafactor优化器在条件查询生成任务上对选定的语言模型进行差分隐私微调。DP-Adafactor优化器是Adafactor优化器（Shazeer 和 Stern, 2018）的变体，它接收根据DP-SGD算法裁剪并加噪的梯度（Abadi et al., 2016）。条件查询生成任务如下：给定训练数据中的查询-项文档对(q, d)，语言模型会被微调以根据输入文本&quot;d&quot;生成目标文本“q”。对于拥有数十亿参数的更大语言模型，可以利用更高效的参数微调技术（Lester et al., 2021；Hu et al., 2021）来克服训练这些大模型的高成本。参数高效的DP微调对合成检索数据质量的影响是进一步研究的主题。</p>
+</li>
+<li>
+<p><strong>使用DP语言模型生成合成查询</strong>：然后，经过DP微调的语言模型能够生成代表真实查询且与项相关的合成查询。对于每个项文档d，我们通过向模型提供输入“generate_query: d”来生成一个匹配的合成查询q̃。这种方法允许从每个文档生成多个合成查询。接下来，构建一个合成训练数据集，它由原始文档及其对应的合成查询组成。</p>
+</li>
+<li>
+<p><strong>使用DP合成数据训练双编码器</strong>：最后，合成数据可以被安全地用于任何后续的训练任务，而不会对原始查询造成额外的DP损失，这得益于DP的后处理性质（见第3.3节）。具体而言，我们可以在合成训练数据上使用标准的非隐私训练方法，以批内软最大值损失（见公式1）训练双编码器模型，同时仍然保证对原始查询的DP保护。</p>
+</li>
+</ol>
+<h2 id="5-实验设置"><a class="markdownIt-Anchor" href="#5-实验设置"></a> 5 实验设置</h2>
+<h3 id="51-数据集"><a class="markdownIt-Anchor" href="#51-数据集"></a> 5.1 数据集</h3>
+<p>我们使用了公开可用的数据集来进行信息检索任务的实验。对于微调和评估，我们选用了MSMARCO数据集（Bajaj et al., 2016），该数据集包含了大约533,000对查询-文档的搜索数据，这些数据是从Bing的搜索日志中抽取的，涵盖了广泛的领域和概念。此外，我们还考虑了BEIR基准测试套件中的数据集（Thakur et al., 2021），这些数据集跨越了不同的领域，用于进行零样本评估。</p>
+<h3 id="52-合成数据生成"><a class="markdownIt-Anchor" href="#52-合成数据生成"></a> 5.2 合成数据生成</h3>
+<h4 id="521-实现细节"><a class="markdownIt-Anchor" href="#521-实现细节"></a> 5.2.1 实现细节</h4>
+<p><strong>模型训练</strong>：为了生成合成数据，我们训练了不同规模的T5语言模型（Raffel et al., 2020），这些模型的规模分别  {Small, Base, Large, XL}，并设置了不同的隐私保证ε ∈ {3, 8, 16, ∞}，用于在MSMARCO数据集中给定相应的输入文档生成合成查询。T5 Small, Base, Large, XL模型的参数量分别约为6000万、2.2亿、7.7亿和30亿。所有实验均在TPU v4芯片上进行。</p>
+<p><strong>超参数</strong>：我们对每个语言模型进行了30个周期的训练，批次大小为1024，输入文档的最大长度设置为384个标记，目标查询的最大长度设置为128个标记。我们使用了DP-Adam优化器，学习率为0.001，梯度裁剪的范数为0.1。根据Li等人的方法（2021），我们将隐私参数设置为$1/2n，其中n是训练数据集的大小。在采样过程中，我们使用了核采样策略（Holtzman等，2019），参数p设为0.8。</p>
+<p>上述超参数是通过超参数搜索确定的，目的是找出在MSMARCO训练数据集上对T5-Small模型进行DP微调的最佳超参数。最佳标准是验证数据集上取得的最高BLEU分数。我们发现，学习率为0.001，裁剪范数为0.1，批次大小为1024，训练30个周期的设置大多数情况下都能产生最佳模型。我们在所有其他T5模型中也使用了这些超参数。请参见表1了解超参数网格。</p>
+<h4 id="522-数据合成"><a class="markdownIt-Anchor" href="#522-数据合成"></a> 5.2.2 数据合成</h4>
+<p>我们使用每个经过差分隐私微调的T5语言模型，基于原始训练数据中的文档生成合成查询。<strong>这些合成查询和原始文档的配对构成了一个新的合成数据集</strong>。为了进行定性比较，我们在表2中提供了一个原始查询-文档对及在各种模型配置和隐私级别下生成的合成查询的示例。<br />
+<img src="https://pic.imgdb.cn/item/66c5caecd9c307b7e952fbbc.png" alt="" /></p>
+<h4 id="523-预训练和训练数据的重叠"><a class="markdownIt-Anchor" href="#523-预训练和训练数据的重叠"></a> 5.2.3 预训练和训练数据的重叠</h4>
+<p>我们注意到，生成合成数据所使用的预训练语言模型不能在我们希望保护隐私的原始查询数据上进行显著的预训练，否则隐私保障将会被削弱，因为模型已经见过这些数据。为了在实验中解决这个问题，我们进行了分析，以确定MSMARCO数据集与T5模型的预训练数据（即C4 common crawl数据集，Raffel et al., 2020）之间的重叠程度。我们多次随机选择1万个查询和文本对，以确定这些对在C4数据集中是否有完全匹配的记录。</p>
+<p>我们的分析表明，虽然平均约22%的MSMARCO文档可以在C4中精确匹配，但平均只有不到1.9%的MSMARCO查询在C4中有完全匹配的记录。而且，这些匹配的查询通常是通用的搜索词语，可以被认为是公共知识。由于我们关注的是查询级别的隐私，我们认为这种程度的数据集重叠是可以接受的，可以为隐私提供合理的保障。在第6.3节中，我们提供了对我们训练过程中隐私保障的更为广泛的实证研究。</p>
+<h3 id="53-下游检索系统"><a class="markdownIt-Anchor" href="#53-下游检索系统"></a> 5.3 下游检索系统</h3>
+<h4 id="531-实现细节"><a class="markdownIt-Anchor" href="#531-实现细节"></a> 5.3.1 实现细节</h4>
+<p><strong>模型训练</strong>：对于每个数据源（即原始的MSMARCO数据和不同ε值及模型规模下的合成数据集），我们分别在批内软最大值损失上训练一个独立的双编码器模型。我们为查询编码器和文档编码器分别使用了一个预训练的T5-Base编码器，并在它们之间共享参数。与数据合成类似，我们使用这种编码器是为了确保它在原始查询数据上没有进行显著的预训练。需要强调的是，检索模型的编码器与用于生成合成数据的T5模型是不同的。</p>
+<p><strong>超参数</strong>：在双编码器模型训练中的超参数设置为：学习率0.001，批次大小32，训练周期5，文档的最大标记长度为384，查询的最大标记长度为128。对于直接差分隐私微调的实验，我们使用了0.1的梯度裁剪范数。</p>
+<h4 id="532-基线方法"><a class="markdownIt-Anchor" href="#532-基线方法"></a> 5.3.2 基线方法</h4>
+<p>为了与我们的方法进行基线比较，我们将与一个直接在原始数据上进行差分隐私训练的深度检索系统进行对比。对于直接的DP训练，我们使用了与上述相同的超参数，但鉴于第3.3.2节中讨论的内存限制，DP训练双编码器模型的批次大小必须显著减少到32。我们没有尝试不同的下游深度检索模型，因为我们的目的是比较在检索系统中实现DP保证的通用方法。</p>
+<h2 id="6-评估"><a class="markdownIt-Anchor" href="#6-评估"></a> 6 评估</h2>
+<h3 id="61-检索任务的评估"><a class="markdownIt-Anchor" href="#61-检索任务的评估"></a> 6.1 检索任务的评估</h3>
+<p>我们在MSMARCO测试数据集和其他多个BEIR检索数据集上对检索模型进行了评估，特别是在零样本评估的情况下。我们使用标准化折扣累积增益分数（NDCG@10）来评估前10个预测的相关性和排名质量，该分数考虑了推荐列表中的质量和位置。此外，我们还报告了前10个预测的召回率分数（Recall@10），该分数衡量了在前10个预测中出现正确推荐的次数百分比。评估结果基于单次训练运行的结果。</p>
+<h4 id="611-搜索与检索过程"><a class="markdownIt-Anchor" href="#611-搜索与检索过程"></a> 6.1.1 搜索与检索过程</h4>
+<p>对双编码器检索模型的评估需要在推理阶段实施一个查询-文档最近邻搜索。在我们的实验中，我们使用了可扩展最近邻（ScaNN）库，这是一个开源库，提供了快速且可扩展的近似最近邻搜索过程（Guo等，2020）。我们在ScaNN中使用了暴力评分和内积距离设置来执行这个过程。</p>
+<h4 id="612-msmarco评估"><a class="markdownIt-Anchor" href="#612-msmarco评估"></a> 6.1.2 MSMARCO评估</h4>
+<p>表3显示了在不同生成模型配置和不同隐私级别下，基于合成生成数据常规训练的深度检索模型在MSMARCO测试集上的评估结果。为了进行基准比较，表4显示了在不同隐私级别下，直接在原始数据上进行差分隐私训练的深度检索模型的评估结果。在两个表格的顶部行中，我们还提供了另一个基线参考评估，即没有任何DP保证（即ε = ∞）的情况下在原始数据上常规微调的双编码器模型。</p>
+<p>我们观察到，使用差分隐私合成数据训练的检索模型显著优于使用原始数据进行差分隐私训练的模型。如在第3.3.2节中讨论的，使用对比风格损失训练DP模型存在许多挑战。我们实施DP训练的对比损失的简单方法可能解释了在原始数据上进行DP训练的模型效用较差的原因。此外，我们的DP合成数据本质上引入了额外的公共知识，因为我们使用了一个公开预训练的语言模型。</p>
+<p>此外，我们发现，使用非DP合成数据训练的检索模型优于在原始数据上训练的检索模型。这表明，合成数据生成确实增强了原始数据，并在某种程度上改善了模型的泛化能力，无论是通过引入额外的公共信息还是通过数据清理。事实上，利用语言模型生成合成数据来增强深度检索的研究领域近年来引起了广泛关注（Dai等，2022；Bonifacio等，2022）。我们还观察到，随着模型规模的增加，性能有所提高。这与先前的类似结果一致，表明在过参数化模型上进行的DP-SGD训练的表现显著优于之前的预期（De等，2022；Li等，2021）。总体而言，我们表明，使用DP语言模型生成的合成数据进行训练在实现DP保证和提高检索模型效率方面是可行的。</p>
+<p><img src="https://pic.imgdb.cn/item/66c5cbffd9c307b7e956453d.png" alt="" /></p>
+<h3 id="62-合成数据与原始数据之间的相似性"><a class="markdownIt-Anchor" href="#62-合成数据与原始数据之间的相似性"></a> 6.2 合成数据与原始数据之间的相似性</h3>
+<p>我们计算了由差分隐私（DP）训练的T5模型生成的合成数据与原始数据之间的相似性。由于合成数据是从原始数据一对一生成的，我们可以使用BLEU分数来评估相似性（Post, 2018）。我们还计算了MAUVE分数，这被证明在比较文本分布的相似性方面更为有效（Pillutla et al., 2021）。相似性分数见表6。我们观察到，非DP微调模型生成的合成数据在这些度量标准下的相似性达到了预期水平，而随着ε值的减小，相似性显著下降；然而，随着ε值的增加和模型规模的增大，相似性又有所增加。通过将相似性分数与检索评估结果进行比较，我们发现尽管更大的模型在提高合成数据相似性方面有显著改善，但下游检索性能随着模型规模的增大却只表现出相对更为温和的提升。</p>
+<h3 id="63-实证隐私"><a class="markdownIt-Anchor" href="#63-实证隐私"></a> 6.3 实证隐私</h3>
+<p>随着ε值的增大，差分隐私（DP）提供的可证明隐私性显著减弱，但先前的研究表明，即使是较大的ε值也能对抗最先进的隐私攻击提供强有力的保护（Carlini et al., 2019, 2022; Ponomareva et al., 2023）。为了验证我们的训练技术是否仍然遵循这种趋势，我们使用(Carlini et al., 2019)中引入的canary曝光度量，评估了DP训练语言模型的实证隐私泄露。这种技术常用于评估实证隐私（Zanella-Béguelin et al., 2020; Ramaswamy et al., 2020; Jagielski et al., 2022）。为了进行此测试，我们构建了包含私人信息的示例，称为canaries，并将它们的一个子集引入到原始训练数据中，测量模型输出这些插入的canaries的可能性。一般而言，canary生成是一个与领域相关的决策，因此我们为检索应用设计了以下三种类型的查询-文档对来生成canaries：（随机查询，随机10位数字串），（随机查询，对应文档+随机10位数字串），（随机查询，随机文档+随机10位数字串）。每个canary的秘密部分是随机的10位数字串。</p>
+<p>我们在这个修改后的数据集上使用不同的DP保证训练语言模型，生成合成数据集，并评估canary的曝光度。我们多次用不同的canaries和DP保证进行了实验，平均了指标并在表7中报告了结果。正如预期的那样，在没有DP的情况下训练会导致显著的泄露。重复10次的canaries经常会被提取出来，而重复100次的canaries总是会被提取出来。然而，我们的方法，即使用较大的ε值为16，能够防止模型泄露秘密，并显著提高了排名。最近的一些技术将攻击成功率转换为对ε参数下界的估计（Stock et al., 2022），使我们能够将这些排名解释为ε约为0.015的下界。这种大差距与之前关于DP-SGD在语言模型上实证隐私的研究结果一致（Carlini et al., 2019; Ponomareva et al., 2023）。</p>
+
             
         </div>
         <footer class="article-footer">
@@ -237,6 +339,20 @@
     
         
     <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    <img data-src="https://pic.imgdb.cn/item/66d01be4d9c307b7e9b7b1c6.png" data-sizes="auto" alt="基于Code LlaMA实现代码生成"
+                         class="lazyload">
+                
+                <a href="/2024/08/28/%E5%9F%BA%E4%BA%8ECode-LlaMA%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        基于Code LlaMA实现代码生成
+                    
+                </h3>
+            </div>
         
         
             <div class="article-nav-link-wrap article-nav-link-right">
@@ -281,7 +397,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">297</div>
+                <div class="sidebar-state-number">299</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -387,10 +503,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    670.7k
+                    683.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    41:16
+                    42:03
                 </div>
             
             
@@ -417,7 +533,7 @@
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">297</div>
+                <div class="sidebar-state-number">299</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
