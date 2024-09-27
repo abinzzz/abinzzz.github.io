@@ -172,344 +172,6 @@
         
     <div class="post-wrap-left wow fadeInUp">
         
-            <a class="post-link" href="/2023/12/04/Django%E5%A4%96%E9%83%A8%E7%BD%91%E7%BB%9C%E8%AE%BF%E9%97%AE/"></a>
-        
-        
-        <div class="post-cover-left">
-            
-                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="Django外部网络访问" class="lazyload">
-            
-
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-04</a>
-                
-                    <a><span class="icon-pencil"></span>533 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>2 分钟</a>
-                
-            </div>
-            <h2 class="post-title">Django外部网络访问</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 1.本地创建django项目，点击下方链接并确认本地可以访问
-
-
- 2.在settings.py中配置允许所有服务器访问（局域网访问）
-1ALLOWED_HOSTS = [&amp;quot;*&amp;quot;,]
-
-
- 3.查看本地ip地址和端口号
-在命令行中输入以下指令查看ip地址：
-1(base) chenyubin@chenyubindeMacBook-Pro ~ % ifconfig | grep &amp;quot;ine
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/03/nvidia-smi/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="nvidia-smi" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-03</a>
-                
-                    <a><span class="icon-pencil"></span>624 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>3 分钟</a>
-                
-            </div>
-            <h2 class="post-title">nvidia-smi</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 1.简介
-nvidia-smi是常用的GPU命令
-
- 2.nvidia-smi输出解析
-
-
- 3.示例
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849(sbert) root@3090_0002:/data10/sqy/spikeBert_Sqy# nvidia-smiSun Dec 
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-left wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/03/spikeBERT-TBLD-BT-L-D/"></a>
-        
-        
-        <div class="post-cover-left">
-            
-                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="spikeBERT:TBLD-&gt;BT(L)D" class="lazyload">
-            
-
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-03</a>
-                
-                    <a><span class="icon-pencil"></span>3.7k 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>21 分钟</a>
-                
-            </div>
-            <h2 class="post-title">spikeBERT:TBLD-&gt;BT(L)D</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 1. class BertLayer(nn.Module):
-初始化函数：
-12345678910111213def __init__(self, config):        super().__init__()        self.chunk_size_feed_forward = config.chunk_size_feed_forward        self.seq_len_dim = 1    
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/03/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E8%A7%A3%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="Linux服务器上解压缩文件" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-03</a>
-                
-                    <a><span class="icon-pencil"></span>335 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>1 分钟</a>
-                
-            </div>
-            <h2 class="post-title">Linux服务器上解压缩文件</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 简介
-解压缩是一个常用的操作，在 Linux 中通常比较常用的是 tar 命令，zip 和 rar 命令则是 Windows 中比较常用
-
- 目录
-
-tar
-rar
-zip
-
-
- 1.tar
-示例：
-12345678# 压缩文件 file1 和目录 dir2 到 test.tar.gztar -zcvf test.tar.gz file1 dir2# 解压 test.tar.gz（将 c 换成 x 即可）tar -
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-left wow fadeInUp">
-        
-            <a class="post-link" href="/2023/11/30/No-such-file-or-directory/"></a>
-        
-        
-        <div class="post-cover-left">
-            
-                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="No such file or directory" class="lazyload">
-            
-
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-11-30</a>
-                
-                    <a><span class="icon-pencil"></span>157 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>1 分钟</a>
-                
-            </div>
-            <h2 class="post-title">No such file or directory</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 出现的报错
-12(pytorch) root@notebook-devenviron-1129-193455-j8m3xk-notebook-0:/opt/code_chap_2_3/pycnnl/cnnl_python/swig# bash build_pycnnl.shbash: build_pycnnl.sh: No such file or directory
-
- 操作步骤
-
-
- 问题所在之处
-当我pip 
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/11/29/paper-LMUFORMER/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="paper:LMUFORMER" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-11-29</a>
-                
-                    <a><span class="icon-pencil"></span>768 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>2 分钟</a>
-                
-            </div>
-            <h2 class="post-title">paper:LMUFORMER</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- abstract
-Transformer 模型已在众多应用中表现出高精度，但复杂性高且缺乏顺序处理能力，这使得它们不适合设备资源严重受限的边缘的许多流应用程序。因此，许多研究人员提出将 Transformer 模型重新表述为 RNN 模块，用显式状态修改自注意力计算。然而，这些方法通常会导致性能显着下降。最终目标是开发一种具有以下属性的模型：并行训练、流式传输和低成本推理以及最先进的 (SOTA) 性能。在本文中，
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-left wow fadeInUp">
-        
-            <a class="post-link" href="/2023/11/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E5%8D%95%E6%AD%A5%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81/"></a>
-        
-        
-        <div class="post-cover-left">
-            
-                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="使用VSCode在服务器上单步调试代码" class="lazyload">
-            
-
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-11-28</a>
-                
-                    <a><span class="icon-pencil"></span>1.2k 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>5 分钟</a>
-                
-            </div>
-            <h2 class="post-title">使用VSCode在服务器上单步调试代码</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 说在前面
-如果想要在服务器中使用以下这种方法来单步调试python文件,那么直接点起单步调试按钮即可：
-1python xx.py
-
-在文章中，针对的是以下这种情况来单步调试文件,即无法点击调试按钮就可以开始调试的情况：
-1python xx.py --train_file ... 
-
-直接点击调试按钮会出现以下这样的画面：
-
-
- 操作步骤
- 1.找到最上面的窗口，然后输入Debug: Open launch.js
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/11/25/ssh-vscode%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="ssh+vscode进行远程调试" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-11-25</a>
-                
-                    <a><span class="icon-pencil"></span>585 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>2 分钟</a>
-                
-            </div>
-            <h2 class="post-title">ssh+vscode进行远程调试</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 1.SSH及OpenSSH简介
-SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层基础上的安全协议。SSH 是较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。SSH最初是UNIX系统上的一个程序，后来又迅速扩展到其他操作平台。SSH在正确使用时可弥补网络
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-left wow fadeInUp">
-        
             <a class="post-link" href="/2023/11/25/paper-A-PARALLEL-MULTI-COMPARTMENT-SPIKING-NEURON-FOR-MULTI-SCALE-SEQUENTIAL-MODELING/"></a>
         
         
@@ -600,11 +262,376 @@ wt​=wt−1​−η∂wt−1​∂L​
 
 
     
+        
+    <div class="post-wrap-left wow fadeInUp">
+        
+            <a class="post-link" href="/2023/11/25/d2l-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92-%E5%9F%BA%E7%A1%80%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"></a>
+        
+        
+        <div class="post-cover-left">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="d2l:线性回归" class="lazyload">
+            
+
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-11-25</a>
+                
+                    <a><span class="icon-pencil"></span>758 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>3 分钟</a>
+                
+            </div>
+            <h2 class="post-title">d2l:线性回归</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 线性回归
+ 1.一个简化模型
+
+
+假设 1: 多因素同时存在时相互独立且对结果有正向影响,且每个因素,如 x1,x2,x3x_1, x_2, x_3x1​,x2​,x3​
+
+
+假设 2: 成交价格是关于这些因素的加权和
+
+
+y=w1x1+w2x2+w3x3+by = w_1x_1 + w_2x_2 + w_3x_3 + b
+y=w1​x1​+w2​x2​+w3​x3​+b
+权重和偏差的实际值在后面决定
+
+ 2.线性
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/11/24/paper-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="paper:AN IMAGE IS WORTH 16X16 WORDS:TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE" class="lazyload">
+            
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-11-24</a>
+                
+                    <a><span class="icon-pencil"></span>9.9k 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>39 分钟</a>
+                
+            </div>
+            <h2 class="post-title">paper:AN IMAGE IS WORTH 16X16 WORDS:TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 论文链接
+
+🔗：AN IMAGE IS WORTH 16X16 WORDS:TRANSFORMERS FOR IMAGE RECOGNITION AT
+🔗：李沐论文精读系列二：Vision Transformer、MAE、Swin-Transformer
+
+
+ 说在前面
+这篇文章挑战了自从2012年AlexNet提出以来卷积神经网络在计算机视觉里绝对统治的地位。结论是如果在足够多的数据上做预训练，也可以不需要卷
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-left wow fadeInUp">
+        
+            <a class="post-link" href="/2023/11/24/Pytorch-nn-Conv2d/"></a>
+        
+        
+        <div class="post-cover-left">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="Pytorch:nn.Conv2d()" class="lazyload">
+            
+
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-11-24</a>
+                
+                    <a><span class="icon-pencil"></span>2.2k 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>9 分钟</a>
+                
+            </div>
+            <h2 class="post-title">Pytorch:nn.Conv2d()</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 参考链接
+
+🔗：torch.nn.Conv2d
+
+ 1.pytorch官方文档
+应用一个2D卷积在由多个输入平面组成的输入信号上。
+在最简单的情况下，具有输入大小 (N,Cin,H,W)(N, C_{in}, H, W)(N,Cin​,H,W) 和输出 (N,Cout,Hout,Wout)(N, C_{out}, H_{out}, W_{out})(N,Cout​,Hout​,Wout​) 的层的输出值可以精确描
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/11/23/ML-CNN/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="ML:CNN" class="lazyload">
+            
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-11-23</a>
+                
+                    <a><span class="icon-pencil"></span>1k 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>3 分钟</a>
+                
+            </div>
+            <h2 class="post-title">ML:CNN</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 视频链接
+
+🔗：李宏毅讲解卷积神经网络（带字幕)
+
+ 1.为什么CNN用于图像处理
+当我们用 fully connect feedforward network 来做图像处理的时候，往往我们会需要太多的参数，举例来说，假设这是一张 100 *100 的彩色图(一张很小的 imgage)，你把这个拉成一个 vector，(它有多少个 pixel)，它有 100 *100 3 的 pixel。
+如果是彩色图的话，每个
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-left wow fadeInUp">
+        
+            <a class="post-link" href="/2023/11/23/ML-regression/"></a>
+        
+        
+        <div class="post-cover-left">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="ML:regression" class="lazyload">
+            
+
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-11-23</a>
+                
+                    <a><span class="icon-pencil"></span>1.3k 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>4 分钟</a>
+                
+            </div>
+            <h2 class="post-title">ML:regression</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 1.什么是regression
+Regression 就是找到一个函数 function，通过输入特征 x ，输出一个数值 Scalar 。
+
+
+股市预测（Stock market forecast）:
+
+输入：过去10年股票的变动、新闻咨询、公司并购咨询等
+输出：预测股市明天的平均值
+
+自动驾驶（Self-driving Car）：
+
+输入：无人车上的各个sensor的数据，例如路况、测出的车距等
+输出：方向盘的
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/11/23/d2l-%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="d2l:自动求导" class="lazyload">
+            
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-11-23</a>
+                
+                    <a><span class="icon-pencil"></span>1.4k 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>6 分钟</a>
+                
+            </div>
+            <h2 class="post-title">d2l:自动求导</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 1.向量链式法则
+
+标量链式法则：
+
+
+
+
+拓展到向量：
+
+
+
+
+---------------------向量链式法则-example-BEGIN---------------------
+
+
+
+---------------------向量链式法则-example-END---------------------
+
+
+ 2.自动求导
+
+自动求导计算一个函数在指定值上的导数
+有区别于：
+
+符号求导
+数值求导
+
+
+
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-left wow fadeInUp">
+        
+            <a class="post-link" href="/2023/11/23/iTerm2-oh-my-zsh/"></a>
+        
+        
+        <div class="post-cover-left">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="iTerm2+oh-my-zsh" class="lazyload">
+            
+
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-11-23</a>
+                
+                    <a><span class="icon-pencil"></span>505 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">iTerm2+oh-my-zsh</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ shell
+在操作系统内核外有一层壳，而这层壳就是 shell，它是用户和操作系统交互的桥梁。这很好理解，shell 包住了系统，用户想要跟系统交互，就必须经过shell。
+后来，shell 还慢慢变成了内核与用户交互的脚本语言的总称。我们常见的 shell 有：bash、zsh、csh、ksh、ash 等等。
+Linux 下默认的是 bash ，macOS 在 Catalina 之前的版本默认也是 bash ，后
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/11/23/mysqlclient/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="mysqlclient" class="lazyload">
+            
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-11-23</a>
+                
+                    <a><span class="icon-pencil"></span>428 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>2 分钟</a>
+                
+            </div>
+            <h2 class="post-title">mysqlclient</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 内容信息
+1234567891011121314151617181920212223242526272829303132333435363738394041424344Last login: Wed Nov 22 23:14:16 on ttys000(base) chenyubin@chenyubindeMacBook-Pro ~ % conda activate dp(dp) chenyubin@chenyub
+                
+            </article>
+        </div>
+    </div>
+
+
+    
 
 
     <nav id="page-nav" class="wow fadeInUp">
         
-        <a class="extend prev" rel="prev" href="/page/18/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/20/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/18/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/20/">下一页 &raquo;</a>
     </nav>
 
 
@@ -620,11 +647,11 @@ wt​=wt−1​−η∂wt−1​∂L​
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">306</div>
+                <div class="sidebar-state-number">298</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">24</div>
+                <div class="sidebar-state-number">23</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
@@ -673,7 +700,7 @@ wt​=wt−1​−η∂wt−1​∂L​
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Accumulate/">Accumulate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Competition/">Competition</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Future/">Future</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/Application-Season/">Application Season</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/IELTS/">IELTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/bug/">bug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/internship/SNN/">SNN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/FL/">FL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/FL/Privacy/">Privacy</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/Multimudal/">Multimudal</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS224N/">CS224N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS231N/">CS231N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/Missing-Semester-of-CS/">Missing Semester of CS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/d2l/">d2l</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Accumulate/">Accumulate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Competition/">Competition</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Future/">Future</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/Application-Season/">Application Season</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/IELTS/">IELTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/bug/">bug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/internship/SNN/">SNN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/FL/">FL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/FL/Privacy/">Privacy</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/Multimudal/">Multimudal</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS224N/">CS224N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS231N/">CS231N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/Missing-Semester-of-CS/">Missing Semester of CS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/d2l/">d2l</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
         </div>
     </div>
 
@@ -726,10 +753,10 @@ wt​=wt−1​−η∂wt−1​∂L​
             
                 <div>
                     <span class="icon-brush"></span>
-                    718.2k
+                    676.4k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    44:34
+                    42:00
                 </div>
             
             
@@ -756,11 +783,11 @@ wt​=wt−1​−η∂wt−1​∂L​
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">306</div>
+                <div class="sidebar-state-number">298</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">24</div>
+                <div class="sidebar-state-number">23</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>

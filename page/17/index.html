@@ -172,386 +172,6 @@
         
     <div class="post-wrap-left wow fadeInUp">
         
-            <a class="post-link" href="/2023/12/19/paper-LLM-QAT/"></a>
-        
-        
-        <div class="post-cover-left">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:LLM-QAT" class="lazyload">
-            
-
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-19</a>
-                
-                    <a><span class="icon-pencil"></span>7 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>1 分钟</a>
-                
-            </div>
-            <h2 class="post-title">paper:LLM-QAT</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
-
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/19/paper-Visual-Instruction-Tuning/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:Visual Instruction Tuning" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-19</a>
-                
-                    <a><span class="icon-pencil"></span>633 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>2 分钟</a>
-                
-            </div>
-            <h2 class="post-title">paper:Visual Instruction Tuning</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 参考链接
-
-项目地址
-文章链接
-Visual Instruction Tuning论文阅读（LLaVa）
-《Visual Instruction Tuning》论文笔记
-核心代码
-时间：2023.4
-第一作者：Haotian Liu
-
-
- Abstract
-在这篇论文中，作者首次尝试使用纯语言 GPT-4 生成多模态语言图像指令遵循数据（insruction-following data）。 通过对此类生成数据进行
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-left wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/18/loss%E6%BC%82%E6%B5%AE%E4%B8%8D%E5%AE%9A/"></a>
-        
-        
-        <div class="post-cover-left">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="LossFlow" class="lazyload">
-            
-
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-18</a>
-                
-                    <a><span class="icon-pencil"></span>202 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>1 分钟</a>
-                
-            </div>
-            <h2 class="post-title">LossFlow</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 问题描述
-发现训练出来的loss忽大忽小的
-
-
- 问题所在
-每个epoch计算得出的loss是最后一个batch的loss，而不是整个epoch的平均loss
-123456789101112131415for epoch in range(50):    for data in train_loader:        img, _ = data        img = img.view(img.size(0),
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/18/%E4%B8%8A%E6%B8%B8%E4%BB%BB%E5%8A%A1-and-%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="上游任务 and 下游任务" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-18</a>
-                
-                    <a><span class="icon-pencil"></span>1.4k 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>4 分钟</a>
-                
-            </div>
-            <h2 class="post-title">上游任务 and 下游任务</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- CV领域
- 1.前言
-计算机视觉中有常见的四大任务：
-
-分类（解决&amp;quot;what&amp;quot;）
-定位（解决&amp;quot;where&amp;quot;）
-检测（解决&amp;quot;what&amp;quot;和&amp;quot;where&amp;quot;）
-分割（实例分割、语义分割和场景分割等像素级别的处理）
-
-
- 2.上游任务
-预训练模型。一般就是利用上游数据进行预训练，以生成一个包含视觉表征能力的模型。
-比如，我们想要的是一个能够提取图
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-left wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/18/paper-%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E5%90%88%E9%9B%86/"></a>
-        
-        
-        <div class="post-cover-left">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:多模态论文合集" class="lazyload">
-            
-
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-18</a>
-                
-                    <a><span class="icon-pencil"></span>8.8k 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>31 分钟</a>
-                
-            </div>
-            <h2 class="post-title">paper:多模态论文合集</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 参考链接
-
-【跟李沐学AI】多模态论文串讲
-视频
-ALBEF
-
-
- 目录
-
-1.回顾
-
-1.1 ViLT回顾
-1.2 Clip回顾
-1.3回顾小结
-
-
-2.ALBEF
-
-2.1摘要
-2.2主体方法部分
-
-2.2.1模型设计
-2.2.2目标函数
-2.2.3momentum distillation 动量蒸馏
-
-
-2.3下游任务和实验结果
-
-
-3.VLMo
-
-3.1论文贡献
-3.2研究动机
-3.3主体方法部分
-
-3.3
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/18/paper-BLIP-2/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:BLIP-2" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-18</a>
-                
-                    <a><span class="icon-pencil"></span>4.2k 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>15 分钟</a>
-                
-            </div>
-            <h2 class="post-title">paper:BLIP-2</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
-第一作者：Author：Junnan Li
-发布日期：2023.1
-
- 参考链接
-
-paper: BLIP-2
-code: BLIP-2
-朱老师：多模态论文串讲
-HF上的Demo
-BLIP2-图像文本预训练论文解
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-left wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/18/paper-BLIP/"></a>
-        
-        
-        <div class="post-cover-left">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:BLIP" class="lazyload">
-            
-
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-18</a>
-                
-                    <a><span class="icon-pencil"></span>2.3k 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>8 分钟</a>
-                
-            </div>
-            <h2 class="post-title">paper:BLIP</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation
- 参考链接
-
-BLIP原文
-BLIP论文笔记
-Align before Fuse
-code:BLIP
-
-
- Abstract
-大多数现有的VLP模型大多仅仅在understanding-based tasks
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/18/LLM-%E5%BE%AE%E8%B0%83/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="LLM 微调" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-18</a>
-                
-                    <a><span class="icon-pencil"></span>615 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>2 分钟</a>
-                
-            </div>
-            <h2 class="post-title">LLM 微调</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 参考链接
-
-LoRA
-https://redian.news/wxnews/370210
-
-
- 简介
-最近对大模型这部分内容比较感兴趣，作者最早接触大模型是22年下半年的时候。当时觉得非常amazing，并认为这是一个颠覆性的工作，目前随着开源大模型的逐渐变多。我觉得我们得学习并了解这些基础知识，以便后续在工作中可以学习并使用。在深度学习中，微调是一种重要的技术，用于改进预训练模型的性能。除了微调ChatGPT之外
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-left wow fadeInUp">
-        
             <a class="post-link" href="/2023/12/17/Google-Gemini-Pro%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"></a>
         
         
@@ -629,11 +249,346 @@ https://redian.news/wxnews/370210
 
 
     
+        
+    <div class="post-wrap-left wow fadeInUp">
+        
+            <a class="post-link" href="/2023/12/12/paper-The-Devil-in-Linear-Transformer/"></a>
+        
+        
+        <div class="post-cover-left">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="paper:The Devil in Linear Transformer" class="lazyload">
+            
+
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-12-12</a>
+                
+                    <a><span class="icon-pencil"></span>918 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>3 分钟</a>
+                
+            </div>
+            <h2 class="post-title">paper:The Devil in Linear Transformer</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ Abstract
+线性Transformer的目的：减少标准Transformer的二次空间-时间复杂度
+减少复杂度带来的隐患：通常在各种任务和语料库上性能下降
+产生隐患的原因：
+
+注意力计算中的无界梯度对线性Transformer模型的收敛产生负面影响；
+注意力稀释问题，即在长序列中平均分配注意力分数，而忽视邻近结构。
+
+
+解决隐患的方法：
+
+无界梯度：首先确定注意力矩阵的缩放是无界梯度中的关键，理论上和实证上显
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/12/11/%E5%9B%BD%E5%86%85%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%B0%B1%E4%B8%9A%E5%BD%A2%E5%8A%BF%E4%B8%8E%E8%AE%A4%E7%9F%A5%E5%88%86%E4%BA%AB/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="国内大学生就业形势与认知分享" class="lazyload">
+            
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-12-11</a>
+                
+                    <a><span class="icon-pencil"></span>24 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">国内大学生就业形势与认知分享</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 趋势
+国家统计局
+各种文件
+学长
+扩大交际
+
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-left wow fadeInUp">
+        
+            <a class="post-link" href="/2023/12/11/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"></a>
+        
+        
+        <div class="post-cover-left">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="大三上期末复习" class="lazyload">
+            
+
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-12-11</a>
+                
+                    <a><span class="icon-pencil"></span>129 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">大三上期末复习</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 期末复习计划
+目前还剩：12.11~1.1(5+7+7+2=21day)
+
+智能计算系统进度：目前讲到第六章=6/21=(4+6+6+6+5+7)/21=34
+数据库进度：目前是chapter01~chapter07(p147) + chapter13 ~ chapter16(p32)=7+4=11
+软件工程进度：目前讲到第八章：结构化设计方法=8=4+4+6+6+3+10+4+9=46
+操作系统目前进度：目前讲到
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/12/11/SNN-1/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="SNN:zero" class="lazyload">
+            
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-12-11</a>
+                
+                    <a><span class="icon-pencil"></span>114 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">SNN:zero</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+&amp;quot;SNN-Daily-Arxiv&amp;quot;是一个专门更新脉冲神经网络（Spiking Neural Networks, SNNs）相关的arXiv论文的项目。该页面每天更新，为研究者和对SNN领域感兴趣的人士提供最新研究和发展动态。它列出了最近的论文，包括标题、作者和论文链接。这是一个对追踪SNN领域进展有价值的工具
+链接：SNN-Daily-Arxiv
+
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-left wow fadeInUp">
+        
+            <a class="post-link" href="/2023/12/10/Github%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0%E6%88%90%E5%91%98/"></a>
+        
+        
+        <div class="post-cover-left">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="Github项目添加成员" class="lazyload">
+            
+
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-12-10</a>
+                
+                    <a><span class="icon-pencil"></span>33 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">Github项目添加成员</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 1.创建自己的github项目
+
+ 2.在setting中找到下面内容
+
+
+ 3.输入内容即可
+
+
+
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/12/10/Failed-to-connect-to-github-com-port-443-after-75016-ms-Couldn-t-connect-to-server/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="Failed to connect to github.com port 443 after 75016 ms: Couldn&#39;t connect to server" class="lazyload">
+            
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-12-10</a>
+                
+                    <a><span class="icon-pencil"></span>1.2k 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>7 分钟</a>
+                
+            </div>
+            <h2 class="post-title">Failed to connect to github.com port 443 after 75016 ms: Couldn&#39;t connect to server</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+1218:07:19.099: [djangoProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refs/heads/main:refs/heads/main --set-upstreamfatal: unable to ac
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-left wow fadeInUp">
+        
+            <a class="post-link" href="/2023/12/06/%E4%BC%98%E9%9B%85%E5%9C%B0%E7%9B%91%E6%8E%A7%E6%98%BE%E5%8D%A1-GPU-%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/"></a>
+        
+        
+        <div class="post-cover-left">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="优雅地监控显卡(GPU)使用情况:nvitop" class="lazyload">
+            
+
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-12-06</a>
+                
+                    <a><span class="icon-pencil"></span>140 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">优雅地监控显卡(GPU)使用情况:nvitop</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+想要拥有nvtop那样详细的展示，又想拥有gpustat那样彩色的界面，并且希望能够像gpustat一样通过pip快速安装，那就不得不提nvitop工具了。
+
+展示的模式有三种：
+
+auto (默认)
+compact
+full
+
+
+安装方式：
+1pip install nvitop
+
+运行：
+1nvitop -m full
+完整地显示出每个进程的执行用户、运行时长、执行指令以及每个进程所使用的GPU编号。可谓是集其他
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/12/05/%E5%AE%89%E8%A3%85pycocotools%E7%83%A6%E6%AD%BB%E4%BA%86T-T/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="安装pycocotools烦死了T.T" class="lazyload">
+            
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-12-05</a>
+                
+                    <a><span class="icon-pencil"></span>39 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">安装pycocotools烦死了T.T</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+看了网上那么多解决方法，还是这个最厉害，我愿称之为神中神：
+1conda install -c conda-forge pycocotools
+                
+            </article>
+        </div>
+    </div>
+
+
+    
 
 
     <nav id="page-nav" class="wow fadeInUp">
         
-        <a class="extend prev" rel="prev" href="/page/16/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/18/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/16/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/18/">下一页 &raquo;</a>
     </nav>
 
 
@@ -649,11 +604,11 @@ https://redian.news/wxnews/370210
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">306</div>
+                <div class="sidebar-state-number">298</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">24</div>
+                <div class="sidebar-state-number">23</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
@@ -702,7 +657,7 @@ https://redian.news/wxnews/370210
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Accumulate/">Accumulate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Competition/">Competition</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Future/">Future</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/Application-Season/">Application Season</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/IELTS/">IELTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/bug/">bug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/internship/SNN/">SNN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/FL/">FL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/FL/Privacy/">Privacy</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/Multimudal/">Multimudal</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS224N/">CS224N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS231N/">CS231N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/Missing-Semester-of-CS/">Missing Semester of CS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/d2l/">d2l</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Accumulate/">Accumulate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Competition/">Competition</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Future/">Future</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/Application-Season/">Application Season</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/IELTS/">IELTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/bug/">bug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/internship/SNN/">SNN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/FL/">FL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/FL/Privacy/">Privacy</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/Multimudal/">Multimudal</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS224N/">CS224N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/CS231N/">CS231N</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/Missing-Semester-of-CS/">Missing Semester of CS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/d2l/">d2l</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
         </div>
     </div>
 
@@ -755,10 +710,10 @@ https://redian.news/wxnews/370210
             
                 <div>
                     <span class="icon-brush"></span>
-                    718.2k
+                    676.4k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    44:34
+                    42:00
                 </div>
             
             
@@ -785,11 +740,11 @@ https://redian.news/wxnews/370210
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">306</div>
+                <div class="sidebar-state-number">298</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">24</div>
+                <div class="sidebar-state-number">23</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
