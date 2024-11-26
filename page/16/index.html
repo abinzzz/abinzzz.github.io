@@ -172,14 +172,55 @@
         
     <div class="post-wrap-left wow fadeInUp">
         
-            <a class="post-link" href="/2023/12/28/RuntimeError-CUDA-error-device-side-assert-triggered/"></a>
+            <a class="post-link" href="/2023/12/28/RuntimeError-Parent-directory-model1-does-not-exist/"></a>
         
         
         <div class="post-cover-left">
             
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="RuntimeError: CUDA error: device-side assert triggered" class="lazyload">
+                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="RuntimeError: Parent directory /model1/ does not exist." class="lazyload">
             
 
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-12-28</a>
+                
+                    <a><span class="icon-pencil"></span>72 字</a>
+                
+                
+                    <a><span class="icon-clock"></span>1 分钟</a>
+                
+            </div>
+            <h2 class="post-title">RuntimeError: Parent directory /model1/ does not exist.</h2>
+            <article class="post-article">
+                
+                    
+
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
+
+ 问题描述
+其实就是文件不存在，所以没找到存放模型的文件夹，导致模型没有保存：
+1RuntimeError: Parent directory /model1/ does not exist.
+
+ 解决方法
+12# 如果目录不存在，则创建该目录os.makedirs(args.model_path, exist_ok=True)
+
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right wow fadeInUp">
+        
+            <a class="post-link" href="/2023/12/28/RuntimeError-CUDA-error-device-side-assert-triggered/"></a>
+        
+        <div class="post-cover-right">
+            
+                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="RuntimeError: CUDA error: device-side assert triggered" class="lazyload">
+            
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -208,14 +249,16 @@
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/12/24/PyTorch-VS-TensorFlow/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="PyTorch VS TensorFlow" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -249,16 +292,14 @@ https://viso.ai/deep-learning/pytorch-vs-tensorflow/
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/12/24/Pytorch-torch-utils-data-DataLoader/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="Pytorch:torch.utils.data.DataLoader" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -295,14 +336,16 @@ torch.utils.data.DataLoader使用方法
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/12/23/Mac-M2%E4%BD%BF%E7%94%A8GPU%E8%BF%9B%E8%A1%8C%E8%AE%AD%E7%BB%83/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="Mac M2使用GPU进行训练" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -337,16 +380,14 @@ Mac M2芯片为了追求高性能和节能，在底层设计上使用的是一�
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/12/21/%E5%86%85%E5%AD%98%E4%B8%8E%E6%98%BE%E5%AD%98%E3%80%81CPU%E4%B8%8EGPU%E3%80%81GPU%E4%B8%8ECUDA/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="内存与显存、CPU与GPU、GPU与CUDA" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -385,14 +426,16 @@ GPU与CUDA
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/12/21/spikeBERT-%E4%BC%98%E5%8A%BF%E5%88%86%E6%9E%90/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="spikeBERT:优势分析以及可能会产生的问题" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -429,16 +472,14 @@ psn之后不进行reset得到的是0，1？
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/12/21/paper-SPATIO-TEMPORAL-APPROXIMATION/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:SPATIO-TEMPORAL APPROXIMATION" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -475,14 +516,16 @@ psn之后不进行reset得到的是0，1？
 
     
         
-    <div class="post-wrap-right wow fadeInUp">
+    <div class="post-wrap-left wow fadeInUp">
         
             <a class="post-link" href="/2023/12/19/%E4%BF%9D%E7%A0%94%E6%8E%A8%E5%85%8D%E5%8A%A0%E5%88%86%E9%A1%B9%E7%9B%AE/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="保研推免加分项目" class="lazyload">
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -537,16 +580,14 @@ S上限3，A+上限2.5，A上限2，B+上限1.5，B上限1
 
     
         
-    <div class="post-wrap-left wow fadeInUp">
+    <div class="post-wrap-right wow fadeInUp">
         
             <a class="post-link" href="/2023/12/19/paper-LLM-QAT/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:LLM-QAT" class="lazyload">
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -566,53 +607,6 @@ S上限3，A+上限2.5，A上限2，B+上限1.5，B上限1
     MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
 
 
-                
-            </article>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="post-wrap-right wow fadeInUp">
-        
-            <a class="post-link" href="/2023/12/19/paper-Visual-Instruction-Tuning/"></a>
-        
-        <div class="post-cover-right">
-            
-                <img data-src="https://pbs.twimg.com/media/GBTN7RnW0AA6G9K?format=jpg&amp;name=medium" data-sizes="auto" alt="paper:Visual Instruction Tuning" class="lazyload">
-            
-        </div>
-        <div class="post-info">
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span>2023-12-19</a>
-                
-                    <a><span class="icon-pencil"></span>633 字</a>
-                
-                
-                    <a><span class="icon-clock"></span>2 分钟</a>
-                
-            </div>
-            <h2 class="post-title">paper:Visual Instruction Tuning</h2>
-            <article class="post-article">
-                
-                    
-
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &#34;none&#34; });
-
- 参考链接
-
-项目地址
-文章链接
-Visual Instruction Tuning论文阅读（LLaVa）
-《Visual Instruction Tuning》论文笔记
-核心代码
-时间：2023.4
-第一作者：Haotian Liu
-
-
- Abstract
-在这篇论文中，作者首次尝试使用纯语言 GPT-4 生成多模态语言图像指令遵循数据（insruction-following data）。 通过对此类生成数据进行
                 
             </article>
         </div>
@@ -640,7 +634,7 @@ Visual Instruction Tuning论文阅读（LLaVa）
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">304</div>
+                <div class="sidebar-state-number">305</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
@@ -746,10 +740,10 @@ Visual Instruction Tuning论文阅读（LLaVa）
             
                 <div>
                     <span class="icon-brush"></span>
-                    744k
+                    745.7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    47:24
+                    47:32
                 </div>
             
             
@@ -776,7 +770,7 @@ Visual Instruction Tuning论文阅读（LLaVa）
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">304</div>
+                <div class="sidebar-state-number">305</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
