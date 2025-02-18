@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>paper:ResNet | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/bot.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="paper:ResNet | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/01/25/paper-ResNet/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   参考链接  Deep Residual Learning for Image Recognition ResNet论文逐段精读【论文精读】    1.abstract 1.0 摘要，论文导读 摘要主要内容：   深度神经网络很难训 - ab - blog"><meta name="keywords" content="paper, ResNet, blog"><meta property="og:image" content="https://pbs.twimg.com/media/GEn4BBUagAA0QL9?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/GEn4Uxda4AM-QTF?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GEq7GmpacAA88tw?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GEq8uMFagAEHSPW?format=png&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GEn4Uxda4AM-QTF?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GEq-MWgbwAAjJqY?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/GEq_BgdbwAAMsTe?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GEq_S0BaMAARJdJ?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/GErAKOUboAAFcJ7?format=jpg&amp;name=medium"><meta property="article:published_time" content="2024-01-24T16:25:52.000Z"><meta property="article:modified_time" content="2024-01-25T07:38:37.768Z"><meta property="og:updated_time" content="2024-01-25T07:38:37.768Z"><meta property="article:author" content="ab"><meta property="article:tag" content="paper, ResNet, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2024/01/25/paper-ResNet/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2024/01/25/paper-ResNet/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/bot.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2024/01/25/paper-ResNet/"
+    },
+    "headline": "paper:ResNet | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/bot.ico"
+    },
+    
+    "datePublished": "2024-01-24T16:25:52.000Z",
+    "dateModified": "2024-01-25T07:38:37.768Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/bot.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "paper, ResNet, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   参考链接  Deep Residual Learning for Image Recognition ResNet论文逐段精读【论文精读】    1.abstract 1.0 摘要，论文导读 摘要主要内容：   深度神经网络很难训 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">paper:ResNet</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2024-01-25</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/paper/">paper</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB30lEQVR42u3by3LEIAxEUf//TyerVE1NQN2NvQD5epNU/DoLGZBQrp8NjwsUKFCgBqirOP7O/7v547zzDPsaUG1Qw6D7Qs0eNHvOCFW9B1Q/VBXg39eMgldBrPeAegXK/fvd54F6D2o2IFYBPcOAehcqmWBng2Q1aT+6SgC1PcpJHJ74+Xg2A2pLlCw6BAu4KqAfrbqA2ho1emk1AFaJ6KywYScioFqgZjc6E/HoOlU0KxeLoNqgkoWcM3jOgrv6EED1QVWJpBpcq4FQJRjWhAzqSFRSmFfBvlpoA9UL5RToVTAvFfJHzwLVAuUkAU7gqknZCXZQvVFOc0RShHU2ukH1QVULNvV7gpKJL6g2KOfG2SCaNm9FGTKoY1Fq01AlEk6TV1X8ANULtfoCZ3MoTmhBtUS5i/908HWSB1D9UGrydDcTncEy7jQDdQyqWpwl55zkM27AAXUsym2ySZu9VLMgqJ4oVXhXA6C7OVkVQED1QqnDaVJ2ForWJA2qBSppaJaBGmwcgeqNUpuRasBMPw6rcx/U8SjV2KAmbfXRWIkuqFegkkRzpRi7FOigWqCcxd7KZvmtQAe1NSrZDEqgslB23fjvWlDbotzEQS3Ukg1NGeigjkXtdIACBQrUx/EL2qHvz091Y2QAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 参考链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1abstract"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 1.abstract</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2%E5%AF%BC%E8%AE%BA"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 2.导论</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#21-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8F%90%E5%87%BA%E6%AE%8B%E5%B7%AE%E7%BB%93%E6%9E%84"><span class="post-toc-number">4.</span> <span class="post-toc-text"> 2.1 为什么提出残差结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#22-%E5%AE%9E%E9%AA%8C%E9%AA%8C%E8%AF%81"><span class="post-toc-number">5.</span> <span class="post-toc-text"> 2.2 实验验证</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="post-toc-number">6.</span> <span class="post-toc-text"> 3.相关工作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4%E5%AE%9E%E9%AA%8C%E9%83%A8%E5%88%86"><span class="post-toc-number">7.</span> <span class="post-toc-text"> 4.实验部分</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#41-%E4%B8%8D%E5%90%8C%E9%85%8D%E7%BD%AE%E7%9A%84resnet%E7%BB%93%E6%9E%84"><span class="post-toc-number">8.</span> <span class="post-toc-text"> 4.1 不同配置的ResNet结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#42-%E6%AE%8B%E5%B7%AE%E7%BB%93%E6%9E%84%E6%95%88%E6%9E%9C%E5%AF%B9%E6%AF%94"><span class="post-toc-number">9.</span> <span class="post-toc-text"> 4.2 残差结构效果对比</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#43-%E6%AE%8B%E5%B7%AE%E7%BB%93%E6%9E%84%E4%B8%AD%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%BB%B4%E5%BA%A6%E4%B8%8D%E4%B8%80%E8%87%B4%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86"><span class="post-toc-number">10.</span> <span class="post-toc-text"> 4.3 残差结构中，输入输出维度不一致如何处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#44-%E6%B7%B1%E5%B1%82resnet%E5%BC%95%E5%85%A5%E7%93%B6%E9%A2%88%E7%BB%93%E6%9E%84bottleneck"><span class="post-toc-number">11.</span> <span class="post-toc-text"> 4.4 深层ResNet引入瓶颈结构Bottleneck</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="post-toc-number">12.</span> <span class="post-toc-text"> 5.代码实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6%E7%BB%93%E8%AE%BA"><span class="post-toc-number">13.</span> <span class="post-toc-text"> 6.结论</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1P3411y7nn/?share_source=copy_web&amp;vd_source=d8d8cd49f932177e1995e230d7816d44">ResNet论文逐段精读【论文精读】</a></li>
+</ul>
+<br>
+<h2 id="1abstract"><a class="markdownIt-Anchor" href="#1abstract"></a> 1.abstract</h2>
+<p>1.0 摘要，论文导读<br />
+摘要主要内容：<br />
+  <strong>深度神经网络很难训练，我们使用residual（残差结构）使得网络训练比之前容易很多</strong>在ImageNet上使用了152层的ResNet，比VGG多8倍，但是计算复杂度更低，最终赢下了ImageNet2015的分类任务第一名，并演示了如何在cifar-10上训练100-1000层的网络。（通常赢下ImageNet比赛且提出很不一样网络架构、方法的文章会被追捧。）<br />
+  对很多任务来说，深度是非常重要的。我们仅仅是把之前的网络换成残差网络，在coco数据集上就得到了28%的改进。同样也赢下了ImageNet目标检测、coco目标检测和coco segmentation的第一名。</p>
+<p><img src="https://pbs.twimg.com/media/GEn4BBUagAA0QL9?format=png&amp;name=small" alt="" /></p>
+<p>上面这张图是没有使用残差结构的网络，更深的层训练误差比浅层更高，即深层网络其实是训练不动的。下面这张图，是是否使用resnet结构的网络效果对比图。可以看到右侧使用残差结构后，34层的网络训练和测试的误差都更低。</p>
+<table>
+<thead>
+<tr>
+<th>Layers\Model</th>
+<th>Plain</th>
+<th>ResNet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>18 layers</td>
+<td>27.94</td>
+<td>27.88</td>
+</tr>
+<tr>
+<td>34 layers</td>
+<td>28.54</td>
+<td>25.03</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p><img src="https://pbs.twimg.com/media/GEn4Uxda4AM-QTF?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="2导论"><a class="markdownIt-Anchor" href="#2导论"></a> 2.导论</h2>
+<h2 id="21-为什么提出残差结构"><a class="markdownIt-Anchor" href="#21-为什么提出残差结构"></a> 2.1 为什么提出残差结构</h2>
+<p>深度卷积神经网络是非常有效的，因为可以堆叠很多层，不同层可以表示不同level的特征。但是学一个好的网络，就是简简单单的把所有网络堆在一起就行了吗？如果这样，网络做深就行了。</p>
+<p>我们知道，网络很深的时候，<strong>容易出现梯度消失或者梯度爆炸</strong>，解决办法之一是一个好的<strong>网络权重初始化</strong>，使权重不能太大也不能太小；二是加入一些<strong>normalization</strong>，比如BN。这样可以校验每个词之间的输出，以及梯度的均值和方差，这样比较深的网络是可以训练的（可以收敛）。但同时有一个问题是，深层网络性能会变差，也就是精度会变差。</p>
+<p>深层网络性能变差，不是因为网络层数多、模型变复杂而过拟合，因为训练误差也变高了。那为什么会这样呢？从理论上来说，往一个浅层网络中加入一些层，得到一个深一些的网络，后者的精度至少不应该变差。因为后者至少可以学成新加的层是identity mapping，而其它层直接从前者复制过来。但是实际上做不到，SGD优化器无法找到这个比较优的解。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">identity mapping可以理解成恒等映射吧，也就是网络输入x，输出也是x。网络权重简单学成输入特征的1/n。</span><br></pre></td></tr></table></figure>
+<p>所以作者提出，显式地构造一个<code>identity mapping</code>，使得深层模型的精度至少不会变得更差。作者将其称为<code>deep residual learning framework</code>。</p>
+<p>假设我们要学的是 <code>H(x)</code>，在原有层上添加一些新的层时，新的层不是直接学 <code>H(x)</code>，而是学习 <code>H(x) - x</code>，这部分用 <code>F(x)</code> 表示。（其中，<code>x</code> 是原有层的输出。）即，新加入的层不用全部重新学习，而是学习原来已经学习到的 <code>x</code> 和真实的 <code>H(x)</code> 之间的残差就行。最后模型的输出是 <code>F(x) + x</code>。这种新加入的层就是residual，结构如下图所示：</p>
+<p><img src="https://pbs.twimg.com/media/GEq7GmpacAA88tw?format=jpg&amp;name=medium" alt="" /></p>
+<p><code>F(x) + x</code> 在数学上就是直接相加，在神经网络中是通过<code>shortcut connections</code>实现（shortcut就是跳过一个或多个层，将输入直接加到这些跳过的层的输出上）。shortcut其实做的是一个identity mapping（恒等映射），而且这个操作不需要学习任何参数，不增加模型的复杂度。就多了一个加法，也不增加计算量，网络结构基本不变，可以正常训练。</p>
+<br>
+<h2 id="22-实验验证"><a class="markdownIt-Anchor" href="#22-实验验证"></a> 2.2 实验验证</h2>
+<p>接下来作者在imagenet上做了一系列实验进行验证。结果表明，加了残差的网络容易优化，而且网络堆的更深之后，精度也会提高，所以赢下了比赛。在cifar-10上，作者尝试了训练超过1000层的网络。至此，论文的核心就讲完了，下面就是ResNet网络的设计。</p>
+<br>
+<h2 id="3相关工作"><a class="markdownIt-Anchor" href="#3相关工作"></a> 3.相关工作</h2>
+<p><strong>ResNet并不是第一个提出residual的概念</strong>。 最早的线性模型的解法就是通过不断迭代residual来求解的。在机器学习中，GBDT通过残差residual不断学习，把弱分类器叠加起来，形成强分类器。不同之处在于，GBDT是在label上做残差，而ResNet是在特征上做残差。</p>
+<p><strong>ResNet也不是第一个提出shortcut的</strong>。 比如在highway networks中就已经使用了shortcut，但其实现方式更为复杂，不仅仅是简单的加法。</p>
+<p>一篇文章之所以成为经典，并不一定是因为它原创性地提出了许多新概念。有时，它的经典之处在于将多个已有概念巧妙地结合在一起，从而有效解决问题。甚至有时大家都可能忘记了之前有谁做过类似的工作。许多想法可能早已被前人提出并发表，但重要的是，这些想法可以被用来解决新的问题，使得旧技术在新的应用中展现出新的意义。</p>
+<p>ResNet34比起VGG19，计算复杂度更低，只有前者的18%。其它是一些训练的细节，学习率优化器等等之类，就不细讲了。</p>
+<Br>
+<h2 id="4实验部分"><a class="markdownIt-Anchor" href="#4实验部分"></a> 4.实验部分</h2>
+<h2 id="41-不同配置的resnet结构"><a class="markdownIt-Anchor" href="#41-不同配置的resnet结构"></a> 4.1 不同配置的ResNet结构</h2>
+<p><img src="https://pbs.twimg.com/media/GEq8uMFagAEHSPW?format=png&amp;name=medium" alt="" /></p>
+<ul>
+<li>
+<p>网络输入是ImageNet图像，短边在[256,480]中随机选取，然后resize到224×224尺寸，输入网络。</p>
+</li>
+<li>
+<p>conv2_x：表示第二个卷积模块，x表示模块里有很多层。</p>
+</li>
+<li>
+<p><code>[3 × 3, 64]</code><br />
+<code>[3 × 3, 64]</code> × 3: []内的是一个残差块，其卷积核大小为3*3，channel=64。×3表示有两个这样的残差层。</p>
+</li>
+</ul>
+<p>ResNet34结构图：（3+4+6+3）=16个残差模块，每个模块两层卷积层。再加上第一个7×7卷积层和最后一个全连接层，一共是34层。</p>
+<br>
+<h2 id="42-残差结构效果对比"><a class="markdownIt-Anchor" href="#42-残差结构效果对比"></a> 4.2 残差结构效果对比</h2>
+<p>从下图可以看到有残差模块，网络收敛会更快，而且精度会更好:<br />
+<img src="https://pbs.twimg.com/media/GEn4Uxda4AM-QTF?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="43-残差结构中输入输出维度不一致如何处理"><a class="markdownIt-Anchor" href="#43-残差结构中输入输出维度不一致如何处理"></a> 4.3 残差结构中，输入输出维度不一致如何处理</h2>
+<ul>
+<li>A. pad补0，使维度一致；</li>
+<li>B. 维度不一致的时候，使其映射到统一维度，比如使用全连接或者是CNN中的1×1卷积（输出通道是输入的两倍）。</li>
+<li>C. 不管输入输出维度是否一致，都进行投影映射。下面作者对这三种操作进行效果验证。从下面结果可以看到，B和C效果差不多，都比A好。但是做映射会增加很多复杂度，考虑到ResNet中大部分情况输入输出维度是一样的（也就是4个模块衔接时通道数会变），<strong>作者最后采用了方案B</strong>。</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/GEq-MWgbwAAjJqY?format=png&amp;name=small" alt="" /></p>
+<br>
+<h2 id="44-深层resnet引入瓶颈结构bottleneck"><a class="markdownIt-Anchor" href="#44-深层resnet引入瓶颈结构bottleneck"></a> 4.4 深层ResNet引入瓶颈结构Bottleneck</h2>
+<p><img src="https://pbs.twimg.com/media/GEq_BgdbwAAMsTe?format=jpg&amp;name=medium" alt="" /></p>
+<p>在ResNet-50及以上的结构中，模型更深了，可以学习更多的参数，所以通道数也要变大。比如前面模型配置表中，ResNet-50/101/152的第一个残差模块输出都是256维，增加了4倍。</p>
+<p>如果残差结构还是和之前一样，计算量就增加的太多了（增加16倍），划不来。所以重新设计了Bottleneck结构，将输入从256维降为64维，然后经过一个3×3卷积，再升维回256维。这样操作之后，复杂度和左侧图是差不多的。这也是为啥ResNet-50对比ResNet-34理论计算量变化不大的原因。（实际上1×1卷积计算效率不高，所以ResNet-50计算还是要贵一些）</p>
+<p><img src="https://pbs.twimg.com/media/GEq_S0BaMAARJdJ?format=png&amp;name=small" alt="" /></p>
+<br>
+<h2 id="5代码实现"><a class="markdownIt-Anchor" href="#5代码实现"></a> 5.代码实现</h2>
+<p>resnet中残差块有两种：（use_1x1conv=True/False）：</p>
+<ul>
+<li>步幅为2 ，高宽减半，通道数增加。所以shortcut连接部分会加一个1×1卷积层改变通道数</li>
+<li>步幅为1，高宽不变</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/GErAKOUboAAFcJ7?format=jpg&amp;name=medium" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.nn <span class="keyword">import</span> functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">from</span> d2l <span class="keyword">import</span> torch <span class="keyword">as</span> d2l</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Residual</span>(nn.Module):  <span class="comment">#@save</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input_channels, num_channels,</span></span><br><span class="line"><span class="params">                 use_1x1conv=<span class="literal">False</span>, strides=<span class="number">1</span></span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.conv1 = nn.Conv2d(input_channels, num_channels,</span><br><span class="line">                               kernel_size=<span class="number">3</span>, padding=<span class="number">1</span>, stride=strides)</span><br><span class="line">        self.conv2 = nn.Conv2d(num_channels, num_channels,</span><br><span class="line">                               kernel_size=<span class="number">3</span>, padding=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> use_1x1conv:</span><br><span class="line">            self.conv3 = nn.Conv2d(input_channels, num_channels,</span><br><span class="line">                                   kernel_size=<span class="number">1</span>, stride=strides)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.conv3 = <span class="literal">None</span></span><br><span class="line">        self.bn1 = nn.BatchNorm2d(num_channels)</span><br><span class="line">        self.bn2 = nn.BatchNorm2d(num_channels)<span class="comment">#每个bn都有自己的参数要学习，所以需要定义两个</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, X</span>):</span><br><span class="line">        Y = F.relu(self.bn1(self.conv1(X)))</span><br><span class="line">        Y = self.bn2(self.conv2(Y))</span><br><span class="line">        <span class="keyword">if</span> self.conv3:</span><br><span class="line">            X = self.conv3(X)</span><br><span class="line">        Y += X</span><br><span class="line">        <span class="keyword">return</span> F.relu(Y)</span><br></pre></td></tr></table></figure>
+<Br>
+<h2 id="6结论"><a class="markdownIt-Anchor" href="#6结论"></a> 6.结论</h2>
+<p>ResNet就是在CNN主干上加了残差连接，这样如果新加的层训练效果不好的话，至少可以fallback变回简单模型，所以精度不会变差。<br />
+  <br />
+在现在来看，ResNet训练的比较快，是因为梯度保持的比较好。因为新加的层容易导致梯度消失（或者梯度爆炸），但是加了残差连接，梯度多了一部分，包含了之前层的梯度，这样不管加了多深，梯度会保持的比较大（主要是不会梯度消失，学不动），不会太快收敛，SGD跑得多就训练的比较好。（SGD的精髓就是，只要梯度比较大，就可以一直训练。反正有噪音，慢慢的总是会收敛，最后效果就会比较好）</p>
+<p>为什么在cifar-10这样一个小的数据集上（32*32图片5w张）训练1202层的网络，过拟合也不是很厉害。为何transformer那些模型几千亿的参数不会过拟合，李沐认为是加了残差连接之后，模型内在复杂度大大降低了。（理论上模型加一些层，模型也至少可以将后面的层学成恒等映射，使精度不会变差。但实际上没有引导做不到这一点。所以本文才会显示的把残差结构加进去，使模型能够更容易的训练出来。比如后面层都是0，前面一些层才学到东西，也就是更容易训练出一个简单模型来拟合数据，所以加入残差连接等于是模型复杂度降低了）</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2024-01-25");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-01-24T16:25:52.000Z" itemprop="datePublished">2024-01-25</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/paper/'>paper</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/paper/" rel="tag">#&nbsp;paper</a>
+
+<a class="post-tags-list-item" href="/tags/ResNet/" rel="tag">#&nbsp;ResNet</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2024/01/25/Undergraduate-VS-Graduate/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Undergraduate VS Graduate</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2024/01/24/Github-Copilot%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Github Copilot代理设置</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2024/01/25/paper-ResNet/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2024/01/25/paper-ResNet/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

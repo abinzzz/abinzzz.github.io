@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>量化 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/bot.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="量化 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/01/13/%E9%87%8F%E5%8C%96/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   1.量化是什么 简而言之，所谓的模型量化就是将浮点存储（运算）转换为整型存储（运算）的一种模型压缩技术。简单直白点讲，即原来表示一个权重需要使用float32表示，量化后只需要使用int8来表示就可以啦，仅仅这一个操作，我们就可以 - ab - blog"><meta name="keywords" content="Accumulate, 量化, blog"><meta property="og:image" content="https://pbs.twimg.com/media/GDuIvT8WIAAJlQN?format=jpg&amp;name=medium"><meta property="article:published_time" content="2024-01-13T11:54:39.000Z"><meta property="article:modified_time" content="2024-01-13T12:02:30.691Z"><meta property="og:updated_time" content="2024-01-13T12:02:30.691Z"><meta property="article:author" content="ab"><meta property="article:tag" content="Accumulate, 量化, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2024/01/13/%E9%87%8F%E5%8C%96/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2024/01/13/%E9%87%8F%E5%8C%96/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/bot.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2024/01/13/%E9%87%8F%E5%8C%96/"
+    },
+    "headline": "量化 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/bot.ico"
+    },
+    
+    "datePublished": "2024-01-13T11:54:39.000Z",
+    "dateModified": "2024-01-13T12:02:30.691Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/bot.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Accumulate, 量化, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   1.量化是什么 简而言之，所谓的模型量化就是将浮点存储（运算）转换为整型存储（运算）的一种模型压缩技术。简单直白点讲，即原来表示一个权重需要使用float32表示，量化后只需要使用int8来表示就可以啦，仅仅这一个操作，我们就可以 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">量化</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2024-01-13</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Accumulate/">Accumulate</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB3klEQVR42u2awY7DMAhE8/8/3T1V6mrNzJDtIcbPl6qN47xUGMzA9XrguIACCiigFlCXGO/r1dxfCy7uU/eu1gFqDtTS6IrFV/es5qxeSD0HqHlQysCrh68MWxm6ew5QZ0AlzlI5SqCAqgLxyrATQKDOhXLB1H2vDoHKGQM1FypJHL7x+fVsBqhHQlnRoTj8O+eqEop/qy5APRqqCrbqwJcG28p5li8B1AgoFWBTY40cY5GoAjUTyh3UqoXVS1QbR/4BQI2ASh7SEUJSkSMOyEBtB6UKPl3hw4n+QJ0H1RHJ0o2i5vyZB9RoKBVYO/OSoAzUPCi1YFdEU0FcFceBmgnlkgZV6HYvkIj9QM2DckbpnGniLOMMGahtoToifdJMqGBtgw9QI6CcUJYUu1PHqpIKoOZApU4uFS6ccCZ/B2oc1F2BIi0GWGEEqBFQicF3N0SnIRWomVBpEtkR+FVTRfkdqBFQaYHaFayTZLRd2AZqS6i0UfCW4TYaLoCaA3XHmJOmm0SABWouVGrgXdHfHQBtRyxQW0O5RhtXZFTif5xwAHUEVKfBJhFv5XWgjoFyzc6dTSAdNlCjoNKkIDncJUlpnCEDtSVUWrR24qoz5LgBB6itoZ40gAIKKKA+xg/RYfDAZKcb9wAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1%E9%87%8F%E5%8C%96%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 1.量化是什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%81%9A%E6%A8%A1%E5%9E%8B%E9%87%8F%E5%8C%96"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 2.为什么需要做模型量化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3%E6%A8%A1%E5%9E%8B%E9%87%8F%E5%8C%96%E7%9A%84%E5%8A%A8%E6%9C%BA"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 3.模型量化的动机</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="1量化是什么"><a class="markdownIt-Anchor" href="#1量化是什么"></a> 1.量化是什么</h2>
+<p>简而言之，所谓的模型量化就是将<strong>浮点存储（运算）转换为整型存储（运算）<strong>的一种</strong>模型压缩</strong>技术。简单直白点讲，即原来表示一个权重需要使用float32表示，量化后只需要使用int8来表示就可以啦，仅仅这一个操作，我们就可以获得接近4倍的网络加速！</p>
+<br>
+<h2 id="2为什么需要做模型量化"><a class="markdownIt-Anchor" href="#2为什么需要做模型量化"></a> 2.为什么需要做模型量化</h2>
+<p>随着深度学习技术在多个领域的快速应用，具体包括计算机视觉-CV、自然语言处理-NLP、语音等，出现了大量的基于深度学习的网络模型。这些模型都有一个特点，即大而复杂、适合在N卡上面进行推理，并不适合应用在手机等嵌入式设备中，而客户们通常需要将这些复杂的模型部署在一些低成本的嵌入式设备中，因而这就产生了一个矛盾。<strong>为了很好的解决这个矛盾，模型量化应运而生，它可以在损失少量精度的前提下对模型进行压缩，使得将这些复杂的模型应用到手机、机器人等嵌入式终端中变成了可能。</strong></p>
+<p>随着模型预测越来越准确，网络越来越深，神经网络消耗的内存大小成为一个核心的问题，尤其是在移动设备上。通常情况下，目前的手机一般配备 4GB 内存来支持多个应用程序的同时运行，而三个模型运行一次通常就要占用1GB内存。</p>
+<p><strong>模型大小不仅是内存容量问题，也是内存带宽问题</strong>。模型在每次预测时都会使用模型的权重，图像相关的应用程序通常需要实时处理数据，这意味着至少 30 FPS。因此，如果部署相对较小的 ResNet-50 网络来分类，运行网络模型就需要 3GB/s 的内存带宽。网络运行时，内存，CPU 和电池会都在飞速消耗，我们无法为了让设备变得智能一点点就负担如此昂贵的代价。</p>
+<br>
+<h2 id="3模型量化的动机"><a class="markdownIt-Anchor" href="#3模型量化的动机"></a> 3.模型量化的动机</h2>
+<ul>
+<li>
+<p><strong>更少的存储开销和带宽需求</strong>。即使用更少的比特数存储数据，有效减少应用对存储资源的依赖，但现代系统往往拥有相对丰富的存储资源，这一点已经不算是采用量化的主要动机；</p>
+</li>
+<li>
+<p><strong>更快的计算速度</strong>。即对大多数处理器而言，整型运算的速度一般（但不总是）要比浮点运算更快一些；</p>
+</li>
+<li>
+<p><strong>更低的能耗与占用面积</strong>。</p>
+</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/GDuIvT8WIAAJlQN?format=jpg&amp;name=medium" alt="" /></p>
+<p>从上图中可以看到，<strong>FP32乘法运算的能耗是INT8乘法运算能耗的18.5倍，芯片占用面积则是int8的27.3倍</strong>，而对于芯片设计和FPGA设计而言，更少的资源占用意味着相同数量的单元下可以设计出更多的计算单元；而更少的能耗意味着更少的发热，和更长久的续航。</p>
+<ul>
+<li>
+<p><strong>尚可接受的精度损失</strong>。即量化相当于对模型权重引入噪声，所幸CNN本身对噪声不敏感（在模型训练过程中，模拟量化所引入的权重加噪还有利于防止过拟合），在合适的比特数下量化后的模型并不会带来很严重的精度损失。按照gluoncv提供的报告，经过int8量化之后，ResNet50_v1和MobileNet1.0 _v1在ILSVRC2012数据集上的准确率仅分别从77.36%、73.28%下降为76.86%、72.85%。</p>
+</li>
+<li>
+<p><strong>支持int8是一个大的趋势</strong>。即无论是移动端还是服务器端，都可以看到新的计算设备正不断迎合量化技术。比如NPU/APU/AIPU等基本都是支持int8（甚至更低精度的int4）计算的，并且有相当可观的TOPs，而Mali GPU开始引入int8 dot支持，Nvidia也不例外。除此之外，当前很多创业公司新发布的边缘端芯片几乎都支持int8类型。</p>
+</li>
+</ul>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2024-01-13");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-01-13T11:54:39.000Z" itemprop="datePublished">2024-01-13</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Accumulate/'>Accumulate</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Accumulate/" rel="tag">#&nbsp;Accumulate</a>
+
+<a class="post-tags-list-item" href="/tags/%E9%87%8F%E5%8C%96/" rel="tag">#&nbsp;量化</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2024/01/13/PyTorch-torch-cat/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">PyTorch:torch.cat()和torch.stack()</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2024/01/13/paper-Spiking-Neural-Network-for-Ultra-low-latency-and-High-accurate-Object-Detection/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">paper: SUHD</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2024/01/13/%E9%87%8F%E5%8C%96/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2024/01/13/%E9%87%8F%E5%8C%96/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

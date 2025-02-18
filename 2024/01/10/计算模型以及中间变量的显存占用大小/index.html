@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>计算模型以及中间变量的显存占用大小 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/bot.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="计算模型以及中间变量的显存占用大小 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/01/10/%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E4%B8%AD%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E6%98%BE%E5%AD%98%E5%8D%A0%E7%94%A8%E5%A4%A7%E5%B0%8F/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   计算模型以及中间变量的显存占用大小  前言 亲,显存炸了,你的显卡快冒烟了! torch.FatalError: cuda runtime error (2) : out of memory at &#x2F;opt&#x2F;conda&#x2F;conda - ab - blog"><meta name="keywords" content="Accumulate, memory, blog"><meta property="og:image" content="https://pbs.twimg.com/media/GDfhjFGboAAZIqj?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GDfjndMaIAAz1PB?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GDfkUmYbUAAW18j?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GDflAr1bYAAnnFR?format=png&amp;name=900x900"><meta property="article:published_time" content="2024-01-10T15:48:11.000Z"><meta property="article:modified_time" content="2024-01-10T16:23:27.607Z"><meta property="og:updated_time" content="2024-01-10T16:23:27.607Z"><meta property="article:author" content="ab"><meta property="article:tag" content="Accumulate, memory, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2024/01/10/%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E4%B8%AD%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E6%98%BE%E5%AD%98%E5%8D%A0%E7%94%A8%E5%A4%A7%E5%B0%8F/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2024/01/10/%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E4%B8%AD%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E6%98%BE%E5%AD%98%E5%8D%A0%E7%94%A8%E5%A4%A7%E5%B0%8F/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/bot.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2024/01/10/%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E4%B8%AD%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E6%98%BE%E5%AD%98%E5%8D%A0%E7%94%A8%E5%A4%A7%E5%B0%8F/"
+    },
+    "headline": "计算模型以及中间变量的显存占用大小 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/bot.ico"
+    },
+    
+    "datePublished": "2024-01-10T15:48:11.000Z",
+    "dateModified": "2024-01-10T16:23:27.607Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/bot.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Accumulate, memory, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   计算模型以及中间变量的显存占用大小  前言 亲,显存炸了,你的显卡快冒烟了! torch.FatalError: cuda runtime error (2) : out of memory at /opt/conda/conda - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">计算模型以及中间变量的显存占用大小</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2024-01-10</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Accumulate/">Accumulate</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPQAAAD0CAAAAACJRFQiAAAEoklEQVR42u2ay3LbQBAD/f8/nVzz0A4aax0sTuviiilSbKoCzwD4+rXw9SW00EILLbTQHwb9Nbz+OuHFsekcer1X7//u8eM9CS30EuiX/+lfgJ1u4Cgcf1zj388ix07Hp/eN7xFa6EXQr4QiiRgFPH1Wc+OnB19xCC200C8/4HRTE9D0IE4PjD5goYUWmkOfRGRaHqaHQRea9CUILbTQdwtHuiEiPifIaXm5HY7esmUJLfSHQ9/A/MSfb3NDhRb6g6FR8AUGAypcadGYBiFiVLwttRRa6A+F/s5wcTIOpuWDCGdaVOiQ8t8xoYVeAt2ITnow0w2lgI+YkElox/sWWuhF0HSpb0UkLTDJzGtCvMoYFFroB0PfDh0pUE/B+el30+CUgsRR2IQWehF0Kse9s8CaQvz0IGj5NhZihRb6odCTQFChmUy9dvChxbx6URJa6CXQabgnRl1TriGlGPKFNIaG0EJvhk4mGzEUyLBBSnJT4Y4Ee0ILvRGahGhpGEnHyLUSKLn2KIxCC70AuhE0MiQk4Xun0dd8ttBCb4Mm5iA1+Ql4AmsMByKYQgu9CZqa+iTQuzEZ6ENPRmASR6GF3gBNiy9twN6ajkm4UqiAzhda6IXQNFyjRj0ZSEgpPi0YKAgUWuhl0I1ZR43ENOiQ8G8SwdMChAI8oYV+MDQN3m5MBSJcqcxDTcDR1BBa6AXQdBEgBbq0yNOyzU2xJ5VthRZ6K/RNyaYRvabck76YdD2hhd4MnUQjmfLkYTXlWDoUkWVIaKE3QbfDRxua3Zh51FhoRE1ooTdBNz+nB5XCN3rd5pq0aCu00Jugm7BtMv1S+EcNP7qQkLLPqN5CC/1A6GlAaE24diGg5ycDgYSKQgu9DbotoKZzktEwCc5kBN4uPEILvQW6CeRI4D4JHF1SmkWCvF9ooTdBp+WADhYp0EtilpYZusiMJSChhV4ATU14GrJTIWyGGxLqo2FHaKEXQBNTjhjvyaxPRZ1jOebSsHh5f0ILvQSaDPLpBlKRlgw+k9HXlHqqiUxooR8KnUSMCM5taactyKZS7vHfQgu9BLpZBojBkJYMGtg15n8yOoQWegs0KZy2JVQSDBCzIV2XGBxju0hooR8KfYKfwvj2nPRZVJDaYl1sAQst9MOgE0gCbwWxDeDTAEMCQqGF3gTdhPFJmFJ4noadmwCfFm6EFnoTdFsgn8K/7xqCxEggg0gUMqGFfih0CrdvFnpyg62pQIK9GBgKLfQC6PYPPlka0nlkUSCB3VTWG0N5oYV+ODQREPqA6BJDCnWTmCbxwluW0EI/EJr80W/DtFR0I0JJzYRUuBFa6E3QTUFtMgnpYHET2N0EftWWJbTQC6CTqZeMwcZgmIafUZjgdYUWehM0Nd5osYUsIUmAiKlIvhSccAgt9MOgJwGLF4IBXirmEJMvmQSTGAot9DZoUlQhxkIy/BvT8XbhqMtzQgu9CPomOKMmY1vCQ0sFXTiEFnop9O3yT42+ZmmgJZsqtRRa6IdCN2YcLbZNN0+XmaagM4ms0EJvgiY3ngb66SaIwZCMwwjUBHhCC/1g6E0voYUWWmihhf6Q128VXVTPfLtcMwAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E4%B8%AD%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E6%98%BE%E5%AD%98%E5%8D%A0%E7%94%A8%E5%A4%A7%E5%B0%8F"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 计算模型以及中间变量的显存占用大小</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%89%8D%E8%A8%80"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> 前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 如何计算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%98%BE%E5%AD%98%E5%8E%BB%E5%93%AA%E5%84%BF%E4%BA%86"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> 显存去哪儿了</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BC%98%E5%8C%96%E5%99%A8%E5%92%8C%E5%8A%A8%E9%87%8F"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> 优化器和动量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A8%A1%E5%9E%8B%E4%B8%AD%E5%93%AA%E4%BA%9B%E5%B1%82%E4%BC%9A%E5%8D%A0%E7%94%A8%E6%98%BE%E5%AD%98"><span class="post-toc-number">1.5.</span> <span class="post-toc-text"> 模型中哪些层会占用显存</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A2%9D%E5%A4%96%E7%9A%84%E6%98%BE%E5%AD%98"><span class="post-toc-number">1.6.</span> <span class="post-toc-text"> 额外的显存</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96"><span class="post-toc-number">1.7.</span> <span class="post-toc-text"> 如何优化</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h1 id="计算模型以及中间变量的显存占用大小"><a class="markdownIt-Anchor" href="#计算模型以及中间变量的显存占用大小"></a> 计算模型以及中间变量的显存占用大小</h1>
+<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> <strong>前言</strong></h2>
+<p>亲,显存炸了,你的显卡快冒烟了!</p>
+<pre><code>torch.FatalError: cuda runtime error (2) : out of memory at /opt/conda/conda-bld/pytorch_1524590031827/work/aten/src/THC/generic/THCStorage.cu:58
+</code></pre>
+<p>想必这是所有炼丹师们最不想看到的错误,没有之一。</p>
+<p><code>OUT OF MEMORY</code>,显然是显存装不下你那么多的模型权重还有中间变量,然后程序奔溃了。怎么办,其实办法有很多,及时清空中间变量,优化代码,减少batch,等等等等,都能够减少显存溢出的风险。</p>
+<p>但是这篇要说的是上面这一切优化操作的基础,如何去计算我们所使用的显存。学会如何计算出来我们设计的模型以及中间变量所占显存的大小,想必知道了这一点,我们对自己显存也就会得心应手了。</p>
+<br>
+<h2 id="如何计算"><a class="markdownIt-Anchor" href="#如何计算"></a> <strong>如何计算</strong></h2>
+<p>首先我们应该了解一下基本的数据量信息:</p>
+<ul>
+<li>1 G = 1000 MB</li>
+<li>1 M = 1000 KB</li>
+<li>1 K = 1000 Byte</li>
+<li>1 B = 8 bit</li>
+</ul>
+<p>好,肯定有人会问为什么是1000而不是1024,这里不过多讨论,只能说两种说法都是正确的,只是应用场景略有不同。这里统一按照上面的标准进行计算。</p>
+<p>然后我们说一下我们平常使用的向量所占的空间大小,以Pytorch官方的数据格式为例(所有的深度学习框架数据格式都遵循同一个标准):<br />
+<img src="https://pbs.twimg.com/media/GDfhjFGboAAZIqj?format=jpg&amp;name=medium" alt="" /></p>
+<p>我们只需要看左边的信息,在平常的训练中,我们经常使用的一般是这两种类型:</p>
+<ul>
+<li>float32 单精度浮点型</li>
+<li>int32 整型</li>
+</ul>
+<p>一般一个8-bit的整型变量所占的空间为<code>1B</code>也就是<code>8bit</code>。而32位的float则占<code>4B</code>也就是<code>32bit</code>。而双精度浮点型double和长整型long在平常的训练中我们一般不会使用。</p>
+<p>ps:消费级显卡对单精度计算有优化,服务器级别显卡对双精度计算有优化。</p>
+<p>也就是说,<strong>假设有一幅RGB三通道真彩色图片,长宽分别为500 x 500,数据类型为单精度浮点型,那么这张图所占的显存的大小为:500 x 500 x 3 x 4B = 3M</strong>。</p>
+<p>而一个(256,3,100,100)-(N,C,H,W)的FloatTensor所占的空间为256 x 3 x 100 x 100 x 4B = 31M</p>
+<p>不多是吧,没关系,好戏才刚刚开始。</p>
+<br>
+<h2 id="显存去哪儿了"><a class="markdownIt-Anchor" href="#显存去哪儿了"></a> <strong>显存去哪儿了</strong></h2>
+<p>看起来一张图片(3x256x256)和卷积层(256x100x100)所占的空间并不大,那为什么我们的显存依旧还是用的比较多,原因很简单,占用显存比较多空间的并不是我们输入图像,而是神经网络中的中间变量以及使用optimizer算法时产生的巨量的中间参数。</p>
+<p>我们首先来简单计算一下Vgg16这个net需要占用的显存:</p>
+<p>通常一个模型占用的显存也就是两部分:</p>
+<ul>
+<li>模型自身的参数(params)</li>
+<li>模型计算产生的中间变量(memory)</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/GDfjndMaIAAz1PB?format=jpg&amp;name=medium" alt="" /></p>
+<p>图片来自cs231n，这是一个典型的sequential-net，自上而下很顺畅，我们可以看到我们输入的是一张224x224x3的三通道图像，可以看到一张图像只占用150x4k，但上面标注的是150k，这是因为上图中在计算的时候默认的数据格式是8-bit而不是32-bit，所以最后的结果要乘上一个4。</p>
+<p>我们可以看到，左边的memory值代表：图像输入进去，图片以及所产生的中间卷积层所占的空间。我们都知道，这些形形色色的深层卷积层也就是深度神经网络进行“思考”的过程：</p>
+<p>图片从3通道变为64 -&gt; 128 -&gt; 256 -&gt; 512 … 这些都是卷积层,而我们的显存也主要是他们占用了。</p>
+<p>还有上面右边的params,这些是神经网络的权重大小,可以看到第一层卷积是3×3,而输入图像的通道是3,输出通道是64,所以很显然,第一个卷积层权重所占的空间是 (3 x 3 x 3) x 64。</p>
+<br>
+<p>另外还有一个需要注意的是中间变量在backward的时候会翻倍!</p>
+<p>为什么,举个例子,下面是一个计算图,输入<code>x</code>,经过中间结果<code>z</code>,然后得到最终变量<code>L</code>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x -&gt; z -&gt; L</span><br></pre></td></tr></table></figure>
+<p>在forward阶段,我们只需要计算并存储<code>z</code>。但是在backward阶段,我们不仅需要<code>z</code>,还需要计算<code>dz/dx</code>,所以需要同时存储<code>z</code>和<code>dz/dx</code>,因此中间变量在backward时会翻倍。</p>
+<p><img src="https://pbs.twimg.com/media/GDfkUmYbUAAW18j?format=jpg&amp;name=medium" alt="" /></p>
+<p>我们在backward的时候需要保存下来的中间值。输出是<code>L</code>,然后输入<code>x</code>,我们在backward的时候要求<code>L</code>对<code>x</code>的梯度,这个时候就需要在计算链<code>L</code>和<code>x</code>中间的<code>z</code></p>
+<p><img src="https://pbs.twimg.com/media/GDflAr1bYAAnnFR?format=png&amp;name=900x900" alt="" /></p>
+<p><code>dz/dx</code>这个中间值当然要保留下来以用于计算,所以粗略估计,<code>backward</code>的时候中间变量的占用了是<code>forward</code>的两倍(<strong>除了在正向传播中已经计算出的中间变量外，反向传播还需要存储这些中间变量的梯度</strong>)!</p>
+<br>
+<h2 id="优化器和动量"><a class="markdownIt-Anchor" href="#优化器和动量"></a> <strong>优化器和动量</strong></h2>
+<p>要注意,优化器也会占用我们的显存!</p>
+<p>为什么,看这个式子:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>W</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>W</mi><mi>t</mi></msub><mo>−</mo><mi>η</mi><mi mathvariant="normal">∇</mi><mi>L</mi><mo stretchy="false">(</mo><msub><mi>W</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">W_{t+1} = W_{t} - \eta \nabla L(W_{t})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mord">∇</span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>上式是典型的SGD随机下降法的总体公式,权重<code>W</code>在进行更新的时候,会产生保存中间变量<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∇</mi><mi>L</mi><mo stretchy="false">(</mo><msub><mi>W</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\nabla L(W_{t})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∇</span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>,也就是在优化的时候,模型中的params参数所占用的显存量会翻倍。</p>
+<p>当然这只是SGD优化器,其他复杂的优化器如果在计算时需要的中间变量多的时候,就会占用更多的内存。</p>
+<br>
+<h2 id="模型中哪些层会占用显存"><a class="markdownIt-Anchor" href="#模型中哪些层会占用显存"></a> <strong>模型中哪些层会占用显存</strong></h2>
+<p>有参数的层即会占用显存的层。我们一般的卷积层都会占用显存,而我们经常使用的激活层Relu没有参数就不会占用了。</p>
+<p>占用显存的层一般是:</p>
+<ul>
+<li>
+<p>卷积层,通常的conv2d</p>
+</li>
+<li>
+<p>全连接层,也就是Linear层</p>
+</li>
+<li>
+<p>BatchNorm层</p>
+</li>
+<li>
+<p>Embedding层</p>
+</li>
+</ul>
+<p>而不占用显存的则是:</p>
+<ul>
+<li>
+<p>刚才说到的激活层Relu等</p>
+</li>
+<li>
+<p>池化层</p>
+</li>
+<li>
+<p>Dropout层</p>
+</li>
+</ul>
+<p>具体计算方式:</p>
+<ul>
+<li>
+<p>Conv2d(Cin, Cout, K): 参数数目:Cin × Cout × K × K</p>
+</li>
+<li>
+<p>Linear(M-&gt;N): 参数数目:M×N</p>
+</li>
+<li>
+<p>BatchNorm(N): 参数数目: 2N</p>
+</li>
+<li>
+<p>Embedding(N,W): 参数数目: N × W</p>
+</li>
+</ul>
+<br>
+<h2 id="额外的显存"><a class="markdownIt-Anchor" href="#额外的显存"></a> 额外的显存</h2>
+<p>总结一下，我们在总体的训练中，占用显存大概分以下几类：</p>
+<ul>
+<li>模型中的参数(卷积层或其他有参数的层)</li>
+<li>模型在计算时产生的中间参数(也就是输入图像在计算时每一层产生的输入和输出)</li>
+<li>backward的时候产生的额外的中间参数</li>
+<li>优化器在优化时产生的额外的模型参数</li>
+</ul>
+<p>但其实，我们占用的显存空间为什么比我们理论计算的还要大，原因大概是因为深度学习框架一些额外的开销吧，不过如果通过上面公式，理论计算出来的显存和实际不会差太多的。</p>
+<br>
+<h2 id="如何优化"><a class="markdownIt-Anchor" href="#如何优化"></a> <strong>如何优化</strong></h2>
+<p>优化除了算法层的优化,最基本的优化无非也就一下几点:</p>
+<ul>
+<li>
+<p>减少输入图像的尺寸</p>
+</li>
+<li>
+<p>减少batch,减少每次的输入图像数量</p>
+</li>
+<li>
+<p>多使用下采样,池化层</p>
+</li>
+<li>
+<p>一些神经网络层可以进行小优化,利用relu层中设置<code>inplace</code></p>
+</li>
+<li>
+<p>购买显存更大的显卡</p>
+</li>
+<li>
+<p>从深度学习框架上面进行优化</p>
+</li>
+</ul>
+<p>下篇文章我会说明如何在<code>Pytorch</code>这个深度学习框架中跟踪显存的使用量,然后针对<code>Pytorch</code>这个框架进行有目的显存优化。</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2024-01-11");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-01-10T15:48:11.000Z" itemprop="datePublished">2024-01-10</time>
+
+    , 最后修改于&nbsp;<time datetime="2024-01-10T16:23:27.607Z" itemprop="dateModified">2024-01-11</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Accumulate/'>Accumulate</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Accumulate/" rel="tag">#&nbsp;Accumulate</a>
+
+<a class="post-tags-list-item" href="/tags/memory/" rel="tag">#&nbsp;memory</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2024/01/11/%E5%9C%A8Pytorch%E4%B8%AD%E7%B2%BE%E7%BB%86%E5%8C%96%E5%88%A9%E7%94%A8%E6%98%BE%E5%AD%98/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">在Pytorch中精细化利用显存</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2024/01/10/paper%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">paper阅读工具</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2024/01/10/%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E4%B8%AD%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E6%98%BE%E5%AD%98%E5%8D%A0%E7%94%A8%E5%A4%A7%E5%B0%8F/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2024/01/10/%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E4%B8%AD%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E6%98%BE%E5%AD%98%E5%8D%A0%E7%94%A8%E5%A4%A7%E5%B0%8F/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

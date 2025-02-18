@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>ML:RNN与LSTM | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/bot.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="ML:RNN与LSTM | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2023/11/16/RNN%E4%B8%8ELSTM/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   1.应用实例（为什么需要RNN？） 槽位填充问题：   通过Feedforward网络解决槽位填充问题？ 我们有两个句子:  “arrive Taipei on November 2nd” “leave Taipei on Nov - ab - blog"><meta name="keywords" content="专业知识, ML, 李宏毅, rnn, lstm, blog"><meta property="og:image" content="https://pbs.twimg.com/media/F_Db4fWakAAAiaX?format=png&amp;name=900x900"><meta property="og:image" content="https://pbs.twimg.com/media/F_G0BRHbIAAdldq?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/F_G1ZasaAAAzc83?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F_G2Sn9aEAABBw0?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F_G3E_oa8AACYat?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F_G3GtwaUAAFySI?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F_G32_KbMAAK9Xq?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F_G334WbMAA6L95?format=png&amp;name=900x900"><meta property="og:image" content="https://pbs.twimg.com/media/F_G5AyLbkAAE1jV?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F_G58XKbkAATCOE?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F_G6MYubwAADX5g?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F_G6hXYaUAAaB7L?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F_G63mxbsAA7QB9?format=jpg&amp;name=900x900"><meta property="og:image" content="https://pbs.twimg.com/media/F_G63m6aoAEPSU0?format=jpg&amp;name=900x900"><meta property="og:image" content="https://pbs.twimg.com/media/F_G9KqzaYAA6lak?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/F_G9KqzaYAA6lak?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/F_G-svbbQAA_hiC?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F_G_uWGboAAoxPH?format=jpg&amp;name=medium"><meta property="article:published_time" content="2023-11-15T16:54:40.000Z"><meta property="article:modified_time" content="2023-11-23T14:43:09.839Z"><meta property="og:updated_time" content="2023-11-23T14:43:09.839Z"><meta property="article:author" content="ab"><meta property="article:tag" content="专业知识, ML, 李宏毅, rnn, lstm, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2023/11/16/RNN%E4%B8%8ELSTM/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2023/11/16/RNN%E4%B8%8ELSTM/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/bot.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2023/11/16/RNN%E4%B8%8ELSTM/"
+    },
+    "headline": "ML:RNN与LSTM | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/bot.ico"
+    },
+    
+    "datePublished": "2023-11-15T16:54:40.000Z",
+    "dateModified": "2023-11-23T14:43:09.839Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/bot.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "专业知识, ML, 李宏毅, rnn, lstm, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   1.应用实例（为什么需要RNN？） 槽位填充问题：   通过Feedforward网络解决槽位填充问题？ 我们有两个句子:  “arrive Taipei on November 2nd” “leave Taipei on Nov - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">ML:RNN与LSTM</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2023-11-16</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><span class="suka-devide-dot"></span><a class="category-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB6ElEQVR42u3ay27DMAxE0fz/T6fbwBBnhoYLSPT1JkUe8ikgSyTFz3fD6wMKFChQC9RHXL/fub5eP0/GsN8BNQa1nHTi/dWA1e+u/5D6PqhZqOuN1GDVDa4PQTXe6n1Q70Kpv92kBwXKDVIufOYBAfU+VHXD1WRWn6lF9bEoAdT2KBXQP/n6WDYDamuULToEm61KVP+l6gJqa1QatCWBntuQbVAIagxKBV7JxlqNsSqaVQkFqDmoasFbLYwqEFS/jQsnoEag0oRSTdwEmyQboGag3IFQFcy5Cd2d5KDmoDoLpztUdA+HSzJAzUClC2dykzRhKDdyUCNQSYCWLITyZqIBA9RMlEswXUDYPeguxwQ1BpU2O6iCWmdzbjd1gToK5SagKoa5xbJbmAM1B5XiVKLRabqIChygjka5TTMN3LoF3Lg6DOooVHJQlDbpuEXXFmtBjUG55odbxYobTfagZqHSxNIeJIYLatx8CupYVFTUCpKBTnB3++kDtTXKXepAshv0qQ0b1BxU0misktL0ULzdgAPqaFRn8+0ssp2iLah5qKRZRjYjh4cCsrkH1GtQaRNzmjg8MtFBHY1yBbYk2XSJLqh5qDuNWknRPynGgZqHSjbNtMmmc5gtqy6gjkXtdIECBQrUz/UHm4uvHidl6PYAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81rnn"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 1.应用实例（为什么需要RNN？）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2rnn%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 2.RNN的基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3long-short-term-memory-lstm"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 3.Long Short-term Memory (LSTM)</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="1应用实例为什么需要rnn"><a class="markdownIt-Anchor" href="#1应用实例为什么需要rnn"></a> 1.应用实例（为什么需要RNN？）</h2>
+<p><strong>槽位填充问题：</strong></p>
+<p><img src="https://pbs.twimg.com/media/F_Db4fWakAAAiaX?format=png&amp;name=900x900" alt="" /></p>
+<br>
+<p><strong>通过Feedforward网络解决槽位填充问题？</strong></p>
+<p>我们有两个句子:</p>
+<ul>
+<li>“arrive Taipei on November 2nd”</li>
+<li>“leave Taipei on November 2nd”</li>
+</ul>
+<p>我们可以发现在第一个句子中，Taipei是destination，而第二个句子中Taipei是departure。</p>
+<p>如果我们不去考虑Taipei前一个词的话，Taipei的vector只有一个，那么同样的vector进来吐出的predict就是一致的。所以我们在做的时候就需要把前一个的结果存起来，在下一个词进来的时候用了参考。所以这样我们就在neuron中设计一个hidden layer来存储这个值，如下图中a1,a2所示，相当于让神经网络拥有记忆能力</p>
+<p><img src="https://pbs.twimg.com/media/F_G0BRHbIAAdldq?format=png&amp;name=small" alt="" /></p>
+<br>
+<h2 id="2rnn的基本概念"><a class="markdownIt-Anchor" href="#2rnn的基本概念"></a> 2.RNN的基本概念</h2>
+<p>假设我们每个<strong>weigh</strong>t都是1，<strong>bias</strong>=0，每个<strong>activation</strong>都是<strong>linear</strong>的。</p>
+<p>那么我们现在有一个序列(1,1)，(1,1)，(2,2)，那么一开始memory里面的值是(a1=0,a2=0)，现在将序列第一个值传入network，我们得到(x1=1,x2=1)，因为<strong>active function</strong>都是linear的，所以经过第一个<strong>hidden layer</strong>，我们输出的就是<strong>1×a1+1×a2+1×x1+1×x2</strong>，其中<strong>a1=a2=0</strong>，两个节点一致。</p>
+<p>所以第一个hidden layer得到(2,2)（绿色方块所示），同时我们将(2,2)保存起来，更新一下得到(a1=2,a2=2)，output layer是(4,4)，所以得到第一个(y1=4,y2=4)。第二个input (1,1)，同样计算一下，hidden layer得到的是(6,6)和(a1=6,a2=6)，output layer是(12,12)。同理第三个input最后得到的output是(32,32)，所最后得到的三个output序列是(4,4),(12,12),(32,32)。以此类推。</p>
+<p><img src="https://pbs.twimg.com/media/F_G1ZasaAAAzc83?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p><strong>思考</strong>：那么我们可以想一下，如果现在的序列顺序变化一下，结果是否会不一致？如果现在的序列是(1,1),(2,2),(1,1)，我们得到的是(4,4),(16,16),(36,36)。结果发生了变化。所以RNN对序列是敏感的，这样的特性就表示，在slot filling的task里面，我们前面的arrive和leave将会影响后面接着的Taipei的结果。</p>
+<br>
+<br>
+<p><strong>深度RNN</strong>:<br />
+<img src="https://pbs.twimg.com/media/F_G2Sn9aEAABBw0?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p><strong>艾尔曼(Elman)网络和约旦(Jordan)网络(有更好的表现)</strong>:<br />
+<img src="https://pbs.twimg.com/media/F_G3E_oa8AACYat?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p><strong>双向RNN</strong>：<br />
+<img src="https://pbs.twimg.com/media/F_G3GtwaUAAFySI?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="3long-short-term-memory-lstm"><a class="markdownIt-Anchor" href="#3long-short-term-memory-lstm"></a> 3.Long Short-term Memory (LSTM)</h2>
+<p><img src="https://pbs.twimg.com/media/F_G32_KbMAAK9Xq?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p>仔细来看，LSTM形式如下：</p>
+<p><img src="https://pbs.twimg.com/media/F_G334WbMAA6L95?format=png&amp;name=900x900" alt="" /><br />
+C表示Memory中存储的原始值，C’表示新的存储值。</p>
+<p>可以看到，一个<strong>output</strong>受到三个<strong>gate</strong>的影响:</p>
+<ul>
+<li><strong>input gate</strong>决定一个<strong>input</strong>是否可以进入<strong>memory cell</strong></li>
+<li><strong>forget gate</strong>决定是否要忘记之前的<strong>memory</strong></li>
+<li><strong>output gate</strong>决定最后是否可以输出。这样一个非常复杂的<strong>neuron</strong></li>
+</ul>
+<br>
+<p>-------------------- <strong>LSTM·过程·expmale·BEGIN</strong> --------------------</p>
+<p>那么实作上这个<strong>neuron</strong>是如何工作的呢？假设我们现在有一个最简单的LSTM，每个<strong>gate</strong>的<strong>input</strong>都是一样的<strong>vector</strong>，那么我们这边在做的时候就是每一个<strong>input</strong>乘以每个<strong>gate</strong>的<strong>matrix</strong>，然后通过<strong>active function</strong>进行计算。这里做一个最简单的人肉LSTM。假设我们有一个序列是：</p>
+<p>假设：</p>
+<ul>
+<li>当x2=1的时候，我们将x1加入memory中</li>
+<li>当x2=−1的时候，memory重置为0</li>
+<li>当x3=1的时候，我们输出结果</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/F_G5AyLbkAAE1jV?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p>-------------------- <strong>LSTM·过程·expmale·END</strong> --------------------</p>
+<br>
+<br>
+<p>-------------------- <strong>LSTM·过程·expmale·详细·BEGIN</strong> --------------------</p>
+<p>现在，将第一个元素放进来，我们得到是3，input gate部分的结果是90，经过<strong>activate function</strong>得到的是1，所以允许通过进入<strong>memory cell</strong>。<strong>forget gate</strong>这里计算的结果是110，经过<strong>activate function（Sigmoid）<strong>是1，所以我们记住这个值（这里要注意，虽然这个</strong>gate</strong>叫<strong>forget gate</strong>，但是当取值是1的时候其实是记住，0的时候是遗忘）。然后到<strong>output gate</strong>这里，<strong>output gate</strong>计算是-10，<strong>activate function</strong>输出是0，所以我们不output结果。<br />
+<img src="https://pbs.twimg.com/media/F_G58XKbkAATCOE?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p>输入下一个元素（4，1，0）。直接输入计算是4，经过<strong>input gate</strong>，得到的是4。因为原来<strong>memory cell</strong>里面已经存了3，所以这一轮的计算是原来的<strong>memory</strong>加上新进入的4，得到7。然后<strong>output gate</strong>依然关闭，所以<strong>memory cell</strong>还是存7。<br />
+<img src="https://pbs.twimg.com/media/F_G6MYubwAADX5g?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p>第三个元素类似的计算，发现<strong>input gate</strong>关闭，所以没法进入<strong>memory cell</strong>，因此<strong>memory cell</strong>没有更新。同时<strong>output gat</strong>e关闭，没有输出。<br />
+<img src="https://pbs.twimg.com/media/F_G6hXYaUAAaB7L?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p>第四个元素进入，<strong>input gate</strong>关闭，<strong>memory cell</strong>不更新，但是这时候<strong>output gate</strong>的<strong>activate function</strong>得到1，所以开放输出结果。因为之前<strong>memory cell</strong>里面存放的是7，所以输出7。但是要注意一点，虽然<strong>memory cell</strong>的值输出了，里面的值并没有被清空，仍然保留着，所以这个时候的<strong>memory cell</strong>还是7。<br />
+<img src="https://pbs.twimg.com/media/F_G63mxbsAA7QB9?format=jpg&amp;name=900x900" alt="" /></p>
+<br>
+<p>最后一个元素进入，<strong>input gate</strong>关闭，<strong>memory cell</strong>不更新，这时候，<strong>forget gate</strong>的<strong>activate function</strong>得到的是0，所以我们清空记忆，<strong>memory cell</strong>里面现在是0。<strong>output gate</strong>仍然关闭，所以没有<strong>output</strong>.</p>
+<p><img src="https://pbs.twimg.com/media/F_G63m6aoAEPSU0?format=jpg&amp;name=900x900" alt="" /></p>
+<br>
+<p>-------------------- <strong>LSTM·过程·expmale·详细·END</strong> --------------------</p>
+<br>
+<p><strong>LSTM和以前学的神经网络有什么关系呢？</strong></p>
+<p><strong>原网络</strong>：<br />
+<img src="https://pbs.twimg.com/media/F_G9KqzaYAA6lak?format=png&amp;name=small" alt="" /></p>
+<br>
+<p>只需要将神经元替换为LSTM即可：<br />
+<img src="https://pbs.twimg.com/media/F_G9KqzaYAA6lak?format=png&amp;name=small" alt="" /></p>
+<br>
+<br>
+<p>那时做的时候，一个<strong>简化的LSTM</strong>是：</p>
+<p>如图中，我们输入一个原始的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mi>t</mi></msup></mrow><annotation encoding="application/x-tex">x^t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7935559999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7935559999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span></span></span></span></span></span></span></span>，会通过四个<strong>linear transform</strong>变成四个<strong>vector</strong>，然后每个<strong>vector</strong>输入到<strong>LSTM</strong>对应的<strong>gate</strong>。这里要注意的是，转换后的z有多少个维度，那么我们就需要建立多少个<strong>LSTM</strong>的<strong>cell</strong>，同时，每次进入<strong>cell</strong>训练的只是z的一个维度。<br />
+<img src="https://pbs.twimg.com/media/F_G-svbbQAA_hiC?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p>实际的运算过程：<br />
+<img src="https://pbs.twimg.com/media/F_G_uWGboAAoxPH?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2023-11-23");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2023-11-15T16:54:40.000Z" itemprop="datePublished">2023-11-16</time>
+
+    , 最后修改于&nbsp;<time datetime="2023-11-23T14:43:09.839Z" itemprop="dateModified">2023-11-23</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/'>专业知识</a>
+
+<a class="post-categories-list-item" href='/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/'>ML</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" rel="tag">#&nbsp;专业知识</a>
+
+<a class="post-tags-list-item" href="/tags/ML/" rel="tag">#&nbsp;ML</a>
+
+<a class="post-tags-list-item" href="/tags/%E6%9D%8E%E5%AE%8F%E6%AF%85/" rel="tag">#&nbsp;李宏毅</a>
+
+<a class="post-tags-list-item" href="/tags/rnn/" rel="tag">#&nbsp;rnn</a>
+
+<a class="post-tags-list-item" href="/tags/lstm/" rel="tag">#&nbsp;lstm</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2023/11/19/intern-04/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">intern-04</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2023/11/14/Mac%E4%BD%BF%E7%94%A8ssh%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Mac使用ssh远程连接服务器</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2023/11/16/RNN%E4%B8%8ELSTM/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2023/11/16/RNN%E4%B8%8ELSTM/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

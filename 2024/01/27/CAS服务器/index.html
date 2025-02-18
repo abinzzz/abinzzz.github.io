@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>CAS服务器 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/bot.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="CAS服务器 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/01/27/CAS%E6%9C%8D%E5%8A%A1%E5%99%A8/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   组内服务器使用指南  VPN 连接  地址: https:&#x2F;&#x2F;vpn.ia.ac.cn 用户名: xushuang 密码: xushuang@2019 操作: 安装提示的插件后，即可正常使用SSH。    服务器 140  主环境 - ab - blog"><meta name="keywords" content="internship, CAS, server, blog"><meta property="article:published_time" content="2024-01-27T11:10:40.000Z"><meta property="article:modified_time" content="2024-01-29T08:36:51.266Z"><meta property="og:updated_time" content="2024-01-29T08:36:51.266Z"><meta property="article:author" content="ab"><meta property="article:tag" content="internship, CAS, server, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2024/01/27/CAS%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2024/01/27/CAS%E6%9C%8D%E5%8A%A1%E5%99%A8/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/bot.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2024/01/27/CAS%E6%9C%8D%E5%8A%A1%E5%99%A8/"
+    },
+    "headline": "CAS服务器 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/bot.ico"
+    },
+    
+    "datePublished": "2024-01-27T11:10:40.000Z",
+    "dateModified": "2024-01-29T08:36:51.266Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/bot.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "internship, CAS, server, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   组内服务器使用指南  VPN 连接  地址: https://vpn.ia.ac.cn 用户名: xushuang 密码: xushuang@2019 操作: 安装提示的插件后，即可正常使用SSH。    服务器 140  主环境 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">CAS服务器</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2024-01-27</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/internship/">internship</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACOklEQVR42u2aQW7DMAwE/f9Pt6cCQSpxh06LpuL44iB2pAlg0sslr49/cFxCCimkkG8AeRXH4/Xn+78+P56/bfK01u7aal8hZ0PuNlhdr+B3cKv70r5CCpkWXsGme3Z/AO8rpJBFot4FTAVYJmohhXwhcJIoWF2jyV9IIbsCgwjZFCBdoSykkCkgfuv8o9WikMdARtMIJHlSqJHf3nbVhDwKcrXozmiiRlYSI1VxhlSQkMdDVovdKaxIgUbMViHnQhKzND30WDSAABVyNuSugVQJVPLn6EugDDAhx0LSRUkAVIk6NVhbhZiQR0PSJtNdiHTf9uUg5EjIlMhTYNFGPjH44/CSkCMgqVlVNZeSeZXE8TZQhRwJmTYnxkH6jgyhoOgWcgwkaVYS0DSk1DWthJwJSQr2zoZUmKTmvZCzIYkw6BpZncJtG0xCjoTsBE0yqZJx1W3cCzkXkhb2HVHbGaRrd8SEPBqSvOxTwu5uXglfIYWsgqczOEKSdmcwWci5kB1zMyX6OwNM5UCKkCMhk1FFEzFJ1En4CikkeeA7one3Jh1ibgkMIY+FrIaUOmbTXcFRNkqFHAnZaTRR8GRW0QF8IWdD0kGlNBxCjFea9IWcCUkHg+8EFDUgtiJHyLGQ6eEnjXjSTEqJHg0vCTkGsttc7xZkRJDgQkzI0ZDElCcCo/uyEFJIKiRoE6oypapgeTlwhDwGkhj3ZEizMqpoQAopJEm2WKg2B+dQs0nIUZDvfAgppJBC/uHxCS3T9WT+NCLiAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BB%84%E5%86%85%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 组内服务器使用指南</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vpn-%E8%BF%9E%E6%8E%A5"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> VPN 连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8-140"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 服务器 140</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8-133"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> 服务器 133</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-%E5%88%9B%E5%BB%BA%E4%B8%8E%E7%AE%A1%E7%90%86"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> Docker 创建与管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-%E5%AE%B9%E5%99%A8%E5%88%9B%E5%BB%BA"><span class="post-toc-number">1.5.</span> <span class="post-toc-text"> Docker 容器创建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86"><span class="post-toc-number">1.6.</span> <span class="post-toc-text"> Docker 容器管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8docker-id"><span class="post-toc-number">1.7.</span> <span class="post-toc-text"> 服务器Docker ID</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="post-toc-number">1.8.</span> <span class="post-toc-text"> 注意事项</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="组内服务器使用指南"><a class="markdownIt-Anchor" href="#组内服务器使用指南"></a> 组内服务器使用指南</h2>
+<h3 id="vpn-连接"><a class="markdownIt-Anchor" href="#vpn-连接"></a> VPN 连接</h3>
+<ul>
+<li><strong>地址</strong>: <code>https://vpn.ia.ac.cn</code></li>
+<li><strong>用户名</strong>: <code>xushuang</code></li>
+<li><strong>密码</strong>: <code>xushuang@2019</code></li>
+<li><strong>操作</strong>: 安装提示的插件后，即可正常使用SSH。</li>
+</ul>
+<br>
+<h3 id="服务器-140"><a class="markdownIt-Anchor" href="#服务器-140"></a> 服务器 140</h3>
+<ul>
+<li><strong>主环境</strong>:
+<ul>
+<li><strong>SSH</strong>: <code>ssh liguoqi@172.18.30.140</code></li>
+<li><strong>密码</strong>: <code>liguoqi811</code></li>
+</ul>
+</li>
+<li><strong>操作</strong>: 在<code>/data1</code>磁盘创建自己的Docker容器，确保端口不与他人冲突。</li>
+</ul>
+<br>
+<h3 id="服务器-133"><a class="markdownIt-Anchor" href="#服务器-133"></a> 服务器 133</h3>
+<ul>
+<li><strong>主环境</strong>:
+<ul>
+<li><strong>SSH</strong>: <code>ssh ligq@172.18.30.133</code></li>
+<li><strong>密码</strong>: <code>ligq123's#1</code></li>
+</ul>
+</li>
+<li><strong>操作</strong>: 在<code>/raid/ligq</code>磁盘映射自己的Docker容器，确保端口不与他人冲突。</li>
+</ul>
+<br>
+<h3 id="docker-创建与管理"><a class="markdownIt-Anchor" href="#docker-创建与管理"></a> Docker 创建与管理</h3>
+<ul>
+<li><strong>确认显卡</strong>: 确保是NVIDIA显卡。</li>
+<li><strong>NVIDIA Docker 教程</strong>: <a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker">NVIDIA 官方文档</a></li>
+<li><strong>普通用户加入Docker组</strong>: <a target="_blank" rel="noopener" href="https://blog.csdn.net/lwuit/article/details/102607887">CSDN博客教程</a></li>
+<li><strong>Docker 操作指令</strong>:
+<ul>
+<li>查看运行中的Docker: <code>docker ps</code></li>
+<li>查看所有Docker: <code>docker ps -a</code></li>
+<li>删除指定容器: <code>docker rm -f [containerid]</code></li>
+</ul>
+</li>
+</ul>
+<br>
+<h3 id="docker-容器创建"><a class="markdownIt-Anchor" href="#docker-容器创建"></a> Docker 容器创建</h3>
+<ul>
+<li><strong>创建教程</strong>: <a target="_blank" rel="noopener" href="https://blog.csdn.net/lifengss/article/details/105300459">CSDN博客教程</a></li>
+<li><strong>注意</strong>: 需要将共享内存设置得更大，参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/DeliaPu/article/details/124633581">这个教程</a></li>
+<li><strong>示例指令</strong>: <code>sudo docker run -p 8011:22 --ipc=host -v /data/sqy:/sqy --gpus 'all,&quot;capabilities=compute,utility&quot;' -it nvidia/cuda:11.6.0-devel-ubuntu20.04 /bin/bash</code></li>
+</ul>
+<br>
+<h3 id="docker-容器管理"><a class="markdownIt-Anchor" href="#docker-容器管理"></a> Docker 容器管理</h3>
+<ul>
+<li><strong>启动</strong>: <code>docker start [id]</code></li>
+<li><strong>进入</strong>: <code>docker exec -it [id] /bin/bash</code></li>
+<li><strong>删除</strong>: <code>docker rm [id]</code> (谨慎操作，防止误删)</li>
+<li><strong>停止</strong>: <code>docker stop [id]</code></li>
+<li><strong>重命名</strong>: <code>docker rename [原容器名] [新容器名]</code></li>
+</ul>
+<Br>
+<h3 id="服务器docker-id"><a class="markdownIt-Anchor" href="#服务器docker-id"></a> 服务器Docker ID</h3>
+<ul>
+<li><strong>服务器 133</strong>: <code>3454d3fe60fe</code></li>
+<li><strong>服务器 140</strong>: <code>920f6903c855</code></li>
+</ul>
+<Br>
+<h3 id="注意事项"><a class="markdownIt-Anchor" href="#注意事项"></a> 注意事项</h3>
+<ul>
+<li>如果出现硬盘损坏导致Docker无法启动的问题，尝试重新启动Docker。如果是端口冲突导致的问题，删除本地的<code>known_host</code>。</li>
+</ul>
+<br>
+<hr />
+<p>创建过程：</p>
+<ul>
+<li>
+<p><code>sudo docker run -p 8024:22 --ipc=host -v /data/cyb:/cyb --gpus 'all,&quot;capabilities=compute,utility&quot;' -it nvidia/cuda:11.6.0-devel-ubuntu20.04 /bin/bash</code></p>
+</li>
+<li>
+<p>我的docker id：<code>b11a13895df1</code></p>
+</li>
+<li>
+<p>进入docker：<code>nvidia-docker exec -it b11a13895df1 /bin/bash</code></p>
+</li>
+<li>
+<p>输入<code>vim /etc/ssh/sshd_config</code>，打开ssh配置文件，修改以下内容，以允许root账户通过密码登录：</p>
+</li>
+<li>
+<p><code>/etc/init.d/ssh restart</code></p>
+</li>
+<li>
+<p><code>exit</code></p>
+</li>
+<li>
+<p><code>sudo docker port b11a13895df1 22</code></p>
+</li>
+</ul>
+<p><strong>注意</strong>： 为什么不显示映射端口号呢？原因是docker没有启动！！</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(base) liguoqi@cxhpc:/data$ docker port b11a13895df1 <span class="number">22</span></span><br><span class="line"><span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span>:<span class="number">8024</span></span><br><span class="line">[::]:<span class="number">8024</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>docker,启动！：<code>docker start b11a13895df1</code></li>
+<li>进入docker路径： <code>docker exec -it b11a13895df1 /bin/bash</code></li>
+<li>
+<ul>
+<li>ssh,启动！： <code>/etc/init.d/ssh start</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>注意</strong>：vim中<code>#</code>的内容表示注释</p>
+<ul>
+<li>cp -r /data/sqy/LAVIS /data/cyb</li>
+<li>cp -r /data/sqy/opt-2.7b /data/cyb</li>
+</ul>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2024-01-29");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-01-27T11:10:40.000Z" itemprop="datePublished">2024-01-27</time>
+
+    , 最后修改于&nbsp;<time datetime="2024-01-29T08:36:51.266Z" itemprop="dateModified">2024-01-29</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/internship/'>internship</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/internship/" rel="tag">#&nbsp;internship</a>
+
+<a class="post-tags-list-item" href="/tags/CAS/" rel="tag">#&nbsp;CAS</a>
+
+<a class="post-tags-list-item" href="/tags/server/" rel="tag">#&nbsp;server</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2024/01/28/%E5%AE%9E%E4%B9%A0%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">实习经验总结</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2024/01/26/epoch%E3%80%81batch%E3%80%81batch-size%E3%80%81step%E3%80%81iteration/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">epoch、batch、batch size、step、iteration</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2024/01/27/CAS%E6%9C%8D%E5%8A%A1%E5%99%A8/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2024/01/27/CAS%E6%9C%8D%E5%8A%A1%E5%99%A8/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

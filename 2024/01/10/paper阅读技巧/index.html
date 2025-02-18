@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>paper阅读工具 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/bot.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="paper阅读工具 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/01/10/paper%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   1.arxiv论文阅读技巧 介绍：arxiv.org 上的论文一般都是 PDF 格式的，最新的论文已经支持在HTML上进行阅读，但之前的论文仍然需要下载才能阅读，下面介绍几种技巧：  将url中的域名中的“x”换成“5”，就能用  - ab - blog"><meta name="keywords" content="paper, reading, blog"><meta property="article:published_time" content="2024-01-10T14:13:28.000Z"><meta property="article:modified_time" content="2024-01-10T17:42:15.039Z"><meta property="og:updated_time" content="2024-01-10T17:42:15.039Z"><meta property="article:author" content="ab"><meta property="article:tag" content="paper, reading, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2024/01/10/paper%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2024/01/10/paper%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/bot.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2024/01/10/paper%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7/"
+    },
+    "headline": "paper阅读工具 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/bot.ico"
+    },
+    
+    "datePublished": "2024-01-10T14:13:28.000Z",
+    "dateModified": "2024-01-10T17:42:15.039Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/bot.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "paper, reading, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   1.arxiv论文阅读技巧 介绍：arxiv.org 上的论文一般都是 PDF 格式的，最新的论文已经支持在HTML上进行阅读，但之前的论文仍然需要下载才能阅读，下面介绍几种技巧：  将url中的域名中的“x”换成“5”，就能用  - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">paper阅读工具</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2024-01-10</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/paper/">paper</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACMElEQVR42u3a0W6DQAxEUf7/p9vXirKe622qpuvLS6oShYPEgj3m+vgH2yVSpEiRb4C8iu3pO99+6Lbv6+fTvtX+x+OKHIt8vGhv/7+jV/g7tgKn44qcjUwLIC2UziIjxxUpskKShVMthLTARIrcRa7+Jg+A1U1bpMhugfG0KCps+n6nsBE5F1k1RL/5+bJuUeRRyBgaLYpXfPEXN/SXpWoij0JWF/KqiSI3/KoQIccTORfZuehTsEqD1xTEihSZmq4UFpAwYRV8VYtT5ExkuoF3FhctmstAQKTI0OCnwLQT9FdDUdQtihyNTMNQGvjvFjAiRVYXc6fwXX2HNn34iSPyaGQ6YCcwoIEWKYRFzkSmwnT1sggtYOmJx2Bf5CjkbgOfbtpkYIoKDJGjkLSB2jlo50TwE0fkGOTqh3AjD5uzCBM5Hkle3iDhP3kJnvwuGjaJPB5JAyTaVLUxZOGIHIfsBPY7+8hDATdiIo9GdgLQ3cESGZSKFJka/qrwpSdEBlatVE3kCOSqaUr7UnFBHhBxQCByPJIWBHQBkZB2O7ASOQK5M1SiiyAVuyjYFzkKSQMpGo7S0Ko8hsiRSBpIdQai9IW6uNBEjkSmCzo1Z7SIrRbosqgWORZZhfwJmIamdPgfF47IccgUyNNGnzwMaOErUmR3YEmHAKTYFSmyu3B+EhakQT8egIochUwNUzfcosXE1lt/Io9H7rxIR0J+EuqXDaDIkch33kSKFCnyD7dPF/22lc1T9DUAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1arxiv%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 1.arxiv论文阅读技巧</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 2.沉浸式翻译</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3%E8%AE%BA%E6%96%87%E4%BA%A4%E4%BA%92%E7%BD%91%E7%AB%99txyz"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 3.论文交互网站TXYZ</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4%E5%AD%A6%E6%9C%AF%E4%BF%A1%E6%81%AF%E6%8C%96%E6%8E%98%E5%B9%B3%E5%8F%B0aminer"><span class="post-toc-number">4.</span> <span class="post-toc-text"> 4.学术信息挖掘平台Aminer</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5%E8%AE%BA%E6%96%87%E7%9F%A5%E8%AF%86%E7%BD%91%E7%BB%9C"><span class="post-toc-number">5.</span> <span class="post-toc-text"> 5.论文知识网络</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6%E5%AD%A6%E6%9C%AF%E7%A0%94%E7%A9%B6%E5%B9%B3%E5%8F%B0openread"><span class="post-toc-number">6.</span> <span class="post-toc-text"> 6.学术研究平台OpenRead</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7paperswithcode"><span class="post-toc-number">7.</span> <span class="post-toc-text"> 7.Paperswithcode</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8%E5%AD%A6%E6%9C%AF%E7%9F%AD%E8%AF%AD%E5%BA%93academic-phrasebank"><span class="post-toc-number">8.</span> <span class="post-toc-text"> 8.学术短语库Academic Phrasebank</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9%E5%AD%A6%E6%9C%AF%E6%96%87%E7%8C%AE%E6%8E%A2%E7%B4%A2%E5%B9%B3%E5%8F%B0inciteful"><span class="post-toc-number">9.</span> <span class="post-toc-text"> 9.学术文献探索平台Inciteful</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10readpaper"><span class="post-toc-number">10.</span> <span class="post-toc-text"> 10.readpaper</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11perplexity-ai"><span class="post-toc-number">11.</span> <span class="post-toc-text"> 11.perplexity ai</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#12mendeley"><span class="post-toc-number">12.</span> <span class="post-toc-text"> 12.Mendeley</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="1arxiv论文阅读技巧"><a class="markdownIt-Anchor" href="#1arxiv论文阅读技巧"></a> 1.arxiv论文阅读技巧</h2>
+<p>介绍：<a target="_blank" rel="noopener" href="http://arxiv.org">arxiv.org</a> 上的论文一般都是 PDF 格式的，最新的论文已经支持在HTML上进行阅读，但之前的论文仍然需要下载才能阅读，下面介绍几种技巧：</p>
+<ul>
+<li>将url中的域名中的“x”换成“5”，就能用 HTML5 的格式阅读，比如将<code>https://arxiv.org/abs/2301.00774</code>改成<code>https://ar5iv.org/abs/2301.00774</code>。</li>
+<li>利用转换工具<code>https://www.arxiv-vanity.com</code>，可以将论文转为在线阅读的形式。</li>
+<li>将url中的域名中的“v”换成“w”，即arxiw，可跳转到TXYZ网站，实现用户与论文对话交互。</li>
+</ul>
+<br>
+<h2 id="2沉浸式翻译"><a class="markdownIt-Anchor" href="#2沉浸式翻译"></a> 2.沉浸式翻译</h2>
+<p>链接：<a target="_blank" rel="noopener" href="https://immersivetranslate.com/">https://immersivetranslate.com/</a></p>
+<p>介绍：非常受欢迎的<strong>双语对照网页翻译插件</strong>，可以完全免费地使用它来实时翻译外语网页，PDF文档，ePub 电子书，字幕文件等。在手机上也可以随时随地用哦，支持10种以上的翻译服务，支持对 PDF 做对照翻译，可以加速论文的阅读效率。与ar5iv阅读技巧结合，简直是神器！！！</p>
+<br>
+<h2 id="3论文交互网站txyz"><a class="markdownIt-Anchor" href="#3论文交互网站txyz"></a> 3.论文交互网站TXYZ</h2>
+<p>链接：<a target="_blank" rel="noopener" href="https://www.txyz.ai">https://www.txyz.ai</a></p>
+<p>介绍：TXYZ AI 是一款基于ChatGPT开发的一款插件，它可以帮助用户快速得到论文中想要的信息，可以<strong>实现用户与论文对话的场景</strong>。特别是对于专业名词较多的文章，而且可以问它关于这篇文章的任何问题，能够加快研究的进程。打开TXYZ AI  网页版，上传你的论文文档，然后就可以使用英文来问它关于论文内容的任何问题。与【沉浸式翻译】结合，真是YYDS!</p>
+<br>
+<h2 id="4学术信息挖掘平台aminer"><a class="markdownIt-Anchor" href="#4学术信息挖掘平台aminer"></a> 4.学术信息挖掘平台Aminer</h2>
+<p>链接：<a target="_blank" rel="noopener" href="https://www.aminer.cn/">https://www.aminer.cn/</a></p>
+<p>介绍：由清华大学计算机系研发的学术信息挖掘平台，可以很大程度帮助降低检索和学习论文的门槛。如果你有一个明确的研究方向，可以在它的**「必读论文」模块中找到对应的优质论文集**，这些内容都是由 AI 初筛 + 学者复核后呈现出来的，可以为自己省去海量的信息挖掘时间。</p>
+<br>
+<h2 id="5论文知识网络"><a class="markdownIt-Anchor" href="#5论文知识网络"></a> 5.论文知识网络</h2>
+<ul>
+<li>Connected-papers：<a target="_blank" rel="noopener" href="https://www.connectedpapers.com">https://www.connectedpapers.com</a></li>
+<li>Researchrabbit：<a target="_blank" rel="noopener" href="https://www.researchrabbit.ai">https://www.researchrabbit.ai</a></li>
+<li>Litmaps：<a target="_blank" rel="noopener" href="https://www.litmaps.com">https://www.litmaps.com</a></li>
+<li>Openknowledgemaps：<a target="_blank" rel="noopener" href="https://openknowledgemaps.org">https://openknowledgemaps.org</a></li>
+</ul>
+<br>
+<h2 id="6学术研究平台openread"><a class="markdownIt-Anchor" href="#6学术研究平台openread"></a> 6.学术研究平台OpenRead</h2>
+<p>链接：<a target="_blank" rel="noopener" href="https://www.openread.academy/zh">https://www.openread.academy/zh</a></p>
+<p>介绍：OpenRead是一个创新的学术研究平台，它通过人工智能技术为用户提供了一个全面的学术资源库，包括超过3亿篇论文，覆盖广泛的学科领域。用户可以通过自然语言搜索快速找到相关论文，并通过<strong>AI总结功能</strong>快速把握论文核心内容。此外，OpenRead还提供了<strong>阅读与笔记管理工具</strong>，如AI论文浓缩、AI问答和论文关系网，帮助用户高效地整理和理解复杂知识。平台鼓励学术社区的建立，通过高校联盟促进知识的自由流通。OpenRead的目标是简化研究流程，让用户能够专注于知识的探索和创新，而不受传统学术出版和研究工具的限制。</p>
+<Br>
+<h2 id="7paperswithcode"><a class="markdownIt-Anchor" href="#7paperswithcode"></a> 7.Paperswithcode</h2>
+<p>链接：<a target="_blank" rel="noopener" href="https://paperswithcode.com/">https://paperswithcode.com/</a></p>
+<p>介绍：Papers With Code 是一个专注于机器学习领域的在线平台，<strong>它提供了最新的研究论文、代码实现、数据集和方法</strong>。这个平台旨在帮助研究人员和开发者了解和跟踪机器学习领域的最新进展，包括但不限于图像生成、自然语言处理、计算机视觉等方向。在找论文代码的时候经常用到，推荐！</p>
+<br>
+<h2 id="8学术短语库academic-phrasebank"><a class="markdownIt-Anchor" href="#8学术短语库academic-phrasebank"></a> 8.学术短语库Academic Phrasebank</h2>
+<p>链接：<a target="_blank" rel="noopener" href="https://www.phrasebank.manchester.ac.uk">https://www.phrasebank.manchester.ac.uk</a></p>
+<p>介绍：曼彻斯特大学的学术短语库（Academic Phrasebank）是一个专为学术写作设计的在线资源。<strong>它提供了按研究论文结构组织的语言示例，涵盖引言、方法、结果、讨论和结论等部分，以及通用的学术写作功能</strong>，如比较、定义术语和因果关系等。这些短语旨在帮助作者思考和组织自己的写作内容，同时也可以直接用于论文中，但需要根据具体情况进行适当调整。短语库内容中立，旨在辅助非英语母语的学术作者，但也对英语母语作者有帮助。网站还提供PDF和Kindle格式的资源，方便用户下载</p>
+<br>
+<h2 id="9学术文献探索平台inciteful"><a class="markdownIt-Anchor" href="#9学术文献探索平台inciteful"></a> 9.学术文献探索平台Inciteful</h2>
+<p>链接：<a target="_blank" rel="noopener" href="https://inciteful.xyz">https://inciteful.xyz</a></p>
+<p>介绍：Inciteful.xyz 是一个基于引文的学术文献探索平台，旨在帮助研究人员快速了解新领域、发现最新文献并揭示不同想法之间的联系。它提供两个主要工具：<strong>Paper Discovery 和 Literature Connector。Paper Discovery 通过分析引文网络，帮助用户找到相似、重要论文以及高产作者和机构。Literature Connector 则为跨学科研究者提供服务，通过输入两篇论文，展示它们在文献中的连接关系。</strong></p>
+<br>
+<h2 id="10readpaper"><a class="markdownIt-Anchor" href="#10readpaper"></a> 10.readpaper</h2>
+<p>链接：<a target="_blank" rel="noopener" href="https://readpaper.com">https://readpaper.com</a></p>
+<p>介绍：ReadPaper是一个集成了<strong>翻译、阅读、搜索、管理和润色功能</strong>的AI科研平台。它提供专业学术翻译，帮助用户高效理解论文，并通过AI阅读器优化阅读体验。平台拥有丰富的学术知识图谱，实时更新研究进展。此外，它还提供文献管理工具，支持多种引用格式，并具备AI润色服务。</p>
+<br>
+<h2 id="11perplexity-ai"><a class="markdownIt-Anchor" href="#11perplexity-ai"></a> 11.perplexity ai</h2>
+<p>链接：<a target="_blank" rel="noopener" href="https://www.perplexity.ai/">https://www.perplexity.ai/</a></p>
+<p>Perplexity AI是一款结合了搜索和聊天功能的在线工具，基于OpenAI API开发。其旨在为用户提供更全面、准确的答案和相关的网页链接和图片，以便更快、更便捷地获取所需信息。该网站是免费的，无需注册账号，同时也不会显示任何广告。只需在网站上输入问题，Perplexity AI就会利用其大型语言模型为您提供答案。此外，该工具还具有聊天功能，可以帮助您更好地表达您的问题或提出更多的细节或相关问题。</p>
+<br>
+<h2 id="12mendeley"><a class="markdownIt-Anchor" href="#12mendeley"></a> 12.Mendeley</h2>
+<p>链接：<a target="_blank" rel="noopener" href="https://www.mendeley.com/search/">https://www.mendeley.com/search/</a></p>
+<p>Mendeley是一款免费的跨平台文献管理软件，同时也是一个在线的学术社交网络平台。可一键抓取网页上的文献信息添加到个人的library中。还可安装MS Word和Open Office插件，方便在文字编辑器中插入和管理参考文献。参考文献格式与Zotero一样用各种期刊格式的CLS文件。Mendeley还免费提供各2GB的文献存储和100MB的共享空间</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2024-01-11");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-01-10T14:13:28.000Z" itemprop="datePublished">2024-01-10</time>
+
+    , 最后修改于&nbsp;<time datetime="2024-01-10T17:42:15.039Z" itemprop="dateModified">2024-01-11</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/paper/'>paper</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/paper/" rel="tag">#&nbsp;paper</a>
+
+<a class="post-tags-list-item" href="/tags/reading/" rel="tag">#&nbsp;reading</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2024/01/10/%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E4%B8%AD%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E6%98%BE%E5%AD%98%E5%8D%A0%E7%94%A8%E5%A4%A7%E5%B0%8F/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">计算模型以及中间变量的显存占用大小</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2024/01/10/GB%E4%B8%8EGiB/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">GB与GiB</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2024/01/10/paper%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2024/01/10/paper%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

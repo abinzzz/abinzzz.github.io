@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>面试：关于Transformer的问题 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/bot.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="面试：关于Transformer的问题 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/01/25/%E5%85%B3%E4%BA%8ETransformer%E7%9A%84%E9%97%AE%E9%A2%98/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   参考链接  transformer模型— 20道面试题自我检测 Transformer常见问题与回答总结 Transformer论文逐段精读【论文精读】 为什么Transformer 需要进行 Multi-head Attenti - ab - blog"><meta name="keywords" content="internship, transformer, blog"><meta property="og:image" content="https://pbs.twimg.com/media/GEr3GLAWoAAPrcT?format=png&amp;name=small"><meta property="og:image" content="https://pic1.zhimg.com/50/v2-71c50aef27eedfe5ca0279efc21a1a4d_720w.jpg?source=1def8aca"><meta property="og:image" content="https://pbs.twimg.com/media/GEMYvc6XsAAp9Vo?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GEsRectWkAAtqpX?format=jpg&amp;name=medium"><meta property="article:published_time" content="2024-01-25T13:44:24.000Z"><meta property="article:modified_time" content="2024-01-25T13:57:32.272Z"><meta property="og:updated_time" content="2024-01-25T13:57:32.272Z"><meta property="article:author" content="ab"><meta property="article:tag" content="internship, transformer, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2024/01/25/%E5%85%B3%E4%BA%8ETransformer%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2024/01/25/%E5%85%B3%E4%BA%8ETransformer%E7%9A%84%E9%97%AE%E9%A2%98/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/bot.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2024/01/25/%E5%85%B3%E4%BA%8ETransformer%E7%9A%84%E9%97%AE%E9%A2%98/"
+    },
+    "headline": "面试：关于Transformer的问题 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/bot.ico"
+    },
+    
+    "datePublished": "2024-01-25T13:44:24.000Z",
+    "dateModified": "2024-01-25T13:57:32.272Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/bot.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "internship, transformer, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   参考链接  transformer模型— 20道面试题自我检测 Transformer常见问题与回答总结 Transformer论文逐段精读【论文精读】 为什么Transformer 需要进行 Multi-head Attenti - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">面试：关于Transformer的问题</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2024-01-25</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/internship/">internship</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACtElEQVR42u3cwW7CQAxFUf7/p9tVJYpm/O4byALlskEiIZxUNeOxLR4/X/h4iBYtWvQN0Y/h8Xf8+fnfRZ7OW52zutbr+a/Hdg7Rohv08p9+wL4en7ATdHW96XXRohv0LgBXCBpIE3QX6KNDtOgPoKeg2S0sKdjSIiZa9JXo1bEpkHYLxBS0okVfgR4TFXDxKQCnm7kkyxN9e3Szsb3y+bLduOhboWmwkI0svc4O9bGqqehbo1eYlDzRhH7aMEzFy23BUrRogE4Jy1QwfwdPFjXRot9B06IjKchMCxFpMG1fEy0aoCfcdBPkPdNnTAG3DX7RogE6JfqkuE4XoClhShsN0aJb9ASmgdMmWW1BUrToFp2a9S16ahKlgYC4sRUtGqBTgyhuPEFi1BY28beHaNGgydkM/aVBl4Qmm17Rok/QJPGnwUYSrd2XQBWIokUvijXkAiSY0hB4DLbJIFo0QKcmKHltWmjSokMNokVTNBm0os0emnw1hU7Rolv0NAyVEqap0USam+RGRIs+RackPxVr0oAV+UPERpJo0QDdBF1q8pwmVqQQJFp0i54KK+0ga1osUhMUZXmiRZdFddIYTY3N6dyUbI0DsqJFw6FvOrg9JUhNMoSa+KJFl+hm+JoUaNIgCw38OmESLTqcRAsyaVPQvD8WfUSLLhaXpvmTgmwCowEr2vwULRoUa2jyPn1gC8YDL6JFA3SbsE83RoanmqanaNGn6AZ0UqBpF59t8iRadPlbCCRJSs3O2MAsA1C06BZNC4In2KbInm5GtOgGPTUdaULfLBIpELcbDNGiCzQdkErJP2k0kc3v8v2iRX8AHRPzg+ZQKuZXFSbRog/RtClPFxFS2ImTNaJFH/4QfJvkkIYqGRI4zvJE3x5NB6HI0B8ptNNFRrToE/Q3PUSLFi36RuhfxL9KuL/fjiIAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 参考链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%9D%A2%E8%AF%95%E5%8D%81%E9%97%AE"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 面试十问</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-transformer%E4%B8%BA%E4%BD%95%E4%BD%BF%E7%94%A8%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E5%A4%B4"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"> 1. Transformer为何使用多头注意力机制？（为什么不使用一个头）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-transformer%E4%B8%BA%E4%BB%80%E4%B9%88q%E5%92%8Ck%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%9D%83%E9%87%8D%E7%9F%A9%E9%98%B5%E7%94%9F%E6%88%90%E4%B8%BA%E4%BD%95%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8%E5%90%8C%E4%B8%80%E4%B8%AA%E5%80%BC%E8%BF%9B%E8%A1%8C%E8%87%AA%E8%BA%AB%E7%9A%84%E7%82%B9%E4%B9%98-%E6%B3%A8%E6%84%8F%E5%92%8C%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"> 2. Transformer为什么Q和K使用不同的权重矩阵生成，为何不能使用同一个值进行自身的点乘？ （注意和第一个问题的区别）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-transformer%E8%AE%A1%E7%AE%97attention%E7%9A%84%E6%97%B6%E5%80%99%E4%B8%BA%E4%BD%95%E9%80%89%E6%8B%A9%E7%82%B9%E4%B9%98%E8%80%8C%E4%B8%8D%E6%98%AF%E5%8A%A0%E6%B3%95%E4%B8%A4%E8%80%85%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%92%8C%E6%95%88%E6%9E%9C%E4%B8%8A%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="post-toc-number">2.3.</span> <span class="post-toc-text"> 3. Transformer计算attention的时候为何选择点乘而不是加法？两者计算复杂度和效果上有什么区别？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8%E8%BF%9B%E8%A1%8Csoftmax%E4%B9%8B%E5%89%8D%E9%9C%80%E8%A6%81%E5%AF%B9attention%E8%BF%9B%E8%A1%8Cscaled%E4%B8%BA%E4%BB%80%E4%B9%88%E9%99%A4%E4%BB%A5dk%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9%E5%B9%B6%E4%BD%BF%E7%94%A8%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC%E8%BF%9B%E8%A1%8C%E8%AE%B2%E8%A7%A3"><span class="post-toc-number">2.4.</span> <span class="post-toc-text"> 4.为什么在进行softmax之前需要对attention进行scaled（为什么除以dk的平方根），并使用公式推导进行讲解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%97%AE%E9%A2%981-transformer%E7%9A%84%E8%AE%A1%E7%AE%97attention%E6%97%B6%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%99%A4%E4%BB%A5%E4%B8%80%E4%B8%AA%E6%95%B0"><span class="post-toc-number">2.5.</span> <span class="post-toc-text"> 问题1: Transformer的计算Attention时为什么要除以一个数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%97%AE%E9%A2%982-%E8%BF%99%E4%B8%AA%E6%95%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF1dk"><span class="post-toc-number">2.6.</span> <span class="post-toc-text"> 问题2: 这个数为什么是1&#x2F;√dk</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%9E%E9%AA%8C%E9%AA%8C%E8%AF%81"><span class="post-toc-number">2.7.</span> <span class="post-toc-text"> 实验验证</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-%E5%9C%A8%E8%AE%A1%E7%AE%97attention-score%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E5%AF%B9padding%E5%81%9Amask%E6%93%8D%E4%BD%9C"><span class="post-toc-number">2.8.</span> <span class="post-toc-text"> 5. 在计算attention score的时候如何对padding做mask操作？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8%E8%BF%9B%E8%A1%8C%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B%E7%9A%84%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81%E5%AF%B9%E6%AF%8F%E4%B8%AAhead%E8%BF%9B%E8%A1%8C%E9%99%8D%E7%BB%B4%E5%8F%AF%E4%BB%A5%E5%8F%82%E8%80%83%E4%B8%8A%E9%9D%A2%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="post-toc-number">2.9.</span> <span class="post-toc-text"> 6. 为什么在进行多头注意力的时候需要对每个head进行降维？（可以参考上面一个问题）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-%E5%A4%A7%E6%A6%82%E8%AE%B2%E4%B8%80%E4%B8%8Btransformer%E7%9A%84encoder%E6%A8%A1%E5%9D%97"><span class="post-toc-number">2.10.</span> <span class="post-toc-text"> 7. 大概讲一下Transformer的Encoder模块？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8%E4%B8%BA%E4%BD%95%E5%9C%A8%E8%8E%B7%E5%8F%96%E8%BE%93%E5%85%A5%E8%AF%8D%E5%90%91%E9%87%8F%E4%B9%8B%E5%90%8E%E9%9C%80%E8%A6%81%E5%AF%B9%E7%9F%A9%E9%98%B5%E4%B9%98%E4%BB%A5embedding-size%E7%9A%84%E5%BC%80%E6%96%B9%E6%84%8F%E4%B9%89%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">2.11.</span> <span class="post-toc-text"> 8.为何在获取输入词向量之后需要对矩阵乘以embedding size的开方？意义是什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Btransformer%E7%9A%84%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81%E6%9C%89%E4%BB%80%E4%B9%88%E6%84%8F%E4%B9%89%E5%92%8C%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="post-toc-number">2.12.</span> <span class="post-toc-text"> 9. 简单介绍一下Transformer的位置编码？有什么意义和优缺点？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10%E4%BD%A0%E8%BF%98%E4%BA%86%E8%A7%A3%E5%93%AA%E4%BA%9B%E5%85%B3%E4%BA%8E%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81%E7%9A%84%E6%8A%80%E6%9C%AF%E5%90%84%E8%87%AA%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">2.13.</span> <span class="post-toc-text"> 10.你还了解哪些关于位置编码的技术，各自的优缺点是什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11%E7%AE%80%E5%8D%95%E8%AE%B2%E4%B8%80%E4%B8%8Btransformer%E4%B8%AD%E7%9A%84%E6%AE%8B%E5%B7%AE%E7%BB%93%E6%9E%84%E4%BB%A5%E5%8F%8A%E6%84%8F%E4%B9%89"><span class="post-toc-number">2.14.</span> <span class="post-toc-text"> 11.简单讲一下Transformer中的残差结构以及意义。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-%E4%B8%BA%E4%BB%80%E4%B9%88transformer%E5%9D%97%E4%BD%BF%E7%94%A8layernorm%E8%80%8C%E4%B8%8D%E6%98%AFbatchnormlayernorm-%E5%9C%A8transformer%E7%9A%84%E4%BD%8D%E7%BD%AE%E6%98%AF%E5%93%AA%E9%87%8C"><span class="post-toc-number">2.15.</span> <span class="post-toc-text"> 12.  为什么transformer块使用LayerNorm而不是BatchNorm？LayerNorm 在Transformer的位置是哪里？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#13-%E7%AE%80%E5%8D%95%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8Btransformer%E4%B8%AD%E7%9A%84%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BD%BF%E7%94%A8%E4%BA%86%E4%BB%80%E4%B9%88%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E7%9B%B8%E5%85%B3%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="post-toc-number">2.16.</span> <span class="post-toc-text"> 13.  简单描述一下Transformer中的前馈神经网络？使用了什么激活函数？相关优缺点？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#14encoder%E7%AB%AF%E5%92%8Cdecoder%E7%AB%AF%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E7%9A%84%E5%9C%A8%E8%BF%99%E9%87%8C%E5%8F%AF%E4%BB%A5%E9%97%AE%E4%B8%80%E4%B8%8B%E5%85%B3%E4%BA%8Eseq2seq%E7%9A%84attention%E7%9F%A5%E8%AF%86"><span class="post-toc-number">2.17.</span> <span class="post-toc-text"> 14.Encoder端和Decoder端是如何进行交互的？（在这里可以问一下关于seq2seq的attention知识）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#15decoder%E9%98%B6%E6%AE%B5%E7%9A%84%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%92%8Cencoder%E7%9A%84%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81decoder%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E9%9C%80%E8%A6%81%E8%BF%9B%E8%A1%8C-sequence-mask"><span class="post-toc-number">2.18.</span> <span class="post-toc-text"> 15.Decoder阶段的多头自注意力和encoder的多头自注意力有什么区别？（为什么需要decoder自注意力需要进行 sequence mask)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#16transformer%E7%9A%84%E5%B9%B6%E8%A1%8C%E5%8C%96%E6%8F%90%E7%8E%B0%E5%9C%A8%E5%93%AA%E4%B8%AA%E5%9C%B0%E6%96%B9decoder%E7%AB%AF%E5%8F%AF%E4%BB%A5%E5%81%9A%E5%B9%B6%E8%A1%8C%E5%8C%96%E5%90%97"><span class="post-toc-number">2.19.</span> <span class="post-toc-text"> 16.Transformer的并行化提现在哪个地方？Decoder端可以做并行化吗？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#17-transformer%E8%AE%AD%E7%BB%83%E7%9A%84%E6%97%B6%E5%80%99%E5%AD%A6%E4%B9%A0%E7%8E%87%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%BE%E5%AE%9A%E7%9A%84dropout%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%BE%E5%AE%9A%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%9C%A8%E5%93%AA%E9%87%8Cdropout-%E5%9C%A8%E6%B5%8B%E8%AF%95%E7%9A%84%E9%9C%80%E8%A6%81%E6%9C%89%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%90%97"><span class="post-toc-number">2.20.</span> <span class="post-toc-text"> 17.  Transformer训练的时候学习率是如何设定的？Dropout是如何设定的，位置在哪里？Dropout 在测试的需要有什么需要注意的吗？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#18-%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8Ebert%E9%97%AE%E9%A2%98bert%E7%9A%84mask%E4%B8%BA%E4%BD%95%E4%B8%8D%E5%AD%A6%E4%B9%A0transformer%E5%9C%A8attention%E5%A4%84%E8%BF%9B%E8%A1%8C%E5%B1%8F%E8%94%BDscore%E7%9A%84%E6%8A%80%E5%B7%A7"><span class="post-toc-number">2.21.</span> <span class="post-toc-text"> 18.  一个关于bert问题，bert的mask为何不学习transformer在attention处进行屏蔽score的技巧？</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_51879931/article/details/134142492">transformer模型— 20道面试题自我检测</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/496012402?utm_medium=social&amp;utm_oi=629375409599549440">Transformer常见问题与回答总结</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pu411o7BE/?share_source=copy_web&amp;vd_source=d8d8cd49f932177e1995e230d7816d44">Transformer论文逐段精读【论文精读】</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/341222779">为什么Transformer 需要进行 Multi-head Attention？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/319339652">transformer中为什么使用不同的K 和 Q， 为什么不能使用同一个值？</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/huggingface/transformers/blob/aa6a29bc25b663e1311c5c4fb96b004cf8a6d2b6/src/transformers/modeling_bert.py#L720">Breadcrumbstransformers/src/transformers<br />
+/modeling_bert.py</a></li>
+</ul>
+<p>位置编码：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/QxaZTVOUrzKfO7B78EM5Uw">一文读懂Transformer模型的位置编码</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/vXYJKF9AViKnd0tbuhMWgQ">浅谈Transformer模型中的位置表示</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/NPM3w7sIYVLuMYxQ_R6PrA">Transformer改进之相对位置编码(RPE)</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ENpXBYQ4hfdTLSXBIoF00Q">如何优雅地编码文本中的位置信息？三种positioanl encoding方法简述</a></li>
+</ul>
+<h2 id="面试十问"><a class="markdownIt-Anchor" href="#面试十问"></a> 面试十问</h2>
+<h3 id="1-transformer为何使用多头注意力机制为什么不使用一个头"><a class="markdownIt-Anchor" href="#1-transformer为何使用多头注意力机制为什么不使用一个头"></a> 1. Transformer为何使用多头注意力机制？（为什么不使用一个头）</h3>
+<p>多头保证了transformer可以注意到不同子空间的信息，捕捉到更加丰富的特征信息。可以<strong>类比CNN中同时使用多个卷积核</strong>的作用，直观上讲，多头的注意力<strong>有助于网络捕捉到更丰富的特征/信息</strong>。</p>
+<p>捕捉多种依赖关系：不同的注意力头可以学习到序列中不同位置之间的不同依赖关系。一个头可能专注于捕捉语法依赖，另一个头可能专注于语义依赖，这样模型就能够更全面地理解输入数据。</p>
+<p>提高模型容量：多头注意力机制增加了模型的容量，使得模型能够学习到更复杂的表示。</p>
+<p>更好的泛化能力：由于多头注意力机制能够从多个角度分析输入数据，模型的泛化能力得到提升。</p>
+<p>并行计算：多头注意力机制的计算可以并行进行，这提高了训练和推理的效率。</p>
+<br>
+<h3 id="2-transformer为什么q和k使用不同的权重矩阵生成为何不能使用同一个值进行自身的点乘-注意和第一个问题的区别"><a class="markdownIt-Anchor" href="#2-transformer为什么q和k使用不同的权重矩阵生成为何不能使用同一个值进行自身的点乘-注意和第一个问题的区别"></a> 2. Transformer为什么Q和K使用不同的权重矩阵生成，为何不能使用同一个值进行自身的点乘？ （注意和第一个问题的区别）</h3>
+<p><strong>理解自注意力机制：Q、K、V的角色</strong></p>
+<p>您可能好奇，为什么在‘K’和‘Q’很相似的情况下（主要区别在于权重W_k和W_Q），还要创建一个单独的‘Q’？使用‘K’自身进行点乘似乎就足够了，这样不仅省去了创建和更新‘Q’的麻烦，还节约了内存空间。</p>
+<p><img src="https://pbs.twimg.com/media/GEr3GLAWoAAPrcT?format=png&amp;name=small" alt="自注意力公式" /><br />
+<em>(上图是自注意力公式，涉及Q、K、V三个向量。)</em></p>
+<p>为了解答这个问题，我们首先要理解为什么计算Q和K的点乘是关键的。</p>
+<ol>
+<li><strong>点乘的本质</strong>：从物理意义上讲，两个向量的点乘代表了这两个向量的相似度。</li>
+<li><strong>Q、K、V的物理意义</strong>：Q、K、V在物理上都代表了由同一个句子中不同token组成的矩阵。这些矩阵中的每一行都是一个token的词嵌入向量。例如，在句子“Hello, how are you?”中，长度为6，<a href="https://abinzzz.github.io/2024/01/19/PyTorch-torch-nn-Embedding/">嵌入维度</a>为300，那么Q、K、V都将形成一个(6, 300)的矩阵。</li>
+</ol>
+<p>简单来说，K和Q的点乘是为了计算句子中每个token相对于其他token的相似度，这种相似度可以理解为<strong>注意力得分</strong>。</p>
+<p>例如，在处理“Hello, how are you?”这句话时，当前token为“Hello”，我们可以计算出“Hello”与句子中的“,”、“how”、“are”、“you”、“?”这些token的注意力得分。有了这个注意力得分，我们就能知道在处理“Hello”时，模型关注了句子中的哪些token。</p>
+<p><img src="https://pic1.zhimg.com/50/v2-71c50aef27eedfe5ca0279efc21a1a4d_720w.jpg?source=1def8aca" alt="注意力得分矩阵" /><br />
+这个注意力得分是一个(6, 6)的矩阵。每一行代表一个token相对于其他token的关注度。例如，上图中的第一行代表了“Hello”这个单词相对于本句中其他单词的关注度。添加softmax函数是为了对关注度进行归一化。</p>
+<p>虽然我们通过各种计算得到了注意力得分矩阵，但它<strong>很难直接代表原始句子</strong>。然而，<strong>'V’仍然代表原始句子</strong>，因此我们将这个注意力得分矩阵与’V’相乘，得到的是一个加权后的结果。最初，'V’中的每个单词仅通过词嵌入来表示，彼此之间没有关联。但经过与注意力得分相乘后，'V’中每个token的向量（即每个单词的词嵌入向量）在每个维度（每一列）上都根据其他token的关注度进行了调整。这一步相当于提纯，使每个单词关注其应关注的部分。</p>
+<p>现在，我们来解释为什么不使用相同的值来代表K和Q。从以上解释中，我们知道K和Q的点乘旨在产生一个注意力得分矩阵，用于提纯’V’。K和Q使用不同的W_k和W_Q进行计算，这可以理解为在<strong>不同的空间上进行投影</strong>。正是因为这种不同空间的投影，提高了表达能力，使得计算出的注意力得分矩阵具有更高的泛化能力。我的理解是，<strong>由于K和Q使用了不同的W_k和W_Q，所以它们形成了两个完全不同的矩阵，因此具有更强的表达能力</strong>。但如果不使用Q，而是直接使用K与K进行点乘，你会发现注意力得分矩阵是一个对称矩阵。这意味着它们都在相同的空间中进行了投影，因此泛化能力较差。这样的矩阵在提纯’V’时的效果也不会很好。</p>
+<br>
+<h3 id="3-transformer计算attention的时候为何选择点乘而不是加法两者计算复杂度和效果上有什么区别"><a class="markdownIt-Anchor" href="#3-transformer计算attention的时候为何选择点乘而不是加法两者计算复杂度和效果上有什么区别"></a> 3. Transformer计算attention的时候为何选择点乘而不是加法？两者计算复杂度和效果上有什么区别？</h3>
+<table>
+<thead>
+<tr>
+<th>特性 / 类型</th>
+<th>点乘注意力（Dot-product Attention）</th>
+<th>加法注意力（Additive Attention）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>公式</td>
+<td><code>Attention(Q, K, V) = softmax((QK^T) / sqrt(d_k)) V</code></td>
+<td><code>Attention(Q, K, V) = softmax(score(Q, K)) V</code></td>
+</tr>
+<tr>
+<td>输入</td>
+<td>查询（Q）、键（K）和值（V）</td>
+<td>查询（Q）、键（K）和值（V）</td>
+</tr>
+<tr>
+<td>计算特点</td>
+<td>使用查询和键的点乘来计算相似度</td>
+<td>使用自定义的分数函数来计算查询和键之间的相似度</td>
+</tr>
+<tr>
+<td>优点</td>
+<td>- 高效：点乘操作可以在硬件上<strong>高效并行化</strong><br>- 强大的建模能力：能够捕捉查询和键之间的细微<strong>相似度</strong></td>
+<td>- 对长序列的性能可能优于点乘注意力<br>- 可能更适合处理复杂的分数函数</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>- 维度高时可能导致梯度消失问题<br>- 需要适当缩放以防止softmax输出极端值</td>
+<td>- 计算复杂度高：需要为每对查询和键计算分数<br>- 计算速度可能较慢</td>
+</tr>
+<tr>
+<td>计算复杂度</td>
+<td>O(n^2 * d)，其中n是序列长度，d是维度</td>
+<td>O(n^2 * d)，但常数因子可能更大</td>
+</tr>
+<tr>
+<td>效果</td>
+<td>- 在多数任务中表现良好<br>- 在硬件上更易于并行化，计算更快</td>
+<td>- 在某些长序列任务中可能表现更好<br>- 适合复杂的相似度计算</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h3 id="4为什么在进行softmax之前需要对attention进行scaled为什么除以dk的平方根并使用公式推导进行讲解"><a class="markdownIt-Anchor" href="#4为什么在进行softmax之前需要对attention进行scaled为什么除以dk的平方根并使用公式推导进行讲解"></a> 4.为什么在进行softmax之前需要对attention进行scaled（为什么除以dk的平方根），并使用公式推导进行讲解</h3>
+<p>self-attention的公式如下：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Attention</mtext><mo stretchy="false">(</mo><mi>Q</mi><mo separator="true">,</mo><mi>K</mi><mo separator="true">,</mo><mi>V</mi><mo stretchy="false">)</mo><mo>=</mo><mtext>softmax</mtext><mrow><mo fence="true">(</mo><mfrac><mrow><mi>Q</mi><msup><mi>K</mi><mi>T</mi></msup></mrow><msqrt><msub><mi>d</mi><mi>k</mi></msub></msqrt></mfrac><mo fence="true">)</mo></mrow><mi>V</mi><mspace linebreak="newline"></mspace></mrow><annotation encoding="application/x-tex">\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V \\
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Attention</span></span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.468361em;vertical-align:-0.95003em;"></span><span class="mord text"><span class="mord">softmax</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5183309999999999em;"><span style="top:-2.25278em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.85722em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.81722em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.18278000000000005em;"><span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.93em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span><span class="mspace newline"></span></span></span></span></p>
+<p>这里我们引用一下<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1706.03762.pdf">Transformer论文</a>中的解释:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">While for small values of d_k, the two mechanisms perform similarly, additive attention outperforms dot product attention without scaling for larger values of d_k. We suspect that for large values of $d_k$, the dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients. To counteract this effect, we scale the dot products by 1/√dk.</span><br></pre></td></tr></table></figure>
+<p>通过上面内容，可以将该思考题分为两部分进行描述：</p>
+<ul>
+<li>问题1: Transformer的计算Attention时为什么要除以一个数</li>
+<li>问题2: 这个数为什么是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><msqrt><msub><mi>d</mi><mi>k</mi></msub></msqrt></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{\sqrt{d_k}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.383108em;vertical-align:-0.538em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.5864385em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8622307142857143em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight" style="padding-left:0.833em;"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.8222307142857144em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.17776928571428574em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.538em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+</ul>
+<Br>
+<h3 id="问题1-transformer的计算attention时为什么要除以一个数"><a class="markdownIt-Anchor" href="#问题1-transformer的计算attention时为什么要除以一个数"></a> <code>问题1: Transformer的计算Attention时为什么要除以一个数</code></h3>
+<p>当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">d_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 很大的时候,<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><msup><mi>K</mi><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">QK^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.035771em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span> 的结果里面会有很大,如果不进行scale，softmax将会作用于一些很大的值，那么根据softmax函数的分布，大多数值会堆积在分布的两端、也就是那些分布曲线平缓、梯度很小的地方，梯度很小就会导致梯度消失。</p>
+<h3 id="问题2-这个数为什么是1dk"><a class="markdownIt-Anchor" href="#问题2-这个数为什么是1dk"></a> <code>问题2: 这个数为什么是1/√dk</code></h3>
+<p>设文中提出的向量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">q_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>i</mi></msub><mo>∈</mo><msup><mi>R</mi><mrow><mi>n</mi><mo>×</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">q_i \in R^{n \times 1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">×</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>∈</mo><msup><mi>R</mi><mrow><mi>n</mi><mo>×</mo><msub><mi>d</mi><mi>k</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">Q \in R^{n \times d_k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8491079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">×</span><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>)和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>k</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">k_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>k</mi><mi>i</mi></msub><mo>∈</mo><msup><mi>R</mi><mrow><mi>m</mi><mo>×</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">k_i \in R^{m \times 1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="mbin mtight">×</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>∈</mo><msup><mi>R</mi><mrow><mi>m</mi><mo>×</mo><msub><mi>d</mi><mi>k</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">K \in R^{m \times d_k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8491079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="mbin mtight">×</span><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>)都是相互独立的、均值为0,方差为1的随机变量，那么根据独立变量性质有:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Var</mtext><mo stretchy="false">(</mo><mi>Q</mi><msup><mi>K</mi><mi>T</mi></msup><mo stretchy="false">)</mo><mo>=</mo><mtext>Var</mtext><mrow><mo fence="true">(</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>d</mi><mi>k</mi></msub></munderover><msub><mi>q</mi><mi>i</mi></msub><msubsup><mi>k</mi><mi>i</mi><mi>T</mi></msubsup><mo fence="true">)</mo></mrow><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>d</mi><mi>k</mi></msub></munderover><mtext>Var</mtext><mo stretchy="false">(</mo><msub><mi>q</mi><mi>i</mi></msub><msubsup><mi>k</mi><mi>i</mi><mi>T</mi></msubsup><mo stretchy="false">)</mo><mo>=</mo><msub><mi>d</mi><mi>k</mi></msub><mspace linebreak="newline"></mspace></mrow><annotation encoding="application/x-tex">\text{Var}(QK^T) = \text{Var}\left(\sum_{i=1}^{d_k} q_i k_i^T\right) = \sum_{i=1}^{d_k} \text{Var}(q_i k_i^T) = d_k \\
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1413309999999999em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Var</span></span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913309999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.130642em;vertical-align:-1.277669em;"></span><span class="mord text"><span class="mord">Var</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">(</span></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8529730000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.316865em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913309999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size4">)</span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.130642em;vertical-align:-1.277669em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8529730000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.316865em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">Var</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913309999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mspace newline"></span></span></span></span></p>
+<p>因为有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Var</mtext><mo stretchy="false">(</mo><mi>a</mi><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mi>a</mi><mn>2</mn></msup><mtext>Var</mtext><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\text{Var}(ax) = a^2 \text{Var}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Var</span></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord text"><span class="mord">Var</span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></p>
+<p>所以在softmax之前除以 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><msub><mi>d</mi><mi>k</mi></msub></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{d_k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.18278000000000005em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.85722em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.81722em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.18278000000000005em;"><span></span></span></span></span></span></span></span></span> 可以将 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><msup><mi>K</mi><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">QK^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.035771em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span> 的分布的方差缩小至1。</p>
+<p>这样一来，大部分数值都会分布在softmax梯度适当的位置，也就避免了梯度消失的问题。</p>
+<br>
+<br>
+<br>
+<h3 id="实验验证"><a class="markdownIt-Anchor" href="#实验验证"></a> <code>实验验证</code></h3>
+<p>以下是用于实验的Python代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.special <span class="keyword">import</span> softmax  </span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np  </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_gradient</span>(<span class="params">dimension, time_steps=<span class="number">50</span>, scaling_factor=<span class="number">1.0</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    - dimension: 查询向量和键向量的维度。</span></span><br><span class="line"><span class="string">    - time_steps: 生成键向量的数量。</span></span><br><span class="line"><span class="string">    - scaling_factor: 应用于点积的缩放因子。</span></span><br><span class="line"><span class="string">    - return: 梯度矩阵中最大的绝对值分量。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 生成随机的查询向量和键向量，其组成部分从标准正态分布中抽取</span></span><br><span class="line">    query_vector = np.random.randn(dimension)</span><br><span class="line">    key_vectors = np.random.randn(time_steps, dimension)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算点积，应用缩放，然后计算softmax</span></span><br><span class="line">    dot_products = np.<span class="built_in">sum</span>(query_vector * key_vectors, axis=<span class="number">1</span>) / scaling_factor</span><br><span class="line">    softmax_output = softmax(dot_products)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算softmax输出的梯度</span></span><br><span class="line">    gradient_matrix = np.diag(softmax_output) - np.outer(softmax_output, softmax_output)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 返回梯度矩阵中的最大绝对值</span></span><br><span class="line">    <span class="keyword">return</span> np.<span class="built_in">max</span>(np.<span class="built_in">abs</span>(gradient_matrix))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实验次数</span></span><br><span class="line">NUMBER_OF_EXPERIMENTS = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行没有缩放的实验</span></span><br><span class="line">results_without_scaling_100 = [test_gradient(<span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(NUMBER_OF_EXPERIMENTS)]</span><br><span class="line">results_without_scaling_1000 = [test_gradient(<span class="number">1000</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(NUMBER_OF_EXPERIMENTS)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行有缩放的实验</span></span><br><span class="line">results_with_scaling_100 = [test_gradient(<span class="number">100</span>, scaling_factor=np.sqrt(<span class="number">100</span>)) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(NUMBER_OF_EXPERIMENTS)]</span><br><span class="line">results_with_scaling_1000 = [test_gradient(<span class="number">1000</span>, scaling_factor=np.sqrt(<span class="number">1000</span>)) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(NUMBER_OF_EXPERIMENTS)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;没有缩放的结果（维度=100）:&quot;</span>, results_without_scaling_100)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;没有缩放的结果（维度=1000）:&quot;</span>, results_without_scaling_1000)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;有缩放的结果（维度=100）:&quot;</span>, results_with_scaling_100)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;有缩放的结果（维度=1000）:&quot;</span>, results_with_scaling_1000)</span><br></pre></td></tr></table></figure>
+<p><strong>实验结果</strong>：通过散点图展示，对比了不同实验条件下梯度最大绝对值分量的分布：<br />
+<img src="https://pbs.twimg.com/media/GEMYvc6XsAAp9Vo?format=jpg&amp;name=medium" alt="" /></p>
+<p><strong>实验结果对比分析：</strong></p>
+<p><strong>不带scaling的结果（维度=1000）：</strong> 在没有缩放处理的情况下，维度为1000的实验组中，梯度的最大绝对值分量出现了极小的值，如<code>1.8829382497642655e-11</code>，这表明在高维空间中不进行缩放可能会导致梯度消失。这是因为在高维空间中，点积的结果通常会非常大，导致softmax函数饱和，从而在反向传播时梯度接近于零。</p>
+<p><strong>不带scaling的结果（维度=100）：</strong> 在维度为100时，没有缩放处理的情况下，梯度的最大绝对值分量显得较大且变化范围宽，比如从<code>0.059398546712975064</code>到<code>0.2498360169388831</code>。这表明在较低维度的空间中，梯度消失的问题不像在高维空间那么显著。</p>
+<p><strong>带scaling的结果（维度=1000和100）：</strong> 在应用了缩放处理后，无论是维度为1000还是100的情况下，梯度的最大绝对值分量都较为稳定，没有出现接近于零的情况。例如，维度为1000时的输出值在<code>0.08899382001739972</code>到<code>0.1312868174831885</code>之间。这表明通过缩放可以有效避免梯度消失，确保了梯度流的稳定性。</p>
+<h3 id="5-在计算attention-score的时候如何对padding做mask操作"><a class="markdownIt-Anchor" href="#5-在计算attention-score的时候如何对padding做mask操作"></a> 5. 在计算attention score的时候如何对padding做mask操作？</h3>
+<p>padding位置置为负无穷(一般来说-1000就可以)，再对attention score进行相加。</p>
+<p>步骤：</p>
+<ul>
+<li>
+<p><strong>创建一个掩码矩阵</strong>: 对于输入序列中的每个位置，如果该位置是填充词，则在掩码矩阵的对应位置放置一个非常大的负数（如-1e9），否则放置0。</p>
+</li>
+<li>
+<p><strong>应用掩码矩阵</strong>: 将掩码矩阵加到注意力分数上。因为掩码矩阵中填充词的位置是非常大的负数，加上它们之后，这些位置的注意力分数也会变成非常大的负数。</p>
+</li>
+<li>
+<p><strong>应用softmax函数</strong>: 在加了掩码的注意力分数上应用softmax函数。由于填充词位置的分数是非常大的负数，经过softmax函数后，这些位置的权重将接近于0，而其他位置的权重将保持不变（因为softmax是一个归一化函数）。</p>
+</li>
+<li>
+<p><strong>计算加权和</strong>: 使用softmax的输出作为权重，计算值（Value）的加权和。</p>
+</li>
+</ul>
+<Br>
+<h3 id="6-为什么在进行多头注意力的时候需要对每个head进行降维可以参考上面一个问题"><a class="markdownIt-Anchor" href="#6-为什么在进行多头注意力的时候需要对每个head进行降维可以参考上面一个问题"></a> 6. 为什么在进行多头注意力的时候需要对每个head进行降维？（可以参考上面一个问题）</h3>
+<p>将原有的高维空间转化为多个低维空间并再最后进行拼接，形成同样维度的输出，借此丰富特性信息</p>
+<h3 id="7-大概讲一下transformer的encoder模块"><a class="markdownIt-Anchor" href="#7-大概讲一下transformer的encoder模块"></a> 7. 大概讲一下Transformer的Encoder模块？</h3>
+<p>基本结构：</p>
+<ul>
+<li>Embedding + Position Embedding</li>
+<li>Self-Attention</li>
+<li>Add + LN</li>
+<li>FN</li>
+<li>Add + LN</li>
+</ul>
+<br>
+<p>Transformer的Encoder模块是由一系列相同的层堆叠而成的，每一层都有两个主要的子模块：多头自注意力机制（Multi-Head Self-Attention）和前馈神经网络（Position-wise Feed-Forward Networks）。此外，每个子模块周围都有一个残差连接，并且每个子模块的输出都会经过层归一化（Layer Normalization）。下面是对这些组件的详细说明：</p>
+<ul>
+<li>
+<p>1.<strong>多头自注意力机制（Multi-Head Self-Attention）</strong>:这个模块可以使网络在进行预测时考虑输入序列的不同位置，对不同位置的输入分配不同的注意力。多头注意力机制意味着模型有多组不同的注意力参数，每组都会输出一个注意力权重，这些注意力权重会被合并成最终的注意力输出。</p>
+</li>
+<li>
+<p>2.<strong>残差连接（Residual Connection）</strong>: 残差连接帮助避免了深度神经网络中的梯度消失问题。在Transformer中，每个子模块的输出是 LayerNorm(x + SubLayer(x))，其中SubLayer(x)是子模块自身（比如多头自注意力或前馈神经网络）的输出。</p>
+</li>
+<li>
+<p>3.<strong>层归一化（Layer Normalization）</strong>: 层归一化是在模型的训练过程中加速收敛的一种技术，它对层的输入进行归一化处理，使得其均值为0，方差为1。</p>
+</li>
+<li>
+<p>4.<strong>前馈神经网络（Position-wise Feed-Forward Networks）</strong>: 这个模块由两个线性变换组成，中间夹有一个ReLU激活函数。它对每个位置的词向量独立地进行变换。</p>
+</li>
+<li>
+<p>5.<strong>位置编码（Position Encoding）</strong>: 由于Transformer模型没有循环或卷积操作，为了让模型能够利用词的顺序信息，需要在输入嵌入层中加入位置编码。位置编码和词嵌入相加后输入到Encoder模块。</p>
+</li>
+</ul>
+<p>整体来看，Transformer的Encoder模块将输入序列转换为一系列连续表示，这些表示在后续的Decoder模块中用于生成输出序列。每一层的Encoder都对输入序列的所有位置同时进行操作，而不是像RNN那样逐个位置处理，这是Transformer模型高效并行处理的关键。</p>
+<Br>
+<h3 id="8为何在获取输入词向量之后需要对矩阵乘以embedding-size的开方意义是什么"><a class="markdownIt-Anchor" href="#8为何在获取输入词向量之后需要对矩阵乘以embedding-size的开方意义是什么"></a> 8.为何在获取输入词向量之后需要对矩阵乘以embedding size的开方？意义是什么？</h3>
+<p>embedding matrix的初始化方式是xavier init，这种方式的方差是1/embedding size，因此乘以embedding size的开方使得embedding matrix的方差是1，在这个scale下可能更有利于embedding matrix的收敛。</p>
+<br>
+<h3 id="9-简单介绍一下transformer的位置编码有什么意义和优缺点"><a class="markdownIt-Anchor" href="#9-简单介绍一下transformer的位置编码有什么意义和优缺点"></a> 9. 简单介绍一下Transformer的位置编码？有什么意义和优缺点？</h3>
+<p>Transformer模型采用自注意力机制处理序列数据。与传统的循环神经网络（RNN）和长短时记忆网络（LSTM）不同，Transformer不依赖于序列的递归处理，因此无法直接捕捉到序列中的位置信息。为了解决这个问题，Transformer引入了位置编码（Positional Encoding）的概念，将位置信息添加到模型的输入中。</p>
+<br>
+<p>位置编码是一个与词嵌入维度相同的向量，它被加到词嵌入上，以提供关于单词在序列中位置的信息。位置编码的公式如下：</p>
+<p>对于位置<code>pos</code>和维度<code>i</code>,位置编码的第<code>i</code>个元素被定义为:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mi>E</mi><mo stretchy="false">(</mo><mi>p</mi><mi>o</mi><mi>s</mi><mo separator="true">,</mo><mn>2</mn><mi>i</mi><mo stretchy="false">)</mo><mo>=</mo><mi>sin</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mfrac><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow><mrow><mn>1000</mn><msup><mn>0</mn><mfrac><mrow><mn>2</mn><mi>i</mi></mrow><mi>d</mi></mfrac></msup></mrow></mfrac><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">PE(pos, 2i) = \sin\left(\frac{pos}{10000^{\frac{2i}{d}}}\right)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mord mathnormal">o</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mord mathnormal">i</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1075599999999999em;"><span style="top:-2.16289em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9471099999999999em;"><span style="top:-3.3485500000000004em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8550857142857142em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span></span></span></span><span style="top:-3.2255000000000003em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="mord mathnormal">o</span><span class="mord mathnormal">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8371099999999999em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mi>E</mi><mo stretchy="false">(</mo><mi>p</mi><mi>o</mi><mi>s</mi><mo separator="true">,</mo><mn>2</mn><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>=</mo><mi>cos</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mfrac><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow><mrow><mn>1000</mn><msup><mn>0</mn><mfrac><mrow><mn>2</mn><mi>i</mi></mrow><mi>d</mi></mfrac></msup></mrow></mfrac><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">PE(pos, 2i+1) = \cos\left(\frac{pos}{10000^{\frac{2i}{d}}}\right)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mord mathnormal">o</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="mop">cos</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1075599999999999em;"><span style="top:-2.16289em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9471099999999999em;"><span style="top:-3.3485500000000004em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8550857142857142em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span></span></span></span><span style="top:-3.2255000000000003em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="mord mathnormal">o</span><span class="mord mathnormal">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8371099999999999em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span></span></span></span></span></p>
+<p>其中,<code>d</code>是词嵌入的维度,<code>pos</code>是词在序列中的位置,<code>i</code>是维度的索引。</p>
+<br>
+<p>优点:</p>
+<ul>
+<li><strong>固定模式</strong>: 位置编码是根据绝对位置计算的，而且是固定的，这意味着模型在训练和测试时使用相同的位置编码，保持一致性。</li>
+<li><strong>可推广性</strong>: 由于位置编码是基于三角函数计算的，它能够处理比训练时见过的序列更长的输入。</li>
+<li><strong>并行计算</strong>: 与RNN和LSTM不同，Transformer模型能够利用位置编码一次性处理整个序列，这使得模型能够充分利用现代硬件的并行计算能力，显著提高训练和推断的速度。</li>
+</ul>
+<br>
+<p>缺点:</p>
+<ul>
+<li><strong>固定长度</strong>: 尽管位置编码能够处理长序列，但是它们是根据固定长度计算的，这意味着如果序列太长，位置编码可能会失效。</li>
+<li><strong>可能需要更多的训练数据</strong>: 由于位置信息是通过位置编码隐式提供的，模型需要从数据中学习如何最好地利用这些信息，这可能需要更多的训练数据。</li>
+</ul>
+<br>
+<h3 id="10你还了解哪些关于位置编码的技术各自的优缺点是什么"><a class="markdownIt-Anchor" href="#10你还了解哪些关于位置编码的技术各自的优缺点是什么"></a> 10.你还了解哪些关于位置编码的技术，各自的优缺点是什么？</h3>
+<table>
+<thead>
+<tr>
+<th>位置编码技术</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学习的位置编码</td>
+<td>模型可以学习到最适合特定任务的位置编码，可能在某些任务上表现更好。</td>
+<td>需要更多的参数和训练数据。<br>不能很好地泛化到训练时未见过的更长序列。</td>
+</tr>
+<tr>
+<td>相对位置编码</td>
+<td>能够更好地处理序列的局部结构，因为它关注的是元素之间的相对位置。</td>
+<td>计算更复杂，可能增加训练和推理的时间。</td>
+</tr>
+<tr>
+<td>固定但可学习的位置编码</td>
+<td>能够在保持一定泛化能力的同时，适应特定任务的需求。</td>
+<td>仍然需要更多的参数。</td>
+</tr>
+<tr>
+<td>轴向位置编码</td>
+<td>参数更少，更高效。</td>
+<td>可能损失一些表达能力。</td>
+</tr>
+<tr>
+<td>Transformer-XL中的位置编码</td>
+<td>能够更好地处理长序列，并捕捉长范围的依赖关系。</td>
+<td>结构更复杂，计算成本更高。</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h3 id="11简单讲一下transformer中的残差结构以及意义"><a class="markdownIt-Anchor" href="#11简单讲一下transformer中的残差结构以及意义"></a> 11.简单讲一下Transformer中的残差结构以及意义。</h3>
+<p>在Transformer中的每个子层（如自注意力层和前馈神经网络层）后面，都会有一个残差连接，然后是一个层归一化（Layer Normalization）操作。具体来说，如果我们将子层的操作表示为(F(x))，那么残差连接的输出就是(x + F(x))。这里的(x)是子层的输入，(x + F(x))是残差连接的输出，也是下一层的输入。</p>
+<p>残差结构的意义</p>
+<ul>
+<li><strong>缓解梯度消失: 残差连接允许梯度直接流过网络，这有助于缓解深层网络中常见的梯度消失问题，从而使得模型更容易训练。</strong></li>
+<li>提升训练速度: 残差连接提供了一种直接的信息传播路径，可以加速训练过程。</li>
+<li>增强网络能力: 通过允许信息直接传递，残差连接使网络能够学习到更复杂的表示，增强了模型的能力。</li>
+<li>增加网络深度: 残差结构使得训练非常深的网络成为可能，而不用担心梯度消失或者训练难度的问题。</li>
+<li>保持前向信息的完整性: 由于残差连接的加法操作，即使某个子层没有学到有用的信息（或者学到了错误的信息），输入信息x也仍然能够通过残差连接传到下一层，这有助于保持前向传播过程中信息的完整性。</li>
+</ul>
+<br>
+<h3 id="12-为什么transformer块使用layernorm而不是batchnormlayernorm-在transformer的位置是哪里"><a class="markdownIt-Anchor" href="#12-为什么transformer块使用layernorm而不是batchnormlayernorm-在transformer的位置是哪里"></a> 12.  为什么transformer块使用LayerNorm而不是BatchNorm？LayerNorm 在Transformer的位置是哪里？</h3>
+<p>这个我会单独写</p>
+<br>
+<h3 id="13-简单描述一下transformer中的前馈神经网络使用了什么激活函数相关优缺点"><a class="markdownIt-Anchor" href="#13-简单描述一下transformer中的前馈神经网络使用了什么激活函数相关优缺点"></a> 13.  简单描述一下Transformer中的前馈神经网络？使用了什么激活函数？相关优缺点？</h3>
+<p>Transformer 中的前馈神经网络（Feed-Forward Neural Network, FFN）是模型每个注意力头后的一个重要组成部分。这个前馈神经网络对每个位置的词向量进行相同的操作，但它并不在不同位置间共享参数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ReLU(x) = max(0, x)</span><br><span class="line">FFN(x) = max(0, xW_1 + b_1)W_2 + b_2</span><br></pre></td></tr></table></figure>
+<p>其中，<code>W_1</code>, <code>W_2</code>, <code>b_1</code>, <code>b_2</code> 是网络参数，<code>x</code> 是输入的词向量，通常维度为 <code>d_model</code>。第一个线性层将输入从 <code>d_model</code> 维扩展到 <code>d_ff</code> 维，然后应用激活函数，再通过第二个线性层将维度从 <code>d_ff</code> 缩减回 <code>d_model</code>。</p>
+<p>优点:</p>
+<ul>
+<li><strong>非线性</strong>：前馈神经网络引入了非线性变换，增加了模型的表达能力，使得 Transformer 能够学习到更复杂的函数映射。</li>
+<li><strong>并行计算</strong>：由于前馈神经网络对每个位置的操作是独立的，所以可以高效地进行并行计算，提高训练和推理的速度。</li>
+<li><strong>简单高效</strong>：前馈神经网络结构简单，计算效率高，易于优化。</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li><strong>局限性</strong>：前馈神经网络在处理序列数据时只能考虑单个位置的信息，无法捕捉序列中的上下文关系。这种局限性通过 Transformer 中的自注意力机制来解决。</li>
+<li><strong>参数量大</strong>：尽管结构简单，但前馈神经网络中参数量较大，特别是当 <code>d_ff</code> 很大时，这可能导致过拟合和增加模型的计算负担。</li>
+</ul>
+<br>
+<h3 id="14encoder端和decoder端是如何进行交互的在这里可以问一下关于seq2seq的attention知识"><a class="markdownIt-Anchor" href="#14encoder端和decoder端是如何进行交互的在这里可以问一下关于seq2seq的attention知识"></a> 14.Encoder端和Decoder端是如何进行交互的？（在这里可以问一下关于seq2seq的attention知识）</h3>
+<p><img src="https://pbs.twimg.com/media/GEsRectWkAAtqpX?format=jpg&amp;name=medium" alt="" /></p>
+<p>Encoder和Decoder之间的交互主要通过交叉注意力机制实现。具体来说：</p>
+<p><strong>查询来自Decoder</strong>：在交叉注意力层中，查询（Query）来自于Decoder的上一层的输出。</p>
+<p><strong>键和值来自Encoder</strong>：键（Key）和值（Value）来自于Encoder的输出。</p>
+<p>通过计算查询与键的相似度，模型可以为每个Encoder输出分配一个权重，然后将这些权重应用于值，以产生一个加权和，该加权和将用作交叉注意力层的输出，并输入到下一层。</p>
+<p>这种机制使Decoder能够关注输入序列的不同部分，特别是在生成每个新单词时。例如，在机器翻译任务中，当模型生成目标语言的一个单词时，它可以通过这种机制来聚焦于源语言句子中的相关部分。</p>
+<h3 id="15decoder阶段的多头自注意力和encoder的多头自注意力有什么区别为什么需要decoder自注意力需要进行-sequence-mask"><a class="markdownIt-Anchor" href="#15decoder阶段的多头自注意力和encoder的多头自注意力有什么区别为什么需要decoder自注意力需要进行-sequence-mask"></a> 15.Decoder阶段的多头自注意力和encoder的多头自注意力有什么区别？（为什么需要decoder自注意力需要进行 sequence mask)</h3>
+<p><strong>Encoder的多头自注意力</strong> :在Encoder的多头自注意力中，每个位置都可以自由地注意序列中的所有其他位置。这意味着计算注意力分数时，并没有位置上的限制。这种设置是因为在编码阶段，我们假定有完整的输入序列，并且每个词都可以依赖于上下文中的任何其他词来获得其表示。</p>
+<p><strong>Decoder的多头自注意力（带掩码）</strong>:在Decoder的多头自注意力中，为了保持自回归属性（即生成当前词只依赖于前面的词），<strong>我们需要确保在计算注意力分数时，每个位置只能注意到它前面的位置</strong>。为了实现这一点，我们使用了序列掩码（sequence mask）的技术。</p>
+<p>具体来说，序列掩码是在注意力分数计算之前，将当前位置之后所有位置的分数设置为一个非常大的负数（通常是负无穷）。这样，在接下来的softmax操作中，这些位置的注意力权重将变为0，确保模型不会注意到这些位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">为什么需要Decoder自注意力进行序列掩码？</span><br><span class="line"></span><br><span class="line">在序列生成任务中，如机器翻译或文本生成，模型需要一次生成一个词，并且生成当前词时只能依赖于前面已经生成的词。</span><br><span class="line">如果我们不使用序列掩码，模型就能够“看到”后续的词，这与实际生成过程不符，并且会导致信息泄露，使模型学习到错误的依赖关系。</span><br></pre></td></tr></table></figure>
+<h3 id="16transformer的并行化提现在哪个地方decoder端可以做并行化吗"><a class="markdownIt-Anchor" href="#16transformer的并行化提现在哪个地方decoder端可以做并行化吗"></a> 16.Transformer的并行化提现在哪个地方？Decoder端可以做并行化吗？</h3>
+<p>Encoder侧：模块之间是串行的，一个模块计算的结果做为下一个模块的输入，互相之前有依赖关系。从每个模块的角度来说，注意力层和前馈神经层这两个子模块单独来看都是可以并行的，不同单词之间是没有依赖关系的。</p>
+<p>Decode引入sequence mask就是为了并行化训练，Decoder推理过程没有并行，只能一个一个的解码，很类似于RNN，这个时刻的输入依赖于上一个时刻的输出。</p>
+<h3 id="17-transformer训练的时候学习率是如何设定的dropout是如何设定的位置在哪里dropout-在测试的需要有什么需要注意的吗"><a class="markdownIt-Anchor" href="#17-transformer训练的时候学习率是如何设定的dropout是如何设定的位置在哪里dropout-在测试的需要有什么需要注意的吗"></a> 17.  Transformer训练的时候学习率是如何设定的？Dropout是如何设定的，位置在哪里？Dropout 在测试的需要有什么需要注意的吗？</h3>
+<p>Transformer模型通常使用一种特殊的学习率调度策略,称为“Noam”学习率预热策略。具体来说,学习率随着训练的进行先增大后减小,计算公式为:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>l</mi><mi>r</mi><mo>=</mo><msubsup><mi>d</mi><mtext>model</mtext><mrow><mo>−</mo><mn>0.5</mn></mrow></msubsup><mo>⋅</mo><mi>min</mi><mo>⁡</mo><mo stretchy="false">(</mo><msup><mtext>step_num</mtext><mrow><mo>−</mo><mn>0.5</mn></mrow></msup><mo separator="true">,</mo><mtext>step_num</mtext><mo>⋅</mo><msup><mtext>warmup_steps</mtext><mrow><mo>−</mo><mn>1.5</mn></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">lr = d_{\text{model}}^{-0.5} \cdot \min(\text{step\_num}^{-0.5}, \text{step\_num} \cdot \text{warmup\_steps}^{-1.5})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.1555469999999999em;vertical-align:-0.2914389999999999em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-2.408561em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">model</span></span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">0</span><span class="mord mtight">.</span><span class="mord mtight">5</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2914389999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.174108em;vertical-align:-0.31em;"></span><span class="mop">min</span><span class="mopen">(</span><span class="mord"><span class="mord text"><span class="mord">step_num</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.864108em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">0</span><span class="mord mtight">.</span><span class="mord mtight">5</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">step_num</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.174108em;vertical-align:-0.31em;"></span><span class="mord"><span class="mord text"><span class="mord">warmup_steps</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.864108em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span><span class="mord mtight">.</span><span class="mord mtight">5</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>其中,<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mtext>model</mtext></msub></mrow><annotation encoding="application/x-tex">d_{\text{model}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">model</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是模型的隐藏层大小, step_num是当前的训练步数,warmup_steps是预热的步数。这种学习率调度策略有助于模型在训练初期快速收敛,同时在训练后期通过减小学习率来稳定训练。</p>
+<br>
+<p>Dropout是一种正则化技术,用于防止神经网络过拟合。在Transformer模型中,Dropout被应用在以下几个地方:</p>
+<ol>
+<li>
+<p>在注意力权重计算后,用于随机“丢弃”一些权重,以防止模型过分依赖某些特定的输入。</p>
+</li>
+<li>
+<p>在每个子层(自注意力层,前馈神经网络层等)的输出后,用于防止过拟合。</p>
+</li>
+<li>
+<p>在词嵌入层和位置编码的加和后。</p>
+</li>
+</ol>
+<p>Dropout率(即随机丢弃的神经元比例)是一个超参数,需要根据具体任务进行调整。常见的取值范围在0.1到0.3之间。</p>
+<p>在测试(或推理)阶段,通常会禁用Dropout,确保所有的神经元都参与到计算中,以获得最稳定的模型输出。这是因为Dropout在训练时引入了随机性,而在测试时我们希望模型的表现是确定的。在许多深度学习框架中,可以通过设置模型为评估模式来自动禁用Dropout。</p>
+<br>
+<h3 id="18-一个关于bert问题bert的mask为何不学习transformer在attention处进行屏蔽score的技巧"><a class="markdownIt-Anchor" href="#18-一个关于bert问题bert的mask为何不学习transformer在attention处进行屏蔽score的技巧"></a> 18.  一个关于bert问题，bert的mask为何不学习transformer在attention处进行屏蔽score的技巧？</h3>
+<p>BERT和transformer的目标不一致，bert是语言的预训练模型，需要充分考虑上下文的关系，而transformer主要考虑句子中第i个元素与前i-1个元素的关系</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2024-01-25");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-01-25T13:44:24.000Z" itemprop="datePublished">2024-01-25</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/internship/'>internship</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/internship/" rel="tag">#&nbsp;internship</a>
+
+<a class="post-tags-list-item" href="/tags/transformer/" rel="tag">#&nbsp;transformer</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2024/01/25/Mac%E4%BD%BF%E7%94%A8Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BB%8F%E5%B8%B8%E5%8D%A1%E6%AD%BB/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Mac使用Chrome浏览器经常卡死</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2024/01/25/paper-Transformer/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">paper:Transformer</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2024/01/25/%E5%85%B3%E4%BA%8ETransformer%E7%9A%84%E9%97%AE%E9%A2%98/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2024/01/25/%E5%85%B3%E4%BA%8ETransformer%E7%9A%84%E9%97%AE%E9%A2%98/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

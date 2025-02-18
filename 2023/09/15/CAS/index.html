@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>CAS | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/bot.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="CAS | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2023/09/15/CAS/"><meta property="og:locale" content="zh-CN"><meta name="description" content="该帖子仅用来记录中科院一些老师的信息  计算技术研究所  a.王颖 职称：副研究员 研究方向：计算机体系结构与芯片；嵌入式与物端智能系统 所属部门：处理器芯片重点实验室 导师类别：硕导计算机系统结构 联系方式：wangying2009@ict.ac.cn 个人网页：https:&#x2F;&#x2F;wangying-ict.github.io&#x2F; 简历： 2017年10月—今 ：中国科学院计算技术研究所，副研究员，  - ab - blog"><meta name="keywords" content="internship, 中科院, blog"><meta property="article:published_time" content="2023-09-15T08:57:23.000Z"><meta property="article:modified_time" content="2023-09-23T13:20:19.236Z"><meta property="og:updated_time" content="2023-09-23T13:20:19.236Z"><meta property="article:author" content="ab"><meta property="article:tag" content="internship, 中科院, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2023/09/15/CAS/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2023/09/15/CAS/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/bot.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2023/09/15/CAS/"
+    },
+    "headline": "CAS | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/bot.ico"
+    },
+    
+    "datePublished": "2023-09-15T08:57:23.000Z",
+    "dateModified": "2023-09-23T13:20:19.236Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/bot.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "internship, 中科院, blog",
+    "description": "该帖子仅用来记录中科院一些老师的信息  计算技术研究所  a.王颖 职称：副研究员 研究方向：计算机体系结构与芯片；嵌入式与物端智能系统 所属部门：处理器芯片重点实验室 导师类别：硕导计算机系统结构 联系方式：wangying2009@ict.ac.cn 个人网页：https://wangying-ict.github.io/ 简历： 2017年10月—今 ：中国科学院计算技术研究所，副研究员，  - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">CAS</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2023-09-15</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/internship/">internship</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABg0lEQVR42u3aQRKDIBBEUe9/6WRvQXePWjJY302yMOQtumAYOH4NngMECBBbIA7xnN85fx+NURoXRFvEMDTij9TAlXFB9EacBxwFcfR9Flg3Loi9EWrScsEE8U3EKHBqIgPxDYQKlgvd6P1HV1EQryNUoXLn87FqG8SrCLtpFZNWpcC9tSsH8SpCBSlBJQXuFAyiLWJWdKiiJSlqZg0VEP0RqimSNsfUb0uTFYgWiLTBUSmE3eYaRH+EGsAVL8miFy1gIFogKiGbNjvuLmAgWiLcxlaFNj2gscEE0QJRaZKrDXJlPBC9Ecmhm5rUKpuneAEDsRShJpRKIJOJLW6wg1iOcBuXSjGcFDMg9kG4g1XXRFGBtqsoiLaI9OA+uQBmAw6iJSI9iEuaIW7yA7EHonJRWB3CpRd7okIXxHJE5RC22oyXIQbRGpFeCk2KmMurKIitEOkFj6T4AfENhCuKXTiHOBCtEa5gdc3RJMgg9kFcvSjsgmkPfkG0RKx8QIAA0RrxB5R9umofCQKHAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%E6%89%80"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 计算技术研究所</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#a%E7%8E%8B%E9%A2%96"><span class="post-toc-number">2.</span> <span class="post-toc-text"> a.王颖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%99%B6%E7%93%B7"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 陶瓷</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A0%94%E7%A9%B6%E6%89%80"><span class="post-toc-number">4.</span> <span class="post-toc-text"> 自动化研究所</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#a%E6%9D%8E%E5%9B%BD%E9%BD%90"><span class="post-toc-number">5.</span> <span class="post-toc-text"> a.李国齐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%99%B6%E7%93%B7-2"><span class="post-toc-number">6.</span> <span class="post-toc-text"> 陶瓷</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <p>该帖子仅用来记录中科院一些老师的信息</p>
+<h2 id="计算技术研究所"><a class="markdownIt-Anchor" href="#计算技术研究所"></a> 计算技术研究所</h2>
+<h2 id="a王颖"><a class="markdownIt-Anchor" href="#a王颖"></a> a.王颖</h2>
+<p>职称：副研究员<br />
+研究方向：计算机体系结构与芯片；嵌入式与物端智能系统<br />
+所属部门：处理器芯片重点实验室<br />
+导师类别：硕导计算机系统结构<br />
+联系方式：wangying2009@ict.ac.cn<br />
+个人网页：<a target="_blank" rel="noopener" href="https://wangying-ict.github.io/">https://wangying-ict.github.io/</a></p>
+<p>简历：<br />
+2017年10月—今 ：中国科学院计算技术研究所，副研究员，<br />
+2014年7月—2017年9月：中国科学院计算技术研究所，助理研究员<br />
+2012年10月—2014年1月：美国卡耐基梅隆大学，联合培养博士<br />
+2009年7月—2014年7月：中国科学院大学，博士生<br />
+2003年7月—2009年7月：哈尔滨工业大学，航天学院，本科生、硕士生</p>
+<h2 id="陶瓷"><a class="markdownIt-Anchor" href="#陶瓷"></a> 陶瓷</h2>
+<p>尊敬的王颖副研究员：</p>
+<p>您好！</p>
+<p>我是北京邮电大学人工智能专业的陈钰彬。近期，我一直在思考未来出国深造的计划，并认为在实际的研究环境中增强自己的科研能力是至关重要的。因此，我希望有机会加入您的团队，获得宝贵的实践经验，并在您的指导下取得实质性的研究成果。</p>
+<p>在北邮论坛上，我得知您的团队正在招收科研实习生。我对您在通用人工智能和芯片设计方面的研究产生了浓厚的兴趣，并渴望有机会能在您的实验室中对此进行更深入的研究。个人目前和校内老师做过和深度学习相关的研究，并发表了一篇论文。而且我也和校内同学合作完成了一个强化学习相关的项目，对强化学习基础知识有所了解。相信我的加入可以为您的团队带来新的活力和视角，为方便您了解我的背景和能力，我已将个人简历附在邮件中。</p>
+<p>非常感谢您在百忙之中阅读我的来信，期待得到您的回复！</p>
+<p>敬请安好！</p>
+<p>陈钰彬</p>
+<Br>
+<h2 id="自动化研究所"><a class="markdownIt-Anchor" href="#自动化研究所"></a> 自动化研究所</h2>
+<h2 id="a李国齐"><a class="markdownIt-Anchor" href="#a李国齐"></a> a.李国齐</h2>
+<p>李国齐，湖南隆回人，中国科学院自动化所研究员，博士生导师，国家杰出青年基金获得者。研究领域：类脑计算与类脑智能。</p>
+<ul>
+<li>李国齐2011年毕业于新加坡南洋理工大学，获博士学位；</li>
+<li>2011年-2014年就职于新加坡科技局，任科学家；</li>
+<li>2014年-2022年任教于清华大学，历任助理教授、副教授、博士生导师。李</li>
+<li>国齐在Nature、Nature 子刊、Science 子刊、Proceedings of the IEEE、IEEE TPAMI等期刊和ICLR、NeurIPS、AAAI等会议上发表论文 200余篇；</li>
+<li>出版类脑方向学术专著1部；</li>
+<li>论文在 Google 学术上被引用 8000余次；</li>
+<li>申请专利 40余项；</li>
+<li>主持自然科学基金重点项目（2项）、科技部重点研发项目、 JKW基础加强项目、北京市科委项目等20余项；</li>
+<li>担任多个国际会议的 Tutorial Chair，Symposium Chair，Track Chair，Publicity Chair 和组委会成员；</li>
+<li>担任多个国内期刊和国际SCI期刊的编委、副主编、特邀编辑；</li>
+<li>曾获得中国指挥与控制学会科学技术一等奖，教育部技术发明二等奖，曾入选国家杰青（2023）、中国科学院**计划（2022）、北京市杰青（2021）、北京市智源学者（2019），中国算力十大青年先锋人物（2023）、DeepTech中国智能计算科技创新人物（2022）、北京自然基金优秀青年人才（2017）。其参与的类脑芯片理论、架构和工具链的工作曾入选2019年中国科学十大进展和2020年世界人工智能十大进展。</li>
+</ul>
+<br>
+<p>教育背景：</p>
+<ul>
+<li>2007-08–2011-08   新加坡南洋理工大学   博士</li>
+<li>2004-09–2007-07   西安交通大学   硕士</li>
+<li>2000-09–2004-07   西安理工大学   学士</li>
+</ul>
+<br>
+<p>工作经历：</p>
+<ul>
+<li>2022-02~现在, 中国科学院自动化所, 研究员</li>
+<li>2017-12~2022-02,清华大学, 副教授</li>
+<li>2014-03~2017-11,清华大学, 助理教授</li>
+<li>2011-09~2014-03,新加坡科技研究局, 科学家</li>
+</ul>
+<br>
+<p>社会兼职：</p>
+<ul>
+<li>2023-08-01-今,Associate Editor, IEEE Transactons on Neural Networks and Learning Systems</li>
+<li>2023-02-01-今,编委, Neuromorphic Computing and Engineering 编委</li>
+<li>2022-12-31-今,Guest Editor, IEEE Transactions on Cognitive and Developmental Systems</li>
+<li>2021-02-01-今,Associate Editor, Journal of Control and Decision （Associate Editor）</li>
+<li>2020-01-01-今,Associate Editor, Frontiers in Neuroscience （Associate Editor ）</li>
+<li>2017-01-01-今,编委, 《控制与决策》编委</li>
+</ul>
+<br>
+<p>奖励信息：</p>
+<ul>
+<li>（1） 中国算力十大青年先锋人物, , 部委级, 2023</li>
+<li>（2） 面向云边协同的电缆监控平台关键技术研发与产业化, 二等奖, 省级, 2022</li>
+<li>（3） 智能个体化神经反馈干预系统的关键技术及应用, 二等奖, 部委级, 2022</li>
+<li>（4） DeepTech中国智能计算科技创新人物, , 其他, 2022</li>
+<li>（5） 不确定多智能体系统的分布式自适应协同控制, 一等奖, 其他, 2018</li>
+</ul>
+<Br>
+<p>科研项目:</p>
+<ul>
+<li>（ 1 ） 面向异构融合类脑芯片的计算架构研究, 负责人, 地方任务, 2021-12–2024-12</li>
+<li>（ 2 ） 基于多模态类脑芯片的模型构建与创新架构研究, 负责人, 国家任务, 2018-10–2023-12</li>
+<li>（ 3 ） 面向神经形态系统的离散态深度网络在线学习理论, 负责人, 国家任务, 2019-01–2022-12</li>
+<li>（ 4 ） 融合注意力机制的大规模脉冲神经网络模型与算法研究, 负责人, 国家任务, 2021-10–2024-10</li>
+<li>（ 5 ） 基于神经可塑性的类脑在线学习理论与方法, 负责人, 国家任务, 2023-01–2027-12</li>
+<li>（ 6 ） 异构融合类脑计算芯片及系统研究, 负责人, 国家任务, 2023-01–2026-12</li>
+<li>（ 7 ） 通用类脑计算模型与架构, 负责人, 国家任务, 2024-01–2028-12</li>
+</ul>
+<h2 id="陶瓷-2"><a class="markdownIt-Anchor" href="#陶瓷-2"></a> 陶瓷</h2>
+<p>尊敬的李国齐研究员：</p>
+<p>您好！</p>
+<p>我是北京邮电大学人工智能专业的陈钰彬。近期，我一直在思考未来出国深造的计划，并认为在实际的研究环境中增强自己的科研能力是至关重要的。因此，我希望有机会加入您的团队，获得宝贵的实践经验，并在您的指导下取得实质性的研究成果。</p>
+<p>在北邮论坛上，我得知您的团队正在招收科研实习生。我对您在类脑计算与人工智能芯片方面的研究产生了浓厚的兴趣，并渴望有机会能在您的实验室中对此进行更深入的研究。对于时间，我有稳定的空闲时间；对于数学，我在前面学期的数学分析，线性代数，概率论等课程中取得了不错的成绩，而且我也熟悉掌握了pytorch，tensorflow等深度学习架构。相信我的加入可以为您的团队带来新的活力和视角。为方便您了解我的背景和能力，我已将个人简历附在邮件中。</p>
+<p>非常感谢您在百忙之中阅读我的来信，期待得到您的回复！</p>
+<p>敬请安好！</p>
+<p>陈钰彬</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2023-09-23");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2023-09-15T08:57:23.000Z" itemprop="datePublished">2023-09-15</time>
+
+    , 最后修改于&nbsp;<time datetime="2023-09-23T13:20:19.236Z" itemprop="dateModified">2023-09-23</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/internship/'>internship</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/internship/" rel="tag">#&nbsp;internship</a>
+
+<a class="post-tags-list-item" href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" rel="tag">#&nbsp;中科院</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2023/09/22/Git/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Git</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2023/09/11/PKU/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">PKU</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2023/09/15/CAS/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2023/09/15/CAS/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

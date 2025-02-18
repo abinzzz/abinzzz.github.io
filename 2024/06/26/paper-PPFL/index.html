@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>paper:PPFL | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/bot.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="paper:PPFL | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/06/26/paper-PPFL/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });    基本信息PPFL: Privacy-preserving Federated Learning with Trusted Execution Environments 作者：  Fan Mo（Imperial College L - ab - blog"><meta name="keywords" content="blog"><meta property="og:image" content="https://pic.imgdb.cn/item/667c4e3cd9c307b7e948b801.png"><meta property="og:image" content="https://pic.imgdb.cn/item/667d1a29d9c307b7e951be4d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/667d1d85d9c307b7e958655c.png"><meta property="og:image" content="https://pic.imgdb.cn/item/667d1da7d9c307b7e9589f71.png"><meta property="og:image" content="https://pic.imgdb.cn/item/667d1df1d9c307b7e9591632.png"><meta property="og:image" content="https://pic.imgdb.cn/item/667d1e42d9c307b7e959a11c.png"><meta property="og:image" content="https://pic.imgdb.cn/item/667d1ed4d9c307b7e95a99a3.png"><meta property="og:image" content="https://pic.imgdb.cn/item/667d1f49d9c307b7e95b5692.png"><meta property="og:image" content="https://pic.imgdb.cn/item/667d1f9ad9c307b7e95be53b.png"><meta property="og:image" content="https://pic.imgdb.cn/item/667d1f7ad9c307b7e95ba941.png"><meta property="og:image" content="https://pic.imgdb.cn/item/667d2009d9c307b7e95cbd3d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/667d2020d9c307b7e95cdfa1.png"><meta property="article:published_time" content="2024-06-26T15:46:03.000Z"><meta property="article:modified_time" content="2024-07-05T08:03:18.956Z"><meta property="og:updated_time" content="2024-07-05T08:03:18.956Z"><meta property="article:author" content="ab"><meta property="article:tag" content="blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2024/06/26/paper-PPFL/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2024/06/26/paper-PPFL/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/bot.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2024/06/26/paper-PPFL/"
+    },
+    "headline": "paper:PPFL | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/bot.ico"
+    },
+    
+    "datePublished": "2024-06-26T15:46:03.000Z",
+    "dateModified": "2024-07-05T08:03:18.956Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/bot.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });    基本信息PPFL: Privacy-preserving Federated Learning with Trusted Execution Environments 作者：  Fan Mo（Imperial College L - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">paper:PPFL</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2024-06-26</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/paper/">paper</a><span class="suka-devide-dot"></span><a class="category-link" href="/categories/paper/FL/">FL</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB4UlEQVR42u3azW6DMBBFYd7/pdtVJBSZuWeSLPBw2LQSNPkqGc+fj78bXocoUaJELVBHcb3uXz1LPwM/I2oMarnoTqjqg6rPeUdV3yNqHiot8PMzq8X7fn/1bPweUY9Arf549TzZYEWJqgDV71cLX9SzUDTA0kW8egF+liWIuj2KFA6/+PnzakbULVGx6QA3zE6x8HXXRdStUVXSf5XAkcJ1dS8WIqLGoKokLYHSJkyTP1GzUNWirRZ1VTikRmwr8xS1LYo0xVKRSQpYvKOL2hp1gCslgKQBd7VxipqFSk192tz4pBEnai6qM3jsJnSpuBA1E5USMBJkyRCpbPSKGoGqikpSrHZQ1VBT1BxUNdhJg8dPDm99VSGL2gLVScyqZI42bFtvn6gtUXSjTMGbDpvKf1LUGFQKyCngkmKCFA+i5qDoQQc6TCSbJZ5iidoORYpKkuyR4rN9AEfUtijavK+CbgrmKRiLmoOiSVz1ApBBI0kORc1A0YOCKSCTwXUM0qJGoGiTixSgVSBPQ05Rs1A00F6hU2GailZRM1HkYANZxHQAjrouokai0qJOLwA9rCPquaiqaO0cNEXVjKitUZ1hD2qANQ6IiZqHooGTYOIhm85gW9SWqDtdokSJEnW6/gHAFRGg2EauoAAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="post-toc-number">1.</span> <span class="post-toc-text">基本信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Introduction"><span class="post-toc-number">2.</span> <span class="post-toc-text">Introduction</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E8%83%8C%E6%99%AF%E5%92%8C%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="post-toc-number">3.</span> <span class="post-toc-text">2 背景和相关工作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-%E5%8F%AF%E4%BF%A1%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%EF%BC%88TEE%EF%BC%89"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2.1 可信执行环境（TEE）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E9%9A%90%E7%A7%81%E9%A3%8E%E9%99%A9"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.2 联邦学习中的隐私风险</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%BF%A1%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%EF%BC%88TEEs%EF%BC%89%E7%9A%84%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">2.3 使用可信执行环境（TEEs）的隐私保护机器学习</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-%E5%88%86%E5%B1%82DNN%E8%AE%AD%E7%BB%83%E7%94%A8%E4%BA%8E%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">2.4 分层DNN训练用于联邦学习</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E5%A8%81%E8%83%81%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%81%87%E8%AE%BE"><span class="post-toc-number">4.</span> <span class="post-toc-text">3 威胁模型和假设</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-PPFL%E6%A1%86%E6%9E%B6"><span class="post-toc-number">5.</span> <span class="post-toc-text">4 PPFL框架</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-1-%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">4.1 系统概述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-%E5%88%86%E5%B1%82%E8%AE%AD%E7%BB%83%E5%92%8C%E8%81%9A%E5%90%88"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">4.2 分层训练和聚合</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E5%AE%9E%E7%8E%B0%E4%B8%8E%E8%AF%84%E4%BC%B0%E8%AE%BE%E7%BD%AE"><span class="post-toc-number">6.</span> <span class="post-toc-text">5 实现与评估设置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-1-PPFL-%E5%8E%9F%E5%9E%8B"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">5.1 PPFL 原型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-2-%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">5.2 模型和数据集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-3-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">5.3 性能指标</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-%E8%AF%84%E4%BC%B0%E7%BB%93%E6%9E%9C"><span class="post-toc-number">7.</span> <span class="post-toc-text">6 评估结果</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-1-PPFL%E5%A6%82%E4%BD%95%E6%9C%89%E6%95%88%E6%8A%B5%E5%BE%A1%E5%B7%B2%E7%9F%A5%E7%9A%84%E9%9A%90%E7%A7%81%E7%9B%B8%E5%85%B3%E6%94%BB%E5%87%BB%EF%BC%9F"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">6.1 PPFL如何有效抵御已知的隐私相关攻击？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-2-PPFL%E7%9A%84%E9%80%9A%E4%BF%A1%E6%88%90%E6%9C%AC%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">6.2 PPFL的通信成本是多少？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-3-PPFL%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%80%A7%E8%83%BD%E6%98%AF%E5%90%A6%E4%B8%8E%E6%9C%80%E6%96%B0%E7%9A%84%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%EF%BC%88FL%EF%BC%89%E6%96%B9%E6%B3%95%E7%9B%B8%E5%BD%93%EF%BC%9F"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">6.3 PPFL的机器学习性能是否与最新的联邦学习（FL）方法相当？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-4-PPFL%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%B3%BB%E7%BB%9F%E6%88%90%E6%9C%AC%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">6.4 PPFL客户端系统成本是多少？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-5-%E5%A6%82%E6%9E%9C%E5%9C%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%AD%E8%AE%AD%E7%BB%83%E5%B1%82%E5%9D%97%EF%BC%8CPPFL%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%88%90%E6%9C%AC%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">6.5 如果在客户端中训练层块，PPFL的机器学习和系统成本是多少？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-6-%E9%80%9A%E8%BF%87%E5%85%AC%E5%85%B1%E7%9F%A5%E8%AF%86%E5%BC%95%E5%AF%BCPPFL%E6%98%AF%E5%90%A6%E6%9C%89%E5%B8%AE%E5%8A%A9%EF%BC%9F"><span class="post-toc-number">7.6.</span> <span class="post-toc-text">6.6 通过公共知识引导PPFL是否有帮助？</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-%E8%AE%A8%E8%AE%BA%E4%B8%8E%E6%9C%AA%E6%9D%A5%E5%B7%A5%E4%BD%9C"><span class="post-toc-number">8.</span> <span class="post-toc-text">7 讨论与未来工作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-%E7%BB%93%E8%AE%BA"><span class="post-toc-number">9.</span> <span class="post-toc-text">8 结论</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-%E8%87%B4%E8%B0%A2"><span class="post-toc-number">10.</span> <span class="post-toc-text">9 致谢</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+
+
+<h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>PPFL: Privacy-preserving Federated Learning with Trusted Execution Environments</p>
+<p>作者：</p>
+<ul>
+<li>Fan Mo（Imperial College London）</li>
+<li>Hamed Haddadi（Imperial College London）</li>
+<li>Kleomenis Katevas（Telefónica Research）</li>
+<li>Eduard Marin（Telefónica Research）</li>
+<li>Diego Perino（Telefónica Research）</li>
+<li>Nicolas Kourtellis（Telefónica Research）</li>
+</ul>
+<p>摘要：<br>文章提出并实现了一个隐私保护的联邦学习（PPFL）框架，旨在减少联邦学习中隐私泄露的风险。该框架利用高端和移动设备中的可信执行环境（TEEs），在客户端进行本地训练，并在服务器上进行安全聚合，从而隐藏模型/梯度更新，防止攻击者获取。由于当前TEEs的内存有限，文章采用逐层贪婪训练的方法，在可信区域内训练每一层模型直至收敛。实验评估表明，PPFL显著提高了隐私保护能力，同时在客户端产生的系统开销较小。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><code>原文</code><br>在多个设备上本地训练深度神经网络（DNN）并在服务器上构建一个全局聚合模型，这一过程称为联邦学习（FL），已经引起了学术界（例如，[17, 27, 42]）和工业界的广泛关注，甚至已经在实际系统中得到了应用（例如，Google Keyboard [7]）。与传统的机器学习（ML）不同，在传统机器学习中，服务器收集所有用户数据并在中央点训练全局模型，而在联邦学习中，用户只向服务器发送本地更新的模型参数。这使得在不需要用户透露数据的情况下训练模型成为可能，从而保护了用户的隐私。不幸的是，最近的研究表明，<strong>攻击者可以通过模型参数本身进行攻击以检索敏感信息</strong>[16, 20, 45, 78]。此类攻击的突出例子包括数据重建[16, 20]和各种类型的推断攻击[20, 45]。这些攻击之所以可能，是因为DNN在完成其主要任务的同时，也会学习到用户训练数据中的无关信息，这些信息无意中嵌入了模型中[73]。需要注意的是，在FL场景中，这种攻击可以在服务器和客户端两端发起。</p>
+<p>受这些攻击的启发，研究人员最近提出了几种对策来防止这些攻击。现有的解决方案可以分为三大类，具体取决于它们是否依赖于：（i）<strong>同态加密</strong>（例如，[2, 42]），（ii）<strong>多方计算</strong>（例如，[8]），或（iii）<strong>差分隐私</strong>（例如，[14, 17, 44]）。虽然同态加密在高端和移动设备中都是实用的，但它只能在加密域中支持有限的算术运算。相反，完全同态加密的使用允许在加密域中进行任意操作，从而支持机器学习。然而，这带来了过多的计算开销，使其在移动设备中不实用[51, 63]。同样地，基于多方计算的解决方案也会带来显著的计算开销。此外，在某些情况下，差分隐私可能无法提供足够的隐私保护[45]。此外，它还可能对模型的效用和公平性[3, 25]以及系统性能[66, 68]产生负面影响。总体而言，<strong>现有的解决方案没有一种能够满足所有需求</strong>，从而阻碍了它们的广泛采用。</p>
+<p><code>分析</code><br><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86">同态加密</a>:是一种加密形式，它允许人们对密文进行特定形式的代数运算得到仍然是加密的结果，将其解密所得到的结果与对明文进行同样的运算结果一样。<br><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AE%89%E5%85%A8%E5%A4%9A%E6%96%B9%E8%AE%A1%E7%AE%97">多方计算</a>：针对无可信第三方的情况下，如何安全地计算一个约定函数的问题。<br><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81">差分隐私</a>:一个数据共享手段，可以实现仅分享可以描述数据库的一些统计特征、而不公开具体到个人的信息。</p>
+<p><code>原文</code><br>最近，基于硬件的可信执行环境（TEEs）的使用被提出作为一种防止对DNN模型参数和梯度攻击的有希望的方法。TEEs允许在不受信任的设备上通过安全内存隔间安全地存储数据和执行任意代码，几乎以本机速度运行。所有这些优势，加上高端和移动设备中TEEs的普及，使得TEEs成为实现完全隐私保护的机器学习建模的合适选择。然而，为了尽量保持可信计算基（TCB）的规模尽可能小，当前的TEEs具有有限的内存。这使得<strong>无法同时将所有DNN层放入TEE中</strong>。因此，先前的工作选择使用TEEs仅隐藏最敏感的DNN层，而其他层则不受保护[18, 49]。虽然这种方法足以减轻某些针对传统ML的攻击（其中客户端只获得最终模型），但在FL场景中，攻击面显著扩大。FL客户端设备能够在整个训练过程中观察到模型的不同快照，使得它们能够在不同阶段进行攻击[20, 45]。因此，保护所有DNN层使用TEE是极其重要的。</p>
+<p>在本文中，我们提出了隐私保护的联邦学习（PPFL），这是第一个在FL场景中能够在<strong>服务器和客户端两端完全防止私人信息泄露的实用框架</strong>。PPFL基于逐层贪婪训练和聚合，克服了TEE内存限制带来的约束，并在可容忍的延迟下提供与完整模型训练相当的准确性。我们的逐层方法支持复杂的设置，如每次训练一个或多个层（块），这可能更好地处理客户端的异构数据并加快训练过程。</p>
+<p>为了展示其可行性，我们实现并评估了一个完整的PPFL系统原型，包括服务器端（使用Intel SGX）、客户端（使用Arm TrustZone）设计元素以及它们之间的安全通信。我们的实验评估表明，PPFL提供了对数据重建、属性推断和成员推断攻击的完全保护，这些攻击的结果被降级为随机猜测（例如，白噪声图像或50%的精度分数）。PPFL是实用的，因为它<strong>不会给训练过程带来显著的开销</strong>。与常规的端到端FL相比，PPFL在完成所有DNN层的训练时引入了3倍或更高的延迟。然而，当仅训练前几层时，PPFL实现了与常规FL相当的机器学习性能，这意味着不需要训练所有DNN层。由于这种逐层训练的灵活性，PPFL可以在更少的通信轮数（0.54倍）和相似的网络流量（1.002倍）下，提供与端到端FL相似的机器学习模型效用，同时在客户端仅引入∼15%的CPU时间、∼18%的内存使用和∼21%的能耗开销。</p>
+<h2 id="2-背景和相关工作"><a href="#2-背景和相关工作" class="headerlink" title="2 背景和相关工作"></a>2 背景和相关工作</h2><p>在本节中，我们提供了理解TEEs工作原理（2.1节）、FL中的现有隐私风险（2.2节）、使用TEEs进行隐私保护的机器学习技术（2.3节）以及FL逐层DNN训练的核心思想（2.4节）所需的背景知识。</p>
+<h3 id="2-1-可信执行环境（TEE）"><a href="#2-1-可信执行环境（TEE）" class="headerlink" title="2.1 可信执行环境（TEE）"></a>2.1 可信执行环境（TEE）</h3><p><code>原文</code><br>TEE允许在主处理器上创建一个安全区域，为其存储或处理的任何数据和代码提供强大的保密性和完整性保证。TEEs通过强制实施双重世界视图，实现了对安全隔间的强隔离和认证，即使是受到破坏或恶意的系统软件（即特权软件）在普通世界（也称为富操作系统执行环境（REE））中也无法访问安全世界。这使得可信计算基（TCB）得以大幅缩减，因为只有在安全世界中运行的代码需要被信任。TEEs的另一个关键方面是，它们允许任意代码几乎以本机速度在内部运行。为了尽量保持TCB的规模尽可能小，当前的TEEs内存有限；除此之外，TEEs需要在安全和非安全内存之间交换页面，这会产生显著的开销，因此必须加以避免。</p>
+<p><code>分析</code><br><strong>双重世界视图</strong>：划分为普通世界和安全世界<br><strong>可信基</strong>：TCB被缩减，因为只有在安全世界中的代码才会被信任</p>
+<p><code>原文</code><br>在过去的几年里，研究界和工业界已经投入了大量的努力来开发用于高端设备（如服务器）和移动设备（如智能手机）的安全可编程TEEs。在我们的工作中，我们在服务器端利用了Intel软件防护扩展（Intel SGX）[13]，而在客户端设备中，我们依赖于开放便携式可信执行环境（OP-TEE）[40]。OP-TEE是一个广为人知的开源TEE框架，支持各种配备Arm TrustZone的板子。一些TEEs允许创建固定大小的安全内存区域（例如，Intel SGX中的128MB），而其他一些TEEs（例如，ARM TrustZone）则不限制TEE的大小。然而，创建大型TEEs被认为是不好的做法，因为它<strong>已被证明会显著增加攻击面</strong>。因此，无论使用何种类型的TEEs和设备，<strong>TEE的大小必须始终保持尽可能小</strong>。这一原则已被业界所采纳，例如在HiKey 960板中，TEE的大小只有16MiB。</p>
+<h3 id="2-2-联邦学习中的隐私风险"><a href="#2-2-联邦学习中的隐私风险" class="headerlink" title="2.2 联邦学习中的隐私风险"></a>2.2 联邦学习中的隐私风险</h3><p><code>原文</code><br>以下是联邦学习（FL）中三类主要隐私相关攻击的简要概述：数据重建攻击、属性推断攻击和成员推断攻击。</p>
+<p><strong>数据重建攻击</strong>（DRA）：数据重建攻击的目的是基于观察到的模型或其梯度重建原始输入数据。它通过基于生成对抗攻击（GAN）类似的技术反转模型梯度，从而重建用于生成这些梯度的相应原始数据。当攻击深度神经网络（DNN）的早期层，并且梯度仅在一个小批量数据（即少于8个）上更新时，DRA是有效的。由于服务器通常以明文形式观察每个客户端的更新模型，因此这种泄漏更可能发生在<strong>服务器端</strong>。通过将更新后的模型与全局模型相减，服务器可以获得与客户端数据相关的本地训练过程中计算的梯度。</p>
+<p><strong>属性推断攻击</strong>（PIA）：属性推断攻击的目标是推断输入数据中的私有属性值。这种攻击是通过构建一个在辅助数据上更新的模型梯度上训练的二元分类器来实现的，可以在服务器和客户端两端进行。具体而言，属性信息（也指输入数据的特征/潜在信息）在较强的聚合中更容易被携带。尽管FL中的客户端只观察到多次线性聚合的全局模型快照，这些模型是基于参与客户端更新的，但属性信息仍然能够很好地保存，为客户端侧的攻击者提供了攻击点。</p>
+<p><strong>成员推断攻击</strong>（MIA）：成员推断攻击的目的是确定特定数据实例是否存在于训练数据集中。可以采用与PIA类似的攻击机制来构建二元分类器进行MIA，尽管也有其他方法，例如使用影子模型。MIA的风险可以存在于服务器和客户端两端。此外，由于成员信息是“高层次”的潜在信息，攻击者可以对最终（训练良好的）模型及其最后一层进行MIA。</p>
+<p><code>分析</code><br><strong>DRA</strong>：通过GAN来反转模型梯度，重建这些梯度的原始数据。<br><strong>明文形式</strong>：直接能够访问，没有加密，所以攻击者可以利用这些数据进行重建攻击。<br><strong>DRA为什么攻击早期层更加有效</strong>：早期层的特征是低级特征，例如边缘,纹理等，这些特征更加接近原始数据。</p>
+<p><strong>PIA</strong>：推断输入数据中的私有属性值；属性信息（即输入数据的特征或潜在信息）在较强的聚合中更容易被携带。(属性，例如是否患有某种疾病)<br><strong>二元分类器</strong>：区分数据中是否包含某个特定的私有属性</p>
+<p><strong>MIA</strong>:推断特定的数据实例是否在数据集中。</p>
+<p>DRA和PIA都是通过梯度信息来进行攻击的</p>
+<h3 id="2-3-使用可信执行环境（TEEs）的隐私保护机器学习"><a href="#2-3-使用可信执行环境（TEEs）的隐私保护机器学习" class="headerlink" title="2.3 使用可信执行环境（TEEs）的隐私保护机器学习"></a>2.3 使用可信执行环境（TEEs）的隐私保护机器学习</h3><p><code>原文</code><br>在TEEs中运行机器学习（ML）可以隐藏模型参数，防止来自REE（富操作系统执行环境）的攻击者获取，从而保护隐私。此方法已经被用于服务器上的轻量数据分析[54, 62]和重计算任务如DNN训练[18, 23, 49, 70]。然而，由于<strong>TEEs的内存有限，先前的研究只在TEE内运行模型的一部分</strong>（例如，敏感层）[18, 48, 49, 70]。</p>
+<p>在设备上的训练案例中，DarkneTZ[49]在TEEs内使用受信应用程序运行最后几层，以防御成员推断攻击（MIAs），而前几层未受保护。DarkneTZ的评估显示，在边缘设备上，CPU、内存和能量的开销不超过10%，表明其适合用于FL中客户端侧的模型更新。</p>
+<p>在另一个方向上，一些工作利用客户端的TEEs来验证本地模型训练的完整性[10, 75]，但未考虑隐私问题。考虑到更广泛的攻击范围（如数据重建攻击和属性推断攻击），保护所有层而不仅仅是最后几层是至关重要的，这是PPFL所实现的。</p>
+<p><code>分析</code><br><strong>富操作系统REE</strong>：指在计算设备上运行的常规操作系统及其应用程序，但缺乏安全隔离机制。</p>
+<p>前几层在不收保护的操作系统中运行，最后几层在TEE中训练</p>
+<h3 id="2-4-分层DNN训练用于联邦学习"><a href="#2-4-分层DNN训练用于联邦学习" class="headerlink" title="2.4 分层DNN训练用于联邦学习"></a>2.4 分层DNN训练用于联邦学习</h3><p>与其端到端地训练完整的DNN模型，不如从头开始逐层训练模型，即贪心分层训练方法。该方法首先训练一个浅层模型（例如，一层），直到其收敛。然后在收敛的模型上再添加一层，并仅训练这个新添加的层。通常，对于每个贪心添加的层，模型开发者会在其上构建一个新的分类器，以输出预测并计算训练损失。因此，这些分类器在推理过程中提供多个早期退出点，每层一个。此外，最近的研究表明，这种方法可以扩展到大型数据集（例如ImageNet），并能达到与常规端到端机器学习相当的性能。值得注意的是，以前所有关于分层训练的研究都集中在通用机器学习上。</p>
+<p>我们的工作首次在联邦学习环境中利用TEEs通过<strong>贪心分层训练方法</strong>构建DNN模型，并在每个FL客户端的TEE内训练每一层DNN模型。因此，PPFL在满足TEE有限内存限制的同时，保护模型免受上述隐私攻击。有趣的是，在每层之上构建的分类器还可能为参与的FL客户端提供个性化的机会。</p>
+<h2 id="3-威胁模型和假设"><a href="#3-威胁模型和假设" class="headerlink" title="3 威胁模型和假设"></a>3 威胁模型和假设</h2><p>我们考虑一个标准的联邦学习（FL）环境，其中多个客户端设备在本地训练一个DNN，并将其（本地）模型参数发送到一个远程的集中式服务器，服务器将这些参数聚合以创建一个全局模型。攻击者的目标是通过数据重建或推断攻击来获取嵌入在全局模型中的敏感信息。</p>
+<p>我们考虑两种类型的（被动）攻击者：（i）客户端设备的用户，他们可以访问全局模型的不同快照；（ii）服务器的所有者（例如，云或边缘提供商），他们可以访问更新后的模型梯度。假设攻击者是诚实但好奇的，这意味着他们允许FL算法按预期运行，同时试图从全局模型或梯度中尽可能多地推断信息。攻击者可以完全控制（即，具有根权限）服务器或客户端设备，并可以对任何DNN层执行攻击。然而，针对TEE的攻击，如侧信道攻击（例如，Volt-piller）、物理攻击（例如，Platypus）以及利用TEE及其SDK（例如）的弱点的攻击不在本文的讨论范围内。</p>
+<p>我们假设服务器和足够多的参与FL的客户端设备都具有TEE，其内存大小大于要训练的DNN的最大层。这是当前FL DNN的情况。然而，在极少数情况下，如果某一层不适合现有的TEEs，则需要通过较小但更多的层或较小的训练批次大小来调整网络设计。我们还假设存在一种安全的方法在服务器TEE和每个客户端设备TEE之间建立信任（例如，使用略微修改过的SIGMA密钥交换协议或经过认证的TLS），并且存在密钥管理机制来在需要时更新和撤销密钥。最后，我们假设集中服务器会将数据转发到其TEE中。然而，需要注意的是，如果服务器是恶意的且不执行此操作，这只会影响系统的可用性（即，我们解决方案的安全性和隐私属性仍然保持不变）。这种类型的拒绝服务（DoS）攻击难以防御，并且不在标准TEE威胁模型的讨论范围内。</p>
+<h2 id="4-PPFL框架"><a href="#4-PPFL框架" class="headerlink" title="4 PPFL框架"></a>4 PPFL框架</h2><p>在本节中，我们首先概述所提出系统及其功能（第4.1节），然后详细说明框架如何在联邦学习（FL）中结合TEEs进行分层训练和聚合（第4.2节）。</p>
+<h3 id="4-1-系统概述"><a href="#4-1-系统概述" class="headerlink" title="4.1 系统概述"></a>4.1 系统概述</h3><p><code>原文</code><br>我们提出一个隐私保护联邦学习框架，该框架允许客户端协作训练一个DNN模型，同时在训练过程中<strong>始终将模型的层保存在TEEs</strong>中。图1概述了框架及其贪心分层训练和聚合的各个步骤。一般来说，从第一层开始，每一层都训练到收敛，然后再进行下一层的训练。通过这种方式，PPFL旨在实现完全的隐私保护，同时不显著增加系统成本。PPFL的设计提供了以下功能：</p>
+<ul>
+<li><strong>隐私设计保证</strong>：PPFL确保在更新过程中模型的层始终受到保护，防止攻击者获取信息。隐私风险取决于模型或其层的暴露程度和频率。在PPFL中，<strong>低级别信息（即原始数据和属性）不会暴露</strong>，因为训练过程中更新的梯度在TEEs内无法被攻击者访问。这保护了数据重建攻击（DRAs）和属性推断攻击（PIAs）。然而，当某一层在收敛后暴露时，仍存在成员推断攻击（MIAs）的风险。我们采用一种更实际的方法，基于观察到的仅最后一层DNN层包含敏感的成员相关信息，使其易受MIAs攻击。为避免在最终模型中出现这种风险，PPFL可以在训练后将最后一层保存在客户端的TEEs中。</li>
+</ul>
+<p><code>分析</code><br>DRA和PIA都是基于梯度信息的攻击,训练过程都在TEE内进行，所以梯度信息不会暴露。<br>将最后一层保存在客户端的TEEs中，因为即使前几层暴露，也无法通过这些信息推断出成员信息。</p>
+<p><code>原文</code></p>
+<ul>
+<li><p><strong>设备选择</strong>：在服务器和一组启用TEE的客户端同意通过FL训练DNN模型后，客户端将其TEE的内存限制告知服务器。服务器随后（重新）构建适合这组客户端的DNN模型，并选择能够在其TEE内容纳模型层的客户端。在每一轮中，服务器可以选择新客户端，设备选择算法可以遵循现有的FL方法。</p>
+</li>
+<li><p><strong>安全通信通道</strong>：服务器与每个客户端建立两个安全通信通道：（i）从其REE到客户端的REE（例如，使用TLS）以与客户端交换数据；（ii）从其TEE到客户端的TEE的逻辑通道，用于安全交换私人信息（例如，模型层训练信息）。在后者的情况下，传输的数据使用仅服务器和客户端TEEs知道的加密密钥进行加密，并通过REE-REE通道发送。需要注意的是，安全的REE-REE通道只是一个附加的安全层。PPFL提供的所有隐私保证都基于存储在TEEs内的硬件支持的加密密钥。</p>
+</li>
+<li><p><strong>模型初始化和配置</strong>：服务器配置模型架构，决定由TEEs保护的层，然后在TEE内初始化模型参数（图1中的步骤2）。这确保客户端的本地训练以相同的权重分布开始。此外，服务器还配置其他训练超参数，例如学习率、批次大小和训练轮数，然后将这些设置传输给客户端（图1中的步骤3）。</p>
+<p>在典型的ML任务（例如图像识别）中，当有公共知识（例如预训练的DNN模型或与客户端私有数据特征相似的公共数据集）时，服务器可以传输这些知识（尤其是在跨设备FL中）以启动和加速训练过程。在这两种情况下，这些知识都包含在前几层。因此，客户端将前几层冻结，仅训练全局模型的最后几层。这个训练过程类似于迁移学习的概念，在我们的案例中，公共知识以联邦方式传输。在PPFL中，服务器可以从公共模型中学习。因此，在初始化期间，服务器首先选择一个在公共数据上预训练的模型，这些数据的分布与私有数据相似。服务器保留前几层，移除最后一层或几层，并在保留的层上组装新层。这些前几层被传输给客户端，并始终保持冻结状态（图1中的步骤1）。新层附加到保留的层上，在每个客户端的TEE内进行训练，然后在服务器的TEE内聚合（图1中的步骤2至6）。在从公共数据集学习时，服务器首先进行初始训练以构建基于公共数据集的模型。</p>
+</li>
+<li><p><strong>本地训练</strong>：通过安全通道传输和配置模型后，每个客户端通过模型分区执行技术开始对其数据的每一层进行本地训练（图1中的步骤4）。我们将在第4.2节详细介绍这一步骤。</p>
+</li>
+<li><p><strong>报告和聚合</strong>：在TEEs内完成某一层的本地训练后，所有参与的客户端通过安全通道将层参数报告给服务器（图1中的步骤5）。最后，服务器在其TEE内安全地聚合接收到的参数，并应用FedAvg算法，生成新的全局模型层（图1中的步骤6）。</p>
+</li>
+</ul>
+<p><code>图片</code><br><img src="https://pic.imgdb.cn/item/667c4e3cd9c307b7e948b801.png" alt=""></p>
+<p><code>分析</code></p>
+<ul>
+<li>知识传输（Transferring Knowledge, if any）：如果有公共知识，服务器会将这些知识传输给客户端，用于初始化模型的前几层。</li>
+<li>模型初始化（Model Initialization）：服务器在TEE内初始化模型参数。</li>
+<li>模型广播（Model Broadcasting）：初始化后的模型参数通过安全通道广播给客户端。</li>
+<li>分层本地训练（Layer-wise Local Training）：客户端通过分层的方式进行本地训练，从第一层开始，每层训练直到收敛，然后移动到下一层。训练过程中，前向传播（Forward Pass）和反向传播（Backward Pass）分别用蓝色和橙色箭头表示。</li>
+<li>模型报告（Model Reporting）：客户端在每层训练完成后，通过安全通道将更新后的层参数报告给服务器。</li>
+<li>安全聚合（Secure Aggregation）：服务器在TEE内对客户端传回的层参数进行安全聚合，应用FedAvg算法生成新的全局模型层。</li>
+</ul>
+<h3 id="4-2-分层训练和聚合"><a href="#4-2-分层训练和聚合" class="headerlink" title="4.2 分层训练和聚合"></a>4.2 分层训练和聚合</h3><p>为了在TEE内训练DNN模型时解决内存限制问题，我们修改了用于一般DNN训练的贪心分层学习技术，以适应FL环境。分层训练和聚合的过程在以下算法1和算法2中详细说明。</p>
+<p><code>算法1</code><br>该算法详细说明了PPFL在服务器端的操作。当未特别说明时，操作在TEE外部（即REE中）执行。首先，服务器用随机权重或公共知识初始化全局DNN模型（图1中的步骤○1-○2）。然后，每个要训练的层𝑙（𝜽𝑙）被初始化并准备广播。服务器检查所有可用设备，构建一个参与客户端的集合，这些客户端的TEE内存大于层𝑙所需的内存。然后，服务器将模型的层广播给这些参与客户端（图1中的步骤○3），通过ClientUpdate()（见算法2）。收到所有参与客户端的更新后，服务器解密层权重，在其TEE内执行安全层聚合和平均（图1中的步骤○6），并将新的层版本广播给客户端用于下一轮FL。步骤○2∼○6重复，直到层𝑙收敛，或完成固定轮次。然后，该层被认为已完全训练（𝜽𝑙0），传递到REE，并广播给所有客户端以用于训练下一层。有趣的是，PPFL还允许将多个层分组为块，并以类似于单个层的方式在客户端的TEEs内训练每个块。此选项可以更好地利用每个TEE内的内存空间，并减少多层同时收敛所需的通信轮次。</p>
+<p><code>算法2</code><br>该算法详细说明了PPFL在客户端的操作。客户端从服务器加载接收到的模型参数，解密并将目标训练层𝑙加载到其TEEs内。更具体地说，在前端，这个新层𝑙连接到训练期间冻结的先前预训练层。在后端，客户端在𝑙上附加自己的派生分类器，该分类器由全连接层和作为模型出口的softmax层组成。然后，对于每个epoch，训练过程迭代地处理数据批次，执行前向和后向传播，以更新正在训练的层和TEE内的分类器（图1中的步骤○4）。在此过程中，利用了一种模型分区执行技术，在前向传播中，通过共享内存将先前训练层的中间表示从REE传递到TEE。完成本地训练（即所有批次和epoch完成）后，每个客户端通过安全通道将（加密的）层权重从其TEE发送到服务器的TEE（图1中的步骤○5）。</p>
+<p>上述学习过程基于一种<strong>模型分区</strong>执行技术，该技术在REE和TEEs之间进行模型训练（包括前向和后向传播）。前向激活（即中间表示）和更新参数的传输通过共享内存在REE和TEE之间进行。高级别上，当一组层在TEE内时，激活从REE传输到TEE（见算法2）。假设全局层𝑙正在训练，带有分类器𝐶(.)的层在TEE内执行，先前的层（即1到𝑙−1）在REE中。</p>
+<p>在训练之前，层𝑙的参数在TEE内安全加载和解密。在前向传播过程中，输入本地数据𝒙，REE处理先前的层从1到𝑙−1，并调用命令将层𝑙−1的激活（即𝑇𝑙−1）通过共享内存中的缓冲区传输到安全内存。TEE切换到相应的调用命令以接收层𝑙−1的激活，并在TEE内处理层𝑙和分类器𝐶(.)的前向传播。</p>
+<p>在反向传播过程中，TEE基于接收到的标签𝒚和前向传播产生的𝐶(.)的输出计算𝐶(.)的梯度，并使用这些梯度计算TEE内层𝑙的梯度。此时，这批数据（即𝒙）的训练完成，无需通过共享内存将层𝑙的误差从TEE传输到REE，因为先前的层在TEE外是冻结的。之后，层𝑙的参数被加密并传递到REE，准备上传到服务器，符合FedSGD的要求。此外，FedAvg要求在更新前处理多个批次，对每批数据在REE和TEE之间重复相同次数的前向和后向传播。</p>
+<p>接下来，我们分析PPFL的<strong>算法复杂度</strong>，并将其与标准的端到端FL进行比较。对于全局模型的层𝑙 ∈ {1, … , 𝐿}，我们将层𝑙的前向和后向传播成本分别表示为F𝑙和B𝑙。分类器的相应成本表示为F𝑐和B𝑐。那么，在端到端FL中，一个客户端的总训练成本为：</p>
+<p>[ \sum_{𝑙=1}^{𝐿} (F𝑙 + B𝑙) + F𝑐 + B𝑐 \cdot 𝑆 \cdot 𝐸 ]</p>
+<p>其中，𝑆是一个epoch中的步数（即本地数据集中的样本数除以批次大小）。在PPFL中，由于训练层𝑙之前的所有层都是冻结的，训练层𝑙的成本为：</p>
+<p>[ \left(\sum_{𝑘=1}^{𝑙} F𝑘 + F𝑐 + B𝑙 + B𝑐\right) \cdot 𝑆 \cdot 𝐸 ]</p>
+<p>通过求和，我们得到所有层的总成本为：</p>
+<p>[ \sum_{𝑙=1}^{𝐿} \sum_{𝑘=1}^{𝑙} F𝑘 + \sum_{𝑙=1}^{𝐿} B𝑙 + 𝐿 \cdot (F𝑐 + B𝑐) \cdot 𝑆 \cdot 𝐸 ]</p>
+<p>通过比较公式1和2，我们可以看到PPFL的开销来自于： (i) 在训练层𝑙时，之前层（𝑙 ∈ {1, … , 𝑙 - 1}）的重复前向传播，以及 (ii) 层𝑙上方分类器的重复前向和后向传播。</p>
+<h2 id="5-实现与评估设置"><a href="#5-实现与评估设置" class="headerlink" title="5 实现与评估设置"></a>5 实现与评估设置</h2><p>在本节中，我们首先描述PPFL系统的实现（第5.1节），然后详细说明我们如何使用不同的指标评估其在各种DNN模型和数据集上的性能（第5.2节和第5.3节）。我们遵循了过去联邦学习系统[43, 72]和设备上TEE工作[1, 49]的常见设置。</p>
+<h3 id="5-1-PPFL-原型"><a href="#5-1-PPFL-原型" class="headerlink" title="5.1 PPFL 原型"></a>5.1 PPFL 原型</h3><p>我们基于DarkneTZ[49]实现了PPFL的客户端部分，以支持使用Arm TrustZone的设备上联邦学习。总共修改了DarkneTZ的4075行C代码。我们在HiKey 960板上运行客户端，该板具有四个配置为2362MHz的ARM Cortex-A73核心和四个配置为533MHz的ARM Cortex-A53核心，以及4GB LPDDR4 RAM和16MiB的TEE安全内存（即TrustZone）。由于CPU功率/频率设置会影响TrustZone的性能[1]，我们以全CPU频率执行设备上的联邦学习训练。为了模拟多个设备客户端及其在联邦学习轮次中的参与，我们重复使用HiKey板，每次模拟一个客户端设备。我们基于Microsoft OpenEnclave[46]使用Intel SGX在通用Darknet ML框架[58]上添加了751行C代码实现了PPFL的服务器端。为此，使用了具有SGX功能的Intel Next Unit of Computing（ver.NUC8BEK，i3-8109U CPU，8GB DDR4-2400MHz）。</p>
+<p>此外，我们开发了一组bash shell脚本来控制联邦学习过程并创建通信通道。为了确保服务器和客户端之间的通信通道的安全，我们采用了标准的基于加密的网络协议，如SSH和SCP。所有离开TEE的数据都使用随机初始化向量（IV）和128位加密密钥的高级加密标准（AES）在密码块链（CBC）模式下加密。为了通用性，我们选择手动在TEE中硬编码加密密钥。尽管TEE到TEE通道的密钥管理是一个有趣的研究问题，但我们认为建立、更新和撤销密钥的频率不高，因此这些任务引入的开销与DNN训练相比可以忽略不计。</p>
+<p>PPFL服务器和客户端的实现代码可用于复制和扩展：<a target="_blank" rel="noopener" href="https://github.com/mofanv/PPFL">https://github.com/mofanv/PPFL</a>。</p>
+<h3 id="5-2-模型和数据集"><a href="#5-2-模型和数据集" class="headerlink" title="5.2 模型和数据集"></a>5.2 模型和数据集</h3><p>我们主要关注卷积神经网络（CNNs），因为我们考虑的隐私风险（第3节和第4.1节）已经在这类深度神经网络（DNNs）上得到了广泛研究[45, 52]。此外，基于层的学习方法大多针对类似CNN的DNNs[5]。具体来说，在我们的PPFL评估中，我们使用了相关文献中常用的DNN模型（见表1）。</p>
+<p><img src="https://pic.imgdb.cn/item/667d1a29d9c307b7e951be4d.png" alt=""><br>对于我们的实验分析，我们使用了MNIST和CIFAR10这两个常被联邦学习研究者使用的数据集。需要注意的是，在实际应用中，联邦学习训练需要在客户端本地存储标注数据。事实上，在现实环境中，每个联邦学习客户端预期拥有的标注样本数量可能少于这些数据集分配的数量。尽管如此，使用这些数据集可以使我们的结果与最新的端到端联邦学习方法进行比较[16, 39, 72]。</p>
+<p>具体来说，LeNet在MNIST上进行了测试[37]，所有其他模型在CIFAR10上进行了测试[33]。前者是一个手写数字图像（28×28）数据集，包括60k个训练样本和10k个测试样本，分为10类。后者是一个物体图像（32×32×3）数据集，包括50k个训练样本和10k个测试样本，分为10类。我们按照[43]中的设置将训练数据集划分为100个部分，每个客户端一个，分为两种版本：i）独立且同分布（IID），即一个客户端拥有所有类别的样本；ii）非独立且同分布（Non-IID），即一个客户端仅有来自两个随机类别的样本。</p>
+<h3 id="5-3-性能指标"><a href="#5-3-性能指标" class="headerlink" title="5.3 性能指标"></a>5.3 性能指标</h3><p>下一节中展示的PPFL原型评估主要从以下几个方面评估该框架：(i) 数据的隐私性，(ii) 机器学习模型性能，和 (iii) 客户端系统成本。尽管机器学习计算（即模型训练）在REEs或TEEs中具有相同的精度和准确性，但PPFL将联邦学习模型训练过程改为基于层的训练。这影响了机器学习的准确性以及模型收敛所需的通信轮数（等其他因素）。因此，我们设计了几个指标并进行了广泛的测量来评估PPFL的整体性能。我们仅在客户端设备上进行系统成本测量，因为它们的计算资源相比服务器更有限。所有实验都是在总客户端数量的10%（即100个客户端中的10个）参与每个通信轮次的情况下进行的。我们在我们的PPFL原型（第5.1节）上运行联邦学习实验来测量系统成本。为了测量隐私风险和机器学习模型性能，我们在多个运行PyTorch v1.4.0的NVIDIA RTX6000 GPU（24GB）节点集群上进行了模拟。</p>
+<p><code>模型性能</code><br>我们通过测量以下三个指标来评估模型和PPFL相关过程的性能：</p>
+<ol>
+<li><strong>测试准确性</strong>: 在给定的联邦学习模型上，测试数据的机器学习准确性，针对固定数量的通信轮次。</li>
+<li><strong>通信轮次</strong>: 服务器和客户端之间为了达到特定测试准确性所需的通信迭代次数。</li>
+<li><strong>通信量</strong>: 为了达到测试准确性所交换的数据总量。在基于层的训练中，不同层的大小可能导致不同的通信轮次中传输数据的大小不同。</li>
+</ol>
+<p><code>隐私评估</code><br>我们通过应用三种适用于联邦学习的隐私相关攻击来测量PPFL的隐私风险：</p>
+<ol>
+<li><strong>数据重构攻击（DRA）</strong>[78]</li>
+<li><strong>属性推断攻击（PIA）</strong>[45]</li>
+<li><strong>成员推断攻击（MIA）</strong>[52]<br>我们遵循提出这些攻击的论文及其设置，在训练好的联邦学习模型上进行每种攻击。</li>
+</ol>
+<p><code>客户端系统成本</code><br>我们监控客户端设备上的训练效率，并测量以下与PPFL相关过程的信息：</p>
+<ol>
+<li><strong>CPU执行时间（秒）</strong>: CPU用于处理设备上模型训练的时间，包括在REE和TEE中的用户和内核时间，使用函数getrusage(RUSAGE_SELF)报告。</li>
+<li><strong>内存使用量（MB）</strong>: 我们将REE内存（最大驻留集大小，在RAM中，通过getrusage()访问）和分配的TEE内存（通过mdbg_check(1)访问）相加得到总内存使用量。</li>
+<li><strong>能耗（焦耳）</strong>: 测量模型在有/无TEEs情况下执行一次设备上训练步骤时消耗的所有能量。为此，我们使用Monsoon高压电源监视器[50]。我们将HiKey板的电源配置为12V电压，同时以50Hz的采样率记录电流。</li>
+</ol>
+<h2 id="6-评估结果"><a href="#6-评估结果" class="headerlink" title="6 评估结果"></a>6 评估结果</h2><p>在本节中，我们展示了PPFL的实验评估，旨在回答一系列关键问题。</p>
+<h3 id="6-1-PPFL如何有效抵御已知的隐私相关攻击？"><a href="#6-1-PPFL如何有效抵御已知的隐私相关攻击？" class="headerlink" title="6.1 PPFL如何有效抵御已知的隐私相关攻击？"></a>6.1 PPFL如何有效抵御已知的隐私相关攻击？</h3><p><img src="https://pic.imgdb.cn/item/667d1d85d9c307b7e958655c.png" alt=""><br>为了衡量模型暴露于已知隐私风险的程度，我们对PPFL模型进行了数据重构、属性推断和成员推断攻击（即DRA、PIA和MIA）。在CIFAR10的IID设置中训练AlexNet和VGG9模型时，我们将PPFL的暴露程度与标准的端到端联邦学习训练模型进行了比较。表2显示了每次攻击的平均性能，使用文献中相同的测量方法进行评估[45, 52, 78]：DRA使用均方误差（MSE），PIA使用曲线下面积（AUC），MIA使用精度（Precision）。</p>
+<p>从结果可以明显看出，这些攻击虽然可以在常规端到端联邦学习中成功披露私人信息，但在PPFL中却失败了。由于DRA和PIA依赖于中间训练模型（即梯度），而这些模型在PPFL中是受保护的，因此PPFL能够完全防御这些攻击。DRA只能为任何目标图像重构出完全噪声的图像（即特定数据集的MSE约为1.3），而PIA始终报告私人属性的随机猜测（即AUC约为0.5）。关于最终训练模型的MIA，由于PPFL将最后一层及其输出始终保护在客户端的TEE内，迫使攻击者只能访问前几层，这显著降低了MIA的优势（即Precision≈0.5）。因此，PPFL完全解决了这些攻击带来的隐私问题。</p>
+<h3 id="6-2-PPFL的通信成本是多少？"><a href="#6-2-PPFL的通信成本是多少？" class="headerlink" title="6.2 PPFL的通信成本是多少？"></a>6.2 PPFL的通信成本是多少？</h3><p><strong>预定义的机器学习性能</strong>。接下来，我们测量PPFL在完成联邦学习过程时的通信成本，当需要特定的机器学习性能时。为此，我们首先在没有TEEs的情况下执行标准的端到端联邦学习150轮，并记录所达到的机器学习性能。随后，我们将相同的测试准确性设定为要求，并测量PPFL为实现这种机器学习性能所需的通信轮数和通信量。</p>
+<p>在此实验中，我们将客户端的本地训练周期数设置为10。我们使用SGD作为优化算法，将学习率设置为0.01，每个周期后衰减0.99。动量设为0.5，批量大小为16。在本地训练每一层时，我们在其顶部构建一个分类器。分类器的架构遵循目标模型（例如AlexNet或VGG9）的最后一个卷积（Conv）层和全连接（FC）层。因此，每个全局模型层的训练在所有卷积层完成后进行。我们选择在CIFAR10上测试AlexNet和VGG9，因为MNIST过于简单。然后，在所有卷积层之上最终训练分类器以提供全局模型的输出。需要注意的是，我们在训练每个全局层时也聚合客户端分类器，以便在每个通信轮次后提供测试准确性。我们在IID和非IID数据上进行了这些实验。</p>
+<p><img src="https://pic.imgdb.cn/item/667d1da7d9c307b7e9589f71.png" alt=""><br>总体来说，表3的结果显示，为了达到标准端到端联邦学习系统的机器学习性能，PPFL对联邦学习过程增加的通信开销很小，甚至在某些情况下可以减少通信成本，同时在使用TEEs时保护隐私。正如预期的那样，使用非IID数据会导致系统的机器学习性能降低，这也意味着PPFL的通信成本减少。</p>
+<p>在许多情况下，PPFL通信成本减少的原因是，在像CIFAR10这样的数据集上训练这些模型可能不需要训练完整的模型。相反，在PPFL的层级训练的早期阶段（例如第一个全局层+分类器），它已经可以达到良好的机器学习性能，有时甚至比训练整个模型更好。我们在下一小节中进一步探讨了这一方面。因此，由于所需轮数较少，通信量也减少了。</p>
+<p>在训练VGG9时增加的成本是由于分类器的FC层连接到第一个卷积层的神经元数量多。因此，即使考虑的总层数（一个全局层+分类器）比后期阶段（多个全局层+分类器）少，但模型大小（即参数数量）可能更大。</p>
+<p>确实，我们知道通过在CIFAR10上进行更多的通信轮次训练这些模型，无论是PPFL还是常规端到端联邦学习都可以达到更高的测试准确性，例如标准FedAvg的85％。然而，这里使用的训练轮次已经足够，因为我们的目标是评估PPFL的性能（即达到相同准确性的成本），而不是在这个分类任务上达到最佳可能的准确性。</p>
+<p><strong>联邦学习阶段的通信时长</strong>。在下一个实验中，我们调查了运行PPFL各阶段在一个通信轮次中所需的墙钟时间：从服务器到客户端的层广播、客户端设备上的层训练、将层上传到服务器、聚合所有客户端更新并应用FedAvg。根据每层的大小和TEE内存大小，批量大小可以从1开始，直到TEE允许的最大值。然而，由于我们的模型在层大小上不均匀（VGG9最大），我们将批量大小设置为1以便于比较，并且也捕捉每个模型训练阶段可能的最大时长。确实，我们确认对于允许较大批量的小模型（例如AlexNet批量大小=16），增加批量大小会逐步减少阶段的时长。</p>
+<p><img src="https://pic.imgdb.cn/item/667d1df1d9c307b7e9591632.png" alt=""><br>表4显示了每个阶段的时长分解，针对三种模型和两个数据集（MNIST上的LeNet；CIFAR10上的AlexNet和VGG9）以及IID数据。正如预期的那样，基于层的联邦学习相比端到端联邦学习增加了总时间，因为每层单独训练，但之前训练并最终确定的层仍需要在前向传递中处理。实际上，这些结果与之前在第4.2节中展示的复杂性分析一致，即完成所有层的训练，基于层的训练引入了3倍或更高的延迟，类似于层的数量。一方面，我们认为应用程序可以容忍这种额外的延迟，如果它们要受到隐私相关攻击的保护，尽管执行时间的增加是不可忽略的，且可能长达几个小时的训练。确实，模型可以在更长的时间尺度上（例如每周、每月）进行（重新）训练，轮次可以持续10分钟，并且可以异步执行。另一方面，PPFL中训练一层的成本与端到端联邦学习训练完整模型的成本相似。这表明最小的客户端贡献时间与端到端联邦学习相同：客户端可以选择在联邦学习轮次的部分阶段参与，仅参与少数几个联邦学习轮次。例如，客户端可能仅在任何给定的联邦学习轮次中为几层模型训练做出贡献。</p>
+<p>在所有联邦学习阶段中，本地训练成本最高，而服务器聚合和平均时间是微不足道的，无论是非安全的（即端到端联邦学习）还是安全的（PPFL）。关于VGG9，早期层的基于层的训练显著增加了广播和上传的通信时间，因为卷积层的滤波器数量少，因此后续分类器的FC层大小较大。这一发现提示选择适当的DNN在PPFL中进行训练（例如AlexNet vs. VGG9）对于实际性能至关重要。此外，根据之前的联邦学习性能结果（见表2），可能不需要训练所有层就能达到所需的机器学习效用。</p>
+<h3 id="6-3-PPFL的机器学习性能是否与最新的联邦学习（FL）方法相当？"><a href="#6-3-PPFL的机器学习性能是否与最新的联邦学习（FL）方法相当？" class="headerlink" title="6.3 PPFL的机器学习性能是否与最新的联邦学习（FL）方法相当？"></a>6.3 PPFL的机器学习性能是否与最新的联邦学习（FL）方法相当？</h3><p>在这些实验中，我们将PPFL中每一层的通信轮数减少到50，完成每一层的训练过程，并将其性能与集中式层级训练以及常规端到端FL进行比较。后者在所有轮次中对整个模型进行训练。例如，如果PPFL对第一层训练50轮，然后对第二层训练50轮，端到端FL将在所有轮次中对整个模型（端到端）训练100轮。</p>
+<p><img src="https://pic.imgdb.cn/item/667d1e42d9c307b7e959a11c.png" alt=""></p>
+<p>如图2所示，在“简单”的MNIST数据（无论是否IID）任务上训练LeNet，无论使用哪种FL系统，都能迅速达到高机器学习性能。在IID和非IID CIFAR10数据上训练AlexNet分别可以达到74%和60.78%的测试准确性，而集中式训练达到了83.34%。在IID和非IID CIFAR10数据上训练更复杂的VGG9模型，分别导致74.60%和38.35%的较低性能，而集中式训练达到了85.09%。我们注意到，随着每增加一层，PPFL的性能下降。这是预料之中的，因为PPFL在新层开始时从零开始，导致前几轮FL的性能显著下降。当然，在50轮结束时，PPFL的性能与端到端FL相当，甚至在某些情况下超过了端到端FL。</p>
+<p>总体而言，随着更多层被包含在训练中，测试准确性提高。有趣的是，在更复杂的模型（如VGG9）和非IID数据中，当层数不断增加时，PPFL可能导致机器学习性能下降。事实上，在这些实验中，在完成第二层训练后，它仅达到约55%，然后下降。性能下降的一个可能原因是VGG9的前几层较小，可能无法捕捉到非IID数据中的异质特征，从而对后续层的训练产生负面影响。另一方面，这提醒我们在非IID数据上可以对贪婪层级PPFL进行早期退出。例如，客户在第一层训练后没有足够的数据，或者已经具有较高的测试准确性，可以在参与进一步的通信轮次之前退出。总体来说，在第一层或第二层的训练过程中，层级训练优于端到端FL。</p>
+<p>我们进一步讨论PPFL相比端到端FL具有更好机器学习性能的可能原因。一方面，这可能是因为某些DNN架构（如VGG9）更适合层级FL。例如，分别训练每一层可能允许PPFL克服在端到端FL中反向传播可能“卡住”的局部最优。另一方面，超参数调优可能有助于在层级和端到端FL中改善性能，但始终存在数据过拟合的风险。确实，达到最佳机器学习性能并不是我们的重点，需要进行更深入的研究，以理解在什么设置下层级训练可以优于端到端FL。</p>
+<h3 id="6-4-PPFL客户端系统成本是多少？"><a href="#6-4-PPFL客户端系统成本是多少？" class="headerlink" title="6.4 PPFL客户端系统成本是多少？"></a>6.4 PPFL客户端系统成本是多少？</h3><p><img src="https://pic.imgdb.cn/item/667d1ed4d9c307b7e95a99a3.png" alt=""><br>我们进一步研究了客户端设备上的系统性能和成本，包括CPU执行时间、内存使用和能耗。图3显示了在MNIST数据集上训练LeNet、在CIFAR10数据集上训练AlexNet和VGG9时，这三个指标的结果，这些数据都是IID的。指标是针对一个训练步骤（即一个数据批次）计算的。更多的训练步骤需要相应更多的CPU时间和能量，但不影响内存使用，因为为模型分配的内存会在所有后续步骤中重复使用。这里，我们将PPFL与不使用TEEs的层级训练进行比较，以测量使用TEE的开销。在训练的模型中，CPU时间的最大开销为14.6%，内存使用的最大开销为18.31%，能耗的最大开销为21.19%。此外，在训练每一层时，PPFL的结果与端到端训练（即图3中的水平虚线）具有可比性。</p>
+<h3 id="6-5-如果在客户端中训练层块，PPFL的机器学习和系统成本是多少？"><a href="#6-5-如果在客户端中训练层块，PPFL的机器学习和系统成本是多少？" class="headerlink" title="6.5 如果在客户端中训练层块，PPFL的机器学习和系统成本是多少？"></a>6.5 如果在客户端中训练层块，PPFL的机器学习和系统成本是多少？</h3><p>如第4.2节算法1所述，如果TEEs可以容纳多个层，那么也可以在TEE内部放置一个层块进行训练。实际上，不同设备和TEEs的内存大小各异，因此可以支持各种大小的层块。对于这些实验，我们假设所有设备的TEE大小相同，并构建2层块，并在CIFAR10上测量系统的测试准确性和机器学习性能。TEEs中三层或更多层的性能也可以以类似方式测量（如果TEE的内存可以容纳它们）。我们不在MNIST上测试LeNet，因为正如之前所示，它可以轻松达到较高的准确性（约99%）[43, 72]。</p>
+<p><img src="https://pic.imgdb.cn/item/667d1f49d9c307b7e95b5692.png" alt=""></p>
+<p><img src="https://pic.imgdb.cn/item/667d1f9ad9c307b7e95be53b.png" alt=""><br>图4的结果表明，训练层块可以达到与单独训练每层相似甚至更好的机器学习性能（即见图2）。它还可以提高复杂模型（如VGG9）的测试准确性，对于这种模型我们之前注意到它无法很好地建模数据（见图2）。此外，与一次训练一层相比，训练2层块可以减少达到所需机器学习性能所需的总通信量。事实上，旨在达到表3中的相同基线准确性时，训练2层块所需的通信成本是1层块的一半或更少（见表5）。此外，层级训练由于与图2中所述的类似原因优于端到端联邦学习。</p>
+<p><img src="https://pic.imgdb.cn/item/667d1f7ad9c307b7e95ba941.png" alt=""><br>关于系统成本，不同模型的结果显示最大开销为CPU时间的13.24%、内存使用的32.71%和能耗的14.47%（见图5）。与一次训练一层相比，训练层块并不总是增加开销。例如，在运行VGG9时，CPU开销从13.22%降至8.46%，内存使用开销从2.44%升至3.17%，能耗开销从21.19%降至14.47%。一个解释是将层组合成块可以摊销“昂贵”层和“便宜”层的成本。有趣的是，PPFL的成本仍然与端到端联邦学习训练具有可比性。</p>
+<h3 id="6-6-通过公共知识引导PPFL是否有帮助？"><a href="#6-6-通过公共知识引导PPFL是否有帮助？" class="headerlink" title="6.6 通过公共知识引导PPFL是否有帮助？"></a>6.6 通过公共知识引导PPFL是否有帮助？</h3><p>我们研究了PPFL的后端服务器如何利用现有的公共模型来引导特定任务的训练过程。为此，我们利用在ImageNet上预训练的两个模型（MobileNetv2和VGG16）进行CIFAR10的分类任务。由于这些预训练模型包含了与目标任务相关的足够知识，仅训练最后几层已经足以获得良好的机器学习性能。因此，我们可以冻结所有卷积层，并在TEEs中训练最后的全连接层，从而也保护它们。默认情况下，MobileNetv2有一个全连接层，而VGG16在末尾有三个全连接层。我们测试了两种情况，即分别为这两个模型附加和重新训练一个和三个全连接层。为了适应这些预训练模型的输入大小，我们将CIFAR10的尺寸调整为224×224。我们以较小的学习率0.001开始，以避免发散，并使用动量0.9，因为特征提取器已经过良好的训练。</p>
+<p><img src="https://pic.imgdb.cn/item/667d2009d9c307b7e95cbd3d.png" alt=""><br><strong>测试准确性</strong>。图6显示，使用预训练的第一层（即特征提取器）引导学习过程可以帮助最终的PPFL模型达到与集中式训练相似的测试准确性。有趣的是，从VGG16转移的预训练层可以达到比MobileNetv2更高的测试准确性。这是预料之中的，因为VGG16包含比MobileNetv2更多的DNN参数，提供了更好的特征提取能力。令人惊讶的是，附加和训练更多的全连接层并没有提高测试准确性。这可能是因为冻结的特征提取器的瓶颈，它们不允许模型完全捕捉新数据的变异性。</p>
+<p>(a) 从MobileNetv2转移<br>(b) 从VGG16转移</p>
+<p><strong>客户端系统成本</strong>。为了在这种设置下测量客户端成本，我们需要进行一些实验调整。VGG16（即使是最后的全连接层）太大，无法放入TEEs。因此，我们将批量大小减少到1，并按比例缩小所有层（例如，将一个全连接层的神经元从4096减少到1024）。确实，缩放层可能会导致结果的偏差，但实际性能不会比这种估计更差。正如[49]所示，较大的模型具有较少的开销，因为最后的层相对于模型的整体大小来说相对较小。</p>
+<p><img src="https://pic.imgdb.cn/item/667d2020d9c307b7e95cdfa1.png" alt=""><br>有趣的是，图7的结果表明，当我们在客户端的设备TEEs中训练和保留最后的全连接层时，无论是哪种模型，CPU时间（6.9%）、内存使用（1.3%）和能耗（5.5%）方面的开销都很小。这些结果表明，知识转移可以是引导PPFL训练并保持系统开销低的良好替代方案。此外，我们注意到，当服务器没有合适的公共模型时，可以首先在具有与本地数据集相似分布的公共数据集上训练模型。更多实验结果请参见附录A.1。</p>
+<h2 id="7-讨论与未来工作"><a href="#7-讨论与未来工作" class="headerlink" title="7 讨论与未来工作"></a>7 讨论与未来工作</h2><p><strong>主要发现</strong>。PPFL的实验评估显示：</p>
+<ul>
+<li>在TEEs内保护训练过程（即梯度更新），并仅在收敛后暴露层可以防止数据重构和属性推断攻击。此外，将模型的最后一层保留在TEEs内可以减轻成员推断攻击。</li>
+<li>贪婪层级联邦学习可以实现与端到端FL相当的机器学习效用。虽然层级FL增加了完成所有层所需的总通信轮数，但它可以在更少的轮次（0.538倍）和通信量（1.002倍）下达到与端到端FL相同的测试准确性。</li>
+<li>大多数PPFL系统成本来自客户端的本地训练：相比不使用TEEs的训练，不同模型和数据的客户端成本分别增加了约15%的CPU时间、约18%的内存使用和约21%的能耗。</li>
+<li>训练2层块减少了至少一半的通信成本，并在小模型的情况下略微增加了系统开销（即CPU时间、内存使用、能耗）。</li>
+<li>使用预训练模型引导PPFL训练过程可以显著提高机器学习效用，并减少通信和系统开销。</li>
+</ul>
+<p><strong>不诚实攻击</strong>。这里测试的攻击假设了经典的“诚实但好奇”的对手[57]。然而，在FL中也存在不诚实的攻击，如后门攻击[4, 67]或中毒攻击[15]，其目标是主动改变全局模型行为，例如为了偷偷进行未经授权的访问[26]。未来，我们将研究TEEs的安全属性如何防御此类攻击。</p>
+<p><strong>隐私和成本权衡</strong>。PPFL通过将层保留在TEEs内保证“完全”的隐私。然而，在安全环境中执行计算不可避免地会导致系统成本增加。为了降低这些成本，可以放宽隐私要求，可能会因推断攻击具有更高的优势而增加隐私风险[76]。例如，不关心高层信息泄漏（即已学习的模型参数）的客户端，但希望保护原始本地数据，可以选择仅在TEEs中隐藏模型的前几层。我们预计，通过放弃那些在训练后期层次上已经表现良好的客户端，我们可以获得更好的性能。这可能进一步有利于个性化，实现更好的隐私、效用和成本权衡。</p>
+<p><strong>模型架构</strong>。我们在层级FL中测试的模型是跨连续层的线性连接。然而，我们的框架可以轻松扩展到标准层级训练中研究的其他模型架构。例如，可以通过解开特征聚合和特征转换来对图神经网络（GNNs）进行层级训练[74]，并通过添加隐藏层对长短期记忆网络（LSTMs）进行层级训练[60]。还有一些包含跳过某些层的跳跃连接的架构，如ResNet[19]。尚未对ResNets进行层级训练的研究，但可以通过在块内包含跳跃捷径来尝试训练层块。</p>
+<p><strong>加速本地训练</strong>。PPFL仅使用客户端设备的CPU进行本地训练。每层的训练并没有在设备上引入并行处理。确实，可以设计出更有效的方法来执行这种计算负载。一种方法是客户端可以使用专用处理器（即GPU）来加速训练。PPFL的设计可以主要通过两种方式集成这些进展。首先，客户端可以将第一个训练良好的非敏感层外包给专用处理器，以便共享计算并加速本地训练。其次，最近提出的基于GPU的TEEs可以支持高端服务器中类似深度学习的密集计算[22, 24]。因此，客户端设备上的这种TEEs可以大大加速本地训练。然而，由于GPU-TEE仍需要小型可信计算基（TCB）来限制攻击面，PPFL的设计可以提供一种利用有限的TEE空间进行隐私保护本地训练的方法。</p>
+<p><strong>联邦学习范式</strong>。PPFL与FedAvg一起测试，但还有其他兼容PPFL的最新FL范式。PPFL利用贪婪的层级学习，但不修改超参数确定和损失函数（这在FedProx[39]中得到了改进）或聚合（这在FedMA[72]中是基于神经元匹配的）。与训练一层直到收敛的PPFL相比，FedMA也使用层级学习，但训练每一层一个轮次，然后移动到下一层。完成所有层后，再从第一层开始。因此，FedMA仍然容易受到攻击，因为一层的梯度对攻击者可见。PPFL在处理异质（即非IID）数据时可以利用FedMA的神经元匹配技术[28]。此外，我们的框架兼容其他隐私保护技术（例如差分隐私）在FL中的应用。这在模型使用阶段很有用，因为某些用户可能没有TEEs。PPFL还可以用于FLaaS等系统，这些系统使第三方应用能够在设备上构建由这些应用共享的协作机器学习模型[31]。</p>
+<h2 id="8-结论"><a href="#8-结论" class="headerlink" title="8 结论"></a>8 结论</h2><p>在这项工作中，我们提出了PPFL，一个实用的隐私保护联邦学习框架，保护客户的私人信息免受已知的隐私相关攻击。PPFL采用贪婪的层级FL训练，并始终在服务器和客户端的可信执行环境（TEEs）中更新层。我们用类似移动的TEE（即TrustZone）和类似服务器的TEE（即Intel SGX）实现了PPFL，并通过实验证明了其性能。我们首次展示了在没有显著通信和系统开销的情况下，完全保证隐私并实现与常规端到端FL相当的机器学习模型效用的可能性。</p>
+<h2 id="9-致谢"><a href="#9-致谢" class="headerlink" title="9 致谢"></a>9 致谢</h2><p>我们感谢匿名评审者的建设性反馈。导致这些结果的研究得到了EU H2020研究和创新计划的部分资助，资助协议编号为830927（Concordia）、871793（Accordion）、871370（Pimcity），以及EPSRC Databox和DADA资助（EP/N028260/1, EP/R03351X/1）。这些结果仅反映了作者的观点，委员会和EPSRC对其内容的使用不承担任何责任。</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2024-07-05");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-06-26T15:46:03.000Z" itemprop="datePublished">2024-06-26</time>
+
+    , 最后修改于&nbsp;<time datetime="2024-07-05T08:03:18.956Z" itemprop="dateModified">2024-07-05</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/paper/'>paper</a>
+
+<a class="post-categories-list-item" href='/categories/paper/FL/'>FL</a>
+
+</span>
+
+
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2024/06/29/Canadas/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Canada and Beyond</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2024/06/23/paper-OLIVE/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">paper:OLIVE</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2024/06/26/paper-PPFL/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2024/06/26/paper-PPFL/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Linux服务器配置PyTorch环境 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/bot.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Linux服务器配置PyTorch环境 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2023/12/05/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEPyTorch%E7%8E%AF%E5%A2%83/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   说在前面 前提是Anaconda安装包已经下载好   1.查看cuda驱动版本 从下图可以看出是11.4版本：    2.创建“屋子” 1conda create -n ab python&#x3D;3.9  输出结果： 123456789 - ab - blog"><meta name="keywords" content="tool, pytorch, linux, blog"><meta property="og:image" content="https://pbs.twimg.com/media/GAlGge8WEAAQlZB?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GAlLGe9WYAAxgXI?format=jpg&amp;name=medium"><meta property="article:published_time" content="2023-12-05T11:02:30.000Z"><meta property="article:modified_time" content="2023-12-05T11:53:55.623Z"><meta property="og:updated_time" content="2023-12-05T11:53:55.623Z"><meta property="article:author" content="ab"><meta property="article:tag" content="tool, pytorch, linux, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2023/12/05/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEPyTorch%E7%8E%AF%E5%A2%83/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2023/12/05/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEPyTorch%E7%8E%AF%E5%A2%83/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/bot.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2023/12/05/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEPyTorch%E7%8E%AF%E5%A2%83/"
+    },
+    "headline": "Linux服务器配置PyTorch环境 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/bot.ico"
+    },
+    
+    "datePublished": "2023-12-05T11:02:30.000Z",
+    "dateModified": "2023-12-05T11:53:55.623Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/bot.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "tool, pytorch, linux, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   说在前面 前提是Anaconda安装包已经下载好   1.查看cuda驱动版本 从下图可以看出是11.4版本：    2.创建“屋子” 1conda create -n ab python=3.9  输出结果： 123456789 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Linux服务器配置PyTorch环境</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2023-12-05</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/tool/">tool</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAADECAAAAADlzdG3AAADGElEQVR42u3a0W6DMBBEUf7/p9vXNop37oIX0ury0hYU4FRybM/u8fUPjkOECBEiRIwjjuL4ef3Xh8Pf5YPD/V/Pr95LhIhJxOphr9ffgaoXXN1z9fvq+vIeIkQMIt4NuNXLp0H5eq06T2DLe4kQ8QAiTYDVJEm/ECq4CBGfhqgWfFdQ1edEiPgERLXQShNeNYBXi8I00LeuYkWIaCJSUPDUz61phwgRENEJu9JNSbDWCdq2peIiRDTrE2kxRl+ChtPVApKEBiJETCLSIu3dAo8WSmiIls6t3lGEiAlE2sRQRIJX9+oUWESIuAtBC4Z0QkqhWUKi8EKEiAFECoQ7xZD0UtXkWGGXE6kIEUMIWhwkCzTSkEIaWtI/UoSIKQTd+NDBu5rwUsCQwmQRIu5CkIJHdxNfbu5B4woN9ESImERUgQFZ0O0M4XDYIELEACIVQUgTY3oBGqxVeBEi7kZ0Jyiy4ekEYhRRrmJFiNiAoEX2GO6CAj7F4wKnCBEDiM4mvXooLU6Sc2TxKULEHYgUBlSDmlyjG7E00EWImESQcJdsgEijPFlIks+JEDGJoAM7DfLO52mILULEE4gzCzAaoNHG+QMccWcnQsQAIg0yGkCTwK3TMIaL8SJEbECk4klViCThMQV0JlgRIqYRnUaTFJbRBhUaJpchgggRQ4hOI2ICVHjynE6TjAgRU4hOWLwrHLvS1CVCxCSiKprTBqwrzbuk8WW58BQhYghxdrDSYnsnKCbNMCJETCJS89VqcJIvhFSopIX5OLBFiNiIoA2GqThypumEBHXlpClCxBCiEw6nBiyyoaGLyzhBihAxhKAFP1p0TF8IZ4LsVvVUhIgLCLr577xsd2B3vxhEiJhEpKMT9tIBnBaHZIIVIWIKQZoHOwOcBHDkH4YCOBEihhCdzREZyCRYoI3AZdOKCBGDCNoskgZdarxKYXJnMhUh4glEKih2mlxI+NZ5tggRn4KozlM4LViWE6sIEYMIEgB3mrG6wXMVIiyLMSJEDCFSUBCLHWHxmKBpEMdivAgRGxF/+RAhQoQIEWPHNzHOHapW5axzAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 说在前面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1%E6%9F%A5%E7%9C%8Bcuda%E9%A9%B1%E5%8A%A8%E7%89%88%E6%9C%AC"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 1.查看cuda驱动版本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2%E5%88%9B%E5%BB%BA%E5%B1%8B%E5%AD%90"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 2.创建“屋子”</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3%E5%AE%89%E8%A3%85pytorch"><span class="post-toc-number">4.</span> <span class="post-toc-text"> 3.安装pytorch</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="post-toc-number">5.</span> <span class="post-toc-text"> 4.验证是否安装成功</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="说在前面"><a class="markdownIt-Anchor" href="#说在前面"></a> 说在前面</h2>
+<p>前提是Anaconda安装包已经下载好</p>
+<br>
+<h2 id="1查看cuda驱动版本"><a class="markdownIt-Anchor" href="#1查看cuda驱动版本"></a> 1.查看cuda驱动版本</h2>
+<p>从下图可以看出是11.4版本：<br />
+<img src="https://pbs.twimg.com/media/GAlGge8WEAAQlZB?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="2创建屋子"><a class="markdownIt-Anchor" href="#2创建屋子"></a> 2.创建“屋子”</h2>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n ab python=<span class="number">3</span>.<span class="number">9</span></span><br></pre></td></tr></table></figure>
+<br>
+<p>输出结果：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">Collecting package metadata (current_repodata.json): done</span><br><span class="line">Solving environment: done</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">==&gt; WARNING: A newer version of conda exists. &lt;==</span><br><span class="line">  current version: <span class="number">22</span>.<span class="number">9</span>.<span class="number">0</span></span><br><span class="line">  latest version: <span class="number">23</span>.<span class="number">11</span>.<span class="number">0</span></span><br><span class="line"></span><br><span class="line">Please update conda by running</span><br><span class="line"></span><br><span class="line">    $ conda update -n base -c defaults conda</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Package Plan ##</span><br><span class="line"></span><br><span class="line">  environment location: /data5/shitao/anaconda/envs/ab</span><br><span class="line"></span><br><span class="line">  added / updated specs:</span><br><span class="line">    - python=<span class="number">3</span>.<span class="number">9</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">The following packages will be downloaded:</span><br><span class="line"></span><br><span class="line">    package                    |            build</span><br><span class="line">    ---------------------------|-----------------</span><br><span class="line">    ca-certificates-<span class="number">2023</span>.<span class="number">08</span>.<span class="number">22</span> |       h06a4308_0         <span class="number">123</span> KB</span><br><span class="line">    openssl-<span class="number">3</span>.<span class="number">0</span>.<span class="number">12</span>             |       h7f8727e_0         <span class="number">5</span>.<span class="number">2</span> MB</span><br><span class="line">    pip-<span class="number">23</span>.<span class="number">3</span>.<span class="number">1</span>                 |   py39h06a4308_0         <span class="number">2</span>.<span class="number">6</span> MB</span><br><span class="line">    python-<span class="number">3</span>.<span class="number">9</span>.<span class="number">18</span>              |       h955ad1f_0        <span class="number">25</span>.<span class="number">1</span> MB</span><br><span class="line">    setuptools-<span class="number">68</span>.<span class="number">0</span>.<span class="number">0</span>          |   py39h06a4308_0         <span class="number">928</span> KB</span><br><span class="line">    tzdata-<span class="number">2023</span>c               |       h04d1e81_0         <span class="number">116</span> KB</span><br><span class="line">    wheel-<span class="number">0</span>.<span class="number">41</span>.<span class="number">2</span>               |   py39h06a4308_0         <span class="number">108</span> KB</span><br><span class="line">    xz-<span class="number">5</span>.<span class="number">4</span>.<span class="number">5</span>                   |       h5eee18b_0         <span class="number">646</span> KB</span><br><span class="line">    ------------------------------------------------------------</span><br><span class="line"><span class="function">                                           Total:        34.7 <span class="title">MB</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">The</span> <span class="title">following</span> <span class="title">NEW</span> <span class="title">packages</span> <span class="title">will</span> <span class="title">be</span> <span class="title">INSTALLED</span>:</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="title">_libgcc_mutex</span>      <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">_libgcc_mutex</span>-0.1-<span class="title">main</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">_openmp_mutex</span>      <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">_openmp_mutex</span>-5.1-1<span class="title">_gnu</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">ca</span>-<span class="title">certificates</span>    <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">ca</span>-<span class="title">certificates</span>-2023.08.22-<span class="title">h06a4308_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">ld_impl_linux</span>-64   <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">ld_impl_linux</span>-64-2.38-<span class="title">h1181459_1</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">libffi</span>             <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">libffi</span>-3.4.4-<span class="title">h6a678d5_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">libgcc</span>-<span class="title">ng</span>          <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">libgcc</span>-<span class="title">ng</span>-11.2.0-<span class="title">h1234567_1</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">libgomp</span>            <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">libgomp</span>-11.2.0-<span class="title">h1234567_1</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">libstdcxx</span>-<span class="title">ng</span>       <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">libstdcxx</span>-<span class="title">ng</span>-11.2.0-<span class="title">h1234567_1</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">ncurses</span>            <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">ncurses</span>-6.4-<span class="title">h6a678d5_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">openssl</span>            <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">openssl</span>-3.0.12-<span class="title">h7f8727e_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">pip</span>                <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">pip</span>-23.3.1-<span class="title">py39h06a4308_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">python</span>             <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">python</span>-3.9.18-<span class="title">h955ad1f_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">readline</span>           <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">readline</span>-8.2-<span class="title">h5eee18b_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">setuptools</span>         <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">setuptools</span>-68.0.0-<span class="title">py39h06a4308_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">sqlite</span>             <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">sqlite</span>-3.41.2-<span class="title">h5eee18b_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">tk</span>                 <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">tk</span>-8.6.12-<span class="title">h1ccaba5_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">tzdata</span>             <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">noarch</span>::<span class="title">tzdata</span>-2023<span class="title">c</span>-<span class="title">h04d1e81_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">wheel</span>              <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">wheel</span>-0.41.2-<span class="title">py39h06a4308_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">xz</span>                 <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">xz</span>-5.4.5-<span class="title">h5eee18b_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function">  <span class="title">zlib</span>               <span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64::<span class="title">zlib</span>-1.2.13-<span class="title">h5eee18b_0</span> <span class="title">None</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">Proceed</span> ([<span class="title">y</span>]/<span class="title">n</span>)? <span class="title">y</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">Downloading</span> <span class="title">and</span> <span class="title">Extracting</span> <span class="title">Packages</span></span></span><br><span class="line"><span class="function"><span class="title">wheel</span>-0.41.2         | 108 <span class="title">KB</span>    | ########################################################################################## | 100% </span></span><br><span class="line"><span class="function"><span class="title">openssl</span>-3.0.12       | 5.2 <span class="title">MB</span>    | ########################################################################################## | 100% </span></span><br><span class="line"><span class="function"><span class="title">setuptools</span>-68.0.0    | 928 <span class="title">KB</span>    | ########################################################################################## | 100% </span></span><br><span class="line"><span class="function"><span class="title">tzdata</span>-2023<span class="title">c</span>         | 116 <span class="title">KB</span>    | ########################################################################################## | 100% </span></span><br><span class="line"><span class="function"><span class="title">pip</span>-23.3.1           | 2.6 <span class="title">MB</span>    | ########################################################################################## | 100% </span></span><br><span class="line"><span class="function"><span class="title">xz</span>-5.4.5             | 646 <span class="title">KB</span>    | ########################################################################################## | 100% </span></span><br><span class="line"><span class="function"><span class="title">ca</span>-<span class="title">certificates</span>-2023 | 123 <span class="title">KB</span>    | ########################################################################################## | 100% </span></span><br><span class="line"><span class="function"><span class="title">python</span>-3.9.18        | 25.1 <span class="title">MB</span>   | ########################################################################################## | 100% </span></span><br><span class="line"><span class="function"><span class="title">Preparing</span> <span class="title">transaction</span>: <span class="title">done</span></span></span><br><span class="line"><span class="function"><span class="title">Verifying</span> <span class="title">transaction</span>: <span class="title">done</span></span></span><br><span class="line"><span class="function"><span class="title">Executing</span> <span class="title">transaction</span>: <span class="title">done</span></span></span><br><span class="line"><span class="function">#</span></span><br><span class="line"><span class="function"># <span class="title">To</span> <span class="title">activate</span> <span class="title">this</span> <span class="title">environment</span>, <span class="title">use</span></span></span><br><span class="line"><span class="function">#</span></span><br><span class="line"><span class="function">#     $ <span class="title">conda</span> <span class="title">activate</span> <span class="title">ab</span></span></span><br><span class="line"><span class="function">#</span></span><br><span class="line"><span class="function"># <span class="title">To</span> <span class="title">deactivate</span> <span class="title">an</span> <span class="title">active</span> <span class="title">environment</span>, <span class="title">use</span></span></span><br><span class="line"><span class="function">#</span></span><br><span class="line"><span class="function">#     $ <span class="title">conda</span> <span class="title">deactivate</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">Retrieving</span> <span class="title">notices</span>: ...<span class="title">working</span>... <span class="title">done</span></span></span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="3安装pytorch"><a class="markdownIt-Anchor" href="#3安装pytorch"></a> 3.安装pytorch</h2>
+<p>进入环境：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(base) root@<span class="number">3090</span>_0002:/data10/cyb/Vision-Transformer# conda activate ab</span><br><span class="line">(ab) root@<span class="number">3090</span>_0002:/data10/cyb/Vision-Transformer# </span><br></pre></td></tr></table></figure>
+<br>
+<p>根据cuda版本安装pytorch,这里应该为11.4：<br />
+<img src="https://pbs.twimg.com/media/GAlLGe9WYAAxgXI?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p>安装命令：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio pytorch-cuda=<span class="number">11</span>.<span class="number">4</span> -c pytorch -c nvidia</span><br></pre></td></tr></table></figure>
+<br>
+<hr />
+<p>出现了报错：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">(ab) root@<span class="number">3090</span>_0002:/data10/cyb/Vision-Transformer# conda install pytorch torchvision torchaudio pytorch-cuda=<span class="number">11</span>.<span class="number">4</span> -c pytorch -c nvidia</span><br><span class="line">Collecting package metadata (current_repodata.json): done</span><br><span class="line">Solving environment: failed with initial frozen solve. Retrying with flexible solve.</span><br><span class="line">Collecting package metadata (repodata.json): done</span><br><span class="line">Solving environment: failed with initial frozen solve. Retrying with flexible solve.</span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">PackagesNotFoundError: <span class="title">The</span> <span class="title">following</span> <span class="title">packages</span> <span class="title">are</span> <span class="title">not</span> <span class="title">available</span> <span class="title">from</span> <span class="title">current</span> <span class="title">channels</span>:</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  - <span class="title">pytorch</span>-<span class="title">cuda</span>=11.4</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">Current</span> <span class="title">channels</span>:</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  - <span class="title">https</span>://<span class="title">conda.anaconda.org</span>/<span class="title">pytorch</span>/<span class="title">linux</span>-64</span></span><br><span class="line"><span class="function">  - <span class="title">https</span>://<span class="title">conda.anaconda.org</span>/<span class="title">pytorch</span>/<span class="title">noarch</span></span></span><br><span class="line"><span class="function">  - <span class="title">https</span>://<span class="title">conda.anaconda.org</span>/<span class="title">nvidia</span>/<span class="title">linux</span>-64</span></span><br><span class="line"><span class="function">  - <span class="title">https</span>://<span class="title">conda.anaconda.org</span>/<span class="title">nvidia</span>/<span class="title">noarch</span></span></span><br><span class="line"><span class="function">  - <span class="title">https</span>://<span class="title">repo.anaconda.com</span>/<span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">linux</span>-64</span></span><br><span class="line"><span class="function">  - <span class="title">https</span>://<span class="title">repo.anaconda.com</span>/<span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">noarch</span></span></span><br><span class="line"><span class="function">  - <span class="title">https</span>://<span class="title">repo.anaconda.com</span>/<span class="title">pkgs</span>/<span class="title">r</span>/<span class="title">linux</span>-64</span></span><br><span class="line"><span class="function">  - <span class="title">https</span>://<span class="title">repo.anaconda.com</span>/<span class="title">pkgs</span>/<span class="title">r</span>/<span class="title">noarch</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">To</span> <span class="title">search</span> <span class="title">for</span> <span class="title">alternate</span> <span class="title">channels</span> <span class="title">that</span> <span class="title">may</span> <span class="title">provide</span> <span class="title">the</span> <span class="title">conda</span> <span class="title">package</span> <span class="title">you</span>&#x27;<span class="title">re</span></span></span><br><span class="line"><span class="function"><span class="title">looking</span> <span class="title">for</span>, <span class="title">navigate</span> <span class="title">to</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    <span class="title">https</span>://<span class="title">anaconda.org</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">and</span> <span class="title">use</span> <span class="title">the</span> <span class="title">search</span> <span class="title">bar</span> <span class="title">at</span> <span class="title">the</span> <span class="title">top</span> <span class="title">of</span> <span class="title">the</span> <span class="title">page</span>.</span></span><br></pre></td></tr></table></figure>
+<p>这个报错信息表明你尝试在Conda环境中安装PyTorch、TorchVision、TorchAudio以及特定版本的PyTorch CUDA（11.4），但是在当前设置的渠道（channels）中未能找到名为pytorch-cuda=11.4的包。</p>
+<br>
+<p>所以还是安装和我的版本最接近的指令吧T.T：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio pytorch-cuda=<span class="number">11</span>.<span class="number">8</span> -c pytorch -c nvidia</span><br></pre></td></tr></table></figure>
+<hr />
+<br>
+<h2 id="4验证是否安装成功"><a class="markdownIt-Anchor" href="#4验证是否安装成功"></a> 4.验证是否安装成功</h2>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(ab) root@<span class="number">3090</span>_0002:/data10/cyb/Vision-Transformer# python</span><br><span class="line">Python <span class="number">3</span>.<span class="number">9</span>.<span class="number">18</span> (main, Sep <span class="number">11</span> <span class="number">2023</span>, <span class="number">13</span>:<span class="number">41</span>:<span class="number">44</span>) </span><br><span class="line">[GCC <span class="number">11</span>.<span class="number">2</span>.<span class="number">0</span>] :: Anaconda, Inc. on linux</span><br><span class="line"><span class="built_in">Type</span> &quot;<span class="built_in">help</span>&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; <span class="keyword">for</span> <span class="built_in">more</span> information.</span><br><span class="line">&gt;&gt;&gt; import torch</span><br><span class="line">&gt;&gt;&gt; import torchvision</span><br><span class="line">&gt;&gt;&gt; torch.cuda.is_available()</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(torch.__version__)</span><br><span class="line"><span class="number">2</span>.<span class="number">1</span>.<span class="number">1</span></span><br><span class="line">&gt;&gt;&gt; <span class="keyword">exit</span>()</span><br></pre></td></tr></table></figure>
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2023-12-05");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2023-12-05T11:02:30.000Z" itemprop="datePublished">2023-12-05</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/tool/'>tool</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/tool/" rel="tag">#&nbsp;tool</a>
+
+<a class="post-tags-list-item" href="/tags/pytorch/" rel="tag">#&nbsp;pytorch</a>
+
+<a class="post-tags-list-item" href="/tags/linux/" rel="tag">#&nbsp;linux</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2023/12/06/%E4%BC%98%E9%9B%85%E5%9C%B0%E7%9B%91%E6%8E%A7%E6%98%BE%E5%8D%A1-GPU-%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">优雅地监控显卡(GPU)使用情况:nvitop</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2023/12/03/nvidia-smi/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">nvidia-smi</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2023/12/05/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEPyTorch%E7%8E%AF%E5%A2%83/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2023/12/05/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEPyTorch%E7%8E%AF%E5%A2%83/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

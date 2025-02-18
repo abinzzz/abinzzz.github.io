@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Pytorch中的显存利用问题 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/bot.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Pytorch中的显存利用问题 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/01/11/Pytorch%E4%B8%AD%E7%9A%84%E6%98%BE%E5%AD%98%E5%88%A9%E7%94%A8%E9%97%AE%E9%A2%98/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   Pytorch中的显存利用问题   参考链接  Pytorch-Memory-Utils    前言 之前在计算模型以及中间变量的显存占用大小和在Pytorch中精细化利用显存中我们已经谈论过了平时使用中显存的占用来自于哪里,以及 - ab - blog"><meta name="keywords" content="Accumulate, pytorch, memory, blog"><meta property="article:published_time" content="2024-01-10T17:01:25.000Z"><meta property="article:modified_time" content="2024-01-10T17:51:08.750Z"><meta property="og:updated_time" content="2024-01-10T17:51:08.750Z"><meta property="article:author" content="ab"><meta property="article:tag" content="Accumulate, pytorch, memory, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2024/01/11/Pytorch%E4%B8%AD%E7%9A%84%E6%98%BE%E5%AD%98%E5%88%A9%E7%94%A8%E9%97%AE%E9%A2%98/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2024/01/11/Pytorch%E4%B8%AD%E7%9A%84%E6%98%BE%E5%AD%98%E5%88%A9%E7%94%A8%E9%97%AE%E9%A2%98/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/bot.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2024/01/11/Pytorch%E4%B8%AD%E7%9A%84%E6%98%BE%E5%AD%98%E5%88%A9%E7%94%A8%E9%97%AE%E9%A2%98/"
+    },
+    "headline": "Pytorch中的显存利用问题 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/bot.ico"
+    },
+    
+    "datePublished": "2024-01-10T17:01:25.000Z",
+    "dateModified": "2024-01-10T17:51:08.750Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/bot.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Accumulate, pytorch, memory, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   Pytorch中的显存利用问题   参考链接  Pytorch-Memory-Utils    前言 之前在计算模型以及中间变量的显存占用大小和在Pytorch中精细化利用显存中我们已经谈论过了平时使用中显存的占用来自于哪里,以及 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Pytorch中的显存利用问题</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2024-01-11</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Accumulate/">Accumulate</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAADECAAAAADlzdG3AAADLklEQVR42u3ayW7jMBBFUf3/TyfbjiHWu0Wz5HRwtQniQeQxQJE1XF9/4LpEiBAhQsQ44iqu6v1/34uDvXymukca98dnRYgYQlQD3w22vOnNa3cTfx33dSwyLxEiphF3i7a64d1n70CrhV29juclQsQHEKuNabWgqx+hO5YIEb8RQSAVaLWIyeFShIhPIlIgkw501WsVggZSb51iRYhoIugCe/rv0WyHCBEQQRNfNGAi/1cJA5KMEyFiEpGSY2ST20lO001yNUcRIqYQVQCSAp3Vd6rCyS4mbnYiRBxCVJPrFAZJ8WSncIOfTiJEHEKUgTgI8tPfVJxJP2B5mBQhYgiREgPVTclGRgMj8oOUO7YIEQcQ3UCfJJjT4iXJgRQoiRAxhUiT2J0wScCRQ2f5YBEhYgBBgprOoLSQTxJxMVgSIWIQQQYjCy81c6UmltaPJULEEKJ70KONWvRhkQIslFAWIeIQorPYqqCfFGbI5zqboggRUwhaMEk3poX6bsNKKwMoQsQBRFqInQXXvQcZ+62nkwgRGwiyGXUOg9Xhjx74UHOMCBEDiGqQFAR1ivOdBwlOzIkQMYggQctOYwppaEzfFyHiaURKhJFmxk5ygCTf0AFUhIgBRNWI0plEVThPGxn5/u2GKULEAGJnUaZmrE7TCi3EixDxJIJsbCSJTJLB6UDZSmCLEDGAIA2H5PBGFz9JFuD3RYgYRlQbVSrIdxYnaQjbCopEiDiAoJPuNCNWBReSZEsNjCJETCN2m0hosiAt0pQUWMJFiBhCdA5i1WLsJJI7hUz8dBIh4jAiFT9IcSQlxsimRxIMIkRMIXYasWijFVn8ZDHHYrwIEYcR9MbdQgpNRJAgqjwAihBxEJGab6uCS4XrNKh0DpHtbkwRIpoIuhDpwS9tYFXgT5NqIkRMIkjzIEl2kb/kHhV0O3kmQkQTQRunUjEmLcwLXunBIkLEEwhScKcFGArsfD9mAEWIeAiRmhp3NkAKSck4ESI+iSCAdw6N1YMAdxSIEHEQUQXs3UaTzgGPFHtikUWEiMOITkMtaeIigVEnEHu7y0aEiAbif75EiBAhQsTY9Q35p4AdT0lfVwAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#pytorch%E4%B8%AD%E7%9A%84%E6%98%BE%E5%AD%98%E5%88%A9%E7%94%A8%E9%97%AE%E9%A2%98"><span class="post-toc-number">1.</span> <span class="post-toc-text"> Pytorch中的显存利用问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> 参考链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%89%8D%E8%A8%80"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%AD%A3%E6%96%87"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> 正文</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E6%9D%83%E9%87%8D%E6%A8%A1%E5%9E%8B"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> 预训练权重模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#pytorch%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%BE%E5%AD%98%E7%AD%96%E7%95%A5"><span class="post-toc-number">1.5.</span> <span class="post-toc-text"> Pytorch使用的显存策略</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%B3%E4%BA%8E%E6%A8%A1%E5%9E%8B%E8%B0%83%E7%94%A8"><span class="post-toc-number">1.6.</span> <span class="post-toc-text"> 关于模型调用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#asynchronous-execution"><span class="post-toc-number">1.7.</span> <span class="post-toc-text"> Asynchronous execution</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="post-toc-number">1.8.</span> <span class="post-toc-text"> 后记</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h1 id="pytorch中的显存利用问题"><a class="markdownIt-Anchor" href="#pytorch中的显存利用问题"></a> Pytorch中的显存利用问题</h1>
+<br>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Oldpan/Pytorch-Memory-Utils">Pytorch-Memory-Utils</a></li>
+</ul>
+<br>
+<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>之前在<strong>计算模型以及中间变量的显存占用大小</strong>和<strong>在Pytorch中精细化利用显存</strong>中我们已经谈论过了平时使用中显存的占用来自于哪里,以及如何在Pytorch中更好地使用显存。在这篇文章中,我们借用<strong>Pytorch-Memory-Utils</strong>这个工具来检测我们在训练过程中关于显存的变化情况,分析出我们如何正确释放多余的显存。</p>
+<p>在深度探究前先了解下我们的输出信息,通过Pytorch-Memory-Utils工具,我们在使用显存的代码中间插入检测函数(如何使用见工具github页面和下文部分),就可以输出类似于下面的信息,At <strong>main</strong> <module>: line 13 Total Used Memory:696.5 Mb表示在当前行代码时所占用的显存,即在我们的代码中执行到13行的时候所占显存为695.5Mb。At <strong>main</strong> <module>: line 15 Total Used Memory:1142.0 Mb表示程序执行到15行时所占的显存为1142.0Mb。两条数据之间表示所占显存的tensor变量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"># 12-Sep-18-21:48:45-gpu_mem_track.txt</span><br><span class="line"></span><br><span class="line">GPU Memory Track | 12-Sep-18-21:48:45 | Total Used Memory:696.5  Mb  </span><br><span class="line"></span><br><span class="line">At __main__ &lt;module&gt;: line 13                        Total Used Memory:696.5  Mb</span><br><span class="line"></span><br><span class="line">+ | 7 * Size:(512, 512, 3, 3)     | Memory: 66.060 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(512, 256, 3, 3)     | Memory: 4.7185 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(64, 64, 3, 3)       | Memory: 0.1474 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(128, 64, 3, 3)      | Memory: 0.2949 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(128, 128, 3, 3)     | Memory: 0.5898 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 8 * Size:(512,)               | Memory: 0.0163 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 3 * Size:(256, 256, 3, 3)     | Memory: 7.0778 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(256, 128, 3, 3)     | Memory: 1.1796 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 2 * Size:(64,)                | Memory: 0.0005 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 4 * Size:(256,)               | Memory: 0.0040 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 2 * Size:(128,)               | Memory: 0.0010 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(64, 3, 3, 3)        | Memory: 0.0069 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line"></span><br><span class="line">At __main__ &lt;module&gt;: line 15                        Total Used Memory:1142.0 Mb</span><br><span class="line"></span><br><span class="line">+ | 1 * Size:(60, 3, 512, 512)    | Memory: 188.74 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(30, 3, 512, 512)    | Memory: 94.371 M | &lt;class &#x27;torch.Tensor&#x27;&gt; </span><br><span class="line">+ | 1 * Size:(40, 3, 512, 512)    | Memory: 125.82 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line"></span><br><span class="line">At __main__ &lt;module&gt;: line 21                        Total Used Memory:1550.9 Mb</span><br><span class="line"></span><br><span class="line">+ | 1 * Size:(120, 3, 512, 512)   | Memory: 377.48 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(80, 3, 512, 512)    | Memory: 251.65 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line"></span><br><span class="line">At __main__ &lt;module&gt;: line 26                        Total Used Memory:2180.1 Mb</span><br><span class="line"></span><br><span class="line">- | 1 * Size:(120, 3, 512, 512)   | Memory: 377.48 M | &lt;class &#x27;torch.Tensor&#x27;&gt;  </span><br><span class="line">- | 1 * Size:(40, 3, 512, 512)    | Memory: 125.82 M | &lt;class &#x27;torch.Tensor&#x27;&gt;  </span><br><span class="line"></span><br><span class="line">At __main__ &lt;module&gt;: line 32                        Total Used Memory:1676.8 Mb</span><br></pre></td></tr></table></figure>
+<p>使用Pytorch-Memory-Utils得到的显存跟踪结果。</p>
+<p>当然这个检测工具不仅适用于Pytorch,其他的深度学习框架也同样可以使用,不过需要注意下静态图和动态图在实际运行过程中的区别。</p>
+<br>
+<h2 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h2>
+<p>了解了Pytorch-Memory-Utils工具如何使用后,接下来我们通过若干段程序代码来演示在Pytorch训练中:</p>
+<ul>
+<li>平时的显存是如何变化的,到底是什么占用了显存。</li>
+<li>如何去释放不需要的显存。</li>
+</ul>
+<p>首先,我们在下段代码中导入我们需要的库,随后开始我们的显存检测程序。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> inspect</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> gpu_mem_track <span class="keyword">import</span> MemTracker  <span class="comment"># 引用显存跟踪代码  </span></span><br><span class="line"></span><br><span class="line">device = torch.device(<span class="string">&#x27;cuda:0&#x27;</span>)</span><br><span class="line"></span><br><span class="line">frame = inspect.currentframe()      </span><br><span class="line">gpu_tracker = MemTracker(frame)      <span class="comment"># 创建显存检测对象</span></span><br><span class="line"></span><br><span class="line">gpu_tracker.track()                  <span class="comment"># 开始检测</span></span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="预训练权重模型"><a class="markdownIt-Anchor" href="#预训练权重模型"></a> 预训练权重模型</h2>
+<p>首先我们检测一下神经网络模型权重所占用的显存信息,下面代码中我们尝试加载VGG19这个经典的网络模型,并且导入预训练好的权重。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gpu_tracker.track()</span><br><span class="line">cnn = models.vgg19(pretrained=<span class="literal">True</span>).to(device)  <span class="comment"># 导入VGG19模型并且将数据转到显存中</span></span><br><span class="line">gpu_tracker.track()</span><br></pre></td></tr></table></figure>
+<p>然后可以发现程序运行过程中的显存变化(第一行是载入前的显存,最后一行是载入后的显存):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">At __main__ &lt;module&gt;: line 13                        Total Used Memory:472.2  Mb</span><br><span class="line"></span><br><span class="line">+ | 1 * Size:(128, 64, 3, 3)      | Memory: 0.2949 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(256, 128, 3, 3)     | Memory: 1.1796 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(64, 64, 3, 3)       | Memory: 0.1474 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 2 * Size:(4096,)              | Memory: 0.0327 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(512, 256, 3, 3)     | Memory: 4.7185 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 2 * Size:(128,)               | Memory: 0.0010 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(1000, 4096)         | Memory: 16.384 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 6 * Size:(512,)               | Memory: 0.0122 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(64, 3, 3, 3)        | Memory: 0.0069 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(4096, 25088)        | Memory: 411.04 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(4096, 4096)         | Memory: 67.108 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 5 * Size:(512, 512, 3, 3)     | Memory: 47.185 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 2 * Size:(64,)                | Memory: 0.0005 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 3 * Size:(256,)               | Memory: 0.0030 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(128, 128, 3, 3)     | Memory: 0.5898 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 2 * Size:(256, 256, 3, 3)     | Memory: 4.7185 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(1000,)              | Memory: 0.004 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line"></span><br><span class="line">At __main__ &lt;module&gt;: line 15                        Total Used Memory:1387.5 Mb</span><br></pre></td></tr></table></figure>
+<p>通过上面的报告,很容易发现一个问题。</p>
+<p>首先我们知道VGG19所有层的权重大小加起来大约是548M(这个数值来源于Pytorch官方提供的VGG19权重文件大小),我们将上面报告打印的Tensor-Memory也都加起来算下来也差不多551.8Mb。但是,我们算了两次打印的显存实际占用中:1387.5 – 472.2 = 915.3 MB。</p>
+<p>唉,怎么多用了差不多400Mb呢?是不是报告出什么问题了。</p>
+<p>这样,我们再加点Tensor试一下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">gpu_tracker.track()</span><br><span class="line">cnn = models.vgg19(pretrained=<span class="literal">True</span>).to(device)  </span><br><span class="line">gpu_tracker.track()</span><br><span class="line"><span class="comment"># 上方为之前的代码</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 新增加的tensor</span></span><br><span class="line">dummy_tensor_1 = torch.randn(<span class="number">30</span>, <span class="number">3</span>, <span class="number">512</span>, <span class="number">512</span>).<span class="built_in">float</span>().to(device)  <span class="comment"># 30*3*512*512*4/1000/1000 = 94.37M</span></span><br><span class="line">dummy_tensor_2 = torch.randn(<span class="number">40</span>, <span class="number">3</span>, <span class="number">512</span>, <span class="number">512</span>).<span class="built_in">float</span>().to(device)  <span class="comment"># 40*3*512*512*4/1000/1000 = 125.82M</span></span><br><span class="line">dummy_tensor_3 = torch.randn(<span class="number">60</span>, <span class="number">3</span>, <span class="number">512</span>, <span class="number">512</span>).<span class="built_in">float</span>().to(device)  <span class="comment"># 60*3*512*512*4/1000/1000 = 188.74M</span></span><br><span class="line"></span><br><span class="line">gpu_tracker.track()   <span class="comment"># 再次打印</span></span><br></pre></td></tr></table></figure>
+<p>如上面的代码,我们又加入了三个Tensor,全部放到显存中。报告如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">At __main__ &lt;module&gt;: line 15                        Total Used Memory:1387.5 Mb  </span><br><span class="line"></span><br><span class="line">+ | 1 * Size:(30, 3, 512, 512)    | Memory: 94.371 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(40, 3, 512, 512)    | Memory: 125.82 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(60, 3, 512, 512)    | Memory: 188.74 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line"></span><br><span class="line">At __main__ &lt;module&gt;: line 21                        Total Used Memory:1807.0 Mb</span><br></pre></td></tr></table></figure>
+<p>上面的报告就比较正常了:94.3 + 125.8 + 188.7 = 408.8 约等于 1807.0 – 1387.5 = 419.5,误差可以忽略,因为肯定会存在一些开销使用的显存。</p>
+<p>那之前是什么情况?是不是模型的权重信息占得显存就稍微多一点?</p>
+<p>这样,我们将载入VGG19模型的代码注释掉,只对后面的三个Tensor进行检测。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">gpu_tracker.track() </span><br><span class="line"><span class="comment"># cnn = models.vgg19(pretrained=True).to(device)   注释掉读权重代码</span></span><br><span class="line">gpu_tracker.track()</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>可以发现:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">GPU Memory Track | 15-Sep-18-13:59:03 | Total Used Memory:513.3  Mb</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">At __main__ &lt;module&gt;: line 13                        Total Used Memory:513.3  Mb</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">At __main__ &lt;module&gt;: line 15                        Total Used Memory:513.3  Mb</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">At __main__ &lt;module&gt;: line 18                        Total Used Memory:513.3  Mb</span><br><span class="line"></span><br><span class="line">+ | 1 * Size:(60, 3, 512, 512)    | Memory: 188.74 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(30, 3, 512, 512)    | Memory: 94.371 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(40, 3, 512, 512)    | Memory: 125.82 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line"></span><br><span class="line">At __main__ &lt;module&gt;: line 24                        Total Used Memory:1271.3 Mb</span><br></pre></td></tr></table></figure>
+<p>同样,显存占用比所列出来的Tensor占用大,我们暂时将次归结为Pytorch在开始运行程序时需要额外的显存开销,这种额外的显存开销与我们实际使用的模型权重显存大小无关。</p>
+<br>
+<h2 id="pytorch使用的显存策略"><a class="markdownIt-Anchor" href="#pytorch使用的显存策略"></a> Pytorch使用的显存策略</h2>
+<p>Pytorch已经可以自动回收我们“不用的”显存,类似于python的引用机制,当某一内存内的数据不再有任何变量引用时,这部分的内存便会被释放。但有一点需要注意,当我们有一部分显存不再使用的时候,这部分释放后的显存通过Nvidia-smi命令是看不到的,举个例子:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">device = torch.device(<span class="string">&#x27;cuda:0&#x27;</span>)</span><br><span class="line"><span class="comment"># 定义两个tensor</span></span><br><span class="line">dummy_tensor_4 = torch.randn(<span class="number">120</span>, <span class="number">3</span>, <span class="number">512</span>, <span class="number">512</span>).<span class="built_in">float</span>().to(device)  <span class="comment"># 120*3*512*512*4/1000/1000 = 377.48M</span></span><br><span class="line">dummy_tensor_5 = torch.randn(<span class="number">80</span>, <span class="number">3</span>, <span class="number">512</span>, <span class="number">512</span>).<span class="built_in">float</span>().to(device)  <span class="comment"># 80*3*512*512*4/1000/1000 = 251.64M</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后释放</span></span><br><span class="line">dummy_tensor_4 = dummy_tensor_4.cpu()  </span><br><span class="line">dummy_tensor_2 = dummy_tensor_2.cpu()</span><br><span class="line"><span class="comment"># 这里虽然将上面的显存释放了,但是我们通过Nvidia-smi命令看到显存依然在占用</span></span><br><span class="line">torch.cuda.empty_cache()</span><br><span class="line"><span class="comment"># 只有执行完上面这句,显存才会在Nvidia-smi中释放</span></span><br></pre></td></tr></table></figure>
+<p>Pytorch的开发者也对此进行说明了,这部分释放后的显存可以用,只不过不在Nvidia-smi中显示罢了。</p>
+<br>
+<h2 id="关于模型调用"><a class="markdownIt-Anchor" href="#关于模型调用"></a> 关于模型调用</h2>
+<p>torch.no_grad()是Pytorch-0.4版本时候更新的功能,在此语句的作用域下,所有的tensor运算不会保存梯度值,特别适合在inference的时候使用,代替旧版本的volatile。</p>
+<p>用一段代码演示下,这里我们根据VGG19网络构造一个特征提取器,分别提取content_image和style_image的特征图,然后将提取的特征图存在两个list中,我们使用了with torch.no_grad()语句(在没使用no_grad之前占用的显存更多,不过这里不进行展示了):</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">gpu_tracker.track()</span><br><span class="line"></span><br><span class="line">layers = [<span class="string">&#x27;relu_1&#x27;</span>, <span class="string">&#x27;relu_3&#x27;</span>, <span class="string">&#x27;relu_5&#x27;</span>, <span class="string">&#x27;relu_9&#x27;</span>]    <span class="comment"># 提取的层数</span></span><br><span class="line">layerIdx = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">content_image = torch.randn(<span class="number">1</span>, <span class="number">3</span>, <span class="number">500</span>, <span class="number">500</span>).<span class="built_in">float</span>().to(device)  </span><br><span class="line">style_image = torch.randn(<span class="number">1</span>, <span class="number">3</span>, <span class="number">500</span>, <span class="number">500</span>).<span class="built_in">float</span>().to(device)</span><br><span class="line">feature_extractor = nn.Sequential().to(device)           <span class="comment"># 特征提取器</span></span><br><span class="line">cnn = models.vgg19(pretrained=<span class="literal">True</span>).features.to(device)  <span class="comment"># 采取VGG19</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">input_features = []      <span class="comment"># 保存提取出的features</span></span><br><span class="line">target_features = []     <span class="comment"># 保存提取出的features</span></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="comment"># 如果不加下面这一句,那么显存的占用提升,因为保存了中间计算的梯度值</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    <span class="keyword">for</span> layer <span class="keyword">in</span> cnn.children():</span><br><span class="line">        <span class="keyword">if</span> layerIdx &lt; <span class="built_in">len</span>(layers):</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">isinstance</span>(layer, nn.Conv2d):</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                name = <span class="string">&quot;conv_&quot;</span> + <span class="built_in">str</span>(i)</span><br><span class="line">                feature_extractor.add_module(name, layer)</span><br><span class="line">            <span class="keyword">elif</span> <span class="built_in">isinstance</span>(layer, nn.MaxPool2d):</span><br><span class="line">                name = <span class="string">&quot;pool_&quot;</span> + <span class="built_in">str</span>(i)</span><br><span class="line">                feature_extractor.add_module(name, layer)</span><br><span class="line">            <span class="keyword">elif</span> <span class="built_in">isinstance</span>(layer, nn.ReLU):</span><br><span class="line">                name = <span class="string">&quot;relu_&quot;</span> + <span class="built_in">str</span>(i)</span><br><span class="line">                feature_extractor.add_module(name, nn.ReLU(inplace=<span class="literal">True</span>))</span><br><span class="line">            <span class="keyword">if</span> name == layers[layerIdx]:</span><br><span class="line">                <span class="built_in">input</span> = feature_extractor(content_image)</span><br><span class="line">                gpu_tracker.track()</span><br><span class="line">                target = feature_extractor(style_image)</span><br><span class="line">                gpu_tracker.track()</span><br><span class="line"></span><br><span class="line">                input_features.append(<span class="built_in">input</span>)</span><br><span class="line">                target_features.append(target)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">del</span> <span class="built_in">input</span></span><br><span class="line">                <span class="keyword">del</span> target</span><br><span class="line"></span><br><span class="line">                layerIdx += <span class="number">1</span></span><br><span class="line">                </span><br><span class="line">gpu_tracker.track()</span><br></pre></td></tr></table></figure>
+<p>进行GPU跟踪后，观察下显存变化：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">At __main__ &lt;module&gt;: line 33                        Total Used Memory:1313.3 Mb</span><br><span class="line"></span><br><span class="line">+ | 2 * Size:(64,)                | Memory: 0.0005 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 2 * Size:(1, 3, 500, 500)     | Memory: 6.0 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(64, 64, 3, 3)       | Memory: 0.1474 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(128, 64, 3, 3)      | Memory: 0.2949 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 2 * Size:(128,)               | Memory: 0.0010 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 2 * Size:(1, 256, 125, 125)   | Memory: 32.0 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(128, 128, 3, 3)     | Memory: 0.5898 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 7 * Size:(512, 512, 3, 3)     | Memory: 66.060 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 3 * Size:(256, 256, 3, 3)     | Memory: 7.0778 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 2 * Size:(1, 512, 62, 62)     | Memory: 15.745 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(64, 3, 3, 3)        | Memory: 0.0069 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 2 * Size:(1, 128, 250, 250)   | Memory: 64.0 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line">+ | 8 * Size:(512,)               | Memory: 0.0163 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 4 * Size:(256,)               | Memory: 0.0040 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(256, 128, 3, 3)     | Memory: 1.1796 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 1 * Size:(512, 256, 3, 3)     | Memory: 4.7185 M | &lt;class &#x27;torch.nn.parameter.Parameter&#x27;&gt;</span><br><span class="line">+ | 2 * Size:(1, 64, 500, 500)    | Memory: 128.0 M | &lt;class &#x27;torch.Tensor&#x27;&gt;</span><br><span class="line"></span><br><span class="line">At __main__ &lt;module&gt;: line 76                        Total Used Memory:1932.0 Mb</span><br></pre></td></tr></table></figure>
+<p>上表中4*2个&lt;class ‘torch.Tensor’&gt;是提取出的特征图，其他的&lt;class ‘torch.nn.parameter.Parameter’&gt;则是模型的权重值，但是发现，所有的值加起来，与总显存变化又不同，那究竟多了哪些占用显存的东西？</p>
+<p>其实原因很简单，除了在程序运行时的一些额外显存开销，另外一个占用显存的东西就是我们在计算时候的临时缓冲值，这些零零总总也会占用一部分显存，并且这些缓冲值通过Python的垃圾收集是收集不到的。</p>
+<Br>
+<h2 id="asynchronous-execution"><a class="markdownIt-Anchor" href="#asynchronous-execution"></a> Asynchronous execution</h2>
+<p>做过并行计算或者操作系统的同学可能知道，GPU的计算方式一般是异步的。异步运算不像同步运算那样是按照顺序一步一步来，异步是同时进行的，异步计算中，两种不一样的操作可能会发生同时触发的情况，这是处理两者间的前后关系、依赖关系或者冲突关系就比较重要了。</p>
+<p>有一个众所周知的小技巧，在执行训练程序的时候将环境变量CUDA_LAUNCH_BLOCKING=1设为1(强制同步)可以准确定位观察到我们显存操作的错误代码行数。</p>
+<br>
+<h2 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h2>
+<p>暂时就说这些，Pytorch的显存优化除了以上这些，更多的应该交给底层处理了，期待一下Pytorch的再次更新吧——另外，Pytorch-1.0的dev版已经出来，大家可以尝尝鲜了！</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2024-01-11");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-01-10T17:01:25.000Z" itemprop="datePublished">2024-01-11</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Accumulate/'>Accumulate</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Accumulate/" rel="tag">#&nbsp;Accumulate</a>
+
+<a class="post-tags-list-item" href="/tags/pytorch/" rel="tag">#&nbsp;pytorch</a>
+
+<a class="post-tags-list-item" href="/tags/memory/" rel="tag">#&nbsp;memory</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2024/01/11/Docker/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Docker</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2024/01/11/%E5%9C%A8Pytorch%E4%B8%AD%E7%B2%BE%E7%BB%86%E5%8C%96%E5%88%A9%E7%94%A8%E6%98%BE%E5%AD%98/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">在Pytorch中精细化利用显存</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2024/01/11/Pytorch%E4%B8%AD%E7%9A%84%E6%98%BE%E5%AD%98%E5%88%A9%E7%94%A8%E9%97%AE%E9%A2%98/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2024/01/11/Pytorch%E4%B8%AD%E7%9A%84%E6%98%BE%E5%AD%98%E5%88%A9%E7%94%A8%E9%97%AE%E9%A2%98/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

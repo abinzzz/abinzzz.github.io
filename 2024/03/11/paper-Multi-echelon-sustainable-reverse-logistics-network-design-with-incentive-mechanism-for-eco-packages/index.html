@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>[待完成]paper:Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/bot.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="[待完成]paper:Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/03/11/paper-Multi-echelon-sustainable-reverse-logistics-network-design-with-incentive-mechanism-for-eco-packages/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });     Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages摘要关键词：生态包装，绿色 - ab - blog"><meta name="keywords" content="paper, 节能减排, blog"><meta property="article:published_time" content="2024-03-11T10:49:13.000Z"><meta property="article:modified_time" content="2024-03-16T04:10:38.995Z"><meta property="og:updated_time" content="2024-03-16T04:10:38.995Z"><meta property="article:author" content="ab"><meta property="article:tag" content="paper, 节能减排, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2024/03/11/paper-Multi-echelon-sustainable-reverse-logistics-network-design-with-incentive-mechanism-for-eco-packages/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2024/03/11/paper-Multi-echelon-sustainable-reverse-logistics-network-design-with-incentive-mechanism-for-eco-packages/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/bot.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2024/03/11/paper-Multi-echelon-sustainable-reverse-logistics-network-design-with-incentive-mechanism-for-eco-packages/"
+    },
+    "headline": "[待完成]paper:Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/bot.ico"
+    },
+    
+    "datePublished": "2024-03-11T10:49:13.000Z",
+    "dateModified": "2024-03-16T04:10:38.995Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/bot.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "paper, 节能减排, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });     Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages摘要关键词：生态包装，绿色 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">[待完成]paper:Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2024-03-11</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/paper/">paper</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADp0lEQVR42u3b0U7DMAxG4b3/S8Mtgsb/ccparzq7mQa0zTcpsWOH19cDXy9RokSJEvU41Kt4/f6b6jP923T90f3wOEWJGoI6nHSLgVQ///n7o8EsJzi4joxTlKhJqGpQ1Xs18atFgwy6ixUl6lNQq4meBlxN8BRYSRAWJepTUavENCWxJCivkOQLECVqMirdZAVJE7t6zmqhoNeLEjUVRSf23e//Vk0SJeqNqFh0XwTVKviSwg1ZGKpk+FTXQ5SoN6LSRo0mla0JDRaDrfGJEjUAtZN87iSonWYDTZ7/XC9K1AAUfcBOsTJtADubRFTwESVqAIoks7tJLbknbbqhz6JEDUBVga17UIoGy+2mWlioRImagOoU4ckDUkBNyS4NtIeJuChRA1CdB+8uEmRQtKndDr6iRF2MIglp58BVOsBICqJdmChR01A0wUyHprqJMTm4TwuZokRNQdFD86uiZrWxq4Jwd2EgCbAoURNQVQOgWhgotNNM2/nycEYhStRFKNLsohs1ei+y8dxZLESJmoAiRUhaoOk0G6pNJr22XP1EiboJRSdnapiRAv5ukYc2FkSJmoKikz4VXdL9zhR3UNNClKghqLMFRtRkbmLJfWPwFSXqJhQJsrRYT4J1ui4d0louGqJEDUDRZDI150ixhi4wO81tUaKmoLobsmpyk9+RAicJ+iijECXqRhQpHO4cZiRN8Z2G3alNoihRF6A6Te3UeO4c4tpdVA7vL0rUABQp2ncaZV0QeUZarESJmoQixUR0gBA8tHPogzb1YkYhStTFqOpA1ZmBdppqKfinREGUqKmoncZY+iK6X046cIUTWlGibkRVE7xbtKwmOmlUk/EsFyhRogagVpN/p6GcFhTaBOgE8FhNEiXqYlSagKkhlgomdKNHFpp/2SSKEnURqnNAijTaquJm92AI3lyKEjUAlZrItOhP70EOW6UG3zIBFiVqAIouCrSZnQJuSqBTk7ws/ogSNQhVTcZ0ECQVRUmhsnugK1aTRIm6CbXTSO4cPqRF/vRFkKadKFETUOSAFWmixeL9i//jWAroy2eKEjUAlZrX3YIKaSikQiZ9L7seokTdiEpNZFp0pE2FtOFMjbpWI1uUqJtQKGEMh6F2m9QkSSaHlUWJ+hRUCnykyJmCcOdQJQ6+okQNR60+kw1kSojJJjM13kSJmoSqiu+04dYJ3mcLO4fjFCVqCIomnySZ7TbnSBEmJcuiRE1CPeklSpQoUaIe8/oGK2cTT44XH5cAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Multi-echelon-sustainable-reverse-logistics-network-design-with-incentive-mechanism-for-eco-packages"><span class="post-toc-number">1.</span> <span class="post-toc-text">Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%91%98%E8%A6%81"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%8E%E6%A8%A1%E5%9E%8B"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">问题与模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> </span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+
+
+
+<h1 id="Multi-echelon-sustainable-reverse-logistics-network-design-with-incentive-mechanism-for-eco-packages"><a href="#Multi-echelon-sustainable-reverse-logistics-network-design-with-incentive-mechanism-for-eco-packages" class="headerlink" title="Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages"></a>Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p><strong>关键词</strong>：生态包装，绿色反向物流，位置路线问题，激励机制，多目标优化，启发式算法</p>
+<p>贡献：</p>
+<ol>
+<li>提出了以回收站代替传统的上门回收服务,并为客户提供激励机制的<strong>多层次反向物流网络</strong>。客户将环保包装箱交给回收站,回收站根据质量和距离给予不同的回馈,再由回收中心定期派车收集。</li>
+<li>建立了一个多目标优化模型,同时<strong>最大化经济和环境收益</strong>。该模型将位置选址问题、路线规划问题和激励机制相结合,并使用概率分布模型和排放因子法分别描述包装箱回收概率和运营排放量。</li>
+<li>设计了一种<strong>多目标遗传算法和禁忌搜索算法</strong>的混合算法(MOHGATS)来求解该NP难问题,算法的有效性和稳定性通过数值实验得到验证。</li>
+<li>通过一个实际案例研究,探讨了环保包装箱数量、激励成本、回收站数量和容量对反向物流网络经济和环境影响,为实际运营提供参考。</li>
+</ol>
+<h2 id="问题与模型"><a href="#问题与模型" class="headerlink" title="问题与模型"></a>问题与模型</h2><p><strong>目标函数</strong>:</p>
+<ol>
+<li>第一个目标函数(9)是最大化反向物流网络的总利润,等于加工环保包装箱的总收益减去激励成本、运输成本和开设回收站成本。 </li>
+<li>第二个目标函数(10)是最大化网络运营的碳减排量,具体计算方法在3.3节中给出。</li>
+</ol>
+<p><br></p>
+<p><strong>约束条件</strong> </p>
+<ol>
+<li>(11)确保未选择开设的回收站不能服务客户。 </li>
+<li>(12)确保离开回收中心的回收车数量不超过总数。 </li>
+<li>(13)确保每个客户只由一个回收站服务。 </li>
+<li>(14)确保每个回收站收集的包装箱数量不超过其最大容量。 </li>
+<li>(15)确保车辆离开回收中心时载重为0。 </li>
+<li>(16)确保车辆载重的连续性。 </li>
+<li>(17)确保每辆车的载重不超过最大载重量。 </li>
+<li>(18)确保节点流量守恒。 </li>
+<li>(19)确保服务回收站的车辆来自回收中心。 </li>
+<li>(20)消除子环路。 </li>
+<li>(21)确保每个开设的回收站只由一辆车服务,关闭的不能服务。 </li>
+<li>(22-25)定义决策变量的取值范围。</li>
+</ol>
+<p><br></p>
+<p>这一部分详细描述了反向物流网络的问题及其数学模型。主要内容包括:</p>
+<ol>
+<li><strong>问题描述</strong>: 考虑一个由客户、回收站和回收中心组成的三层反向物流网络,用于回收环保包装箱。企业向客户提供激励,客户根据激励和距离决定是否将包装箱送往回收站。回收中心派车定期到回收站收集包装箱。</li>
+<li><strong>回收概率模型</strong>: 基于客户剩余理论,构建了客户回收环保包装箱的离散选择概率模型。概率取决于企业给予的激励价格、运输距离成本和客户的最低心理价格。</li>
+<li><strong>碳排放估算模型</strong>: 利用排放因子法估算整个回收过程的碳排放,包括直接排放(燃料)、间接排放(电力)和其他间接排放(材料)。</li>
+<li><strong>数学模型</strong>: 建立了双目标优化模型,目标是最大化反向物流网络的经济利润和碳减排量。决策变量包括激励成本、回收站选址和车辆路线规划。约束条件考虑了回收站容量、车辆载重等限制。</li>
+</ol>
+<p><br></p>
+<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2>
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2024-03-16");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-03-11T10:49:13.000Z" itemprop="datePublished">2024-03-11</time>
+
+    , 最后修改于&nbsp;<time datetime="2024-03-16T04:10:38.995Z" itemprop="dateModified">2024-03-16</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/paper/'>paper</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/paper/" rel="tag">#&nbsp;paper</a>
+
+<a class="post-tags-list-item" href="/tags/%E8%8A%82%E8%83%BD%E5%87%8F%E6%8E%92/" rel="tag">#&nbsp;节能减排</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2024/03/12/IELTS-Reading/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">IELTS:Reading</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2024/03/11/IELTS-%E5%89%91%E6%A1%A5%E9%9B%85%E6%80%9D/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">IELTS:剑桥雅思</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2024/03/11/paper-Multi-echelon-sustainable-reverse-logistics-network-design-with-incentive-mechanism-for-eco-packages/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2024/03/11/paper-Multi-echelon-sustainable-reverse-logistics-network-design-with-incentive-mechanism-for-eco-packages/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>
