@@ -1,205 +1,439 @@
+<!DOCTYPE html>
 
-    <!DOCTYPE html>
-    <html lang="zh-CN"
-            
-          
-    >
+<html lang="zh-CN">
     <head>
-    <!--pjax：防止跳转页面音乐暂停-->
-    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
     <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
     
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Missing Semester of CS:Lecture01-课程概览与shell | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
 
     
 
-    
-    <title>
-        Missing Semester of CS:Lecture01-课程概览与shell |
-        
-        blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-    
-<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
 
-    
-<link rel="stylesheet" href="/css/loader.css">
+    .avatar {
+        background: #444;
+    }
 
-    <meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接 🔗：The Missing Semester of Your CS Education 中文版 🔗：The Missing Semester of Your CS Education 🔗：课程中文字幕视">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Missing Semester of CS:Lecture01-课程概览与shell">
-<meta property="og:url" content="https://abinzzz.github.io/2023/10/07/Missing-Semester-of-CS/index.html">
-<meta property="og:site_name" content="blog">
-<meta property="og:description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&#39;$&#39;, &#39;$&#39;]]}, messageStyle: &quot;none&quot; });   参考链接 🔗：The Missing Semester of Your CS Education 中文版 🔗：The Missing Semester of Your CS Education 🔗：课程中文字幕视">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-10-06T16:33:11.000Z">
-<meta property="article:modified_time" content="2024-03-07T05:51:11.882Z">
-<meta property="article:author" content="ab">
-<meta property="article:tag" content="Missing Semester">
-<meta property="article:tag" content="课程概览">
-<meta property="article:tag" content="shell">
-<meta property="article:tag" content="project">
-<meta name="twitter:card" content="summary">
-    
-        <link rel="alternate" href="/atom.xml" title="blog" type="application/atom+xml">
-    
-    
-        <link rel="shortcut icon" href="/images/favicon.ico">
-    
-    
-        
-<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
 
-    
-    
-<link rel="stylesheet" href="/css/style.css">
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
 
-    
-        
-<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
 
-    
-    
-        
-<link rel="stylesheet" href="https://unpkg.com/katex@0.16.7/dist/katex.min.css">
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
 
-    
-    
-    
-    
-<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
 
-    
-        
-<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
 
-        
-<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
 
-        <script>
-          new WOW({
-            offset: 0,
-            mobile: true,
-            live: false
-          }).init();
-        </script>
-    
-<meta name="generator" content="Hexo 5.4.2"></head>
 
-    <body>
+
+
+
+
+    <!-- Prettify Theme -->
     
-<div id='loader'>
-  <div class="loading-left-bg"></div>
-  <div class="loading-right-bg"></div>
-  <div class="spinner-box">
-    <div class="loading-taichi">
-      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
-      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
-      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
-      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
-    </svg>
-    </div>
-    <div class="loading-word">Loading...</div>
-  </div>
-</div>
-</div>
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
 
 <script>
-  const endLoading = function() {
-    document.body.style.overflow = 'auto';
-    document.getElementById('loader').classList.add("loading");
-  }
-  window.addEventListener('load', endLoading);
-  document.getElementById('loader').addEventListener('click', endLoading);
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Missing Semester of CS:Lecture01-课程概览与shell | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2023/10/07/Missing-Semester-of-CS/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   参考链接 🔗：The Missing Semester of Your CS Education 中文版 🔗：The Missing Semester of Your CS Education 🔗：课程中文字幕视频 🔗：T - ab - blog"><meta name="keywords" content="Missing Semester, 课程概览, shell, project"><meta property="article:published_time" content="2023-10-06T16:33:11.000Z"><meta property="article:modified_time" content="2024-03-07T05:51:11.882Z"><meta property="og:updated_time" content="2024-03-07T05:51:11.882Z"><meta property="article:author" content="ab"><meta property="article:tag" content="Missing Semester, 课程概览, shell, project"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2023/10/07/Missing-Semester-of-CS/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2023/10/07/Missing-Semester-of-CS/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2023/10/07/Missing-Semester-of-CS/"
+    },
+    "headline": "Missing Semester of CS:Lecture01-课程概览与shell | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2023-10-06T16:33:11.000Z",
+    "dateModified": "2024-03-07T05:51:11.882Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Missing Semester, 课程概览, shell, project",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   参考链接 🔗：The Missing Semester of Your CS Education 中文版 🔗：The Missing Semester of Your CS Education 🔗：课程中文字幕视频 🔗：T - ab - blog"
+}
 </script>
 
 
-    <div id="container">
-        <div id="wrap">
-            <header id="header">
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
     
     
-        <img data-src="https://pbs.twimg.com/media/GIC6VEQbMAAk8RC?format=png&amp;name=medium" data-sizes="auto" alt="Missing Semester of CS:Lecture01-课程概览与shell" class="lazyload">
+        <a href="/archives/" class="navbar-link">归档</a>
     
-    <div id="header-outer" class="outer">
-        <div id="header-title" class="inner">
-            <div id="logo-wrap">
-                
-                    
-                    
-                        <a href="/" id="logo"><h1>Missing Semester of CS:Lecture01-课程概览与shell</h1></a>
-                    
-                
-            </div>
-            
-                
-                
-            
-        </div>
-        <div id="header-inner">
-            <nav id="main-nav">
-                <a id="main-nav-toggle" class="nav-icon"></a>
-                
-                    <span class="main-nav-link-wrap">
-                        <span class="main-nav-icon"></span>
-                        <a class="main-nav-link" href="/">首页</a>
-                    </span>
-                
-                    <span class="main-nav-link-wrap">
-                        <span class="main-nav-icon"></span>
-                        <a class="main-nav-link" href="/archives">归档</a>
-                    </span>
-                
-                    <span class="main-nav-link-wrap">
-                        <span class="main-nav-icon"></span>
-                        <a class="main-nav-link" href="/about">关于</a>
-                    </span>
-                
-                    <span class="main-nav-link-wrap">
-                        <span class="main-nav-icon"></span>
-                        <a class="main-nav-link" href="/friend">友链</a>
-                    </span>
-                
-            </nav>
-            <nav id="sub-nav">
-                
-                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
-                       title="RSS 订阅"></a>
-                
-                
-            </nav>
-            <div id="search-form-wrap">
-                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://abinzzz.github.io"></form>
-            </div>
-        </div>
-    </div>
-</header>
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
 
-            <div id="content" class="outer">
-                <section id="main"><article id="post-Missing-Semester-of-CS" class="h-entry article article-type-post"
-         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-    <div class="article-inner">
-        <div class="article-meta">
-            <div class="article-date wow slideInLeft">
-    <a href="/2023/10/07/Missing-Semester-of-CS/" class="article-date-link">
-        <time datetime="2023-10-06T16:33:11.000Z"
-              itemprop="datePublished">2023-10-07</time>
-    </a>
-</div>
-
-            
-    <div class="article-category wow slideInLeft">
-        <a class="article-category-link" href="/categories/project/">project</a><a class="article-category-link" href="/categories/project/Missing-Semester-of-CS/">Missing Semester of CS</a>
-    </div>
-
-
-        </div>
-        <div class="hr-line"></div>
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=blog&url=https://abinzzz.github.io&pic=https://abinzzz.github.io/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+        </li>
         
 
-        <div class="e-content article-entry" itemprop="articleBody">
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=blog&url=https://abinzzz.github.io&via=ab" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://abinzzz.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=https://abinzzz.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://abinzzz.github.io&title=Missing Semester of CS:Lecture01-课程概览与shell" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=blog&title=Missing Semester of CS:Lecture01-课程概览与shell&summary=&pics=https://abinzzz.github.io/img/suka-favicon.ico&url=https://abinzzz.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=https://abinzzz.github.io&text=Missing Semester of CS:Lecture01-课程概览与shell" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB4UlEQVR42u3aS46DMBBFUfa/6c6oJSLZ9a4JA1xcJt0JiTmRDHZ9jr8HHocoUaJEDVBHcfyf//ri6XX1/3kMch1RvVDDSTe4YPXZEYJ+V1RPVDXBZ585vzd7vXQdUa9AVRcZnRMlagU1W0irBXk2nqj+KDIx0wO1Wnxv3SWIejyKBA53/L09mhH1SFRMOoSNXwpEZxP8p6yLqEejZgsrmfDVzZGSG0tPdFFboqoggGzUqgAijSuqJ4ps6KqANAWlaDxRrVAk8XrpgThJeIjqiyJJ15RII9gqYSLqHag0AEFWn7800UVtgUqBAR08bfJI0UBUD1S1kU/J2RR4pqJ3vPtEbYlKD8uVQDSdizeQqBYo0nCTJjgpZqPit6g2qJWH35WGnVt2nqK2QdEmLdokSH7AdGMoqgWqSqySxFhCLN0IolqgaMNWdYHVBMdShCxqO9TKZE+bQJrYx4GDqO1RJNlKH5Qk6Ya6gkRth0qDVhOeLshpDFG9ULHYHBq0SNGJFo1E9UD90tB8Jalx6e4TtR2qKg7RJAgplMdxRbVC0WYb2ixBGp9Rs4SodijS/ECL4gkm6j0o2iBIkh14kydqexQpdK8WuVPSTFRfFAkcSLCwsvgOf7CoFqgnHaJEiRJ1Oj4+J9/fH5KvVwAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
             
-                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Missing Semester of CS:Lecture01-课程概览与shell</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2023-10-07</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/project/">project</a><span class="suka-devide-dot"></span><a class="category-link" href="/categories/project/Missing-Semester-of-CS/">Missing Semester of CS</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Missing Semester of CS:Lecture01-课程概览与shell&url=https://abinzzz.github.io/2023/10/07/Missing-Semester-of-CS/&pic=https://abinzzz.github.io/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Missing Semester of CS:Lecture01-课程概览与shell&url=https://abinzzz.github.io/2023/10/07/Missing-Semester-of-CS/&via=ab" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://abinzzz.github.io/2023/10/07/Missing-Semester-of-CS/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=https://abinzzz.github.io/2023/10/07/Missing-Semester-of-CS/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://abinzzz.github.io/2023/10/07/Missing-Semester-of-CS/&title=blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=blog&title=blog&summary=&pics=https://abinzzz.github.io/img/suka-favicon.ico&url=https://abinzzz.github.io/2023/10/07/Missing-Semester-of-CS/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=https://abinzzz.github.io/2023/10/07/Missing-Semester-of-CS/&text=blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB4UlEQVR42u3aS46DMBBFUfa/6c6oJSLZ9a4JA1xcJt0JiTmRDHZ9jr8HHocoUaJEDVBHcfyf//ri6XX1/3kMch1RvVDDSTe4YPXZEYJ+V1RPVDXBZ585vzd7vXQdUa9AVRcZnRMlagU1W0irBXk2nqj+KDIx0wO1Wnxv3SWIejyKBA53/L09mhH1SFRMOoSNXwpEZxP8p6yLqEejZgsrmfDVzZGSG0tPdFFboqoggGzUqgAijSuqJ4ps6KqANAWlaDxRrVAk8XrpgThJeIjqiyJJ15RII9gqYSLqHag0AEFWn7800UVtgUqBAR08bfJI0UBUD1S1kU/J2RR4pqJ3vPtEbYlKD8uVQDSdizeQqBYo0nCTJjgpZqPit6g2qJWH35WGnVt2nqK2QdEmLdokSH7AdGMoqgWqSqySxFhCLN0IolqgaMNWdYHVBMdShCxqO9TKZE+bQJrYx4GDqO1RJNlKH5Qk6Ya6gkRth0qDVhOeLshpDFG9ULHYHBq0SNGJFo1E9UD90tB8Jalx6e4TtR2qKg7RJAgplMdxRbVC0WYb2ixBGp9Rs4SodijS/ECL4gkm6j0o2iBIkh14kydqexQpdK8WuVPSTFRfFAkcSLCwsvgOf7CoFqgnHaJEiRJ1Oj4+J9/fH5KvVwAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="post-toc-number">1.</span> <span class="post-toc-text">参考链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-the-shell"><span class="post-toc-number">2.</span> <span class="post-toc-text">What is the shell?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Using-the-shell"><span class="post-toc-number">3.</span> <span class="post-toc-text">Using the shell</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#date"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">date</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#echo"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">echo</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PATH"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">PATH</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#which"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">which</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Shell%E4%B8%AD%E5%AF%BC%E8%88%AA"><span class="post-toc-number">4.</span> <span class="post-toc-text">Shell中导航</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pwd"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">pwd</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ls"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">ls</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cd"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">cd</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#man"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">man</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A8%8B%E5%BA%8F%E9%97%B4%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="post-toc-number">5.</span> <span class="post-toc-text">程序间的连接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#lt-file-%E5%92%8C-gt-file"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">&lt; file 和 &gt; file</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">|</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sudo"><span class="post-toc-number">6.</span> <span class="post-toc-text">sudo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AF%BE%E5%90%8E%E7%BB%83%E4%B9%A0"><span class="post-toc-number">7.</span> <span class="post-toc-text">课后练习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9C%A8-tmp-%E4%B8%8B%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%90%8D%E4%B8%BA-missing-%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">在 &#x2F;tmp 下新建一个名为 missing 的文件夹</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%94%A8-man-%E6%9F%A5%E7%9C%8B%E7%A8%8B%E5%BA%8F-touch-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%E3%80%82"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">用 man 查看程序 touch 的使用手册。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%94%A8-touch-%E5%9C%A8-missing-%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%AB-semester-%E7%9A%84%E6%96%87%E4%BB%B6%E3%80%82"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">用 touch 在 missing 文件夹中新建一个叫 semester 的文件。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B0%86%E4%BB%A5%E4%B8%8B%E5%86%85%E5%AE%B9%E4%B8%80%E8%A1%8C%E4%B8%80%E8%A1%8C%E5%9C%B0%E5%86%99%E5%85%A5-semester-%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">将以下内容一行一行地写入 semester 文件：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B0%9D%E8%AF%95%E6%89%A7%E8%A1%8C%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E3%80%82%E4%BE%8B%E5%A6%82%EF%BC%8C%E5%B0%86%E8%AF%A5%E8%84%9A%E6%9C%AC%E7%9A%84%E8%B7%AF%E5%BE%84%EF%BC%88-semester%EF%BC%89%E8%BE%93%E5%85%A5%E5%88%B0%E6%82%A8%E7%9A%84shell%E4%B8%AD%E5%B9%B6%E5%9B%9E%E8%BD%A6%E3%80%82%E5%A6%82%E6%9E%9C%E7%A8%8B%E5%BA%8F%E6%97%A0%E6%B3%95%E6%89%A7%E8%A1%8C%EF%BC%8C%E8%AF%B7%E4%BD%BF%E7%94%A8-ls-%E5%91%BD%E4%BB%A4%E6%9D%A5%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF%E5%B9%B6%E7%90%86%E8%A7%A3%E5%85%B6%E4%B8%8D%E8%83%BD%E6%89%A7%E8%A1%8C%E7%9A%84%E5%8E%9F%E5%9B%A0%E3%80%82"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">尝试执行这个文件。例如，将该脚本的路径（.&#x2F;semester）输入到您的shell中并回车。如果程序无法执行，请使用 ls 命令来获取信息并理解其不能执行的原因。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B-chmod-%E7%9A%84%E6%89%8B%E5%86%8C-%E4%BE%8B%E5%A6%82%EF%BC%8C%E4%BD%BF%E7%94%A8-man-chmod-%E5%91%BD%E4%BB%A4"><span class="post-toc-number">7.6.</span> <span class="post-toc-text">查看 chmod 的手册(例如，使用 man chmod 命令)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-chmod-%E5%91%BD%E4%BB%A4%E6%94%B9%E5%8F%98%E6%9D%83%E9%99%90%EF%BC%8C%E4%BD%BF-semester-%E8%83%BD%E5%A4%9F%E6%88%90%E5%8A%9F%E6%89%A7%E8%A1%8C%EF%BC%8C%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8-sh-semester-%E6%9D%A5%E6%89%A7%E8%A1%8C%E8%AF%A5%E7%A8%8B%E5%BA%8F%E3%80%82%E6%82%A8%E7%9A%84-shell-%E6%98%AF%E5%A6%82%E4%BD%95%E7%9F%A5%E6%99%93%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8-sh-%E6%9D%A5%E8%A7%A3%E6%9E%90%E5%91%A2%EF%BC%9F%E6%9B%B4%E5%A4%9A%E4%BF%A1%E6%81%AF%E8%AF%B7%E5%8F%82%E8%80%83%EF%BC%9Ashebang"><span class="post-toc-number">7.7.</span> <span class="post-toc-text">使用 chmod 命令改变权限，使 .&#x2F;semester 能够成功执行，不要使用 sh semester 来执行该程序。您的 shell 是如何知晓这个文件需要使用 sh 来解析呢？更多信息请参考：shebang</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-%E5%92%8C-gt-%EF%BC%8C%E5%B0%86-semester-%E6%96%87%E4%BB%B6%E8%BE%93%E5%87%BA%E7%9A%84%E6%9C%80%E5%90%8E%E6%9B%B4%E6%94%B9%E6%97%A5%E6%9C%9F%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%86%99%E5%85%A5%E4%B8%BB%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84-last-modified-txt-%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%AD"><span class="post-toc-number">7.8.</span> <span class="post-toc-text">使用 | 和 &gt; ，将 semester 文件输出的最后更改日期信息，写入主目录下的 last-modified.txt 的文件中</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
@@ -285,325 +519,158 @@
 <Br>
 
 <h3 id="使用-和-gt-，将-semester-文件输出的最后更改日期信息，写入主目录下的-last-modified-txt-的文件中"><a href="#使用-和-gt-，将-semester-文件输出的最后更改日期信息，写入主目录下的-last-modified-txt-的文件中" class="headerlink" title="使用 | 和 &gt; ，将 semester 文件输出的最后更改日期信息，写入主目录下的 last-modified.txt 的文件中"></a>使用 <code>|</code> 和 <code>&gt;</code> ，将 <code>semester</code> 文件输出的最后更改日期信息，写入主目录下的 <code>last-modified.txt</code> 的文件中</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./semester | grep -i &quot;last-modified&quot; &gt; /home/last-modified.txt</span><br></pre></td></tr></table></figure>
-            
-        </div>
-        <footer class="article-footer">
-            <a data-url="https://abinzzz.github.io/2023/10/07/Missing-Semester-of-CS/" data-id="cls1iheac006v9869e1bmakzb" data-title="Missing Semester of CS:Lecture01-课程概览与shell"
-               class="article-share-link">分享</a>
-            
-            
-            
-            
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Missing-Semester/" rel="tag">Missing Semester</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/" rel="tag">project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88/" rel="tag">课程概览</a></li></ul>
-
-
-        </footer>
-    </div>
-    
-        
-    <nav id="article-nav" class="wow fadeInUp">
-        
-            <div class="article-nav-link-wrap article-nav-link-left">
-                
-                    <img data-src="https://singyesterday.com/cmn/images/gallery/l/pic_200325_22.jpg" data-sizes="auto" alt="ResNet"
-                         class="lazyload">
-                
-                <a href="/2023/10/11/ResNet/"></a>
-                <div class="article-nav-caption">前一篇</div>
-                <h3 class="article-nav-title">
+                    </article>
                     
-                        ResNet
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2024-03-07");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2023-10-06T16:33:11.000Z" itemprop="datePublished">2023-10-07</time>
+
+    , 最后修改于&nbsp;<time datetime="2024-03-07T05:51:11.882Z" itemprop="dateModified">2024-03-07</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/project/'>project</a>
+
+<a class="post-categories-list-item" href='/categories/project/Missing-Semester-of-CS/'>Missing Semester of CS</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Missing-Semester/" rel="tag">#&nbsp;Missing Semester</a>
+
+<a class="post-tags-list-item" href="/tags/%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88/" rel="tag">#&nbsp;课程概览</a>
+
+<a class="post-tags-list-item" href="/tags/shell/" rel="tag">#&nbsp;shell</a>
+
+<a class="post-tags-list-item" href="/tags/project/" rel="tag">#&nbsp;project</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2023/10/11/ResNet/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">ResNet</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2023/09/25/intern-00/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Intern:00</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
                     
-                </h3>
-            </div>
-        
-        
-            <div class="article-nav-link-wrap article-nav-link-right">
-                
-                    <img data-src="https://th.bing.com/th/id/OIP.RkUjg6YduzzpAHaVdzic9gHaFq?pid=ImgDet&amp;rs=1" data-sizes="auto" alt="Intern:00"
-                         class="lazyload">
-                
-                <a href="/2023/09/25/intern-00/"></a>
-                <div class="article-nav-caption">后一篇</div>
-                <h3 class="article-nav-title">
-                    
-                        Intern:00
-                    
-                </h3>
-            </div>
-        
-    </nav>
-
-
-    
-</article>
-
-
-
-
-
-
-
-
-
-
-
-</section>
-                
-                    <aside id="sidebar">
-    <div class="sidebar-wrap wow fadeInRight">
-        <div class="sidebar-author">
-            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="ab" class="lazyload">
-            <div class="sidebar-author-name">ab</div>
-            <div class="sidebar-description"></div>
-        </div>
-        <div class="sidebar-state">
-            <div class="sidebar-state-article">
-                <div>文章</div>
-                <div class="sidebar-state-number">152</div>
-            </div>
-            <div class="sidebar-state-category">
-                <div>分类</div>
-                <div class="sidebar-state-number">17</div>
-            </div>
-            <div class="sidebar-state-tag">
-                <div>标签</div>
-                <div class="sidebar-state-number">157</div>
-            </div>
-        </div>
-        <div class="sidebar-social">
-            
-                <div class=icon-github>
-                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
-                </div>
-            
-        </div>
-        <div class="sidebar-menu">
-            
-                <div class="sidebar-menu-link-wrap">
-                    <a class="sidebar-menu-link-dummy" href="/"></a>
-                    <span class="sidebar-menu-icon"></span>
-                    <div class="sidebar-menu-link">首页</div>
-                </div>
-            
-                <div class="sidebar-menu-link-wrap">
-                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
-                    <span class="sidebar-menu-icon"></span>
-                    <div class="sidebar-menu-link">归档</div>
-                </div>
-            
-                <div class="sidebar-menu-link-wrap">
-                    <a class="sidebar-menu-link-dummy" href="/about"></a>
-                    <span class="sidebar-menu-icon"></span>
-                    <div class="sidebar-menu-link">关于</div>
-                </div>
-            
-                <div class="sidebar-menu-link-wrap">
-                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
-                    <span class="sidebar-menu-icon"></span>
-                    <div class="sidebar-menu-link">友链</div>
-                </div>
-            
-        </div>
-    </div>
-    
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/74X2u8JMVooG2QbjRxXwR8?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-
-    <div class="widget-wrap wow fadeInRight">
-        <h3 class="widget-title">分类</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Accumulate/">Accumulate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AimGraduate/">AimGraduate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Competition/">Competition</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Future/">Future</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/">GoAbroad</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GoAbroad/IELTS/">IELTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/bug/">bug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/internship/">internship</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/internship/SNN/">SNN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/paper/">paper</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/paper/FL/">FL</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/project/Missing-Semester-of-CS/">Missing Semester of CS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">专业知识</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/ML/">ML</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="widget-wrap wow fadeInRight">
-        <h3 class="widget-title">标签云</h3>
-        <div class="widget tagcloud">
-            <a href="/tags/0/" style="font-size: 10px;">0</a> <a href="/tags/1/" style="font-size: 10px;">1</a> <a href="/tags/2/" style="font-size: 10.83px;">2</a> <a href="/tags/2-2/" style="font-size: 10px;">2-2</a> <a href="/tags/3/" style="font-size: 10.83px;">3</a> <a href="/tags/4/" style="font-size: 10px;">4</a> <a href="/tags/Accumulate/" style="font-size: 20px;">Accumulate</a> <a href="/tags/Advancing-Spiking-Neural-Networks-towards-Deep-Residual-Learning/" style="font-size: 10px;">Advancing Spiking Neural Networks towards Deep Residual Learning</a> <a href="/tags/AimGraduate/" style="font-size: 11.67px;">AimGraduate</a> <a href="/tags/Anything/" style="font-size: 10px;">Anything</a> <a href="/tags/Attention/" style="font-size: 10px;">Attention</a> <a href="/tags/BatchNorm/" style="font-size: 10px;">BatchNorm</a> <a href="/tags/CAS/" style="font-size: 10.83px;">CAS</a> <a href="/tags/CNN/" style="font-size: 11.67px;">CNN</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Competition/" style="font-size: 11.67px;">Competition</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/Fine-Tuning/" style="font-size: 10px;">Fine-Tuning</a> <a href="/tags/Future/" style="font-size: 15px;">Future</a> <a href="/tags/GB/" style="font-size: 10px;">GB</a> <a href="/tags/GPU/" style="font-size: 10px;">GPU</a> <a href="/tags/GiB/" style="font-size: 10px;">GiB</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GoAbroad/" style="font-size: 16.67px;">GoAbroad</a> <a href="/tags/Graduate/" style="font-size: 10px;">Graduate</a> <a href="/tags/IELTS/" style="font-size: 11.67px;">IELTS</a> <a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a> <a href="/tags/LLM/" style="font-size: 10px;">LLM</a> <a href="/tags/LayerNorm/" style="font-size: 10px;">LayerNorm</a> <a href="/tags/Linux/" style="font-size: 11.67px;">Linux</a> <a href="/tags/Listening/" style="font-size: 10px;">Listening</a> <a href="/tags/M2/" style="font-size: 10.83px;">M2</a> <a href="/tags/ML/" style="font-size: 14.17px;">ML</a> <a href="/tags/MS-ResNet/" style="font-size: 10px;">MS-ResNet</a> <a href="/tags/Mac/" style="font-size: 10.83px;">Mac</a> <a href="/tags/Missing-Semester/" style="font-size: 11.67px;">Missing Semester</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/OCR/" style="font-size: 10px;">OCR</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/RNN/" style="font-size: 10px;">RNN</a> <a href="/tags/Reading/" style="font-size: 10px;">Reading</a> <a href="/tags/ResNet/" style="font-size: 10.83px;">ResNet</a> <a href="/tags/SNN/" style="font-size: 10px;">SNN</a> <a href="/tags/SNN-vs-RNN/" style="font-size: 10px;">SNN vs RNN</a> <a href="/tags/Script/" style="font-size: 10px;">Script</a> <a href="/tags/Shell/" style="font-size: 10.83px;">Shell</a> <a href="/tags/Spiking-Neural-Network-for-Ultra-low-latency-and-High-accurate-Object-Detection/" style="font-size: 10px;">Spiking Neural Network for Ultra-low-latency and High-accurate Object Detection</a> <a href="/tags/T1-fighting/" style="font-size: 10px;">T1 fighting</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/Transformer/" style="font-size: 10px;">Transformer</a> <a href="/tags/Undergraduate/" style="font-size: 10px;">Undergraduate</a> <a href="/tags/University/" style="font-size: 10.83px;">University</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ViT/" style="font-size: 10px;">ViT</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/author/" style="font-size: 10px;">author</a> <a href="/tags/bert/" style="font-size: 10.83px;">bert</a> <a href="/tags/bug/" style="font-size: 18.33px;">bug</a> <a href="/tags/cat/" style="font-size: 10px;">cat</a> <a href="/tags/chmod/" style="font-size: 10px;">chmod</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/classification/" style="font-size: 10px;">classification</a> <a href="/tags/commit/" style="font-size: 10px;">commit</a> <a href="/tags/conv2d/" style="font-size: 10px;">conv2d</a> <a href="/tags/copilot/" style="font-size: 10.83px;">copilot</a> <a href="/tags/cpu/" style="font-size: 10px;">cpu</a> <a href="/tags/cuda/" style="font-size: 10.83px;">cuda</a> <a href="/tags/dataloader/" style="font-size: 10px;">dataloader</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/delete/" style="font-size: 10px;">delete</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/embedding/" style="font-size: 10px;">embedding</a> <a href="/tags/fee/" style="font-size: 10px;">fee</a> <a href="/tags/file/" style="font-size: 10px;">file</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/gpu/" style="font-size: 11.67px;">gpu</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/imap/" style="font-size: 10px;">imap</a> <a href="/tags/import/" style="font-size: 10px;">import</a> <a href="/tags/instructor/" style="font-size: 10px;">instructor</a> <a href="/tags/interns/" style="font-size: 10px;">interns</a> <a href="/tags/internship/" style="font-size: 17.5px;">internship</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/iterm2/" style="font-size: 10px;">iterm2</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/lr/" style="font-size: 10px;">lr</a> <a href="/tags/lstm/" style="font-size: 10px;">lstm</a> <a href="/tags/mac/" style="font-size: 13.33px;">mac</a> <a href="/tags/memory/" style="font-size: 12.5px;">memory</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nvidia/" style="font-size: 10px;">nvidia</a> <a href="/tags/ohmyzsh/" style="font-size: 10px;">ohmyzsh</a> <a href="/tags/olive/" style="font-size: 10px;">olive</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/paper/" style="font-size: 16.67px;">paper</a> <a href="/tags/pku/" style="font-size: 10px;">pku</a> <a href="/tags/profile/" style="font-size: 10px;">profile</a> <a href="/tags/project/" style="font-size: 11.67px;">project</a> <a href="/tags/prompt/" style="font-size: 10px;">prompt</a> <a href="/tags/pycharm/" style="font-size: 10px;">pycharm</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/pytorch/" style="font-size: 15.83px;">pytorch</a> <a href="/tags/reading/" style="font-size: 10px;">reading</a> <a href="/tags/register/" style="font-size: 10px;">register</a> <a href="/tags/rnn/" style="font-size: 10px;">rnn</a> <a href="/tags/self-attention/" style="font-size: 10px;">self-attention</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/softmax/" style="font-size: 10px;">softmax</a> <a href="/tags/spike/" style="font-size: 10px;">spike</a> <a href="/tags/ssh/" style="font-size: 10.83px;">ssh</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/tittle/" style="font-size: 10px;">tittle</a> <a href="/tags/tmux/" style="font-size: 10px;">tmux</a> <a href="/tags/tool/" style="font-size: 19.17px;">tool</a> <a href="/tags/transformer/" style="font-size: 11.67px;">transformer</a> <a href="/tags/transformers/" style="font-size: 10px;">transformers</a> <a href="/tags/vscode/" style="font-size: 10.83px;">vscode</a> <a href="/tags/wakatime/" style="font-size: 10px;">wakatime</a> <a href="/tags/yeild/" style="font-size: 10px;">yeild</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" style="font-size: 14.17px;">专业知识</a> <a href="/tags/%E4%B8%AD%E4%BB%8B/" style="font-size: 10px;">中介</a> <a href="/tags/%E4%B8%AD%E7%A7%91%E9%99%A2/" style="font-size: 10px;">中科院</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 10px;">代理</a> <a href="/tags/%E5%86%85%E5%AD%98/" style="font-size: 10.83px;">内存</a> <a href="/tags/%E5%86%99%E4%BD%9C%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">写作技巧</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" style="font-size: 10px;">分布式训练</a> <a href="/tags/%E5%8A%A0%E5%88%86/" style="font-size: 10px;">加分</a> <a href="/tags/%E5%BC%BA%E5%BC%B1com/" style="font-size: 10px;">强弱com</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%82%84%E6%82%84%E8%AF%9D/" style="font-size: 10px;">悄悄话</a> <a href="/tags/%E6%95%99%E8%82%B2%E8%AE%B8%E5%8F%AF/" style="font-size: 10px;">教育许可</a> <a href="/tags/%E6%98%BE%E5%AD%98/" style="font-size: 10.83px;">显存</a> <a href="/tags/%E6%99%BA%E6%85%A7%E6%A0%91/" style="font-size: 10px;">智慧树</a> <a href="/tags/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">智能计算系统</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10.83px;">服务器</a> <a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 10px;">杂项</a> <a href="/tags/%E6%9D%8E%E5%AE%8F%E6%AF%85/" style="font-size: 10.83px;">李宏毅</a> <a href="/tags/%E6%9D%8E%E6%B2%90/" style="font-size: 10px;">李沐</a> <a href="/tags/%E7%A7%91%E8%BD%AF/" style="font-size: 10px;">科软</a> <a href="/tags/%E7%BB%A7%E6%89%BF/" style="font-size: 10px;">继承</a> <a href="/tags/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3/" style="font-size: 10px;">脑机接口</a> <a href="/tags/%E8%8A%82%E8%83%BD%E5%87%8F%E6%8E%92/" style="font-size: 11.67px;">节能减排</a> <a href="/tags/%E8%A7%A3%E5%8E%8B%E7%BC%A9/" style="font-size: 10px;">解压缩</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 10px;">计网</a> <a href="/tags/%E8%AF%AD%E4%B9%89%E7%A9%BA%E9%97%B4/" style="font-size: 10px;">语义空间</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88/" style="font-size: 10px;">课程概览</a> <a href="/tags/%E8%B0%83%E7%A0%94/" style="font-size: 10.83px;">调研</a> <a href="/tags/%E8%B4%A1%E7%8C%AE%E8%80%85/" style="font-size: 10px;">贡献者</a> <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" style="font-size: 10px;">输入法</a> <a href="/tags/%E9%87%8F%E5%8C%96/" style="font-size: 10px;">量化</a> <a href="/tags/%E9%99%B6%E7%93%B7/" style="font-size: 10px;">陶瓷</a>
-        </div>
-    </div>
-
-
-    
-        
-
-    <div class="widget-wrap wow fadeInRight">
-        <h3 class="widget-title">归档</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">十月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
-        </div>
-    </div>
-
-
-    
-</aside>
-
                 
             </div>
-            <footer id="footer" class="wow fadeInUp">
-    
-
-    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            
-            <div>
-                <span class="icon-copyright"></span>
-                2020-2025
-                <span class="footer-info-sep"></span>
-                ab
-            </div>
-            
-                <div>
-                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
-                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
-                </div>
-            
-            
-                <div>
-                    <span class="icon-brush"></span>
-                    343.5k
-                    &nbsp;|&nbsp;
-                    <span class="icon-coffee"></span>
-                    21:47
-                </div>
-            
-            
-                <div>
-                    <span class="icon-eye"></span>
-                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
-                    &nbsp;|&nbsp;
-                    <span class="icon-user"></span>
-                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
-                </div>
-            
         </div>
     </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
 </footer>
 
-        </div>
-        <nav id="mobile-nav">
-    <div class="sidebar-wrap">
-        <div class="sidebar-author">
-            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="ab" class="lazyload">
-            <div class="sidebar-author-name">ab</div>
-            <div class="sidebar-description"></div>
-        </div>
-        <div class="sidebar-state">
-            <div class="sidebar-state-article">
-                <div>文章</div>
-                <div class="sidebar-state-number">152</div>
-            </div>
-            <div class="sidebar-state-category">
-                <div>分类</div>
-                <div class="sidebar-state-number">17</div>
-            </div>
-            <div class="sidebar-state-tag">
-                <div>标签</div>
-                <div class="sidebar-state-number">157</div>
-            </div>
-        </div>
-        <div class="sidebar-social">
-            
-                <div class=icon-github>
-                    <a href=https://github.com/abinzzz itemprop="url" target="_blank"></a>
-                </div>
-            
-        </div>
-        <div class="sidebar-menu">
-            
-                <div class="sidebar-menu-link-wrap">
-                    <a class="sidebar-menu-link-dummy" href="/"></a>
-                    <span class="sidebar-menu-icon"></span>
-                    <div class="sidebar-menu-link">首页</div>
-                </div>
-            
-                <div class="sidebar-menu-link-wrap">
-                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
-                    <span class="sidebar-menu-icon"></span>
-                    <div class="sidebar-menu-link">归档</div>
-                </div>
-            
-                <div class="sidebar-menu-link-wrap">
-                    <a class="sidebar-menu-link-dummy" href="/about"></a>
-                    <span class="sidebar-menu-icon"></span>
-                    <div class="sidebar-menu-link">关于</div>
-                </div>
-            
-                <div class="sidebar-menu-link-wrap">
-                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
-                    <span class="sidebar-menu-icon"></span>
-                    <div class="sidebar-menu-link">友链</div>
-                </div>
-            
-        </div>
-    </div>
-</nav>
 
-        
-<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
 
-
-<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
-
-
-<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
-
-
+<script>
 
     
-<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
-
-    
-<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
-
-
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
+<!-- Offset -->
 
 
 
 
+<!-- Comment -->
 
 
+<!-- ### Custom Footer ### -->
 
+    </body>
 
-
-
-
-    </div>
-    <div class="site-search">
-        <div class="algolia-popup popup">
-            <div class="algolia-search">
-                <span class="algolia-search-input-icon"></span>
-                <div class="algolia-search-input" id="algolia-search-input"></div>
-            </div>
-
-            <div class="algolia-results">
-                <div id="algolia-stats"></div>
-                <div id="algolia-hits"></div>
-                <div id="algolia-pagination" class="algolia-pagination"></div>
-            </div>
-
-            <span class="popup-btn-close"></span>
-        </div>
-    </div>
-    <!-- hexo injector body_end start -->
-<script src="/js/insertHighlight.js"></script>
-<!-- hexo injector body_end end --></body>
-    </html>
-
+</html>
