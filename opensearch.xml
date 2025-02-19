@@ -1,6 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
     <ShortName>blog</ShortName>
     <Description>Welcome to my blog!</Description>
     <Url type="text/html" template="https://abinzzz.github.io/?s={searchTerms}" />
+</OpenSearchDescription> -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>abin's blog</ShortName>
+    <Description>Search in abin's blog</Description>
+    <Url type="text/html" template="https://abinzzz.github.io/search/?s={searchTerms}"/>
+    <Image>https://abinzzz.github.io/favicon.ico</Image>
 </OpenSearchDescription>
