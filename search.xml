@@ -17355,9 +17355,9 @@ PP10043好像暂时也没啥办法……</p>
   <entry>
     <title>Daily Paper | July 29, 2025</title>
     <url>/2025/07/29/Daily-Paper-July-29-2025/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="table-of-content"><a class="markdownIt-Anchor" href="#table-of-content"></a> Table of Content</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><!-- omit in toc -->
+<h2 id="table-of-content"><a class="markdownIt-Anchor" href="#table-of-content"></a> Table of Content</h2>
 <ul>
-<li><a href="#table-of-content">Table of Content</a></li>
 <li><a href="#alphago-moment-for-model-architecture-discovery">AlphaGo Moment for Model Architecture Discovery</a></li>
 <li><a href="#group-sequence-policy-optimization">Group Sequence Policy Optimization</a></li>
 <li><a href="#gepa-reflective-prompt-evolution-can-outperform-reinforcement-learning">GEPA: REFLECTIVE PROMPT EVOLUTION CAN OUTPERFORM REINFORCEMENT LEARNING</a></li>
