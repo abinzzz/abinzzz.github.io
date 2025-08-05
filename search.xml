@@ -17825,4 +17825,37 @@ Paper Link: <a href="https://www.alphaxiv.org/abs/2507.07017">https://www.alphax
         <category>Daily Paper</category>
       </categories>
   </entry>
+  <entry>
+    <title>Daily Paper | Aug 5, 2025</title>
+    <url>/2025/08/05/Daily-Paper-Aug-5-2025/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>Our reading list for today includes some ACL Best Papers as listed below:</p>
+<h2 id="a-theory-of-response-sampling-in-llms-part-descriptive-and-part-prescriptive"><a class="markdownIt-Anchor" href="#a-theory-of-response-sampling-in-llms-part-descriptive-and-part-prescriptive"></a> A Theory of Response Sampling in LLMs: Part Descriptive and Part Prescriptive</h2>
+<p><img src="https://pic1.imgdb.cn/item/6891e20758cb8da5c806b870.png" alt="" /></p>
+<p>Paper Link: <a href="https://arxiv.org/abs/2402.11005">https://arxiv.org/abs/2402.11005</a></p>
+<p>This paper introduces a theory proposing that Large Language Model response sampling is governed by both a descriptive component reflecting statistical norms and a prescriptive component representing an implicit ideal notion. Empirical studies across various concepts demonstrate LLM outputs consistently deviate towards an internal ideal, a tendency that is robust to debiasing and exacerbated in larger, instruction-tuned models, impacting critical applications such as medical decision-making.</p>
+<p><img src="https://pic1.imgdb.cn/item/6891e2d858cb8da5c806bd9d.png" alt="" /></p>
+<p><img src="https://pic1.imgdb.cn/item/6891e40a58cb8da5c806c41e.png" alt="" /></p>
+<h2 id="fairness-through-difference-awareness-measuring-desired-group-discrimination-in-llms"><a class="markdownIt-Anchor" href="#fairness-through-difference-awareness-measuring-desired-group-discrimination-in-llms"></a> Fairness through Difference Awareness: Measuring Desired Group Discrimination in LLMs</h2>
+<p><img src="https://pic1.imgdb.cn/item/6891e87158cb8da5c806c964.png" alt="" /></p>
+<p>Paper Link: <a href="https://arxiv.org/pdf/2502.01926">https://arxiv.org/pdf/2502.01926</a></p>
+<p>This Stanford University-led research proposes and evaluates a new framework, “Fairness through Difference Awareness,” to assess Large Language Models’ ability to appropriately differentiate between demographic groups when contextually relevant. The study empirically demonstrates that leading LLMs often lack this capability and that traditional bias mitigation methods can inadvertently hinder models from recognizing legitimate group differences.</p>
+<p><img src="https://pic1.imgdb.cn/item/6891e4ee58cb8da5c806c505.png" alt="" /></p>
+<p><img src="https://pic1.imgdb.cn/item/6891e75858cb8da5c806c921.png" alt="" /></p>
+<h2 id="language-models-resist-alignment"><a class="markdownIt-Anchor" href="#language-models-resist-alignment"></a> Language Models Resist Alignment</h2>
+<p><img src="https://pic1.imgdb.cn/item/6891e83a58cb8da5c806c961.png" alt="" /></p>
+<p>Paper Link: <a href="https://arxiv.org/abs/2406.06144">https://arxiv.org/abs/2406.06144</a></p>
+<p>This paper from Peking University and BAAI investigates the fragility of Large Language Model alignment, introducing the concept of ‘elasticity’ where models resist modifications and tend to revert to their pre-trained state. The study provides theoretical evidence from data compression principles and empirical validation demonstrating that this resistance and rebound effect intensifies with increasing model size and pre-training data volume.</p>
+<p><img src="https://pic1.imgdb.cn/item/6891ea0258cb8da5c806c9b3.png" alt="" /></p>
+<p><img src="https://pic1.imgdb.cn/item/6891eaf258cb8da5c806c9de.png" alt="" /></p>
+<h2 id="native-sparse-attention-hardware-aligned-and-natively-trainable-sparse-attention"><a class="markdownIt-Anchor" href="#native-sparse-attention-hardware-aligned-and-natively-trainable-sparse-attention"></a> Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention</h2>
+<p><img src="https://pic1.imgdb.cn/item/6891eb3958cb8da5c806caa4.png" alt="" /></p>
+<p>Paper Link: <a href="https://arxiv.org/abs/2502.11089">https://arxiv.org/abs/2502.11089</a></p>
+<p>DeepSeek-AI researchers developed Native Sparse Attention (NSA), a hardware-aligned and natively trainable sparse attention mechanism that enables efficient and performant long-context modeling for large language models. NSA achieves up to 11.6x decoding speedup and 9.0x training speedup at 64k context length while outperforming full attention on various benchmarks, including long-context reasoning tasks.</p>
+<p><img src="https://pic1.imgdb.cn/item/6891ebb558cb8da5c806cd43.png" alt="" /></p>
+<p><img src="https://pic1.imgdb.cn/item/6891ec1458cb8da5c806cf74.png" alt="" /></p>
+]]></content>
+      <categories>
+        <category>Daily Paper</category>
+      </categories>
+  </entry>
 </search>
