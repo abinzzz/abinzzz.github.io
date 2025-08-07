@@ -17829,6 +17829,12 @@ Paper Link: <a href="https://www.alphaxiv.org/abs/2507.07017">https://www.alphax
     <title>Daily Paper | Aug 5, 2025</title>
     <url>/2025/08/05/Daily-Paper-Aug-5-2025/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>Our reading list for today includes some ACL Best Papers as listed below:</p>
+<ul>
+<li><a href="#a-theory-of-response-sampling-in-llms-part-descriptive-and-part-prescriptive">A Theory of Response Sampling in LLMs: Part Descriptive and Part Prescriptive</a></li>
+<li><a href="#fairness-through-difference-awareness-measuring-desired-group-discrimination-in-llms">Fairness through Difference Awareness: Measuring Desired Group Discrimination in LLMs</a></li>
+<li><a href="#language-models-resist-alignment">Language Models Resist Alignment</a></li>
+<li><a href="#native-sparse-attention-hardware-aligned-and-natively-trainable-sparse-attention">Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention</a></li>
+</ul>
 <h2 id="a-theory-of-response-sampling-in-llms-part-descriptive-and-part-prescriptive"><a class="markdownIt-Anchor" href="#a-theory-of-response-sampling-in-llms-part-descriptive-and-part-prescriptive"></a> A Theory of Response Sampling in LLMs: Part Descriptive and Part Prescriptive</h2>
 <p><img src="https://pic1.imgdb.cn/item/6891e20758cb8da5c806b870.png" alt="" /></p>
 <p>Paper Link: <a href="https://arxiv.org/abs/2402.11005">https://arxiv.org/abs/2402.11005</a></p>
@@ -17853,6 +17859,30 @@ Paper Link: <a href="https://www.alphaxiv.org/abs/2507.07017">https://www.alphax
 <p>DeepSeek-AI researchers developed Native Sparse Attention (NSA), a hardware-aligned and natively trainable sparse attention mechanism that enables efficient and performant long-context modeling for large language models. NSA achieves up to 11.6x decoding speedup and 9.0x training speedup at 64k context length while outperforming full attention on various benchmarks, including long-context reasoning tasks.</p>
 <p><img src="https://pic1.imgdb.cn/item/6891ebb558cb8da5c806cd43.png" alt="" /></p>
 <p><img src="https://pic1.imgdb.cn/item/6891ec1458cb8da5c806cf74.png" alt="" /></p>
+]]></content>
+      <categories>
+        <category>Daily Paper</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Daily Paper | Aug 7, 2025</title>
+    <url>/2025/08/07/Daily-Paper-Aug-7-2025/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="qwen-image-technical-report"><a class="markdownIt-Anchor" href="#qwen-image-technical-report"></a> Qwen-Image Technical Report</h2>
+<p>Alibaba Cloud’s Qwen Team developed Qwen-Image, a multimodal foundation model that advances text-to-image generation and image editing. The model delivers state-of-the-art performance in complex text rendering, especially for Chinese, and achieves high precision in various editing tasks by unifying generative and understanding capabilities.</p>
+<h2 id="seed-diffusion-a-large-scale-diffusion-language-model-with-high-speed-inference"><a class="markdownIt-Anchor" href="#seed-diffusion-a-large-scale-diffusion-language-model-with-high-speed-inference"></a> Seed Diffusion: A Large-Scale Diffusion Language Model with High-Speed Inference</h2>
+<p>Developed by ByteDance Seed and Tsinghua University, Seed Diffusion introduces a large-scale discrete-state diffusion model for code generation that achieves an inference speed of 2,146 tokens/second on H20 GPUs. The model maintains competitive performance across various code generation and editing benchmarks, establishing a new efficiency benchmark for code models.</p>
+<h2 id="agent-lightning-train-any-ai-agents-with-reinforcement-learning"><a class="markdownIt-Anchor" href="#agent-lightning-train-any-ai-agents-with-reinforcement-learning"></a> Agent Lightning: Train ANY AI Agents with Reinforcement Learning</h2>
+<p>Agent Lightning, developed by Microsoft Research, introduces a framework that completely decouples reinforcement learning (RL) training from AI agent execution, enabling continuous self-improvement for any LLM-based agent with minimal code modifications. It demonstrates stable and continuous performance improvement across diverse tasks, including Text-to-SQL (LangChain), Retrieval-Augmented Generation (OpenAI Agents SDK), and Math QA (AutoGen).</p>
+<h2 id="se-agent-self-evolution-trajectory-optimization-in-multi-step-reasoning-with-llm-based-agents"><a class="markdownIt-Anchor" href="#se-agent-self-evolution-trajectory-optimization-in-multi-step-reasoning-with-llm-based-agents"></a> SE-Agent: Self-Evolution Trajectory Optimization in Multi-Step Reasoning with LLM-Based Agents</h2>
+<p>SE-Agent introduces a self-evolution framework for LLM-based agents, optimizing multi-step reasoning through iterative revision, recombination, and refinement of complete interaction trajectories. The framework consistently outperformed strong baselines on the challenging SWE-bench Verified benchmark, achieving up to 112% relative improvement and uniquely solving issues previously unaddressed by other models.</p>
+<h2 id="beyond-the-trade-off-self-supervised-reinforcement-learning-for-reasoning-models-instruction-following"><a class="markdownIt-Anchor" href="#beyond-the-trade-off-self-supervised-reinforcement-learning-for-reasoning-models-instruction-following"></a> Beyond the Trade-off: Self-Supervised Reinforcement Learning for Reasoning Models’ Instruction Following</h2>
+<p>A self-supervised reinforcement learning framework enhances large language models’ instruction-following capabilities by leveraging internal signals, rather than external models, while preserving or improving their core reasoning performance. The approach uses an incremental curriculum and a novel reward model for both hard and soft constraints, achieving higher scores on instruction-following benchmarks and maintaining general reasoning abilities.</p>
+<h2 id="compassverifier-a-unified-and-robust-verifier-for-llms-evaluation-and-outcome-reward"><a class="markdownIt-Anchor" href="#compassverifier-a-unified-and-robust-verifier-for-llms-evaluation-and-outcome-reward"></a> CompassVerifier: A Unified and Robust Verifier for LLMs Evaluation and Outcome Reward</h2>
+<p>Researchers from Shanghai AI Laboratory and University of Macau introduce CompassVerifier, a lightweight model for verifying Large Language Model outputs, alongside VerifierBench, a challenging new benchmark. CompassVerifier demonstrates improved accuracy across diverse domains and answer types, and enhances reinforcement learning for LLM optimization by providing precise reward signals.</p>
+<h2 id="trainable-dynamic-mask-sparse-attention"><a class="markdownIt-Anchor" href="#trainable-dynamic-mask-sparse-attention"></a> Trainable Dynamic Mask Sparse Attention</h2>
+<p>Dynamic Mask Attention (DMA) enables Large Language Models to process significantly longer contexts by dynamically selecting relevant tokens for attention computation, achieving up to 15.5x speedup over standard attention while maintaining or improving performance on long-context benchmarks.</p>
+<h2 id="tura-tool-augmented-unified-retrieval-agent-for-ai-search"><a class="markdownIt-Anchor" href="#tura-tool-augmented-unified-retrieval-agent-for-ai-search"></a> TURA: Tool-Augmented Unified Retrieval Agent for AI Search</h2>
+<p>TURA introduces a tool-augmented unified retrieval agent to bridge the gap between static content retrieval and dynamic information access in AI search. This framework enables the handling of real-time and transactional queries by integrating RAG with tool-augmented agents, leading to an 8.9% increase in session success rate and a 44.2% reduction in latency for complex queries in a production deployment at Baidu Inc.</p>
 ]]></content>
       <categories>
         <category>Daily Paper</category>
