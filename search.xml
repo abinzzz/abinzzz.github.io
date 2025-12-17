@@ -16416,53 +16416,60 @@ bd。</p>
   <entry>
     <title>虚拟货币扫盲</title>
     <url>/2025/12/17/%E8%99%9A%E6%8B%9F%E8%B4%A7%E5%B8%81%E6%89%AB%E7%9B%B2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>在这个“比特币（Bitcoin）”和“Web3”频繁登上热搜的时代，你是否也对**虚拟货币（Cryptocurrency）**感到好奇，却又被一堆专业术语劝退？</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="比特币bitcoin与虚拟货币入门"><a class="markdownIt-Anchor" href="#比特币bitcoin与虚拟货币入门"></a> 比特币（Bitcoin）与虚拟货币入门</h1>
+<p>在这个“比特币（Bitcoin）”和“Web3”频繁登上热搜的时代，你是否也对**虚拟货币（Cryptocurrency）**感到好奇，却又被一堆专业术语劝退？</p>
 <p>别担心，这篇博客将剥去复杂的技术外壳，用最通俗的语言带你走进虚拟货币的世界。</p>
 <h2 id="1-核心概念解析"><a class="markdownIt-Anchor" href="#1-核心概念解析"></a> 1. 核心概念解析</h2>
 <h3 id="11-什么是虚拟货币-cryptocurrency"><a class="markdownIt-Anchor" href="#11-什么是虚拟货币-cryptocurrency"></a> 1.1 什么是虚拟货币 (Cryptocurrency)？</h3>
 <ul>
-<li><strong>定义</strong>：一种不依赖中央机构（如央行、政府）发行，而是基于<strong>密码学</strong>和<strong>分布式网络</strong>技术的数字货币。</li>
-<li><strong>本质</strong>：它是互联网上的价值传输协议。如果说 Email 是传输信息的，Crypto 就是传输价值（钱）的。</li>
-<li><strong>特点</strong>：</li>
+<li>
+<p><strong>定义</strong>：一种不依赖中央机构（如央行、政府）发行，而是基于<strong>密码学</strong>和<strong>分布式网络</strong>技术的数字货币。</p>
+</li>
+<li>
+<p><strong>本质</strong>：它是互联网上的价值传输协议。如果说 Email 是传输信息的，Crypto 就是传输价值（钱）的。</p>
+</li>
+<li>
+<p><strong>特点</strong>：</p>
+<ul>
 <li><strong>去中心化 (Decentralized)</strong>：没有唯一的管理员。</li>
 <li><strong>抗审查性</strong>：只要你有私钥，没人能冻结你的资产。</li>
 <li><strong>全球流通</strong>：无国界，转账像发邮件一样快（取决于具体币种）。</li>
 </ul>
+</li>
+</ul>
 <h3 id="12-区块链-blockchain-信任的基石"><a class="markdownIt-Anchor" href="#12-区块链-blockchain-信任的基石"></a> 1.2 区块链 (Blockchain) —— 信任的基石</h3>
 <ul>
-<li><strong>通俗理解</strong>：一个全网公开、所有人共同维护、不可篡改的<strong>超级账本</strong>。</li>
-<li><strong>运作机制</strong>：</li>
-</ul>
+<li>
+<p><strong>通俗理解</strong>：一个全网公开、所有人共同维护、不可篡改的<strong>超级账本</strong>。</p>
+</li>
+<li>
+<p><strong>运作机制</strong>：</p>
 <ol>
 <li><strong>区块 (Block)</strong>：相当于账本的“一页纸”，记录了一段时间内的所有交易。</li>
 <li><strong>链 (Chain)</strong>：每一页纸都标上了页码，并按顺序装订在一起，形成“区块链”。</li>
 <li><strong>分布式 (Distributed)</strong>：这个账本不是锁在银行保险柜里，而是网络里每个人手里都有一本<strong>完全一样</strong>的副本。</li>
 </ol>
-<ul>
-<li><strong>不可篡改性</strong>：一旦交易被写入区块并获得确认，修改历史记录需要巨大的算力成本（几乎不可能），这保证了安全性。</li>
+</li>
+<li>
+<p><strong>不可篡改性</strong>：一旦交易被写入区块并获得确认，修改历史记录需要巨大的算力成本（几乎不可能），这保证了安全性。</p>
+</li>
 </ul>
 <h3 id="13-账户体系公钥与私钥-关键"><a class="markdownIt-Anchor" href="#13-账户体系公钥与私钥-关键"></a> 1.3 账户体系：公钥与私钥 (关键！)</h3>
 <ul>
 <li>
 <p><strong>私钥 (Private Key)</strong>：</p>
-</li>
-<li>
-<p><em>形式</em>：一长串随机字符，或者由12/24个英文单词组成（<strong>助记词</strong>）。</p>
-</li>
-<li>
-<p><em>作用</em>：<strong>最高权限</strong>。拥有私钥 = 拥有资产所有权。</p>
-</li>
-<li>
-<p><em>注意</em>：<strong>绝对不能</strong>告诉任何人，丢失无法找回（去中心化意味着没有客服帮你重置密码）。</p>
+<ul>
+<li><em>形式</em>：一长串随机字符，或者由12/24个英文单词组成（<strong>助记词</strong>）。</li>
+<li><em>作用</em>：<strong>最高权限</strong>。拥有私钥 = 拥有资产所有权。</li>
+<li><em>注意</em>：<strong>绝对不能</strong>告诉任何人，丢失无法找回（去中心化意味着没有客服帮你重置密码）。</li>
+</ul>
 </li>
 <li>
 <p><strong>公钥/地址 (Public Key/Address)</strong>：</p>
-</li>
-<li>
-<p><em>形式</em>：由私钥通过算法生成的一串字符（如 <code>0x</code> 开头或 <code>bc1</code> 开头）。</p>
-</li>
-<li>
-<p><em>作用</em>：相当于<strong>银行卡号</strong>。这是公开的，用于接收转账。</p>
+<ul>
+<li><em>形式</em>：由私钥通过算法生成的一串字符（如 <code>0x</code> 开头或 <code>bc1</code> 开头）。</li>
+<li><em>作用</em>：相当于<strong>银行卡号</strong>。这是公开的，用于接收转账。</li>
+</ul>
 </li>
 <li>
 <p><strong>关系</strong>：<code>私钥</code> -&gt; 生成 -&gt; <code>公钥</code> -&gt; 生成 -&gt; <code>地址</code>（不可逆推）。</p>
@@ -16484,9 +16491,9 @@ bd。</p>
 </li>
 <li>
 <p><strong>核心创新</strong>：<strong>智能合约 (Smart Contract)</strong>。</p>
-</li>
-<li>
-<p><em>解释</em>：比特币只能记账，以太坊可以运行程序。它是一个平台，开发者可以在上面通过代码编写自动执行的合约（如：如果A在明天这个时候没付钱，就自动扣除抵押物）。</p>
+<ul>
+<li><em>解释</em>：比特币只能记账，以太坊可以运行程序。它是一个平台，开发者可以在上面通过代码编写自动执行的合约（如：如果A在明天这个时候没付钱，就自动扣除抵押物）。</li>
+</ul>
 </li>
 <li>
 <p><strong>共识机制</strong>：已从 PoW 转为 <strong>PoS (权益证明)</strong>，不再依赖矿机挖矿，而是通过质押ETH来验证交易，更环保。</p>
@@ -16497,11 +16504,19 @@ bd。</p>
 </ul>
 <h3 id="23-稳定币-stablecoins-避险港湾"><a class="markdownIt-Anchor" href="#23-稳定币-stablecoins-避险港湾"></a> 2.3 稳定币 (Stablecoins) —— 避险港湾</h3>
 <ul>
-<li><strong>代表</strong>：USDT (Tether), USDC (Circle)。</li>
-<li><strong>作用</strong>：价格与法币（通常是美元）1:1 挂钩。</li>
-<li><strong>场景</strong>：</li>
+<li>
+<p><strong>代表</strong>：USDT (Tether), USDC (Circle)。</p>
+</li>
+<li>
+<p><strong>作用</strong>：价格与法币（通常是美元）1:1 挂钩。</p>
+</li>
+<li>
+<p><strong>场景</strong>：</p>
+<ul>
 <li>在币价大跌时，将资产换成稳定币避险。</li>
 <li>作为不同加密货币之间交易的媒介（如 BTC -&gt; USDT -&gt; ETH）。</li>
+</ul>
+</li>
 </ul>
 <h2 id="3-存储与交易-storage-trading"><a class="markdownIt-Anchor" href="#3-存储与交易-storage-trading"></a> 3. 存储与交易 (Storage &amp; Trading)</h2>
 <h3 id="31-钱包-wallets-资产归宿"><a class="markdownIt-Anchor" href="#31-钱包-wallets-资产归宿"></a> 3.1 钱包 (Wallets) —— 资产归宿</h3>
@@ -16544,47 +16559,43 @@ bd。</p>
 </blockquote>
 <h3 id="32-交易场所"><a class="markdownIt-Anchor" href="#32-交易场所"></a> 3.2 交易场所</h3>
 <ol>
-<li><strong>CEX (中心化交易所)</strong>：</li>
-</ol>
+<li>
+<p><strong>CEX (中心化交易所)</strong>：</p>
 <ul>
 <li><em>例子</em>：Binance, OKX, Coinbase。</li>
 <li><em>特点</em>：体验像股票软件，需要KYC（实名认证），资金有托管风险。</li>
 </ul>
-<ol start="2">
-<li><strong>DEX (去中心化交易所)</strong>：</li>
-</ol>
+</li>
+<li>
+<p><strong>DEX (去中心化交易所)</strong>：</p>
 <ul>
 <li><em>例子</em>：Uniswap, Curve。</li>
 <li><em>特点</em>：无需注册，连接钱包直接在链上交易，代码自动执行，门槛较高。</li>
 </ul>
+</li>
+</ol>
 <h2 id="4-常见风险与陷阱-risks"><a class="markdownIt-Anchor" href="#4-常见风险与陷阱-risks"></a> 4. 常见风险与陷阱 (Risks)</h2>
 <ul>
 <li>
 <p><strong>波动性风险</strong>：</p>
-</li>
-<li>
-<p>没有涨跌停限制，24小时交易。一天腰斩（-50%）或翻倍是常态。</p>
+<ul>
+<li>没有涨跌停限制，24小时交易。一天腰斩（-50%）或翻倍是常态。</li>
+</ul>
 </li>
 <li>
 <p><strong>操作风险</strong>：</p>
-</li>
-<li>
-<p><strong>转错链/地址</strong>：将BTC转到了ETH的地址上，或者选错了区块链网络（如ERC20 vs TRC20），资产可能<strong>永久丢失</strong>。</p>
-</li>
-<li>
-<p><strong>丢失助记词</strong>：一旦丢失或忘记，没有任何手段能找回资产。</p>
+<ul>
+<li><strong>转错链/地址</strong>：将BTC转到了ETH的地址上，或者选错了区块链网络（如ERC20 vs TRC20），资产可能<strong>永久丢失</strong>。</li>
+<li><strong>丢失助记词</strong>：一旦丢失或忘记，没有任何手段能找回资产。</li>
+</ul>
 </li>
 <li>
 <p><strong>诈骗风险</strong>：</p>
-</li>
-<li>
-<p><strong>庞氏骗局</strong>：承诺高额固定回报（如“每天1%利息”），通常是资金盘。</p>
-</li>
-<li>
-<p><strong>假钱包/假应用</strong>：下载了带后门的App，输入助记词后资产被秒盗。</p>
-</li>
-<li>
-<p><strong>授权钓鱼</strong>：点击不明链接，误授权给黑客，钱包被清空。</p>
+<ul>
+<li><strong>庞氏骗局</strong>：承诺高额固定回报（如“每天1%利息”），通常是资金盘。</li>
+<li><strong>假钱包/假应用</strong>：下载了带后门的App，输入助记词后资产被秒盗。</li>
+<li><strong>授权钓鱼</strong>：点击不明链接，误授权给黑客，钱包被清空。</li>
+</ul>
 </li>
 </ul>
 <h2 id="5-进阶术语速查-glossary"><a class="markdownIt-Anchor" href="#5-进阶术语速查-glossary"></a> 5. 进阶术语速查 (Glossary)</h2>
@@ -16604,15 +16615,27 @@ bd。</p>
 <li><strong>交易</strong>：不再提供法币出入金保护，风险自担。</li>
 </ul>
 </blockquote>
+<hr />
 <h1 id="比特币"><a class="markdownIt-Anchor" href="#比特币"></a> 比特币</h1>
 <h2 id="1-比特币的诞生与愿景"><a class="markdownIt-Anchor" href="#1-比特币的诞生与愿景"></a> 1. 比特币的诞生与愿景</h2>
 <ul>
-<li><strong>背景</strong>：2008年全球金融危机。</li>
-<li><strong>创始人</strong>：中本聪 (Satoshi Nakamoto)，真实身份至今未明。</li>
-<li><strong>标志事件</strong>：2008年11月1日发表白皮书《比特币：一种点对点的电子现金系统》。</li>
-<li><strong>核心目标</strong>：建立一个<strong>去中心化的电子记账系统</strong>。</li>
+<li><strong>背景</strong>：</li>
+</ul>
+<p>2008年全球金融危机。</p>
+<ul>
+<li>
+<p><strong>创始人</strong>：中本聪 (Satoshi Nakamoto)，真实身份至今未明。</p>
+</li>
+<li>
+<p><strong>标志事件</strong>：2008年11月1日发表白皮书《比特币：一种点对点的电子现金系统》。</p>
+</li>
+<li>
+<p><strong>核心目标</strong>：建立一个<strong>去中心化的电子记账系统</strong>。</p>
+<ul>
 <li><em>传统模式（中心化）</em>：依赖银行（中心机构）记账，基于国家信用。</li>
 <li><em>比特币模式（去中心化）</em>：无需中心机构，<strong>每个人手里都有一本公开的账本</strong>，所有人共同记账。</li>
+</ul>
+</li>
 </ul>
 <h2 id="2-区块链的运作机制"><a class="markdownIt-Anchor" href="#2-区块链的运作机制"></a> 2. 区块链的运作机制</h2>
 <h3 id="21-交易广播与区块打包"><a class="markdownIt-Anchor" href="#21-交易广播与区块打包"></a> 2.1 交易广播与区块打包</h3>
@@ -16622,9 +16645,9 @@ bd。</p>
 </li>
 <li>
 <p><strong>区块 (Block)</strong>：全网用户将一段时间内的交易记录收集起来，打包成一个“块”。</p>
-</li>
-<li>
-<p><em>容量</em>：约1MB，可容纳约4000条交易记录。</p>
+<ul>
+<li><em>容量</em>：约1MB，可容纳约4000条交易记录。</li>
+</ul>
 </li>
 <li>
 <p><strong>区块链 (Blockchain)</strong>：新产生的区块被链接到旧区块的后面，形成一条链式结构。</p>
@@ -16644,93 +16667,90 @@ bd。</p>
 <h2 id="3-激励机制为什么要记账"><a class="markdownIt-Anchor" href="#3-激励机制为什么要记账"></a> 3. 激励机制：为什么要记账？</h2>
 <p>记账是有利可图的，收益来源有两部分：</p>
 <ol>
-<li><strong>手续费</strong>：交易发起方支付给打包者的小额费用。</li>
-<li><strong>打包奖励（Coinbase Reward）</strong>：系统凭空生成比特币奖励给成功打包区块的人。</li>
-</ol>
+<li>
+<p><strong>手续费</strong>：交易发起方支付给打包者的小额费用。</p>
+</li>
+<li>
+<p><strong>打包奖励（Coinbase Reward）</strong>：系统凭空生成比特币奖励给成功打包区块的人。</p>
 <ul>
 <li>
 <p><strong>减半机制</strong>：</p>
-</li>
-<li>
-<p>初始奖励：50 BTC / 块。</p>
-</li>
-<li>
-<p>规则：每4年减半一次（50 -&gt; 25 -&gt; 12.5 …）。</p>
-</li>
-<li>
-<p><strong>总量恒定</strong>：根据几何级数求和公式计算，比特币总量上限约为 <strong>2100万个</strong>。</p>
+<ul>
+<li>初始奖励：50 BTC / 块。</li>
+<li>规则：每4年减半一次（50 -&gt; 25 -&gt; 12.5 …）。</li>
+</ul>
 </li>
 </ul>
+</li>
+</ol>
+<ul>
+<li><strong>总量恒定</strong>：根据几何级数求和公式计算，比特币总量上限约为 <strong>2100万个</strong>。</li>
+</ul>
 <h2 id="4-挖矿原理工作量证明-pow"><a class="markdownIt-Anchor" href="#4-挖矿原理工作量证明-pow"></a> 4. 挖矿原理：工作量证明 (PoW)</h2>
-<p>既然记账有奖励，大家都抢着记账。系统规定：<strong>每10分钟只能有一个人打包成功</strong>。<br />
-谁能打包？——<strong>谁先解开一道极难的数学题，谁就有权打包</strong>。这个过程被称为“挖矿”。</p>
+<p>既然记账有奖励，大家都抢着记账。系统规定：<strong>每10分钟只能有一个人打包成功</strong>。谁能打包？——<strong>谁先解开一道极难的数学题，谁就有权打包</strong>。这个过程被称为“挖矿”。</p>
 <h3 id="41-核心算法sha256-哈希函数"><a class="markdownIt-Anchor" href="#41-核心算法sha256-哈希函数"></a> 4.1 核心算法：SHA256 哈希函数</h3>
 <p>挖矿的数学题基于 SHA256 算法（由美国国家安全局发明）。</p>
 <ul>
-<li><strong>特点</strong>：</li>
-</ul>
+<li>
+<p><strong>特点</strong>：</p>
 <ol>
 <li><strong>正向容易，反向极难</strong>：输入 x 求 y 很容易，知道 y 求 x 几乎不可能。</li>
 <li><strong>雪崩效应</strong>：输入稍微改动一点点（如加一个点），输出结果会天翻地覆。</li>
 <li><strong>定长输出</strong>：无论输入多少内容，输出永远是256位的二进制数。</li>
 </ol>
+</li>
+</ul>
 <h3 id="42-挖矿的这道数学题长什么样"><a class="markdownIt-Anchor" href="#42-挖矿的这道数学题长什么样"></a> 4.2 挖矿的这道“数学题”长什么样？</h3>
 <p>矿工需要构造一个字符串，对其进行两次 SHA256 运算，使得结果满足特定条件。</p>
 <ul>
-<li><strong>输入内容</strong>：</li>
-</ul>
+<li>
+<p><strong>输入内容</strong>：</p>
 <ol>
 <li>前一个区块的头部信息（Pre-block Header）。</li>
 <li>当前区块的交易账单信息（Merkle Root）。</li>
 <li>时间戳等其他信息。</li>
 <li><strong>随机数 (Nonce)</strong> —— <em>这是唯一可以改变的变量</em>。</li>
 </ol>
-<ul>
-<li>
-<p><strong>公式</strong>：</p>
 </li>
 <li>
-<p><strong>通俗要求</strong>：算出来的256位二进制数，<strong>前面 N 位必须全都是 0</strong>。</p>
+<p><strong>公式</strong>：</p>
+<ul>
+<li><strong>通俗要求</strong>：算出来的256位二进制数，<strong>前面 N 位必须全都是 0</strong>。</li>
+</ul>
 </li>
 </ul>
 <h3 id="43-为什么这很难暴力穷举"><a class="markdownIt-Anchor" href="#43-为什么这很难暴力穷举"></a> 4.3 为什么这很难？（暴力穷举）</h3>
 <p>由于哈希函数无法反推，矿工无法通过解方程找到这个随机数。</p>
 <ul>
-<li><strong>唯一方法</strong>：试错（Trial and Error）。</li>
+<li>
+<p><strong>唯一方法</strong>：试错（Trial and Error）。</p>
+<ul>
 <li>试 <code>Nonce = 0</code>，算一下哈希值，看前N位是不是0？不是。</li>
 <li>试 <code>Nonce = 1</code>，再算一次…</li>
 <li>试 <code>Nonce = 2</code>…</li>
 <li>一直试到算出符合要求的哈希值为止。</li>
+</ul>
+</li>
 </ul>
 <h3 id="44-难度调整-n的确定"><a class="markdownIt-Anchor" href="#44-难度调整-n的确定"></a> 4.4 难度调整 (N的确定)</h3>
 <p>系统通过调整 N 的大小（即要求前面有多少个0），来控制挖矿难度，保证全网平均每10分钟出一个块。</p>
 <ul>
 <li>
 <p><strong>概率计算</strong>：</p>
-</li>
-<li>
-<p>每一位是0的概率是 1/2。</p>
-</li>
-<li>
-<p>前 N 位都是0的概率是 (1/2)^N。</p>
-</li>
-<li>
-<p>N 越大，概率越低，难度越大。</p>
+<ul>
+<li>每一位是0的概率是 1/2。</li>
+<li>前 N 位都是0的概率是 (1/2)^N。</li>
+<li>N 越大，概率越低，难度越大。</li>
+</ul>
 </li>
 <li>
 <p><strong>视频中的算力举例</strong>：</p>
-</li>
-<li>
-<p>假设全网有 10,000 台矿机，每台算力 14T (1.4×10^13 次/秒)。</p>
-</li>
-<li>
-<p>10分钟内全网能计算的总次数约为 8 \times 10^{19} 次。</p>
-</li>
-<li>
-<p>这大约等于 2^{66}。</p>
-</li>
-<li>
-<p>结论：系统会将难度 N 设定为 <strong>66</strong>。这意味着平均进行 2^{66} 次尝试，才能碰巧找到一个满足条件的随机数。</p>
+<ul>
+<li>假设全网有 10,000 台矿机，每台算力 14T (1.4×10^13 次/秒)。</li>
+<li>10分钟内全网能计算的总次数约为 8 \times 10^{19} 次。</li>
+<li>这大约等于 2^{66}。</li>
+<li>结论：系统会将难度 N 设定为 <strong>66</strong>。这意味着平均进行 2^{66} 次尝试，才能碰巧找到一个满足条件的随机数。</li>
+</ul>
 </li>
 </ul>
 <h2 id="5-总结"><a class="markdownIt-Anchor" href="#5-总结"></a> 5. 总结</h2>
@@ -16739,81 +16759,8 @@ bd。</p>
 <li><strong>运气与算力</strong>：虽然单个矿工挖到矿有运气成分，但长期来看，<strong>算力（计算速度）越强，挖到的概率越大</strong>。</li>
 <li><strong>安全性</strong>：要篡改区块链，需要拥有全网51%以上的算力，成本极高。</li>
 </ul>
-<p>以下是關於視頻《比特幣（Bitcoin）是什麼？怎麼買？安全嗎？（小白入門篇）》的詳細筆記總結。這期視頻由老高與小茉製作，以通俗易懂的方式介紹了比特幣的概念、機制、優缺點及背後的謎團。</p>
 <hr />
-<h1 id="學習筆記比特幣-bitcoin-小白入門"><a class="markdownIt-Anchor" href="#學習筆記比特幣-bitcoin-小白入門"></a> 📝 學習筆記：比特幣 (Bitcoin) 小白入門</h1>
-<blockquote>
-<p><strong>視頻核心主題</strong>：比特幣是21世紀最大的謎團，也是一場金融革命。它試圖建立一個不依賴任何國家和銀行的全球統一貨幣系統。</p>
-</blockquote>
-<h2 id="1-什麼是比特幣"><a class="markdownIt-Anchor" href="#1-什麼是比特幣"></a> 1. 什麼是比特幣？</h2>
-<ul>
-<li><strong>定義</strong>：一種虛擬貨幣，旨在成為“國際通用貨幣”。</li>
-<li><strong>特點</strong>：</li>
-<li><strong>去中心化</strong>：沒有發行行（如央行），不屬於任何國家。</li>
-<li><strong>挑戰主權</strong>：貨幣發行權是國家的核心權力，比特幣的出現挑戰了這一點，因此國家目前多將其視為“金融商品”而非“貨幣”（可以炒作，但不能直接用於日常支付）。</li>
-</ul>
-<h2 id="2-比特幣的誕生"><a class="markdownIt-Anchor" href="#2-比特幣的誕生"></a> 2. 比特幣的誕生</h2>
-<ul>
-<li><strong>時間</strong>：2008年10月31日（金融危機背景下）。</li>
-<li><strong>創始人</strong>：<strong>中本聰 (Satoshi Nakamoto)</strong>。他在密碼學論壇發表了白皮書《比特幣：一種點對點的電子現金系統》。</li>
-<li><strong>上線</strong>：2009年1月系統正式運作，第一批比特幣生成並打入中本聰賬戶。</li>
-</ul>
-<h2 id="3-核心機制挖礦-mining"><a class="markdownIt-Anchor" href="#3-核心機制挖礦-mining"></a> 3. 核心機制：挖礦 (Mining)</h2>
-<ul>
-<li><strong>原理</strong>：比特幣系統像一個虛擬的“金礦”。</li>
-<li><strong>操作</strong>：用戶通過電腦運行特定軟件（解決數學難題），從系統中獲取比特幣獎勵。</li>
-<li><strong>總量恆定</strong>：總量被設定為 <strong>2100萬個</strong>，以保證稀缺性（類似黃金）。</li>
-<li><strong>產量減半</strong>：隨著時間推移，挖掘難度增加，產出速度變慢。目前大部分比特幣已被挖出。</li>
-<li><strong>現狀</strong>：普通家用電腦已無法挖礦，現在需要專業的<strong>礦機</strong>（高算力、高耗電）。</li>
-</ul>
-<h2 id="4-比特幣的優缺點"><a class="markdownIt-Anchor" href="#4-比特幣的優缺點"></a> 4. 比特幣的優缺點</h2>
-<h3 id="優點"><a class="markdownIt-Anchor" href="#優點"></a> ✅ 優點</h3>
-<ol>
-<li><strong>價值恆定（抗通脹）</strong>：總量固定，不會像法幣那樣因國家濫發而貶值。</li>
-<li><strong>極度安全</strong>：基於加密技術，比銀行存款和紙幣更安全。沒有私鑰，誰也拿不走你的錢（包括黑客和警察）。</li>
-<li><strong>手續費低/無國界</strong>：轉賬不需要經過銀行，沒有高昂的跨國匯款手續費和匯率差價。</li>
-</ol>
-<h3 id="缺點"><a class="markdownIt-Anchor" href="#缺點"></a> ❌ 缺點</h3>
-<ol>
-<li><strong>交易不可逆</strong>：轉賬一旦發出無法撤回（沒有銀行客服幫你追回）。</li>
-<li><strong>丟失即永久</strong>：忘記賬號/密碼（私鑰）= 永久丟失資產，無法找回。</li>
-<li><strong>非法用途</strong>：因匿名和無監管，常被用於洗錢等非法活動。</li>
-<li><strong>不公平性</strong>：早期參與者（如中本聰和開發者）持有大量幣，財富分配極度不均。</li>
-<li><strong>系統可複製</strong>：比特幣代碼是開源的，任何人都可以複製並發行類似的幣（如萊特幣、以太幣等），競爭激烈。</li>
-</ol>
-<h2 id="5-關於中本聰的謎團"><a class="markdownIt-Anchor" href="#5-關於中本聰的謎團"></a> 5. 關於中本聰的謎團</h2>
-<ul>
-<li>
-<p><strong>身份成謎</strong>：至今沒人見過他本人。</p>
-</li>
-<li>
-<p><strong>特徵</strong>：</p>
-</li>
-<li>
-<p>刻意隱藏時區，使用多種英語方言（美式、英式、愛爾蘭語）。</p>
-</li>
-<li>
-<p>極度天才，系統設計近乎完美，經過大數據模擬驗證。</p>
-</li>
-<li>
-<p><strong>猜想</strong>：</p>
-</li>
-<li>
-<p><strong>CIA（美國中情局）</strong>：名字 Nakamoto (Central Intelligence Agency) 的縮寫巧合。可能是美國試圖用技術手段延續美元霸權或控制世界金融。</p>
-</li>
-<li>
-<p><strong>AI (人工智能)</strong>：老高提出的大膽猜想。系統過於完美，且故意留出“可複製”的漏洞，目的是推動人類金融系統的全面<strong>虛擬化</strong>，為AI控制世界打基礎。</p>
-</li>
-</ul>
-<h2 id="6-投資建議與總結"><a class="markdownIt-Anchor" href="#6-投資建議與總結"></a> 6. 投資建議與總結</h2>
-<ul>
-<li><strong>趨勢</strong>：貨幣和物質的虛擬化是不可逆轉的趨勢。</li>
-<li><strong>老高的觀點</strong>：</li>
-<li>挖礦賺錢的時代已過（競爭太激烈）。</li>
-<li>真正賺錢的是“賣鏟子的人”（如賣礦機、開交易所）。</li>
-<li>人類正在走向一個金融完全虛擬化的世界，這可能是AI的佈局。</li>
-</ul>
-<h1 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h1>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
 <h3 id="比特币-bitcoin"><a class="markdownIt-Anchor" href="#比特币-bitcoin"></a> 🪙 比特币 (Bitcoin)</h3>
 <ul>
 <li><a href="https://youtu.be/7B-1vDFuYRk">【震撼】比特幣，人類進入虛擬世界的第一步 | 老高與小茉 Mr &amp; Mrs Gao</a></li>
@@ -16838,7 +16785,7 @@ bd。</p>
 <h3 id="其他-other"><a class="markdownIt-Anchor" href="#其他-other"></a> 📂 其他 (Other)</h3>
 <ul>
 <li><a href="https://youtu.be/tm09cMTBTSU">一口气了解稳定币 | 小Lin说</a></li>
-<li><a href="https://www.google.com/search?q=https://youtu.be/65TkswVEd5Y">从Circle火爆IPO，看稳定币与美元霸权的现代化金融战【深度】| 硅谷101</a></li>
+<li>[从Circle火爆IPO，看稳定币与美元霸权的现代化金融战【深度】| 硅谷101](<a href="https://www.google.com/search?q=https://youtu">https://www.google.com/search?q=https://youtu</a></li>
 </ul>
 ]]></content>
   </entry>
