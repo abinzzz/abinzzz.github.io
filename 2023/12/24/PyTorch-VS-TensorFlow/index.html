@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>PyTorch VS TensorFlow | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="PyTorch VS TensorFlow | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2023/12/24/PyTorch-VS-TensorFlow/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   参考链接  https:&#x2F;&#x2F;viso.ai&#x2F;deep-learning&#x2F;pytorch-vs-tensorflow&#x2F;   PyTorch VS TensorFlow  介绍 人工神经网络（ANNs）在多种监督学习任务中展现出卓越性 - ab - blog"><meta name="keywords" content="Accumulate, blog"><meta property="og:image" content="https://viso.ai/wp-content/uploads/2023/02/pytorch-vs-tensorflow-popularity-comparison.png"><meta property="og:image" content="https://viso.ai/wp-content/uploads/2021/03/performance-benchmark-pytorch-vs-tensorflow-02.jpg"><meta property="og:image" content="https://viso.ai/wp-content/uploads/2021/03/pytorch-vs-tensorflow-accuracy.jpg"><meta property="article:published_time" content="2023-12-24T03:50:43.000Z"><meta property="article:modified_time" content="2023-12-24T04:28:33.137Z"><meta property="og:updated_time" content="2023-12-24T04:28:33.137Z"><meta property="article:author" content="ab"><meta property="article:tag" content="Accumulate, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2023/12/24/PyTorch-VS-TensorFlow/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2023/12/24/PyTorch-VS-TensorFlow/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2023/12/24/PyTorch-VS-TensorFlow/"
+    },
+    "headline": "PyTorch VS TensorFlow | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2023-12-24T03:50:43.000Z",
+    "dateModified": "2023-12-24T04:28:33.137Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Accumulate, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   参考链接  https://viso.ai/deep-learning/pytorch-vs-tensorflow/   PyTorch VS TensorFlow  介绍 人工神经网络（ANNs）在多种监督学习任务中展现出卓越性 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">PyTorch VS TensorFlow</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2023-12-24</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Accumulate/">Accumulate</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB5UlEQVR42u3ay27DMAxE0fz/T7erAkEgzgxdL0zmapOicKwTQC+Sev08sL1AgQIF6oB6ifb5zN/f75+nd3x+J+4H1BrUcdAV/z89U3VePVP1A2oXSr3s9ELVSTXwVT+gvhN1WhBPQFCgElS14aqNG9R3o9xmexrg6hDoJsO/TgmgHo9SB/o7P2+LZkA9GnUlOFCduklxS9YF1KNRbuNVh7tOwKHeD2oXqsIlg98Foe4AWG7IoEajXGDgOq+eTTfqOLkPahwqTVgkwURaCLADHdRYlAIkh7qrxSd7SgA1FtVNfLkDYifpYWcfqJGoaoFTm7GaFMn3jlhQK1AqILhaCEoD3CjrAmokSm2cSYAgg4GgyARqJ8ol5KuOkkmgcKD2otwi2E1WuENdvHiCGodKOk8vc9kEhknwg9qBcgmvq4M2SZbY2QdqJCoNFlzi1R7ggos5oHaikqJ0Z+FVP9pmXUCNRnWSqZ1Lg+oSdJSIBTUW1b3wkHSavhPULpRrSYJDBgNBkQnULlRSjHbJWlfcvuVWEKhRqE7ConvJJkWD2odKi4tJsOoKka3LEqBWopLiUXyQu2uggxqN6iZa1Y+KLkuAWoFShaH0InMnUQJqNyrZNF0iLF1UZaAKagXqSQ0UKFCg3tovDxvQ4CdKgrwAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 参考链接</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#pytorch-vs-tensorflow"><span class="post-toc-number"></span> <span class="post-toc-text"> PyTorch VS TensorFlow</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%87%E7%AB%A0%E5%86%85%E5%AE%B9"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 文章内容</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#tensorflow-%E5%92%8C-pytorch-%E7%9A%84%E5%85%B3%E9%94%AE%E7%89%B9%E6%80%A7"><span class="post-toc-number"></span> <span class="post-toc-text"> TensorFlow 和 PyTorch 的关键特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tensorflow-%E6%A6%82%E8%BF%B0"><span class="post-toc-number">0.1.</span> <span class="post-toc-text"> TensorFlow 概述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tensorflow%E4%BC%98%E7%82%B9"><span class="post-toc-number">0.2.</span> <span class="post-toc-text"> TensorFlow优点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tensorflow%E7%BC%BA%E7%82%B9"><span class="post-toc-number">0.3.</span> <span class="post-toc-text"> TensorFlow缺点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pytorch-%E6%A6%82%E8%BF%B0"><span class="post-toc-number">0.4.</span> <span class="post-toc-text"> PyTorch 概述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pytorch%E4%BC%98%E5%8A%BF"><span class="post-toc-number">0.5.</span> <span class="post-toc-text"> PyTorch优势</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pytorch%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="post-toc-number">0.6.</span> <span class="post-toc-text"> PyTorch的缺点:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tensorflow%E4%B8%8Epytorch%E7%9A%84%E6%AF%94%E8%BE%83"><span class="post-toc-number">1.</span> <span class="post-toc-text"> TensorFlow与PyTorch的比较</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> 性能比较</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%B2%BE%E5%BA%A6"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 精度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AE%AD%E7%BB%83%E6%97%B6%E9%97%B4%E5%92%8C%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> 训练时间和内存使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%98%93%E7%94%A8%E6%80%A7"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> 易用性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#pytorch%E4%B8%8Etensorflow%E7%9A%84%E5%8C%BA%E5%88%AB%E6%80%BB%E7%BB%93"><span class="post-toc-number">2.</span> <span class="post-toc-text"> PyTorch与TensorFlow的区别——总结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%89%B9%E6%80%A7%E6%AF%94%E8%BE%83%E8%A1%A8"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 特性比较表</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://viso.ai/deep-learning/pytorch-vs-tensorflow/">https://viso.ai/deep-learning/pytorch-vs-tensorflow/</a></li>
+</ul>
+<h1 id="pytorch-vs-tensorflow"><a class="markdownIt-Anchor" href="#pytorch-vs-tensorflow"></a> PyTorch VS TensorFlow</h1>
+<h2 id="介绍"><a class="markdownIt-Anchor" href="#介绍"></a> 介绍</h2>
+<p>人工神经网络（ANNs）在多种监督学习任务中展现出卓越性能，但手动编程ANN具有挑战性。因此，出现了像TensorFlow和PyTorch这样的框架，旨在简化深度学习模型的创建、服务和扩展。随着近年来对深度学习的兴趣增加，出现了大量的机器学习工具。这些框架提供了神经网络单元、成本函数和优化器，用于组装和训练神经网络模型。在分析大型复杂数据集时，使用人工神经网络进行推断和预测是一种重要方法。TensorFlow和PyTorch是两个广泛使用的支持人工神经网络模型的机器学习框架。</p>
+<p><img src="https://viso.ai/wp-content/uploads/2023/02/pytorch-vs-tensorflow-popularity-comparison.png" alt="" /></p>
+<br>
+<h2 id="文章内容"><a class="markdownIt-Anchor" href="#文章内容"></a> 文章内容</h2>
+<p>文章基于最近的研究比较了PyTorch和TensorFlow两个框架在训练时间、内存使用和易用性方面的有效性和差异。你将了解到：</p>
+<ul>
+<li>PyTorch与TensorFlow的特点</li>
+<li>性能、准确性、训练以及易用性的对比</li>
+<li>两者的主要区别</li>
+<li>一个完整的比较表</li>
+</ul>
+<br>
+<h1 id="tensorflow-和-pytorch-的关键特性"><a class="markdownIt-Anchor" href="#tensorflow-和-pytorch-的关键特性"></a> TensorFlow 和 PyTorch 的关键特性</h1>
+<h3 id="tensorflow-概述"><a class="markdownIt-Anchor" href="#tensorflow-概述"></a> TensorFlow 概述</h3>
+<p>TensorFlow是一个广受欢迎的端到端开源机器学习平台，最初由谷歌大脑团队的研究人员和工程师开发。它支持多种执行平台如CPU、GPU、TPU和移动设备。TensorFlow被多个国际公司和大学采用，提供高层次API Keras以及为边缘设备设计的TensorFlow Lite。此外，TensorFlow Serving支持在生产环境中部署机器学习模型，而Viso Suite平台则为TensorFlow模型提供端到端的自动化服务。</p>
+<br>
+<h3 id="tensorflow优点"><a class="markdownIt-Anchor" href="#tensorflow优点"></a> TensorFlow优点</h3>
+<ul>
+<li>支持和库管理:TensorFlow由谷歌支持，并经常发布新功能。它在生产环境中被广泛使用。</li>
+<li>开源:TensorFlow是一个非常流行的开源平台，广泛的用户都可以使用。</li>
+<li>数据可视化:TensorFlow提供了一个名为TensorBoard的工具来图形化地可视化数据。它还允许轻松调试节点，减少查看整个代码的工作量，并有效地解决神经网络问题。- - Keras兼容性:TensorFlow与Keras兼容，这允许其用户编写一些高级功能部分，并向TensorFlow提供系统特定的功能(管道，估计器等)。</li>
+<li>可扩展性强:TensorFlow部署在每台机器上的特点允许其用户开发任何类型的系统。</li>
+<li>兼容性:TensorFlow与许多语言兼容，如c++、JavaScript、Python、c#、Ruby和Swift。这允许用户在他们感到舒适的环境中工作。</li>
+<li>架构支持:由于工作模型的并行性，TensorFlow被用作硬件加速库。它在GPU和CPU系统中使用不同的分布策略。TensorFlow也有它的架构TPU，它的计算速度比GPU和CPU快。因此，使用TPU构建的模型可以很容易地以更便宜的速度部署在云上，并以更快的速度执行。然而，TensorFlow的架构TPU只允许执行模型，而不允许训练模型。</li>
+</ul>
+<br>
+<h3 id="tensorflow缺点"><a class="markdownIt-Anchor" href="#tensorflow缺点"></a> TensorFlow缺点</h3>
+<ul>
+<li>基准测试:与竞争对手相比，计算速度是TensorFlow落后的地方。与其他框架相比，它的可用性较差。</li>
+<li>依赖:尽管TensorFlow减少了代码的长度，使用户更容易访问它，但它增加了使用的复杂性。每一段代码都需要使用任何平台来执行，这增加了执行的依赖性。</li>
+<li>符号循环:TensorFlow在为不定序列提供符号循环方面滞后。它可以用于确定的序列，这使它成为一个可用的系统。因此，它被称为低级API。</li>
+<li>GPU支持:最初，TensorFlow只有NVIDIA支持GPU, Python支持GPU编程，这是一个缺点，因为在深度学习中有其他语言的增加。TensorFlow分布策略是一种TensorFlow API，用于在多个gpu、多台机器或tpu上分布训练。使用此API，您可以使用最小的代码更改来分发现有模型和训练代码。</li>
+</ul>
+<br>
+<h3 id="pytorch-概述"><a class="markdownIt-Anchor" href="#pytorch-概述"></a> PyTorch 概述</h3>
+<p>PyTorch于2016年首次引入，强调可用性和性能。它提供了一种命令式的python编程风格，支持代码作为模型，使调试变得容易，并且与其他流行的科学计算库保持一致，同时保持高效并支持硬件加速器(如gpu)。开源深度学习框架是一个Python库，可立即执行动态张量计算，并具有自动微分和GPU加速功能，同时保持与当前最快的深度学习库相当的性能。今天，它的大部分核心是用c++编写的，这是PyTorch与其他框架相比可以实现更低开销的主要原因之一。PyTorch 2.0标志着PyTorch框架的一个重大进步，在保持向后兼容性和以python为中心的方法的同时提供了增强的性能。对于移动部署，PyTorch提供了从Python到iOS和Android平台的实验性端到端工作流支持，包括用于移动ML集成和预处理任务的API扩展。PyTorch适合于自然语言处理(NLP)任务，以使用深度学习为智能语言应用提供支持。</p>
+<p>此外，PyTorch为ONNX(开放神经网络交换)格式提供原生支持，允许无缝模型导出并与ONNX兼容的平台和工具兼容。多个流行的深度学习软件和面向研究的项目都是基于PyTorch构建的，包括Tesla Autopilot或Uber的Pyro。</p>
+<br>
+<h3 id="pytorch优势"><a class="markdownIt-Anchor" href="#pytorch优势"></a> PyTorch优势</h3>
+<ul>
+<li>PyTorch基于Python: PyTorch以Python为中心或“Python风格”，旨在与Python代码深度集成，而不是作为用其他语言编写的库的接口。Python是数据科学家最常用的语言之一，也是构建机器学习模型和ML研究最常用的语言之一。</li>
+<li>更容易学习:因为它的语法类似于传统的编程语言，如Python, PyTorch比其他深度学习框架更容易学习。</li>
+<li>调试:PyTorch可以使用许多广泛可用的Python调试工具之一进行调试(例如，Python的pdb和ipdb工具)。</li>
+<li>动态计算图:PyTorch支持动态计算图，这意味着网络行为可以在运行时以编程方式更改。这使得优化模型更加容易，并使PyTorch比其他将神经网络视为静态对象的机器学习框架具有主要优势。</li>
+<li>数据并行:数据并行特性允许PyTorch在多个CPU或GPU核心之间分配计算工作。虽然这种并行性可以在其他机器学习工具中完成，但在PyTorch中要容易得多。</li>
+<li>社区:PyTorch有一个非常活跃的社区和论坛(<a target="_blank" rel="noopener" href="http://discuss.pytorch.org">discuss.pytorch.org</a>)。它的文档(<a target="_blank" rel="noopener" href="http://pytorch.org">pytorch.org</a>)非常有条理，对初学者很有帮助;它与PyTorch发布保持同步，并提供一组教程。PyTorch使用起来非常简单，这也意味着开发人员的学习曲线相对较短。</li>
+<li>分布式训练:PyTorch为集体操作的异步执行和端到端通信提供原生支持，可从Python和c++访问。</li>
+</ul>
+<br>
+<h3 id="pytorch的缺点"><a class="markdownIt-Anchor" href="#pytorch的缺点"></a> PyTorch的缺点:</h3>
+<ul>
+<li>缺乏在生产中服务的模型:虽然这在未来将会改变，但其他框架已经被更广泛地用于实际生产工作(即使PyTorch在研究社区中变得越来越流行)。因此，与其他框架相比，文档和开发者社区更小。</li>
+<li>有限的监控和可视化界面:虽然TensorFlow也提供了一个强大的可视化工具来构建模型图(TensorBoard)，但PyTorch还没有这样的东西。因此，开发人员可以使用许多现有的Python数据可视化工具之一，或外部连接到TensorBoard。</li>
+<li>没有TensorFlow那么广泛:PyTorch不是一个端到端的机器学习开发工具;实际应用程序的开发需要将PyTorch代码转换为另一个框架，如Caffe2，以便将应用程序部署到服务器、工作站和移动设备上。</li>
+</ul>
+<br>
+<h2 id="tensorflow与pytorch的比较"><a class="markdownIt-Anchor" href="#tensorflow与pytorch的比较"></a> TensorFlow与PyTorch的比较</h2>
+<h3 id="性能比较"><a class="markdownIt-Anchor" href="#性能比较"></a> 性能比较</h3>
+<p>下面的性能基准测试旨在通过将PyTorch与流行的基于图的深度学习框架TensorFlow进行比较，来展示PyTorch的单机热切模式性能的整体比较。表中显示了使用32位浮点数的两个模型的训练速度。对于AlexNet、VGG-19、ResNet-50和MobileNet模型，吞吐率以每秒图像数为单位，对于GNMTv2模型，以每秒令牌数为单位，对于NCF模型，以每秒样本数为单位。基准测试表明，与TensorFlow相比，PyTorch的性能更好，这可以归因于这些工具将大部分计算卸载给了相同版本的cuDNN和cuBLAS库。</p>
+<p><img src="https://viso.ai/wp-content/uploads/2021/03/performance-benchmark-pytorch-vs-tensorflow-02.jpg" alt="" /></p>
+<br>
+<h3 id="精度"><a class="markdownIt-Anchor" href="#精度"></a> 精度</h3>
+<p>PyTorch和Tensorflow的精度图(见下文)显示了两个框架的精度有多相似。对于这两个模型，随着模型开始记忆它们正在训练的信息，训练精度不断提高。验证精度表示模型在训练过程中实际学习的程度。对于这两个模型，经过20个epoch后，两个框架中的模型的验证精度平均约为78%。因此，两个框架都能够准确地实现神经网络，并能够在给定相同的模型和数据集进行训练的情况下产生相同的结果。<br />
+<img src="https://viso.ai/wp-content/uploads/2021/03/pytorch-vs-tensorflow-accuracy.jpg" alt="" /></p>
+<br>
+<h3 id="训练时间和内存使用"><a class="markdownIt-Anchor" href="#训练时间和内存使用"></a> 训练时间和内存使用</h3>
+<p>上图显示了TensorFlow和PyTorch的训练时间。这表明TensorFlow的训练时间明显更高(TensorFlow的平均训练时间为11.19秒，而PyTorch的平均训练时间为7.67秒)。虽然在谷歌协作实验室中，模型训练时间的持续时间每天都有很大变化，但TensorFlow和PyTorch之间的相对持续时间保持一致。TensorFlow训练期间的内存使用率(1.7 GB RAM)明显低于PyTorch的内存使用率(3.5 GB RAM)。然而，两个模型在训练期间的内存使用情况略有差异，并且在初始加载数据期间的内存使用较高:TensorFlow为4.8 GB, PyTorch为5 GB。</p>
+<br>
+<h3 id="易用性"><a class="markdownIt-Anchor" href="#易用性"></a> 易用性</h3>
+<p>PyTorch更面向对象的风格使实现模型更耗时。此外，与TensorFlow相比，PyTorch的数据处理规范更直接。另一方面，由于神经网络结构的底层实现，TensorFlow的学习曲线略陡峭。因此，它的低级方法允许更自定义的方法来形成神经网络，允许更专门的特征。此外，非常高级的Keras库运行在TensorFlow之上。因此，作为一个教学工具，非常高级的Keras库可以用于教授基本概念，然后可以通过布局更多的结构来使用TensorFlow来进一步理解概念。</p>
+<br>
+<h2 id="pytorch与tensorflow的区别总结"><a class="markdownIt-Anchor" href="#pytorch与tensorflow的区别总结"></a> PyTorch与TensorFlow的区别——总结</h2>
+<p>对于“PyTorch和TensorFlow，哪个更好?”取决于用例和应用，但有几个重要的方面需要考虑:一般来说，TensorFlow和PyTorch的实现表现出相同的准确性。然而，TensorFlow的训练时间明显更高，但内存使用量更低。PyTorch比TensorFlow允许更快地进行原型设计，但如果神经网络需要自定义功能，TensorFlow可能是更好的选择。TensorFlow将神经网络视为静态对象;如果你想改变模型的行为，你必须从头开始。使用PyTorch，神经网络可以在运行时进行调整，使其更容易优化模型。另一个主要区别在于开发人员如何进行调试。使用TensorFlow进行有效调试需要一个特殊的调试器工具，使您能够检查网络节点在每个步骤中如何进行计算。PyTorch可以使用许多广泛可用的Python调试工具之一进行调试。PyTorch和TensorFlow都提供了加速模型开发和减少样板代码数量的方法。然而，PyTorch和TensorFlow之间的核心区别在于PyTorch更“python化”，基于面向对象的方法。同时，TensorFlow提供了更多的选项供选择，从而通常具有更高的灵活性。对于许多熟悉Python的开发人员来说，这是Pytorch比TensorFlow更好的一个重要原因。</p>
+<Br>
+<h2 id="特性比较表"><a class="markdownIt-Anchor" href="#特性比较表"></a> 特性比较表</h2>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>PyTorch</th>
+<th>TensorFlow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>易用性</td>
+<td>语法更符合Python，调试更容易</td>
+<td>学习曲线较陡，需要更多模板代码</td>
+</tr>
+<tr>
+<td>动态计算图</td>
+<td>运行时更容易修改</td>
+<td>需要重新编译才能修改</td>
+</tr>
+<tr>
+<td>GPU 支持</td>
+<td>设置和使用多GPU更简单</td>
+<td>多GPU支持更复杂，需要更多设置，有专门的TF API</td>
+</tr>
+<tr>
+<td>社区支持</td>
+<td>相对较新，发展迅速</td>
+<td>大型且活跃，资源丰富</td>
+</tr>
+<tr>
+<td>生态系统</td>
+<td>与TensorFlow相比库和工具较少</td>
+<td>拥有广泛的预构建模型和工具库</td>
+</tr>
+<tr>
+<td>调试</td>
+<td>由于Python语法和动态计算图，调试更容易</td>
+<td>由于静态计算图，调试可能更具挑战性</td>
+</tr>
+<tr>
+<td>研究应用</td>
+<td>由于其灵活性和易用性，常用于研究</td>
+<td>由于速度和可扩展性，常用于生产应用</td>
+</tr>
+<tr>
+<td>数学库</td>
+<td>使用TorchScript进行张量操作，NumPy进行数值计算</td>
+<td>使用自有数学库进行张量操作和数值计算</td>
+</tr>
+<tr>
+<td>Keras 集成</td>
+<td>没有原生Keras集成</td>
+<td>有原生Keras集成，简化模型构建和训练</td>
+</tr>
+</tbody>
+</table>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2023-12-24");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2023-12-24T03:50:43.000Z" itemprop="datePublished">2023-12-24</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Accumulate/'>Accumulate</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Accumulate/" rel="tag">#&nbsp;Accumulate</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2023/12/28/RuntimeError-CUDA-error-device-side-assert-triggered/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">RuntimeError: CUDA error: device-side assert triggered</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2023/12/24/Pytorch-torch-utils-data-DataLoader/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Pytorch:torch.utils.data.DataLoader</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2023/12/24/PyTorch-VS-TensorFlow/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2023/12/24/PyTorch-VS-TensorFlow/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

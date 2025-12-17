@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Mac配置PyTorch完整版教程(M2芯片) | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Mac配置PyTorch完整版教程(M2芯片) | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2023/10/12/Mac%E9%85%8D%E7%BD%AEPyTorch%E5%AE%8C%E6%95%B4%E7%89%88%E6%95%99%E7%A8%8B-M2%E8%8A%AF%E7%89%87/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   1.下载Anconda 去Anaconda官网安装ARM版本的Anconda    2.检查Anconda是否安装完成 输入下面指令： 1conda info 若出现以下内容则安装成功： 123456789101112131415 - ab - blog"><meta name="keywords" content="tool, Mac, M2, PyTorch, blog"><meta property="og:image" content="https://pbs.twimg.com/media/F8LNUrMbUAA_sKT?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F8MsDqAacAAnGCH?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F8MvJo-boAAuYPt?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F8Mys8bbUAAFml4?format=jpg&amp;name=medium"><meta property="article:published_time" content="2023-10-11T17:18:34.000Z"><meta property="article:modified_time" content="2023-10-12T02:03:53.570Z"><meta property="og:updated_time" content="2023-10-12T02:03:53.570Z"><meta property="article:author" content="ab"><meta property="article:tag" content="tool, Mac, M2, PyTorch, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2023/10/12/Mac%E9%85%8D%E7%BD%AEPyTorch%E5%AE%8C%E6%95%B4%E7%89%88%E6%95%99%E7%A8%8B-M2%E8%8A%AF%E7%89%87/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2023/10/12/Mac%E9%85%8D%E7%BD%AEPyTorch%E5%AE%8C%E6%95%B4%E7%89%88%E6%95%99%E7%A8%8B-M2%E8%8A%AF%E7%89%87/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2023/10/12/Mac%E9%85%8D%E7%BD%AEPyTorch%E5%AE%8C%E6%95%B4%E7%89%88%E6%95%99%E7%A8%8B-M2%E8%8A%AF%E7%89%87/"
+    },
+    "headline": "Mac配置PyTorch完整版教程(M2芯片) | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2023-10-11T17:18:34.000Z",
+    "dateModified": "2023-10-12T02:03:53.570Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "tool, Mac, M2, PyTorch, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   1.下载Anconda 去Anaconda官网安装ARM版本的Anconda    2.检查Anconda是否安装完成 输入下面指令： 1conda info 若出现以下内容则安装成功： 123456789101112131415 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Mac配置PyTorch完整版教程(M2芯片)</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2023-10-12</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/tool/">tool</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADs0lEQVR42u2aSW4kMQwE+/+ftk8GDKPEDKoX0YWoy4x7USsEiEsyH183fB5CCSWUUELdDupRPL/f//n/5WIX31ut/fu9qzVXf6d9CiXUJKjVRqu//7529eOrzcfNLQ437VMooSZBVYusAsfV+6vPVJe/Oqirw1nuUyih/gFUSswpGNAkTdYTSqi7QFUXPgUUAnL1egouQgk1HYosQoMFSdCrQEA++3SVLpRQb4baSbAn/n2pmiSUUG+CiqI7KEppUGhtcBFwXjL1EEqoN0JRQT4lxe5woBMISGEslFBToNIGusGhCgjp93bFVKGEmghFh9JUgFzBEQGnStplwyiUUEOgiOBRiYmdxJs2TQrb1ZpCCTURqlqIwlJzSDKh0EMWSqiJUMvLBwcANGGSRNoJWGWgEEqoA1DPNGZpMN1pDqkgg5KvUEINgao22hl6k8vdEUWJaUsooSZCUSE+GbGIISsl62TaakU/oYT6IFRXZEmNXxJGu0OGlNyFEmoaVCpEafMYG7hHNs4TgQUnX6GEOghFCsjuJSciJxVoyO8LJdQUqM5gmSbnTmO4m+DbxmChhPoQFBH6SVFKTVk00acAhgpaoYQ6AJUguk1fMvNiEWVHDBJKqAFQqWEj4kol4pDhdGe4VjaWQgk1AKojdHSMhcnMQYrc9r6EEmoAVOdiErPHjjCz01heBiehhBoE1SlGO+Ypui4trlsKrVBCHYBKRo3O8CAN5YgpJAURZGIUSqjDUGhIDDZJCtSOmJkE0FJNEkqoQ1AdYaWTnDsbI8Pz6vNCCTUJihoQSTOXxBY6ACADAZR8hRLqAFT3klITSWUg2RUy05BAKKEmQaUNExMivdhEUOkaUYQSagrUbjOXmsSdoVtHQL08LKGEGgJFzFCVEENMHeR1OhR4WswUSqgPQXWavXTBKyMHHeSRtYUSaipUFRiIOE8HDNRwUm6eFLRCCXUQiiTHNHirClkixtChW6tKF0qoQ1AdQTMVvpXoEgfRDZNVq6IQSqgDUClIdIdoyTiSms4UxIQSaioULUCroUFHSEkHlZJu+V2hhBoAlR4i0NMh9a4IQ4troYSaANU1JhLxkxSxO0k9NqpCCTUEihSf1GxFPp8Elo7ZqnS8CCXUQagkMHYHB7QQTd+hpmGhhPovUMQMQho/YnrsDPmeChRCCXUYqtvEpQNKCZoarko1SSihDkNVBe0rTFdJmEkHiA5FKKGGQO2I+Xi4DJItCQJkQCGUUBOg7vQIJZRQQgl1m+cblQ7VYllQAlsAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1%E4%B8%8B%E8%BD%BDanconda"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 1.下载Anconda</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2%E6%A3%80%E6%9F%A5anconda%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 2.检查Anconda是否安装完成</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3%E6%A3%80%E6%9F%A5%E5%AE%89%E8%A3%85anconda%E7%9A%84%E7%89%88%E6%9C%AC%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 3.检查安装Anconda的版本是否正确</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="post-toc-number">4.</span> <span class="post-toc-text"> 4.创建虚拟环境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5%E5%AE%89%E8%A3%85pytorch"><span class="post-toc-number">5.</span> <span class="post-toc-text"> 5.安装PyTorch</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E4%B8%8E%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81pytorch%E5%8A%A0%E9%80%9F"><span class="post-toc-number">6.</span> <span class="post-toc-text"> 6.验证是否安装成功与是否支持PyTorch加速</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7pycharm%E9%85%8D%E7%BD%AE"><span class="post-toc-number">7.</span> <span class="post-toc-text"> 7.PyCharm配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8test"><span class="post-toc-number">8.</span> <span class="post-toc-text"> 8.test</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="1下载anconda"><a class="markdownIt-Anchor" href="#1下载anconda"></a> 1.下载Anconda</h2>
+<p>去<a target="_blank" rel="noopener" href="https://www.anaconda.com/download#Downloads">Anaconda官网</a>安装ARM版本的Anconda</p>
+<p><img src="https://pbs.twimg.com/media/F8LNUrMbUAA_sKT?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h2 id="2检查anconda是否安装完成"><a class="markdownIt-Anchor" href="#2检查anconda是否安装完成"></a> 2.检查Anconda是否安装完成</h2>
+<p>输入下面指令：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info</span><br></pre></td></tr></table></figure>
+<p>若出现以下内容则安装成功：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">(base) chenyubin@chenyubindeMacBook-Pro ~ % conda info</span><br><span class="line"></span><br><span class="line">     active environment : base</span><br><span class="line">    active env location : /Users/chenyubin/anaconda3</span><br><span class="line">            shell level : <span class="number">1</span></span><br><span class="line">       user config file : /Users/chenyubin/.condarc</span><br><span class="line"> populated config files : /Users/chenyubin/.condarc</span><br><span class="line">          conda version : <span class="number">23</span>.<span class="number">5</span>.<span class="number">0</span></span><br><span class="line">    conda-build version : <span class="number">3</span>.<span class="number">25</span>.<span class="number">0</span></span><br><span class="line">         python version : <span class="number">3</span>.<span class="number">11</span>.<span class="number">3</span>.final.<span class="number">0</span></span><br><span class="line">       virtual packages : __archspec=<span class="number">1</span>=arm64</span><br><span class="line">                          __osx=<span class="number">13</span>.<span class="number">6</span>=<span class="number">0</span></span><br><span class="line">                          __unix=<span class="number">0</span>=<span class="number">0</span></span><br><span class="line">       base environment : /Users/chenyubin/anaconda3  (writable)</span><br><span class="line">      conda av data <span class="built_in">dir</span> : /Users/chenyubin/anaconda3/etc/conda</span><br><span class="line">  conda av metadata url : None</span><br><span class="line">           channel URLs : https://repo.anaconda.com/pkgs/main/osx-arm64</span><br><span class="line"><span class="function">                          https://<span class="title">repo.anaconda.com</span>/<span class="title">pkgs</span>/<span class="title">main</span>/<span class="title">noarch</span></span></span><br><span class="line"><span class="function">                          <span class="title">https</span>://<span class="title">repo.anaconda.com</span>/<span class="title">pkgs</span>/<span class="title">r</span>/<span class="title">osx</span>-<span class="title">arm64</span></span></span><br><span class="line"><span class="function">                          <span class="title">https</span>://<span class="title">repo.anaconda.com</span>/<span class="title">pkgs</span>/<span class="title">r</span>/<span class="title">noarch</span></span></span><br><span class="line"><span class="function">          <span class="title">package</span> <span class="title">cache</span> : /<span class="title">Users</span>/<span class="title">chenyubin</span>/<span class="title">anaconda3</span>/<span class="title">pkgs</span></span></span><br><span class="line"><span class="function">                          /<span class="title">Users</span>/<span class="title">chenyubin</span>/.<span class="title">conda</span>/<span class="title">pkgs</span></span></span><br><span class="line"><span class="function">       <span class="title">envs</span> <span class="title">directories</span> : /<span class="title">Users</span>/<span class="title">chenyubin</span>/<span class="title">anaconda3</span>/<span class="title">envs</span></span></span><br><span class="line"><span class="function">                          /<span class="title">Users</span>/<span class="title">chenyubin</span>/.<span class="title">conda</span>/<span class="title">envs</span></span></span><br><span class="line"><span class="function">               <span class="title">platform</span> : <span class="title">osx</span>-<span class="title">arm64</span></span></span><br><span class="line"><span class="function">             <span class="title">user</span>-<span class="title">agent</span> : <span class="title">conda</span>/23.5.0 <span class="title">requests</span>/2.29.0 <span class="title">CPython</span>/3.11.3 <span class="title">Darwin</span>/22.6.0 <span class="title">OSX</span>/13.6</span></span><br><span class="line"><span class="function">                <span class="title">UID:GID</span> : 501:20</span></span><br><span class="line"><span class="function">             <span class="title">netrc</span> <span class="title">file</span> : <span class="title">None</span></span></span><br><span class="line"><span class="function">           <span class="title">offline</span> <span class="title">mode</span> : <span class="title">False</span></span></span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="3检查安装anconda的版本是否正确"><a class="markdownIt-Anchor" href="#3检查安装anconda的版本是否正确"></a> 3.检查安装Anconda的版本是否正确</h2>
+<p>输入指令：<strong>(一行一行输入)</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line"><span class="keyword">import</span> platform</span><br><span class="line"><span class="built_in">print</span>(platform.platform())</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(base) chenyubin@chenyubindeMacBook-Pro ~ % python</span><br><span class="line">Python <span class="number">3</span>.<span class="number">11</span>.<span class="number">3</span> (main, Apr <span class="number">19</span> <span class="number">2023</span>, <span class="number">18</span>:<span class="number">49</span>:<span class="number">55</span>) [Clang <span class="number">14</span>.<span class="number">0</span>.<span class="number">6</span> ] on darwin</span><br><span class="line"><span class="built_in">Type</span> &quot;<span class="built_in">help</span>&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; <span class="keyword">for</span> <span class="built_in">more</span> information.</span><br><span class="line">&gt;&gt;&gt; import platform</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(platform.platform())</span><br><span class="line">macOS-<span class="number">13</span>.<span class="number">6</span>-arm64-arm-<span class="number">64</span>bit</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="4创建虚拟环境"><a class="markdownIt-Anchor" href="#4创建虚拟环境"></a> 4.创建虚拟环境</h2>
+<p>输入指令: （注意此处的<code>MSResNet</code>和python版本号应该换成你需要的内容）</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n MSResNet python=<span class="number">3</span>.<span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>激活这个环境：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate MSResNet</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="5安装pytorch"><a class="markdownIt-Anchor" href="#5安装pytorch"></a> 5.安装PyTorch</h2>
+<p>PyTorch的GPU训练加速是使用苹果Metal Performance Shaders（MPS）作为后端来实现的。<strong>注意Mac OS版本要大于等于12.3</strong>。</p>
+<p>去PyTorch官网获取命令。<strong>这里注意要选取Nightly版本，才支持GPU加速，Package选项中选择Pip</strong>。(这里若使用conda安装有一定概率无法安装到预览版，建议使用pip3安装)</p>
+<p><img src="https://pbs.twimg.com/media/F8MsDqAacAAnGCH?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<p>输入命令安装：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># MPS acceleration is available on MacOS <span class="number">12</span>.<span class="number">3</span>+</span><br><span class="line">pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu</span><br></pre></td></tr></table></figure>
+<p>得到结果：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">(MSResNet) chenyubin@chenyubindeMacBook-Pro ~ % pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu</span><br><span class="line">Looking <span class="keyword">in</span> indexes: https://download.pytorch.org/whl/nightly/cpu</span><br><span class="line">Collecting torch</span><br><span class="line">  Downloading https://download.pytorch.org/whl/nightly/cpu/torch-<span class="number">2</span>.<span class="number">2</span>.<span class="number">0</span>.dev20231011-cp39-none-macosx_11_0_arm64.whl (<span class="number">58</span>.<span class="number">3</span> MB)</span><br><span class="line">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="number">58</span>.<span class="number">3</span>/<span class="number">58</span>.<span class="number">3</span> MB <span class="number">16</span>.<span class="number">7</span> MB/s eta <span class="number">0</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">Collecting torchvision</span><br><span class="line">  Downloading https://download.pytorch.org/whl/nightly/cpu/torchvision-<span class="number">0</span>.<span class="number">17</span>.<span class="number">0</span>.dev20231011-cp39-cp39-macosx_11_0_arm64.whl (<span class="number">1</span>.<span class="number">6</span> MB)</span><br><span class="line">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="number">1</span>.<span class="number">6</span>/<span class="number">1</span>.<span class="number">6</span> MB <span class="number">6</span>.<span class="number">8</span> MB/s eta <span class="number">0</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">Collecting torchaudio</span><br><span class="line">  Downloading https://download.pytorch.org/whl/nightly/cpu/torchaudio-<span class="number">2</span>.<span class="number">2</span>.<span class="number">0</span>.dev20231011-cp39-cp39-macosx_11_0_arm64.whl (<span class="number">1</span>.<span class="number">8</span> MB)</span><br><span class="line">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="number">1</span>.<span class="number">8</span>/<span class="number">1</span>.<span class="number">8</span> MB <span class="number">5</span>.<span class="number">9</span> MB/s eta <span class="number">0</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">Collecting filelock (from torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/filelock-<span class="number">3</span>.<span class="number">9</span>.<span class="number">0</span>-py3-none-any.whl (<span class="number">9</span>.<span class="number">7</span> kB)</span><br><span class="line">Collecting typing-extensions (from torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/typing_extensions-<span class="number">4</span>.<span class="number">4</span>.<span class="number">0</span>-py3-none-any.whl (<span class="number">26</span> kB)</span><br><span class="line">Collecting sympy (from torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/sympy-<span class="number">1</span>.<span class="number">11</span>.<span class="number">1</span>-py3-none-any.whl (<span class="number">6</span>.<span class="number">5</span> MB)</span><br><span class="line">Collecting networkx (from torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/networkx-<span class="number">3</span>.<span class="number">0</span>rc1-py3-none-any.whl (<span class="number">2</span>.<span class="number">0</span> MB)</span><br><span class="line">Collecting jinja2 (from torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/Jinja2-<span class="number">3</span>.<span class="number">1</span>.<span class="number">2</span>-py3-none-any.whl (<span class="number">133</span> kB)</span><br><span class="line">Collecting fsspec (from torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/fsspec-<span class="number">2023</span>.<span class="number">4</span>.<span class="number">0</span>-py3-none-any.whl (<span class="number">153</span> kB)</span><br><span class="line">Collecting numpy (from torchvision)</span><br><span class="line">  Downloading https://download.pytorch.org/whl/nightly/numpy-<span class="number">1</span>.<span class="number">24</span>.<span class="number">1</span>-cp39-cp39-macosx_11_0_arm64.whl (<span class="number">13</span>.<span class="number">9</span> MB)</span><br><span class="line">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="number">13</span>.<span class="number">9</span>/<span class="number">13</span>.<span class="number">9</span> MB <span class="number">18</span>.<span class="number">5</span> MB/s eta <span class="number">0</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">Collecting requests (from torchvision)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/requests-<span class="number">2</span>.<span class="number">28</span>.<span class="number">1</span>-py3-none-any.whl (<span class="number">62</span> kB)</span><br><span class="line">Collecting pillow!=<span class="number">8</span>.<span class="number">3</span>.*,&gt;=<span class="number">5</span>.<span class="number">3</span>.<span class="number">0</span> (from torchvision)</span><br><span class="line">  Downloading https://download.pytorch.org/whl/nightly/Pillow-<span class="number">9</span>.<span class="number">3</span>.<span class="number">0</span>-cp39-cp39-macosx_11_0_arm64.whl (<span class="number">2</span>.<span class="number">9</span> MB)</span><br><span class="line">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="number">2</span>.<span class="number">9</span>/<span class="number">2</span>.<span class="number">9</span> MB <span class="number">10</span>.<span class="number">9</span> MB/s eta <span class="number">0</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">Collecting MarkupSafe&gt;=<span class="number">2</span>.<span class="number">0</span> (from jinja2-&gt;torch)</span><br><span class="line">  Downloading https://download.pytorch.org/whl/nightly/MarkupSafe-<span class="number">2</span>.<span class="number">1</span>.<span class="number">2</span>-cp39-cp39-macosx_10_9_universal2.whl (<span class="number">17</span> kB)</span><br><span class="line">Collecting charset-normalizer&lt;<span class="number">3</span>,&gt;=<span class="number">2</span> (from requests-&gt;torchvision)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/charset_normalizer-<span class="number">2</span>.<span class="number">1</span>.<span class="number">1</span>-py3-none-any.whl (<span class="number">39</span> kB)</span><br><span class="line">Collecting idna&lt;<span class="number">4</span>,&gt;=<span class="number">2</span>.<span class="number">5</span> (from requests-&gt;torchvision)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/idna-<span class="number">3</span>.<span class="number">4</span>-py3-none-any.whl (<span class="number">61</span> kB)</span><br><span class="line">Collecting urllib3&lt;<span class="number">1</span>.<span class="number">27</span>,&gt;=<span class="number">1</span>.<span class="number">21</span>.<span class="number">1</span> (from requests-&gt;torchvision)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/urllib3-<span class="number">1</span>.<span class="number">26</span>.<span class="number">13</span>-py2.py3-none-any.whl (<span class="number">140</span> kB)</span><br><span class="line">Collecting certifi&gt;=<span class="number">2017</span>.<span class="number">4</span>.<span class="number">17</span> (from requests-&gt;torchvision)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/certifi-<span class="number">2022</span>.<span class="number">12</span>.<span class="number">7</span>-py3-none-any.whl (<span class="number">155</span> kB)</span><br><span class="line">Collecting mpmath&gt;=<span class="number">0</span>.<span class="number">19</span> (from sympy-&gt;torch)</span><br><span class="line">  Using cached https://download.pytorch.org/whl/nightly/mpmath-<span class="number">1</span>.<span class="number">2</span>.<span class="number">1</span>-py3-none-any.whl (<span class="number">532</span> kB)</span><br><span class="line">Installing collected packages: mpmath, urllib3, typing-extensions, sympy, pillow, numpy, networkx, MarkupSafe, idna, fsspec, filelock, charset-normalizer, certifi, requests, jinja2, torch, torchvision, torchaudio</span><br><span class="line">Successfully installed MarkupSafe-<span class="number">2</span>.<span class="number">1</span>.<span class="number">2</span> certifi-<span class="number">2022</span>.<span class="number">12</span>.<span class="number">7</span> charset-normalizer-<span class="number">2</span>.<span class="number">1</span>.<span class="number">1</span> filelock-<span class="number">3</span>.<span class="number">9</span>.<span class="number">0</span> fsspec-<span class="number">2023</span>.<span class="number">4</span>.<span class="number">0</span> idna-<span class="number">3</span>.<span class="number">4</span> jinja2-<span class="number">3</span>.<span class="number">1</span>.<span class="number">2</span> mpmath-<span class="number">1</span>.<span class="number">2</span>.<span class="number">1</span> networkx-<span class="number">3</span>.<span class="number">0</span>rc1 numpy-<span class="number">1</span>.<span class="number">24</span>.<span class="number">1</span> pillow-<span class="number">9</span>.<span class="number">3</span>.<span class="number">0</span> requests-<span class="number">2</span>.<span class="number">28</span>.<span class="number">1</span> sympy-<span class="number">1</span>.<span class="number">11</span>.<span class="number">1</span> torch-<span class="number">2</span>.<span class="number">2</span>.<span class="number">0</span>.dev20231011 torchaudio-<span class="number">2</span>.<span class="number">2</span>.<span class="number">0</span>.dev20231011 torchvision-<span class="number">0</span>.<span class="number">17</span>.<span class="number">0</span>.dev20231011 typing-extensions-<span class="number">4</span>.<span class="number">4</span>.<span class="number">0</span> urllib3-<span class="number">1</span>.<span class="number">26</span>.<span class="number">13</span></span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="6验证是否安装成功与是否支持pytorch加速"><a class="markdownIt-Anchor" href="#6验证是否安装成功与是否支持pytorch加速"></a> 6.验证是否安装成功与是否支持PyTorch加速</h2>
+<p>输入指令：<strong>(一行一行输入)</strong></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line">import torch</span><br><span class="line">torch.__version__</span><br><span class="line">torch.device(&quot;mps&quot;)</span><br></pre></td></tr></table></figure>
+<p>出现结果：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(MSResNet) chenyubin@chenyubindeMacBook-Pro ~ % python</span><br><span class="line">import torch</span><br><span class="line">torch.__version__</span><br><span class="line">torch.device(&quot;mps&quot;)</span><br><span class="line">Python <span class="number">3</span>.<span class="number">9</span>.<span class="number">18</span> (main, Sep <span class="number">11</span> <span class="number">2023</span>, <span class="number">08</span>:<span class="number">25</span>:<span class="number">10</span>) </span><br><span class="line">[Clang <span class="number">14</span>.<span class="number">0</span>.<span class="number">6</span> ] :: Anaconda, Inc. on darwin</span><br><span class="line"><span class="built_in">Type</span> &quot;<span class="built_in">help</span>&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; <span class="keyword">for</span> <span class="built_in">more</span> information.</span><br><span class="line">&gt;&gt;&gt; import torch</span><br><span class="line">torch.__&gt;&gt;&gt; torch.__version__</span><br><span class="line">&#x27;<span class="number">2</span>.<span class="number">2</span>.<span class="number">0</span>.dev20231011&#x27;</span><br><span class="line">&gt;&gt;&gt; torch.device(&quot;mps&quot;)</span><br><span class="line">device(<span class="built_in">type</span>=&#x27;mps&#x27;)</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="7pycharm配置"><a class="markdownIt-Anchor" href="#7pycharm配置"></a> 7.PyCharm配置</h2>
+<p>打开PyCharm，点击setting -&gt; 项目:xxx -&gt; Python解释器 -&gt; 添加解释器 -&gt; 添加本地解释器 -&gt; conda环境，选择自己刚才创建的环境即可：</p>
+<p><img src="https://pbs.twimg.com/media/F8MvJo-boAAuYPt?format=jpg&amp;name=medium" alt="" /></p>
+<p>如果找不到python版本路径，可以打开终端输入：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which python</span><br></pre></td></tr></table></figure>
+<p>得到以下结果：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(MSResNet) chenyubin@chenyubindeMacBook-Pro ~ % which python</span><br><span class="line">/Users/chenyubin/anaconda3/envs/MSResNet/bin/python</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="8test"><a class="markdownIt-Anchor" href="#8test"></a> 8.test</h2>
+<p>新建python文件输入以下内容：</p>
+<p><img src="https://pbs.twimg.com/media/F8Mys8bbUAAFml4?format=jpg&amp;name=medium" alt="" /></p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2023-10-12");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2023-10-11T17:18:34.000Z" itemprop="datePublished">2023-10-12</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/tool/'>tool</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/tool/" rel="tag">#&nbsp;tool</a>
+
+<a class="post-tags-list-item" href="/tags/Mac/" rel="tag">#&nbsp;Mac</a>
+
+<a class="post-tags-list-item" href="/tags/M2/" rel="tag">#&nbsp;M2</a>
+
+<a class="post-tags-list-item" href="/tags/PyTorch/" rel="tag">#&nbsp;PyTorch</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2023/10/13/Mac%E4%B8%8A%E4%BD%BF%E7%94%A8Linux%E8%99%9A%E6%8B%9F%E6%9C%BAM2%E8%8A%AF%E7%89%87/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Mac上使用Linux虚拟机(M2芯片)</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2023/10/07/Missing-Semester-of-CS/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Missing Semester of CS:Lecture01-课程概览与shell</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2023/10/12/Mac%E9%85%8D%E7%BD%AEPyTorch%E5%AE%8C%E6%95%B4%E7%89%88%E6%95%99%E7%A8%8B-M2%E8%8A%AF%E7%89%87/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2023/10/12/Mac%E9%85%8D%E7%BD%AEPyTorch%E5%AE%8C%E6%95%B4%E7%89%88%E6%95%99%E7%A8%8B-M2%E8%8A%AF%E7%89%87/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

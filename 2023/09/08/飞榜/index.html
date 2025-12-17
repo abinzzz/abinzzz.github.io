@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>飞榜 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="飞榜 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2023/09/08/%E9%A3%9E%E6%A6%9C/"><meta property="og:locale" content="zh-CN"><meta name="description" content="2023 🔗：2023飞榜  1.超低均分英港新澳荷混申 信息：  物联网 gpa：83 申研究生 经历：一段北邮水科研，两段小厂实习 GRE&#x2F;TOEFL&#x2F;IELTS：IELTS 6.5(L7.5 R7 W6 S6) VU：阿姆斯特丹自由大学   AD：  🇳🇱VU：CS&#x2F;大数据工程 🇬🇧Glasgow(格拉斯哥大学)：CS 🇬🇧Durham(杜伦大学)：科学计算与数据分析 🇦🇺 - ab - blog"><meta name="keywords" content="GoAbroad, blog"><meta property="article:published_time" content="2023-09-08T09:20:54.000Z"><meta property="article:modified_time" content="2025-02-19T09:16:38.929Z"><meta property="og:updated_time" content="2025-02-19T09:16:38.929Z"><meta property="article:author" content="ab"><meta property="article:tag" content="GoAbroad, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2023/09/08/%E9%A3%9E%E6%A6%9C/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2023/09/08/%E9%A3%9E%E6%A6%9C/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2023/09/08/%E9%A3%9E%E6%A6%9C/"
+    },
+    "headline": "飞榜 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2023-09-08T09:20:54.000Z",
+    "dateModified": "2025-02-19T09:16:38.929Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "GoAbroad, blog",
+    "description": "2023 🔗：2023飞榜  1.超低均分英港新澳荷混申 信息：  物联网 gpa：83 申研究生 经历：一段北邮水科研，两段小厂实习 GRE/TOEFL/IELTS：IELTS 6.5(L7.5 R7 W6 S6) VU：阿姆斯特丹自由大学   AD：  🇳🇱VU：CS/大数据工程 🇬🇧Glasgow(格拉斯哥大学)：CS 🇬🇧Durham(杜伦大学)：科学计算与数据分析 🇦🇺 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">飞榜</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2023-09-08</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/GoAbroad/">GoAbroad</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB1ElEQVR42u3a0Y6DMAxEUf7/p7uvbRV7xiyVwnB52ZXakoNkktjx8drwOkCBAgVqgTqa6/07Hz/++vz7PqvvWOOAikEtg85ArX5bPZA1Dqgo1CpQK0A1QBXQzjignoWqgr+bbLuABwXKmfjUwg3qeahqQDdouwn18l0CqO1R3Yb+yr+XZTOgtkbJooNYkKuH+2nVBdTWqC4QFdR5MZxNIahM1GTicxLQ6kWoNn+gclBdkqkSCGdinRTRQGWguoLY6uZukloGc/PSgMpCucWKyUGSE+QymwF1W5RT3KgCv3swp0ACKh+lJsDJgeVkUQaVgZLB1yScakJUL4GsuoC6JaoaVBUq1IvibBTt4j6oCJRTwFCLr5OEgMpETf53ElO3kXBUiAV1G9SkMOEeMLnJBqhMlNOoNZ1MnQnWOoQEdWuUu4iqZOM/RX5QWSgnOXUbAaf3BZWJcgLSSULPFPhBZaKchppqA6caLtTiDSoLNUkEzjRsuYdRoHJQ04YseeNhY7RV3Ad1O5TajHWFNKdx0H4pQEWhJo3J6mDILYaAejZqErSq+bCclEE9BuUmrN3ka/0GVBRKNWpZyeQg6EFlo9Si6SasZ5JYUHmonS5QoECBerv+ADmOsA95IpX0AAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2023"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 2023</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1%E8%B6%85%E4%BD%8E%E5%9D%87%E5%88%86%E8%8B%B1%E6%B8%AF%E6%96%B0%E6%BE%B3%E8%8D%B7%E6%B7%B7%E7%94%B3"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> 1.超低均分英港新澳荷混申</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2microsoft%E5%AE%9E%E4%B9%A0%E9%80%89%E6%89%8B"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 2.Microsoft实习选手</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3%E7%A7%91%E7%A0%94%E9%80%89%E6%89%8B"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> 3.科研选手</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4%E7%A0%94%E7%A9%B6%E7%94%9F%E7%94%B3%E5%8D%9A%E9%80%89%E6%89%8B"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> 4.研究生申博选手</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5%E6%99%AE%E9%80%9A%E4%BA%BA%E9%80%89%E6%89%8B"><span class="post-toc-number">1.5.</span> <span class="post-toc-text"> 5.普通人选手</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6nus-%E5%BD%95%E5%8F%96%E9%80%89%E6%89%8B"><span class="post-toc-number">1.6.</span> <span class="post-toc-text"> 6.nus-录取选手</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7%E8%BD%AF%E5%B7%A5%E4%B9%8B%E5%85%89"><span class="post-toc-number">1.7.</span> <span class="post-toc-text"> 7.软工之光</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8%E7%A7%91%E7%A0%94%E5%A4%A7%E4%BD%AC"><span class="post-toc-number">1.8.</span> <span class="post-toc-text"> 8.科研大佬</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <h1 id="2023"><a class="markdownIt-Anchor" href="#2023"></a> 2023</h1>
+<p>🔗：<a target="_blank" rel="noopener" href="https://bbs.byr.cn/#!article/GoAbroad/391790">2023飞榜</a></p>
+<h2 id="1超低均分英港新澳荷混申"><a class="markdownIt-Anchor" href="#1超低均分英港新澳荷混申"></a> 1.超低均分英港新澳荷混申</h2>
+<p>信息：</p>
+<ul>
+<li>物联网</li>
+<li>gpa：83</li>
+<li>申研究生</li>
+<li>经历：一段北邮水科研，两段小厂实习</li>
+<li>GRE/TOEFL/IELTS：IELTS 6.5(L7.5 R7 W6 S6)</li>
+<li>VU：阿姆斯特丹自由大学</li>
+</ul>
+<br>
+<p>AD：</p>
+<ul>
+<li>🇳🇱VU：CS/大数据工程</li>
+<li>🇬🇧Glasgow(格拉斯哥大学)：CS</li>
+<li>🇬🇧Durham(杜伦大学)：科学计算与数据分析</li>
+<li>🇦🇺USydney：“IT：DA”</li>
+<li>🇦🇺UNSW(新南威尔士大学)：DS</li>
+</ul>
+<p>REJ：</p>
+<ul>
+<li>🇬🇧Edinburgh(爱丁堡大学)：Operational Research with Data Science MSc</li>
+</ul>
+<p>PENDING：</p>
+<ul>
+<li>🇬🇧Manchester(曼彻斯特大学)：MIS</li>
+<li>🇬🇧Southampton(南安普顿大学)：DS</li>
+<li>🇭🇰PolyU(香港理工大学)：DSA</li>
+<li>🇭🇰HKU：CS</li>
+<li>🇸🇬NTU：EE/CCA/SP/CE</li>
+<li>🇦🇺ANU(澳大利亚国立大学)：Computing</li>
+<li>🇦🇺Melbourne(墨尔本大学)：SE</li>
+</ul>
+<p>最重要的事情说在前面，早点考出语言！早点考语言！<br />
+大学前三年都比较混，具体不展开说了，目标不明确，大三寒假犹豫了一番还是选择出国，然后由于疫情和自己懒惰的问题，雅思首考一直拖着，纸笔考在8月底才出分，但是口语只有5，后续，回校之后和同学们交流留学事宜，自己的目标不明确，随大流去找了个中介，然后主申英国的学校。9月底又在北京考了次机考，很邪门，口语还是5。这个时候有些焦虑，10月开始准备文书材料，还是比较拖拉，同时还准备11月再去考雅思，因为英国可以后交，就没有着急。10月初又试了试港大的cs提前批，没有足够准备，直接通知笔试，应该考的也不咋样，加上均分很低，没进面试。同时10月家长联系了澳洲的中介，帮忙申了点澳洲的学校，除了墨尔本国院都可以免语言，澳洲的中介都是免费的或者参加学校活动免申请费，低均分的同学可以早早拿个保底校。</p>
+<p>英国的文书和各种材料在10月拖拖拉拉的写着，中介效率也不高，后面还有疫情居家办公等等影响，反复修改，一直到11月中下旬才陆续完成。在这期间我又阴差阳错加了个kth申请群，渐渐的的了解了一些欧陆的留学情况。英国的递交基本在11月底完成了，同时我自己又去申了个港理工 dsa，好像是赶着一轮ddl申的，拖拉久了有ddl才有申请的动力。。。同时11月开始北京受疫情影响，雅思考点基本关了，10月其实也因为一些原因雅思考点关了，现在回首，大四上在北京考雅思基本只有9月有机会了（属实是没想到）。</p>
+<p>12月初疫情加重，还好我也基本完成了申请，我也离开北京回老家了。然后的日子基本隔离在家，刚回家几天有了英国第一个offer，con了雅思口语6.5，留位费还是1.15，12月主要在备战期末和雅思，想加申一些ee和缝合专业，最后看了看课设又放弃了。就这样来到1月，得完新冠的我还是难受了半个月的，还收到了几个拒信，变得有点焦虑，2023的开头过的不是很好。同时还在考虑要不要交留位费，最终多方面考虑，感觉后续会有更好的，就勇敢的拒了第一个offer。1月中旬到2月初，我又投了几家春招，然后线上考试。预约雅思也是2月初，由于北邮的返校时间公布的晚，北京考位紧张，我决定在考了一场再回去，报名到了一场10天后的，准备的也一般，本以为出不了分了，没想到考的还可以，口语也上了6，不过我也是真的不想再考了。</p>
+<p>2月中旬考完返校，这时候我其实手里没有offer，想想就焦虑。于是乎，只能行动起来让自己充实，这个时候我把目光放到了欧陆，我已经了解了很多欧陆的项目了，也有了合格的语言，开始加申，比较喜欢的阿姆斯特丹大学和阿自由cs joint项目，两年制的项目，选课比较自由，听说bar也不算高，但是课程压力有点大，只是没想到欧陆这一准备材料又是大工程，课程描述、动机信、论文写作等等，足足耗了三四天才完成，和英港新差别比较大，最后也是筋疲力尽，后面又看了几个德国项目，rwth，tum的申请系统都填完了结果rwth缺少gre，tum多方面考虑放弃了，鲁汶cs是雅思不够，北欧1.15基本都结束了，EIT犹犹豫豫，最后拿到阿大joint还没提交，综合考虑租房实习的问题，也放弃了（注：EIT 的bar是要低于单独申请其中最好的那个大学的，但是如果课程匹配度无法达到大学专业的最低要求，就会被调剂去差一些的学校，另外背景好的同学会有奖）。说起来我当时没继续申除了麻烦应该还有心疼申请费的问题，是100欧一个项目，还是有点贵的，还有就是当时投了很多春招和实习，2月底3月初一直在笔试面试，筋疲力尽。欧陆的申请都比较像，除了双e，tud，kth bar高一些，其他项目基本是看匹配度，均分和院校看得过去就行，今年的Aalto也很离谱（可能是没申请费还很多奖等多方面原因）。不像英港新那么强调均分，对低均分科班工作党友好，比如我看到阿大cs项目还有211 75分工作几年的录取了。</p>
+<p>感觉陆陆续续说的有点多了，上文主要也算是给自己大四的留学申请之路做了个梳理。整个申请季我是作为一个开始低均分制申请英国的申请者，到后面思路打开，看到更多的欧陆项目，探寻了一些更适合自己的方向。</p>
+<p>最后分享三个我觉得留学申请中比较关键的点：</p>
+<p>第一个是信息差，你在整个申请中能够用到的资源交流分享群，官网项目的学生大使、学长学姐，寄托、一亩三分地或者是知乎、小红书那些留学信息交流共享平台也好，尽量去了解更多关于你这个项目的具体情况。包括就读情况，申请难度以及未来就业情况。</p>
+<p>第二个比较重要的是心态问题，总而言之应该先拿到一个比较稳的保底offer，让自己踏实一点，然后有信心去申请其他算是冲刺和彩票的项目。像我虽然是一开始有早早的拿到一些offer，但是我没交留位费之后，整整两个月无offer，我都非常焦虑。但是在这个过程中，我觉得还是得有一定的自信，很多时候中国人的机心太重，总觉得就是现在，我必须在这一年得到什么。其实并不是，你可以大可以去gap年或者是半年去申请春季的项目，甚至于你去工作几年再去申请，我觉得都是不错的选择。</p>
+<p>第三个是目标，应该说还是想清楚自己到底想要什么，而不是说随大流去申请一些英港新的那些项目，比如说你去英国目标是什么，是不是真的适合你，能给你镀金还是学到些想学的技能，如果是想留当地找工的话那还是比较难。</p>
+<p>最后是在这个中介方面，如果真的是一筹莫展，建议可以去闲的时候听听这几个人的视频。第一个是如果对欧陆感兴趣，可以去看Marcsims的，所有的视频都可以，晚上听了助眠。其次是，如果你想去英国澳洲，可以听一下超哥留学。虽然他就是讲的不完全对，但是他整体的思路都是在线的。至于中介方面，我个人觉得中介主要是利用了一个所谓的信息差和你的心态的关系，他承诺给你的保底校，其实是不太值得的，文书不放心可以找人改改，但我认为中介大可不必。</p>
+<p>还有一点就是GPT对以后申请的影响，我觉得一旦有了GPT之后，你在信息差和文书材料方面的完成度不会低于一般中介，如果你还需要一些更加细分领域的细分领域的知识和项目的，就读体验的话，我觉得问一下项目在读学长学姐和一些专门做细分领域的工作室会比较靠谱，他们一般会在知乎上有一些，非常详尽的回答，有项目对比和在读学生专访这种，（用于引流）比如说在欧陆CS这一块儿，有一个Paris工作室做的就很好，以及各个留学群都有不少信息。很多时候我就在想，为什么KTH会有那么多浙大、哈工大和东南的同学会去，第一个是因为3+2项目的原因，第二个我觉得是，不要很盲目的去选择了一些项目，就我认为就读体验来说。英国大部分一年硕是一个看得过去的title，你带着这样的镀金学历回来找工作应该是有一定帮助，很多时候看看外校的同学，他们想的有可能就，更加更加切合自己想要的东西，比如去kth学通信，鲁汶学微电子,阿尔托学ml，他们是真的希望能够有所深造，所以，我的感觉就是可以再去好好思考一下自己到底要什么。</p>
+<p>简评下澳洲msc：看了一段时间澳洲签证，感觉澳洲如果能拿到pr还是很适合的，或者目标回国考公进国企还是适合的,不过确实有点贵。</p>
+<p>最后说下低均分同学如果要追学校的话，可以多投一些英港新前50/100 ee，communication，包括一些混合项目，不过每年录取情况不一样，去多试试新开的项目总会有机会的。</p>
+<h2 id="2microsoft实习选手"><a class="markdownIt-Anchor" href="#2microsoft实习选手"></a> 2.Microsoft实习选手</h2>
+<p>个人信息：</p>
+<ul>
+<li>硕博混申</li>
+<li>CS</li>
+<li>GPA：84.05</li>
+<li>GRE/TOEFL/IELTS： IELTS 7.0（6.0）</li>
+<li>微软实习一段，实验室科研一年</li>
+<li>B类会议一作x1，A类会议一作x1</li>
+</ul>
+<br>
+<p>OFFER:</p>
+<ul>
+<li>🇭🇰CityU：CS</li>
+<li>🇨🇦University of Alberta(阿尔伯特大学)：CS</li>
+<li>🇨🇦University of Ottawa(渥太华大学)：CS</li>
+<li>🇨🇦McGill University(麦吉尔大学)：ECE</li>
+</ul>
+<p>AD：</p>
+<ul>
+<li>🇭🇰CUHK：IE/EE</li>
+<li>🇭🇰HKU：EEE</li>
+<li>🇬🇧University of Bath(巴斯大学)：CS</li>
+<li>🇬🇧University of Leeds(英国利兹大学)：CS</li>
+</ul>
+<br>
+<p>自己之前在飞榜上认识了几位非常nice且有耐心的学长，也是得益于他们的经验，我对整个留学才有了初步的认识。现在我的申请基本结束后来写自己的经验贴，希望能帮到之后的BYR<sub>其实周围有很多人是申请出国的并且结果非常好，不过感觉今年飞榜数量很少，还是希望大家多多分享，多多交流</sub></p>
+<p>我的均分很低，如果不加水课可能只有82。家乡是西北偏远地区的省会城市，刚来学校是各种跟不上，别说出国了，能在国内读个研究生就不错了。大一高数期中考了15分，期末被老师捞了后61分飘过，直到大二才慢慢跟上节奏，并且了解到很多外面的信息。说这些无关的话是想给均分不高的同学信心，均分不高也可以有好的选择~</p>
+<p>关于项目选择和具体信息，其实最好就是自己时刻关注官网，因为每年都会有少些变化。其次，一定利用好官方给的邮箱，有不懂的及时问，一般都会得到官方回复的。</p>
+<p>关于授课硕项目:个人比较推荐香港和新加坡，英国这两年Bar高的有点名不符其实了，并且对北邮（211）不太友好。由于港校扩招，北邮申港校是比较好申的，尤其推荐港大CS和EEE项目、港中文IE和EE项目，性价比很高。港大CS项目，周围同学有80、82和83录取的，并且软背景不强。港大EEE和港中文EE，均分感觉80+就有希望。港中文IE，周围同学基本均分都在82-85，但IE的课程设置个人认为很好。港科相比下难度要大很多，对北邮不太友善。</p>
+<p>关于加国留学:加拿大今年有些授课项目改成Rolling制度的，周围有高均分同学因为交的太晚导致现在都没录取。所以不管是申请哪，还是尽量早点提交。之前总听别人说加硕玄学，我感觉还好。授课硕周围基本均分高的录取结果都很好。关于研硕，一定得先陶瓷（当然有少数被老师捞的）。但大部分人遇到的问题是陶瓷后老师不回复，我发出去的陶瓷邮件大部分都收到了回复。有两方面经验，一是既然申请研硕，那还是需要展示出GPA之外的扎实的科研经历（不一定是pape）；二是不要海套，一个学校跟你方向匹配的最多也就两三个老师，要展示出你跟他研究相一致的科研部分。另外，UBC和多大的研硕截至时间比较早需要注意。</p>
+<p>关于日常实习：虽然很多人吐槽论坛的招聘板块很多帖子只是冲KPI，但如果每天抽空查看，我觉得还是有一些学长们发布的高质量实习，包括APPLE、MS等，至少我自己和周围同学很多都是因为论坛找到了一封不错的实习</p>
+<p>关于科研实习：科研实习个人觉得对授课硕申请加成并不大。如果选择读博或研硕，可以多看看中科院、清北的实验室主页，尤其是青年老师，很多还是愿意带学生发论文的，大胆联系就好，一般都很愿意要北邮人的。如果去两周觉得方向不合适或者老师人不行，果断换就行。当然现在这个环境下要出成果，还是需要花大量时间和精力的。另外，外校很多实验室都有津贴，比在北邮打黑工强多了（既没指导还没补助）</p>
+<p>关于我的博士选择：我最开始其实没有读博的打算，计划是去加拿大读研硕。当时被推荐NTU的机会后，那边老师说考个GRE问题就不大（NTU强导师制）。CityU是之前有关注过这位老师的工作后，自己陶瓷，老师约了面试后，给我的各种反馈都挺好的。但后面主要还是考虑女朋友（高中在一起异地四年了），感觉去香港可能对两个人的未来更好一点，自己也不想异地了。当然有时候可能也会想，是不是牺牲了一下自己（笑~）。总之，我觉得港新地区博士申请难度还可以（相比美国）。主要一个是看connection，一个是看科研成果。如果有强推的话，申请相对非常容易，很多强组的学生基本都是推荐过去的。如果自己陶瓷，paper不是必须的，本科直博也很少有人有太好的paper，关键还是方向是否匹配，以及你的科研经历是否solid（对这个方向了解的深度以及自己的看法），我组里的是师兄师姐本科直博的大多没paper。还有，港新里HKUST和NTU是强导师制的，剩下的现在基本都是委员会制，且这两年的要求越来越高。不过我自己感觉如果老师特别想要你，应该可以和委员会battle一下，我就属于均分不到85的那类。</p>
+<p>出国留学是人生的一件大事，全都交给中介处理，不如将命运掌握在自己手里，我觉得DIY是一次很好的锻炼自己的机会~很多人认为最麻烦的是文书，但个人觉得文书在英港新申请中的重要性及其低。去一亩三分地、寄托天下等论坛，有很多前辈们分享自己文书和简历的精华帖，多看几篇自己花一下午时间写一下，更何况现在用ChatGPT帮你polish一下，无论是语法还是结构，比很多中介写的要好。我都是在一篇通用的基础上，改下不同项目的名称和学校，然后去官网找下这个项目下自己有什么感兴趣的课程写进去，让学校可能觉得你认真了解了这个项目。关于软背景提升，以计算机相关专业来说，或多或少会有一些课设（计网、操作系统等），把课设润色一下，包装的高大上一点（ChatGPT），足够写进简历和文书里了。</p>
+<p>感觉这两三年国内外形势变化飞快，其实自己最开始是也只想润加拿大的，想先去读研硕再转PhD。但最后还是觉得加拿大可能并不适合自己，比如医疗效率低下、敏感专业安调、考虑女友和父母。不过当然，加拿大的好处就不用多说了<sub>总的来说，我觉得不管是国内还是国外，只要在认知清楚的前提下，做出最适合自己的选择就好</sub></p>
+<h2 id="3科研选手"><a class="markdownIt-Anchor" href="#3科研选手"></a> 3.科研选手</h2>
+<p>个人信息：</p>
+<ul>
+<li>申研究生</li>
+<li>信息工程</li>
+<li>gpa：88</li>
+<li>研究/实习经历：申请时和去年背景完全一样【3北邮1中科院科研】，多了一个外企安卓开发的offer【但是当时还没去，最后也没有去成，后面会细说】</li>
+<li>Paper：workshop一篇n作，2专利在审【其中有一个十一月份的时候因为没有及时材料被withdraw了】</li>
+</ul>
+<br>
+<p><strong>OFFER:</strong></p>
+<ul>
+<li>🇨🇦UofT(多伦多大学)：ECE</li>
+<li>🇨🇦UBC：EE</li>
+<li>🇬🇧ICL(帝国理工学院)： ASCE</li>
+<li>🇬🇧UCL：CS/CGVI</li>
+<li>🇺🇸GaTech(佐治亚理工学院)：CS</li>
+<li>🇳🇱TUD(代尔夫特理工大学)：EE</li>
+<li>🇸🇬NUS：CS</li>
+</ul>
+<br>
+<p>PS：因为签证被安全调查，被迫defer，我在2022年11月份决定重启申请季同时开始找实习。<br />
+为了更好给学弟学妹们参考，我将22fall申请季的offer，23申请季的offer，和23申请季的rej都放上来了。2022.6-2023.1，安全调查6个月终于下签。在这一年里，我因为defer的身份被某德企withdraw过实习offer，也因为defer身份拿到了dream的美企研发intern机会；从0实习0leedcode题到上岸FLAAG SDE暑期实习；试了一些去年没有尝试的项目申请，也算圆满了心愿；开始做一些奇奇怪怪的专业相关小兼职。这一年发生太多事情了，过段时间有空了会单独开一个贴讲讲被安全调查后，突如其来的gap一年对我的影响&amp;我的选择，这里先简单写一些关于申请的碎碎念。希望能对申请中/找实习&amp;科研中/害怕安调中/考虑跳车中的学弟学妹们一些帮助和参考。</p>
+<p>这次真的是全球混申了，我进一步确信了【中介无用】这件事。我自己也帮助了几个老同学搞申请、选校、搞文书这些，TA们拿到了NUS，TUD，KUL，UNSW，HKUST等offer。然后这一年也接到了不少学弟学妹的选校定位咨询，因此我想说：如果你真的觉得还是有中介更靠谱，不如先找我聊聊，因为我现在也给中介和文书机构做兼职了……具体的就不打广告了。本人咨询范围包括但不限于：10043/安全调查/全球混申/除了CS外的各类泛CS专业申请/名校bar低项目/拿卡/GAP Year规划/文书写作/背景提升…… 学弟学妹咨询的话我不会收费的。</p>
+<p>当前签证政策和疫情影响下对留学选校和今后规划的影响和解决方案</p>
+<p>先再贴一下本人情况，10043政策下EECS专业异国恋难民 兼 加拿大学签安全调查倒霉蛋 兼 不能头铁冲一些可能入境读书毕业前多年不敢回国的项目</p>
+<p>22fall的byr签证情况喜忧参半吧，美签过了一些STEM专业的幸运儿，也有一些通过其他专业or方法曲线赴美读CS的猛人；加签安全调查（下称安调）比例激增，授课硕安调比例也很高，且无法知道“出狱”时间，很搞心态；澳洲PhD签证难下；欧陆签证没有太大问题。</p>
+<p>23fall目前观察下来，签证进一步收紧，主要体现在欧陆STEM PhD签证出问题，以及加拿大签证安调上。因为目前还没有到8月，因此加签情况还需要再观察一下来下结论。美签头铁硬冲的人数变少了，但是入美的途径更明晰了。</p>
+<p>我先写个框架，之后单独开一页写安调后的备选方案与我的思考选择。</p>
+<p>跳车<br />
+1.1 跳车时间的选择<br />
+1.2 跳车国家的选择<br />
+1.3 以后下签了是否要考虑读二硕<br />
+1.4 交留位费防跳车还是重新申请<br />
+1.4.1 重新申请如何定位选校</p>
+<p>选校，尤其是在byr论坛信息这么丰富的情况下，基本上找几个学长学姐对标一下自己的背景，选校就能够八九不离十。再加上有了第一年申请的经验，我很清楚哪些学校和项目是我今年能稳录的。选校的框架一般是冲刺-主申-保底。今年对我来说，已经不再有主申的学校了。一是因为没有了美国，选择本身就很有限；二是因为我基本上都知道这个项目我是大概率能录还是完全彩票。那么对于defer跳车的uu们来说，只要确定冲刺和保底就可以，因为其实那个等待签证的项目就可以替换掉其他的主申了。</p>
+<p>在11月份我决定重新申请后，我去询问了本科好友们的申请情况，翻了近两年byr飞榜、xhs的offer贴，看了1p3a，寄托天下这些常规公开的留学数据库里的我感兴趣的院校的全部ad&amp;rej的dp，最终确定：IC部分非主流专业，欧陆大部分院校非热门专业，澳洲香港授课硕，和新二某些专业我基本上可以确信必录。</p>
+<p>接着就是根据我对排名的要求、专业的课程设置、地区的性质进行筛选。我有一定的排名癖、希望当地政策可以支持毕业后工作几年、希望专业有意思扎实不能太水也不能太苦、希望课程设置能偏cs一些。最后，还需要防止其他国家的签证也突然抽风，所以选择二次申请了TUD-荷兰好毕业后找工，但是太苦太村；ICL-排名太漂亮，签证很稳妥，当最后的backup plan；NUS-防止war的backup plan&amp;排名可&amp;录取bar低排名高；UBCO-防止加签下签太晚导致uoft offer无法再继续defer了，再留一个去加拿大读书的plan b。此外还申请了两个女神校的偏艺术/文科的交叉学科的专业来冲一把过过瘾，与一个欧洲奖学金项目dream一下全奖（录了但是没有给全奖就没去了）。11月初也一度疯狂套瓷想试试读博，然后迅速意识到这与我的规划不一致且与我当前最大的诉求–下签，存在一定程度上的互斥关系。因此就只考虑授课硕了。</p>
+<p>1.4.2 重新申请如何卡时间线（避免太早下offer交留位费/避免没有学上）<br />
+我基本上可以确定前面四个学校我选的项目是必录，但是因为去年发生了我交了ucl的留位费，最后gap了也没去上留位费打水漂的事情，今年就尤其想要避免花留位费这个事。我先进行了以下思路梳理：<br />
+（1）英国rolling制度申请时间早但是放榜时间较晚，还会有面试，大致会在2-4月出结果。有较高留位费。<br />
+（2）荷兰3.15后开始放榜。且似乎没有留位费，签证有学校帮忙处理。<br />
+（3）冲刺校没有留位费，且只要下offer一定头铁去。<br />
+（4）新加坡留位费高昂，下offer速度快，但是申请ddl晚。我需要晚一点申请这家的项目。<br />
+接着是梳理了我的签证情况：<br />
+（1）如果我的签证在2022.12前下签，此时均没有放榜，直接去CA即可。<br />
+（2）如果我的签证在2023.1-2023.3内下签，我无法正常读23winter学期，且此时应该是正好在等待offer，纠结留位费&amp;新二最后一批ddl前。<br />
+（3）如果我的签证在2023.3.30都没有下签，那么我要保证手上至少必须有一个可以下签的offer，且新二此时还没有出结果。<br />
+（4）签证安调情况分3个月，6个月，12个月。那么我下签很可能会在10月初【已经过去了】，次年1月初，和次年7月【风险太大，赌徒心态太重】。再给这个次年1月初一个月的offset，因此我确定是否需要备胎offer的时间应该是2月份。<br />
+因此，时间线就很清晰了。【2022.11月】我必须立刻完成冲刺项目们的申请，完成ICL的项目申请；【2023.1.31前】踩线完成TUD申请与UBCO申请；【2023.3】再根据情况判断是否进行NUS申请。根据加拿大签证的状态决定申请流程是否叫停、是否接offer等等。<br />
+最后，时间线与我判断的完全一致，更幸运的是所有的offer都在下签后来了，前期的时间规划和推断都不用了。非常开心。不知道这一段有没有阐述清楚我当时的思路。【一边做规划，一边刷题满大街找实习，家里还出了点事情，搭配上当时封城高峰，心态真的炸裂】</p>
+<p>东亚人的gap year–实习<br />
+2.1 应届生身份&amp;在校生身份<br />
+2.2 外企？国内大厂？高校RA？<br />
+2.3 时间成本&amp;年龄焦虑<br />
+签证<br />
+3.1 心态调整<br />
+3.2 可以尝试拯救签证措施<br />
+学校的defer政策<br />
+授课硕/研硕/phd<br />
+本科做了一串科研，感觉到无比痛苦，确信自己至少在工科方向上没有什么学术追求和理想，因此除了11月份突然又三分钟热度去套瓷了一下，其余时间我很确信我不适合科研。但是对于申请来说，科研可以说是一个必须的经历，所以建议学弟学妹们可以大二大三去体验一下科研，看看适不适合，如果不适合的话，有了经历也能及时止损。没有必要为了所谓的认可度/或者研硕的小奖，去让自己花更长的时间做与职业规划不同的东西。选择适合自己的，和自己自洽就行。<br />
+科研其实很好套瓷，我当时套到了一些海外的research intern机会，但是当时脑抽没去（见2022贴），去学校官网，1p3a，byr论坛这上面刷刷，然后好好发邮件，做到真诚、自信、认真，好的Research intern机会真的很多很多，市面上卖的背景提升项目真的没有必要。</p>
+<h2 id="4研究生申博选手"><a class="markdownIt-Anchor" href="#4研究生申博选手"></a> 4.研究生申博选手</h2>
+<p>个人信息：</p>
+<ul>
+<li>通信工程</li>
+<li>gpa：3.94</li>
+<li>GRE/TOEFL/IELTS： TOEFL 102 (23) GRE 151+169+4</li>
+<li>4年RA</li>
+<li>1篇1作C会 1篇3作A刊 + 其他会议期刊若干</li>
+</ul>
+<br>
+<p>感觉研究生申博士对我的参考价值不大…</p>
+<p>connection大于一切，尽量找导师要内推<br />
+AI方向太卷了，可以看一些AI+X的方向<br />
+如果有Top venue的publication的话会大大加分<br />
+当前签证政策和疫情影响下对留学选校和今后规划的影响和解决方案<br />
+PP10043好像暂时也没啥办法……</p>
+<h2 id="5普通人选手"><a class="markdownIt-Anchor" href="#5普通人选手"></a> 5.普通人选手</h2>
+<p>个人信息：</p>
+<ul>
+<li>电信工程</li>
+<li>gpa：80.93</li>
+<li>GRE/TOEFL/IELTS： IELTS 6.5 （L：7.5 S:5.5 R:7.0 W:6.0）</li>
+<li>研究/实习经历： 一段HR实习，一段外企辅助技术岗位实习。 当前本科毕设在学校AI院实习。</li>
+<li>Paper： IEEE大水会文章</li>
+</ul>
+<br>
+<p><strong>AD:</strong></p>
+<ul>
+<li>🇬🇧曼彻斯特大学：健康数据分析</li>
+<li>🇬🇧谢菲尔德大学：电子信息工程</li>
+<li>🇬🇧伦敦玛丽女王大学（QM）：计算机游戏</li>
+<li>🇦🇺悉尼大学：数据分析</li>
+</ul>
+<br>
+<p>鄙人确实不才，在一众GPA85-90左右的大佬当中格格不入。不过我相信学校里面英国有不少情况与我类似的学弟学妹们想要出国，但是却不知道自己的大致能够去什么样的学校的情况。</p>
+<p>除了上述学校我还试着申请日本的学校，但是因为一方面因为GRE考不出分，另一方面意识到语言和套词信的完成时间已经来到了二月初，准备有点晚了，遂作罢。</p>
+<p>我计划出国的想法是大三上（2021.11前后）有的，之前是计划考研，后来因为一些事情决定出国。到现在为止，来来回回准备了一年半多左右。期间有坎坷（其实很多都是自己给自己的心理压力），不过基本上还是按部就班。</p>
+<p>关于GPA和选修课，一般学校申请要求上都会写明专业限制和相关课程所占最低比例（大约是30%左右），这个要求是目前我唯一知道的选修课可能对申请的影响，因为选修课选多了会降低专业课的学分比例。目前我的拒信里面目前只有南安普顿和利兹大学提到了“课程匹配度不够”，而这两所学校对于课程匹配度要求高，其他学校全是模板拒。另外，如果可以的话学弟学妹们尽力把GPA上去，GPA高不一定有好学校上，但是GPA不高真的很要命，不过希望学弟学妹们不需要考虑这一点。另外万一GPA要是真的因为课程难度与个人能力不够匹配等原因提不上去，也不必过于焦躁，满足课程匹配度条件（要是不满足可以换学校换项目，光是QS前100的学校就有一百所，专业数量恐怕是更多）的前提下通过选修课提升（现在选修课均分应该是在90-94之间，线上可能会到96左右），也能充实一下人文素养。GPA如果非要拟订一条不可低于的底线，我会建议高于80分（算上选修课），多数一流院校要求都是80以上。少数（悉尼大学EE/CS专业约四年前有75分成行的）一流学校可能会低一些，但是这些学校可能会有学制时间、投资费用、毕业率以及地理位置等短板需要注意一下。</p>
+<p>另外，如果有申请研究硕或者博士的项目的需求，不应该只看学校的排名（QS之类的），应该看校企合作以及学术声誉，学校排名靠后一点也是可以的，毕竟这类项目大概率会有奖学金或者研究补贴，可以看作是一份工作，含金量还是比授课硕高一些的。</p>
+<p>如果我想得起来的话，之后成行出发的时候应该还是会在这个帖子上更新，敬请期待。</p>
+<p>如果想问具体的的话站内私信。你说中介有没有用吧，老师人挺好的；你说选校专不专业吧，老师人挺好的；你说文书专不专业吧，老师人挺好的。很有意思的一点是，那边的老师可能会催着你交一些东西，而他们甚至连截止日期可能都搞不明白。也就是说像个脚本一样催着你交东西，弄不明白为什么也不明白你的背景，尽管这个东西的截止日期很久以后。</p>
+<p>我的评价是中介属于一个很幽默的存在，必不可少也不算，但是总归有一个来提醒总归好过没有。授课硕中介的费用比起后面的学费/生活费基本上就是毛毛雨，研究硕/博士会可能会比较高（身边有同学中介费15w-30w不限制申请学校/项目数量）。不过越到后面申硕士博士特别是研究硕博项目越不需要中介，需要的是自己的目标背景和目标组的匹配度，最好DIY。</p>
+<p>虽然本人没有成功申请研究型硕士，但是自己也试着动手看了看各个学校（主要是日本）的要求。研究硕博的申请应该是属于水到渠成的感觉，即本科期间做的项目的延续，文书和找对口的组最好要自己亲自完成。因此中介那种模板文书什么When I was a child…基本上没啥用。另外有同学提到过他申请日本的硕士（研究硕）的时候，中介负责文书的人对于他所选取的专业没有任何学科基础知识，甚至文书中还出现了很会用word写文章之类的离谱描述。</p>
+<p>对于我致力于的授课硕项目。与研究硕/博不同，中介可以在这块干一些比较重复性的任务，比如说把学校的要求和门槛列出来选择。不过英国能选的就那么几所学校，大概跟往年评估一下就知道自己能去哪了，然后就申请就是了，中介作用仍然有限。</p>
+<p>要真的找我感觉还不如请快毕业的大一届的学长学姐一顿饭或者发个红包问问怎么选校和准备的材料，然后淘宝找文书润色或者ChatGPT，最后自己上学校官网看看自己想要的专业的要求。毕竟中介干的也不过就是这些活。</p>
+<p>当前签证政策和疫情影响下对留学选校和今后规划的影响和解决方案</p>
+<p>之后出国只会越来越难，尤其是含金量高的研究硕或者博士。不仅仅是签证，各大院校的经费和HC也少了不少，举个例子：有同学告诉我马普所的HC缩小了50%左右。虽然不知准确度，但是这一的消息也不应该是无源之水，确实有类似的缩招情况存在。因此如果仅仅是为了硕士学位授课硕也是不错的选择，至少授课硕没有目前影响不是很大。至于硕士毕业后无论是国内工作还是海外找工作，最好多提升一下自己的能力。总之无论如何做好换乘或者跳车的准备，留一条后备之路。</p>
+<h2 id="6nus-录取选手"><a class="markdownIt-Anchor" href="#6nus-录取选手"></a> 6.nus-录取选手</h2>
+<p>个人信息：</p>
+<ul>
+<li>CS</li>
+<li>gpa：3.74，均分取整到90</li>
+<li>GRE/TOEFL/IELTS：IELTS 7(L7 S6 R7.5 W7) GRE 329+3.5</li>
+<li>研究/实习经历：一个科研型大创，一段小厂实习</li>
+</ul>
+<br>
+<p><strong>AD:</strong></p>
+<ul>
+<li>🇳🇱TU Delft：CS</li>
+<li>🇳🇱TU Eindhoven：CS/</li>
+<li>🇳🇱VU &amp; UvA：CS</li>
+<li>🇨🇦UWaterloo：ECE</li>
+<li>🇨🇦UCB：EE</li>
+<li>🇨🇦UOttawa：ECE</li>
+<li>🇳🇿UAuckland：IT</li>
+<li>🇸🇬NUS：Computing</li>
+</ul>
+<br>
+<p>23fall全球混申选手，总体来说申请结果还是比较满意的。我一开始是比较想去加拿大的，但是由于签证安调决定跳车荷兰了。这里给学弟学妹们提个醒，现在加拿大的安调情况仍不容乐观，最好有个备选方案。下面我介绍一下各个国家的申请情况。</p>
+<p>首先是加拿大，加拿大的申请是比较难的，我由于比较菜主要申的是授课型。滑铁卢大学的ECE项目由于新加了coop所以成为了我的首选，需要注意的是他ECE下面有两个项目，一个带coop一个不带，学校建议同时申请两个，因为带coop的竞争很激烈。另外滑铁卢还有mdsai，据今年申上的同学说这个项目不卡语言，大家明年可以试一试。其他项目的话，ubco的ee和mcmaster的cas都不错，这两个项目都可以做实习，但是注意mcmaster的cas需要套磁，一定要尽早套磁，不然很可能录不上。至于mcgill和alberta这两个，由于地理位置不太好，所以不很推荐。</p>
+<p>然后说下欧洲，欧洲的话我个人比较推荐的学校是IDEA联盟，这个联盟里有五所顶尖的理工大学，我申请的代尔夫特理工也是其中之一。欧洲整体学费会比北美便宜，而且他们授课型和研究型不区分，一般是第一年上课，第二年科研。这样的话毕业既能找工也能读博，性价比挺高的。荷兰对北邮比较友好，放心申就行了，但是瑞典的kth是真的歧视211，我申了三个项目全是waiting list。如果是cs专业想去瑞典，建议申请瑞典另一所学校cth。</p>
+<p>最后说说其他地区。新加坡的项目我申了两个，目前收到了NUS的CS，听说这个项目无GRE也能录，学弟学妹们可以冲一下。至于澳洲和新西兰，这个是因为他们有的学校不收申请费，我就申着玩一玩，不过因为他们那边教育比较水，个人不建议去。</p>
+<p>如果你对未来发展没有一个明确的方向，那就努力提高gpa吧。</p>
+<p>如果使用中介，请尽量客观的谈谈和留学中介打交道过程中的不愉快和收获，以及你对中介的看法，和对你的实际帮助（请不要直接说中介的名称，请用首字母缩写代替）</p>
+<p>我找的这个中介感觉还不错，建议大家找那种体量小一些的中介，他们往往比大中介靠谱。申请材料什么的其实主要还是自己准备，中介主要帮你润色翻译一下，找不找中介还是看个人了。</p>
+<p>当前签证政策和疫情影响下对留学选校和今后规划的影响和解决方案</p>
+<p>这个我上面已经说了。现在美国有10043，加拿大有安调，建议大家以后多考虑欧洲和港新。</p>
+<h2 id="7软工之光"><a class="markdownIt-Anchor" href="#7软工之光"></a> 7.软工之光</h2>
+<p>个人信息：</p>
+<ul>
+<li>gpa：92.12</li>
+<li>GRE/TOEFL/IELTS： T: 105(30 27 22 26) G: 324(3.0)</li>
+<li>研究/实习经历： 海外暑研一段，校内科研一段，外企实习6个月</li>
+</ul>
+<br>
+<p><strong>AD:</strong></p>
+<ul>
+<li>🇨🇦UToronto：CS</li>
+<li>🇨🇦UWaterloo：ECE/CS</li>
+<li>🇬🇧IC：Computing(AI+ML)<br />
+<br></li>
+</ul>
+<p>在我看来，申请主要可以分为两部分：背景提升 + 信息获取，要想取得一个不错的结果，二者缺一不可。</p>
+<p>其中背景提升包括GPA，语言，科研，实习等等，需要在申请季之前做好，尤其是语言。一边申请一边考语言会非常痛苦，最终可能对申请期间的选校，文书等产生负面影响，得不偿失。之前针对背景提升相关讨论较多，就不赘述了。</p>
+<p>下面我来具体讨论一下信息获取，对于选校，文书，面试等等都至关重要。目前看来，获取信息主要通过以下几个渠道：</p>
+<ul>
+<li>飞榜：虽然每年申请季的情况都有所不同，但是飞榜永远能提供给你最真实，最有借鉴意义的dp（因为都是本校的），并且可以联系学长学姐，咨询感兴趣的项目。</li>
+<li>一亩三分地：可以获取现在和过去几年大量的申请dp，包括录取bg，timeline，面经等等。同时也有不少帖子提供选校，文书等等方法论，建议每天都刷一刷。</li>
+<li>小红书：感觉是今年才流行起来的，上边有很多人分享自己的申请结果，可以当作一亩三分地的补充。</li>
+<li>GradCafe：外国人的申请论坛，可以获取录取时间等信息，bg参考意义不大。<br />
+如果使用中介，请尽量客观的谈谈和留学中介打交道过程中的不愉快和收获，以及你对中介的看法，和对你的实际帮助（请不要直接说中介的名称，请用首字母缩写代替）</li>
+</ul>
+<p>感觉有时间的话，多卷卷信息差就可以diy了，毕竟自己才能做最适合自己的选择<br />
+文书的话建议是chatgpt，语言地道，无语法错误，真的很好用</p>
+<p>加拿大phd和研究硕大概率安调（下签时间&gt;200天），授课硕也有一定概率，建议做好跳车方案<br />
+瑞士两所很看本科学校，对bupt很不友好，貌似今年还缩招了，未来慎重申请（申请费贵）</p>
+<h2 id="8科研大佬"><a class="markdownIt-Anchor" href="#8科研大佬"></a> 8.科研大佬</h2>
+<ul>
+<li>CS</li>
+<li>gpa：86</li>
+<li>GRE/TOEFL/IELTS： gre 318不考了/托福105</li>
+<li>研究/实习经历： 科研上：清华一段，北大软微一段，上交一段。 工业：小厂（hillstone 山石网科）一段</li>
+</ul>
+<br>
+<p><strong>OFFER:</strong></p>
+<ul>
+<li>🇦🇺UNSW：SE</li>
+<li>🇭🇰HKUST：SE</li>
+</ul>
+<p><strong>AD：</strong></p>
+<ul>
+<li>🇺🇸JHU(约翰霍普金斯大学)：SE</li>
+<li>🇧🇪KUL(荷语鲁汶大学)：CS</li>
+<li>🇸🇪KTH(皇家理工学院)：communication system</li>
+</ul>
+<br>
+<p>这两年，太难了。尤其是想读phd的，我想说能转学就早转学吧，出国被卡的问题只会越来越严重，不值得冒险。不是说学校有多不好，只是为自己未来打算。有任何问题随时联系就ok呀！一路上也是各位老师以及各位学长帮助下成长起来的，也会反馈论坛的！</p>
+<p>今年硕士很多人都被拒麻了，比如我，感觉前两年能申请上的今年都不太行了。我其实弄了很多国家，一直一直在申请，但是最终也没有拿到满意的硕士offer。</p>
+<p>硕士的话主要就是看GPA，你甭管是智慧树刷gpa还是水课刷gpa，那个数字只要高，在一部分学校里就是绝对有用的，至少我的经验来说是这样的。</p>
+<p>博士的话我的经验不多，有人说paper大于一切，有的人说connection更重要，我是两方面都菜，但是怎么说呢，本科生直博，你没有论文也没大碍的其实。我一共了5个邮件，收到三个回复，其中两个是口头offer，另一个老师也表示愿意接收，但是对于签证有顾虑。感觉只要你有科研经验、喜欢科研、面试展示出来自己的热情和实力，往往都会有比较好的结果的。有的前辈一发套瓷信发几十封海投，结果可能收到的回复很少；我总感觉对于没有paper的本科生来说，博士申请不是量化的，发每一个邮件之前，我感觉如果仔细读一下老师的论文，比如5篇，做好笔记，在邮件里写出来：我对您在xxx领域使用的xxx方法感兴趣，因为我在实践中遇到了xxx问题，您的方法巧妙的解决了这样的问题等等。将心比心，如果咱比较有诚意的发邮件，相信老师也会有诚意的回复你的。</p>
+<p>贴上一些同学们问我的一些问题嘿：</p>
+<ul>
+<li>
+<p>校外科研有什么渠道找:<br />
+如果你已经有了科研经历的话，那么可以让你的老师给你推荐；如果还没有的话，我的方法是在google scholar上找这个方向的大牛，然后发邮件，发之前好好看一下这个大牛的论文，确定自己是不是真正喜欢这个方向。</p>
+</li>
+<li>
+<p>找科研如何选课题组/老师？<br />
+:肯定是老师重要的！最主要最主要的是圈子，要看老师是不是在当前学术最顶尖的圈子里面。一些老师连论文都没有，这种老师大多数都是在学校混日子的，对学生成长帮助很小。我个人的理解是，可以看一下老师最近的动向，如果老师经常参加顶尖的学术会议、在google scholar上引用量比较大，这种老师往往是比较好的，踩坑几率比较小。</p>
+</li>
+<li>
+<p>如何判断自己是否适合科研？<br />
+:关于这点，我个人的理解就是，看你写代码或者读论文的时候，是不是会被吸引进去。论文为例，喜欢科研的人真的，看论文会上瘾的，就觉得看论文特别特别有意思，看看有没有新的idea、有没有前沿的方向。不喜欢的人看论文头发都炸了。</p>
+</li>
+<li>
+<p>如果遇到不满意的导师该如何处理？<br />
+:不满意的老师要及时换呀！千万别不好意思啥的，毕竟咱时间就那么几年，没必要浪费很多时间在不好的老师上</p>
+</li>
+</ul>
+<p>我的中介真的很好！！！没有她我不可能能拿到今天的offer。从大二开始就一直催促我做科研、找实习等等，一只给我鼓励啥的，写文书等等的水平也很强做事情很认真。文书帮我改了无数无数无数遍。真的很感谢这位老师！</p>
+<p>美国不用想了，澳洲现在也在卡，除了新加坡，任何一个国家基本上都会卡中国。哦当然俄罗斯不卡。能润早润吧，一刻都不要耽搁。主要是现在这个情况港新也卷起来了，基本上HK那边好一些的组直博都是要先做一下RA才能去phd，新加坡的位置也不是很多了，所以建议大家要申请的话尽早哦，最好可以就是，比如大四没课了，就直接去老师的组里做RA，境外的RA薪水都不错，一般都可以cover生活开销的</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2025-02-19");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2023-09-08T09:20:54.000Z" itemprop="datePublished">2023-09-08</time>
+
+    , 最后修改于&nbsp;<time datetime="2025-02-19T09:16:38.929Z" itemprop="dateModified">2025-02-19</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/GoAbroad/'>GoAbroad</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/GoAbroad/" rel="tag">#&nbsp;GoAbroad</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2023/09/22/Git/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Git</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2023/07/28/author/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">author</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2023/09/08/%E9%A3%9E%E6%A6%9C/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2023/09/08/%E9%A3%9E%E6%A6%9C/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

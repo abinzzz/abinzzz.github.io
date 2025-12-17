@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>深度可分离卷积 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="深度可分离卷积 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/02/28/%E6%B7%B1%E5%BA%A6%E5%8F%AF%E5%88%86%E7%A6%BB%E5%8D%B7%E7%A7%AF/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   参考链接  【通俗易懂系列】深度可分离卷积    前言 对于移动设备，计算资源比较受限，而卷积操作的计算量又很大，于是深度可分离卷积应运而生。   常规卷积 输入：128×128×3 卷积核：3x3x4  卷积层共有4个Filte - ab - blog"><meta name="keywords" content="Accumulate, CNN, blog"><meta property="og:image" content="https://pbs.twimg.com/media/GHZUgvLWoAATZbZ?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GHZYJENWcAAgDpB?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GHZYyRVWsAM5zT6?format=jpg&amp;name=medium"><meta property="article:published_time" content="2024-02-28T03:53:31.000Z"><meta property="article:modified_time" content="2024-02-28T06:18:36.678Z"><meta property="og:updated_time" content="2024-02-28T06:18:36.678Z"><meta property="article:author" content="ab"><meta property="article:tag" content="Accumulate, CNN, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2024/02/28/%E6%B7%B1%E5%BA%A6%E5%8F%AF%E5%88%86%E7%A6%BB%E5%8D%B7%E7%A7%AF/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2024/02/28/%E6%B7%B1%E5%BA%A6%E5%8F%AF%E5%88%86%E7%A6%BB%E5%8D%B7%E7%A7%AF/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2024/02/28/%E6%B7%B1%E5%BA%A6%E5%8F%AF%E5%88%86%E7%A6%BB%E5%8D%B7%E7%A7%AF/"
+    },
+    "headline": "深度可分离卷积 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2024-02-28T03:53:31.000Z",
+    "dateModified": "2024-02-28T06:18:36.678Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Accumulate, CNN, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   参考链接  【通俗易懂系列】深度可分离卷积    前言 对于移动设备，计算资源比较受限，而卷积操作的计算量又很大，于是深度可分离卷积应运而生。   常规卷积 输入：128×128×3 卷积核：3x3x4  卷积层共有4个Filte - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">深度可分离卷积</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2024-02-28</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Accumulate/">Accumulate</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACvElEQVR42u3dy07DQBBE0fz/T4cVm8jddct2FpFvNiASxsdIw/Qr8Hr/4OMlWrRo0Q9Ev5bH//NHrzt6blrvEBDWP/p+0aIpmiyaQEfrpDWOXjutIVp0i5422ecC0+b7/Nr0fROeOESLvgM9gaaNQ9aih4xo0d/aiGnzxeAdBlqiRd+J3gKVKQmYgqF0A+nzy1Ge6MejaWL77Y9fycZFPw5NDoaUFNANmFC3VU1FPxqdiogkOKLB1lawSQGaaNFn0FMCSxPTJpGgRfy4EUWLHgKm7cJTQkCC/O1GU0FetOgzaNK8aQvvTWBVBV2iRRfzHlvw0zTp08FEk2f820O06CGxpQE+DfrbZmm6hmjRFN0mq6SoToZS0gDM6U6A6MejmwGslLzSoGlbv6qaiha9FGtIAZwkrjRRnm56DchEiwZoksimQChdPCUQ2xqiRbdoGuQ3xXUy5NI2iUSLPtsoSoF9av7Ewng4WFaXaNEAnQ6E5jWkgUqGCOKArGjRcH46DZQ0hcgmaU7XFi26RTcDsmMhBTY9aXEHJwGiRYMkgCa6dABxu+Fm+Eq06Hcxa5oK6FOSsAX75EZJIiJadINOxWxykdS0J0UhlICIFg3QTXLZblBaiDx9IooWXbw5Z9s8pLDeDKaQ4E20aIpOAQ95vg2UKHrt2IoWHdC0KU+aSlshvRnGWjsBokWXPZd0iDSBDkGSgqdo0QS9FQKbG0iNH9IwjQeeaNEQTYrntPlDGkpNwQafiKJFw8cWNDVBPm2qroOGokUDNCkGNoEOLfI0xXfRolt0KrokVDOASAIlNKQiWjR4TwANgsjQCb25rfEUizWiRV/4Q/BnN1z7A6iGvkWLvvmfG6Q3LJBmaTPQJVp0g07DJTTQoUlDKt5civJEPx5NE1t6WDRvXjhVVBctGjSKfuEhWrRo0Q9C/wGmBKlnXPlEhwAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 参考链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%89%8D%E8%A8%80"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B8%B8%E8%A7%84%E5%8D%B7%E7%A7%AF"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 常规卷积</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%8F%AF%E5%88%86%E7%A6%BB%E5%8D%B7%E7%A7%AF"><span class="post-toc-number">4.</span> <span class="post-toc-text"> 深度可分离卷积</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#depthwise%E5%8D%B7%E7%A7%AF"><span class="post-toc-number">4.1.</span> <span class="post-toc-text"> Depthwise卷积</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pointwise%E5%8D%B7%E7%A7%AF"><span class="post-toc-number">4.2.</span> <span class="post-toc-text"> Pointwise卷积</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E6%95%B0%E5%AF%B9%E6%AF%94%E5%8F%8A%E4%BC%98%E5%8A%BF"><span class="post-toc-number">5.</span> <span class="post-toc-text"> 参数对比及优势</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/kangdi7547/article/details/117925389">【通俗易懂系列】深度可分离卷积</a></li>
+</ul>
+<br>
+<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>对于移动设备，计算资源比较受限，而卷积操作的计算量又很大，于是深度可分离卷积应运而生。</p>
+<br>
+<h2 id="常规卷积"><a class="markdownIt-Anchor" href="#常规卷积"></a> 常规卷积</h2>
+<p>输入：128×128×3<br />
+卷积核：3x3x4</p>
+<p><img src="https://pbs.twimg.com/media/GHZUgvLWoAATZbZ?format=jpg&amp;name=medium" alt="" /></p>
+<p>卷积层共有4个Filter，每个Filter包含3个Kernel，每个Kernel的大小为3×3。因此卷积层的参数数量可以用如下公式来计算：</p>
+<p>N_std = 4 × 3 × 3 × 3 = <strong>108</strong></p>
+<br>
+<h2 id="深度可分离卷积"><a class="markdownIt-Anchor" href="#深度可分离卷积"></a> 深度可分离卷积</h2>
+<p>深度可分离卷积是将一个完整的卷积运算分解为两步进行：</p>
+<ul>
+<li>Depthwise卷积</li>
+<li>Pointwise卷积</li>
+</ul>
+<br>
+<h3 id="depthwise卷积"><a class="markdownIt-Anchor" href="#depthwise卷积"></a> Depthwise卷积</h3>
+<p>不同于常规卷积操作，Depthwise卷积的一个卷积核负责一个通道,所以一个三通道的图像经过运算后生成了3个特征图，如下图所示:</p>
+<p><img src="https://pbs.twimg.com/media/GHZYJENWcAAgDpB?format=jpg&amp;name=medium" alt="" /></p>
+<p>其中一个Filter只包含一个大小为3×3的Kernel，卷积部分的参数个数计算如下：</p>
+<p>N_depthwise = 3 × 3 × 3 = <strong>27</strong></p>
+<br>
+<p>Depthwise卷积的<strong>缺点</strong>：完成后的特征图数量与输入层的通道数相同，无法扩展特征图数目。而且这种运算对输入层的每个通道独立进行卷积运算，没有有效地利用不同通道在相同空间位置上的特征信息。</p>
+<p>因此需要Pointwise卷积来将这些特征图进行组合生成新的特征图</p>
+<br>
+<h3 id="pointwise卷积"><a class="markdownIt-Anchor" href="#pointwise卷积"></a> Pointwise卷积</h3>
+<p>Pointwise卷积的运算与常规卷积运算类似，它的卷积核的尺寸为 1×1×M，<strong>M为上一层的通道数</strong>。这里的卷积运算会将上一步的特征图在通道方向上进行加权组合，生成新的特征图,有几个卷积核就有几个输出特征图。</p>
+<p><img src="https://pbs.twimg.com/media/GHZYyRVWsAM5zT6?format=jpg&amp;name=medium" alt="" /></p>
+<p>由于采用的是1×1卷积的方式，此步中卷积涉及到的参数个数可以计算为：</p>
+<p>N_pointwise = 1 × 1 × 3 × 4 = <strong>12</strong></p>
+<br>
+<h2 id="参数对比及优势"><a class="markdownIt-Anchor" href="#参数对比及优势"></a> 参数对比及优势</h2>
+<p>相同的输入，同样是得到4张特征图，深度可分离卷积的参数个数是常规卷积的约三分之一。因此，在参数量相同的前提下，采用深度可分离卷积的神经网络层数可以做的更深。</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2024-02-28");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-02-28T03:53:31.000Z" itemprop="datePublished">2024-02-28</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Accumulate/'>Accumulate</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Accumulate/" rel="tag">#&nbsp;Accumulate</a>
+
+<a class="post-tags-list-item" href="/tags/CNN/" rel="tag">#&nbsp;CNN</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2024/02/28/Kernel-VS-Filter/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Kernel VS Filter</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2024/02/28/Transformer%E3%80%81CNN%E3%80%81RNN%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%AF%94%E8%BE%83/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Transformer、CNN、RNN复杂度比较</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2024/02/28/%E6%B7%B1%E5%BA%A6%E5%8F%AF%E5%88%86%E7%A6%BB%E5%8D%B7%E7%A7%AF/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2024/02/28/%E6%B7%B1%E5%BA%A6%E5%8F%AF%E5%88%86%E7%A6%BB%E5%8D%B7%E7%A7%AF/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

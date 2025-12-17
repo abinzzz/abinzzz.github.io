@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Transformer、CNN、RNN复杂度比较 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Transformer、CNN、RNN复杂度比较 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/02/28/Transformer%E3%80%81CNN%E3%80%81RNN%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%AF%94%E8%BE%83/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   参考材料  Transformer vs CNN vs RNN 时间复杂度比较 Attention is All You Need Transformer&#x2F;CNN&#x2F;RNN的对比（时间复杂度，序列操作数，最大路径长度） self-a - ab - blog"><meta name="keywords" content="Accumulate, CNN, Transformer, RNN, blog"><meta property="og:image" content="https://pbs.twimg.com/media/GHZcLjDX0AA2JtW?format=png&amp;name=900x900"><meta property="og:image" content="https://pbs.twimg.com/media/GHZiFpoX0AAsRq7?format=jpg&amp;name=medium"><meta property="article:published_time" content="2024-02-28T03:08:11.000Z"><meta property="article:modified_time" content="2024-02-28T05:04:44.240Z"><meta property="og:updated_time" content="2024-02-28T05:04:44.240Z"><meta property="article:author" content="ab"><meta property="article:tag" content="Accumulate, CNN, Transformer, RNN, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2024/02/28/Transformer%E3%80%81CNN%E3%80%81RNN%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%AF%94%E8%BE%83/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2024/02/28/Transformer%E3%80%81CNN%E3%80%81RNN%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%AF%94%E8%BE%83/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2024/02/28/Transformer%E3%80%81CNN%E3%80%81RNN%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%AF%94%E8%BE%83/"
+    },
+    "headline": "Transformer、CNN、RNN复杂度比较 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2024-02-28T03:08:11.000Z",
+    "dateModified": "2024-02-28T05:04:44.240Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Accumulate, CNN, Transformer, RNN, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   参考材料  Transformer vs CNN vs RNN 时间复杂度比较 Attention is All You Need Transformer/CNN/RNN的对比（时间复杂度，序列操作数，最大路径长度） self-a - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Transformer、CNN、RNN复杂度比较</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2024-02-28</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Accumulate/">Accumulate</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAADECAAAAADlzdG3AAADLklEQVR42u3b0U7DMBBE0fz/T5cnJFTFO3edbAro5gXUpkkOkmt7djle/+A4RIgQIULEOOIoju/307k/3ytvenLu++feX1/dT4SISUS64dm5q9/JNVe/V9c8/ZwIEYOIakAT5NlPgiOw5ReNCBEfQKwejr6+GrhkEhQh4jcizhZj6XNk8UYWlCJEfBKRJqE0iaUHXQ1cMgleXsWKENFE0AH29M/b0w4RIgAihrYh3KoGbCdEGE3FRYho1idWD0U2OAc8yIYqBQgxUBYhYgiRQjKyoEsTZlospk2bCBGTCFL4S+d2A7jqyyRBRIiYRpDgl0xcCUuKNJ1AQYSICUSn4EEnqipcq66RnmkZnokQcSOCNlulyS8FBWmSrAKKZbgsQsQQgmyCOhugtNmhXwKxcClCxACiE/SebtbD4o48MA0iRIh4AtEdiDHQagz+1NiSiv0iREwgOs0otIBCm+FTA0AKHUSImEKQMDlNTnQz1JnwYgFIhIghRKeYSM+JYfDR++ePssgiQsSNCNKsTgI1utFPoRi9vwgRTyDSZr6z8elMcOT+Ww0qIkRsIFKxpJqUSFBAm1HI5+LOToSImxCpcEgvTJt0aaOKCBGfQHQWbKlQiQuGG4tGtCkSIeIGRGpUoUV5UjSkIRkpbooQMYVIDVNVSEAnsxSCdf6YIkRMI+hGPxU8UsNXdT0SOpyeJ0LEAII2j1QbINLkSK9Bi/8iREwhOk2KNOiiRfVOoQanHSJEXESQQni3UZGEat1gDa9iRYi4iKCBWCfkoiFDmiwTRoSIKUT3hiQsIGHcqzhIsCBCxASCBMQpDCbv0QYVuhgVIWIKgScWGAhXmxoSCrSKLyJEDCG6zbzk4clEVqFQQUaEiAFEd3Cl5qzUYEIfmhR3RIiYQKQDFQDDInKnwJiaU0SImEKQ5sEUFnQGMSmsVGgRIp5A0M3RzuJvp9BIF5UiREwiOk0p9KZpouwU4mOXjQgRDyFI8fHqFwNpGouNjCJEfACRmra6gE4REy0ARYi4EVEVw8mCbmfRmAZ4au4SIWIKQTb8aSKiAVoKoy81qIgQcQPiLx8iRIgQIWLs+AJVX2A9UXkdMgAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E6%9D%90%E6%96%99"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 参考材料</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 说在前面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%AD%A3%E6%96%87"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 正文</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#complexity-per-layer"><span class="post-toc-number">3.1.</span> <span class="post-toc-text"> Complexity per Layer</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sequential-operations"><span class="post-toc-number">4.</span> <span class="post-toc-text"> Sequential Operations</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#maximum-path-length"><span class="post-toc-number">5.</span> <span class="post-toc-text"> Maximum Path Length</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="参考材料"><a class="markdownIt-Anchor" href="#参考材料"></a> 参考材料</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Jerry_Lu_ruc/article/details/107690998">Transformer vs CNN vs RNN 时间复杂度比较</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">Attention is All You Need</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/264749298">Transformer/CNN/RNN的对比（时间复杂度，序列操作数，最大路径长度）</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/mumujia_/article/details/124934648">self-attention RNN CNN时间复杂度</a></li>
+</ul>
+<br>
+<h2 id="说在前面"><a class="markdownIt-Anchor" href="#说在前面"></a> 说在前面</h2>
+<p>本篇文章仅仅是为了解释这三者的复杂度比较，而对比结构等问题不做比较</p>
+<p>n：输入序列长度</p>
+<p>d：embedding的大小</p>
+<br>
+<h2 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h2>
+<table>
+<thead>
+<tr>
+<th>Layer Type</th>
+<th>Complexity per Layer</th>
+<th>Sequential Operations</th>
+<th>Maximum Path Length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Self-Attention</td>
+<td>O(n^2 · d)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>Recurrent</td>
+<td>O(n · d^2)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Convolutional</td>
+<td>O(k · n · d^2)</td>
+<td>O(1)</td>
+<td>O(log_k(n))</td>
+</tr>
+<tr>
+<td>Self-Attention (restricted)</td>
+<td>O(r · n · d)</td>
+<td>O(1)</td>
+<td>O(n/r)</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h3 id="complexity-per-layer"><a class="markdownIt-Anchor" href="#complexity-per-layer"></a> Complexity per Layer</h3>
+<p><strong>Transformer：</strong><br />
+说在前面：对于矩阵乘法的时间复杂度计算=<strong>行 x 列 x 共享维度</strong></p>
+<p><strong>n</strong>×d的矩阵Q和 d×<strong>n</strong>的矩阵KT相乘的时间复杂度 为 O(n^2 d)</p>
+<p>n×n的矩阵softamx(Q*KT)和 n×d的矩阵V相乘的时间复杂度 为 O(n^2 d)</p>
+<p>而softmax(n×n)的时间复杂度为 O(n^2)</p>
+<p>所以self-attention最终的时间复杂度为 O(n^2 d)（选最大的）</p>
+<br>
+<p><strong>RNN:</strong><br />
+考虑到矩阵（维度为𝑛 x 𝑛）和输入向量相乘，因此RNN每层计算复杂度为𝑂(𝑛 x 𝑑^2)</p>
+<p><img src="https://pbs.twimg.com/media/GHZcLjDX0AA2JtW?format=png&amp;name=900x900" alt="" /></p>
+<br>
+<p><strong>CNN：</strong><br />
+注：这里保证估计输入输出都是一样的，即均为 n × d</p>
+<p>需要对输入进行padding操作，因为这里kernel size为 k，（实际kernel的形状为 k × d）如果不padding的话，那么输出的每一个维度为 n − k + 1，因为这里stride是为1的。对于保证估计输入输出相同，则需要对序列的前后分别padding长度为 (k − 1) / 2。</p>
+<p><strong>大小为 k × d 的卷积核在一次运算的复杂度是： O(kd)，这里直接理解为一维卷积</strong></p>
+<p>一共做了 n 次(每个数据都要卷积，所以是n次)，故复杂度为 O(nkd)</p>
+<p>对于证估计一维维度在每一个维度都相同，故需要 d 个卷积核 <strong>(输出通道数=卷积核个数)</strong> ，所以总体来看操作是的时间复杂度为 O(nkd²)</p>
+<br>
+<h2 id="sequential-operations"><a class="markdownIt-Anchor" href="#sequential-operations"></a> Sequential Operations</h2>
+<p>表明三种模型的并行程度：从计算方式上看，只有RNN才需要串行地完成<br />
+次序列操作，而self-attention和convolution <strong>(因为我们计算是按顺序计算的，但是实际计算机计算是可以并行计算的)</strong> 的n次序列操作均可以并行完成。因为RNN还需要依赖于上一个时间步的隐藏层输出，而其他模型仅仅依赖于输入。</p>
+<br>
+<h2 id="maximum-path-length"><a class="markdownIt-Anchor" href="#maximum-path-length"></a> Maximum Path Length</h2>
+<p><img src="https://pbs.twimg.com/media/GHZiFpoX0AAsRq7?format=jpg&amp;name=medium" alt="" /></p>
+<p><strong>RNN：</strong><br />
+长度为 n的序列中，节点之间的最大路径长度为n，即o(n)。第一个token的信息需要经过n次迭代才能传到最后一个时间步的状态中，信息丢失严重，很难建立节点间的长距离依赖。</p>
+<br>
+<p><strong>CNN:</strong><br />
+通过convolution layer来逐渐扩大感知域，扩大感知域可以理解为增大每个“看到”的local context的大小/取值区间的能力。在一次卷积操作中，感知域L的CNN中，能看到最大的local context的大小/取值区间 L(k − 1) + 1，最大增长长度为</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mo fence="true">[</mo><mfrac><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo fence="true">]</mo></mrow><mo>=</mo><mrow><mo fence="true">[</mo><mfrac><mi>n</mi><mi>k</mi></mfrac><mo fence="true">]</mo></mrow><mtext>，</mtext></mrow><annotation encoding="application/x-tex">\left[ \frac{n-1}{k-1} \right] = \left[ \frac{n}{k} \right] ，
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">[</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">]</span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.8359999999999999em;vertical-align:-0.686em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">[</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">]</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord cjk_fallback">，</span></span></span></span></span></p>
+<p>例如图(b)中是一个两层的卷积核大小为3的CNN，顶层节点能看到的最大local context为2*2+1=5个token的范围。根据这样，上图可以得出一个 k 大小，深度为 h 的树，叶子节点总数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>k</mi><mi>h</mi></msup></mrow><annotation encoding="application/x-tex">k^h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span> = n，解得最大深度树的深度 h = <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mi>o</mi><msub><mi>g</mi><mi>k</mi></msub><mi>n</mi></mrow><annotation encoding="application/x-tex">log_k n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">n</span></span></span></span>，即 O(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mi>o</mi><msub><mi>g</mi><mi>k</mi></msub><mi>n</mi></mrow><annotation encoding="application/x-tex">log_k n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">n</span></span></span></span>)</p>
+<br>
+<p><strong>Transformer:</strong><br />
+Self-attention: 任意两个位置都可以直接相连，即任意两个位置之间的距离为1</p>
+<p>受限的self-attention: 类似于考虑大小为 r 的CNN, 最大路径长度为 O(n/r)</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2024-02-28");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-02-28T03:08:11.000Z" itemprop="datePublished">2024-02-28</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Accumulate/'>Accumulate</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Accumulate/" rel="tag">#&nbsp;Accumulate</a>
+
+<a class="post-tags-list-item" href="/tags/CNN/" rel="tag">#&nbsp;CNN</a>
+
+<a class="post-tags-list-item" href="/tags/Transformer/" rel="tag">#&nbsp;Transformer</a>
+
+<a class="post-tags-list-item" href="/tags/RNN/" rel="tag">#&nbsp;RNN</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2024/02/28/%E6%B7%B1%E5%BA%A6%E5%8F%AF%E5%88%86%E7%A6%BB%E5%8D%B7%E7%A7%AF/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">深度可分离卷积</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2024/02/27/voice%E3%80%81sound%E3%80%81noise/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">voice、sound、noise</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2024/02/28/Transformer%E3%80%81CNN%E3%80%81RNN%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%AF%94%E8%BE%83/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2024/02/28/Transformer%E3%80%81CNN%E3%80%81RNN%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%AF%94%E8%BE%83/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

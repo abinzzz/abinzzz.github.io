@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Mac使用ssh远程连接服务器 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Mac使用ssh远程连接服务器 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2023/11/14/Mac%E4%BD%BF%E7%94%A8ssh%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   连接远程服务器命令 命令：ssh -p &amp;lt;port&amp;gt; root@&amp;lt;hostname&amp;gt;   Mac终端指令  1.  目录操作    命令名 功能描述 使用举例     mkdir 创建一个目录 mkdir  - ab - blog"><meta name="keywords" content="tool, mac, ssh, 服务器, blog"><meta property="article:published_time" content="2023-11-14T14:00:37.000Z"><meta property="article:modified_time" content="2023-11-14T14:57:57.899Z"><meta property="og:updated_time" content="2023-11-14T14:57:57.899Z"><meta property="article:author" content="ab"><meta property="article:tag" content="tool, mac, ssh, 服务器, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2023/11/14/Mac%E4%BD%BF%E7%94%A8ssh%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2023/11/14/Mac%E4%BD%BF%E7%94%A8ssh%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2023/11/14/Mac%E4%BD%BF%E7%94%A8ssh%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/"
+    },
+    "headline": "Mac使用ssh远程连接服务器 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2023-11-14T14:00:37.000Z",
+    "dateModified": "2023-11-14T14:57:57.899Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "tool, mac, ssh, 服务器, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   连接远程服务器命令 命令：ssh -p &amp;amp;lt;port&amp;amp;gt; root@&amp;amp;lt;hostname&amp;amp;gt;   Mac终端指令  1.  目录操作    命令名 功能描述 使用举例     mkdir 创建一个目录 mkdir  - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Mac使用ssh远程连接服务器</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2023-11-14</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/tool/">tool</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADoUlEQVR42u3c0W7bMAxGYb//S29XBYbB4n+opBFjnNykXWJXnwGJEkns+vPA1yVKlChRoh6HuorXz+d379XP/9979W//vt9df/ed1ThFiZqEqm5W3TD98dW11UO4uwaPU5SoQajqJqtBkkGtPq8eHllUbu8lStQXoOik31lwVtgKL0rUE1BpQ1ltXMlGefVAaHAXJWoiqrpJdSisAvZqwaCHwM71okRNQu0kXk68/3o2SZSoN6BI0Et/oPputZmtNredwCxK1CQUTUquAnLnQJmSOtXv6YApStQUVCcJmRaQVGhLB8O00MQkjyhRA1BpA7mzSNAi3G7gXz5oUaIGoqoJ/mrRrZN4IQdEUaKmotLmtQqcpBkkNV2RAhxpGhElagKqajrsFOLe0dyRNsVx0ytK1AAUSZrQxhDaKEwTnjTpKUrUJFTavKbJ2Vlg0uLxagJGlKgJqG5ApdeQhCdeAMLhUJSo6Sh6KCMDpM3ANPi+VCAQJeoDqG7yhDSG0AapdDCkB01RoqaiVsl7UgAjG9Lq4NdpXkSHRFGiDqF2C1wkYMZDHbyO4kSJmoAiSchOowYtCnR+rsYVu8hEiTqAogtFNxiTokKVbOkmaUSJmoBKzYGkwYMMtFvU6wRsUaImoaoJShaHhCLFs537oEK2KFGHULQAQArf1fffUTgXJWo6qrMJpUXlzoY2JVI7hQZRoqagugsFKU6nQZPFIi1UokRNRaUJmQpn5CC4U5RLSUx08hUl6jCqKhhUm0vyGWkyqYroW11kokQdQFWJxVTA3pngnQIAediiRE1CJcQFXgSKGqYu9h9zxEOiKFEHUSSxkjawJKDSZA0J8luVRFGiPohKiwQ5pJGDY2rISgXAiBclagCKTlbaoEE2tTQokyKFKFETUakhhBaZSTMIbQBJAR3t0kWJGoAixTR6QCRNVTThgwoMokQNQKWBkmbCbjMJ/ZkGY1GiJqHSRN5NuFQPp9uwRQK4KFHTUFUCkhz0OgW3bhLmrUU3UaJ+GdVN6FdBOBXqOgEfFwXShlaUqA+jyGTuJFd2D4b0wChK1HRUavqgm10y4avgSoJ8/K4oUUNQtEhNis7dgZMGlGpTsFwoRIk6jOomI0mRrpNkScU20sgoStQ3oGgSnyA6BbZO4VuUqG9DUQAZCFmUSAIzJjNFiTqMIhva1ESSHkKnKJASPyj4ihJ1CEUmf7eoXA2AFgho8VyUqEmoJ71EiRIlStRjXn8B53a0kTv3TQ0AAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 连接远程服务器命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mac%E7%BB%88%E7%AB%AF%E6%8C%87%E4%BB%A4"><span class="post-toc-number">2.</span> <span class="post-toc-text"> Mac终端指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"> 1.  目录操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"> 2. 文件操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E9%80%89%E6%8B%A9%E6%93%8D%E4%BD%9C"><span class="post-toc-number">2.3.</span> <span class="post-toc-text"> 3. 选择操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E5%AE%89%E5%85%A8%E6%93%8D%E4%BD%9C"><span class="post-toc-number">2.4.</span> <span class="post-toc-text"> 4. 安全操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-%E7%BC%96%E7%A8%8B%E6%93%8D%E4%BD%9C"><span class="post-toc-number">2.5.</span> <span class="post-toc-text"> 5. 编程操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-%E8%BF%9B%E7%A8%8B%E6%93%8D%E4%BD%9C"><span class="post-toc-number">2.6.</span> <span class="post-toc-text"> 6. 进程操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-%E6%97%B6%E9%97%B4%E6%93%8D%E4%BD%9C"><span class="post-toc-number">2.7.</span> <span class="post-toc-text"> 7. 时间操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-%E7%BD%91%E7%BB%9C%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%93%8D%E4%BD%9C"><span class="post-toc-number">2.8.</span> <span class="post-toc-text"> 8. 网络与通信操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-korn-shell%E5%91%BD%E4%BB%A4"><span class="post-toc-number">2.9.</span> <span class="post-toc-text"> 9. Korn Shell命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="post-toc-number">2.10.</span> <span class="post-toc-text"> 10. 其他命令</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tree"><span class="post-toc-number">3.</span> <span class="post-toc-text"> Tree</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="连接远程服务器命令"><a class="markdownIt-Anchor" href="#连接远程服务器命令"></a> 连接远程服务器命令</h2>
+<p>命令：<code>ssh -p &lt;port&gt; root@&lt;hostname&gt;</code></p>
+<br>
+<h2 id="mac终端指令"><a class="markdownIt-Anchor" href="#mac终端指令"></a> Mac终端指令</h2>
+<h3 id="1-目录操作"><a class="markdownIt-Anchor" href="#1-目录操作"></a> 1.  目录操作</h3>
+<table>
+<thead>
+<tr>
+<th>命令名</th>
+<th>功能描述</th>
+<th>使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mkdir</td>
+<td>创建一个目录</td>
+<td>mkdir dirnamer</td>
+</tr>
+<tr>
+<td>rmdir</td>
+<td>删除一个目录</td>
+<td>rmdir dirname</td>
+</tr>
+<tr>
+<td>mvdir</td>
+<td>移动或重命名一个目录</td>
+<td>mvdir dir1 dir2</td>
+</tr>
+<tr>
+<td>cd</td>
+<td>改变当前目录</td>
+<td>cd dirname</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td>显示当前目录的路径名</td>
+<td>pwd</td>
+</tr>
+<tr>
+<td>ls</td>
+<td>显示当前目录的内容</td>
+<td>ls -ladir</td>
+</tr>
+<tr>
+<td>cmp</td>
+<td>比较两个目录的内容</td>
+<td>dircmp dir1 dir2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-文件操作"><a class="markdownIt-Anchor" href="#2-文件操作"></a> 2. 文件操作</h3>
+<table>
+<thead>
+<tr>
+<th>命令名</th>
+<th>功能描述</th>
+<th>使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cat</td>
+<td>显示或连接文件</td>
+<td>cat filename</td>
+</tr>
+<tr>
+<td>pg</td>
+<td>分页格式化显示文件内容</td>
+<td>pg filename</td>
+</tr>
+<tr>
+<td>more</td>
+<td>分屏显示文件内容</td>
+<td>more filename</td>
+</tr>
+<tr>
+<td>od</td>
+<td>显示非文本文件的内容</td>
+<td>od -c filename</td>
+</tr>
+<tr>
+<td>cp</td>
+<td>复制文件或目录</td>
+<td>cp file1 file2</td>
+</tr>
+<tr>
+<td>rm</td>
+<td>删除文件或目录</td>
+<td>rm filename</td>
+</tr>
+<tr>
+<td>mv</td>
+<td>改变文件名或所在目录</td>
+<td>mv file1 file2</td>
+</tr>
+<tr>
+<td>ln</td>
+<td>联接文件</td>
+<td>ln -s file1 file2</td>
+</tr>
+<tr>
+<td>find</td>
+<td>使用匹配表达式查找文件</td>
+<td>find . -name “*.c” -print</td>
+</tr>
+<tr>
+<td>file</td>
+<td>显示文件类型</td>
+<td>file filename</td>
+</tr>
+<tr>
+<td>open</td>
+<td>使用默认的程序打开文件</td>
+<td>open filename</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-选择操作"><a class="markdownIt-Anchor" href="#3-选择操作"></a> 3. 选择操作</h3>
+<table>
+<thead>
+<tr>
+<th>命令名</th>
+<th>功能描述</th>
+<th>使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>head</td>
+<td>显示文件的最初几行</td>
+<td>head -20 filename</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>显示文件的最后几行</td>
+<td>tail -15 filename</td>
+</tr>
+<tr>
+<td>cut</td>
+<td>显示文件每行中的某些域</td>
+<td>cut -f1,7 -d: /etc/passwd</td>
+</tr>
+<tr>
+<td>colrm</td>
+<td>从标准输入中删除若干列</td>
+<td>colrm 8 20 file2</td>
+</tr>
+<tr>
+<td>paste</td>
+<td>横向连接文件</td>
+<td>paste file1 file2</td>
+</tr>
+<tr>
+<td>diff</td>
+<td>比较并显示两个文件的差异</td>
+<td>diff file1 file2</td>
+</tr>
+<tr>
+<td>sed</td>
+<td>非交互方式流编辑器</td>
+<td>sed “s/red/green/g” filename</td>
+</tr>
+<tr>
+<td>grep</td>
+<td>在文件中按模式查找</td>
+<td>grep “a” filename</td>
+</tr>
+<tr>
+<td>awk</td>
+<td>在文件中查找并处理模式</td>
+<td>awk ‘{print $1 $1}’ filename</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>排序或归并文件</td>
+<td>sort -d -f -u file1</td>
+</tr>
+<tr>
+<td>uniq</td>
+<td>去掉文件中的重复行</td>
+<td>uniq file1 file2</td>
+</tr>
+<tr>
+<td>comm</td>
+<td>comm file1 file2</td>
+<td></td>
+</tr>
+<tr>
+<td>wc</td>
+<td>统计文件的字符数、词数和行数</td>
+<td>wc filename</td>
+</tr>
+<tr>
+<td>nl</td>
+<td>给文件加上行号</td>
+<td>nl file1 &gt;file2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-安全操作"><a class="markdownIt-Anchor" href="#4-安全操作"></a> 4. 安全操作</h3>
+<table>
+<thead>
+<tr>
+<th>命令名</th>
+<th>功能描述</th>
+<th>使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>passwd</td>
+<td>修改用户密码</td>
+<td>passwd</td>
+</tr>
+<tr>
+<td>chmod</td>
+<td>改变文件或目录的权限</td>
+<td>chmod ug+x filename</td>
+</tr>
+<tr>
+<td>umask</td>
+<td>定义创建文件的权限掩码</td>
+<td>umask 027</td>
+</tr>
+<tr>
+<td>chown</td>
+<td>改变文件或目录的属主</td>
+<td>chown newowner filename</td>
+</tr>
+<tr>
+<td>chgrp</td>
+<td>改变文件或目录的所属组</td>
+<td>chgrp staff filename</td>
+</tr>
+<tr>
+<td>xlock</td>
+<td>给终端上锁</td>
+<td>xlock -remote</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-编程操作"><a class="markdownIt-Anchor" href="#5-编程操作"></a> 5. 编程操作</h3>
+<table>
+<thead>
+<tr>
+<th>命令名</th>
+<th>功能描述</th>
+<th>使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>make</td>
+<td>维护可执行程序的最新版本</td>
+<td>make</td>
+</tr>
+<tr>
+<td>touch</td>
+<td>更新文件的访问和修改时间</td>
+<td>touch -m 05202400 filename</td>
+</tr>
+<tr>
+<td>dbx</td>
+<td>命令行界面调试工具</td>
+<td>dbx a.out</td>
+</tr>
+<tr>
+<td>xde</td>
+<td>图形用户界面调试工具</td>
+<td>xde a.out</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-进程操作"><a class="markdownIt-Anchor" href="#6-进程操作"></a> 6. 进程操作</h3>
+<table>
+<thead>
+<tr>
+<th>命令名</th>
+<th>功能描述</th>
+<th>使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ps</td>
+<td>显示进程当前状态</td>
+<td>ps u</td>
+</tr>
+<tr>
+<td>kill</td>
+<td>终止进程</td>
+<td>kill -9 30142</td>
+</tr>
+<tr>
+<td>nice</td>
+<td>改变待执行命令的优先级</td>
+<td>nice cc -c *.c</td>
+</tr>
+<tr>
+<td>renice</td>
+<td>改变已运行进程的优先级</td>
+<td>renice +20 32768</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-时间操作"><a class="markdownIt-Anchor" href="#7-时间操作"></a> 7. 时间操作</h3>
+<table>
+<thead>
+<tr>
+<th>命令名</th>
+<th>功能描述</th>
+<th>使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td>显示系统的当前日期和时间</td>
+<td>date</td>
+</tr>
+<tr>
+<td>cal</td>
+<td>显示日历</td>
+<td>cal 8 1996</td>
+</tr>
+<tr>
+<td>time</td>
+<td>统计程序的执行时间</td>
+<td>time a.out</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-网络与通信操作"><a class="markdownIt-Anchor" href="#8-网络与通信操作"></a> 8. 网络与通信操作</h3>
+<table>
+<thead>
+<tr>
+<th>命令名</th>
+<th>功能描述</th>
+<th>使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>telnet</td>
+<td>远程登录</td>
+<td>telnet <a target="_blank" rel="noopener" href="http://hpc.sp.net.edu.cn">hpc.sp.net.edu.cn</a></td>
+</tr>
+<tr>
+<td>rlogin</td>
+<td>远程登录</td>
+<td>rlogin hostname -l username</td>
+</tr>
+<tr>
+<td>rsh</td>
+<td>在远程主机执行指定命令</td>
+<td>rsh f01n03 date</td>
+</tr>
+<tr>
+<td>ftp</td>
+<td>在本地主机与远程主机之间传输文件</td>
+<td>ftp <a target="_blank" rel="noopener" href="http://ftp.sp.net.edu.cn">ftp.sp.net.edu.cn</a></td>
+</tr>
+<tr>
+<td>rcp</td>
+<td>在本地主机与远程主机之间复制文件</td>
+<td>rcp file1 host1:file2</td>
+</tr>
+<tr>
+<td>ping</td>
+<td>给一个网络主机发送回应请求</td>
+<td>ping <a target="_blank" rel="noopener" href="http://hpc.sp.net.edu.cn">hpc.sp.net.edu.cn</a></td>
+</tr>
+<tr>
+<td>mail</td>
+<td>阅读和发送电子邮件</td>
+<td>mail</td>
+</tr>
+<tr>
+<td>write</td>
+<td>给另一用户发送报文</td>
+<td>write username pts/1</td>
+</tr>
+<tr>
+<td>mesg</td>
+<td>允许或拒绝接收报文</td>
+<td>mesg n</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-korn-shell命令"><a class="markdownIt-Anchor" href="#9-korn-shell命令"></a> 9. Korn Shell命令</h3>
+<table>
+<thead>
+<tr>
+<th>命令名</th>
+<th>功能描述</th>
+<th>使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>history</td>
+<td>列出最近执行过的几条命令及编号</td>
+<td>history</td>
+</tr>
+<tr>
+<td>r</td>
+<td>重复执行最近执行过的某条命令</td>
+<td>r -2</td>
+</tr>
+<tr>
+<td>alias</td>
+<td>给某个命令定义别名</td>
+<td>alias del=rm -i</td>
+</tr>
+<tr>
+<td>unalias</td>
+<td>取消对某个别名的定义</td>
+<td>unalias del</td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-其他命令"><a class="markdownIt-Anchor" href="#10-其他命令"></a> 10. 其他命令</h3>
+<table>
+<thead>
+<tr>
+<th>命令名</th>
+<th>功能描述</th>
+<th>使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uname</td>
+<td>显示操作系统的有关信息</td>
+<td>uname -a</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>清除屏幕或窗口内容</td>
+<td>clear</td>
+</tr>
+<tr>
+<td>env</td>
+<td>显示当前所有设置过的环境变量</td>
+<td>env</td>
+</tr>
+<tr>
+<td>who</td>
+<td>列出当前登录的所有用户</td>
+<td>who</td>
+</tr>
+<tr>
+<td>whoami</td>
+<td>显示当前正进行操作的用户名</td>
+<td>whoami</td>
+</tr>
+<tr>
+<td>tty</td>
+<td>显示终端或伪终端的名称</td>
+<td>tty</td>
+</tr>
+<tr>
+<td>stty</td>
+<td>显示或重置控制键定义</td>
+<td>stty</td>
+</tr>
+<tr>
+<td>du</td>
+<td>查询磁盘使用情况</td>
+<td>du -k subdir</td>
+</tr>
+<tr>
+<td>df</td>
+<td>显示文件系统的总空间和可用空间</td>
+<td>df /tmp</td>
+</tr>
+<tr>
+<td>w</td>
+<td>显示当前系统活动的总信息</td>
+<td>w</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h2 id="tree"><a class="markdownIt-Anchor" href="#tree"></a> Tree</h2>
+<ul>
+<li>🔗：<a target="_blank" rel="noopener" href="https://learnku.com/articles/37357">Linux Tree命令安装和使用</a></li>
+</ul>
+<br>
+<p>最常用的命令：<code>tree -a -L 2</code></p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2023-11-14");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2023-11-14T14:00:37.000Z" itemprop="datePublished">2023-11-14</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/tool/'>tool</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/tool/" rel="tag">#&nbsp;tool</a>
+
+<a class="post-tags-list-item" href="/tags/mac/" rel="tag">#&nbsp;mac</a>
+
+<a class="post-tags-list-item" href="/tags/ssh/" rel="tag">#&nbsp;ssh</a>
+
+<a class="post-tags-list-item" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">#&nbsp;服务器</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2023/11/16/RNN%E4%B8%8ELSTM/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">ML:RNN与LSTM</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2023/11/11/mac%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95%E9%97%AE%E9%A2%98/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">mac的输入法问题</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2023/11/14/Mac%E4%BD%BF%E7%94%A8ssh%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2023/11/14/Mac%E4%BD%BF%E7%94%A8ssh%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

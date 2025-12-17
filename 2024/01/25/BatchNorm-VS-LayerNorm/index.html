@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Normalization | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Normalization | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/01/25/BatchNorm-VS-LayerNorm/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   参考链接  一文浅析transformer–李沐带你深入浅出transformer 归一化层(Normalization layers) Batch Normalization Layer Normalization Instan - ab - blog"><meta name="keywords" content="Accumulate, BatchNorm, LayerNorm, blog"><meta property="og:image" content="https://pbs.twimg.com/media/GEv93DraYAAvXaJ?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GEwE-8KaIAAwkQB?format=png&amp;name=900x900"><meta property="og:image" content="https://pbs.twimg.com/media/GEwFCi7aMAATSia?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/GEwcpD7bsAAHMdc?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GEwdEw2aoAAELmT?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/GEwkpXca8AAqt_o?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GEwlMEza4AA3G62?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/GEwlVL0aoAAvZFU?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/GEww9YQaYAAfoTw?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/GEwnkDAaIAAxUYL?format=png&amp;name=360x360"><meta property="og:image" content="https://pbs.twimg.com/media/GEwnoNPaAAASZr_?format=png&amp;name=360x360"><meta property="og:image" content="https://pbs.twimg.com/media/GEwHjUXbYAAAoBW?format=jpg&amp;name=large"><meta property="article:published_time" content="2024-01-25T14:08:14.000Z"><meta property="article:modified_time" content="2024-01-26T11:01:59.268Z"><meta property="og:updated_time" content="2024-01-26T11:01:59.268Z"><meta property="article:author" content="ab"><meta property="article:tag" content="Accumulate, BatchNorm, LayerNorm, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2024/01/25/BatchNorm-VS-LayerNorm/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2024/01/25/BatchNorm-VS-LayerNorm/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2024/01/25/BatchNorm-VS-LayerNorm/"
+    },
+    "headline": "Normalization | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2024-01-25T14:08:14.000Z",
+    "dateModified": "2024-01-26T11:01:59.268Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Accumulate, BatchNorm, LayerNorm, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   参考链接  一文浅析transformer–李沐带你深入浅出transformer 归一化层(Normalization layers) Batch Normalization Layer Normalization Instan - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Normalization</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2024-01-25</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Accumulate/">Accumulate</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB1ElEQVR42u3awY6DMAxFUf7/p6erkVCV+N1QFsTcbEbTQjlIJo4djr8HjkOUKFGiBqijGP/fn489n0N/Ax8jqg1qGHQBNTqWnDu7jqh+qCrAv4N19P/o/OohGcJFvQJVBfHqBCtKVBXo1aSavhP1DlSVKEcXSkGcHpifVgmiHo8ihcMdf2+vZkQ9EhWbDgV2VnRWD8wtXRdRj0bNFm3pYjTZLi0ERbVAjQJ6FuQpsaZiNGJFtUCRybFa2M0uQm5QVE9UaowR/Oy8qsBYWiWI2gpVJeTVZv8MVSV6Uf1RpJFBJ1D6uah+KDLxXQlo2nQT1Q9FN4JSMZA+i8WtqBYo0rxIzdWqMEi/Iaofikx0Kws2slmAK2RR26JScqVgukmJZ3RRW6OuFKWrL4DFmxTVAkWCmBYTZAOyTNyiWqDo5jRp0NKAnt60qBaotDgjTVdyE5dewBG1LYo0tMjLECRJl/+LaoGiG0NppIYHKkxFtUClsRLMdINger6oFigajAlDAj8mclFtUFVh+suijzZqRfVEVcGcCtHU/CfJWNR7UCQhzx4W2ogT9U5UmgjTpJqCXFQ/FG1GrBamNLGL6oVaTpzFsWThh1/AEbUl6klDlChRok7jA4vasQByZggXAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 参考链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%AD%A3%E6%96%87"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 正文</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#batch-noirmalization"><span class="post-toc-number">3.</span> <span class="post-toc-text"> Batch Noirmalization</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#layer-normalization"><span class="post-toc-number">4.</span> <span class="post-toc-text"> Layer Normalization</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#bn-vs-ln"><span class="post-toc-number">5.</span> <span class="post-toc-text"> BN VS LN</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%83%85%E5%86%B5%E4%B8%8B%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="post-toc-number">5.1.</span> <span class="post-toc-text"> 二维情况下的对比</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%89%E7%BB%B4%E6%83%85%E5%86%B5%E4%B8%8B%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="post-toc-number">5.2.</span> <span class="post-toc-text"> 三维情况下的对比</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%BE%E4%BE%8B%E5%88%86%E6%9E%90"><span class="post-toc-number">5.3.</span> <span class="post-toc-text"> 举例分析</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#instance-normalization"><span class="post-toc-number">6.</span> <span class="post-toc-text"> Instance Normalization</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#group-normalization"><span class="post-toc-number">7.</span> <span class="post-toc-text"> Group Normalization</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#normalization-layer%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="post-toc-number">8.</span> <span class="post-toc-text"> Normalization layer的作用</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/452663865">一文浅析transformer–李沐带你深入浅出transformer</a></li>
+<li><a target="_blank" rel="noopener" href="https://litianbo243.github.io/2019/09/14/%E5%BD%92%E4%B8%80%E5%8C%96%E5%B1%82(Normalization-layers)/#%E5%BD%92%E4%B8%80%E5%8C%96%E5%B1%82-Normalization-layers">归一化层(Normalization layers)</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1502.03167.pdf">Batch Normalization</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1607.06450v1.pdf">Layer Normalization</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1607.08022.pdf">Instance Normalization:The Missing Ingredient for Fast Stylization</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1803.08494.pdf">Group Normalization</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1806.10779.pdf">DIFFERENTIABLE LEARNING-TO-NORMALIZE VIA SWITCHABLE NORMALIZATION</a></li>
+</ul>
+<br>
+<h2 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h2>
+<p>归一化层，目前主要有这几个方法，Batch Normalization（2015年）、Layer Normalization（2016年）、Instance Normalization（2017年）、Group Normalization（2018年）、Switchable Normalization（2018年）；</p>
+<p>将输入的图像shape记为[N, C, H, W]，这几个方法主要的区别就是在：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>归一化维度</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BatchNorm</td>
+<td>NHW</td>
+<td>在batch上归一化，小batchsize效果不佳</td>
+</tr>
+<tr>
+<td>LayerNorm</td>
+<td>CHW</td>
+<td>在通道方向上归一化，对RNN作用明显</td>
+</tr>
+<tr>
+<td>InstanceNorm</td>
+<td>HW</td>
+<td>在图像像素上归一化，适用于风格化迁移</td>
+</tr>
+<tr>
+<td>GroupNorm</td>
+<td>分组的CHW</td>
+<td>将channel分组后归一化</td>
+</tr>
+<tr>
+<td>SwitchableNorm</td>
+<td>BN/LN/IN</td>
+<td>结合BN、LN、IN，赋予权重，网络自学习归一化方法选择</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://pbs.twimg.com/media/GEv93DraYAAvXaJ?format=jpg&amp;name=medium" alt="" /></p>
+<Br>
+<h2 id="batch-noirmalization"><a class="markdownIt-Anchor" href="#batch-noirmalization"></a> Batch Noirmalization</h2>
+<p>首先，在进行训练之前，一般要对数据做归一化，使其分布一致，但是在深度神经网络训练过程中，通常以送入网络的每一个batch训练，这样每个batch具有不同的分布；此外，为了解决internal covarivate shift问题，这个问题定义是随着batch normalizaiton这篇论文提出的，在训练过程中，数据分布会发生变化，对下一层网络的学习带来困难。</p>
+<p>所以batch normalization就是强行将数据拉回到均值为0，方差为1的正太分布上，这样不仅数据分布一致，而且避免发生梯度消失。</p>
+<p>此外，internal corvariate shift和covariate shift是两回事，前者是网络内部，后者是针对输入数据，比如我们在训练数据前做归一化等预处理操作。</p>
+<p><img src="https://pbs.twimg.com/media/GEwE-8KaIAAwkQB?format=png&amp;name=900x900" alt="" /></p>
+<p>加入缩放平移变量的原因是：保证每一次数据经过归一化后还保留原有学习来的特征，同时又能完成归一化操作，加速训练。 这两个参数是用来学习的参数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注：BatchNorm2d的情况则是在每个通道C上计算H、W和N的均值和方差，即每个通道上的N张图像所有像素计算均值和方差。</span><br></pre></td></tr></table></figure>
+<br>
+<h2 id="layer-normalization"><a class="markdownIt-Anchor" href="#layer-normalization"></a> Layer Normalization</h2>
+<p><strong>batch normalization存在以下缺点</strong>：<strong>对batchsize的大小比较敏感</strong>，由于每次计算均值和方差是在一个batch上，所以如果batchsize太小，则计算的均值、方差不足以代表整个数据分布；</p>
+<p>BN实际使用时需要计算并且保存某一层神经网络batch的均值和方差等统计信息，对于对一个固定深度的前向神经网络（DNN，CNN）使用BN，很方便；但对于RNN来说，sequence的长度是不一致的，换句话说RNN的深度不是固定的，不同的time-step需要保存不同的statics特征，可能存在一个特殊sequence比其他sequence长很多，这样training时，计算很麻烦。</p>
+<p>与BN不同，LN是针对深度网络的某一层的所有神经元的输入按以下公式进行normalize操作。</p>
+<p><img src="https://pbs.twimg.com/media/GEwFCi7aMAATSia?format=png&amp;name=small" alt="" /></p>
+<p>BN与LN的区别在于：</p>
+<ul>
+<li>LN中同层神经元输入拥有相同的均值和方差，不同的输入样本有不同的均值和方差；</li>
+<li>BN中则针对不同神经元输入计算均值和方差，同一个batch中的输入拥有相同的均值和方差。</li>
+</ul>
+<p>所以，LN不依赖于batch的大小和输入sequence的深度，因此可以用于batchsize为1和RNN中对边长的输入sequence的normalize操作。LN用于RNN效果比较明显，但是在CNN上，不如BN</p>
+<br>
+<hr />
+<h2 id="bn-vs-ln"><a class="markdownIt-Anchor" href="#bn-vs-ln"></a> BN VS LN</h2>
+<p><strong>Batch Normalization</strong>：在特征d/通道维度做归一化，即归一化不同样本的同一特征。缺点是：</p>
+<ul>
+<li>计算变长序列时，变长序列后面会pad 0，这些pad部分是没有意义的，这样进行特征维度做归一化缺少实际意义。</li>
+<li>序列长度变化大时，计算出来的均值和方差抖动很大。</li>
+<li>预测时使用训练时记录下来的全局均值和方差。如果预测时新样本特别长，超过训练时的长度，那么超过部分是没有记录的均值和方差的，预测会出现问题。</li>
+</ul>
+<p><strong>Layer Normalization</strong>：在样本b维度进行归一化，即归一化一个样本所有特征。</p>
+<ul>
+<li>NLP任务中一个序列的所有token都是同一语义空间，进行LN归一化有实际意义</li>
+<li>因为实是在每个样本内做的，序列变长时相比BN，计算的数值更稳定。</li>
+<li>不需要存一个全局的均值和方差，预测样本长度不影响最终结果。</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/GEwcpD7bsAAHMdc?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h3 id="二维情况下的对比"><a class="markdownIt-Anchor" href="#二维情况下的对比"></a> 二维情况下的对比</h3>
+<p>BatchNorm：</p>
+<p>我们模拟简单的二维的情况：每一行是一个样本 X，每一列是一个feature；</p>
+<p>每次把一列（1 个 feature）放在一个 mini-batch 里，均值变成 0， 方差变成 1 的标准化</p>
+<p>计算方法：（该列向量 - mini-batch 该列向量的均值）/（mini - batch 该列向量的方差）</p>
+<p>训练时：mini-batch 计算均值；</p>
+<p>测试时：使用 全局 均值、方差。</p>
+<p>同样，BatchNorm 还会学 lambda和beta，BatchNorm 可以通过学习将向量 放缩成 任意均值、任意方差 的一个向量。</p>
+<p><img src="https://pbs.twimg.com/media/GEwdEw2aoAAELmT?format=png&amp;name=small" alt="" /></p>
+<br>
+<p>Layernorm：</p>
+<p>同样模拟简单的二维输入：LayerNorm：对每个样本做 Normalization（把每一行变成 均值为 0、方差为 1），不是对每个特征做 normalization。</p>
+<p>LayerNorm 在操作上 和 BatchNorm (二维输入) 的关系 ：LayerNorm 整个把数据转置一次，放到 BatchNorm 里面出来的结果，再转置回去，基本上可以得到LayerNorm的结果。</p>
+<p>上面在二维输入的情况下，简单的介绍了LN和BN之间的区别和联系，现在我们换到三维的输入来看一下。</p>
+<p>在transformer和RNN中，输入的维度经常是三维：一个句子有n个词，每个词对应一个向量，再加上batch size就是三维的了。</p>
+<p><img src="https://pbs.twimg.com/media/GEwkpXca8AAqt_o?format=jpg&amp;name=medium" alt="" /></p>
+<br>
+<h3 id="三维情况下的对比"><a class="markdownIt-Anchor" href="#三维情况下的对比"></a> 三维情况下的对比</h3>
+<p>列是sequence的输入的长度，为n。第三位是feature，是每个词的向量，在transformer里这个维度d=512。</p>
+<p>在三维输入的情况下，BN和LN的计算逻辑：</p>
+<p>BN：每次取一个维度的特征，蓝色框表示，拉成一个向量，均值为0，方差为1进行标准化。</p>
+<p><img src="https://pbs.twimg.com/media/GEwlMEza4AA3G62?format=jpg&amp;name=medium" alt="" /></p>
+<p>LN：从抽取一个特征，变成抽取一个样本，如黄色线表示</p>
+<p><img src="https://pbs.twimg.com/media/GEwlVL0aoAAvZFU?format=png&amp;name=small" alt="" /></p>
+<br>
+<h3 id="举例分析"><a class="markdownIt-Anchor" href="#举例分析"></a> 举例分析</h3>
+<p>为什么在时序数据中，LN的使用比BN更多呢？因为在时序样本中，可能很多的样本他们的长度都不一致。</p>
+<p><img src="https://pbs.twimg.com/media/GEww9YQaYAAfoTw?format=png&amp;name=small" alt="" /></p>
+<p>举例分析：以四个样本为例：</p>
+<p>BN切出来的结果：</p>
+<p>BatchNorm 计算均值和方差，有效的是阴影部分，其余是 0。</p>
+<p>Mini-batch 的均值和方差：如果样本长度变化比较大的时候，每次计算小批量的均值和方差，均值和方差的抖动大。全局的均值和方差：测试时遇到一个特别长的全新样本 （红框），训练时未见过，训练时计算的均值和方差可能不好用。</p>
+<p><img src="https://pbs.twimg.com/media/GEwnkDAaIAAxUYL?format=png&amp;name=360x360" alt="" /></p>
+<br>
+<p>LN切出来的结果如下：LayerNorm 每个样本自己算均值和方差，不需要存全局的均值和方差。LayerNorm 更稳定，不管样本长还是短，均值和方差是在每个样本内计算。</p>
+<p><img src="https://pbs.twimg.com/media/GEwnoNPaAAASZr_?format=png&amp;name=360x360" alt="" /></p>
+<hr />
+<h2 id="instance-normalization"><a class="markdownIt-Anchor" href="#instance-normalization"></a> Instance Normalization</h2>
+<p>BN注重对每个batch进行归一化，保证数据分布一致，因为判别模型中结果取决于数据整体分布。</p>
+<p>但是图像风格化中，生成结果主要依赖于某个图像实例，所以对整个batch归一化不适合图像风格化中，因而对HW做归一化。可以加速模型收敛，并且保持每个图像实例之间的独立。</p>
+<p>和BatchNorm的区别：<br />
+<img src="https://pbs.twimg.com/media/GEwHjUXbYAAAoBW?format=jpg&amp;name=large" alt="" /></p>
+<br>
+<h2 id="group-normalization"><a class="markdownIt-Anchor" href="#group-normalization"></a> Group Normalization</h2>
+<p>主要是针对Batch Normalization对小batchsize效果差，GN将channel方向分group，然后每个group内做归一化，算(C//G)HW的均值，这样与batchsize无关，不受其约束。</p>
+<br>
+<h2 id="normalization-layer的作用"><a class="markdownIt-Anchor" href="#normalization-layer的作用"></a> Normalization layer的作用</h2>
+<p>没有它之前，需要小心的调整学习率和权重初始化，但是有了BN可以放心的使用大学习率，但是使用了BN，就不用小心的调参了，较大的学习率极大的提高了学习速度；</p>
+<ul>
+<li>Batchnorm本身上也是一种正则的方式，可以代替其他正则方式如dropout等；</li>
+<li>另外，个人认为，batchnorm降低了数据之间的绝对差异，有一个去相关的性质，更多的考虑相对差异性，因此在分类任务上具有更好的效果。</li>
+</ul>
+<p>BatchNorm为什么NB呢，关键还是效果好。不仅仅极大提升了训练速度，收敛过程大大加快，还能增加分类效果，一种解释是这是类似于Dropout的一种防止过拟合的正则化表达方式，所以不用Dropout也能达到相当的效果。另外调参过程也简单多了，对于初始化要求没那么高，而且可以使用大的学习率等。总而言之，经过这么简单的变换，带来的好处多得很，这也是为何现在BN这么快流行起来的原因。</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2024-01-26");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-01-25T14:08:14.000Z" itemprop="datePublished">2024-01-25</time>
+
+    , 最后修改于&nbsp;<time datetime="2024-01-26T11:01:59.268Z" itemprop="dateModified">2024-01-26</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Accumulate/'>Accumulate</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Accumulate/" rel="tag">#&nbsp;Accumulate</a>
+
+<a class="post-tags-list-item" href="/tags/BatchNorm/" rel="tag">#&nbsp;BatchNorm</a>
+
+<a class="post-tags-list-item" href="/tags/LayerNorm/" rel="tag">#&nbsp;LayerNorm</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2024/01/26/epoch%E3%80%81batch%E3%80%81batch-size%E3%80%81step%E3%80%81iteration/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">epoch、batch、batch size、step、iteration</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2024/01/25/Mac%E4%BD%BF%E7%94%A8Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BB%8F%E5%B8%B8%E5%8D%A1%E6%AD%BB/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Mac使用Chrome浏览器经常卡死</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2024/01/25/BatchNorm-VS-LayerNorm/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2024/01/25/BatchNorm-VS-LayerNorm/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

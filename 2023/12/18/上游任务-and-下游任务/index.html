@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>上游任务 and 下游任务 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="上游任务 and 下游任务 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2023/12/18/%E4%B8%8A%E6%B8%B8%E4%BB%BB%E5%8A%A1-and-%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   CV领域  1.前言 计算机视觉中有常见的四大任务：  分类（解决&amp;quot;what&amp;quot;） 定位（解决&amp;quot;where&amp;quot;） 检测（解决&amp;quot;what&amp;quot;和&amp;quot;where&amp;quot;） - ab - blog"><meta name="keywords" content="Accumulate, CV, NLP, blog"><meta property="article:published_time" content="2023-12-18T07:03:34.000Z"><meta property="article:modified_time" content="2023-12-18T07:23:21.245Z"><meta property="og:updated_time" content="2023-12-18T07:23:21.245Z"><meta property="article:author" content="ab"><meta property="article:tag" content="Accumulate, CV, NLP, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2023/12/18/%E4%B8%8A%E6%B8%B8%E4%BB%BB%E5%8A%A1-and-%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2023/12/18/%E4%B8%8A%E6%B8%B8%E4%BB%BB%E5%8A%A1-and-%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2023/12/18/%E4%B8%8A%E6%B8%B8%E4%BB%BB%E5%8A%A1-and-%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1/"
+    },
+    "headline": "上游任务 and 下游任务 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2023-12-18T07:03:34.000Z",
+    "dateModified": "2023-12-18T07:23:21.245Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Accumulate, CV, NLP, blog",
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   CV领域  1.前言 计算机视觉中有常见的四大任务：  分类（解决&amp;amp;quot;what&amp;amp;quot;） 定位（解决&amp;amp;quot;where&amp;amp;quot;） 检测（解决&amp;amp;quot;what&amp;amp;quot;和&amp;amp;quot;where&amp;amp;quot;） - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">上游任务 and 下游任务</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2023-12-18</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Accumulate/">Accumulate</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAADECAAAAADlzdG3AAADOklEQVR42u3c0Y4TMQxG4Xn/l4arlXZR4v84jVtAZ24QdNrmGym1Y1s8v/6D6xEhQoQIEeOIp7i+Xv9+b/We769V9/9534+Fhe/4sR4RIoYQy02zWMh2gxXoHWr1masHtluXCBHTiPSFq8VWX7TciIu/V99VrUuEiE8hdptu9XoHdRIoRYj4GxBkAbsAt7unk3iKEPEpRJVopaSt+4Owg1Xf/1IWK0JEE0E32Lv/vF7tECECIFoF3CIApaCWigppQ1+riosQAfoTp8Vl+t52UQwUDESImEKkD0vNEZIApgNVdRgqixMiRAwiugGs01CkB6VOw0aEiClEaiym4lk6yKRmZbd4ViaAIkRcRJAN+0pA3DUuU4OySh5FiJhGpGGq04NO9Z7UfEEJoAgRFxEkAaSbuVMg7iSUcWOLEHERkT6U/DtZUGfx+KAkQsQgggSzqilCB1FSgSwVD8qNLULEJUTnML87uJAhlU7RATUpRYgYQFTJGm2SVEGTBK7qkLVLKEWImESQTXR64KELp0OPIkRMIx5wVQWF7nAKHXxJAVSEiCkELQ6QgnOnuNC5b/tARYgYQuCECxYFToNaCqQoixUh4gKCFJdTM538EKSHRYvOIkRMI2gSiJKy5hAWTRKXD12EiCFEKpx1F5kKcikY0sRThIgpBG70dZKzpx5W3y2ODoSJEDGFQEHlYADxpPiWvi8ObYkQcQlBg1wKgARfPQzy2dsmiwgRlxG0WJAWlYIUab7gYTIRIgYR1QeTRVXN+c6BiQ75ihAxhegMnnSag2Uh+Kn/0x1yeBIhYhpBmx2kUECGF4+KZSJEvAlBFtlpCKYCGn1IVWFChIhpRDrA0wGT1IRPRYL0YxAnCkSIuIDAze/GhqeF4upgFYdcRIgYQKCbYZH3ZLilVSwjFUARIl5EpCt9KD3cUNBLU/siRFxAnAwv3hhYT4PCCChCxBCCHI5oUZgegFLDpr2xRYi4jKBNwk7DsjpkdYa/tocuESI+iEjBsfNjQBPCWHgQIeIDCFLwpY351OSkD1GEiHcgTpqGKeCRYRfyELaDLiJEDCG6AYwEok5ymDb2FixCxADiX75EiBAhQsTY9RuUPiFuKehM6gAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#cv%E9%A2%86%E5%9F%9F"><span class="post-toc-number">1.</span> <span class="post-toc-text"> CV领域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1%E5%89%8D%E8%A8%80"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> 1.前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2%E4%B8%8A%E6%B8%B8%E4%BB%BB%E5%8A%A1"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 2.上游任务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> 3.下游任务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#gpt%E7%9A%84%E7%90%86%E8%A7%A3"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> GPT的理解</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#nlp%E9%A2%86%E5%9F%9F"><span class="post-toc-number">2.</span> <span class="post-toc-text"> NLP领域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#nlp%E4%B8%AD%E4%B8%8A%E6%B8%B8%E4%BB%BB%E5%8A%A1%E4%B8%8E%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"> NLP中上游任务与下游任务的理解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#gpt%E7%9A%84%E7%90%86%E8%A7%A3-2"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"> GPT的理解</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h1 id="cv领域"><a class="markdownIt-Anchor" href="#cv领域"></a> CV领域</h1>
+<h2 id="1前言"><a class="markdownIt-Anchor" href="#1前言"></a> 1.前言</h2>
+<p>计算机视觉中有常见的四大任务：</p>
+<ul>
+<li>分类（解决&quot;what&quot;）</li>
+<li>定位（解决&quot;where&quot;）</li>
+<li>检测（解决&quot;what&quot;和&quot;where&quot;）</li>
+<li>分割（实例分割、语义分割和场景分割等像素级别的处理）</li>
+</ul>
+<br>
+<h2 id="2上游任务"><a class="markdownIt-Anchor" href="#2上游任务"></a> 2.上游任务</h2>
+<p>预训练模型。一般就是利用上游数据进行预训练，以生成一个包含视觉表征能力的模型。</p>
+<p>比如，我们想要的是一个能够提取图片特征能力的卷积神经网络或者Transformer，我们会用大量图片用图片分类这个下游任务或者其他比如自监督的方法（可以参考CLIP）去进行训练，得到一个权重合适的模型（能够很好地提取出图像的特征），那么最后我们把得到的这个模型最后一层的FC层（原本用于图片分类输出类别）去掉，这个模型就成为了一个很好的预训练模型，输入一张图，就能够提取出图像的特征，就可以用于我们的下游任务（在这个模型后面加一些诸如检测头之类的模块，处理我们想要的下游任务，或者修改下FC层，用于另外一堆类别的图像分类）。</p>
+<p>上游任务一般称为backbone，主干网络。</p>
+<br>
+<h2 id="3下游任务"><a class="markdownIt-Anchor" href="#3下游任务"></a> 3.下游任务</h2>
+<p>下游任务是计算机视觉应用程序，用于评估通过自监督学习学习到的特征的质量。当训练数据稀缺时，这些应用程序可以极大地受益于预训练模型。</p>
+<p>下游任务更多的是评估任务，相当于项目落地，需要去做具体任务来评价模型好坏。如图像分类，目标检测、语义分割等具体任务。</p>
+<p>下游上游的取名就在于下游任务往往是先用上游任务得到的模型（一般会称为backbone，主干网络）提取图像特征，然后再从这些特征中得到我们想要的结果。</p>
+<br>
+<hr />
+<h2 id="gpt的理解"><a class="markdownIt-Anchor" href="#gpt的理解"></a> <code>GPT的理解</code></h2>
+<p>在计算机视觉中，上游任务和下游任务是两种不同类型的任务，它们在数据处理和应用方面有所区别：</p>
+<p><strong>上游任务（Upstream Tasks）</strong>：</p>
+<ul>
+<li>上游任务通常是更为基础的任务，它们关注于提取和理解图像数据的基本特征。</li>
+<li>这类任务往往是更加通用的，例如图像分类、物体检测、特征提取等。</li>
+<li>上游任务的结果通常用于为下游任务提供必要的信息和特征。</li>
+<li>它们通常与深度学习中的特征学习阶段相关，如通过卷积神经网络（CNN）提取图像特征。</li>
+</ul>
+<p><strong>下游任务（Downstream Tasks）</strong>：</p>
+<ul>
+<li>下游任务是指那些利用上游任务提取的特征来完成具体应用的任务。</li>
+<li>这些任务通常更加专门化，例如面部识别、情感分析、图像描述生成等。</li>
+<li>它们依赖于上游任务提供的特征来实现更复杂的决策和预测。</li>
+<li>下游任务通常更接近实际应用，例如在自动驾驶、医疗诊断、监控系统中的应用。</li>
+</ul>
+<p>总的来说，上游任务关注于从原始数据中提取有用的特征和信息，而下游任务则利用这些特征来执行更具体和高级的分析和应用。在很多计算机视觉系统中，上游和下游任务是紧密相连的，上游任务的输出直接影响着下游任务的效果和准确性。</p>
+<hr />
+<br>
+<h1 id="nlp领域"><a class="markdownIt-Anchor" href="#nlp领域"></a> NLP领域</h1>
+<h2 id="nlp中上游任务与下游任务的理解"><a class="markdownIt-Anchor" href="#nlp中上游任务与下游任务的理解"></a> NLP中上游任务与下游任务的理解</h2>
+<p>上游任务指对数据做预处理，如：分词、过滤、生成词向量等，上游任务的结果作为下游任务的输入</p>
+<p>下游任务是你在什么数据集上干的什么事，比如做分类任务，问答任务</p>
+<br>
+<h2 id="gpt的理解-2"><a class="markdownIt-Anchor" href="#gpt的理解-2"></a> <code>GPT的理解</code></h2>
+<p>在自然语言处理（NLP）中，上游任务和下游任务的概念是理解数据处理和模型训练流程的关键。</p>
+<p><strong>上游任务（Pre-training Tasks）</strong>：</p>
+<ul>
+<li><strong>定义</strong>：上游任务通常指的是在大规模无标签数据上进行的预训练。这些任务设计来帮助模型理解语言的基本结构和语义。</li>
+<li><strong>目的</strong>：主要是为了让模型学习到广泛的语言表示，包括词汇、语法、句子结构等。</li>
+<li><strong>示例</strong>：诸如掩码语言建模（在BERT中使用）、下一句预测、自回归语言建模（如GPT系列使用）等。</li>
+<li><strong>特点</strong>：这些任务不针对特定的应用场景，而是提供一种通用的语言理解能力。</li>
+</ul>
+<p><strong>下游任务（Fine-tuning Tasks）</strong>：</p>
+<ul>
+<li><strong>定义</strong>：下游任务是指在特定标注数据集上进行的微调。这些任务通常是具体的NLP应用，例如情感分析、问答系统、文本分类等。</li>
+<li><strong>目的</strong>：利用上游任务学到的语言表示，让模型能够在特定任务上表现良好。</li>
+<li><strong>示例</strong>：命名实体识别、文本分类、机器翻译、问答等。</li>
+<li><strong>特点</strong>：这些任务高度依赖于特定领域的数据，需要模型能够应对具体的问题和挑战。</li>
+</ul>
+<p>总结来说，上游任务是为了让模型建立起对语言的通用理解，而下游任务则是在此基础上针对具体问题进行优化和调整。上游任务提供了一种基础的语言能力，而下游任务则是这种能力的具体应用。</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2023-12-18");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2023-12-18T07:03:34.000Z" itemprop="datePublished">2023-12-18</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Accumulate/'>Accumulate</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Accumulate/" rel="tag">#&nbsp;Accumulate</a>
+
+<a class="post-tags-list-item" href="/tags/CV/" rel="tag">#&nbsp;CV</a>
+
+<a class="post-tags-list-item" href="/tags/NLP/" rel="tag">#&nbsp;NLP</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2023/12/18/loss%E6%BC%82%E6%B5%AE%E4%B8%8D%E5%AE%9A/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">LossFlow</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2023/12/10/Github%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0%E6%88%90%E5%91%98/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Github项目添加成员</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2023/12/18/%E4%B8%8A%E6%B8%B8%E4%BB%BB%E5%8A%A1-and-%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2023/12/18/%E4%B8%8A%E6%B8%B8%E4%BB%BB%E5%8A%A1-and-%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>
