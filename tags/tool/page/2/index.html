@@ -676,7 +676,7 @@
             <!-- 首页 -->
             <li class="page-item page-first">
                 <a href="/tags/tool/">
-                    <span class="page-item-title">« nav.first_page</span>
+                    <span class="page-item-title">« 首页</span>
                 </a>
             </li>
             <!-- 上一页 -->
@@ -720,7 +720,7 @@
             <!-- 末页 -->
             <li class="page-item page-last">
                 <a href="/tags/tool/page/3/">
-                    <span class="page-item-title">nav.last_page »</span>
+                    <span class="page-item-title">末页 »</span>
                 </a>
             </li>
         
@@ -729,22 +729,25 @@
     <!-- 输入页码跳转 -->
     <div class="pagination-jump">
         <span class="pagination-info">
-            nav.page <strong>2</strong> / <strong>3</strong> nav.pages
+            第 <strong>2</strong> / <strong>3</strong> 页
         </span>
-        <label class="pagination-jump-label">
-            <span>nav.goto</span>
-            <input
-                id="pagination-jump-input"
-                class="form-input"
-                type="number"
-                min="1"
-                max="3"
-                value="2"
-            >
-        </label>
-        <button id="pagination-jump-btn" class="btn btn-sm">
-            nav.go
-        </button>
+        <div class="pagination-jump-controls">
+            <label class="pagination-jump-label">
+                <span>跳转到</span>
+                <input
+                    id="pagination-jump-input"
+                    class="form-input"
+                    type="number"
+                    min="1"
+                    max="3"
+                    value="2"
+                    aria-label="跳转页码"
+                >
+            </label>
+            <button id="pagination-jump-btn" class="btn btn-sm" type="button">
+                确定
+            </button>
+        </div>
     </div>
 </nav>
 
