@@ -675,17 +675,16 @@
         <!-- 首页 - 始终显示，第一页时显示占位 -->
         <li class="page-item page-first ">
             
-                <a href="/tags/tool/">
-                    <span class="page-item-title">« 首页</span>
+                <a href="/tags/tool/" class="page-link" title="首页">
+                    ««
                 </a>
             
         </li>
         <!-- 上一页 - 始终显示，第一页时显示占位 -->
         <li class="page-item page-prev ">
             
-                <a href="/tags/tool/" rel="prev">
-                    <span class="page-item-subtitle"><i class="icon icon-back" aria-hidden="true"></i></span>
-                    <span class="page-item-title">上一页</span>
+                <a href="/tags/tool/" rel="prev" class="page-link" title="上一页">
+                    ←
                 </a>
             
         </li>
@@ -713,7 +712,6 @@
 
         <!-- 跳转页码（与页码同一行，靠中间位置） -->
         <li class="page-item page-jump">
-            <span class="page-jump-label">跳转到</span>
             <input
                 id="pagination-jump-input"
                 class="page-jump-input"
@@ -722,26 +720,26 @@
                 max="3"
                 value="2"
                 aria-label="跳转页码"
+                title="跳转页码"
             >
-            <button id="pagination-jump-btn" class="page-jump-btn" type="button">
-                确定
+            <button id="pagination-jump-btn" class="page-jump-btn" type="button" title="确定">
+                ✓
             </button>
         </li>
 
         <!-- 下一页 - 始终显示，最后一页时显示占位 -->
         <li class="page-item page-next ">
             
-                <a href="/tags/tool/page/3/" rel="next">
-                    <span class="page-item-title">下一页</span>
-                    <span class="page-item-subtitle"><i class="icon icon-forward" aria-hidden="true"></i></span>
+                <a href="/tags/tool/page/3/" rel="next" class="page-link" title="下一页">
+                    →
                 </a>
             
         </li>
         <!-- 末页 - 始终显示，最后一页时显示占位 -->
         <li class="page-item page-last ">
             
-                <a href="/tags/tool/page/3/">
-                    <span class="page-item-title">末页 »</span>
+                <a href="/tags/tool/page/3/" class="page-link" title="末页">
+                    »»
                 </a>
             
         </li>
