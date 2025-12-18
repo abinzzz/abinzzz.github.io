@@ -314,19 +314,95 @@
 
         </main>
         
-<nav>
-<ul class="pagination">
-    
-        <li class="page-item page-prev">
-            <a href="/archives/2025/" rel="prev">
-                <span class="page-item-subtitle"><i class="icon icon-back" aria-hidden="true"></i></span>
-                <span class="page-item-title">上一页</span>
-            </a>
-        </li>
-    
-    
-</ul>
+
+
+<nav class="suka-pagination">
+    <ul class="pagination pagination-numbered">
+        
+            <!-- 首页 -->
+            <li class="page-item page-first">
+                <a href="/archives/2025/">
+                    <span class="page-item-title">« nav.first_page</span>
+                </a>
+            </li>
+            <!-- 上一页 -->
+            <li class="page-item page-prev">
+                <a href="/archives/2025/" rel="prev">
+                    <span class="page-item-subtitle"><i class="icon icon-back" aria-hidden="true"></i></span>
+                    <span class="page-item-title">上一页</span>
+                </a>
+            </li>
+        
+
+        <!-- 中间页码 -->
+        
+            <li class="page-item page-number ">
+                
+                    <a class="page-link" href="/archives/2025/">1</a>
+                
+            </li>
+        
+            <li class="page-item page-number active">
+                
+                    <span class="page-link current">2</span>
+                
+            </li>
+        
+
+        
+    </ul>
+
+    <!-- 输入页码跳转 -->
+    <div class="pagination-jump">
+        <span class="pagination-info">
+            nav.page <strong>2</strong> / <strong>2</strong> nav.pages
+        </span>
+        <label class="pagination-jump-label">
+            <span>nav.goto</span>
+            <input
+                id="pagination-jump-input"
+                class="form-input"
+                type="number"
+                min="1"
+                max="2"
+                value="2"
+            >
+        </label>
+        <button id="pagination-jump-btn" class="btn btn-sm">
+            nav.go
+        </button>
+    </div>
 </nav>
+
+<script>
+(function() {
+    'use strict';
+    var input = document.getElementById('pagination-jump-input');
+    var btn = document.getElementById('pagination-jump-btn');
+    if (!input || !btn) return;
+
+    function go() {
+        var v = parseInt(input.value, 10);
+        if (!v || v < 1) v = 1;
+        if (v > 2) v = 2;
+
+        var url;
+        if (v === 1) {
+            url = '/archives/2025/';
+        } else {
+            url = '/archives/2025/' + 'page/' + v + '/';
+        }
+        window.location.href = url;
+    }
+
+    btn.addEventListener('click', go);
+    input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            go();
+        }
+    });
+})();
+</script>
 
 
     </div>

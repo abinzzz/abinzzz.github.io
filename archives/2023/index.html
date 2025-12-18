@@ -398,19 +398,101 @@
 
         </main>
         
-<nav>
-<ul class="pagination">
-    
-    
-        <li class="page-item page-next">
-            <a href="/archives/2023/page/2/" rel="next">
-                <span class="page-item-title">下一页</span>
-                <span class="page-item-subtitle"><i class="icon icon-forward" aria-hidden="true"></i></span>
-            </a>
-        </li>
-    
-</ul>
+
+
+<nav class="suka-pagination">
+    <ul class="pagination pagination-numbered">
+        
+
+        <!-- 中间页码 -->
+        
+            <li class="page-item page-number active">
+                
+                    <span class="page-link current">1</span>
+                
+            </li>
+        
+            <li class="page-item page-number ">
+                
+                    <a class="page-link" href="/archives/2023/page/2/">2</a>
+                
+            </li>
+        
+            <li class="page-item page-number ">
+                
+                    <a class="page-link" href="/archives/2023/page/3/">3</a>
+                
+            </li>
+        
+
+        
+            <!-- 下一页 -->
+            <li class="page-item page-next">
+                <a href="/archives/2023/page/2/" rel="next">
+                    <span class="page-item-title">下一页</span>
+                    <span class="page-item-subtitle"><i class="icon icon-forward" aria-hidden="true"></i></span>
+                </a>
+            </li>
+            <!-- 末页 -->
+            <li class="page-item page-last">
+                <a href="/archives/2023/page/5/">
+                    <span class="page-item-title">nav.last_page »</span>
+                </a>
+            </li>
+        
+    </ul>
+
+    <!-- 输入页码跳转 -->
+    <div class="pagination-jump">
+        <span class="pagination-info">
+            nav.page <strong>1</strong> / <strong>5</strong> nav.pages
+        </span>
+        <label class="pagination-jump-label">
+            <span>nav.goto</span>
+            <input
+                id="pagination-jump-input"
+                class="form-input"
+                type="number"
+                min="1"
+                max="5"
+                value="1"
+            >
+        </label>
+        <button id="pagination-jump-btn" class="btn btn-sm">
+            nav.go
+        </button>
+    </div>
 </nav>
+
+<script>
+(function() {
+    'use strict';
+    var input = document.getElementById('pagination-jump-input');
+    var btn = document.getElementById('pagination-jump-btn');
+    if (!input || !btn) return;
+
+    function go() {
+        var v = parseInt(input.value, 10);
+        if (!v || v < 1) v = 1;
+        if (v > 5) v = 5;
+
+        var url;
+        if (v === 1) {
+            url = '/archives/2023/';
+        } else {
+            url = '/archives/2023/' + 'page/' + v + '/';
+        }
+        window.location.href = url;
+    }
+
+    btn.addEventListener('click', go);
+    input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            go();
+        }
+    });
+})();
+</script>
 
 
     </div>
