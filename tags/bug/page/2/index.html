@@ -437,32 +437,25 @@
             </li>
         
 
-        
-    </ul>
-
-    <!-- 输入页码跳转 -->
-    <div class="pagination-jump">
-        <span class="pagination-info">
-            第 <strong>2</strong> / <strong>2</strong> 页
-        </span>
-        <div class="pagination-jump-controls">
-            <label class="pagination-jump-label">
-                <span>跳转到</span>
-                <input
-                    id="pagination-jump-input"
-                    class="form-input"
-                    type="number"
-                    min="1"
-                    max="2"
-                    value="2"
-                    aria-label="跳转页码"
-                >
-            </label>
-            <button id="pagination-jump-btn" class="btn btn-sm" type="button">
+        <!-- 跳转页码（与页码同一行，靠中间位置） -->
+        <li class="page-item page-jump">
+            <span class="page-jump-label">跳转到</span>
+            <input
+                id="pagination-jump-input"
+                class="page-jump-input"
+                type="number"
+                min="1"
+                max="2"
+                value="2"
+                aria-label="跳转页码"
+            >
+            <button id="pagination-jump-btn" class="page-jump-btn" type="button">
                 确定
             </button>
-        </div>
-    </div>
+        </li>
+
+        
+    </ul>
 </nav>
 
 <script>
