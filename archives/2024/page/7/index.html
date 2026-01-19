@@ -229,7 +229,7 @@
                         <div class="tile">
                             <div class="tile-content">
                                 <p class="tile-title">
-                                    目前共计 129 篇文章
+                                    目前共计 125 篇文章
                                 </p>
                             </div>
                         </div>
@@ -247,48 +247,6 @@
                             <div class="tile">
                                 <div class="tile-content">
                                     <p class="tile-title mb-0 h4">2024</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-left">
-                            <div class="timeline-icon"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="tile">
-                                <div class="tile-content">
-                                    <span class="tile-subtitle text-gray mb-1">01-13</span>
-                                    <a href="/2024/01/13/PyTorch-torch-cat/" class="timeline-tile-title ml-1" rel="bookmark"><span class="tile-title">PyTorch:torch.cat()和torch.stack()</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-left">
-                            <div class="timeline-icon"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="tile">
-                                <div class="tile-content">
-                                    <span class="tile-subtitle text-gray mb-1">01-13</span>
-                                    <a href="/2024/01/13/%E9%87%8F%E5%8C%96/" class="timeline-tile-title ml-1" rel="bookmark"><span class="tile-title">量化</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-left">
-                            <div class="timeline-icon"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="tile">
-                                <div class="tile-content">
-                                    <span class="tile-subtitle text-gray mb-1">01-11</span>
-                                    <a href="/2024/01/11/Docker/" class="timeline-tile-title ml-1" rel="bookmark"><span class="tile-title">Docker</span></a>
                                 </div>
                             </div>
                         </div>
@@ -392,6 +350,20 @@
                         </div>
                     </div>
                     
+                    <div class="timeline-item">
+                        <div class="timeline-left">
+                            <div class="timeline-icon"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="tile">
+                                <div class="tile-content">
+                                    <span class="tile-subtitle text-gray mb-1">01-10</span>
+                                    <a href="/2024/01/10/Git%E6%9C%AC%E5%9C%B0delete%E5%90%8Ecommit/" class="timeline-tile-title ml-1" rel="bookmark"><span class="tile-title">Git本地delete后commit</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 
                 
             </div>
@@ -439,12 +411,6 @@
                 
             </li>
         
-            <li class="page-item page-number ">
-                
-                    <a class="page-link" href="/archives/2024/page/8/">8</a>
-                
-            </li>
-        
 
         <!-- 跳转页码（与页码同一行，靠中间位置） -->
         <li class="page-item page-jump">
@@ -453,7 +419,7 @@
                 class="page-jump-input"
                 type="number"
                 min="1"
-                max="8"
+                max="7"
                 value=""
                 placeholder=""
                 aria-label="跳转页码"
@@ -465,19 +431,15 @@
         </li>
 
         <!-- 下一页 - 始终显示，最后一页时显示占位 -->
-        <li class="page-item page-next ">
+        <li class="page-item page-next page-placeholder">
             
-                <a href="/archives/2024/page/8/" rel="next" class="page-link" title="下一页">
-                    →
-                </a>
+                <span class="page-link page-placeholder-content">→</span>
             
         </li>
         <!-- 末页 - 始终显示，最后一页时显示占位 -->
-        <li class="page-item page-last ">
+        <li class="page-item page-last page-placeholder">
             
-                <a href="/archives/2024/page/8/" class="page-link" title="末页">
-                    »»
-                </a>
+                <span class="page-link page-placeholder-content">»»</span>
             
         </li>
     </ul>
@@ -493,7 +455,7 @@
     function go() {
         var v = parseInt(input.value, 10);
         if (!v || v < 1) v = 1;
-        if (v > 8) v = 8;
+        if (v > 7) v = 7;
 
         var url;
         if (v === 1) {

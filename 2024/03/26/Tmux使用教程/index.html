@@ -155,7 +155,7 @@
     <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Tmux使用教程 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/03/26/Tmux%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });    目录  1.Tmux 是什么  1.1 会话与进程 1.2 Tmux 的作用   2.基本用法  2.1 Tmux 安装 2.2 Tmux 启动与退出 2.3 前缀键   3.会话管理  3.1 新建会话 3.2 分离会话 3. - ab - blog"><meta name="keywords" content="tool, tmux, blog"><meta property="og:image" content="https://pic.imgdb.cn/item/6652c66ed9c307b7e9d5de08.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652c708d9c307b7e9d682b1.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d6bad9c307b7e9e8ce4d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d71fd9c307b7e9e94344.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d798d9c307b7e9e9cab2.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d7fad9c307b7e9ea320d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d8d7d9c307b7e9eb1a1d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d98fd9c307b7e9ebded8.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652da25d9c307b7e9ec72db.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dafdd9c307b7e9ed5991.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652db73d9c307b7e9edd2e4.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652db8fd9c307b7e9edf1a1.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dc5dd9c307b7e9eec7e4.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dcd2d9c307b7e9ef35ab.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dd49d9c307b7e9efb16b.png"><meta property="article:published_time" content="2024-03-26T12:05:28.000Z"><meta property="article:modified_time" content="2024-05-26T07:00:15.038Z"><meta property="og:updated_time" content="2024-05-26T07:00:15.038Z"><meta property="article:author" content="ab"><meta property="article:tag" content="tool, tmux, blog"><meta name="twitter:card" content="summary">
+    <meta property="og:title" content="Tmux使用教程 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/03/26/Tmux%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });    目录  1.Tmux 是什么  1.1 会话与进程 1.2 Tmux 的作用   2.基本用法  2.1 Tmux 安装 2.2 Tmux 启动与退出 2.3 前缀键   3.会话管理  3.1 新建会话 3.2 分离会话 3. - ab - blog"><meta name="keywords" content="tool, tmux, blog"><meta property="og:image" content="https://pic.imgdb.cn/item/6652c66ed9c307b7e9d5de08.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652c708d9c307b7e9d682b1.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d6bad9c307b7e9e8ce4d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d71fd9c307b7e9e94344.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d798d9c307b7e9e9cab2.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d7fad9c307b7e9ea320d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d8d7d9c307b7e9eb1a1d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d98fd9c307b7e9ebded8.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652da25d9c307b7e9ec72db.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dafdd9c307b7e9ed5991.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652db73d9c307b7e9edd2e4.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652db8fd9c307b7e9edf1a1.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dc5dd9c307b7e9eec7e4.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dcd2d9c307b7e9ef35ab.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dd49d9c307b7e9efb16b.png"><meta property="article:published_time" content="2024-03-26T12:05:28.000Z"><meta property="article:modified_time" content="2026-01-19T10:44:43.325Z"><meta property="og:updated_time" content="2026-01-19T10:44:43.325Z"><meta property="article:author" content="ab"><meta property="article:tag" content="tool, tmux, blog"><meta name="twitter:card" content="summary">
 
     
 
@@ -196,7 +196,7 @@
     },
     
     "datePublished": "2024-03-26T12:05:28.000Z",
-    "dateModified": "2024-05-26T07:00:15.038Z",
+    "dateModified": "2026-01-19T10:44:43.325Z",
     "author": {
         "@type": "Person",
         "name": "ab",
@@ -287,7 +287,7 @@
         <span>2024-03-26</span>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/tool/">tool</a>
+            <a class="category-link" href="/categories/Tutorial/">Tutorial</a>
         
         
         
@@ -768,7 +768,7 @@
     <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
     (function() {
-        var dateUpdate = Date.parse("2024-05-26");
+        var dateUpdate = Date.parse("2026-01-19");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -784,14 +784,14 @@
 
 <p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-03-26T12:05:28.000Z" itemprop="datePublished">2024-03-26</time>
 
-    , 最后修改于&nbsp;<time datetime="2024-05-26T07:00:15.038Z" itemprop="dateModified">2024-05-26</time>
+    , 最后修改于&nbsp;<time datetime="2026-01-19T10:44:43.325Z" itemprop="dateModified">2026-01-19</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">
 
 <span class="post-categories-list mt-2">
 
-<a class="post-categories-list-item" href='/categories/tool/'>tool</a>
+<a class="post-categories-list-item" href='/categories/Tutorial/'>Tutorial</a>
 
 </span>
 

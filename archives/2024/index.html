@@ -229,7 +229,7 @@
                         <div class="tile">
                             <div class="tile-content">
                                 <p class="tile-title">
-                                    目前共计 129 篇文章
+                                    目前共计 125 篇文章
                                 </p>
                             </div>
                         </div>
@@ -443,7 +443,7 @@
                 class="page-jump-input"
                 type="number"
                 min="1"
-                max="8"
+                max="7"
                 value=""
                 placeholder=""
                 aria-label="跳转页码"
@@ -465,7 +465,7 @@
         <!-- 末页 - 始终显示，最后一页时显示占位 -->
         <li class="page-item page-last ">
             
-                <a href="/archives/2024/page/8/" class="page-link" title="末页">
+                <a href="/archives/2024/page/7/" class="page-link" title="末页">
                     »»
                 </a>
             
@@ -483,7 +483,7 @@
     function go() {
         var v = parseInt(input.value, 10);
         if (!v || v < 1) v = 1;
-        if (v > 8) v = 8;
+        if (v > 7) v = 7;
 
         var url;
         if (v === 1) {
