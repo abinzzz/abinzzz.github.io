@@ -9010,22 +9010,6 @@ C表示Memory中存储的原始值，C’表示新的存储值。</p>
       </tags>
   </entry>
   <entry>
-    <title>The Road to Diffusion and Flow Matching | DDPM</title>
-    <url>/2025/08/02/The-Road-to-Diffusion-and-Flow-Matching-DDPM/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="overview"><a class="markdownIt-Anchor" href="#overview"></a> Overview</h2>
-<p>DDPM, which stands for “<a href="https://arxiv.org/abs/2006.11239">Denoising Diffusion Probabilistic Models</a>” is considered a foundational paper that popularized modern diffusion models.</p>
-<p>Here are some awesome link as follows:</p>
-<ul>
-<li>Arxiv Link: <a href="https://arxiv.org/abs/2006.11239">https://arxiv.org/abs/2006.11239</a></li>
-<li>Github Link: <a href="https://github.com/hojonathanho/diffusion">https://github.com/hojonathanho/diffusion</a></li>
-<li>Tutorial in bilibili: <a href="https://www.bilibili.com/video/BV1yA41167Dg">https://www.bilibili.com/video/BV1yA41167Dg</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Diffusion</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Tmux使用教程</title>
     <url>/2024/03/26/Tmux%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
