@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>How to make CaoChongChengXiang Template | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="How to make CaoChongChengXiang Template | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2026/01/22/How-to-make-CaoChongChengXiang-Template/"><meta property="og:locale" content="zh-CN"><meta name="description" content="文件夹内容 icml2026: 123456789├── algorithm.sty├── algorithmic.sty├── example_paper.bib├── example_paper.pdf├── example_paper.tex├── fancyhdr.sty├── icml_numpapers.pdf├── icml2026.bst└── icml2026.sty cao_c - ab - blog"><meta name="keywords" content="blog"><meta property="article:published_time" content="2026-01-22T12:04:49.000Z"><meta property="article:modified_time" content="2026-01-22T13:49:32.588Z"><meta property="og:updated_time" content="2026-01-22T13:49:32.588Z"><meta property="article:author" content="ab"><meta property="article:tag" content="blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2026/01/22/How-to-make-CaoChongChengXiang-Template/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2026/01/22/How-to-make-CaoChongChengXiang-Template/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2026/01/22/How-to-make-CaoChongChengXiang-Template/"
+    },
+    "headline": "How to make CaoChongChengXiang Template | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2026-01-22T12:04:49.000Z",
+    "dateModified": "2026-01-22T13:49:32.588Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "blog",
+    "description": "文件夹内容 icml2026: 123456789├── algorithm.sty├── algorithmic.sty├── example_paper.bib├── example_paper.pdf├── example_paper.tex├── fancyhdr.sty├── icml_numpapers.pdf├── icml2026.bst└── icml2026.sty cao_c - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">How to make CaoChongChengXiang Template</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2026-01-22</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Tutorial/">Tutorial</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACL0lEQVR42u2ay5KDAAgE8/8/vXvay5YwjTGVRNpLynebEhwGHj9fsDyEFFJIIT8A8tEsf/v/H1etk196XyF3Qx6+tAXM0XnVA6XrdvuFFDIFTHV8FQwVEAlIIYWMB4Mbp6QvpJBXBk4nENK27lghhTwjMOh6JzxeroKEvB0kLcSu/n1JtSjk10Mi46gRwkSIVMXcpa6akLeBPLpJ9zJPwM8UdvGLI+TtIZNgTYXWpFirrlsKayFXQhIT/4yYrcRKCspWBQm5DpIYpV0wpQKre2ikzIVcAdkl1k6kJrMqJfROOAspZPfCE1GRmlEpeZfBJuRKyPShT02l1ASIptTUVRNyDWSVkLt1Ipxp015IIauTyctPhDHd3xZ3QgoJhzq6c88MLAkpZGrKJ9M0iY8kerGgEXItJDEByE2I4V99JMYmqpC3haRFFQmEZ4qz6GAIuQpyMihHB45JgzMN2Am5FzIFRTLzqQlFhpxxMhfytpBnEvDUpErCuDQQhFwL2RlINABIcZYMAiGFTIVSZzjRQTzSAEWGlZArIUmCpY3QZAKgASch10JSo4A0kUhTIA1/CikkFaiTIKKBORK9Qq6ATEtqIqXtaXiufUAhV0JODHpSZE1N09ZMEHItJCmiqiBIBdbE0BJSyInZPgmK9DCpISCkkBRyaiZ0CRuJFiGFBEOadCB5YmY9ncyFvCVkSswpCOj29AcIKeS0EKODJMkgSEEq5F7IT16EFFJIId+4/AI533XkmNcVewAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%87%E4%BB%B6%E5%A4%B9%E5%86%85%E5%AE%B9"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 文件夹内容</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%8D%E5%8F%98%E7%9A%84%E5%86%85%E5%AE%B9"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 不变的内容</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#algorithmsty"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"> algorithm.sty</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#algorithmicsty"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"> algorithmic.sty</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#fancyhdrsty"><span class="post-toc-number">2.3.</span> <span class="post-toc-text"> fancyhdr.sty</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#icml2026bst"><span class="post-toc-number">2.4.</span> <span class="post-toc-text"> icml2026.bst</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#icml2026sty"><span class="post-toc-number">2.5.</span> <span class="post-toc-text"> icml2026.sty</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#icml2026sty-2"><span class="post-toc-number">3.</span> <span class="post-toc-text"> icml2026.sty</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#nabibsty"><span class="post-toc-number">4.</span> <span class="post-toc-text"> nabib.sty</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#maintex"><span class="post-toc-number">5.</span> <span class="post-toc-text"> main.tex</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#unit-01"><span class="post-toc-number">5.1.</span> <span class="post-toc-text"> Unit 01</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#unit-02"><span class="post-toc-number">5.2.</span> <span class="post-toc-text"> Unit 02</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#unit-03"><span class="post-toc-number">5.3.</span> <span class="post-toc-text"> Unit 03</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <h2 id="文件夹内容"><a class="markdownIt-Anchor" href="#文件夹内容"></a> 文件夹内容</h2>
+<p><code>icml2026</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">├── algorithm.sty</span><br><span class="line">├── algorithmic.sty</span><br><span class="line">├── example_paper.bib</span><br><span class="line">├── example_paper.pdf</span><br><span class="line">├── example_paper.tex</span><br><span class="line">├── fancyhdr.sty</span><br><span class="line">├── icml_numpapers.pdf</span><br><span class="line">├── icml2026.bst</span><br><span class="line">└── icml2026.sty</span><br></pre></td></tr></table></figure>
+<p><code>cao_chong_cheng_xiang_template_icml_2026</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">├── _0_vars.tex</span><br><span class="line">├── _1_maths.tex</span><br><span class="line">├── _2_body.tex</span><br><span class="line">├── _3_app.tex</span><br><span class="line">├── 00_abstract.tex</span><br><span class="line">├── 01_intro.tex</span><br><span class="line">├── 02_preli.tex</span><br><span class="line">├── 48_impact_statement.tex</span><br><span class="line">├── 50_roadmap.tex</span><br><span class="line">├── algorithm.sty</span><br><span class="line">├── algorithmic.sty</span><br><span class="line">├── fancyhdr.sty</span><br><span class="line">├── icml2026.bst</span><br><span class="line">├── icml2026.sty</span><br><span class="line">├── main.tex</span><br><span class="line">├── natbib.sty</span><br><span class="line">└── ref.bib</span><br></pre></td></tr></table></figure>
+<h2 id="不变的内容"><a class="markdownIt-Anchor" href="#不变的内容"></a> 不变的内容</h2>
+<p><code>cao_chong_cheng_xiang_template_icml_2026</code>文件夹中的文件，对于 <code>_1_maths.tex</code>, <code>_2_body.tex</code>, <code>00_abstract.tex</code>, <code>01_intro.tex</code>, <code>02_preli.tex</code>, <code>50_roadmap.tex</code>和<code>ref.bib</code>是默认不变的东西。</p>
+<p><code>_0_vars.tex</code>需要将某些注释修改为ICML的内容，<code>48_impact_statement.tex</code>是ICML要求加的东西，不是<code>icml2026</code>文件夹中的东西。</p>
+<p>对于<code>algorithm.sty</code>, <code>algorithmic.sty</code>, <code>fancyhdr.sty</code>和<code>icml2025.bst</code>是<code>icml2026</code>文件夹中完全一样的内容</p>
+<h3 id="algorithmsty"><a class="markdownIt-Anchor" href="#algorithmsty"></a> <code>algorithm.sty</code></h3>
+<p><strong>调用位置：</strong></p>
+<ul>
+<li><strong>ArXiv 版本</strong>：<code>main.tex</code> 第19行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;algorithm&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>会议版本</strong>：<code>icml2026.sty</code> 第121行（间接调用）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\RequirePackage&#123;algorithm&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="algorithmicsty"><a class="markdownIt-Anchor" href="#algorithmicsty"></a> <code>algorithmic.sty</code></h3>
+<p><strong>调用位置：</strong></p>
+<ul>
+<li><strong>已被注释</strong>：<code>icml2026.sty</code> 第122行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">% \RequirePackage&#123;algorithmic&#125; % Yang Cao: Commented it out on Jan 21, 2026 due to conlicts with \usepackage&#123;algpseudocode&#125;.</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>原因</strong>：与 <code>algpseudocode</code> 包冲突，因此被注释掉</li>
+<li><strong>当前状态</strong>：文件存在但未被使用</li>
+</ul>
+<h3 id="fancyhdrsty"><a class="markdownIt-Anchor" href="#fancyhdrsty"></a> <code>fancyhdr.sty</code></h3>
+<p><strong>调用位置：</strong></p>
+<ul>
+<li><strong>会议版本</strong>：<code>icml2026.sty</code> 第119行（间接调用）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\RequirePackage&#123;fancyhdr&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>用途</strong>：用于设置页眉页脚（运行标题等）</li>
+</ul>
+<h3 id="icml2026bst"><a class="markdownIt-Anchor" href="#icml2026bst"></a> <code>icml2026.bst</code></h3>
+<p><strong>调用位置：</strong></p>
+<ul>
+<li><strong>会议版本</strong>：<code>main.tex</code> 第222行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\bibliographystyle&#123;icml2026&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>ArXiv 版本</strong>：使用 <code>alpha</code> 样式（第219行），不使用此文件</li>
+</ul>
+<h3 id="icml2026sty"><a class="markdownIt-Anchor" href="#icml2026sty"></a> <code>icml2026.sty</code></h3>
+<p><strong>调用位置：</strong></p>
+<ul>
+<li><strong>会议版本</strong>：<code>main.tex</code> 第52行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;icml2026&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>ArXiv 版本</strong>：不使用此文件</li>
+</ul>
+<h2 id="icml2026sty-2"><a class="markdownIt-Anchor" href="#icml2026sty-2"></a> icml2026.sty</h2>
+<p><code>icml2026.sty</code> 注释掉了 algorithmic 包，以避免与 algpseudocode 冲突</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">% Use fancyhdr package</span><br><span class="line">\RequirePackage&#123;fancyhdr&#125;</span><br><span class="line">\RequirePackage&#123;xcolor&#125; % changed from color to xcolor (2021/11/24)</span><br><span class="line">\RequirePackage&#123;algorithm&#125;</span><br><span class="line">% \RequirePackage&#123;algorithmic&#125; % Commented it out on Jan 21, 2026 due to conlicts with \usepackage&#123;algpseudocode&#125;.</span><br><span class="line">\RequirePackage&#123;natbib&#125;</span><br><span class="line">\RequirePackage&#123;eso-pic&#125; % used by \AddToShipoutPicture</span><br><span class="line">\RequirePackage&#123;forloop&#125;</span><br><span class="line">\RequirePackage&#123;url&#125;</span><br><span class="line">\RequirePackage&#123;caption&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="nabibsty"><a class="markdownIt-Anchor" href="#nabibsty"></a> nabib.sty</h2>
+<p><code>nabib.sty</code>代表引用的格式，如果有这个文件的话，会优先加载这个。<code>icml2026</code>文件夹中没有这个文件，会加载系统自带的<code>nabib.sty</code>文件。经过对比，这个<code>nabib.sty</code>和iclr模版文件中的内容一样，可能是遗留物。</p>
+<h2 id="maintex"><a class="markdownIt-Anchor" href="#maintex"></a> main.tex</h2>
+<p>接下来我们来看最关键的<code>main.tex文件</code>：<br />
+我们遵循两个原则: (1) 每次只看一个单元的代码，比如从<code>\ifdefinearxiv</code>到<code>\fi</code>之间的代码 (2)<code>\ifdefinearxiv</code>分支下的我们不看，只看<code>\else</code>分支下面的</p>
+<h3 id="unit-01"><a class="markdownIt-Anchor" href="#unit-01"></a> Unit 01</h3>
+<p>这段没什么问题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">\input&#123;_0_vars&#125;</span><br><span class="line"></span><br><span class="line">\ifdefined\isarxiv</span><br><span class="line">\documentclass[11pt]&#123;article&#125;</span><br><span class="line">\usepackage[numbers]&#123;natbib&#125;</span><br><span class="line">\else</span><br><span class="line">\documentclass&#123;article&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">\fi</span><br></pre></td></tr></table></figure>
+<h3 id="unit-02"><a class="markdownIt-Anchor" href="#unit-02"></a> Unit 02</h3>
+<p><code>\else</code>分支下面的内容来自于<code>icml2026/example_paper.tex</code>中第5行到第37行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">\ifdefined\isarxiv</span><br><span class="line"></span><br><span class="line">\usepackage&#123;amsmath&#125;</span><br><span class="line">\usepackage&#123;amsthm&#125;</span><br><span class="line">\usepackage&#123;amssymb&#125;</span><br><span class="line">\usepackage&#123;algorithm&#125;</span><br><span class="line">\usepackage&#123;subfig&#125;</span><br><span class="line">\usepackage&#123;algpseudocode&#125;</span><br><span class="line">\usepackage&#123;graphicx&#125;</span><br><span class="line">\usepackage&#123;grffile&#125;</span><br><span class="line">\usepackage&#123;wrapfig,epsfig&#125;</span><br><span class="line">\usepackage&#123;url&#125;</span><br><span class="line">\usepackage&#123;xcolor&#125;</span><br><span class="line">\usepackage&#123;epstopdf&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">\usepackage&#123;bbm&#125;</span><br><span class="line">\usepackage&#123;dsfont&#125;</span><br><span class="line"></span><br><span class="line">\else </span><br><span class="line"></span><br><span class="line">% Recommended, but optional, packages for figures and better typesetting:</span><br><span class="line">\usepackage&#123;microtype&#125;</span><br><span class="line">\usepackage&#123;graphicx&#125;</span><br><span class="line">\usepackage&#123;subcaption&#125;</span><br><span class="line">\usepackage&#123;booktabs&#125; % for professional tables</span><br><span class="line"></span><br><span class="line">% hyperref makes hyperlinks in the resulting PDF.</span><br><span class="line">% If your build breaks (sometimes temporarily if a hyperlink spans a page)</span><br><span class="line">% please comment out the following usepackage line and replace</span><br><span class="line">% \usepackage&#123;icml2026&#125; with \usepackage[nohyperref]&#123;icml2026&#125; above.</span><br><span class="line">\usepackage&#123;hyperref&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% Attempt to make hyperref and algorithmic work together better:</span><br><span class="line">\newcommand&#123;\theHalgorithm&#125;&#123;\arabic&#123;algorithm&#125;&#125;</span><br><span class="line"></span><br><span class="line">% Use the following line for the initial blind version submitted for review:</span><br><span class="line">\usepackage&#123;icml2026&#125;</span><br><span class="line"></span><br><span class="line">% For preprint, use</span><br><span class="line">% \usepackage[preprint]&#123;icml2026&#125;</span><br><span class="line"></span><br><span class="line">% If accepted, instead use the following line for the camera-ready submission:</span><br><span class="line">% \usepackage[accepted]&#123;icml2026&#125;</span><br><span class="line"></span><br><span class="line">\usepackage&#123;amsmath&#125;</span><br><span class="line">\usepackage&#123;amssymb&#125;</span><br><span class="line">\usepackage&#123;mathtools&#125;</span><br><span class="line">\usepackage&#123;amsthm&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% if you use cleveref..</span><br><span class="line">% \usepackage[capitalize,noabbrev]&#123;cleveref&#125;</span><br><span class="line"></span><br><span class="line">\fi</span><br></pre></td></tr></table></figure>
+<h3 id="unit-03"><a class="markdownIt-Anchor" href="#unit-03"></a> Unit 03</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\ifdefined\isarxiv</span><br><span class="line"></span><br><span class="line">\else</span><br><span class="line">\usepackage&#123;algpseudocode&#125;</span><br><span class="line">\fi</span><br></pre></td></tr></table></figure>
+<p>Unit 04: 这段内容很常规，不需要根据icml模版改变</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">\allowdisplaybreaks</span><br><span class="line"></span><br><span class="line">\ifdefined\isarxiv</span><br><span class="line"></span><br><span class="line">\let\C\relax</span><br><span class="line">\usepackage&#123;tikz&#125;</span><br><span class="line">\usepackage&#123;hyperref&#125;  </span><br><span class="line">\hypersetup&#123;colorlinks=true,citecolor=blue,linkcolor=blue&#125; </span><br><span class="line">\usetikzlibrary&#123;arrows&#125;</span><br><span class="line">\usepackage[margin=1in]&#123;geometry&#125;</span><br><span class="line"></span><br><span class="line">\else</span><br><span class="line">%%%Zhao: Usually the conference has default dark blue for cite/ref color. But in some year lik 2022 or 2023, we need to define color on own, the conference template no color. This year NeurIPS 2025, if you want the citation/ref to be color, you need the following lines, otherwise you can comment it out.</span><br><span class="line">% \definecolor&#123;mydarkblue&#125;&#123;rgb&#125;&#123;0,0.08,0.45&#125;</span><br><span class="line">% \hypersetup&#123;colorlinks=true, citecolor=mydarkblue,linkcolor=mydarkblue&#125;</span><br><span class="line">\fi</span><br></pre></td></tr></table></figure>
+<p>Unit 05: 这段也很常规，不需要根据icml模版改变</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">\graphicspath&#123;&#123;./figs/&#125;&#125;</span><br><span class="line"></span><br><span class="line">\theoremstyle&#123;plain&#125;</span><br><span class="line">\newtheorem&#123;theorem&#125;&#123;Theorem&#125;[section]</span><br><span class="line">\newtheorem&#123;lemma&#125;[theorem]&#123;Lemma&#125;</span><br><span class="line">\newtheorem&#123;definition&#125;[theorem]&#123;Definition&#125;</span><br><span class="line">\newtheorem&#123;notation&#125;[theorem]&#123;Notation&#125;</span><br><span class="line">%\newtheorem&#123;proof&#125;[theorem]&#123;Proof&#125;</span><br><span class="line">\newtheorem&#123;proposition&#125;[theorem]&#123;Proposition&#125;</span><br><span class="line">\newtheorem&#123;corollary&#125;[theorem]&#123;Corollary&#125;</span><br><span class="line">\newtheorem&#123;conjecture&#125;[theorem]&#123;Conjecture&#125;</span><br><span class="line">\newtheorem&#123;assumption&#125;[theorem]&#123;Assumption&#125;</span><br><span class="line">\newtheorem&#123;observation&#125;[theorem]&#123;Observation&#125;</span><br><span class="line">\newtheorem&#123;fact&#125;[theorem]&#123;Fact&#125;</span><br><span class="line">\newtheorem&#123;remark&#125;[theorem]&#123;Remark&#125;</span><br><span class="line">\newtheorem&#123;claim&#125;[theorem]&#123;Claim&#125;</span><br><span class="line">\newtheorem&#123;example&#125;[theorem]&#123;Example&#125;</span><br><span class="line">\newtheorem&#123;problem&#125;[theorem]&#123;Problem&#125;</span><br><span class="line">\newtheorem&#123;open&#125;[theorem]&#123;Open Problem&#125;</span><br><span class="line">\newtheorem&#123;property&#125;[theorem]&#123;Property&#125;</span><br><span class="line">\newtheorem&#123;hypothesis&#125;[theorem]&#123;Hypothesis&#125;</span><br><span class="line"></span><br><span class="line">\input&#123;_1_maths&#125;</span><br></pre></td></tr></table></figure>
+<p>Unit 06: <code>\paperRTitle</code>指的是<code>_0_vars.tex</code>中的<code>\def\paperRTitle&#123;InternProject&#125;</code>, 是<code>icml2026/example_paper.tex</code>中的第60行<code>\icmltitlerunning&#123;Submission and Formatting Instructions for ICML 2026&#125;</code>类似写法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\ifdefined\isarxiv</span><br><span class="line"></span><br><span class="line">\else</span><br><span class="line">\icmltitlerunning&#123;\paperRTitle&#125;</span><br><span class="line"></span><br><span class="line">\fi</span><br></pre></td></tr></table></figure>
+<p>Unit 07: <code>\else</code>分支来自于<code>icml2026/example_paper.tex</code>的第62行到第122行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;document&#125;</span><br><span class="line"></span><br><span class="line">\ifdefined\isarxiv</span><br><span class="line">%%% The below part is the title and author of ArXiv version.</span><br><span class="line"></span><br><span class="line">\date&#123;&#125;</span><br><span class="line">\title&#123;\paperTitle&#125;</span><br><span class="line">\author&#123;\paperAuthor&#125;</span><br><span class="line"></span><br><span class="line">\else</span><br><span class="line">%%% The below part is the title and author of ICML version.</span><br><span class="line"></span><br><span class="line">\twocolumn[</span><br><span class="line">  \icmltitle&#123;\paperTitle&#125;</span><br><span class="line">  % It is OKAY to include author information, even for blind submissions: the</span><br><span class="line">  % style file will automatically remove it for you unless you&#x27;ve provided</span><br><span class="line">  % the [accepted] option to the icml2026 package.</span><br><span class="line"></span><br><span class="line">  % List of affiliations: The first argument should be a (short) identifier you</span><br><span class="line">  % will use later to specify author affiliations Academic affiliations</span><br><span class="line">  % should list Department, University, City, Region, Country Industry</span><br><span class="line">  % affiliations should list Company, City, Region, Country</span><br><span class="line"></span><br><span class="line">  % You can specify symbols, otherwise they are numbered in order. Ideally, you</span><br><span class="line">  % should not use this facility. Affiliations will be numbered in order of</span><br><span class="line">  % appearance and this is the preferred way.</span><br><span class="line">  \icmlsetsymbol&#123;equal&#125;&#123;*&#125;</span><br><span class="line"></span><br><span class="line">  \begin&#123;icmlauthorlist&#125;</span><br><span class="line">    \icmlauthor&#123;Firstname1 Lastname1&#125;&#123;equal,yyy&#125;</span><br><span class="line">    \icmlauthor&#123;Firstname2 Lastname2&#125;&#123;equal,yyy,comp&#125;</span><br><span class="line">    \icmlauthor&#123;Firstname3 Lastname3&#125;&#123;comp&#125;</span><br><span class="line">    \icmlauthor&#123;Firstname4 Lastname4&#125;&#123;sch&#125;</span><br><span class="line">    \icmlauthor&#123;Firstname5 Lastname5&#125;&#123;yyy&#125;</span><br><span class="line">    \icmlauthor&#123;Firstname6 Lastname6&#125;&#123;sch,yyy,comp&#125;</span><br><span class="line">    \icmlauthor&#123;Firstname7 Lastname7&#125;&#123;comp&#125;</span><br><span class="line">    %\icmlauthor&#123;&#125;&#123;sch&#125;</span><br><span class="line">    \icmlauthor&#123;Firstname8 Lastname8&#125;&#123;sch&#125;</span><br><span class="line">    \icmlauthor&#123;Firstname8 Lastname8&#125;&#123;yyy,comp&#125;</span><br><span class="line">    %\icmlauthor&#123;&#125;&#123;sch&#125;</span><br><span class="line">    %\icmlauthor&#123;&#125;&#123;sch&#125;</span><br><span class="line">  \end&#123;icmlauthorlist&#125;</span><br><span class="line"></span><br><span class="line">  \icmlaffiliation&#123;yyy&#125;&#123;Department of XXX, University of YYY, Location, Country&#125;</span><br><span class="line">  \icmlaffiliation&#123;comp&#125;&#123;Company Name, Location, Country&#125;</span><br><span class="line">  \icmlaffiliation&#123;sch&#125;&#123;School of ZZZ, Institute of WWW, Location, Country&#125;</span><br><span class="line"></span><br><span class="line">  \icmlcorrespondingauthor&#123;Firstname1 Lastname1&#125;&#123;first1.last1@xxx.edu&#125;</span><br><span class="line">  \icmlcorrespondingauthor&#123;Firstname2 Lastname2&#125;&#123;first2.last2@www.uk&#125;</span><br><span class="line"></span><br><span class="line">  % You may provide any keywords that you find helpful for describing your</span><br><span class="line">  % paper; these are used to populate the &quot;keywords&quot; metadata in the PDF but</span><br><span class="line">  % will not be shown in the document</span><br><span class="line">  \icmlkeywords&#123;Machine Learning, ICML&#125;</span><br><span class="line"></span><br><span class="line">  \vskip 0.3in</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">\printAffiliationsAndNotice&#123;&#125; </span><br><span class="line"></span><br><span class="line">\fi</span><br></pre></td></tr></table></figure>
+<p>Unit 08: 这段也很常规，不需要根据icml模版改变</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">\ifdefined\isarxiv</span><br><span class="line">\begin&#123;titlepage&#125;</span><br><span class="line">  \maketitle</span><br><span class="line">  \begin&#123;abstract&#125;</span><br><span class="line">    \input&#123;00_abstract&#125;</span><br><span class="line"></span><br><span class="line">  \end&#123;abstract&#125;</span><br><span class="line">  \thispagestyle&#123;empty&#125;</span><br><span class="line">\end&#123;titlepage&#125;</span><br><span class="line"></span><br><span class="line">&#123;\hypersetup&#123;linkcolor=black&#125;</span><br><span class="line">\tableofcontents</span><br><span class="line">&#125;</span><br><span class="line">\newpage</span><br><span class="line"></span><br><span class="line">\else</span><br><span class="line"></span><br><span class="line">\begin&#123;abstract&#125;</span><br><span class="line">\input&#123;00_abstract&#125;</span><br><span class="line">\end&#123;abstract&#125;</span><br><span class="line"></span><br><span class="line">\fi</span><br></pre></td></tr></table></figure>
+<p>Unit 09: <code>\input&#123;48_impact_statement&#125;</code>是icml要求加的文件，<code>\else</code>分支中<code>\bibliographystyle&#123;icml2026&#125;</code>代表使用<code>icml2026.bst</code>文件，<code>\bibliographystyle&#123;ref&#125;</code>代表使用<code>ref.bib</code>文件; 是<code>icml2026/example_paper.tex</code>624,625行代码的改写</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">%%% The part below is the main body and reference</span><br><span class="line"></span><br><span class="line">\input&#123;_2_body&#125;</span><br><span class="line"></span><br><span class="line">% \input&#123;48_ethic_statement&#125;%%%Zhao: for safe, maybe add for all papers, make sure you read it before you add.</span><br><span class="line"></span><br><span class="line">\input&#123;48_impact_statement&#125;</span><br><span class="line"></span><br><span class="line">\ifdefined\isarxiv</span><br><span class="line">\bibliographystyle&#123;alpha&#125;</span><br><span class="line">\bibliography&#123;ref&#125;</span><br><span class="line">\else</span><br><span class="line">\bibliographystyle&#123;icml2026&#125;</span><br><span class="line">\bibliography&#123;ref&#125;</span><br><span class="line">\fi</span><br></pre></td></tr></table></figure>
+<p>Unit 10: 这段也很常规，不需要根据icml模版改变</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">%%% The part below is the appendix</span><br><span class="line"></span><br><span class="line">\newpage</span><br><span class="line">\onecolumn</span><br><span class="line">\appendix</span><br><span class="line"></span><br><span class="line">\begin&#123;center&#125;</span><br><span class="line">    \textbf&#123;\LARGE Appendix &#125;</span><br><span class="line">\end&#123;center&#125;</span><br><span class="line"></span><br><span class="line">\input&#123;_3_app&#125;</span><br><span class="line"></span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2026-01-22");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2026-01-22T12:04:49.000Z" itemprop="datePublished">2026-01-22</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Tutorial/'>Tutorial</a>
+
+</span>
+
+
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2026/01/20/%E6%AC%A7%E9%99%86%E7%95%99%E5%AD%A6/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">欧陆留学</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2026/01/22/How-to-make-CaoChongChengXiang-Template/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2026/01/22/How-to-make-CaoChongChengXiang-Template/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+(function() {
+    'use strict';
+    
+    // 等待 DOM 加载完成
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTocCollapse);
+    } else {
+        initTocCollapse();
+    }
+    
+    function initTocCollapse() {
+        const tocContainer = document.getElementById('post-toc');
+        if (!tocContainer) {
+            return;
+        }
+        
+        // 找到所有有子目录的 level-1 和 level-2 项
+        const tocItems = tocContainer.querySelectorAll('.post-toc-item.post-toc-level-1, .post-toc-item.post-toc-level-2');
+        
+        tocItems.forEach(function(item) {
+            // 检查是否有子目录（包含 post-toc-child 的 ol）
+            const hasChildren = item.querySelector('ol.post-toc-child') !== null;
+            
+            if (hasChildren) {
+                // 添加标记类，用于 CSS 显示图标
+                item.classList.add('toc-has-children');
+                
+                const link = item.querySelector('.post-toc-link');
+                if (link) {
+                    // 阻止默认的锚点跳转，改为展开/折叠
+                    link.addEventListener('click', function(e) {
+                        // 如果用户按住 Ctrl/Cmd 或中键点击，则跳转
+                        if (e.ctrlKey || e.metaKey || e.button === 1) {
+                            return; // 允许默认行为（跳转）
+                        }
+                        
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // 切换展开/折叠状态
+                        item.classList.toggle('toc-expanded');
+                    });
+                    
+                    // 允许通过双击链接文本跳转
+                    link.addEventListener('dblclick', function(e) {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            window.location.hash = href;
+                        }
+                    });
+                    
+                    // 允许通过右键菜单跳转
+                    link.addEventListener('contextmenu', function(e) {
+                        // 允许默认的右键菜单
+                        return true;
+                    });
+                }
+            }
+        });
+    }
+})();
+        
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>
