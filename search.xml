@@ -18480,4 +18480,33 @@ PP10043好像暂时也没啥办法……</p>
         <category>GoAbroad</category>
       </categories>
   </entry>
+  <entry>
+    <title>ICML 2026 things</title>
+    <url>/2026/01/22/ICML-2026-things/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h3 id="date"><a class="markdownIt-Anchor" href="#date"></a> Date</h3>
+<p>Abstract submission deadline: January 23, 2026 AoE</p>
+<p>Full paper submission deadline: January 28, 2026 AoE</p>
+<h2 id="注意事项"><a class="markdownIt-Anchor" href="#注意事项"></a> 注意事项</h2>
+<p>论文必须准备并提交为单文件 ：主论文 8 页，参考文献、影响声明和附录页页数无限。</p>
+<p>ICML对审稿中使用 LLM 制定了新政策，并且对指定同一人为互惠审稿人的论文数量设定上限 。</p>
+<p>作者名单在摘要截止日期后不得更改。 摘要截止日期后，作者可重新排序。</p>
+<p>模版论文: <a href="https://media.icml.cc/Conferences/ICML2026/Styles/example_paper.pdf">https://media.icml.cc/Conferences/ICML2026/Styles/example_paper.pdf</a></p>
+<p>模版文件: <a href="https://media.icml.cc/Conferences/ICML2026/Styles/icml2026.zip">https://media.icml.cc/Conferences/ICML2026/Styles/icml2026.zip</a></p>
+<h2 id="互惠评审"><a class="markdownIt-Anchor" href="#互惠评审"></a> 互惠评审</h2>
+<p>合格作者需为 ICML 进行审稿。有两个要求：每个投稿要求和每个作者要求。</p>
+<p>担任 ICML 审稿人的要求：评审员必须具备相当于机器学习或相关领域二年级研究生的研究经验。他们必须是至少两篇相关院校同行评审会议或期刊论文的主要作者*（如 ICML、NeurIPS、ICLR、UAI、AISTATS、COLT、ALT、JMLR、TMLR、CVPR、ICCV、ACL、NAACL、EMNLP、SIMODS——注意此列表并非详尽）。</p>
+<h3 id="每个投稿要求"><a class="markdownIt-Anchor" href="#每个投稿要求"></a> 每个投稿要求</h3>
+<p>所有投稿必须至少有一位作者同意担任 ICML 的审稿人。</p>
+<p>一位作者最多只能被指定为其投稿中两 篇的互惠评审员。</p>
+<p>如果没有作者符合资格（根据同行评审常见问题定义），  或所有合格作者均符合资格作者已是 2 份投稿的互惠评审，或担任 2026 年 ICML 2026 的 SAC、AC 或其他组织角色，则该投稿免于此要求。</p>
+<p>摘要提交表格允许提交者指定作者以满足此要求，或表示提交免于该要求。</p>
+<h3 id="每个作者要求"><a class="markdownIt-Anchor" href="#每个作者要求"></a> 每个作者要求</h3>
+<p>每位投稿 4 篇及以上的作者必须同意担任 ICML 的审稿人。</p>
+<p>如果作者担任 ICML 2026 的助理、SAC 或其他组织角色，则可免于此要求。</p>
+<p>提交 4 篇及以上的作者应填写 <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0156wPfpAj63yXXcXgJDwkAS3ODrQAxJKv11s3hBeHoFLcQ/viewform">《逐作者互惠评审表》</a>，提供我们要求所有审稿人的信息，或说明他们免于此要求。</p>
+]]></content>
+      <categories>
+        <category>Tutorial</category>
+      </categories>
+  </entry>
 </search>
