@@ -18510,174 +18510,113 @@ PP10043好像暂时也没啥办法……</p>
       </categories>
   </entry>
   <entry>
-    <title>景区短视频小程序</title>
-    <url>/2026/01/23/%E6%99%AF%E5%8C%BA%E7%9F%AD%E8%A7%86%E9%A2%91%E5%B0%8F%E7%A8%8B%E5%BA%8F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="需求清单"><a class="markdownIt-Anchor" href="#需求清单"></a> 需求清单</h2>
-<table>
-<thead>
-<tr>
-<th>一级模块</th>
-<th>二级模块</th>
-<th>功能描述</th>
-<th>优先级</th>
-<th>用户角色</th>
-<th>关键约束 / 备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>前端交互层</strong></td>
-<td>扫码识别模块</td>
-<td>提供标准化扫码入口，支持景区专属二维码识别，触发人脸识别流程；扫码响应时间≤2 秒</td>
-<td>P0</td>
-<td>游客</td>
-<td>需适配不同光线环境下的扫码识别，二维码含景区设备唯一标识</td>
-</tr>
-<tr>
-<td><strong>前端交互层</strong></td>
-<td>人脸识别模块</td>
-<td>展示人脸采集框，实时引导游客完成面部对齐；采集完成后显示 “匹配中” 状态提示，同步上传面部特征值</td>
-<td>P0</td>
-<td>游客</td>
-<td>需弹窗告知《人脸识别授权协议》，获得授权后才可采集；支持戴口罩场景识别优化</td>
-</tr>
-<tr>
-<td><strong>前端交互层</strong></td>
-<td>主界面载体</td>
-<td>基于微信小程序 / H5 构建，包含功能导航栏（首页 / 我的视频 / 帮助中心）、特效模板推荐区、活动公告栏；适配 iOS/Android 主流机型及微信内置浏览器</td>
-<td>P0</td>
-<td>游客</td>
-<td>首屏加载时间≤3 秒，界面符合微信小程序设计规范</td>
-</tr>
-<tr>
-<td><strong>前端交互层</strong></td>
-<td>用户账号模块</td>
-<td>支持微信快捷登录（一键授权）、手机号注册（验证码验证）；登录后显示用户头像、已购视频列表、消费记录</td>
-<td>P1</td>
-<td>游客</td>
-<td>与后端账号系统实时同步用户状态，支持账号注销功能</td>
-</tr>
-<tr>
-<td><strong>前端交互层</strong></td>
-<td>视频预览模块</td>
-<td>提供视频播放器（支持进度拖动、倍速播放），展示合成后的特效视频；播放器下方显示美颜调节入口、特效切换按钮、背景音乐选择栏</td>
-<td>P0</td>
-<td>游客</td>
-<td>视频加载缓冲时间≤1.5 秒，支持 720P 预览画质</td>
-</tr>
-<tr>
-<td><strong>前端交互层</strong></td>
-<td>支付下载模块</td>
-<td>展示阶梯定价面板（720P 水印版免费 / 1080P 无水印 XX 元 / 4KXX 元 / 8KXX 元 / 原始素材 XX 元）；支持微信支付，支付完成后显示下载按钮，支持断点续传</td>
-<td>P0</td>
-<td>游客</td>
-<td>价格需动态配置，支付成功后触发视频权限解锁；下载速度≥5MB/s（5G 环境）</td>
-</tr>
-<tr>
-<td><strong>后端服务层</strong></td>
-<td>账号管理系统</td>
-<td>实现用户信息存储（手机号 / 微信 OpenID / 头像）、子账号授权管理（支持 N 个子账号分配，可设置权限有效期）；提供账号冻结 / 解冻、密码重置接口</td>
-<td>P1</td>
-<td>管理员 / 游客</td>
-<td>子账号权限范围：仅查看权限 / 下载权限 / 管理权限；支持批量授权导出</td>
-</tr>
-<tr>
-<td><strong>后端服务层</strong></td>
-<td>视频处理系统</td>
-<td>接收前端请求后，调用 AI 合成引擎：匹配游客影像片段（从摄像机实时流中提取）→ 与选定特效模板融合→ 叠加背景音乐→ 输出 4K 成片；支持并发处理≥50 路视频合成</td>
-<td>P0</td>
-<td>系统自动</td>
-<td>特效模板库支持动态更新（新增 / 下架）；视频合成耗时≤10 秒</td>
-</tr>
-<tr>
-<td><strong>后端服务层</strong></td>
-<td>支付系统</td>
-<td>对接微信支付 API，实现订单生成（含唯一订单号）、支付回调验证、订单状态同步；支持订单查询、退款申请处理</td>
-<td>P0</td>
-<td>系统自动</td>
-<td>支付数据加密存储，支持对账接口；退款审核流程需人工确认（管理员操作）</td>
-</tr>
-<tr>
-<td><strong>后端服务层</strong></td>
-<td>数据分析系统</td>
-<td>采集用户行为数据（扫码次数 / 模板选择偏好 / 支付转化率）、系统性能数据（合成成功率 / 响应时间）；生成日 / 周 / 月报表，支持数据可视化展示</td>
-<td>P2</td>
-<td>管理员</td>
-<td>数据采样频率≥1 次 / 分钟，支持异常数据告警（如合成失败率＞5%）</td>
-</tr>
-<tr>
-<td><strong>后端服务层</strong></td>
-<td>数据存储系统</td>
-<td>采用分布式存储架构，存储用户视频（24 小时自动清理）、用户基础信息（长期存储）、交易记录（永久存储）；支持视频分片存储和快速检索</td>
-<td>P0</td>
-<td>系统自动</td>
-<td>视频存储加密，清理机制需日志记录；存储空间支持弹性扩容</td>
-</tr>
-<tr>
-<td><strong>后端服务层</strong></td>
-<td>财务管理系统</td>
-<td>自动统计交易流水（收入 / 退款）、生成财务报表（按景区 / 按时间段）；支持财务数据导出（Excel 格式），数据保留周期为 2 年</td>
-<td>P1</td>
-<td>管理员</td>
-<td>报表需包含税费计算、环比增长率分析；支持多景区财务数据隔离</td>
-</tr>
-<tr>
-<td><strong>核心功能层</strong></td>
-<td>人脸识别与视频捕捉</td>
-<td>通过边缘计算节点实时分析摄像机画面，基于人脸识别匹配游客轨迹；自动提取 30 秒最佳片段（含表情 / 动作亮点），与模板合成 60 秒内视频</td>
-<td>P0</td>
-<td>系统自动</td>
-<td>匹配准确率≥95%；支持多摄像机画面联动拼接（如景区多个景点画面融合）</td>
-</tr>
-<tr>
-<td><strong>核心功能层</strong></td>
-<td>特效合成引擎</td>
-<td>内置主题特效模板库（过山车 / 大喇叭 / 花海等），支持 AI 智能匹配场景（如根据游客位置自动推荐对应景点模板）；提供背景音乐库（按风格分类：动感 / 抒情 / 国风），支持音量调节</td>
-<td>P0</td>
-<td>游客 / 系统自动</td>
-<td>模板更新频率≥每月 2 款；支持用户自定义特效参数（如特效强度）</td>
-</tr>
-<tr>
-<td><strong>核心功能层</strong></td>
-<td>智能美颜系统</td>
-<td>基于深度学习算法实现面部特征点检测，提供基础美颜参数（磨皮 / 瘦脸 / 大眼 / 美白），支持强度调节（0-100 档）；预览界面实时显示美颜效果，与最终视频效果一致</td>
-<td>P1</td>
-<td>游客</td>
-<td>美颜处理不影响背景画质；支持多人美颜（如游客与同伴同框时分别处理）</td>
-</tr>
-<tr>
-<td><strong>核心功能层</strong></td>
-<td>隐私保护模块</td>
-<td>自动识别视频中除主角外的其他游客面部 / 身形，采用高斯模糊处理；支持用户手动标记需模糊区域（如背景中的路人）</td>
-<td>P1</td>
-<td>系统自动 / 游客</td>
-<td>模糊处理不影响视频主体内容；符合《个人信息保护法》对人脸信息处理的要求</td>
-</tr>
-<tr>
-<td><strong>技术支撑层</strong></td>
-<td>硬件适配方案</td>
-<td>兼容 8K 超高清摄像机（优先 Sony ILME-FR7），支持 RTSP 实时流接入；部署边缘计算服务器（GPU≥NVIDIA T4），保障本地视频处理低延迟；依赖 5G 网络实现设备间数据传输（带宽≥100Mbps）</td>
-<td>P0</td>
-<td>运维人员</td>
-<td>服务器需支持 7x24 小时稳定运行；摄像机安装位置需覆盖景区核心游览路线</td>
-</tr>
-<tr>
-<td><strong>技术支撑层</strong></td>
-<td>核心算法引擎</td>
-<td>美颜算法：支持实时面部特征提取，处理延迟≤50ms；视频合成算法：实现模板与实时视频的动态融合（含转场特效 / 字幕叠加），输出视频帧率≥30fps；AI 视角优化：自动调整镜头焦点（突出游客主体）</td>
-<td>P0</td>
-<td>技术开发</td>
-<td>算法需定期迭代优化；支持离线备份算法模型（防止网络中断时功能降级）</td>
-</tr>
-</tbody>
-</table>
-<h2 id="优先级定义说明"><a class="markdownIt-Anchor" href="#优先级定义说明"></a> 优先级定义说明</h2>
+    <title>Git: Commit, Tree and Blob</title>
+    <url>/2026/01/24/Git-Commit-Tree-and-Blob/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="引言"><a class="markdownIt-Anchor" href="#引言"></a> 引言</h2>
+<p>我不小心将一个几GB的机器学习模型commit到了Github repo中，导致仓库的体积瞬间变大，git clone需要很久。即使随后删除了该模型并再次commit，github repo的体积仍然没有改变，由此我打算研究一下Git的逻辑</p>
+<h2 id="git的核心"><a class="markdownIt-Anchor" href="#git的核心"></a> Git的核心</h2>
+<p>Commit:</p>
 <ul>
-<li><strong>P0（最高优先级）</strong>：核心功能，直接影响小程序可用性，必须实现且上线前需完全验证</li>
-<li><strong>P1（高优先级）</strong>：重要功能，提升用户体验或运营效率，需在首个正式版本实现</li>
-<li><strong>P2（中优先级）</strong>：优化类功能，可在后续版本迭代中逐步实现</li>
+<li>指向Tree对象</li>
+<li>meta data: author、committer、message以及parent的哈希值</li>
+<li>branch是Commit的引用</li>
 </ul>
-]]></content>
+<p>Tree:</p>
+<ul>
+<li>指向Blob对象或其他Tree对象</li>
+<li>代表某个时间点的目录结构</li>
+</ul>
+<p>Blob: 存储文件的具体内容</p>
+<h2 id="practice"><a class="markdownIt-Anchor" href="#practice"></a> Practice</h2>
+<p><img src="https://pic1.imgdb.cn/item/6974761f12d4e117ead2e893.png" alt="" /></p>
+<h3 id="查看第一次提交-commit-1"><a class="markdownIt-Anchor" href="#查看第一次提交-commit-1"></a> 查看第一次提交 (Commit 1)</h3>
+<ul>
+<li>
+<p><strong>指令</strong>：<code>git cat-file -p 1ddf</code></p>
+</li>
+<li>
+<p><strong>参数</strong>：<code>1ddf</code> 是左侧 Git Graph 中 <code>commit1</code> 的哈希值前几位。</p>
+</li>
+<li>
+<p><strong>输出解读</strong>：</p>
+</li>
+<li>
+<p><code>tree caae...</code>：指向一个哈希为 <code>caae</code> 开头的 Tree 对象（目录树）。</p>
+</li>
+<li>
+<p><code>commit1</code>：这是提交时的备注信息。</p>
+</li>
+<li>
+<p><strong>目的</strong>：找到这次提交对应的根目录树（Tree）。</p>
+</li>
+</ul>
+<h3 id="查看第一次提交的目录树-tree"><a class="markdownIt-Anchor" href="#查看第一次提交的目录树-tree"></a> 查看第一次提交的目录树 (Tree)</h3>
+<ul>
+<li>
+<p><strong>指令</strong>：<code>git cat-file -p caae</code></p>
+</li>
+<li>
+<p><strong>参数</strong>：<code>caae</code> 是上一步得到的 Tree 对象的哈希值。</p>
+</li>
+<li>
+<p><strong>输出解读</strong>：</p>
+</li>
+<li>
+<p><code>blob 737c... text1</code>：显示目录里有一个名为 <code>text1</code> 的文件，其内容存储在哈希为 <code>737c</code> 的 Blob 对象中。</p>
+</li>
+<li>
+<p><strong>目的</strong>：找到文件名 <code>text1</code> 对应的具体文件内容对象（Blob）。</p>
+</li>
+</ul>
+<h3 id="查看文件内容-blob"><a class="markdownIt-Anchor" href="#查看文件内容-blob"></a> 查看文件内容 (Blob)</h3>
+<ul>
+<li>
+<p><strong>指令</strong>：<code>git cat-file -p 737c</code></p>
+</li>
+<li>
+<p><strong>参数</strong>：<code>737c</code> 是上一步得到的 Blob 对象的哈希值。</p>
+</li>
+<li>
+<p><strong>输出解读</strong>：</p>
+</li>
+<li>
+<p><code>This is text1.%</code>：这是文件的真实内容。</p>
+</li>
+<li>
+<p><strong>目的</strong>：验证 Blob 对象存储的就是文件的原始内容快照。</p>
+</li>
+</ul>
+<h3 id="查看第二次提交-commit-2"><a class="markdownIt-Anchor" href="#查看第二次提交-commit-2"></a> 查看第二次提交 (Commit 2)</h3>
+<ul>
+<li>
+<p><strong>指令</strong>：<code>git cat-file -p 957c</code></p>
+</li>
+<li>
+<p><strong>参数</strong>：<code>957c</code> 是左侧 <code>commit2</code> 的哈希值。</p>
+</li>
+<li>
+<p><strong>输出解读</strong>：</p>
+</li>
+<li>
+<p><code>tree a638...</code>：指向一个新的 Tree 对象。</p>
+</li>
+<li>
+<p><code>parent 1ddf...</code>：<strong>关键点</strong>，显示它的父提交是 <code>commit1</code> (<code>1ddf</code>)，形成了历史链条。</p>
+</li>
+<li>
+<p><strong>目的</strong>：查看新提交的结构以及它与上一次提交的关系。</p>
+</li>
+</ul>
+<h3 id="查看第二次提交的目录树-tree"><a class="markdownIt-Anchor" href="#查看第二次提交的目录树-tree"></a> 查看第二次提交的目录树 (Tree)</h3>
+<ul>
+<li><strong>指令</strong>：<code>git cat-file -p a638</code></li>
+<li><strong>参数</strong>：<code>a638</code> 是上一步得到的 Tree 对象哈希值。</li>
+<li><strong>输出解读</strong>：</li>
+<li><code>blob 737c... text1</code>：<strong>重点</strong>，这里依然引用了旧的 Blob (<code>737c</code>)，证明了 Git 复用了没有修改的文件。</li>
+<li><code>blob e69d... text2</code>：新文件 <code>text2</code> 指向了一个全新的 Blob (<code>e69d</code>)。</li>
+</ul>
+<h2 id="最开始问题的解决方法"><a class="markdownIt-Anchor" href="#最开始问题的解决方法"></a> 最开始问题的解决方法</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset #之前git add 添加到暂存区的文件，会被移出暂存区，变回“未暂存”的状态</span><br><span class="line">git gc --prune==now #检测到这个大文件的对象没有被任何提交引用，于是立即把它从磁盘上彻底删除，释放空间</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Tutorial</category>
       </categories>
