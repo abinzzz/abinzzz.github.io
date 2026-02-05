@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>翻墙扫盲帖 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="翻墙扫盲帖 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2026/02/05/%E7%BF%BB%E5%A2%99%E6%89%AB%E7%9B%B2%E5%B8%96/"><meta property="og:locale" content="zh-CN"><meta name="description" content="基本概念     名称 类型 是不是软件? 是否需要搭配工具?     ✈️ 机场 服务内容的俗称 ❌ (不是软件) ☑️ 需要工具客户端   机场主 翻墙节点提供者 ❌ ——   梯子 翻墙工具的俗称   🛡️ VPN 一体化软件服务 ☑️ ❌ (不需要其他工具)   🐱 Clash for win 电脑客户端工具 ☑️ (软件) ☑️ (导入节点才能用)   🚀 小火箭 iOS客户端工具 - ab - blog"><meta name="keywords" content="翻墙, VPN, 梯子, blog"><meta property="og:image" content="https://pic1.imgdb.cn/item/69844adc312b01a291a4e547.png"><meta property="og:image" content="https://pic1.imgdb.cn/item/6984536f312b01a291a50a3e.png"><meta property="article:published_time" content="2026-02-05T07:31:19.000Z"><meta property="article:modified_time" content="2026-02-05T08:33:11.948Z"><meta property="og:updated_time" content="2026-02-05T08:33:11.948Z"><meta property="article:author" content="ab"><meta property="article:tag" content="翻墙, VPN, 梯子, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2026/02/05/%E7%BF%BB%E5%A2%99%E6%89%AB%E7%9B%B2%E5%B8%96/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2026/02/05/%E7%BF%BB%E5%A2%99%E6%89%AB%E7%9B%B2%E5%B8%96/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2026/02/05/%E7%BF%BB%E5%A2%99%E6%89%AB%E7%9B%B2%E5%B8%96/"
+    },
+    "headline": "翻墙扫盲帖 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2026-02-05T07:31:19.000Z",
+    "dateModified": "2026-02-05T08:33:11.948Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "翻墙, VPN, 梯子, blog",
+    "description": "基本概念     名称 类型 是不是软件? 是否需要搭配工具?     ✈️ 机场 服务内容的俗称 ❌ (不是软件) ☑️ 需要工具客户端   机场主 翻墙节点提供者 ❌ ——   梯子 翻墙工具的俗称   🛡️ VPN 一体化软件服务 ☑️ ❌ (不需要其他工具)   🐱 Clash for win 电脑客户端工具 ☑️ (软件) ☑️ (导入节点才能用)   🚀 小火箭 iOS客户端工具 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">翻墙扫盲帖</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2026-02-05</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Tutorial/">Tutorial</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACMUlEQVR42u2a224CMQwF9/9/un2lVXI8XqUqrCcvCDYkExSb48v19QHjElJIIYV8A8grjNfnv+fvvvtjk83nZF8hZ0MuL+0LSHq2mlfBk32FFHJlMNUlT98na5ZzhBRys3m66CuHn5y2kEKeMpzdHCIydkJFSCHvCIzVnOTMk+EQQxRSSBKI/dXr0WhRyMdAlkmjzaJEDO8c+/GsmpCPgtwF+tX76hBJ6FZrCClkEg9pQ5JsTQerkmNCzoZMhpI+SwdN66QkrJCzIQlscr5V4oocbhvECTkekgrbXeKfGlH6IWIgJuQIyLQ5ueQUohqlwBByFCQRrcmRV8KWCl4hhWw3bhSOmDQtJUGC/nGEHAOZCugVPDGsOwcSciYkERhUgHQaTVDAJuRIyDtJJiJAKuedhLGQsyGTIO0WlkijHS1GCTkXshPwdwqlyaBo4V7IuZB3CpQkQCNJqSighRwJSZtBkkF0D1X9GELOhqyEKU1m0SJ/q6FEyJGQlVjoAFHhm4pYQgpJG0UqA0hA6dDtzgEhR0CmS5wWicmmUESiyX0hZ0J2Go+7xfnKWNrKXMgRkEQ0dItIae7tJKqQYyFpgagSFERIV8GekDMhaeNlR+QSmHa0KOQoSOLUaWEqNn5A8SukkJ3EfregSRKqx4tNQj4asipeErGQArsjhiPkSEjyPInkThJMSCFJcTNd9qrATv4gykBMyFGQNBCjRaVOkuB4tCjkx0O+8xBSSCGF/MfxDS/8lrWdJhmCAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="post-toc-number">1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%8F%E8%AE%AE%E5%92%8C%E5%86%85%E6%A0%B8"><span class="post-toc-number">2.</span> <span class="post-toc-text">协议和内核</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8D%8F%E8%AE%AE%E6%BC%94%E5%8F%98%E5%8F%B2"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">协议演变史</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%86%85%E6%A0%B8%E6%BC%94%E5%8F%98%E5%8F%B2"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">内核演变史</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BB%BA%E8%AE%AE"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">建议</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B3%95%E5%BE%8B%E8%BE%B9%E7%95%8C"><span class="post-toc-number">3.</span> <span class="post-toc-text">法律边界</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%96%E5%9B%BD%E6%89%8B%E6%9C%BA%E5%8D%A1"><span class="post-toc-number">4.</span> <span class="post-toc-text">外国手机卡</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Awesome-Links"><span class="post-toc-number">5.</span> <span class="post-toc-text">Awesome Links</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><img src="https://pic1.imgdb.cn/item/69844adc312b01a291a4e547.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是不是软件?</th>
+<th>是否需要搭配工具?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✈️ <strong>机场</strong></td>
+<td>服务内容的俗称</td>
+<td>❌ (不是软件)</td>
+<td>☑️ 需要工具客户端</td>
+</tr>
+<tr>
+<td><strong>机场主</strong></td>
+<td>翻墙节点提供者</td>
+<td>❌</td>
+<td>——</td>
+</tr>
+<tr>
+<td><strong>梯子</strong></td>
+<td>翻墙工具的俗称</td>
+</tr>
+<tr>
+<td>🛡️ <strong>VPN</strong></td>
+<td>一体化软件服务</td>
+<td>☑️</td>
+<td>❌ (不需要其他工具)</td>
+</tr>
+<tr>
+<td>🐱 <strong>Clash for win</strong></td>
+<td>电脑客户端工具</td>
+<td>☑️ (软件)</td>
+<td>☑️ (导入节点才能用)</td>
+</tr>
+<tr>
+<td>🚀 <strong>小火箭</strong></td>
+<td>iOS客户端工具</td>
+<td>☑️ (iOS App)</td>
+<td>☑️ (导入节点使用)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>⚠️：不要使用来路不明的翻墙工具</p>
+<h2 id="协议和内核"><a href="#协议和内核" class="headerlink" title="协议和内核"></a>协议和内核</h2><p>首先我们要区分两个容易混淆的概念”</p>
+<ul>
+<li>协议：“秘密语言”，定义了设备与服务器如何沟通和加密数据（Shadowsocks, VMess, VLESS）。</li>
+<li>内核：“翻译官”，是协议的具体软件实现，负责处理数据的收发和加密解密（如 V2Ray, Xray, Sing-box）。</li>
+</ul>
+<p><img src="https://pic1.imgdb.cn/item/6984536f312b01a291a50a3e.png" alt=""></p>
+<h3 id="协议演变史"><a href="#协议演变史" class="headerlink" title="协议演变史"></a>协议演变史</h3><p>视频将协议的发展划分为几个阶段：</p>
+<p><strong>初代传奇：Shadowsocks (SS)</strong></p>
+<ul>
+<li><strong>背景</strong>：2012年由 clowwindy 发布，本质是基于 SOCKS5 的轻量级加密代理。</li>
+<li><strong>创新</strong>：首次完美结合 PAC 文件（智能分流），解决了传统 VPN “访问国内慢”的痛点。</li>
+<li><strong>现状</strong>：因“喝茶事件”原作者被迫停止开发，但社区接手使其“永生”。由于特征明显，目前普通 VPS 搭建容易被秒封，主要用于不过墙的专线机场。</li>
+<li><strong>ShadowsocksR (SSR)</strong>：SS 的分支，增加了混淆，曾红极一时，但因作者高调和社区争议，现已退出历史舞台。</li>
+</ul>
+<p><strong>为墙而生：VMess &amp; Trojan</strong></p>
+<ul>
+<li><strong>VMess (V2Ray)</strong>：针对 GFW 具备流量分析能力而生。核心思想是<strong>更复杂的加密</strong>，引入 UUID 和时间戳验证，要求客户端和服务器的系统时间误差不能超过90s，安全性高但配置繁琐。</li>
+<li><strong>Trojan</strong>：核心思想是<strong>伪装</strong>。将流量伪装成最常见的 HTTPS 流量（443端口），让 GFW 以为你在访问正常网页。</li>
+</ul>
+<p><strong>大道至简与革新：VLESS &amp; Xray</strong></p>
+<ul>
+<li><strong>VLESS</strong>：VMess 的“减法”版，剥离了自身的加密（依赖外部 TLS），更轻量高效，便于扩展。</li>
+<li><strong>XTLS 技术</strong>：解决了“TLS in TLS”（双重加密）导致的性能损耗和指纹问题。这一分歧导致了 V2Fly 社区分裂，诞生了 <strong>Xray</strong> 内核。</li>
+</ul>
+<p><strong>终极伪装术：Reality &amp; ShadowTLS</strong></p>
+<ul>
+<li><strong>Reality (Xray)</strong>：目前的“版本之子”。它不再自己生成证书，而是<strong>借用</strong>知名大厂（如微软、苹果）的真实 TLS 握手信息。GFW 看到的只是你的服务器在和知名公司通信，无法轻易封锁。<strong>优势：无需域名、无需证书、难以被封。</strong></li>
+<li><strong>ShadowTLS</strong>：思路类似，扮演“护卫”，利用真实网站的 TLS 握手掩护内部的代理协议（如 SS）。</li>
+</ul>
+<p><strong>完美模仿者：NaiveProxy</strong></p>
+<ul>
+<li>直接照搬 Google Chrome 的网络栈，流量指纹与真实浏览器完全一致，在 GFW 的流量特征检测下存活率极高。</li>
+<li>GFW的模式转变：从以前的黑名单模式到现在的白名单模式 </li>
+</ul>
+<p><strong>暴力美学：Hysteria (歇斯底里) &amp; TUIC</strong></p>
+<ul>
+<li>走 <strong>UDP (QUIC)</strong> 通道，而非传统的 TCP。</li>
+<li><strong>特点</strong>：在丢包率高、线路差的“垃圾 VPS”上也能跑满带宽，适合看视频、打游戏。</li>
+<li><strong>缺点</strong>：发包过于暴力，容易被运营商（QoS）限速或断流。</li>
+</ul>
+<h3 id="内核演变史"><a href="#内核演变史" class="headerlink" title="内核演变史"></a>内核演变史</h3><ul>
+<li><strong>V2Ray (V2Fly)</strong>：老牌劲旅，社区接手原 V2Ray 维护。</li>
+<li><strong>Xray</strong>：从 V2Fly 分裂而出，专注于性能和新技术（VLESS, Reality），是目前的创新引擎。</li>
+<li><strong>Sing-box</strong>：<strong>全能型新秀</strong>，被誉为“瑞士军刀”。兼容几乎所有主流协议（SS, VLESS, Hysteria 等），配置灵活，是目前极客的首选。</li>
+<li><strong>Clash -&gt; Mihomo (Clash Meta)</strong>：Clash 原作者因风险删库“跑路”导致生态崩塌，<strong>Mihomo (原 Clash Meta)</strong> 接手成为事实上的继承者，支持新协议，是目前最流行的客户端内核。</li>
+</ul>
+<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><ul>
+<li><strong>技术趋势</strong>：从单纯的“流量加密”进化到“完美伪装”（让流量看起来像访问正常网站），再到平行发展的“追求极致速度”（UDP/QUIC）。</li>
+<li><strong>作者个人搭配</strong>：</li>
+<li><strong>求稳</strong>：VLESS + Reality (Xray)</li>
+<li><strong>求快</strong>：Hysteria (歇斯底里)</li>
+<li><strong>内核偏好</strong>：Sing-box </li>
+</ul>
+<!-- ### 3. 内核风云：大一统时代
+
+* **V2Ray (V2Fly)**：老牌劲旅，社区接手原 V2Ray 维护。
+* **Xray**：从 V2Fly 分裂而出，专注于性能和新技术（VLESS, Reality），是目前的创新引擎。
+* **Sing-box**：**全能型新秀**，被誉为“瑞士军刀”。兼容几乎所有主流协议（SS, VLESS, Hysteria 等），配置灵活，是目前极客的首选。
+* **Clash -> Mihomo (Clash Meta)**：Clash 原作者因风险删库“跑路”导致生态崩塌，**Mihomo (原 Clash Meta)** 接手成为事实上的继承者，支持新协议，是目前最流行的客户端内核。
+
+-->
+<h2 id="法律边界"><a href="#法律边界" class="headerlink" title="法律边界"></a>法律边界</h2><h2 id="外国手机卡"><a href="#外国手机卡" class="headerlink" title="外国手机卡"></a>外国手机卡</h2><p>大家在注册国外网站（比如 Google）时肯定遇到过这种情况：填了 +86 手机号，要么收不到码，要么直接提示不可用。</p>
+<p>很多人第一反应是找<strong>接码平台</strong>（比如 sms-activate）。但我真心不推荐用它注册重要账号。首先，这些号码早就被注册烂了，通过率低；其次，这号是一次性的，万一以后账号要验证，你根本找不到这个号，账号直接作废（尤其是涉及钱的账号，千万别用！）。</p>
+<p>还有人会用 <strong>Google Voice (GV)</strong>。它确实是个办法，但因为前几年被薅得太狠，现在很多平台（比如 ChatGPT）一眼就能识别出它是虚拟号，直接拒绝注册。而且 GV 还需要每三个月打次电话保号，非常麻烦。</p>
+<p>所以，想要一劳永逸，搞一张<strong>真实的海外实体卡</strong>才是正解。</p>
+<p><strong>我的推荐：</strong></p>
+<ul>
+<li><strong>英国 Giffgaff 手机卡：</strong> 维护成本低，寄送方便，非常适合国内用户长期持有。</li>
+<li><strong>境外实体卡/eSIM：</strong> 出国旅游时顺手买一张，或者在线申请支持漫游的境外 eSIM。</li>
+</ul>
+<h2 id="Awesome-Links"><a href="#Awesome-Links" class="headerlink" title="Awesome Links"></a>Awesome Links</h2><p>programthink blog:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2009/05/how-to-break-through-gfw.html">如何翻墙（全方位入门扫盲）</a></li>
+<li><a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2011/09/gfw-faq.html">写给翻墙新手的扫盲贴：关于 GFW 的 FAQ</a></li>
+<li><a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2011/03/how-to-get-gfw-tools.html">获取翻墙软件方法大全</a></li>
+<li><a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2013/11/tor-faq.html">“如何隐藏你的踪迹，避免被跨省追捕”——Tor 扫盲与 FAQ</a></li>
+</ul>
+<p>YouTube:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/fqiD0fr4rsA?si=qEfqds20JJHcZMXA">翻墙科普】机场和VPN的区别是什么？Clash是VPN吗？</a></li>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/shWeX2uCbHk?si=e3QQHz5_KAVEJwzi">翻墙后，为什么需要一张外国电话卡｜Telegram｜科学上网｜VPN翻墙｜翻墙必看｜数字身份｜推特｜隐私安全｜</a></li>
+</ul>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2026-02-05");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2026-02-05T07:31:19.000Z" itemprop="datePublished">2026-02-05</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Tutorial/'>Tutorial</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/%E7%BF%BB%E5%A2%99/" rel="tag">#&nbsp;翻墙</a>
+
+<a class="post-tags-list-item" href="/tags/VPN/" rel="tag">#&nbsp;VPN</a>
+
+<a class="post-tags-list-item" href="/tags/%E6%A2%AF%E5%AD%90/" rel="tag">#&nbsp;梯子</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2026/01/24/Git-Commit-Tree-and-Blob/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Git: Commit, Tree and Blob</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2026/02/05/%E7%BF%BB%E5%A2%99%E6%89%AB%E7%9B%B2%E5%B8%96/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2026/02/05/%E7%BF%BB%E5%A2%99%E6%89%AB%E7%9B%B2%E5%B8%96/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+(function() {
+    'use strict';
+    
+    // 等待 DOM 加载完成
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTocCollapse);
+    } else {
+        initTocCollapse();
+    }
+    
+    function initTocCollapse() {
+        const tocContainer = document.getElementById('post-toc');
+        if (!tocContainer) {
+            return;
+        }
+        
+        // 找到所有有子目录的 level-1 和 level-2 项
+        const tocItems = tocContainer.querySelectorAll('.post-toc-item.post-toc-level-1, .post-toc-item.post-toc-level-2');
+        
+        tocItems.forEach(function(item) {
+            // 检查是否有子目录（包含 post-toc-child 的 ol）
+            const hasChildren = item.querySelector('ol.post-toc-child') !== null;
+            
+            if (hasChildren) {
+                // 添加标记类，用于 CSS 显示图标
+                item.classList.add('toc-has-children');
+                
+                const link = item.querySelector('.post-toc-link');
+                if (link) {
+                    // 阻止默认的锚点跳转，改为展开/折叠
+                    link.addEventListener('click', function(e) {
+                        // 如果用户按住 Ctrl/Cmd 或中键点击，则跳转
+                        if (e.ctrlKey || e.metaKey || e.button === 1) {
+                            return; // 允许默认行为（跳转）
+                        }
+                        
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // 切换展开/折叠状态
+                        item.classList.toggle('toc-expanded');
+                    });
+                    
+                    // 允许通过双击链接文本跳转
+                    link.addEventListener('dblclick', function(e) {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            window.location.hash = href;
+                        }
+                    });
+                    
+                    // 允许通过右键菜单跳转
+                    link.addEventListener('contextmenu', function(e) {
+                        // 允许默认的右键菜单
+                        return true;
+                    });
+                }
+            }
+        });
+    }
+})();
+        
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

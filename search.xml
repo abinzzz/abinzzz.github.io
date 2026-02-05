@@ -18621,4 +18621,149 @@ PP10043好像暂时也没啥办法……</p>
         <category>Tutorial</category>
       </categories>
   </entry>
+  <entry>
+    <title>翻墙扫盲帖</title>
+    <url>/2026/02/05/%E7%BF%BB%E5%A2%99%E6%89%AB%E7%9B%B2%E5%B8%96/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><img src="https://pic1.imgdb.cn/item/69844adc312b01a291a4e547.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是不是软件?</th>
+<th>是否需要搭配工具?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✈️ <strong>机场</strong></td>
+<td>服务内容的俗称</td>
+<td>❌ (不是软件)</td>
+<td>☑️ 需要工具客户端</td>
+</tr>
+<tr>
+<td><strong>机场主</strong></td>
+<td>翻墙节点提供者</td>
+<td>❌</td>
+<td>——</td>
+</tr>
+<tr>
+<td><strong>梯子</strong></td>
+<td>翻墙工具的俗称</td>
+</tr>
+<tr>
+<td>🛡️ <strong>VPN</strong></td>
+<td>一体化软件服务</td>
+<td>☑️</td>
+<td>❌ (不需要其他工具)</td>
+</tr>
+<tr>
+<td>🐱 <strong>Clash for win</strong></td>
+<td>电脑客户端工具</td>
+<td>☑️ (软件)</td>
+<td>☑️ (导入节点才能用)</td>
+</tr>
+<tr>
+<td>🚀 <strong>小火箭</strong></td>
+<td>iOS客户端工具</td>
+<td>☑️ (iOS App)</td>
+<td>☑️ (导入节点使用)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>⚠️：不要使用来路不明的翻墙工具</p>
+<h2 id="协议和内核"><a href="#协议和内核" class="headerlink" title="协议和内核"></a>协议和内核</h2><p>首先我们要区分两个容易混淆的概念”</p>
+<ul>
+<li>协议：“秘密语言”，定义了设备与服务器如何沟通和加密数据（Shadowsocks, VMess, VLESS）。</li>
+<li>内核：“翻译官”，是协议的具体软件实现，负责处理数据的收发和加密解密（如 V2Ray, Xray, Sing-box）。</li>
+</ul>
+<p><img src="https://pic1.imgdb.cn/item/6984536f312b01a291a50a3e.png" alt=""></p>
+<h3 id="协议演变史"><a href="#协议演变史" class="headerlink" title="协议演变史"></a>协议演变史</h3><p>视频将协议的发展划分为几个阶段：</p>
+<p><strong>初代传奇：Shadowsocks (SS)</strong></p>
+<ul>
+<li><strong>背景</strong>：2012年由 clowwindy 发布，本质是基于 SOCKS5 的轻量级加密代理。</li>
+<li><strong>创新</strong>：首次完美结合 PAC 文件（智能分流），解决了传统 VPN “访问国内慢”的痛点。</li>
+<li><strong>现状</strong>：因“喝茶事件”原作者被迫停止开发，但社区接手使其“永生”。由于特征明显，目前普通 VPS 搭建容易被秒封，主要用于不过墙的专线机场。</li>
+<li><strong>ShadowsocksR (SSR)</strong>：SS 的分支，增加了混淆，曾红极一时，但因作者高调和社区争议，现已退出历史舞台。</li>
+</ul>
+<p><strong>为墙而生：VMess &amp; Trojan</strong></p>
+<ul>
+<li><strong>VMess (V2Ray)</strong>：针对 GFW 具备流量分析能力而生。核心思想是<strong>更复杂的加密</strong>，引入 UUID 和时间戳验证，要求客户端和服务器的系统时间误差不能超过90s，安全性高但配置繁琐。</li>
+<li><strong>Trojan</strong>：核心思想是<strong>伪装</strong>。将流量伪装成最常见的 HTTPS 流量（443端口），让 GFW 以为你在访问正常网页。</li>
+</ul>
+<p><strong>大道至简与革新：VLESS &amp; Xray</strong></p>
+<ul>
+<li><strong>VLESS</strong>：VMess 的“减法”版，剥离了自身的加密（依赖外部 TLS），更轻量高效，便于扩展。</li>
+<li><strong>XTLS 技术</strong>：解决了“TLS in TLS”（双重加密）导致的性能损耗和指纹问题。这一分歧导致了 V2Fly 社区分裂，诞生了 <strong>Xray</strong> 内核。</li>
+</ul>
+<p><strong>终极伪装术：Reality &amp; ShadowTLS</strong></p>
+<ul>
+<li><strong>Reality (Xray)</strong>：目前的“版本之子”。它不再自己生成证书，而是<strong>借用</strong>知名大厂（如微软、苹果）的真实 TLS 握手信息。GFW 看到的只是你的服务器在和知名公司通信，无法轻易封锁。<strong>优势：无需域名、无需证书、难以被封。</strong></li>
+<li><strong>ShadowTLS</strong>：思路类似，扮演“护卫”，利用真实网站的 TLS 握手掩护内部的代理协议（如 SS）。</li>
+</ul>
+<p><strong>完美模仿者：NaiveProxy</strong></p>
+<ul>
+<li>直接照搬 Google Chrome 的网络栈，流量指纹与真实浏览器完全一致，在 GFW 的流量特征检测下存活率极高。</li>
+<li>GFW的模式转变：从以前的黑名单模式到现在的白名单模式 </li>
+</ul>
+<p><strong>暴力美学：Hysteria (歇斯底里) &amp; TUIC</strong></p>
+<ul>
+<li>走 <strong>UDP (QUIC)</strong> 通道，而非传统的 TCP。</li>
+<li><strong>特点</strong>：在丢包率高、线路差的“垃圾 VPS”上也能跑满带宽，适合看视频、打游戏。</li>
+<li><strong>缺点</strong>：发包过于暴力，容易被运营商（QoS）限速或断流。</li>
+</ul>
+<h3 id="内核演变史"><a href="#内核演变史" class="headerlink" title="内核演变史"></a>内核演变史</h3><ul>
+<li><strong>V2Ray (V2Fly)</strong>：老牌劲旅，社区接手原 V2Ray 维护。</li>
+<li><strong>Xray</strong>：从 V2Fly 分裂而出，专注于性能和新技术（VLESS, Reality），是目前的创新引擎。</li>
+<li><strong>Sing-box</strong>：<strong>全能型新秀</strong>，被誉为“瑞士军刀”。兼容几乎所有主流协议（SS, VLESS, Hysteria 等），配置灵活，是目前极客的首选。</li>
+<li><strong>Clash -&gt; Mihomo (Clash Meta)</strong>：Clash 原作者因风险删库“跑路”导致生态崩塌，<strong>Mihomo (原 Clash Meta)</strong> 接手成为事实上的继承者，支持新协议，是目前最流行的客户端内核。</li>
+</ul>
+<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><ul>
+<li><strong>技术趋势</strong>：从单纯的“流量加密”进化到“完美伪装”（让流量看起来像访问正常网站），再到平行发展的“追求极致速度”（UDP/QUIC）。</li>
+<li><strong>作者个人搭配</strong>：</li>
+<li><strong>求稳</strong>：VLESS + Reality (Xray)</li>
+<li><strong>求快</strong>：Hysteria (歇斯底里)</li>
+<li><strong>内核偏好</strong>：Sing-box </li>
+</ul>
+<!-- ### 3. 内核风云：大一统时代
+
+* **V2Ray (V2Fly)**：老牌劲旅，社区接手原 V2Ray 维护。
+* **Xray**：从 V2Fly 分裂而出，专注于性能和新技术（VLESS, Reality），是目前的创新引擎。
+* **Sing-box**：**全能型新秀**，被誉为“瑞士军刀”。兼容几乎所有主流协议（SS, VLESS, Hysteria 等），配置灵活，是目前极客的首选。
+* **Clash -> Mihomo (Clash Meta)**：Clash 原作者因风险删库“跑路”导致生态崩塌，**Mihomo (原 Clash Meta)** 接手成为事实上的继承者，支持新协议，是目前最流行的客户端内核。
+
+-->
+<h2 id="法律边界"><a href="#法律边界" class="headerlink" title="法律边界"></a>法律边界</h2><h2 id="外国手机卡"><a href="#外国手机卡" class="headerlink" title="外国手机卡"></a>外国手机卡</h2><p>大家在注册国外网站（比如 Google）时肯定遇到过这种情况：填了 +86 手机号，要么收不到码，要么直接提示不可用。</p>
+<p>很多人第一反应是找<strong>接码平台</strong>（比如 sms-activate）。但我真心不推荐用它注册重要账号。首先，这些号码早就被注册烂了，通过率低；其次，这号是一次性的，万一以后账号要验证，你根本找不到这个号，账号直接作废（尤其是涉及钱的账号，千万别用！）。</p>
+<p>还有人会用 <strong>Google Voice (GV)</strong>。它确实是个办法，但因为前几年被薅得太狠，现在很多平台（比如 ChatGPT）一眼就能识别出它是虚拟号，直接拒绝注册。而且 GV 还需要每三个月打次电话保号，非常麻烦。</p>
+<p>所以，想要一劳永逸，搞一张<strong>真实的海外实体卡</strong>才是正解。</p>
+<p><strong>我的推荐：</strong></p>
+<ul>
+<li><strong>英国 Giffgaff 手机卡：</strong> 维护成本低，寄送方便，非常适合国内用户长期持有。</li>
+<li><strong>境外实体卡/eSIM：</strong> 出国旅游时顺手买一张，或者在线申请支持漫游的境外 eSIM。</li>
+</ul>
+<h2 id="Awesome-Links"><a href="#Awesome-Links" class="headerlink" title="Awesome Links"></a>Awesome Links</h2><p>programthink blog:</p>
+<ul>
+<li><a href="https://program-think.blogspot.com/2009/05/how-to-break-through-gfw.html">如何翻墙（全方位入门扫盲）</a></li>
+<li><a href="https://program-think.blogspot.com/2011/09/gfw-faq.html">写给翻墙新手的扫盲贴：关于 GFW 的 FAQ</a></li>
+<li><a href="https://program-think.blogspot.com/2011/03/how-to-get-gfw-tools.html">获取翻墙软件方法大全</a></li>
+<li><a href="https://program-think.blogspot.com/2013/11/tor-faq.html">“如何隐藏你的踪迹，避免被跨省追捕”——Tor 扫盲与 FAQ</a></li>
+</ul>
+<p>YouTube:</p>
+<ul>
+<li><a href="https://youtu.be/fqiD0fr4rsA?si=qEfqds20JJHcZMXA">翻墙科普】机场和VPN的区别是什么？Clash是VPN吗？</a></li>
+<li><a href="https://youtu.be/shWeX2uCbHk?si=e3QQHz5_KAVEJwzi">翻墙后，为什么需要一张外国电话卡｜Telegram｜科学上网｜VPN翻墙｜翻墙必看｜数字身份｜推特｜隐私安全｜</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tutorial</category>
+      </categories>
+      <tags>
+        <tag>翻墙</tag>
+        <tag>VPN</tag>
+        <tag>梯子</tag>
+      </tags>
+  </entry>
 </search>
