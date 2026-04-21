@@ -457,8 +457,8 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
             return;
         }
         
-        // 找到所有有子目录的 level-1 和 level-2 项
-        const tocItems = tocContainer.querySelectorAll('.post-toc-item.post-toc-level-1, .post-toc-item.post-toc-level-2');
+        // 找到所有有子目录的 level-1、level-2、level-3 项（支持多级嵌套展开）
+        const tocItems = tocContainer.querySelectorAll('.post-toc-item.post-toc-level-1, .post-toc-item.post-toc-level-2, .post-toc-item.post-toc-level-3');
         
         tocItems.forEach(function(item) {
             // 检查是否有子目录（包含 post-toc-child 的 ol）
