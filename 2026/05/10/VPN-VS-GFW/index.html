@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>VPN VS GFW | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="VPN VS GFW | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2026/05/10/VPN-VS-GFW/"><meta property="og:locale" content="zh-CN"><meta name="description" content="★引子 ◇一场看似是“技术封锁”，实则是“认知塑形”的长期工程 很多人一提到【翻墙】这个词，脑子里立刻浮现的就是：VPN、机场、节点、测速、失效、封号、被喝茶。表面上看，这仿佛只是一个【网络连接问题】；但如果你稍微把视角拉高一点，就会发现：这根本不是简单的“我能不能连上 YouTube 或 X”的问题，而是一个关于【信息主权】、【认知边界】、【国家机器】与【民间技术自救】之间的复杂博弈。 王志安团 - ab - blog"><meta name="keywords" content="翻墙, VPN, GFW, 网络审查, 信息控制, 网络安全, 数字威权, 技术攻防, 中国互联网, 认知边界, blog"><meta property="article:published_time" content="2026-05-10T06:14:59.000Z"><meta property="article:modified_time" content="2026-05-10T06:21:44.796Z"><meta property="og:updated_time" content="2026-05-10T06:21:44.796Z"><meta property="article:author" content="ab"><meta property="article:tag" content="翻墙, VPN, GFW, 网络审查, 信息控制, 网络安全, 数字威权, 技术攻防, 中国互联网, 认知边界, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2026/05/10/VPN-VS-GFW/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2026/05/10/VPN-VS-GFW/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2026/05/10/VPN-VS-GFW/"
+    },
+    "headline": "VPN VS GFW | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2026-05-10T06:14:59.000Z",
+    "dateModified": "2026-05-10T06:21:44.796Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "翻墙, VPN, GFW, 网络审查, 信息控制, 网络安全, 数字威权, 技术攻防, 中国互联网, 认知边界, blog",
+    "description": "★引子 ◇一场看似是“技术封锁”，实则是“认知塑形”的长期工程 很多人一提到【翻墙】这个词，脑子里立刻浮现的就是：VPN、机场、节点、测速、失效、封号、被喝茶。表面上看，这仿佛只是一个【网络连接问题】；但如果你稍微把视角拉高一点，就会发现：这根本不是简单的“我能不能连上 YouTube 或 X”的问题，而是一个关于【信息主权】、【认知边界】、【国家机器】与【民间技术自救】之间的复杂博弈。 王志安团 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">VPN VS GFW</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2026-05-10</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Insight/">Insight</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB00lEQVR42u3bwRLCIAyEYd7/pfXa6UB2Uz3A9u9FrbV8nckQCDg+Gx4DFChQoCaoURzX75c3ulx3P3e/rmoHVBbKbcyF3R/KaQdUHmoW4NX3KoAr3Ow8qPegZgA7wYIC1biJCujVe1DvQZWJUgzOVo2qgR+oXJRKqv96/etsBtS2qE5iVYHeTdg/VV1AbYtyO8nVoM/pMJ3EDCoLpTq+1eBMFddU8UwWYkEdiVKBWzX4pJBhTRxAHY8qL1x0nqr4r85NHxRUDEo1NMxj9Vvn4UDloNSArhOw7sRzWewAFYVykq1acKw6T1DvQjmL2asOVX12BoOgslBqEcg558LkZh5QESi1YesJWE00WpU8UMehOgWKqohWJW+7cAsqBqUaelSob0xsQeWhngSxMzlQSduq5IE6DuXc2AlktUnVmZCCykO5hQyVWNWCUXu1HdSRKFX86ixQdh6wDHRQx6LUj+yEOvw/ZUzbARWBcjYJqomD+14We0FFoDoLhuWitAhkpwMFlYNyA9wp1DsT2OXAEFQUSm3s6zTkPgio96KcQb9a0GwV90FFo2QSbSRpGfigolBOYnULru6gD1Quypk4uOc7G8F+noyC2hK10wEKFChQl+MLf4rwwK5tSJcAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                    
+                    <article id="post-content">
+                        <p>★引子</p>
+<p>◇一场看似是“技术封锁”，实则是“认知塑形”的长期工程</p>
+<p>很多人一提到【翻墙】这个词，脑子里立刻浮现的就是：<code>VPN</code>、<code>机场</code>、节点、测速、失效、封号、被喝茶。表面上看，这仿佛只是一个【网络连接问题】；但如果你稍微把视角拉高一点，就会发现：这根本不是简单的“我能不能连上 <code>YouTube</code> 或 <code>X</code>”的问题，而是一个关于【信息主权】、【认知边界】、【国家机器】与【民间技术自救】之间的复杂博弈。</p>
+<p>王志安团队发布的视频《最狠VPN翻墙新规落地：千亿审查系统对决民间极客，未来我们还能翻墙吗？》之所以引发巨大震荡，不是因为它讲了某个新协议，也不是因为它推荐了哪个工具，而是因为它把一个很多人平时只模模糊糊感受到的现实，给系统性地摊开了：咱们今天面对的，早已不是十几年前那个靠【封IP】【改DNS】就能概括的初代【墙】；如今面对的，是一个法律、运营商、硬件设备、深度包检测、机器学习、人力审查、商业化外包与地方试点相互耦合的【巨型审查系统】。</p>
+<p>换句话说，很多人还在拿十年前的认知理解今天的局势，这就容易闹笑话滴。就像有人以为今天的网络封锁还是“小打小闹”，只要找个“排行榜第一名”的 <code>VPN</code> 装上就万事大吉。这种认知落差，本身就说明了一个问题：【墙】真正厉害的地方，不只是拦截了数据包，而是拦截了多数人对于“世界原本可以是什么样”的想象力。</p>
+<p>◇为啥这次新规会让很多人产生“历史拐点”的感觉捏？</p>
+<p>视频里提到，2026年多项网络安全新规落地后，大陆翻墙的门槛与风险被抬到了前所未有的高度。你会发现，这次舆论的震荡，并不是因为“又抓了一个翻墙的人”这么简单。以前也抓，罚款也不是第一次，运营商配合也不是新闻。真正让人背后一凉的，是【几个环节开始同时收紧】：</p>
+<ol>
+<li>【法律层面】开始更明确、更重地处理翻墙与提供工具的行为；</li>
+<li>【基础设施层面】三大运营商从链路底层介入，意味着封堵不再停留在应用层；</li>
+<li>【审查执行层面】开始出现国家级人力审查与技术逆向配合，专门围剿规模化服务商；</li>
+<li>【地方治理层面】省级“小墙”开始出现，不同地区采取更粗暴、更不透明的封控模式；</li>
+<li>【社会心理层面】通过抓典型、罚小钱、频繁上门，实现【低烈度高频威慑】。</li>
+</ol>
+<p>这五个东西叠加起来，才是让很多人觉得“这次不一样”的核心。单独看每一条，好像都不算新鲜；但系统论里有一个很重要的概念叫【耦合效应】。当多个控制节点同时强化，系统整体的压制能力会出现非线性跃迁。简单说，就是原来你还能靠经验、靠运气、靠老办法混过去；现在这些缝隙正在被一个个焊死。</p>
+<p>◇这篇文章要讲啥</p>
+<p>这篇文章，俺不打算写成那种“给你列 10 个翻墙技巧”的快餐文。那种东西搜索引擎上太多了，而且很多还是骗点击、骗下载、骗你去装木马的。</p>
+<p>俺更想做的是，把这期视频涉及的内容拆成几个层次，按【WHAT-HOW-WHY】三部曲来讲透：</p>
+<ol>
+<li>【WHAT】——到底发生了什么？视频里讲了哪些关键事实与时间线？</li>
+<li>【HOW】——<code>GFW</code> 是如何从早期的粗糙过滤，演化成今天这种多层协同的审查系统？</li>
+<li>【WHY】——为啥天朝一定要把翻墙问题做成今天这样？这背后到底是技术问题、治理问题，还是制度问题？</li>
+</ol>
+<p>为了避免有人抬杠，俺有必要说明一下：下面的内容主要是对视频观点与公开已知逻辑的系统整理，不等于对所有细节逐条背书。因为涉及这类议题，外界通常拿不到完整的一手技术部署细节，所以很多地方只能根据公开事件、技术演进轨迹和制度行为模式做交叉推断。但即便如此，整体趋势其实已经很清楚了：这不是某个短期专项行动，而是一场持续二十多年的【数字边境战争】。</p>
+<p>◇问题的关键，不在“还能不能翻”，而在“谁还能翻、以什么代价翻”</p>
+<p>很多普通人听到这类话题，最喜欢问一句：“所以以后还能翻吗？”<br />
+这个问题看似直接，其实有点牛头不对马嘴。</p>
+<p>因为真正关键的问题，从来不是抽象地问“能不能翻”，而是要拆成三个更具体的问题：</p>
+<ol>
+<li>【谁】还能翻？是技术人员、普通用户，还是有资源的人？</li>
+<li>【怎么】翻？是靠大机场、私人节点、海外云主机，还是别的办法？</li>
+<li>【代价】是什么？是金钱成本、时间成本、失败概率、还是法律风险与心理恐惧？</li>
+</ol>
+<p>如果你不把问题拆开，就容易掉进一种错觉：只要技术上还存在绕过方案，就等于“问题不大”。这恰恰是很多技术人容易犯的偏差。因为在复杂社会系统里，统治性技术未必需要做到【百分之百封死】，只要把门槛抬高、把风险放大、把大多数人劝退，它就已经达成目标了。</p>
+<p>换句话说，<code>GFW</code> 的胜利标准，从来不是彻底让所有极客无计可施，而是让【普通人不敢翻、不愿翻、懒得翻】。这一点，比封掉几条协议更可怕。</p>
+<hr />
+<p>★基本概念</p>
+<p>◇什么是【GFW】？它不是一堵“墙”，而是一整套【分层过滤系统】</p>
+<p>很多人喜欢把 <code>GFW</code> 想象成一个巨大的“挡板”，仿佛你一访问境外网站，它就“啪”地一下把你拦住。这种理解太形象化，但不够准确。</p>
+<p>更准确地讲，<code>GFW</code> 不是单一设备，也不是某个神秘软件，而是一整套部署在【国际出口】【骨干网络】【运营商链路】【DNS解析】【应用识别】【内容审查】多个层面的分层过滤系统。它像什么捏？更像一个安检体系：门口有验票的，走廊有摄像头，楼层有巡逻的，后台还有数据库比对。你不一定是在某一个点被拦住，而是可能在多个点被同时判定为“不该通过”。</p>
+<p>这意味着，翻墙和反翻墙之间的对抗，也从来不是“某个工具 vs 某个防火墙规则”这么简单，而是【多层对抗】：</p>
+<ol>
+<li>名称解析层的对抗，比如【DNS污染】；</li>
+<li>地址与路由层的对抗，比如【IP封锁】；</li>
+<li>传输控制层的对抗，比如【TCP重置】；</li>
+<li>流量识别层的对抗，比如【深度包检测】；</li>
+<li>行为统计层的对抗，比如【节奏识别】与机器学习分类；</li>
+<li>法律与执法层的对抗，比如【罚款、喝茶、刑责威慑】；</li>
+<li>产业组织层的对抗，比如【干掉大型集中式服务商】。</li>
+</ol>
+<p>所以，当你把 <code>GFW</code> 看成一堵墙，就会低估它；当你把它看成一个【全栈审查系统】，很多现象就解释得通了。</p>
+<p>◇什么是【金盾工程】？它和 <code>GFW</code> 的关系是啥？</p>
+<p>视频里提到，1998年前后，高层在互联网快速增长的背景下，启动了两大数字工程：一个是对内的【金盾工程】，一个是对外的【防火长城】。</p>
+<p>很多人会把这两个东西混为一谈。其实可以这样理解：</p>
+<ol>
+<li>【金盾工程】更多偏向对内，是数字化身份、人口记录、警务协同、行为留痕、社会治理数据库的建设；</li>
+<li>【防火长城】更多偏向对外，是跨境网络连接与信息流动的审查、封锁与筛选。</li>
+</ol>
+<p>如果打个比方，<code>GFW</code> 像国境线上的边检系统；【金盾】像国内到处铺开的户籍、摄像头、记录系统。一个控制“外面什么能进来”，一个控制“里面的人是谁、干了啥、去哪了”。这两个东西一旦结合，就形成了非常强的【身份—行为—网络】联动能力。</p>
+<p>这也是为啥今天一个人在家里刷个 <code>TikTok</code>，有时候能被很快定位、传唤、罚款。不是因为你手机里单独装了什么“告密软件”，而是因为你的上网身份、实名号码、终端行为、运营商记录、执法协同机制，早就被揉成一个整体滴。</p>
+<p>◇早期【翻墙】到底是怎么回事？</p>
+<p>早期的翻墙，其实比现在“土法炼钢”得多。那会儿很多人连 <code>VPN</code> 是啥都不知道，更别提协议混淆和流量隐写了。初代【墙】的能力也相对粗糙，核心就是视频里提到的那四招：</p>
+<ol>
+<li>【封锁IP】——直接把目标服务器地址拉黑；</li>
+<li>【污染DNS】——你问“这个域名对应哪个IP”，它给你一个假答案；</li>
+<li>【关键词阻断】——请求里出现敏感词，就拦；</li>
+<li>【TCP重置】——伪造一个断开连接的信号，让你以为双方主动中断了。</li>
+</ol>
+<p>这四招听起来不复杂，但对早期普通用户已经够用了。因为互联网本身是个典型的【长尾系统】：绝大多数用户并不懂底层机制，遇到打不开网页，就会默认是“网站坏了”“网络有问题”或者“本来就上不了”。对统治系统来说，这种【默认顺从】已经足够。</p>
+<p>民间极客早期的反制，也比较直接。比如修改 <code>Hosts</code> 文件，绕过被污染的 <code>DNS</code>；再比如寻找还能访问的代理地址，或者借助某些云服务中转流量。这时候的博弈，更像猫抓老鼠：墙堵一个口子，极客补一个洞；大家拼的是反应速度和信息差。</p>
+<p>◇2009年为什么是一个历史分水岭？</p>
+<p>视频中特别强调了2009年新疆“七五事件”之后的转折，这个判断很关键。</p>
+<p>在这之前，<code>GFW</code> 的治理逻辑还带有比较明显的【定点过滤】特征。也就是说，只要你不碰特别敏感的内容，很多境外资源并不会被全面清除。可一旦到了2009年，情况变了。推特、脸书、<code>YouTube</code> 等平台因为不受官方绝对控制，被陆续全网封杀。这说明底层治理逻辑发生了根本变化：</p>
+<p>从【过滤坏内容】<br />
+转向【封杀不可控平台】</p>
+<p>这两个逻辑差别非常大。前者像杀毒软件，目的是挑出危险文件；后者像白名单系统，凡是不在我绝对掌控之下的东西，一律不许碰。</p>
+<p>这个转变有深远意义。因为它意味着，审查目标不再仅仅是【内容本身】，而是【承载内容的平台结构】。一旦进入这种逻辑，平台有没有“好内容”已经不重要了，重要的是它是否处于天朝的可监管、可删除、可追责体系内。换句话说，问题不再是谁说了什么，而是谁掌握了麦克风。</p>
+<p>从复杂系统角度看，这就是典型的【中心化控制冲动】。对一个追求高控制度的治理机器而言，最不能容忍的，不是噪声本身，而是自己控制链条之外存在稳定的信息传播网络。因为那会形成【平行信息系统】，进而削弱官方叙事的垄断性。</p>
+<hr />
+<p>★核心剖析</p>
+<p>◇第一阶段：从【DNS污染】到【GoAgent】——早期攻防的低烈度猫鼠游戏</p>
+<p>早期 <code>GFW</code> 的封锁方式相对粗糙，所以民间极客的反制空间也比较大。视频里提到，早年很多人靠修改 <code>Hosts</code> 文件绕过 <code>DNS</code> 污染，这就是典型例子。原理并不神秘：既然“问路系统”会骗我，那我干脆不问，直接在本地记住地址。</p>
+<p>后来又出现了 <code>GoAgent</code> 这样的方案，巧妙利用谷歌云等合法大厂的基础设施来中转数据。这一招厉害在哪儿？厉害在它抓住了 <code>GFW</code> 的一个早期软肋：官方虽然想封掉敏感流量，但又不敢轻易误伤太多正常商业服务。毕竟如果把一大片国际云服务直接拉闸，商业代价和国际影响都不好看。</p>
+<p>这类方案的本质，其实就是【借壳生存】。你要查一个数据包是不是“翻墙流量”，首先得敢下手去拦；可如果这个流量表面上看起来像访问大厂云平台的正常业务，你就会投鼠忌器。于是民间极客把大量“禁运物资”伪装成合法货柜，从大厂的港口里悄悄夹带过去。这种玩法很有黑客精神滴。</p>
+<p>但问题在于，一旦对手开始不惜代价，甚至愿意承受大面积误伤，那么这种依赖大厂基础设施掩护的模式就会变得脆弱。后来的谷歌IP段被大规模封死，就说明了这一点：国家机器在权衡中，逐渐愿意为了控制力而牺牲一部分效率与商业便利。</p>
+<p>◇第二阶段：<code>DPI</code> 时代到来——墙开始“看懂”你的流量</p>
+<p>2011年前后，视频中提到【深度包检测】即 <code>DPI</code> 的引入，这是整个攻防史上的大升级。因为从这一步开始，墙不再满足于只看“你去了哪里”，而是开始努力判断“你到底在干什么”。</p>
+<p>什么叫 <code>DPI</code>？<br />
+简单说，普通过滤像看快递箱外面的收件人和寄件地；<code>DPI</code> 更像把箱子拆开，看你里面装的是书、零件还是别的玩意儿。它会分析数据包的结构、握手方式、字段特征、传输习惯，判断你是不是在使用某种代理协议。</p>
+<p>（注：技术菜鸟可以跳过这个小节）</p>
+<p>从协议分析角度看，很多翻墙工具虽然内容加密了，但【元数据】和【行为特征】还会泄露信息。比如：</p>
+<ol>
+<li>握手模式是不是很像某类代理协议；</li>
+<li>首包长度、方向、时间间隔是否有规律；</li>
+<li>长连接与短连接的分布是否异常；</li>
+<li>数据包大小是否符合普通网页浏览，还是更像视频流或隧道传输；</li>
+<li>某些字段填充方式是否具有稳定指纹。</li>
+</ol>
+<p>这就像你在机场看到一个人虽然穿得像游客，但行走路线、说话方式、行李结构、购票行为全都很可疑。哪怕你没看到他箱子里装了啥，你也能大致判断“这人不太对劲”。</p>
+<p><code>DPI</code> 的出现，让翻墙工具开发从“会加密就行”进入“还得会伪装”的新阶段。因为对手已经不满足于看明文内容，而是开始从通信指纹中识别你。</p>
+<p>◇第三阶段：<code>Shadowsocks</code> 的崛起——开源社区如何击中墙的软肋</p>
+<p>视频里讲到，2012年 <code>clowwindy</code> 开发了 <code>Shadowsocks</code>，这几乎是整个翻墙史上的标志性事件。</p>
+<p><code>Shadowsocks</code> 的高明之处，不只是“它能翻”，而是它重新定义了翻墙工具的设计思路。过去很多代理工具比较重，协议特征明显，甚至架构笨拙；而 <code>Shadowsocks</code> 则更轻量、更简洁、更接近“把代理流量伪装成普通加密噪声”。</p>
+<p>这招为啥厉害？因为它抓住了一个现实：<br />
+在现代互联网里，【加密流量】本来就大量存在。你很难只因为“看不懂内容”就把所有加密流量都封掉，否则整个数字经济都得一起陪葬。</p>
+<p>所以 <code>Shadowsocks</code> 的设计思路，其实是在利用互联网的正常生态给自己打掩护。它不追求“正面对抗”国家级设备，而是尽量降低自己的可识别度，让你很难从海量正常加密连接里精准捞出它。</p>
+<p>2015年 <code>clowwindy</code> 受到压力删除 <code>GitHub</code> 代码，这件事本身也很说明问题。很多体制内思维的人，总以为删掉某个人、关掉某个仓库、压住某个作者，技术火种就灭了。可开源世界的逻辑恰恰相反：一旦代码被看过、学过、复刻过、分叉过，它就从“单个作者的作品”变成了“全球社区的公共知识”。</p>
+<p>这就是开源的【鲁棒性】。<br />
+所谓【鲁棒性】，说白了就是：你打掉一个节点，系统还能继续活。<br />
+中心化系统最怕的是单点故障；分布式开源社区最擅长的，恰恰就是消解单点故障。</p>
+<p>从这个角度讲，<code>Shadowsocks</code> 最伟大的地方，也许不仅仅是一个工具，而是它把一种思路、一套范式、一种火种留下来了。后来很多协议、工具、客户端，其实都多少带着它的基因。</p>
+<p>◇第四阶段：从【加密】走向【隐写】——<code>Reality</code> 一类协议为何出现</p>
+<p>当官方在2021年底开始更严厉地针对【全加密流量】时，民间开发者继续进化，这就有了视频里提到的 <code>Reality</code> 等协议。</p>
+<p>这里有个关键点，很多非技术读者容易误解：<br />
+【加密】和【伪装】不是一回事。<br />
+加密只是让别人看不懂内容；伪装则是让别人连“你是不是在翻墙”都不好判断。</p>
+<p>如果说 <code>Shadowsocks</code> 的时代，是尽量把自己藏在“随机噪声”里；那么 <code>Reality</code> 这类方案的路子，更接近【网络隐写术】——让翻墙流量在外观上更像访问微软、苹果等大厂服务的正常连接。这样一来，墙如果贸然出手，就容易误伤国际大厂的真实业务。</p>
+<p>这跟军事伪装很像。不是把坦克藏进树林，而是干脆把运输设备伪装成民用货车。对手要打，就得冒着把民用目标一起误伤的风险。</p>
+<p>从技术博弈逻辑讲，这属于【提高识别成本】。<br />
+你不一定能做到百分之百隐身，但只要你能把对手的判断成本、误判代价、部署难度抬高，自己就赢了一半。</p>
+<p>◇第五阶段：AI 审查的出现——从识别“内容”到识别“节奏”</p>
+<p>视频里提到，官方后来转而训练AI模型，通过识别流量的“节奏”来判断用户是在看网页、看视频，还是做别的事情。这个思路非常值得重视。</p>
+<p>因为它意味着审查系统正在从【规则匹配】走向【统计学习】。<br />
+过去你可以理解为“看到这种特征就拦”；现在更像是“虽然我说不清你具体用了啥协议，但你的行为分布看起来很像翻墙流量”。</p>
+<p>这就好比以前查作弊靠抓小抄，现在靠分析考生答题时间、眼球移动、点击频率与行为模式。你不一定抓到证据本身，但你能通过【模式识别】给你贴上高风险标签。</p>
+<p>这类系统的危险之处，在于它会扩大【灰区执法】空间。因为模型本来就是概率判断，不是数学定理。它并不需要“绝对准确”，只要在高层治理逻辑里被当作预警系统使用，就足以造成现实后果——比如上门检查、限制服务、触发反诈风险、要求自证清白。</p>
+<p>而开发者对此的反制，视频里提到的是：通过加入随机数据包、打乱节奏，让流量看起来更不稳定、更不像某一种固定模式。这其实是经典的【对抗样本】思路：既然你靠模式识别来抓我，我就故意污染模式特征。</p>
+<p>所以这场攻防，已经非常像现代机器学习中的对抗博弈了：<br />
+一边训练分类器，<br />
+一边制造扰动样本。<br />
+这可不只是“翻墙工具升级”那么简单，而是一个完整的【检测—规避—再检测—再规避】闭环。</p>
+<hr />
+<p>★体制、商业与灰色产业的联动</p>
+<p>◇2017年“32号文”意味着什么？</p>
+<p>视频提到，2017年工信部出台“32号文”，从法律层面明确了未经批准的 <code>VPN</code> 非法性。很多人对这种文件的理解停留在“哦，又发了个规定”。其实这种看法太天真了。</p>
+<p>在治理系统里，正式文件的意义不只是“宣布一个原则”，更重要的是它给了后续一整套执行动作【合法性包装】。一旦某种行为从模糊灰区被正式定义为非法，那么后面不管是行政执法、运营商配合、平台下架、机房整顿还是宣传口径，都能连成链条。</p>
+<p>也就是说，这类文件的作用更像是【统一接口规范】。<br />
+没有它的时候，各部门可能各搞各的；<br />
+有了它之后，执法、审查、运营商、地方部门就能按一个口径协同推进。</p>
+<p>这背后的逻辑很像软件系统中的接口设计：一旦接口统一，模块之间的协作效率会大幅提高。天朝最擅长的，恰恰就是把原本分散的控制节点，通过制度文件整合成可扩展的治理网络。</p>
+<p>◇三大运营商为什么是关键节点？</p>
+<p>很多普通人会把翻墙问题理解成“用户 vs 墙”。其实从基础设施视角看，更准确的结构是：</p>
+<p>【用户】<br />
+对抗<br />
+【国家—运营商—审查设备—地方执法】的联合体</p>
+<p>三大运营商之所以重要，是因为它们掌握了网络的【物理入口】与【链路级控制权】。你用什么App、什么浏览器、什么协议，那些都在更上层；而运营商管的是你这条线能不能走、走到哪、经过谁、记录什么。</p>
+<p>所以当运营商从被动配合变成主动收紧，影响是巨大的。因为这意味着审查不只是堵某个站，而是能在更底层做限制，比如：</p>
+<ol>
+<li>某些境外IP段直接不通；</li>
+<li>某些握手行为被优先标记；</li>
+<li>某些端口、链路、地区策略不同步加严；</li>
+<li>特定用户或特定区域的跨境访问被更严格审计。</li>
+</ol>
+<p>视频里提到陕西电信甚至要求全IP阻断境外访问，这种动作一旦出现，就说明治理已经不是“精细过滤”优先，而是某些场景下宁可粗暴误伤也要先堵住出口。</p>
+<p>◇灰色VPN产业为什么能存在那么久？</p>
+<p>很多人会问：既然官方一直说未经批准的 <code>VPN</code> 不合法，那为啥过去十几年还有那么多机场、机房、代理商活得好好的？</p>
+<p>原因并不神秘。因为在强监管环境里，很多产业并不是“合法—非法”二元区分，而是长期处在【选择性执法】的灰区。只要这种灰区存在，就会孕育出套利空间。</p>
+<p>视频提到，国际出口资源长期垄断在三大运营商手里，再经过层层代理与切分，形成了庞大的灰色机房和中间商市场。这本质上是一个很典型的【配额租值市场】：</p>
+<ol>
+<li>核心资源被垄断；</li>
+<li>使用资格被行政化；</li>
+<li>实际需求长期存在；</li>
+<li>于是灰色中介开始繁殖。</li>
+</ol>
+<p>这和很多牌照行业的逻辑很像。不是因为制度不知道有灰产，而是因为灰产本身常常就是制度缝隙与垄断结构共同催生出来的。等到需要整顿时，再一波收割、一波清理、一波甩锅，顺便再把集中度做高。是不是很熟悉捏？</p>
+<p>◇方滨兴“下海”与技术出口说明了啥？</p>
+<p>视频提到，方滨兴后来成立公司，把国家级审查技术做成商业产品，比如“天狗安全网关”，并在2025年被泄露出600GB内部文件，显示相关系统被打包出口给缅甸、哈萨克斯坦等威权政府。</p>
+<p>这个现象特别值得警惕，因为它意味着【审查技术产业化】已经相当成熟。以前你可以把它理解成国内特殊政治环境下的产物；现在它越来越像一个可复制、可售卖、可部署的解决方案包。</p>
+<p>这跟互联网平台输出广告系统、云计算公司输出数据库服务，本质逻辑是一样的：<br />
+一旦某项能力被产品化，它就能脱离原始场景，进入全球市场。</p>
+<p>更可怕的是，审查系统这种东西具有明显的【路径依赖】与【正反馈】特征。一个国家一旦引入，后续就会有运维、升级、培训、接口、数据结构上的深度绑定，从而形成新的依赖关系。这种数字控制能力一旦“出口”，并不只是卖几台设备，而是在输出一整套治理范式。</p>
+<hr />
+<p>★2026年的“最终清算”与新格局</p>
+<p>◇为啥说2026年是对大型VPN的【系统性围剿】？</p>
+<p>视频里最让人揪心的一点，是头部 <code>VPN</code> 与大型机场在2026年明显遭到集中打击。一个运营了7年的老牌工具，都宣布退出大陆业务，这背后不是“团队懒了”，而是对手的治理模式已经发生变化。</p>
+<p>过去很多大机场能活，是因为它们在技术、用户规模、支付渠道、运维能力之间找到了平衡。可一旦国家机器开始动用更系统的打法，这种集中化服务模式就会成为天然靶子：</p>
+<ol>
+<li>用户多，容易被钓鱼与逆向；</li>
+<li>流量大，容易被模型训练与特征提取；</li>
+<li>收费稳定，容易被资金线索追踪；</li>
+<li>品牌明显，容易成为“杀鸡儆猴”的对象。</li>
+</ol>
+<p>视频提到官方甚至通过雇佣审查人员伪装成用户购买服务，再逆向拆解加密特征，这说明治理方式已经从“被动识别”升级到“主动渗透”。这一招对大型服务极其致命，因为它利用了大规模商业化服务不可避免的开放性：你总得卖给新用户吧？只要你卖，就可能把入口卖给敌人。</p>
+<p>这有点像网络安全里的【蜜罐反转】。以前是开发者绕过封锁，现在是审查者把自己伪装成普通客户，反过来渗透开发者生态。</p>
+<p>◇为什么大型集中式服务天然更脆弱？</p>
+<p>从复杂系统角度看，大型机场的问题在于，它们虽然对普通用户友好，但存在明显的【单点暴露】特征。</p>
+<p>所谓【单点暴露】，就是你把大量连接、规则、用户、账单、部署习惯集中在少数入口上，虽然提升了管理效率，却也给了对手极高的打击收益。只要打掉一个大节点，就能影响海量用户。</p>
+<p>这和互联网平台的逻辑一模一样：<br />
+中心化提高效率，<br />
+但也放大脆弱性。</p>
+<p>因此，大型 <code>VPN</code>/机场的困境，并不只是“技术不够先进”，而是它们的组织形态本身就越来越不适合高压环境。你做得越成功、越稳定、越有名，就越容易被优先锁定。搜索引擎广告里那些所谓“排行榜第一名”的东西，为啥往往又贵又不稳甚至有坑？因为真正活得久的，不会天天举着牌子说“快来抓我”。</p>
+<p>◇为什么未来会转向【游击战】？</p>
+<p>视频最后给出的判断很重要：翻墙技术正从【阵地战】转向【游击战】。</p>
+<p>这是什么意思？<br />
+简单说，就是过去很多人依赖统一的大节点、大机场、大品牌；未来更可能变成个人自己买廉价海外云主机，搭建专用小节点，或者在极小规模圈子里共享。</p>
+<p>这种变化不是因为“个人部署一定更先进”，而是因为它【更分散、更难批量识别、更不值得集中围剿】。对于审查系统来说，打大型目标很划算；打无数分散、短命、低流量的小目标，成本会高得多。</p>
+<p>这就是典型的【非对称博弈】。<br />
+国家机器擅长对付集中化、可预测、可批量处理的对象；<br />
+民间极客则逐渐转向分散化、低可见度、短生命周期的战术。</p>
+<p>从战争隐喻看，阵地战拼火力和正面硬碰；游击战拼隐蔽、机动、分散和恢复力。前者适合正规军，后者适合资源弱的一方。</p>
+<p>这并不意味着普通人就轻松了。恰恰相反，这说明未来的翻墙会越来越技术化、个体化。也就是说，门槛会上升，普通人会被进一步筛出去。这才是【墙】真正想要的效果。</p>
+<p>◇“翻不了”未必是目标，“吓得你不翻”才是目标</p>
+<p>很多人总在问：官方是不是想做到零翻墙？<br />
+俺觉得未必。</p>
+<p>因为从治理成本角度看，彻底做到零翻墙，不现实，也没必要。一个国家级审查系统真正追求的，通常不是物理意义上的【绝对封死】，而是社会意义上的【大规模驯化】。</p>
+<p>只要达到下面几个效果，它就已经赢麻了：</p>
+<ol>
+<li>普通人默认不碰；</li>
+<li>少数想碰的人觉得麻烦、贵、危险；</li>
+<li>大型服务不敢公开做；</li>
+<li>个别人即便翻，也被边缘化为少数群体；</li>
+<li>墙外信息不再形成大范围传播能力。</li>
+</ol>
+<p>你看，这里面根本不要求“技术上百分百无法绕过”。<br />
+它只要求在【行为经济学】层面，让你觉得“不值得”。</p>
+<p>这和治安系统、税务系统、监控系统的逻辑很像：不需要抓到所有人，只要提高违法预期成本，就足以改变群体行为。<code>GFW</code> 在这里扮演的，其实不只是技术屏障，更是一个【行为塑形器】。</p>
+<hr />
+<p>★俺的点评</p>
+<p>◇墙最可怕的地方，不是封锁，而是【重写默认设置】</p>
+<p>视频最后那部分，俺觉得讲得非常到位：<code>GFW</code> 最恐怖的成就，不是技术上多高级，而是它成功改变了14亿人的【默认设置】。</p>
+<p>所谓【默认设置】，就是你不加思考时，会把什么当成“正常世界”。<br />
+当一代人从小就生活在某种被裁剪过的信息环境里，他们未必会觉得自己“失去了什么”，因为他们从一开始就没见过那个更完整的世界。</p>
+<p>这就像有人从小住在没有窗户的房间里，久而久之，他会以为房子本来就不需要窗户。等你跟他说外面还有山、有海、有别的空气，他可能第一反应不是好奇，而是怀疑你是不是在胡扯。</p>
+<p>这才是最深层的控制。<br />
+不是强行让你闭嘴，<br />
+而是让你连“开口问问外面是什么样”都懒得问。</p>
+<p>◇地方“小墙”的粗暴化，说明控制正在进一步下沉</p>
+<p>视频里提到泄露文件还显示出各省级“小墙”的存在，这个趋势很危险。</p>
+<p>中央级系统通常还要顾忌一定的统一性、国际观感和全局误伤成本；但地方系统一旦拿到工具，执行往往会更粗暴、更低水平、更简单化。比如某地因为银行事件就大规模屏蔽商业域名，或者把境外验证码直接判成高危诈骗，这种做法对技术理解未必深，但对“一刀切”可是相当熟练滴。</p>
+<p>这说明一个问题：<br />
+控制不再只是集中部署，而是在向地方扩散、复制、模块化。<br />
+一旦这种模式成熟，未来你面对的就不只是一个国家级大墙，而是一堆风格不同、标准不透明、误杀严重的小墙叠加。</p>
+<p>从系统设计看，这会让网络环境更像一个【多级审查迷宫】。你不知道是中央规则、运营商策略、地方模型，还是某个风控接口把你标记了。越不透明，越容易制造恐惧；越难申诉，越容易让人自我约束。</p>
+<p>◇“免费VPN”为什么几乎一定有坑？</p>
+<p>视频里给出的建议之一是：别用免费 <code>VPN</code>。这个建议非常对，而且俺建议你把它刻进脑子里。</p>
+<p>因为跨境带宽、服务器、线路维护、抗封锁、技术更新，这些都是真金白银。世界上没有哪个靠谱团队会长期贴钱给几百万陌生人做高风险服务。要是它对你免费，那你就得问一句：它靠什么活？</p>
+<p>答案通常逃不开几种：</p>
+<ol>
+<li>卖你的流量数据；</li>
+<li>注入广告、追踪脚本；</li>
+<li>偷偷转发你的请求；</li>
+<li>把你机器当成中继；</li>
+<li>先用免费吸引你，再把你卖给更黑的第三方。</li>
+</ol>
+<p>所以别再幻想什么“免费又稳定又安全”的翻墙神器了。那玩意儿跟“路边捡到一台没锁屏的最新款手机还附带银行卡密码”一样，听起来就知道不对劲。</p>
+<p>◇搜索引擎广告里的“VPN排行榜”为啥别信</p>
+<p>另一个非常实用的提醒，是不要迷信搜索引擎广告里的“排行榜”。</p>
+<p>原因很简单：<br />
+真正安全、低调、技术导向的服务，在这种环境下通常不会高调投广告；<br />
+反而是最会营销、最会割韭菜、最不怕曝光的那批，最喜欢把自己包装成“第一名”“最稳定”“永久翻墙”。</p>
+<p>可惜很多用户判断工具时，不看开源社区讨论，不看协议演进，不看高峰期测速，不看日志政策，不看独立审计，却偏偏最信广告位。说白了，这不是在挑工具，这是在给骗子做用户画像滴。</p>
+<p>真正靠谱的判断思路，应该是去看：</p>
+<ol>
+<li>是否有持续的技术迭代；</li>
+<li>是否有透明的无日志声明与可信审计；</li>
+<li>是否有晚高峰真实表现；</li>
+<li>是否有长期社区反馈；</li>
+<li>是否有过度营销、夸张承诺与可疑导流。</li>
+</ol>
+<hr />
+<p>★给普通人的自保建议</p>
+<p>◇第一条：把【翻墙】当成风险行为，而不是娱乐插件</p>
+<p>很多人装个工具就开始乱连，手机、国内社交软件、支付App、实名手机号、日常浏览器全都混着来。这种做法非常危险。</p>
+<p>正确的第一步，是先把认知扳正：<br />
+【翻墙】不是“装个加速器看视频”那么轻松，它本质上是高风险网络行为。<br />
+既然是高风险行为，就该有最基本的【隔离意识】。</p>
+<p>你至少要做到：</p>
+<ol>
+<li>翻墙用途和国内日常用途分开；</li>
+<li>浏览器环境分开；</li>
+<li>账号体系分开；</li>
+<li>重要账号的登录验证方式分开；</li>
+<li>尽量避免国内实名信息与敏感用途直接绑定。</li>
+</ol>
+<p>这跟实验室里做危险化学实验一个道理。你不能一边拿着腐蚀性试剂，一边用吃饭的碗调配。环境隔离，是最基本的安全常识。</p>
+<p>◇第二条：对重要账号启用【两步验证】甚至硬件密钥</p>
+<p>视频中提到，对最重要的敏感账号，务必开启两步验证，最好使用硬件密钥。这一点俺非常赞同。</p>
+<p>因为密码本身早就不够了。你可能撞库、钓鱼、中间人、设备丢失、邮件被看、短信被拦。两步验证不是万能，但它能大幅提高别人直接拿下你账号的难度。</p>
+<p>如果条件允许，优先考虑：</p>
+<ol>
+<li><code>Authenticator</code> 类本地验证码；</li>
+<li>硬件安全密钥；</li>
+<li>与国内实名手机号解耦的验证方式。</li>
+</ol>
+<p>为啥尽量避免敏感账号绑定国内实名手机号？因为那相当于把【身份锚点】和【高风险行为】绑在一起。你省了一点操作麻烦，但把很多不必要的关联暴露给系统。</p>
+<p>◇第三条：浏览器与设备尽量物理或逻辑隔离</p>
+<p>很多人只重视工具，却忽视了环境。其实环境安全往往比工具品牌更重要。</p>
+<p>最起码，你应该做到：</p>
+<ol>
+<li>翻墙浏览器不要和日常国内浏览器混用；</li>
+<li>不同用途不要共用同一套插件和登录状态；</li>
+<li>不要在同一浏览器里一会儿登国内实名平台，一会儿登敏感海外平台；</li>
+<li>有条件的话，敏感用途尽量使用单独设备或至少独立用户环境。</li>
+</ol>
+<p>这不是矫情，而是基本的【关联风险控制】。<br />
+现代风控最喜欢干的事，就是把看似无关的痕迹串起来。<br />
+你每少留一个可关联点，就少一个将来解释不清的麻烦。</p>
+<p>◇第四条：别追求“永远稳定”，要追求【低暴露、低期望、低依赖】</p>
+<p>很多用户总想找一个“永远能上”的工具。说实话，这种心态本身就有问题。</p>
+<p>在当前环境下，更合理的思路不是迷信某个“神工具”，而是接受一个现实：<br />
+没有哪个公开、大众化、长期高调宣传的方案能永远稳如老狗。<br />
+真正更可持续的策略，往往是【低暴露】【低依赖】【可替换】。</p>
+<p>也就是说：</p>
+<ol>
+<li>不要把希望押在单一服务上；</li>
+<li>不要在公开场合到处传播具体方案；</li>
+<li>不要觉得付费一次就能永久无忧；</li>
+<li>尽量保留切换、替代和恢复的能力。</li>
+</ol>
+<p>从系统设计角度，这叫【去单点故障】。<br />
+你的目标不是拥有“最强节点”，而是拥有“节点坏了也不至于瞬间全盘崩掉”的韧性。</p>
+<hr />
+<p>★引申阅读</p>
+<p>◇如果你想理解【审查系统】背后的治理逻辑</p>
+<p>俺建议你去读以下方向的书，而不只是盯着“怎么翻”：</p>
+<ol>
+<li>关于【监控社会】与现代治理的书；</li>
+<li>关于【信息控制】与宣传机制的书；</li>
+<li>关于【复杂系统】、【反馈回路】与【制度激励】的书；</li>
+<li>关于【开源运动】与【密码学】基础的书。</li>
+</ol>
+<p>因为单纯研究工具，只会让你知道“今天怎么绕”；<br />
+理解治理逻辑，才会让你明白“为啥这场仗永远打不完”。</p>
+<p>◇如果你想理解【开源社区】为什么能一再复活</p>
+<p>可以重点补这些方向：</p>
+<ol>
+<li><code>Git</code> 与分布式协作；</li>
+<li>开源许可证与社区治理；</li>
+<li>基础密码学与网络协议；</li>
+<li>软件鲁棒性与分布式系统。</li>
+</ol>
+<p>你会发现，很多看似“只是个工具”的东西，背后其实是整套组织模式在支撑。某个开发者删库，并不等于火种熄灭；因为分布式系统最大的优点，就是它不怕单点打击。</p>
+<p>◇给读者的几个思考题</p>
+<ol>
+<li>一个系统最有效的控制，是【禁止行为】还是【重写默认认知】？</li>
+<li><code>GFW</code> 的真正目标，是完全封锁技术，还是提高普通人的退出率？</li>
+<li>为什么中心化平台在高压环境下往往更脆弱，而分散节点更难被彻底清除？</li>
+<li>当审查系统开始使用机器学习识别“行为节奏”，未来的攻防会不会进一步走向【AI 对 AI】？</li>
+<li>对普通人来说，最大的风险究竟是“连不上”，还是“以为自己看到的世界已经足够完整”？</li>
+</ol>
+<p>◇最后一句话</p>
+<p>如果把【翻墙】仅仅理解成一个技术问题，你会低估它；<br />
+如果把它理解成一场围绕【信息流动】【认知边界】【系统鲁棒性】展开的长期战争，你才会看清它真正的分量。</p>
+<p>未来还能不能翻？<br />
+答案大概率是：总有人能翻。<br />
+但更严峻的问题是——【还有多少普通人愿意为接触真实世界支付更高的门槛、更高的成本，以及更高的恐惧？】</p>
+<p>这，才是 <code>VPN VS GFW</code> 这场大战最值得警惕的地方。</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2026-05-10");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2026-05-10T06:14:59.000Z" itemprop="datePublished">2026-05-10</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Insight/'>Insight</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/%E7%BF%BB%E5%A2%99/" rel="tag">#&nbsp;翻墙</a>
+
+<a class="post-tags-list-item" href="/tags/VPN/" rel="tag">#&nbsp;VPN</a>
+
+<a class="post-tags-list-item" href="/tags/GFW/" rel="tag">#&nbsp;GFW</a>
+
+<a class="post-tags-list-item" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5/" rel="tag">#&nbsp;网络审查</a>
+
+<a class="post-tags-list-item" href="/tags/%E4%BF%A1%E6%81%AF%E6%8E%A7%E5%88%B6/" rel="tag">#&nbsp;信息控制</a>
+
+<a class="post-tags-list-item" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">#&nbsp;网络安全</a>
+
+<a class="post-tags-list-item" href="/tags/%E6%95%B0%E5%AD%97%E5%A8%81%E6%9D%83/" rel="tag">#&nbsp;数字威权</a>
+
+<a class="post-tags-list-item" href="/tags/%E6%8A%80%E6%9C%AF%E6%94%BB%E9%98%B2/" rel="tag">#&nbsp;技术攻防</a>
+
+<a class="post-tags-list-item" href="/tags/%E4%B8%AD%E5%9B%BD%E4%BA%92%E8%81%94%E7%BD%91/" rel="tag">#&nbsp;中国互联网</a>
+
+<a class="post-tags-list-item" href="/tags/%E8%AE%A4%E7%9F%A5%E8%BE%B9%E7%95%8C/" rel="tag">#&nbsp;认知边界</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2026/04/21/%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3%E5%8D%9A%E5%BD%A9%E4%BB%A3%E7%90%86/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">一文了解博彩代理</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2026/05/10/VPN-VS-GFW/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2026/05/10/VPN-VS-GFW/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+(function() {
+    'use strict';
+    
+    // 等待 DOM 加载完成
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTocCollapse);
+    } else {
+        initTocCollapse();
+    }
+    
+    function initTocCollapse() {
+        const tocContainer = document.getElementById('post-toc');
+        if (!tocContainer) {
+            return;
+        }
+        
+        // 找到所有有子目录的 level-1、level-2、level-3 项（支持多级嵌套展开）
+        const tocItems = tocContainer.querySelectorAll('.post-toc-item.post-toc-level-1, .post-toc-item.post-toc-level-2, .post-toc-item.post-toc-level-3');
+        
+        tocItems.forEach(function(item) {
+            // 检查是否有子目录（包含 post-toc-child 的 ol）
+            const hasChildren = item.querySelector('ol.post-toc-child') !== null;
+            
+            if (hasChildren) {
+                // 添加标记类，用于 CSS 显示图标
+                item.classList.add('toc-has-children');
+                
+                const link = item.querySelector('.post-toc-link');
+                if (link) {
+                    // 阻止默认的锚点跳转，改为展开/折叠
+                    link.addEventListener('click', function(e) {
+                        // 如果用户按住 Ctrl/Cmd 或中键点击，则跳转
+                        if (e.ctrlKey || e.metaKey || e.button === 1) {
+                            return; // 允许默认行为（跳转）
+                        }
+                        
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // 切换展开/折叠状态
+                        item.classList.toggle('toc-expanded');
+                    });
+                    
+                    // 允许通过双击链接文本跳转
+                    link.addEventListener('dblclick', function(e) {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            window.location.hash = href;
+                        }
+                    });
+                    
+                    // 允许通过右键菜单跳转
+                    link.addEventListener('contextmenu', function(e) {
+                        // 允许默认的右键菜单
+                        return true;
+                    });
+                }
+            }
+        });
+    }
+})();
+        
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>
