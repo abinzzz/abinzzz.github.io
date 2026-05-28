@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Perfect Night</title>
+  <desc id="desc">A neon pink and purple cover placeholder for Perfect Night by LE SSERAFIM.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#12051d"/>
+      <stop offset="0.45" stop-color="#32105f"/>
+      <stop offset="0.75" stop-color="#b921a3"/>
+      <stop offset="1" stop-color="#ff83cb"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" x2="1">
+      <stop offset="0" stop-color="#47e6ff"/>
+      <stop offset="0.45" stop-color="#8f52ff"/>
+      <stop offset="1" stop-color="#ff77c8"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="900" fill="url(#bg)"/>
+  <g opacity=".72" filter="url(#glow)">
+    <path d="M-90 330 C 170 220, 390 220, 990 70" stroke="#35e3ff" stroke-width="8" fill="none"/>
+    <path d="M-120 405 C 210 300, 500 250, 980 175" stroke="#7a5cff" stroke-width="10" fill="none"/>
+    <path d="M-90 500 C 240 430, 540 320, 1030 255" stroke="#ff4fba" stroke-width="14" fill="none"/>
+    <path d="M-160 610 C 190 520, 500 470, 1020 420" stroke="#ff97d5" stroke-width="9" fill="none"/>
+  </g>
+  <g transform="translate(95 430)">
+    <path d="M52 210 L610 115 C667 105 718 141 729 198 L747 295 L145 390 C86 399 31 360 20 301 L1 200 Z" fill="#ff89d1"/>
+    <path d="M150 160 L615 80 C660 72 697 95 718 132 L100 235 Z" fill="#ffffff" opacity=".88"/>
+    <path d="M125 245 L705 150" stroke="#30184d" stroke-width="24" stroke-linecap="round"/>
+    <circle cx="210" cy="330" r="38" fill="#251535"/>
+    <circle cx="570" cy="270" r="38" fill="#251535"/>
+  </g>
+  <text x="62" y="160" fill="#fff" font-family="Arial Black, Arial, sans-serif" font-size="72" font-weight="900" letter-spacing="4">PERFECT NIGHT</text>
+  <text x="65" y="805" fill="#fff" font-family="Arial Black, Arial, sans-serif" font-size="40" font-weight="900" letter-spacing="2">LE SSERAFIM</text>
+</svg>
