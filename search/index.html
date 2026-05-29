@@ -247,7 +247,7 @@
 
     <!-- import load local-search -->
 
-    <script src="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/js/local-search.min.js"></script>
+    <script src="/js/local-search.min.js?v=20260529-search-live"></script>
 
 
 <script>
@@ -255,7 +255,7 @@
         var searchNoResult = '';
         searchNoResult += '<div class="search-noresult"><span>没有找到任何结果，请更换关键字试试~'
         searchNoResult += '<br>你可以试试 Google 站内搜索&nbsp;:&nbsp;</span>'
-        searchNoResult += '<a href="https://www.google.com/search?&q=' + window.searchEscape(window.getParameterByName('s')) + '%20site:https://abinzzz.github.io" target="_blank">' + window.searchEscape(window.getParameterByName('s')) + '&nbsp;site:https://abinzzz.github.io</a></div>'
+        searchNoResult += '<a href="https://www.google.com/search?&q=__QUERY__%20site:https://abinzzz.github.io" target="_blank">__QUERY__&nbsp;site:https://abinzzz.github.io</a></div>'
         window.searchFunc('/search.json', searchNoResult);
     })();
 </script>
