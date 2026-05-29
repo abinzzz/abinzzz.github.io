@@ -289,22 +289,38 @@
         
 
 
-<nav class="suka-pagination">
+<nav class="suka-pagination" aria-label="文章列表分页">
+    <div class="pagination-summary">第 <strong>2</strong> / 2 页</div>
     <ul class="pagination pagination-numbered">
-        <!-- 中间页码 -->
+        <li class="page-item page-prev ">
+            
+                <a class="page-link page-link-nav" href="/archives/2024/02/" rel="prev">上一页</a>
+            
+        </li>
+
         
-            <li class="page-item page-number ">
-                
-                    <a class="page-link" href="/archives/2024/02/">1</a>
-                
-            </li>
+            
+                <li class="page-item page-number ">
+                    
+                        <a class="page-link" href="/archives/2024/02/" aria-label="跳转到第 1 页">1</a>
+                    
+                </li>
+            
         
-            <li class="page-item page-number active">
-                
-                    <span class="page-link current">2</span>
-                
-            </li>
+            
+                <li class="page-item page-number active">
+                    
+                        <span class="page-link current" aria-current="page">2</span>
+                    
+                </li>
+            
         
+
+        <li class="page-item page-next disabled">
+            
+                <span class="page-link page-link-nav" aria-disabled="true">下一页</span>
+            
+        </li>
     </ul>
 </nav>
 

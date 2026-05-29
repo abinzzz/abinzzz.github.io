@@ -373,28 +373,50 @@
         
 
 
-<nav class="suka-pagination">
+<nav class="suka-pagination" aria-label="文章列表分页">
+    <div class="pagination-summary">第 <strong>7</strong> / 7 页</div>
     <ul class="pagination pagination-numbered">
-        <!-- 中间页码 -->
+        <li class="page-item page-prev ">
+            
+                <a class="page-link page-link-nav" href="/archives/2024/page/6/" rel="prev">上一页</a>
+            
+        </li>
+
         
-            <li class="page-item page-number ">
-                
-                    <a class="page-link" href="/archives/2024/page/5/">5</a>
-                
-            </li>
+            
+                <li class="page-item page-number ">
+                    
+                        <a class="page-link" href="/archives/2024/" aria-label="跳转到第 1 页">1</a>
+                    
+                </li>
+            
         
-            <li class="page-item page-number ">
-                
-                    <a class="page-link" href="/archives/2024/page/6/">6</a>
-                
-            </li>
+            
+                <li class="page-item page-dots" aria-hidden="true"><span class="page-link">...</span></li>
+            
         
-            <li class="page-item page-number active">
-                
-                    <span class="page-link current">7</span>
-                
-            </li>
+            
+                <li class="page-item page-number ">
+                    
+                        <a class="page-link" href="/archives/2024/page/6/" aria-label="跳转到第 6 页">6</a>
+                    
+                </li>
+            
         
+            
+                <li class="page-item page-number active">
+                    
+                        <span class="page-link current" aria-current="page">7</span>
+                    
+                </li>
+            
+        
+
+        <li class="page-item page-next disabled">
+            
+                <span class="page-link page-link-nav" aria-disabled="true">下一页</span>
+            
+        </li>
     </ul>
 </nav>
 

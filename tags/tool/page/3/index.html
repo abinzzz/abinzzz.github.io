@@ -429,28 +429,46 @@
         
 
 
-<nav class="suka-pagination">
+<nav class="suka-pagination" aria-label="文章列表分页">
+    <div class="pagination-summary">第 <strong>3</strong> / 3 页</div>
     <ul class="pagination pagination-numbered">
-        <!-- 中间页码 -->
+        <li class="page-item page-prev ">
+            
+                <a class="page-link page-link-nav" href="/tags/tool/page/2/" rel="prev">上一页</a>
+            
+        </li>
+
         
-            <li class="page-item page-number ">
-                
-                    <a class="page-link" href="/tags/tool/">1</a>
-                
-            </li>
+            
+                <li class="page-item page-number ">
+                    
+                        <a class="page-link" href="/tags/tool/" aria-label="跳转到第 1 页">1</a>
+                    
+                </li>
+            
         
-            <li class="page-item page-number ">
-                
-                    <a class="page-link" href="/tags/tool/page/2/">2</a>
-                
-            </li>
+            
+                <li class="page-item page-number ">
+                    
+                        <a class="page-link" href="/tags/tool/page/2/" aria-label="跳转到第 2 页">2</a>
+                    
+                </li>
+            
         
-            <li class="page-item page-number active">
-                
-                    <span class="page-link current">3</span>
-                
-            </li>
+            
+                <li class="page-item page-number active">
+                    
+                        <span class="page-link current" aria-current="page">3</span>
+                    
+                </li>
+            
         
+
+        <li class="page-item page-next disabled">
+            
+                <span class="page-link page-link-nav" aria-disabled="true">下一页</span>
+            
+        </li>
     </ul>
 </nav>
 
