@@ -256,7 +256,7 @@
         searchNoResult += '<div class="search-noresult"><span>没有找到任何结果，请更换关键字试试~'
         searchNoResult += '<br>你可以试试 Google 站内搜索&nbsp;:&nbsp;</span>'
         searchNoResult += '<a href="https://www.google.com/search?&q=' + window.searchEscape(window.getParameterByName('s')) + '%20site:https://abinzzz.github.io" target="_blank">' + window.searchEscape(window.getParameterByName('s')) + '&nbsp;site:https://abinzzz.github.io</a></div>'
-        window.searchFunc('/search.xml', searchNoResult);
+        window.searchFunc('/search.json', searchNoResult);
     })();
 </script>
 
