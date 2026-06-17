@@ -20720,14 +20720,31 @@ PP10043好像暂时也没啥办法……</p>
   <entry>
     <title>AI+CV 顶会 2025/2026 中稿论文领域分布整理</title>
     <url>/2026/06/17/2026-06-17-ai-cv-top-conference-paper-distribution/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="为什么上一篇会卡"><a href="#为什么上一篇会卡" class="headerlink" title="为什么上一篇会卡"></a>为什么上一篇会卡</h2><p>上一版把 22,125 篇论文全部放在同一个页面里，而且每篇论文都是一个 <code>&lt;details&gt;</code> 折叠块。浏览器打开页面时仍然要一次性解析所有 HTML、建立所有 DOM 节点、参与布局和搜索索引，所以网页和本地预览都会卡。这一版改成“首页总览 + 每个会议独立页面”，首页只承担导航和分析。</p>
-<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><ul>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><style>
+.article-entry table {
+  display: block;
+  overflow-x: auto;
+  white-space: normal;
+  font-size: 0.88em;
+}
+.article-entry th,
+.article-entry td {
+  vertical-align: top;
+}
+.article-entry td:nth-child(2) { min-width: 260px; }
+.article-entry td:nth-child(3) { min-width: 220px; }
+.article-entry td:nth-child(4) { min-width: 280px; }
+</style>
+<h2 id="这份整理怎么读"><a class="markdownIt-Anchor" href="#这份整理怎么读"></a> 这份整理怎么读</h2>
+<p>这篇整理把 2025/2026 年 AI+CV 顶会的主会中稿论文拆成两层：首页看整体分布和入口，具体会议页看该会议的论文清单、领域分布、关键词云图和高亮论文。这样读起来更接近索引，也避免把两万多篇论文堆在同一个页面里。</p>
+<h2 id="总览"><a class="markdownIt-Anchor" href="#总览"></a> 总览</h2>
+<ul>
 <li>已纳入 main conference papers：<strong>22125</strong></li>
 <li>统计范围：2025/2026，AI+CV 顶会；2026 未公开 accepted list 的会议标记为 pending。</li>
 <li>统计口径：不含 workshop、demo、student abstract、challenge。</li>
-<li>Affiliation：官方列表大多未稳定公开作者单位，本文不从非官方来源推断。</li>
+<li>Affiliation：只使用官方论文页能读到的单位信息；没有公开时标为“官方页面未列出”。</li>
+<li>Recognition：OpenReview 会议页中的 <code>Oral</code>、<code>Spotlight</code> 等标签会单独列出；Best/Outstanding 只收录当前官方源明确标记的论文。</li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -20839,8 +20856,7 @@ PP10043好像暂时也没啥办法……</p>
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="全局-Distribution"><a href="#全局-Distribution" class="headerlink" title="全局 Distribution"></a>全局 Distribution</h2><div class="table-container">
+<h2 id="全局-distribution"><a class="markdownIt-Anchor" href="#全局-distribution"></a> 全局 Distribution</h2>
 <table>
 <thead>
 <tr>
@@ -20922,10 +20938,31 @@ PP10043好像暂时也没啥办法……</p>
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="全局关键词云图"><a href="#全局关键词云图" class="headerlink" title="全局关键词云图"></a>全局关键词云图</h2><p>OpenReview 通常给出 keywords 或 primary area；CVF/AAAI/IJCAI 的官方列表通常不稳定公开关键词，因此这些会议主要用标题词参与聚类。</p>
-<p><img src="/images/ai-cv-paper-distribution/keyword-cloud.png" alt="AI+CV Top Conference Keyword Cloud"></p>
-<h2 id="全局-Keywords-Topic-Clusters"><a href="#全局-Keywords-Topic-Clusters" class="headerlink" title="全局 Keywords / Topic Clusters"></a>全局 Keywords / Topic Clusters</h2><div class="table-container">
+<h2 id="全局-best-outstanding-papers"><a class="markdownIt-Anchor" href="#全局-best-outstanding-papers"></a> 全局 Best / Outstanding Papers</h2>
+<p>当前官方数据源中没有识别到。</p>
+<h2 id="全局-highlight-spotlight-oral-papers"><a class="markdownIt-Anchor" href="#全局-highlight-spotlight-oral-papers"></a> 全局 Highlight / Spotlight / Oral Papers</h2>
+<table>
+<thead>
+<tr>
+<th>Recognition</th>
+<th style="text-align:right">篇数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spotlight</td>
+<td style="text-align:right">1278</td>
+</tr>
+<tr>
+<td>Oral</td>
+<td style="text-align:right">398</td>
+</tr>
+</tbody>
+</table>
+<h2 id="全局关键词云图"><a class="markdownIt-Anchor" href="#全局关键词云图"></a> 全局关键词云图</h2>
+<p>OpenReview 通常给出 keywords 或 primary area；CVF/AAAI/IJCAI 的官方列表通常不稳定公开关键词，因此这些会议主要用标题词参与聚类。</p>
+<p><img src="/images/ai-cv-paper-distribution/keyword-cloud.png" alt="AI+CV Top Conference Keyword Cloud" /></p>
+<h2 id="全局-keywords-topic-clusters"><a class="markdownIt-Anchor" href="#全局-keywords-topic-clusters"></a> 全局 Keywords / Topic Clusters</h2>
 <table>
 <thead>
 <tr>
@@ -20988,8 +21025,8 @@ PP10043好像暂时也没啥办法……</p>
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="阅读建议"><a href="#阅读建议" class="headerlink" title="阅读建议"></a>阅读建议</h2><p>先看首页的全局分布，再进入具体会议页。每个会议页都包含该会议自己的 distribution、关键词云图、关键词聚类和完整论文表格。</p>
+<h2 id="阅读路径"><a class="markdownIt-Anchor" href="#阅读路径"></a> 阅读路径</h2>
+<p>建议先看全局分布，再按会议进入独立页面。每个会议页都把高亮论文放在前面，完整列表放在最后。</p>
 ]]></content>
       <categories>
         <category>AI</category>
