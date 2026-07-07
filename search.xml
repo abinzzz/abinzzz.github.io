@@ -623,13 +623,13 @@ apple=[1 0 0 0 0]</p>
 <p>新指令(指定在GPU1上)：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.run --nproc_per_node=1 --master_port=2564 train.py --cfg-path lavis/projects/blip2/train/pretrain_stage1.yaml </span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>cuda</tag>
         <tag>memory</tag>
         <tag>gpu</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -700,11 +700,11 @@ apple=[1 0 0 0 0]</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="number">18</span>:<span class="number">16</span>:<span class="number">02</span>.<span class="number">093</span>: [djangoProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refs/heads/main:refs/heads/main --<span class="built_in">set</span>-upstream</span><br><span class="line">Enumerating objects: <span class="number">62</span>, done.</span><br><span class="line">Counting objects:   <span class="number">1</span>% (<span class="number">1</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:   <span class="number">3</span>% (<span class="number">2</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:   <span class="number">4</span>% (<span class="number">3</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:   <span class="number">6</span>% (<span class="number">4</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:   <span class="number">8</span>% (<span class="number">5</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:   <span class="number">9</span>% (<span class="number">6</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">11</span>% (<span class="number">7</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">12</span>% (<span class="number">8</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">14</span>% (<span class="number">9</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">16</span>% (<span class="number">10</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">17</span>% (<span class="number">11</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">19</span>% (<span class="number">12</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">20</span>% (<span class="number">13</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">22</span>% (<span class="number">14</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">24</span>% (<span class="number">15</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">25</span>% (<span class="number">16</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">27</span>% (<span class="number">17</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">29</span>% (<span class="number">18</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">30</span>% (<span class="number">19</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">32</span>% (<span class="number">20</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">33</span>% (<span class="number">21</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">35</span>% (<span class="number">22</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">37</span>% (<span class="number">23</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">38</span>% (<span class="number">24</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">40</span>% (<span class="number">25</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">41</span>% (<span class="number">26</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">43</span>% (<span class="number">27</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">45</span>% (<span class="number">28</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">46</span>% (<span class="number">29</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">48</span>% (<span class="number">30</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">50</span>% (<span class="number">31</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">51</span>% (<span class="number">32</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">53</span>% (<span class="number">33</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">54</span>% (<span class="number">34</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">56</span>% (<span class="number">35</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">58</span>% (<span class="number">36</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">59</span>% (<span class="number">37</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">61</span>% (<span class="number">38</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">62</span>% (<span class="number">39</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">64</span>% (<span class="number">40</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">66</span>% (<span class="number">41</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">67</span>% (<span class="number">42</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">69</span>% (<span class="number">43</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">70</span>% (<span class="number">44</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">72</span>% (<span class="number">45</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">74</span>% (<span class="number">46</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">75</span>% (<span class="number">47</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">77</span>% (<span class="number">48</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">79</span>% (<span class="number">49</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">80</span>% (<span class="number">50</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">82</span>% (<span class="number">51</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">83</span>% (<span class="number">52</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">85</span>% (<span class="number">53</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">87</span>% (<span class="number">54</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">88</span>% (<span class="number">55</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">90</span>% (<span class="number">56</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">91</span>% (<span class="number">57</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">93</span>% (<span class="number">58</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">95</span>% (<span class="number">59</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">96</span>% (<span class="number">60</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects:  <span class="number">98</span>% (<span class="number">61</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects: <span class="number">100</span>% (<span class="number">62</span>/<span class="number">62</span>)</span><br><span class="line">Counting objects: <span class="number">100</span>% (<span class="number">62</span>/<span class="number">62</span>), done.</span><br><span class="line">Delta compression using up to <span class="number">8</span> threads</span><br><span class="line">Compressing objects:   <span class="number">1</span>% (<span class="number">1</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:   <span class="number">3</span>% (<span class="number">2</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:   <span class="number">5</span>% (<span class="number">3</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:   <span class="number">6</span>% (<span class="number">4</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:   <span class="number">8</span>% (<span class="number">5</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">10</span>% (<span class="number">6</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">11</span>% (<span class="number">7</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">13</span>% (<span class="number">8</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">15</span>% (<span class="number">9</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">16</span>% (<span class="number">10</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">18</span>% (<span class="number">11</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">20</span>% (<span class="number">12</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">22</span>% (<span class="number">13</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">23</span>% (<span class="number">14</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">25</span>% (<span class="number">15</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">27</span>% (<span class="number">16</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">28</span>% (<span class="number">17</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">30</span>% (<span class="number">18</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">32</span>% (<span class="number">19</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">33</span>% (<span class="number">20</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">35</span>% (<span class="number">21</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">37</span>% (<span class="number">22</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">38</span>% (<span class="number">23</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">40</span>% (<span class="number">24</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">42</span>% (<span class="number">25</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">44</span>% (<span class="number">26</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">45</span>% (<span class="number">27</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">47</span>% (<span class="number">28</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">49</span>% (<span class="number">29</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">50</span>% (<span class="number">30</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">52</span>% (<span class="number">31</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">54</span>% (<span class="number">32</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">55</span>% (<span class="number">33</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">57</span>% (<span class="number">34</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">59</span>% (<span class="number">35</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">61</span>% (<span class="number">36</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">62</span>% (<span class="number">37</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">64</span>% (<span class="number">38</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">66</span>% (<span class="number">39</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">67</span>% (<span class="number">40</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">69</span>% (<span class="number">41</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">71</span>% (<span class="number">42</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">72</span>% (<span class="number">43</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">74</span>% (<span class="number">44</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">76</span>% (<span class="number">45</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">77</span>% (<span class="number">46</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">79</span>% (<span class="number">47</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">81</span>% (<span class="number">48</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">83</span>% (<span class="number">49</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">84</span>% (<span class="number">50</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">86</span>% (<span class="number">51</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">88</span>% (<span class="number">52</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">89</span>% (<span class="number">53</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">91</span>% (<span class="number">54</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">93</span>% (<span class="number">55</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">94</span>% (<span class="number">56</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">96</span>% (<span class="number">57</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects:  <span class="number">98</span>% (<span class="number">58</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects: <span class="number">100</span>% (<span class="number">59</span>/<span class="number">59</span>)</span><br><span class="line">Compressing objects: <span class="number">100</span>% (<span class="number">59</span>/<span class="number">59</span>), done.</span><br><span class="line">Writing objects:   <span class="number">1</span>% (<span class="number">1</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:   <span class="number">3</span>% (<span class="number">2</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:   <span class="number">4</span>% (<span class="number">3</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:   <span class="number">6</span>% (<span class="number">4</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:   <span class="number">8</span>% (<span class="number">5</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:   <span class="number">9</span>% (<span class="number">6</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">11</span>% (<span class="number">7</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">12</span>% (<span class="number">8</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">14</span>% (<span class="number">9</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">16</span>% (<span class="number">10</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">17</span>% (<span class="number">11</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">19</span>% (<span class="number">12</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">20</span>% (<span class="number">13</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">22</span>% (<span class="number">14</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">24</span>% (<span class="number">15</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">25</span>% (<span class="number">16</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">29</span>% (<span class="number">18</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">30</span>% (<span class="number">19</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">32</span>% (<span class="number">20</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">33</span>% (<span class="number">21</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">35</span>% (<span class="number">22</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">38</span>% (<span class="number">24</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">40</span>% (<span class="number">25</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">41</span>% (<span class="number">26</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">43</span>% (<span class="number">27</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">45</span>% (<span class="number">28</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">46</span>% (<span class="number">29</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">48</span>% (<span class="number">30</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">50</span>% (<span class="number">31</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">51</span>% (<span class="number">32</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">53</span>% (<span class="number">33</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">54</span>% (<span class="number">34</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">56</span>% (<span class="number">35</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">58</span>% (<span class="number">36</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">59</span>% (<span class="number">37</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">61</span>% (<span class="number">38</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">62</span>% (<span class="number">39</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">64</span>% (<span class="number">40</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">66</span>% (<span class="number">41</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">67</span>% (<span class="number">42</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">69</span>% (<span class="number">43</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">70</span>% (<span class="number">44</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">72</span>% (<span class="number">45</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">74</span>% (<span class="number">46</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">75</span>% (<span class="number">47</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">77</span>% (<span class="number">48</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">79</span>% (<span class="number">49</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">80</span>% (<span class="number">50</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">82</span>% (<span class="number">51</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">83</span>% (<span class="number">52</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">85</span>% (<span class="number">53</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">88</span>% (<span class="number">55</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">90</span>% (<span class="number">56</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">91</span>% (<span class="number">57</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">95</span>% (<span class="number">59</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">96</span>% (<span class="number">60</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects:  <span class="number">98</span>% (<span class="number">61</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects: <span class="number">100</span>% (<span class="number">62</span>/<span class="number">62</span>)</span><br><span class="line">Writing objects: <span class="number">100</span>% (<span class="number">62</span>/<span class="number">62</span>), <span class="number">8</span>.<span class="number">47</span> MiB | <span class="number">722</span>.<span class="number">82</span> MiB/s, done.</span><br><span class="line">Total <span class="number">62</span> (delta <span class="number">6</span>), reused <span class="number">0</span> (delta <span class="number">0</span>), pack-reused <span class="number">0</span></span><br><span class="line"><span class="function">remote: <span class="title">Resolving</span> <span class="title">deltas</span>:   0% (0/6)        </span></span><br><span class="line"><span class="function"><span class="title">remote</span>: <span class="title">Resolving</span> <span class="title">deltas</span>:  16% (1/6)        </span></span><br><span class="line"><span class="function"><span class="title">remote</span>: <span class="title">Resolving</span> <span class="title">deltas</span>:  33% (2/6)        </span></span><br><span class="line"><span class="function"><span class="title">remote</span>: <span class="title">Resolving</span> <span class="title">deltas</span>:  50% (3/6)        </span></span><br><span class="line"><span class="function"><span class="title">remote</span>: <span class="title">Resolving</span> <span class="title">deltas</span>:  66% (4/6)        </span></span><br><span class="line"><span class="function"><span class="title">remote</span>: <span class="title">Resolving</span> <span class="title">deltas</span>:  83% (5/6)        </span></span><br><span class="line"><span class="function"><span class="title">remote</span>: <span class="title">Resolving</span> <span class="title">deltas</span>: 100% (6/6)        </span></span><br><span class="line"><span class="function"><span class="title">remote</span>: <span class="title">Resolving</span> <span class="title">deltas</span>: 100% (6/6), <span class="title">done</span>.        </span></span><br><span class="line"><span class="function"><span class="title">To</span> <span class="title">https</span>://<span class="title">github.com</span>/<span class="title">abinzzz</span>/<span class="title">BUPT_AC_Hotel.git</span></span></span><br><span class="line"><span class="function">*	<span class="title">refs</span>/<span class="title">heads</span>/<span class="title">main:refs</span>/<span class="title">heads</span>/<span class="title">main</span>	[<span class="title">new</span> <span class="title">branch</span>]</span></span><br><span class="line"><span class="function"><span class="title">branch</span> &#x27;<span class="title">main</span>&#x27; <span class="title">set</span> <span class="title">up</span> <span class="title">to</span> <span class="title">track</span> &#x27;<span class="title">origin</span>/<span class="title">main</span>&#x27;.</span></span><br><span class="line"><span class="function"><span class="title">Done</span></span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>github</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -927,12 +927,12 @@ apple=[1 0 0 0 0]</p>
 </ol>
 ]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>github</tag>
         <tag>copilot</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -984,13 +984,13 @@ apple=[1 0 0 0 0]</p>
 </ul>
 ]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>commit</tag>
         <tag>git</tag>
         <tag>delete</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -3571,11 +3571,11 @@ accustomed to bad news, war, crime, natural disasters, human suffering, desensit
 <p>版本问题：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install transformers==4.31.0</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>transformers</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -3591,11 +3591,11 @@ accustomed to bad news, war, crime, natural disasters, human suffering, desensit
 <h2 id="解决方法"><a class="markdownIt-Anchor" href="#解决方法"></a> 解决方法</h2>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install opencv-python-headless</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>import</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -6765,12 +6765,12 @@ mps用法和cuda很像，只是将“cuda”改为“mps”</p>
 <p><img src="https://pbs.twimg.com/media/GEsYXM9asAAft92?format=jpg&amp;name=medium" alt="" /></p>
 ]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>mac</tag>
         <tag>chrome</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -6799,12 +6799,12 @@ mps用法和cuda很像，只是将“cuda”改为“mps”</p>
 <p><img src="https://pbs.twimg.com/media/GEncTg0WQAABu-K?format=jpg&amp;name=medium" alt="" /></p>
 ]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>mac</tag>
         <tag>terminal</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -7648,12 +7648,12 @@ mps用法和cuda很像，只是将“cuda”改为“mps”</p>
 </ol>
 ]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>智能计算系统</tag>
         <tag>2-2</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -8653,11 +8653,11 @@ C表示Memory中存储的原始值，C’表示新的存储值。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 如果目录不存在，则创建该目录</span></span><br><span class="line">os.makedirs(args.model_path, exist_ok=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>file</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -8734,11 +8734,11 @@ C表示Memory中存储的原始值，C’表示新的存储值。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.pos_embedding = nn.Embedding(max_length, hid_dim)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">----</span><br><span class="line"></span><br><span class="line"><span class="comment">#pos=[16,102]</span></span><br><span class="line"><span class="comment">#pos_embedding(max_length,768) ,max_length=100</span></span><br><span class="line">trg = self.dropout((self.tok_embedding(trg) * self.scale) + self.pos_embedding(pos))</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>cuda</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -10215,11 +10215,11 @@ ViT-B是Vision Transformer模型中的基准分辨率变体。它可以被视为
 <p>如果有对SCI论文有帮助或作出过贡献但不足成为作者的人，可以放在论文结尾的Acknowledgments表示感谢。论文署名确定以后，就是具体的SCI论文作者信息的撰写了，这需要遵循约定俗成的规则。</p>
 ]]></content>
       <categories>
-        <category>paper</category>
+        <category>Paper</category>
       </categories>
       <tags>
-        <tag>paper</tag>
         <tag>author</tag>
+        <tag>Paper</tag>
       </tags>
   </entry>
   <entry>
@@ -10361,11 +10361,11 @@ ViT-B是Vision Transformer模型中的基准分辨率变体。它可以被视为
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">50</span>):</span><br><span class="line">    total_loss=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> train_loader:</span><br><span class="line">        img, _ = data</span><br><span class="line">        img = img.view(img.size(<span class="number">0</span>), -<span class="number">1</span>)</span><br><span class="line">        img = img.to(device)</span><br><span class="line">        <span class="comment"># 前向传播</span></span><br><span class="line">        output = autoencoder(img)</span><br><span class="line">        loss = criterion(output, img)</span><br><span class="line">        <span class="comment"># 反向传播</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        total_loss += loss.item()</span><br><span class="line">    avg_loss = total_loss / <span class="built_in">len</span>(train_loader)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Epoch [&#123;&#125;/50], Average Loss: &#123;:.4f&#125;&#x27;</span>.<span class="built_in">format</span>(epoch + <span class="number">1</span>, avg_loss))</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>loss</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -10381,12 +10381,12 @@ ViT-B是Vision Transformer模型中的基准分辨率变体。它可以被视为
 <p>推荐输入法：<a href="https://github.com/KyleBing/rime-wubi86-jidian">Rime 输入法</a></p>
 ]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>mac</tag>
         <tag>输入法</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -10637,11 +10637,11 @@ ViT-B是Vision Transformer模型中的基准分辨率变体。它可以被视为
 <h2 id="7resnet的tensorflow实现"><a class="markdownIt-Anchor" href="#7resnet的tensorflow实现"></a> 7.ResNet的tensorflow实现</h2>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ResNet50</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, inputs, num_classes=<span class="number">1000</span>, is_training=<span class="literal">True</span>,</span></span><br><span class="line"><span class="params">                 scope=<span class="string">&quot;resnet50&quot;</span></span>):</span><br><span class="line">        self.inputs =inputs</span><br><span class="line">        self.is_training = is_training</span><br><span class="line">        self.num_classes = num_classes</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> tf.variable_scope(scope):</span><br><span class="line">            <span class="comment"># construct the model</span></span><br><span class="line">            net = conv2d(inputs, <span class="number">64</span>, <span class="number">7</span>, <span class="number">2</span>, scope=<span class="string">&quot;conv1&quot;</span>) <span class="comment"># -&gt; [batch, 112, 112, 64]</span></span><br><span class="line">            net = tf.nn.relu(batch_norm(net, is_training=self.is_training, scope=<span class="string">&quot;bn1&quot;</span>))</span><br><span class="line">            net = max_pool(net, <span class="number">3</span>, <span class="number">2</span>, scope=<span class="string">&quot;maxpool1&quot;</span>)  <span class="comment"># -&gt; [batch, 56, 56, 64]</span></span><br><span class="line">            net = self._block(net, <span class="number">256</span>, <span class="number">3</span>, init_stride=<span class="number">1</span>, is_training=self.is_training,</span><br><span class="line">                              scope=<span class="string">&quot;block2&quot;</span>)           <span class="comment"># -&gt; [batch, 56, 56, 256]</span></span><br><span class="line">            net = self._block(net, <span class="number">512</span>, <span class="number">4</span>, is_training=self.is_training, scope=<span class="string">&quot;block3&quot;</span>)</span><br><span class="line">                                                        <span class="comment"># -&gt; [batch, 28, 28, 512]</span></span><br><span class="line">            net = self._block(net, <span class="number">1024</span>, <span class="number">6</span>, is_training=self.is_training, scope=<span class="string">&quot;block4&quot;</span>)</span><br><span class="line">                                                        <span class="comment"># -&gt; [batch, 14, 14, 1024]</span></span><br><span class="line">            net = self._block(net, <span class="number">2048</span>, <span class="number">3</span>, is_training=self.is_training, scope=<span class="string">&quot;block5&quot;</span>)</span><br><span class="line">                                                        <span class="comment"># -&gt; [batch, 7, 7, 2048]</span></span><br><span class="line">            net = avg_pool(net, <span class="number">7</span>, scope=<span class="string">&quot;avgpool5&quot;</span>)    <span class="comment"># -&gt; [batch, 1, 1, 2048]</span></span><br><span class="line">            net = tf.squeeze(net, [<span class="number">1</span>, <span class="number">2</span>], name=<span class="string">&quot;SpatialSqueeze&quot;</span>) <span class="comment"># -&gt; [batch, 2048]</span></span><br><span class="line">            self.logits = fc(net, self.num_classes, <span class="string">&quot;fc6&quot;</span>)       <span class="comment"># -&gt; [batch, num_classes]</span></span><br><span class="line">            self.predictions = tf.nn.softmax(self.logits)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_block</span>(<span class="params">self, x, n_out, n, init_stride=<span class="number">2</span>, is_training=<span class="literal">True</span>, scope=<span class="string">&quot;block&quot;</span></span>):</span><br><span class="line">        <span class="keyword">with</span> tf.variable_scope(scope):</span><br><span class="line">            h_out = n_out // <span class="number">4</span></span><br><span class="line">            out = self._bottleneck(x, h_out, n_out, stride=init_stride,</span><br><span class="line">                                   is_training=is_training, scope=<span class="string">&quot;bottlencek1&quot;</span>)</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">                out = self._bottleneck(out, h_out, n_out, is_training=is_training,</span><br><span class="line">                                       scope=(<span class="string">&quot;bottlencek%s&quot;</span> % (i + <span class="number">1</span>)))</span><br><span class="line">            <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_bottleneck</span>(<span class="params">self, x, h_out, n_out, stride=<span class="literal">None</span>, is_training=<span class="literal">True</span>, scope=<span class="string">&quot;bottleneck&quot;</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot; A residual bottleneck unit&quot;&quot;&quot;</span></span><br><span class="line">        n_in = x.get_shape()[-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> stride <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            stride = <span class="number">1</span> <span class="keyword">if</span> n_in == n_out <span class="keyword">else</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> tf.variable_scope(scope):</span><br><span class="line">            h = conv2d(x, h_out, <span class="number">1</span>, stride=stride, scope=<span class="string">&quot;conv_1&quot;</span>)</span><br><span class="line">            h = batch_norm(h, is_training=is_training, scope=<span class="string">&quot;bn_1&quot;</span>)</span><br><span class="line">            h = tf.nn.relu(h)</span><br><span class="line">            h = conv2d(h, h_out, <span class="number">3</span>, stride=<span class="number">1</span>, scope=<span class="string">&quot;conv_2&quot;</span>)</span><br><span class="line">            h = batch_norm(h, is_training=is_training, scope=<span class="string">&quot;bn_2&quot;</span>)</span><br><span class="line">            h = tf.nn.relu(h)</span><br><span class="line">            h = conv2d(h, n_out, <span class="number">1</span>, stride=<span class="number">1</span>, scope=<span class="string">&quot;conv_3&quot;</span>)</span><br><span class="line">            h = batch_norm(h, is_training=is_training, scope=<span class="string">&quot;bn_3&quot;</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> n_in != n_out:</span><br><span class="line">                shortcut = conv2d(x, n_out, <span class="number">1</span>, stride=stride, scope=<span class="string">&quot;conv_4&quot;</span>)</span><br><span class="line">                shortcut = batch_norm(shortcut, is_training=is_training, scope=<span class="string">&quot;bn_4&quot;</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                shortcut = x</span><br><span class="line">            <span class="keyword">return</span> tf.nn.relu(shortcut + h)</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>paper</category>
+        <category>Paper</category>
       </categories>
       <tags>
-        <tag>paper</tag>
         <tag>ResNet</tag>
+        <tag>Paper</tag>
       </tags>
   </entry>
   <entry>
@@ -10708,11 +10708,11 @@ ViT-B是Vision Transformer模型中的基准分辨率变体。它可以被视为
 <p>Mendeley是一款免费的跨平台文献管理软件，同时也是一个在线的学术社交网络平台。可一键抓取网页上的文献信息添加到个人的library中。还可安装MS Word和Open Office插件，方便在文字编辑器中插入和管理参考文献。参考文献格式与Zotero一样用各种期刊格式的CLS文件。Mendeley还免费提供各2GB的文献存储和100MB的共享空间</p>
 ]]></content>
       <categories>
-        <category>paper</category>
+        <category>Paper</category>
       </categories>
       <tags>
-        <tag>paper</tag>
         <tag>reading</tag>
+        <tag>Paper</tag>
       </tags>
   </entry>
   <entry>
@@ -11133,11 +11133,11 @@ Attention机制的计算复杂度主要来源于它的核心操作,即计算查�
 <p>---------- <strong>Cross Attention流程·END</strong> ----------</p>
 ]]></content>
       <categories>
-        <category>paper</category>
+        <category>Paper</category>
       </categories>
       <tags>
-        <tag>paper</tag>
         <tag>transformer</tag>
+        <tag>Paper</tag>
       </tags>
   </entry>
   <entry>
@@ -11335,11 +11335,11 @@ Attention机制的计算复杂度主要来源于它的核心操作,即计算查�
 <h2 id="32"><a class="markdownIt-Anchor" href="#32"></a> 32.</h2>
 ]]></content>
       <categories>
-        <category>internship</category>
+        <category>Internship</category>
       </categories>
       <tags>
         <tag>pytorch</tag>
-        <tag>internship</tag>
+        <tag>Internship</tag>
       </tags>
   </entry>
   <entry>
@@ -15941,11 +15941,11 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <p>BERT和transformer的目标不一致，bert是语言的预训练模型，需要充分考虑上下文的关系，而transformer主要考虑句子中第i个元素与前i-1个元素的关系</p>
 ]]></content>
       <categories>
-        <category>internship</category>
+        <category>Internship</category>
       </categories>
       <tags>
         <tag>transformer</tag>
-        <tag>internship</tag>
+        <tag>Internship</tag>
       </tags>
   </entry>
   <entry>
@@ -16306,8 +16306,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
         <category>Industry</category>
       </categories>
       <tags>
-        <tag>internship</tag>
         <tag>Industry</tag>
+        <tag>Internship</tag>
       </tags>
   </entry>
   <entry>
@@ -17342,12 +17342,12 @@ boss直聘，offershow（吃瓜）<br />
 <p><img src="https://pbs.twimg.com/media/GHaBMPQWoAAc4NS?format=jpg&amp;name=medium" alt="" /></p>
 ]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>Linux</tag>
         <tag>代理</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -17807,11 +17807,11 @@ boss直聘，offershow（吃瓜）<br />
 </ul>
 ]]></content>
       <categories>
-        <category>paper</category>
+        <category>Paper</category>
       </categories>
       <tags>
-        <tag>paper</tag>
         <tag>写作技巧</tag>
+        <tag>Paper</tag>
       </tags>
   </entry>
   <entry>
@@ -21792,18 +21792,18 @@ PP10043好像暂时也没啥办法……</p>
 <p>能用 <code>openai_http</code> 解决的，就先别把问题想复杂。网络问题有时候就是这么朴素，但它折磨人的方式一点也不朴素。</p>
 ]]></content>
       <categories>
-        <category>bug</category>
+        <category>Bug</category>
       </categories>
       <tags>
-        <tag>bug</tag>
         <tag>代理</tag>
         <tag>Codex</tag>
         <tag>WebSocket</tag>
         <tag>Reconnecting</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
-    <title>[转载/译]如何做好研究</title>
+    <title>How to be good at research</title>
     <url>/2026/07/07/2026-07-07-how-to-be-good-at-research/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="如何做好研究"><a class="markdownIt-Anchor" href="#如何做好研究"></a> 如何做好研究</h1>
 <blockquote>
@@ -21856,7 +21856,7 @@ PP10043好像暂时也没啥办法……</p>
       </tags>
   </entry>
   <entry>
-    <title>一天修好你整个人生</title>
+    <title>How to fix your entire life in 1 day</title>
     <url>/2026/07/07/2026-07-07-how-to-fix-your-entire-life-in-one-day/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="一天修好你整个人生"><a class="markdownIt-Anchor" href="#一天修好你整个人生"></a> 一天修好你整个人生</h1>
 <blockquote>
@@ -22115,14 +22115,14 @@ PP10043好像暂时也没啥办法……</p>
 <p>—— Dan</p>
 ]]></content>
       <categories>
-        <category>reflection</category>
+        <category>Reflection</category>
       </categories>
       <tags>
-        <tag>reflection</tag>
         <tag>Dan Koe</tag>
         <tag>个人成长</tag>
         <tag>自我反思</tag>
         <tag>目标</tag>
+        <tag>Reflection</tag>
       </tags>
   </entry>
 </search>
