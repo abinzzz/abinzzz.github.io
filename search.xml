@@ -20718,7 +20718,7 @@ PP10043好像暂时也没啥办法……</p>
       </tags>
   </entry>
   <entry>
-    <title>AI+CV 顶会 2025/2026 中稿论文领域分布整理</title>
+    <title>CVPR 2026 中稿论文领域分布整理</title>
     <url>/2026/06/17/2026-06-17-ai-cv-top-conference-paper-distribution/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><style>
 .article-entry table {
@@ -20735,17 +20735,18 @@ PP10043好像暂时也没啥办法……</p>
 .paper-title { font-size: 1.02em; margin-bottom: 0.35em; }
 .paper-meta { line-height: 1.45; margin: 0.12em 0; color: #4f596b; }
 </style>
-<h2 id="这份整理怎么读"><a class="markdownIt-Anchor" href="#这份整理怎么读"></a> 这份整理怎么读</h2>
-<p>这篇整理把 2025/2026 年 AI+CV 顶会的主会中稿论文拆成两层：首页看整体分布和入口，具体会议页看该会议的论文清单、领域分布、关键词云图和高亮论文。这样读起来更接近索引，也避免把两万多篇论文堆在同一个页面里。</p>
-<h2 id="总览"><a class="markdownIt-Anchor" href="#总览"></a> 总览</h2>
-<ul>
-<li>已纳入 main conference papers：<strong>33919</strong></li>
-<li>统计范围：2025/2026，AI+CV 顶会；2026 未公开 accepted list 的会议标记为 pending。</li>
-<li>统计口径：不含 workshop、demo、student abstract、challenge。</li>
-<li>Official area / track：优先使用官方投稿分类。OpenReview 会议取 <code>primary_area</code>；AAAI 取 OJS technical track；CVF/IJCAI 若公开页没有投稿分类字段，则标为 <code>Official category unavailable</code>。</li>
+
+<h2 id="这份整理怎么读"><a href="#这份整理怎么读" class="headerlink" title="这份整理怎么读"></a>这份整理怎么读</h2><p>这篇只统计 <strong>CVPR 2026 主会中稿论文</strong>。主页面保留整体入口和关键词概览；具体论文清单、关键词云图和条目详情放在独立页面里。</p>
+<p>这样读起来更像一个索引：先看整体规模和主题热词，再进入具体页面翻论文列表。</p>
+<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><ul>
+<li>已纳入 CVPR 2026 main conference papers：<strong>4068</strong></li>
+<li>统计范围：CVPR 2026。</li>
+<li>统计口径：不含 workshop、challenge、demo、tutorial 等非主会论文。</li>
+<li>Official area / track：CVF Open Access 页面没有稳定公开投稿分类字段，因此统一标为 <code>Official category unavailable</code>。</li>
 <li>Affiliation：只使用官方论文页能读到的单位信息；没有公开时标为“官方页面未列出”。</li>
-<li>Recognition：OpenReview 会议页中的 <code>Oral</code>、<code>Spotlight</code> 等标签会单独列出；Best/Outstanding 只收录当前官方源明确标记的论文。</li>
+<li>Recognition：当前官方数据源中没有稳定识别到 Best / Outstanding / Oral / Highlight 标签，因此不做单独汇总。</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -20754,110 +20755,23 @@ PP10043好像暂时也没啥办法……</p>
 <th>状态</th>
 <th style="text-align:right">篇数</th>
 <th>分布与论文清单</th>
+<th>官方入口</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right">2025</td>
-<td>AAAI</td>
-<td><code>available</code></td>
-<td style="text-align:right">3028</td>
-<td><a href="/ai-cv-paper-distribution/2025-aaai/">打开 2025 AAAI</a></td>
-</tr>
-<tr>
-<td style="text-align:right">2025</td>
-<td>CVPR</td>
-<td><code>available</code></td>
-<td style="text-align:right">2871</td>
-<td><a href="/ai-cv-paper-distribution/2025-cvpr/">打开 2025 CVPR</a></td>
-</tr>
-<tr>
-<td style="text-align:right">2025</td>
-<td>ICCV</td>
-<td><code>available</code></td>
-<td style="text-align:right">2701</td>
-<td><a href="/ai-cv-paper-distribution/2025-iccv/">打开 2025 ICCV</a></td>
-</tr>
-<tr>
-<td style="text-align:right">2025</td>
-<td>ICLR</td>
-<td><code>available</code></td>
-<td style="text-align:right">3703</td>
-<td><a href="/ai-cv-paper-distribution/2025-iclr/">打开 2025 ICLR</a></td>
-</tr>
-<tr>
-<td style="text-align:right">2025</td>
-<td>ICML</td>
-<td><code>available</code></td>
-<td style="text-align:right">3257</td>
-<td><a href="/ai-cv-paper-distribution/2025-icml/">打开 2025 ICML</a></td>
-</tr>
-<tr>
-<td style="text-align:right">2025</td>
-<td>IJCAI</td>
-<td><code>available</code></td>
-<td style="text-align:right">1279</td>
-<td><a href="/ai-cv-paper-distribution/2025-ijcai/">打开 2025 IJCAI</a></td>
-</tr>
-<tr>
-<td style="text-align:right">2025</td>
-<td>NeurIPS</td>
-<td><code>available</code></td>
-<td style="text-align:right">5286</td>
-<td><a href="/ai-cv-paper-distribution/2025-neurips/">打开 2025 NeurIPS</a></td>
-</tr>
-<tr>
-<td style="text-align:right">2026</td>
-<td>AAAI</td>
-<td><code>available</code></td>
-<td style="text-align:right">2375</td>
-<td><a href="/ai-cv-paper-distribution/2026-aaai/">打开 2026 AAAI</a></td>
-</tr>
 <tr>
 <td style="text-align:right">2026</td>
 <td>CVPR</td>
 <td><code>available</code></td>
 <td style="text-align:right">4068</td>
 <td><a href="/ai-cv-paper-distribution/2026-cvpr/">打开 2026 CVPR</a></td>
-</tr>
-<tr>
-<td style="text-align:right">2026</td>
-<td>ICLR</td>
-<td><code>available</code></td>
-<td style="text-align:right">5351</td>
-<td><a href="/ai-cv-paper-distribution/2026-iclr/">打开 2026 ICLR</a></td>
-</tr>
-<tr>
-<td style="text-align:right">2026</td>
-<td>ICML</td>
-<td><code>pending</code></td>
-<td style="text-align:right">0</td>
-<td><a href="/ai-cv-paper-distribution/2026-icml/">打开 2026 ICML</a></td>
-</tr>
-<tr>
-<td style="text-align:right">2026</td>
-<td>IJCAI</td>
-<td><code>pending</code></td>
-<td style="text-align:right">0</td>
-<td><a href="/ai-cv-paper-distribution/2026-ijcai/">打开 2026 IJCAI</a></td>
-</tr>
-<tr>
-<td style="text-align:right">2026</td>
-<td>NeurIPS</td>
-<td><code>pending</code></td>
-<td style="text-align:right">0</td>
-<td><a href="/ai-cv-paper-distribution/2026-neurips/">打开 2026 NeurIPS</a></td>
-</tr>
-<tr>
-<td style="text-align:right">2026</td>
-<td>ECCV</td>
-<td><code>pending</code></td>
-<td style="text-align:right">0</td>
-<td><a href="/ai-cv-paper-distribution/2026-eccv/">打开 2026 ECCV</a></td>
+<td><a href="https://openaccess.thecvf.com/CVPR2026?day=all">CVF Open Access</a></td>
 </tr>
 </tbody>
 </table>
-<h2 id="全局-official-area-track-distribution"><a class="markdownIt-Anchor" href="#全局-official-area-track-distribution"></a> 全局 Official Area / Track Distribution</h2>
+</div>
+<h2 id="Official-Area-Track-Distribution"><a href="#Official-Area-Track-Distribution" class="headerlink" title="Official Area / Track Distribution"></a>Official Area / Track Distribution</h2><p>CVPR 官方开放页面没有稳定提供投稿领域字段，因此这里不把论文强行归到人工分类里，只保留官方可确认口径。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -20869,660 +20783,49 @@ PP10043好像暂时也没啥办法……</p>
 <tbody>
 <tr>
 <td>Official category unavailable</td>
-<td style="text-align:right">10919</td>
-<td style="text-align:right">32.2%</td>
-</tr>
-<tr>
-<td>Technical Track</td>
-<td style="text-align:right">5403</td>
-<td style="text-align:right">15.9%</td>
-</tr>
-<tr>
-<td>deep_learning</td>
-<td style="text-align:right">1733</td>
-<td style="text-align:right">5.1%</td>
-</tr>
-<tr>
-<td>foundation or frontier models, including LLMs</td>
-<td style="text-align:right">1314</td>
-<td style="text-align:right">3.9%</td>
-</tr>
-<tr>
-<td>applications to computer vision, audio, language, and other modalities</td>
-<td style="text-align:right">1153</td>
-<td style="text-align:right">3.4%</td>
-</tr>
-<tr>
-<td>applications</td>
-<td style="text-align:right">1014</td>
-<td style="text-align:right">3.0%</td>
-</tr>
-<tr>
-<td>generative models</td>
-<td style="text-align:right">875</td>
-<td style="text-align:right">2.6%</td>
-</tr>
-<tr>
-<td>alignment, fairness, safety, privacy, and societal considerations</td>
-<td style="text-align:right">755</td>
-<td style="text-align:right">2.2%</td>
-</tr>
-<tr>
-<td>datasets and benchmarks</td>
-<td style="text-align:right">667</td>
-<td style="text-align:right">2.0%</td>
-</tr>
-<tr>
-<td>optimization</td>
-<td style="text-align:right">593</td>
-<td style="text-align:right">1.7%</td>
-</tr>
-<tr>
-<td>reinforcement learning</td>
-<td style="text-align:right">537</td>
-<td style="text-align:right">1.6%</td>
-</tr>
-<tr>
-<td>unsupervised, self-supervised, semi-supervised, and supervised representation learning</td>
-<td style="text-align:right">504</td>
-<td style="text-align:right">1.5%</td>
-</tr>
-<tr>
-<td>theory</td>
-<td style="text-align:right">492</td>
-<td style="text-align:right">1.5%</td>
-</tr>
-<tr>
-<td>deep_learning-&gt;large_language_models</td>
-<td style="text-align:right">437</td>
-<td style="text-align:right">1.3%</td>
-</tr>
-<tr>
-<td>reinforcement_learning</td>
-<td style="text-align:right">418</td>
-<td style="text-align:right">1.2%</td>
-</tr>
-<tr>
-<td>general_machine_learning</td>
-<td style="text-align:right">399</td>
-<td style="text-align:right">1.2%</td>
-</tr>
-<tr>
-<td>applications to physical sciences (physics, chemistry, biology, etc.)</td>
-<td style="text-align:right">398</td>
-<td style="text-align:right">1.2%</td>
-</tr>
-<tr>
-<td>social_and_economic_aspects_of_machine_learning</td>
-<td style="text-align:right">393</td>
-<td style="text-align:right">1.2%</td>
-</tr>
-<tr>
-<td>interpretability and explainable AI</td>
-<td style="text-align:right">355</td>
-<td style="text-align:right">1.0%</td>
-</tr>
-<tr>
-<td>learning theory</td>
-<td style="text-align:right">329</td>
-<td style="text-align:right">1.0%</td>
-</tr>
-<tr>
-<td>machine_learning_for_sciences</td>
-<td style="text-align:right">325</td>
-<td style="text-align:right">1.0%</td>
-</tr>
-<tr>
-<td>other topics in machine learning (i.e., none of the above)</td>
-<td style="text-align:right">317</td>
-<td style="text-align:right">0.9%</td>
-</tr>
-<tr>
-<td>applications to robotics, autonomy, planning</td>
-<td style="text-align:right">269</td>
-<td style="text-align:right">0.8%</td>
-</tr>
-<tr>
-<td>learning on graphs and other geometries &amp; topologies</td>
-<td style="text-align:right">247</td>
-<td style="text-align:right">0.7%</td>
-</tr>
-<tr>
-<td>probabilistic_methods</td>
-<td style="text-align:right">226</td>
-<td style="text-align:right">0.7%</td>
-</tr>
-<tr>
-<td>transfer learning, meta learning, and lifelong learning</td>
-<td style="text-align:right">213</td>
-<td style="text-align:right">0.6%</td>
-</tr>
-<tr>
-<td>probabilistic methods (Bayesian methods, variational inference, sampling, UQ, etc.)</td>
-<td style="text-align:right">202</td>
-<td style="text-align:right">0.6%</td>
-</tr>
-<tr>
-<td>applications to neuroscience &amp; cognitive science</td>
-<td style="text-align:right">179</td>
-<td style="text-align:right">0.5%</td>
-</tr>
-<tr>
-<td>applications-&gt;computer_vision</td>
-<td style="text-align:right">176</td>
-<td style="text-align:right">0.5%</td>
-</tr>
-<tr>
-<td>Other official areas</td>
-<td style="text-align:right">3077</td>
-<td style="text-align:right">9.1%</td>
+<td style="text-align:right">4068</td>
+<td style="text-align:right">100.0%</td>
 </tr>
 <tr>
 <td><strong>Total</strong></td>
-<td style="text-align:right"><strong>33919</strong></td>
+<td style="text-align:right"><strong>4068</strong></td>
 <td style="text-align:right"><strong>100.0%</strong></td>
 </tr>
 </tbody>
 </table>
-<h2 id="全局-best-outstanding-papers"><a class="markdownIt-Anchor" href="#全局-best-outstanding-papers"></a> 全局 Best / Outstanding Papers</h2>
-<p>当前官方数据源中没有识别到。</p>
-<h2 id="全局-highlight-spotlight-oral-papers"><a class="markdownIt-Anchor" href="#全局-highlight-spotlight-oral-papers"></a> 全局 Highlight / Spotlight / Oral Papers</h2>
+</div>
+<h2 id="关键词概览"><a href="#关键词概览" class="headerlink" title="关键词概览"></a>关键词概览</h2><p>由于 CVF 页面没有稳定公开论文关键词，这里的关键词来自论文标题词聚类，只适合快速观察主题热度，不应当当作官方领域统计。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th>Recognition</th>
-<th style="text-align:right">篇数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Spotlight</td>
-<td style="text-align:right">1278</td>
-</tr>
-<tr>
-<td>Oral</td>
-<td style="text-align:right">622</td>
-</tr>
-</tbody>
-</table>
-<h2 id="全局关键词云图"><a class="markdownIt-Anchor" href="#全局关键词云图"></a> 全局关键词云图</h2>
-<p>OpenReview 通常给出 keywords 或 primary area；CVF/AAAI/IJCAI 的官方列表通常不稳定公开关键词，因此这些会议主要用标题词参与聚类。</p>
-<p><img src="/images/ai-cv-paper-distribution/keyword-cloud.png" alt="AI+CV Top Conference Keyword Cloud" /></p>
-<h2 id="全局-keywords-topic-clusters"><a class="markdownIt-Anchor" href="#全局-keywords-topic-clusters"></a> 全局 Keywords / Topic Clusters</h2>
-<table>
-<thead>
-<tr>
-<th>Official area / track</th>
+<th style="text-align:right">年份</th>
 <th>高频关键词</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Official category unavailable</td>
-<td>generation(1078), image(1072), video(983), diffusion(968), visual(620), detection(598), multimodal(577), segmentation(509), object(449), gaussian(449)</td>
-</tr>
-<tr>
-<td>Technical Track</td>
-<td>image(414), detection(375), diffusion(335), language(334), graph(314), generation(309), framework(247), video(238), multimodal(230), segmentation(208)</td>
-</tr>
-<tr>
-<td>deep_learning</td>
-<td>Large Language Models(115), LLM(79), Large Language Model(52), Reinforcement Learning(51), large language models(50), LLMs(43), Reasoning(41), Diffusion Models(40), diffusion models(36), reasoning(31)</td>
-</tr>
-<tr>
-<td>foundation or frontier models, including LLMs</td>
-<td>including LLMs(1314), Large Language Models(191), LLM(107), Reinforcement Learning(96), Large Language Model(86), large language models(75), LLMs(59), Reasoning(59), reasoning(45), large language model(44)</td>
-</tr>
-<tr>
-<td>applications to computer vision, audio, language, and other modalities</td>
-<td>audio(1157), language(1153), and other modalities(1153), Large Language Models(41), Reinforcement Learning(36), 3D Gaussian Splatting(30), LLM(23), Diffusion Models(21), 3D Reconstruction(20), Gaussian Splatting(19)</td>
-</tr>
-<tr>
-<td>applications</td>
-<td>Large Language Models(27), 3D Gaussian Splatting(21), Reinforcement Learning(20), Diffusion Models(19), LLM(18), 3D Reconstruction(18), Diffusion Model(17), Gaussian Splatting(15), Novel View Synthesis(14), Vision-Language Models(13)</td>
-</tr>
-<tr>
-<td>generative models</td>
-<td>Diffusion Models(81), diffusion models(67), Diffusion Model(51), Diffusion models(42), generative models(41), Video Generation(36), Generative Models(35), diffusion model(34), Flow Matching(27), flow matching(25)</td>
-</tr>
-<tr>
-<td>alignment, fairness, safety, privacy, and societal considerations</td>
-<td>safety(781), privacy(772), fairness(765), and societal considerations(755), Large Language Models(61), LLM(41), alignment(34), Alignment(28), Safety(28), large language models(26)</td>
-</tr>
-<tr>
-<td>datasets and benchmarks</td>
-<td>Benchmark(108), benchmark(85), LLM(37), Large Language Models(36), Evaluation(28), dataset(26), evaluation(21), Dataset(19), Benchmarking(19), large language models(17)</td>
-</tr>
-<tr>
-<td>optimization</td>
-<td>optimization(45), Optimization(32), stochastic optimization(24), convex optimization(18), nonconvex optimization(16), Large Language Models(14), Federated Learning(11), acceleration(11), Combinatorial Optimization(11), Neural Combinatorial Optimization(11)</td>
-</tr>
-<tr>
-<td>reinforcement learning</td>
-<td>Reinforcement Learning(143), reinforcement learning(100), Offline Reinforcement Learning(27), Reinforcement learning(21), multi-agent reinforcement learning(14), Large Language Models(12), offline reinforcement learning(11), representation learning(11), Exploration(10), model-based reinforcement learning(10)</td>
-</tr>
-<tr>
-<td>unsupervised, self-supervised, semi-supervised, and supervised representation learning</td>
-<td>self-supervised(504), semi-supervised(504), and supervised representation learning(504), representation learning(41), Representation Learning(23), self-supervised learning(15), contrastive learning(12), unsupervised learning(12), Self-supervised learning(12), Contrastive Learning(9)</td>
-</tr>
-<tr>
-<td>theory</td>
-<td>learning theory(19), online learning(19), Online Learning(12), Learning Theory(10), sample complexity(10), PAC learning(10), transformers(9), Transformers(8), theory(7), feature learning(7)</td>
-</tr>
-<tr>
-<td>deep_learning-&gt;large_language_models</td>
-<td>Large Language Models(82), large language models(42), LLM(34), Large Language Model(32), Reasoning(18), RLHF(16), reasoning(16), LLMs(16), large language model(13), language models(11)</td>
-</tr>
-<tr>
-<td>reinforcement_learning</td>
-<td>Reinforcement Learning(99), reinforcement learning(56), Imitation Learning(20), Reinforcement learning(20), Offline Reinforcement Learning(14), Robotics(12), multi-agent reinforcement learning(10), Deep Reinforcement Learning(9), Large Language Models(9), Multi-Agent Reinforcement Learning(9)</td>
-</tr>
-<tr>
-<td>general_machine_learning</td>
-<td>Federated Learning(8), Representation Learning(7), contrastive learning(7), Conformal Prediction(6), conformal prediction(6), Contrastive Learning(6), Self-Supervised Learning(6), uncertainty quantification(5), Continual Learning(5), self-supervised learning(5)</td>
-</tr>
-<tr>
-<td>applications to physical sciences (physics, chemistry, biology, etc.)</td>
-<td>biology(404), chemistry(398), etc.)(398), AI for Science(15), flow matching(13), Large Language Models(13), diffusion models(11), Flow Matching(10), PDE(10), AI4Science(9)</td>
-</tr>
-<tr>
-<td>social_and_economic_aspects_of_machine_learning</td>
-<td>interpretability(25), Interpretability(20), Differential Privacy(18), Large Language Models(16), differential privacy(16), LLM(15), Fairness(12), large language models(12), fairness(12), mechanistic interpretability(11)</td>
-</tr>
-<tr>
-<td>interpretability and explainable AI</td>
-<td>interpretability(64), Interpretability(56), mechanistic interpretability(40), Mechanistic Interpretability(25), Large Language Models(16), LLMs(15), Explainable AI(15), Explainability(14), explainability(13), large language models(12)</td>
-</tr>
-<tr>
-<td>learning theory</td>
-<td>learning theory(14), generalization(14), deep learning theory(13), Transformer(12), feature learning(10), neural networks(9), theory(9), Learning theory(8), scaling laws(6), transformers(6)</td>
-</tr>
-<tr>
-<td>machine_learning_for_sciences</td>
-<td>AI4Science(12), Graph Neural Networks(11), Diffusion Models(10), Flow Matching(8), AI for Science(6), flow matching(6), Partial Differential Equations(6), foundation model(5), Molecular Dynamics(5), Deep Learning(5)</td>
-</tr>
-<tr>
-<td>other topics in machine learning (i.e., none of the above)</td>
-<td>none of the above)(317), Federated Learning(12), Large Language Models(11), large language models(10), Large Language Model(8), LLM(8), Optimal Transport(7), deep learning(5), Quantization(5), transformers(4)</td>
-</tr>
-<tr>
-<td>applications to robotics, autonomy, planning</td>
-<td>autonomy(270), planning(270), Reinforcement Learning(21), Autonomous Driving(19), Imitation Learning(18), Robotics(18), Robot Learning(15), robotics(15), Robotic Manipulation(14), Embodied AI(13)</td>
-</tr>
-<tr>
-<td>learning on graphs and other geometries &amp; topologies</td>
-<td>Graph Neural Networks(41), graph neural networks(22), Graph neural networks(10), Graph Neural Network(10), graph neural network(8), Geometric Deep Learning(7), expressivity(6), GNN(6), Graph Learning(6), equivariance(6)</td>
-</tr>
-<tr>
-<td>probabilistic_methods</td>
-<td>causal inference(13), variational inference(12), Causal Inference(12), Uncertainty Quantification(12), causality(8), Bayesian inference(7), Causal inference(7), conformal prediction(7), Causal Discovery(6), Bayesian optimization(6)</td>
-</tr>
-<tr>
-<td>transfer learning, meta learning, and lifelong learning</td>
-<td>meta learning(214), and lifelong learning(213), Continual Learning(27), continual learning(22), transfer learning(10), Knowledge Distillation(10), Large Language Models(8), model merging(7), Continual learning(7), test-time adaptation(7)</td>
-</tr>
-<tr>
-<td>probabilistic methods (Bayesian methods, variational inference, sampling, UQ, etc.)</td>
-<td>variational inference(213), sampling(210), UQ(202), etc.)(202), Uncertainty Quantification(14), Bayesian optimization(10), Conformal Prediction(9), uncertainty quantification(9), Variational Inference(8), Sampling(8)</td>
-</tr>
-<tr>
-<td>applications to neuroscience &amp; cognitive science</td>
-<td>neuroscience(24), fMRI(15), Spiking Neural Networks(11), EEG(10), computational neuroscience(9), representation learning(8), cognitive science(8), Neuroscience(7), contrastive learning(5), self-supervised learning(5)</td>
-</tr>
-<tr>
-<td>applications-&gt;computer_vision</td>
-<td>Diffusion Model(7), 3D Gaussian Splatting(6), Diffusion Models(6), computer vision(5), Autonomous Driving(4), Image Generation(4), Image Editing(4), Deepfake Detection(3), Diffusion(3), Semantic Segmentation(3)</td>
-</tr>
-<tr>
-<td>deep_learning-&gt;generative_models_and_autoencoders</td>
-<td>diffusion models(21), Diffusion Models(18), generative models(11), Diffusion Model(11), Diffusion models(11), Diffusion(7), Flow Matching(6), diffusion(6), flow matching(6), Generative Models(5)</td>
-</tr>
-<tr>
-<td>neuroscience_and_cognitive_science</td>
-<td>neuroscience(15), Neuroscience(13), Spiking Neural Networks(12), EEG(10), fMRI(9), computational neuroscience(8), self-supervised learning(8), Computational Neuroscience(6), transformers(4), reinforcement learning(4)</td>
-</tr>
-<tr>
-<td>learning on time series and dynamical systems</td>
-<td>Time Series Forecasting(15), time series(12), time series forecasting(9), Time series(7), dynamical systems(7), foundation models(7), Time Series(6), time-series(4), Time series forecasting(4), Representation Learning(4)</td>
-</tr>
-<tr>
-<td>applications-&gt;chemistry_physics_and_earth_sciences</td>
-<td>AI for Science(5), drug discovery(4), flow matching(4), generative models(4), PDEs(4), Neural Operator(4), molecular dynamics(3), diffusion models(3), Molecular Dynamics(3), PDE(3)</td>
-</tr>
-<tr>
-<td>deep_learning-&gt;graph_neural_networks</td>
-<td>Graph Neural Networks(31), graph neural networks(12), Graph Neural Network(5), Link Prediction(4), Graph neural networks(4), Large Language Models(4), Graph Transformers(4), GNN(3), GNNs(3), Graph Learning(3)</td>
-</tr>
-<tr>
-<td>theory-&gt;learning_theory</td>
-<td>learning theory(6), sample complexity(5), Generalization Analysis(4), in-context learning(2), feature learning(2), single-index models(2), PAC Learning(2), high-dimensional statistics(2), Generalization Bound(2), generalization(2)</td>
-</tr>
-<tr>
-<td>causal reasoning</td>
-<td>causal inference(15), causal discovery(13), Causal Discovery(10), Causal Inference(9), causality(6), Causality(5), treatment effect estimation(3), causal structure learning(3), identifiability(3), latent variables(3)</td>
-</tr>
-<tr>
-<td>neurosymbolic &amp; hybrid AI systems (physics-informed, logic &amp; formal reasoning, etc.)</td>
-<td>logic &amp; formal reasoning(75), etc.)(75), Large Language Models(11), Autoformalization(5), Neural Theorem Proving(4), Formal Mathematics(4), LLM(4), Symbolic Regression(4), LLMs(3), Formal Theorem Proving(3)</td>
-</tr>
-<tr>
-<td>social_aspects-&gt;accountability_transparency_and_interpretability</td>
-<td>Interpretability(16), interpretability(15), Mechanistic Interpretability(7), mechanistic interpretability(6), Sparse Autoencoders(5), LLM(4), XAI(4), explainability(3), Explainable AI(3), explainable AI(3)</td>
-</tr>
-<tr>
-<td>infrastructure, software libraries, hardware, systems, etc.</td>
-<td>software libraries(72), hardware(72), systems(72), etc.(72), large language models(5), efficiency(5), GPU(4), large language model(4), Distributed Training(4), Large Language Models(4)</td>
-</tr>
-<tr>
-<td>applications-&gt;health_medicine</td>
-<td>healthcare(3), generative models(3), Representation Learning(3), scRNA-seq(3), protein design(3), Benchmark(3), Healthcare(3), Deep Learning(2), benchmark(2), EHR(2)</td>
-</tr>
-<tr>
-<td>general_machine_learning-&gt;causality</td>
-<td>causal inference(11), causal discovery(8), Causality(6), Causal inference(4), causality(4), Causal Inference(4), Causal Discovery(4), neural networks(3), Treatment Effect Estimation(3), unmeasured confounding(3)</td>
-</tr>
-<tr>
-<td>social_aspects-&gt;privacy</td>
-<td>Differential Privacy(16), differential privacy(15), Federated Learning(9), federated learning(6), Differential privacy(4), Privacy(3), machine unlearning(3), large language models(2), synthetic data(2), Privacy Protection(2)</td>
-</tr>
-<tr>
-<td>deep_learning-&gt;robustness</td>
-<td>robustness(6), Robustness(5), CLIP(4), Adversarial Robustness(3), adversarial robustness(3), spurious correlation(2), Large Language Models(2), Machine Learning(2), certification(2), benchmark(2)</td>
-</tr>
-<tr>
-<td>theory-&gt;online_learning_and_bandits</td>
-<td>bandits(6), Bandits(6), online learning(6), Online Learning(5), pure exploration(4), linear bandits(3), bandit(2), linear bandit(2), Contextual bandits(2), Linear Bandits(2)</td>
-</tr>
-<tr>
-<td>other</td>
-<td>Federated Learning(6), safety(2), Quantum Machine Learning(2), Large Language Models(2), Multimodal Learning(2), time series(2), jailbreak attack(1), large visual language models(1), visual thoughts(1), Code Generation(1)</td>
-</tr>
-<tr>
-<td>evaluation</td>
-<td>evaluation(10), Large Language Models(7), Evaluation(4), benchmark(3), Mathematical Reasoning(2), LLM-as-a-Judge(2), language models(2), benchmarks(2), bias(2), Robustness Evaluation(2)</td>
-</tr>
-<tr>
-<td>deep_learning-&gt;algorithms</td>
-<td>Deep Learning(6), LLMs(4), deep learning(3), second-order optimization(2), Large Language Models(2), transformer(2), quantization(2), Spiking Neural Networks(2), Model Merging(2), Quantization(2)</td>
-</tr>
-<tr>
-<td>general_machine_learning-&gt;transfer_multitask_and_metalearning</td>
-<td>Model Merging(9), test-time adaptation(4), transfer learning(3), meta-learning(3), in-context learning(3), Transfer Learning(3), Continual Learning(3), Domain Generalization(2), parameter-efficient fine-tuning(2), Parameter-efficient fine-tuning(2)</td>
-</tr>
-<tr>
-<td>infrastructure</td>
-<td>LLM(5), Large Language Model(4), Mixture-of-Experts(2), LLMs(2), Distributed training(2), federated learning(2), Quantization(2), LLM Inference(2), large language models(2), context parallelism(2)</td>
-</tr>
-<tr>
-<td>general_machine_learning-&gt;representation_learning</td>
-<td>Representation Learning(8), representation learning(3), Multimodal Learning(3), Contrastive Learning(3), Topological Deep Learning(2), Machine Learning(2), CLIP(2), density-based distance(1), Fermat distance(1), Riemannian geometry(1)</td>
-</tr>
-<tr>
-<td>deep_learning-&gt;foundation_models</td>
-<td>Foundation Model(5), Large Language Model(4), Foundation Models(3), Multimodal Large Language Models(3), Vision Language Models(2), foundation models(2), large language models(2), In-Context Learning(2), pre-training(2), post-training(2)</td>
-</tr>
-<tr>
-<td>applications-&gt;everything_else</td>
-<td>Large Language Models(2), Code Generation(2), Reasoning(2), LLMs(2), diffusion(2), synthetic data(2), Reinforcement Learning(2), Multi-class logistic regression model(1), Pairwise maximum likelihood estimation(1), Rare class analysis(1)</td>
-</tr>
-<tr>
-<td>deep_learning-&gt;theory</td>
-<td>sharpness(3), loss landscape(3), optimization(3), Diffusion models(3), Implicit Bias(2), linear mode connectivity(2), convergence(2), Neural networks(2), <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span></span></span></span>P(2), feature learning(2)</td>
-</tr>
-<tr>
-<td>applications-&gt;neuroscience_cognitive_science</td>
-<td>neuroscience(8), Neuroscience(5), Brain-Computer Interface(4), Spiking Neural Networks(3), spiking neural networks(3), robustness(2), computational neuroscience(2), psychology(2), cognitive science(2), multimodal(2)</td>
-</tr>
-<tr>
-<td>social_aspects-&gt;safety</td>
-<td>safety(4), Safety(4), large language models(3), Alignment(3), LLM(3), AI safety(3), Jailbreaking(3), LLM safety(2), large language model(2), LLMs(2)</td>
-</tr>
-<tr>
-<td>reinforcement_learning-&gt;deep_rl</td>
-<td>Reinforcement Learning(11), reinforcement learning(6), World Models(4), online reinforcement learning(4), Deep Reinforcement Learning(4), Model-based Reinforcement Learning(3), Reinforcement Learning from Human Feedback(2), Machine Learning(2), q-learning(2), representation learning(2)</td>
-</tr>
-<tr>
-<td>deep_learning-&gt;sequential_models_time_series</td>
-<td>Time series forecasting(6), Time Series Forecasting(6), Time Series(5), time series(3), interpretability(3), Transformer(3), Foundation models(3), Deep Learning(3), mamba(2), in-context learning(2)</td>
-</tr>
-<tr>
-<td>general_machine_learning-&gt;supervised_learning</td>
-<td>Machine Learning(3), decision forests(2), consistency(2), learning theory(2), Knowledge Distillation(2), label distribution learning(2), label polysemy(2), Crowdsourcing learning(2), ensembles(1), model efficiency(1)</td>
-</tr>
-<tr>
-<td>deep_learning-&gt;attention_mechanisms</td>
-<td>attention(6), transformers(4), Transformers(4), Attention(3), Transformer(3), transformer(3), Sparse Attention(3), in-context learning(3), Training Dynamics(2), relational(2)</td>
-</tr>
-<tr>
-<td>general_machine_learning-&gt;evaluation</td>
-<td>Large Language Models(5), Evaluation(5), benchmark(5), evaluations(5), Benchmark(4), large language models(3), synthetic data(3), evaluation(3), llm(3), evals(2)</td>
-</tr>
-<tr>
-<td>deep_learning-&gt;everything_else</td>
-<td>deep learning(3), Hessian(2), Factorization(1), Compositionality(1), Compositional Generalization(1), Data Efficiency(1), Local symmetry discovery(1), symmetry discovery(1), equivariance(1), gauge equivariant neural network(1)</td>
-</tr>
-<tr>
-<td>applications-&gt;robotics</td>
-<td>Robotics(4), imitation learning(3), Imitation Learning(3), Vision-Language Models(2), Autonomous Driving(2), Planning(2), diffusion model(2), manipulation(2), Manipulation(2), Behavior Cloning(2)</td>
-</tr>
-<tr>
-<td>theory-&gt;deep_learning</td>
-<td>deep learning(5), deep learning theory(3), Deep learning theory(2), transformers(2), theory(2), Implicit Regularization(2), Overparameterization(2), attention(2), representation(2), generalization(2)</td>
-</tr>
-<tr>
-<td>applications-&gt;language_speech_and_dialog</td>
-<td>Large Language Model(3), Automatic Speech Recognition(2), Large Language Models(2), Generative Model(2), NLP(1), Cryptic Crosswords(1), Reasoning(1), Proof/Verification(1), synthetic data(1), language model(1)</td>
-</tr>
-<tr>
-<td>theory-&gt;reinforcement_learning_and_planning</td>
-<td>reinforcement learning(6), Reinforcement Learning(6), Function Approximation(3), Reinforcement learning(2), Regret Minimization(2), offline reinforcement learning(2), generalization(2), Reinforcement Learning Theory(2), Quantum Machine Learning(2), Reinforcement learning theory(2)</td>
-</tr>
-<tr>
-<td>general_machine_learning-&gt;clustering</td>
-<td>clustering(4), Clustering(3), Multi-view Clustering(3), Federated Learning(3), Multi-View Clustering(3), spectral clustering(2), Multi-modal clustering(2), Information bottleneck(2), Multi-view clustering(2), Correlation Clustering(1)</td>
-</tr>
-<tr>
-<td>theory-&gt;game_theory</td>
-<td>Nash Equilibrium(5), game theory(3), Mechanism Design(2), policy gradient methods(2), Auction Design(2), Game Theory(2), online learning(2), Auction Theory(1), Testing Distributional Assumptions(1), Preference Aggregation(1)</td>
-</tr>
-<tr>
-<td>general_machine_learning-&gt;online_learning_active_learning_and_bandits</td>
-<td>online learning(7), Best Arm Identification(2), active learning(2), optimal design(2), Dynamic Regret(2), machine learning(2), Online Learning(2), Active learning(2), test-time adaptation(2), Game theory(1)</td>
-</tr>
-<tr>
-<td>optimization-&gt;large_scale_parallel_and_distributed</td>
-<td>Optimization(4), federated learning(3), Federated Learning(3), Pipeline Parallelism(2), distributed optimization(2), Large Language Models(2), Distributed Learning(2), decentralized optimization(2), Asynchronous Optimization(2), stochastic optimization(2)</td>
-</tr>
-<tr>
-<td>social_aspects-&gt;security</td>
-<td>large language models(3), security(3), large language model(2), code security(2), benchmark(2), adversarial attacks(2), prompt optimization(2), Diffusion Model(2), Adversarial Purification(2), Adversarial Attack(2)</td>
-</tr>
-<tr>
-<td>reinforcement_learning-&gt;multiagent</td>
-<td>Multi-Agent Reinforcement Learning(5), Multi-agent Reinforcement Learning(5), Reinforcement Learning(3), multi-agent systems(2), multi-agent reinforcement learning(2), reinforcement learning(2), multi-agent(2), Hypergraph Convolution(1), Dynamic Grouping(1), Multi-Agent Cooperation(1)</td>
-</tr>
-<tr>
-<td>general_machine_learning-&gt;unsupervised_and_semisupervised_learning</td>
-<td>Anomaly Detection(3), semi-supervised learning(3), manifold learning(2), Representation Learning(2), unsupervised learning(2), Dimension Reduction(1), Denoising(1), Diffusion Maps(1), Laplacian(1), VAE(1)</td>
-</tr>
-<tr>
-<td>deep_learning-&gt;other_representation_learning</td>
-<td>Transformer(3), Interpretability(2), representation alignment(2), diffusion model(2), Mixture of Experts(2), CLIP(2), representation learning(2), Trajectory representation learning(1), mobility learning(1), spatio-temporal learning(1)</td>
-</tr>
-<tr>
-<td>general_machine_learning-&gt;everything_else</td>
-<td>Federated learning(2), Conformal Prediction(2), language models(1), safety(1), interpretability(1), reliability(1), Machine unlearning(1), poisoning attack(1), thrust vector control theory(1), John's Theorem(1)</td>
-</tr>
-<tr>
-<td>applications-&gt;time_series</td>
-<td>time series(3), Time Series(3), Time series forecasting(3), Multivariate time series forecasting(2), Time Series Foundation Models(2), Time Series Forecasting(2), Time Series Classification(2), machine learning(2), Large Language Models(2), Time Series Analysis(1)</td>
-</tr>
-<tr>
-<td>optimization-&gt;discrete_and_combinatorial_optimization</td>
-<td>Combinatorial Optimization(6), Neural Combinatorial Optimization(3), Mixed Integer Linear Programming(3), submodular optimization(2), Large Language Model(2), Vehicle Routing Problem(1), Multi-Task Learning(1), Task-Specific Prompt(1), Dual Attention Mechanism(1), Cross-Problem Learning(1)</td>
-</tr>
-<tr>
-<td>theory-&gt;optimization</td>
-<td>differential privacy(2), algorithms(2), parameterized complexity(2), non-convex optimization(2), Clustering(2), optimization(2), Information theoretic generalization(1), Langevin(1), SGD(1), Permutation-based SGD(1)</td>
-</tr>
-<tr>
-<td>reinforcement_learning-&gt;batchoffline</td>
-<td>Offline Reinforcement Learning(4), reinforcement learning(3), Decision Transformer(2), offline reinforcement learning(2), Offline Goal-Conditioned Reinforcement Learning(2), latent action learning(1), imitation learning(1), learning from observations(1), learning from videos(1), latent action model(1)</td>
-</tr>
-<tr>
-<td>social_aspects-&gt;fairness</td>
-<td>fairness(9), Fairness(6), Large Language Models(2), Watermarking(1), Knowledge Graph(1), Diffusion Models(1), Generative Models(1), Counterfactual fairness(1), Principal strata(1), bias mitigation(1)</td>
-</tr>
-<tr>
-<td>probabilistic_methods-&gt;monte_carlo_and_sampling_methods</td>
-<td>sampling(2), Sampling(2), MCMC(2), Markov chain Monte Carlo(2), jarzynski(1), generative models(1), diffusion(1), monte carlo(1), Stochastic Optimal Control(1), Bridges(1)</td>
-</tr>
-<tr>
-<td>theory-&gt;everything_else</td>
-<td>distributed diffusion models(1), generation error bound(1), Tensors(1), Kronecker measurements(1), Sketching(1), Matrix-Vector(1), Lower Bound(1), Query Complexity(1), prediction-powered inference(1), L-statistics(1)</td>
-</tr>
-<tr>
-<td>general_machine_learning-&gt;sequential_network_and_time_series_modeling</td>
-<td>time series forecasting(3), Time Series(2), Invariances(1), Neural Networks(1), Convolutions(1), spatio-temporal modeling(1), time-series modeling(1), time-shift operator(1), Khatri-Rao neural operator(1), neural operator(1)</td>
-</tr>
-<tr>
-<td>deep_learning-&gt;selfsupervised_learning</td>
-<td>self-supervised learning(4), Self-supervised learning(2), Semi-supervised learning(2), contrastive learning(2), JEPA(1), MoE(1), multimodal(1), alignment(1), Contrastive learning(1), labeling error(1)</td>
-</tr>
-<tr>
-<td>probabilistic_methods-&gt;bayesian_models_and_methods</td>
-<td>Bayesian Deep Learning(2), Uncertainty Quantification(2), Bayesian Inference(2), Bayesian optimization(2), Kalman Filtering(1), Sensor Scheduling(1), Bayesian State-Space Models(1), Control(1), Bayesian Neural Networks(1), BNNs(1)</td>
-</tr>
-<tr>
-<td>theory-&gt;probabilistic_methods</td>
-<td>Conformal prediction(2), Calibration(2), DDPM(1), Stochastic Localization(1), speculative decoding(1), probabilistic inference(1), tractable models(1), expressive-efficiency(1), Data Analysis Pipeline(1), AutoML(1)</td>
-</tr>
-<tr>
-<td>probabilistic_methods-&gt;variational_inference</td>
-<td>Variational Inference(5), Bayesian Inference(2), Multilayer matrix factorization(1), Variational inference(1), Variational diffusion models(1), Dimension reduction(1), Diffusion bridge(1), variational approximation(1), change of measure(1), Phylogenetic Inference(1)</td>
-</tr>
-<tr>
-<td>reinforcement_learning-&gt;planning</td>
-<td>Monte-Carlo Tree Search(3), planning(3), Reinforcement Learning(2), iLQR(1), Differentiable control(1), Learning based control(1), Continuous Reinforcement Learning Planning(1), Planning under Uncertainty(1), Monte-carlo tree search(1), distributionally robust reinforcement learning(1)</td>
-</tr>
-<tr>
-<td>optimization-&gt;stochastic</td>
-<td>stochastic optimization(3), Optimization(1), Stochastic Optimization(1), Coordinate Descent(1), Random Permutations(1), Sample average approximation(1), diametrical risk minimization(1), confidence bound(1), heavy tails(1), Non-convex Optimization(1)</td>
-</tr>
-<tr>
-<td>social_aspects-&gt;robustness</td>
-<td>Semantic Bias(1), Shortcut Learning(1), Siamese Networks(1), Model Generalization(1), Debiasing(1), Tabular LLM(1), Model Multiplicity(1), Few-shot Learning(1), Prediction Consistency(1), Certification(1)</td>
-</tr>
-<tr>
-<td>social_aspects-&gt;alignment</td>
-<td>RLHF(3), AI Alignment(2), Reinforcement Learning(2), preference learning(2), Safety Alignment(2), Value lock-in(1), Human-AI interaction(1), Myopic Optimization(1), LLM Agents(1), Process Supervision(1)</td>
-</tr>
-<tr>
-<td>general_machine_learning-&gt;scalable_algorithms</td>
-<td>Extreme Multi-Label Classification(1), Low-Precision Training(1), Peak Memory Optimization(1), FLOAT8 training(1), Sci-ML(1), Physics Informed Neural Networks(1), Natural Gradients(1), Sketching(1), Dimensionality Reduction(1), Dimension Reduction(1)</td>
-</tr>
-<tr>
-<td>social_aspects</td>
-<td>LLM(1), membership inference(1), dataset inference(1), watermarking(1), test set contamination(1), algorithmic monoculture(1), evaluations(1), LLMs(1), Healthcare(1), Safety(1)</td>
-</tr>
-<tr>
-<td>optimization-&gt;nonconvex</td>
-<td>Contextual Optimization(1), Machine Learning(1), Constrained Optimization(1), primal-dual algorithms(1), stochastic optimization(1), single-loop algorithms(1), linear inequality constraints(1), Continual optimization(1), meta-parameter optimization(1), Matrix factorisation(1)</td>
-</tr>
-<tr>
-<td>theory-&gt;domain_adaptation_and_transfer_learning</td>
-<td>Domain adaptation(2), Transfer Learning(2), In-context learning(1), Generalization(1), OOD(1), out-of-distribution(1), Machine Learning(1), ICL(1), model ensemble(1), fine-tuning(1)</td>
-</tr>
-<tr>
-<td>optimization-&gt;zeroorder_and_blackbox_optimization</td>
-<td>Bayesian optimization(2), Universal optimization(1), Offline optimization(1), discrete optimization(1), derivative-free optimization(1), black-box function(1), regret bounds(1), subspace learning(1), neural networks(1), surrogate modeling(1)</td>
-</tr>
-<tr>
-<td>probabilistic_methods-&gt;gaussian_processes</td>
-<td>stochastic poisson surface reconstruction(1), geometric gaussian processes(1), computer graphics(1), Gaussian process(1), Kronecker(1), Bayesian(1), scalable(1), product kernel(1), gridded data(1), missing values(1)</td>
-</tr>
-<tr>
-<td>optimization-&gt;convex</td>
-<td>convex optimization(3), Convex optimizaton(1), Nonsmooth optimization(1), Shuffling methods(1), neural operators(1), proximal optimization(1), bregman divergence(1), fourier neural operator(1), cutting plane method(1), active learning(1)</td>
-</tr>
-<tr>
-<td>probabilistic_methods-&gt;everything_else</td>
-<td>online multiple testing(1), generalized <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>-investing(1), e-value(1), false discovery rate(1), prediction-powered inference(1), e-values(1), statistical inference(1), distribution-free methods(1), human-ai(1), consensus(1)</td>
-</tr>
-<tr>
-<td>applications-&gt;social_sciences</td>
-<td>interpretability(1), hypothesis generation(1), sparse autoencoders(1), computational social science(1), topic modeling(1), Pluralistic Alignment(1), Text-to-Image Diffusion(1), Intersectionality(1), Urban Planning(1), DPO(1)</td>
-</tr>
-<tr>
-<td>reinforcement_learning-&gt;online</td>
-<td>Reinforcement Learning(2), Model-Free Reinforcement Learning(1), Policy Optimization(1), Offline-to-online RL(1), Unsupervised Pre-training(1), Exploration(1), Anomaly Detection(1), Safety Mechanisms(1), Distributional Reinforcement Learning(1), Risk Aversion(1)</td>
-</tr>
-<tr>
-<td>general_machine_learning-&gt;hardware_and_software</td>
-<td>PyTorch(2), Quantization(2), Rematerialization(1), Checkpointing(1), Memory-Efficient Training(1), Neural Networks(1), Integer Linear Programming(1), Training(1), Linear RNNs(1), Sparsity(1)</td>
-</tr>
-<tr>
-<td>optimization-&gt;everything_else</td>
-<td>Manifold Denoising(1), Learning-to-optimize(1), Quantum Computing(1), QAOA(1), Correlation Clustering(1), Inverse problems(1), data-driven priors(1), deep equilibrium(1), iterative refinement(1), spatial adaptivity.(1)</td>
-</tr>
-<tr>
-<td>reinforcement_learning-&gt;everything_else</td>
-<td>Multi-Objective Optimization(1), Multi-Objective Reinforcement Learning(1), Embodied AI(1), Model implanting(1), World models(1), Large language model(1), Reinforcement learning(1), Biological agents(1), Comparative study(1), Variance-penalized temporal difference learning(1)</td>
-</tr>
-<tr>
-<td>general_machine_learning-&gt;kernel_methods</td>
-<td>kernel methods(2), Learning with Invariances(1), Kernels(1), Spectral Theory(1), point processes(1), kernel intensity estimators(1), representer theorem(1), least squares loss(1), probability metrics(1), quantiles(1)</td>
-</tr>
-<tr>
-<td>reinforcement_learning-&gt;inverse</td>
-<td>Inverse Reinforcement Learning(3), Imitation Learning(2), Learning from Videos(1), Reward Formulation(1), Learning from Human Feedback(1), Preference Based Reinforcement Learning(1), Robust Learning(1), Inverse game(1), Quantal Response Equilibrium(1), Reward recovery(1)</td>
-</tr>
-<tr>
-<td>probabilistic_methods-&gt;graphical_models</td>
-<td>decision-making(1), probabilistic optimization(1), structural model(1), Probabilistic Circuits(1), Density Estimation(1), High-dimensional graphical model(1), Maximum marginal likelihood estimation(1), Marginal recoverability(1), Mixture model(1), Gene regulatory network(1)</td>
-</tr>
-<tr>
-<td>theory-&gt;active_learning_and_interactive_learning</td>
-<td>Experimental Design(1), Factorial Experiment(1), Combinatorial Interventions(1), Multi-Armed Bandits(1), Causal Inference(1), Average Treatment Effect(1), Operator Learning(1), Active Learning(1), PDEs(1), graph(1)</td>
-</tr>
-<tr>
-<td>probabilistic_methods-&gt;structure_learning</td>
-<td>causal discovery(2), Causal discovery(1), discrete latent variables(1), graph neural network(1), time series(1), non-stationary(1), probabilistic modelling(1), identifiability(1), search-and-score structure learning(1), latent variable(1)</td>
-</tr>
-<tr>
-<td>applications-&gt;energy</td>
-<td>CPU(1), Inference(1), Power Grid Control(1), Large Language Models-enhanced Reinforcement Learning(1)</td>
-</tr>
-<tr>
-<td>reinforcement_learning-&gt;policy_search</td>
-<td>reinforcement learning(1), policy gradients(1), convergence(1), deterministic policies(1), Goal-Conditioned Reinforcement Learning(1), Policy Regularization(1), Continuity of Goal-Achievement Ability(1)</td>
-</tr>
-<tr>
-<td>probabilistic_methods-&gt;spectral_methods</td>
-<td>Weight Matrix Compression(1), Noise-filtering(1), Generalization Performance(1), Random Matrix Theory(1)</td>
-</tr>
-<tr>
-<td>social_aspects-&gt;everything_else</td>
-<td>suitability(1), reliability(1), robustness(1), classifier(1), unlabeled data(1)</td>
+<td style="text-align:right">2026</td>
+<td>generation(449), video(399), image(364), diffusion(297), multimodal(284), visual(274), detection(223), reasoning(214), segmentation(192), vision-language(188)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="阅读路径"><a class="markdownIt-Anchor" href="#阅读路径"></a> 阅读路径</h2>
-<p>建议先看全局分布，再按会议进入独立页面。每个会议页都把高亮论文放在前面，完整列表放在最后。</p>
+</div>
+<h2 id="关键词云图"><a href="#关键词云图" class="headerlink" title="关键词云图"></a>关键词云图</h2><p><img src="/images/ai-cv-paper-distribution/2026-cvpr-keyword-cloud.png" alt="2026 CVPR keyword cloud"></p>
+<h2 id="阅读路径"><a href="#阅读路径" class="headerlink" title="阅读路径"></a>阅读路径</h2><p>如果只是想快速看趋势，可以先看上面的关键词概览：<code>generation</code>、<code>video</code>、<code>image</code>、<code>diffusion</code> 仍然是高频方向，<code>multimodal</code>、<code>reasoning</code>、<code>vision-language</code> 也很明显。</p>
+<p>如果要找具体论文，直接进入完整清单页面：</p>
+<ul>
+<li><a href="/ai-cv-paper-distribution/2026-cvpr/">2026 CVPR 中稿论文分布与清单</a></li>
+</ul>
 ]]></content>
       <categories>
-        <category>AI</category>
+        <category>Research</category>
       </categories>
       <tags>
-        <tag>AI顶会</tag>
         <tag>论文整理</tag>
-        <tag>NeurIPS</tag>
-        <tag>ICML</tag>
-        <tag>ICLR</tag>
         <tag>CVPR</tag>
-        <tag>ICCV</tag>
-        <tag>AAAI</tag>
-        <tag>IJCAI</tag>
+        <tag>Research</tag>
+        <tag>Computer Vision</tag>
       </tags>
   </entry>
   <entry>
