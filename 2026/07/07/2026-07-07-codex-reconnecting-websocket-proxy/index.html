@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Codex 每次启动都卡在 Reconnecting？可能是 WebSocket 没走代理 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Codex 每次启动都卡在 Reconnecting？可能是 WebSocket 没走代理 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2026/07/07/2026-07-07-codex-reconnecting-websocket-proxy/"><meta property="og:locale" content="zh-CN"><meta name="description" content="Codex 每次启动都卡在 Reconnecting？可能是 WebSocket 没走代理 最近折腾 Codex 的时候，遇到一个很烦人的现象： 12345Reconnecting... 1&#x2F;5Reconnecting... 2&#x2F;5Reconnecting... 3&#x2F;5Reconnecting... 4&#x2F;5Reconnecting... 5&#x2F;5 最迷惑的是，它最后并不是完全不能用。 前面会卡住一会 - ab - blog"><meta name="keywords" content="bug, 代理, Codex, WebSocket, Reconnecting, blog"><meta property="article:published_time" content="2026-07-07T08:00:00.000Z"><meta property="article:modified_time" content="2026-07-07T07:26:15.269Z"><meta property="og:updated_time" content="2026-07-07T07:26:15.269Z"><meta property="article:author" content="ab"><meta property="article:tag" content="bug, 代理, Codex, WebSocket, Reconnecting, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2026/07/07/2026-07-07-codex-reconnecting-websocket-proxy/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2026/07/07/2026-07-07-codex-reconnecting-websocket-proxy/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2026/07/07/2026-07-07-codex-reconnecting-websocket-proxy/"
+    },
+    "headline": "Codex 每次启动都卡在 Reconnecting？可能是 WebSocket 没走代理 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2026-07-07T08:00:00.000Z",
+    "dateModified": "2026-07-07T07:26:15.269Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "bug, 代理, Codex, WebSocket, Reconnecting, blog",
+    "description": "Codex 每次启动都卡在 Reconnecting？可能是 WebSocket 没走代理 最近折腾 Codex 的时候，遇到一个很烦人的现象： 12345Reconnecting... 1/5Reconnecting... 2/5Reconnecting... 3/5Reconnecting... 4/5Reconnecting... 5/5 最迷惑的是，它最后并不是完全不能用。 前面会卡住一会 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <div id="pjax-container">
+                <!-- ### Main content ### -->
+                <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+                
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Codex 每次启动都卡在 Reconnecting？可能是 WebSocket 没走代理</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2026-07-07</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/bug/">bug</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACPklEQVR42u3a207DQAxF0f7/T8MTEkTxuaRUlHj3BUTTdFVipvbxPD7+weMBEiRIkG+AfIjH1/M/Xnjy9+Nrvv/t7NrkfUHuRp7+0x5udvzdXT++8fDhzzwgdyPVgpmuOd787Ln2niBBuounDV4tjumLwi00kCCvLpyzjd0tHLWpgwTZFBjTcwqpCoqXVEEgb4dMGrFX/Pz1bhHkLZA2NBo28CYccE3c06kayFshVfHQhlWuSGkKGJB7kdMimQDPLpYz3HgtyLVI9aXfbuzph0s2eZA7kQlKBQLtwlPhFkiQ0wJIgqkkvG8bPdstglyBlEVnET6lgwEHBgnyymBSNWUqZEg+uK2CQK5CqgJgvFEYYDUDKJAgXQjlULZQCAZMduGAXINsAvd2COUG8XaoCnIlUm3S6QEPFxiowOtS0Qvy1kjVfLkQNAmj0sNMssAAuRbZHspMBqJNs2cPL4FcgUw3XNvIBxt108yB3It0QX0ydErf1IUHIEEmTXpzwD05DJU0YCBBusA0DeXTIiIJF0DuRjZD+LSRagehUYIBch0yPfiWwNPCWQ5ZQa5EJgVq3DiFg/p0GAVyJ7IJ7NU/vSuSp0Um7wVyNdINPZuBUxMqxIc8Qa5BNoVoewAkLYZtIwZyHTIJQl1o6oLXZKOXh5dArkM2B41dEOoK5TocAAkyDEhVQdvAogIDJMjwAFM6AG0aMJAgk6CqPdSpQtLkIB7I3ch0s1UNfxISJAedLneLIG+DfOcHSJAgQf7h4xM7+Za1vLHJ5AAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#codex-%E6%AF%8F%E6%AC%A1%E5%90%AF%E5%8A%A8%E9%83%BD%E5%8D%A1%E5%9C%A8-reconnecting%E5%8F%AF%E8%83%BD%E6%98%AF-websocket-%E6%B2%A1%E8%B5%B0%E4%BB%A3%E7%90%86"><span class="post-toc-number">1.</span> <span class="post-toc-text"> Codex 每次启动都卡在 Reconnecting？可能是 WebSocket 没走代理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%8E%B0%E8%B1%A1"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> 现象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E8%BF%99%E6%A0%B7"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 为什么会这样</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%E7%A6%81%E7%94%A8-websocket%E5%BC%BA%E5%88%B6%E8%B5%B0-http"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> 方案一：禁用 WebSocket，强制走 HTTP</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BF%99%E4%B8%AA%E6%96%B9%E6%A1%88%E7%9A%84%E5%89%AF%E4%BD%9C%E7%94%A8"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text"> 这个方案的副作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%E9%85%8D%E7%BD%AE-env%E8%AE%A9-websocket-%E4%B9%9F%E8%83%BD%E8%B5%B0%E4%BB%A3%E7%90%86"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> 方案二：配置 .env，让 WebSocket 也能走代理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%B9%E6%A1%88%E4%B8%89%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86%E8%BD%AF%E4%BB%B6%E7%9A%84-tun-%E6%A8%A1%E5%BC%8F"><span class="post-toc-number">1.5.</span> <span class="post-toc-text"> 方案三：开启代理软件的 TUN 模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BB%BA%E8%AE%AE%E6%8E%92%E6%9F%A5%E9%A1%BA%E5%BA%8F"><span class="post-toc-number">1.6.</span> <span class="post-toc-text"> 建议排查顺序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="post-toc-number">1.7.</span> <span class="post-toc-text"> 小结</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <h1 id="codex-每次启动都卡在-reconnecting可能是-websocket-没走代理"><a class="markdownIt-Anchor" href="#codex-每次启动都卡在-reconnecting可能是-websocket-没走代理"></a> Codex 每次启动都卡在 Reconnecting？可能是 WebSocket 没走代理</h1>
+<p>最近折腾 Codex 的时候，遇到一个很烦人的现象：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Reconnecting... 1/5</span><br><span class="line">Reconnecting... 2/5</span><br><span class="line">Reconnecting... 3/5</span><br><span class="line">Reconnecting... 4/5</span><br><span class="line">Reconnecting... 5/5</span><br></pre></td></tr></table></figure>
+<p>最迷惑的是，它最后并不是完全不能用。</p>
+<p>前面会卡住一会儿，反复重连。等你开始怀疑账号、模型、网络、客户端是不是哪里坏了，它又突然正常开始回答。</p>
+<p>这种问题最难受的地方就在这里：不是彻底失败，而是每次都要先罚站一会儿。</p>
+<h2 id="现象"><a class="markdownIt-Anchor" href="#现象"></a> 现象</h2>
+<p>典型表现一般是：</p>
+<ul>
+<li>打开 Codex 后，第一次提问或者等待模型响应时，会出现多次 <code>Reconnecting...</code></li>
+<li>通常会重试 5 次</li>
+<li>每次重试中间都会卡一段时间</li>
+<li>重试结束后，Codex 又能继续工作</li>
+</ul>
+<p>所以它很容易误导排查方向，让人以为是：</p>
+<ul>
+<li>模型响应慢</li>
+<li>账号异常</li>
+<li>OpenAI 服务不稳定</li>
+<li>Codex 客户端出问题</li>
+<li>代理软件没开好</li>
+</ul>
+<p>但很多时候，真正的问题可能是：<strong>WebSocket 没有正常走代理</strong>。</p>
+<h2 id="为什么会这样"><a class="markdownIt-Anchor" href="#为什么会这样"></a> 为什么会这样</h2>
+<p>Codex 默认会优先尝试使用 WebSocket，也就是 <code>WSS</code> 协议，和服务器建立实时连接。</p>
+<p>如果 WebSocket 连接成功，体验会更实时。但在一些代理环境里，尤其是终端环境、Windows 代理、Clash、v2rayN 这类组合下，可能会出现一种情况：</p>
+<p>HTTP / HTTPS 请求能正常走代理，但 WebSocket 不一定能正常走代理。</p>
+<p>于是流程就变成了这样：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">先尝试 WebSocket</span><br><span class="line">失败</span><br><span class="line">继续重试</span><br><span class="line">连续失败几次</span><br><span class="line">放弃 WebSocket</span><br><span class="line">回退到普通 HTTP 请求</span><br><span class="line">突然又能用了</span><br></pre></td></tr></table></figure>
+<p>所以我们看到的现象就是：前面一直 <code>Reconnecting</code>，后面又恢复正常。</p>
+<p>这不一定是账号突然好了，也不一定是模型突然变快了，而是 Codex 最后回退到了 HTTP。</p>
+<h2 id="方案一禁用-websocket强制走-http"><a class="markdownIt-Anchor" href="#方案一禁用-websocket强制走-http"></a> 方案一：禁用 WebSocket，强制走 HTTP</h2>
+<p>如果只是想快速解决这个问题，可以直接让 Codex 不再优先尝试 WebSocket。</p>
+<p>打开 Codex 配置文件：</p>
+<p>macOS / Linux：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.codex/config.toml</span><br></pre></td></tr></table></figure>
+<p>Windows：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\你的用户名\.codex\config.toml</span><br></pre></td></tr></table></figure>
+<p>在配置文件里添加或修改：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">model_provider</span> = <span class="string">&quot;openai_http&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后在文件末尾添加：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[model_providers.openai_http]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;OpenAI HTTP only&quot;</span></span><br><span class="line"><span class="attr">wire_api</span> = <span class="string">&quot;responses&quot;</span></span><br><span class="line"><span class="attr">supports_websockets</span> = <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>保存之后，重启 Codex。</p>
+<p>这段配置的意思很简单：新建一个只走 HTTP 的 provider，并明确告诉 Codex 不要使用 WebSocket。</p>
+<p>如果问题确实出在 WebSocket 代理上，重启后一般就不会再出现开头那一串重连了。</p>
+<h3 id="这个方案的副作用"><a class="markdownIt-Anchor" href="#这个方案的副作用"></a> 这个方案的副作用</h3>
+<p>需要注意一点：Codex 的历史会话可能会按 provider 分组。</p>
+<p>从默认 provider 切换到 <code>openai_http</code> 后，原来 provider 下的部分历史会话可能暂时看不到。</p>
+<p>这不一定代表历史记录丢了，只是 provider 变了，显示分组也跟着变了。如果后面想恢复，把配置改回去即可。</p>
+<h2 id="方案二配置-env让-websocket-也能走代理"><a class="markdownIt-Anchor" href="#方案二配置-env让-websocket-也能走代理"></a> 方案二：配置 .env，让 WebSocket 也能走代理</h2>
+<p>如果想保留 Codex 默认连接方式，可以显式告诉 Codex 代理地址在哪里。</p>
+<p>在 Codex 配置目录下创建 <code>.env</code> 文件：</p>
+<p>macOS / Linux：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.codex/.env</span><br></pre></td></tr></table></figure>
+<p>Windows：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\你的用户名\.codex\.env</span><br></pre></td></tr></table></figure>
+<p>Windows 用户要注意，文件名必须是 <code>.env</code>，不是 <code>.env.txt</code>。如果系统隐藏了文件后缀，很容易看起来叫 <code>.env</code>，实际却是 <code>.env.txt</code>。</p>
+<p><code>.env</code> 内容可以这样写：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HTTP_PROXY=&quot;http://127.0.0.1:你的代理端口&quot;</span><br><span class="line">HTTPS_PROXY=&quot;http://127.0.0.1:你的代理端口&quot;</span><br><span class="line">NO_PROXY=&quot;localhost,127.0.0.1,::1&quot;</span><br></pre></td></tr></table></figure>
+<p>比如 Clash 常见端口是 <code>7890</code>：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HTTP_PROXY=&quot;http://127.0.0.1:7890&quot;</span><br><span class="line">HTTPS_PROXY=&quot;http://127.0.0.1:7890&quot;</span><br><span class="line">NO_PROXY=&quot;localhost,127.0.0.1,::1&quot;</span><br></pre></td></tr></table></figure>
+<p>v2rayN 常见端口可能是 <code>10808</code>：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HTTP_PROXY=&quot;http://127.0.0.1:10808&quot;</span><br><span class="line">HTTPS_PROXY=&quot;http://127.0.0.1:10808&quot;</span><br><span class="line">NO_PROXY=&quot;localhost,127.0.0.1,::1&quot;</span><br></pre></td></tr></table></figure>
+<p>端口不要照抄，一定要以自己代理软件里显示的 HTTP 代理端口为准。</p>
+<p>配置好之后，重启 Codex 再试。</p>
+<p>这个方案的思路不是禁用 WebSocket，而是让 Codex 启动时就拿到代理环境变量，这样 WebSocket 握手也有机会正常走代理。</p>
+<h2 id="方案三开启代理软件的-tun-模式"><a class="markdownIt-Anchor" href="#方案三开启代理软件的-tun-模式"></a> 方案三：开启代理软件的 TUN 模式</h2>
+<p>还有一个更彻底的办法，是在代理软件里开启 TUN 模式。</p>
+<p>TUN 模式不是只代理某个终端，也不是只靠环境变量，而是从虚拟网卡层面接管系统流量。理论上，Codex 的 WebSocket、HTTPS 以及其他请求，都更容易被代理软件接住。</p>
+<p>但我不建议一上来就开 TUN。</p>
+<p>它的影响范围比较大，可能会影响：</p>
+<ul>
+<li>其他软件联网</li>
+<li>公司内网访问</li>
+<li>本地开发服务</li>
+<li>局域网设备访问</li>
+<li>某些 App 的网络行为</li>
+</ul>
+<p>也就是说，Codex 可能好了，别的软件又开始出问题。</p>
+<p>所以 TUN 更适合作为兜底方案：前两个方案都不行，再考虑它。</p>
+<h2 id="建议排查顺序"><a class="markdownIt-Anchor" href="#建议排查顺序"></a> 建议排查顺序</h2>
+<p>如果只是想最快恢复使用：</p>
+<ol>
+<li>先用方案一，禁用 WebSocket，强制 Codex 走 HTTP。</li>
+<li>如果想保留默认连接方式，再用方案二，给 Codex 配好代理环境变量。</li>
+<li>如果前两个都不行，再考虑 TUN 模式。</li>
+</ol>
+<p>我的倾向是：先用 <code>openai_http</code> 快速验证问题是不是 WebSocket，再决定要不要回头把代理环境变量配完整。</p>
+<h2 id="小结"><a class="markdownIt-Anchor" href="#小结"></a> 小结</h2>
+<p>如果 Codex 每次启动或首次响应时都出现：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Reconnecting... 1/5</span><br><span class="line">Reconnecting... 2/5</span><br><span class="line">Reconnecting... 3/5</span><br><span class="line">Reconnecting... 4/5</span><br><span class="line">Reconnecting... 5/5</span><br></pre></td></tr></table></figure>
+<p>但最后又能正常回答，那它大概率不是账号问题，也不是模型问题。</p>
+<p>更常见的原因是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WebSocket 没有正常走代理</span><br></pre></td></tr></table></figure>
+<p>处理思路也就两条：</p>
+<ul>
+<li>要么禁用 WebSocket，直接走 HTTP</li>
+<li>要么把代理环境变量配好，让 WebSocket 也能走代理</li>
+</ul>
+<p>能用 <code>openai_http</code> 解决的，就先别把问题想复杂。网络问题有时候就是这么朴素，但它折磨人的方式一点也不朴素。</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2026-07-07");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2026-07-07T08:00:00.000Z" itemprop="datePublished">2026-07-07</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/bug/'>bug</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/bug/" rel="tag">#&nbsp;bug</a>
+
+<a class="post-tags-list-item" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">#&nbsp;代理</a>
+
+<a class="post-tags-list-item" href="/tags/Codex/" rel="tag">#&nbsp;Codex</a>
+
+<a class="post-tags-list-item" href="/tags/WebSocket/" rel="tag">#&nbsp;WebSocket</a>
+
+<a class="post-tags-list-item" href="/tags/Reconnecting/" rel="tag">#&nbsp;Reconnecting</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2026/07/07/2026-07-07-ai-berkshire-investment-research-framework/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">AI Berkshire - AI 时代的价值投资研究框架</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2026/07/07/2026-07-07-codex-reconnecting-websocket-proxy/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2026/07/07/2026-07-07-codex-reconnecting-websocket-proxy/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- ### Footer ### -->
+                <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+            </div>
+
+            
+
+
+    <div id="blog-music-player" class="blog-music-player" data-playlist="%5B%7B%22title%22%3A%22Perfect%20Night%22%2C%22artist%22%3A%22LE%20SSERAFIM%22%2C%22src%22%3A%22%2Fmusic%2Fperfect-night.mp3%22%2C%22cover%22%3A%22%2Fmusic%2Fperfect-night-cover.jpeg%22%7D%5D">
+        <audio id="blog-music-audio" preload="metadata"></audio>
+        <button class="blog-music-cover-button" type="button" aria-label="Play music">
+            <img class="blog-music-cover" src="/music/perfect-night-cover.jpeg" alt="">
+            <span class="blog-music-state" aria-hidden="true">▶</span>
+        </button>
+        <div class="blog-music-main">
+            <div class="blog-music-meta">
+                <div class="blog-music-title">Perfect Night</div>
+                <div class="blog-music-artist">LE SSERAFIM</div>
+            </div>
+            <div class="blog-music-controls">
+                <button class="blog-music-toggle" type="button" aria-label="Play music">▶</button>
+                <div class="blog-music-progress" role="slider" aria-label="Music progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                    <div class="blog-music-progress-fill"></div>
+                </div>
+                <button class="blog-music-mute" type="button" aria-label="Mute music">♪</button>
+            </div>
+            <div class="blog-music-hint" hidden>点击播放音乐</div>
+        </div>
+    </div>
+
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+(function() {
+    'use strict';
+    
+    // 等待 DOM 加载完成
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTocCollapse);
+    } else {
+        initTocCollapse();
+    }
+    
+    function initTocCollapse() {
+        const tocContainer = document.getElementById('post-toc');
+        if (!tocContainer) {
+            return;
+        }
+        
+        // 找到所有有子目录的 level-1、level-2、level-3 项（支持多级嵌套展开）
+        const tocItems = tocContainer.querySelectorAll('.post-toc-item.post-toc-level-1, .post-toc-item.post-toc-level-2, .post-toc-item.post-toc-level-3');
+        
+        tocItems.forEach(function(item) {
+            // 检查是否有子目录（包含 post-toc-child 的 ol）
+            const hasChildren = item.querySelector('ol.post-toc-child') !== null;
+            
+            if (hasChildren) {
+                // 添加标记类，用于 CSS 显示图标
+                item.classList.add('toc-has-children');
+                
+                const link = item.querySelector('.post-toc-link');
+                if (link) {
+                    // 阻止默认的锚点跳转，改为展开/折叠
+                    link.addEventListener('click', function(e) {
+                        // 如果用户按住 Ctrl/Cmd 或中键点击，则跳转
+                        if (e.ctrlKey || e.metaKey || e.button === 1) {
+                            return; // 允许默认行为（跳转）
+                        }
+                        
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // 切换展开/折叠状态
+                        item.classList.toggle('toc-expanded');
+                    });
+                    
+                    // 允许通过双击链接文本跳转
+                    link.addEventListener('dblclick', function(e) {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            window.location.hash = href;
+                        }
+                    });
+                    
+                    // 允许通过右键菜单跳转
+                    link.addEventListener('contextmenu', function(e) {
+                        // 允许默认的右键菜单
+                        return true;
+                    });
+                }
+            }
+        });
+    }
+})();
+        
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+<script src="/js/blog-music.js"></script>
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>
