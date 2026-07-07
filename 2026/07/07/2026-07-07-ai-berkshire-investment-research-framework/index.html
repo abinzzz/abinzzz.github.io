@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>[项目介绍]AI Berkshire：用 Claude Code / Codex 搭一个价值投资研究框架 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="[项目介绍]AI Berkshire：用 Claude Code &#x2F; Codex 搭一个价值投资研究框架 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2026/07/07/2026-07-07-ai-berkshire-investment-research-framework/"><meta property="og:locale" content="zh-CN"><meta name="description" content="AI Berkshire：用 Claude Code &#x2F; Codex 搭一个价值投资研究框架  项目地址：xbtlin&#x2F;ai-berkshire 说明：本文是对开源项目 AI Berkshire 的介绍与整理，不构成任何投资建议。股票、基金、加密资产等投资均有风险，所有结论都应该回到自己的研究、风险承受能力和仓位纪律。  最近看到一个很有意思的项目：AI Berkshire。 它的定位不是“让 A - ab - blog"><meta name="keywords" content="投资, 股票, AI, 价值投资, Claude Code, Codex, 项目介绍, blog"><meta property="article:published_time" content="2026-07-07T07:30:00.000Z"><meta property="article:modified_time" content="2026-07-07T07:12:42.401Z"><meta property="og:updated_time" content="2026-07-07T07:12:42.401Z"><meta property="article:author" content="ab"><meta property="article:tag" content="投资, 股票, AI, 价值投资, Claude Code, Codex, 项目介绍, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2026/07/07/2026-07-07-ai-berkshire-investment-research-framework/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2026/07/07/2026-07-07-ai-berkshire-investment-research-framework/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2026/07/07/2026-07-07-ai-berkshire-investment-research-framework/"
+    },
+    "headline": "[项目介绍]AI Berkshire：用 Claude Code / Codex 搭一个价值投资研究框架 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2026-07-07T07:30:00.000Z",
+    "dateModified": "2026-07-07T07:12:42.401Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "投资, 股票, AI, 价值投资, Claude Code, Codex, 项目介绍, blog",
+    "description": "AI Berkshire：用 Claude Code / Codex 搭一个价值投资研究框架  项目地址：xbtlin/ai-berkshire 说明：本文是对开源项目 AI Berkshire 的介绍与整理，不构成任何投资建议。股票、基金、加密资产等投资均有风险，所有结论都应该回到自己的研究、风险承受能力和仓位纪律。  最近看到一个很有意思的项目：AI Berkshire。 它的定位不是“让 A - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <div id="pjax-container">
+                <!-- ### Main content ### -->
+                <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+                
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">[项目介绍]AI Berkshire：用 Claude Code / Codex 搭一个价值投资研究框架</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2026-07-07</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Markets/">Markets</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACsElEQVR42u3bQW7rMAxF0ex/0+20NSy++2QnaOGbSfFRxz4KPiuSYl5f//D1Ei1atOgHol/D63jNrxsc/p1+R+4XHaJFQ/T04J9vnB6WwCv08ee4WNGiC/TxP/7qZjuBu/oApg/p7DrRou9Cr3A0gKdrRIv+NDptEGcLIgtNwSpa9FV0k7SvNpQUZFOhcGuWJ/rx6BRUn/p5WzUu+tHo2PQbFpKaNqSJ85auqehHo9tEPSXwq2unBIpsXqJFUzTBN8UvbcRP98F/PUSLhueIJNCmh0xNS9qkES36KnqnuKWHmnQx8UMSLRqiaUM8FZ7Tg1NzhhQIokXTwnY6lG9xbQA2ixMtmqBTQ3A3oU/FbXov+ushWjRMmMiASUpyUoGQgvD0vaJFAzRtnExFbZNc0UOo2IAULboobAliSqymhadm+9jUFC0aomlhSgevUnNzJ5kSLbpBk4fjhgocHiSb1ljYihYN0NNGQZvspNBtAjiebokWHRImkkDtfvkhbShxUFy06AKdBk7S9WTRqfETi2XRogGaJDZkYCUNBEyFMm10ihZN0LQxk4oCWrySJvtyUxMtukTvNFToe2nzBhe2okWXQyrThkIGZenBUjXcIlp0gU4DUvTAn4JIwz4GomjRQxGQkvE2qSJBOR1SjYefokWXZ+NpOKr68kEYriJDAqJFt2havJLBrGZIMA1gxcNP0aLhdwLoEOFU3KYAbpv5okVfRaeBP7IxkEYkPeQXLZqi6WFPM/hKDv7bzUu0aIpuh6HocFW6P228ixa9g04NFlJ8Notqmu9bk+qiRRewlPhPyXyThJ1+kKJF34ROA1N02JU2MavCVrToTTQZ4CaLogGMq3HRojcTJtpIT4Vxs0GhaTHRosvCdgrI1MCpgqwNRNGiN/vTf+klWrRo0Q9CfwOxADnXwjLWuQAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ai-berkshire%E7%94%A8-claude-code-codex-%E6%90%AD%E4%B8%80%E4%B8%AA%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E7%A0%94%E7%A9%B6%E6%A1%86%E6%9E%B6"><span class="post-toc-number">1.</span> <span class="post-toc-text"> AI Berkshire：用 Claude Code &#x2F; Codex 搭一个价值投资研究框架</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%9C%A8%E5%81%9A%E4%BB%80%E4%B9%88"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> 项目在做什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%9B%B4%E6%8E%A5%E9%97%AE-ai"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 为什么不直接问 AI</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#19-%E4%B8%AA-skills-%E6%80%8E%E4%B9%88%E5%88%86"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> 19 个 skills 怎么分</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text"> 深度研究</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%B4%A2%E6%8A%A5%E5%88%86%E6%9E%90"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text"> 财报分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%8C%E4%B8%9A%E7%AD%9B%E9%80%89"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text"> 行业筛选</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8C%81%E4%BB%93%E7%AE%A1%E7%90%86"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text"> 持仓管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%9D%E7%BB%B4%E5%B7%A5%E5%85%B7"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text"> 思维工具</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%88%91%E8%A7%89%E5%BE%97%E6%9C%80%E5%80%BC%E5%BE%97%E5%80%9F%E9%89%B4%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> 我觉得最值得借鉴的地方</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88"><span class="post-toc-number">1.5.</span> <span class="post-toc-text"> 使用时要注意什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%80%82%E5%90%88%E6%94%BE%E8%BF%9B-markets-%E5%88%86%E7%B1%BB%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="post-toc-number">1.6.</span> <span class="post-toc-text"> 适合放进 Markets 分类的原因</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <h1 id="ai-berkshire用-claude-code-codex-搭一个价值投资研究框架"><a class="markdownIt-Anchor" href="#ai-berkshire用-claude-code-codex-搭一个价值投资研究框架"></a> AI Berkshire：用 Claude Code / Codex 搭一个价值投资研究框架</h1>
+<blockquote>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/xbtlin/ai-berkshire">xbtlin/ai-berkshire</a></p>
+<p>说明：本文是对开源项目 <code>AI Berkshire</code> 的介绍与整理，不构成任何投资建议。股票、基金、加密资产等投资均有风险，所有结论都应该回到自己的研究、风险承受能力和仓位纪律。</p>
+</blockquote>
+<p>最近看到一个很有意思的项目：<code>AI Berkshire</code>。</p>
+<p>它的定位不是“让 AI 告诉你该买哪只股票”，而是把价值投资研究流程拆成一组可以重复调用的 <code>skills</code> / <code>commands</code>，让 Claude Code 或 Codex 扮演一个投研团队：有人做深度研究，有人读财报，有人做行业筛选，有人专门挑刺，有人负责组合和 thesis tracking。</p>
+<p>这点挺重要。直接问 LLM “某某公司值不值得买”，通常会得到一篇看似平衡、实际很难落地的分析：一方面有增长，另一方面有风险，最后提醒你投资需谨慎。问题不是它完全没用，而是它没有强制结论、没有研究纪律，也没有可复现的工作流。</p>
+<p><code>AI Berkshire</code> 想解决的正是这个问题：把投资研究从“聊天”变成“流程”。</p>
+<h2 id="项目在做什么"><a class="markdownIt-Anchor" href="#项目在做什么"></a> 项目在做什么</h2>
+<p><code>AI Berkshire</code> 是一套面向 Claude Code / Codex 的价值投资研究框架。它把巴菲特、芒格、段永平、李录这四类投资视角结构化，然后通过多 Agent 并行研究、交叉验证和 checklist，把一个投资问题拆成更稳定的研究过程。</p>
+<p>你可以把它理解成三层：</p>
+<ol>
+<li><strong>Skill 层</strong>：定义 19 个明确入口，比如深度研究、财报分析、行业筛选、持仓管理、思维工具。</li>
+<li><strong>Agent 层</strong>：在一些重型任务里，由 Team Lead 调度多个视角并行研究，再综合判断。</li>
+<li><strong>工具层</strong>：做金融数据校验、实时检索、报告抽检，减少“数字看起来对但其实错了”的风险。</li>
+</ol>
+<p>它不只是 prompt 集合。更准确地说，它是在尝试把“投资研究 SOP”做成一套 AI-native workflow。</p>
+<h2 id="为什么不直接问-ai"><a class="markdownIt-Anchor" href="#为什么不直接问-ai"></a> 为什么不直接问 AI</h2>
+<p>这个项目最有价值的地方，是它很清楚地意识到：LLM 最大的问题不是“不会分析”，而是太容易给出一篇顺滑但不可决策的分析。</p>
+<p>在投资里，这种顺滑很危险。</p>
+<p>如果一个回答没有明确的通过/不通过/灰色地带，没有价格区间，没有安全边际，没有反方论证，没有财务数据校验，那它更像一篇阅读材料，而不是投研结论。</p>
+<p><code>AI Berkshire</code> 的思路是强制加上几层约束：</p>
+<ul>
+<li><strong>强制输出结论</strong>：不是永远“一方面/另一方面”，而是要给通过、不通过或灰色地带。</li>
+<li><strong>多视角互相冲突</strong>：巴菲特视角可能觉得估值便宜，李录视角可能认为长期确定性不足，芒格视角会专门问这家公司会怎么死。</li>
+<li><strong>反偏见机制</strong>：用红线清单、反共识检查、失败场景推演，避免只找支持自己观点的信息。</li>
+<li><strong>财务数据精度</strong>：关键数字要交叉验证，涉及计算时尽量用工具而不是让 LLM 心算。</li>
+<li><strong>可复现流程</strong>：同一家公司半年后重做，结构可以对齐；多家公司横向比较，标准也能保持一致。</li>
+</ul>
+<p>换句话说，它不是为了让 AI “更会说”，而是为了让 AI “更守纪律”。</p>
+<h2 id="19-个-skills-怎么分"><a class="markdownIt-Anchor" href="#19-个-skills-怎么分"></a> 19 个 skills 怎么分</h2>
+<p>项目把 skills 分成几类，覆盖了从公司研究到组合管理的完整路径。</p>
+<h3 id="深度研究"><a class="markdownIt-Anchor" href="#深度研究"></a> 深度研究</h3>
+<ul>
+<li><code>/investment-research</code>：四大师视角综合分析一家上市公司。</li>
+<li><code>/investment-team</code>：多 Agent 并行投研团队，更适合需要快速拉满信息量的公司研究。</li>
+<li><code>/management-deep-dive</code>：专门研究管理层，适合“买股票就是买人”的场景。</li>
+<li><code>/private-company-research</code>：研究未上市公司，比如 SpaceX、蚂蚁这类信息更稀缺的对象。</li>
+<li><code>/deep-company-series</code>：把一家公司拆成多篇长文，适合公众号级别的深度系列。</li>
+</ul>
+<h3 id="财报分析"><a class="markdownIt-Anchor" href="#财报分析"></a> 财报分析</h3>
+<ul>
+<li><code>/earnings-review</code>：精读财报原始材料，尽量少依赖二手研报。</li>
+<li><code>/earnings-team</code>：四大师并行解读财报，再进入编辑和读者评审流程。</li>
+</ul>
+<h3 id="行业筛选"><a class="markdownIt-Anchor" href="#行业筛选"></a> 行业筛选</h3>
+<ul>
+<li><code>/industry-research</code>：扫描一个行业的产业链和投资机会。</li>
+<li><code>/industry-funnel</code>：从全市场粗筛到少数候选公司，再进入深度分析。</li>
+<li><code>/quality-screen</code>：用硬指标快速排除质量不够的公司。</li>
+<li><code>/bottleneck-hunter</code>：从超级趋势出发，找产业链中的物理瓶颈和潜在机会。</li>
+<li><code>/investment-checklist</code>：用买入前 checklist 快速判断是否值得深入。</li>
+</ul>
+<h3 id="持仓管理"><a class="markdownIt-Anchor" href="#持仓管理"></a> 持仓管理</h3>
+<ul>
+<li><code>/portfolio-review</code>：从研究公司升级到管理组合，关注仓位、集中度和再平衡。</li>
+<li><code>/thesis-tracker</code>：买入之后持续跟踪投资 thesis 是否被证伪。</li>
+<li><code>/thesis-drift</code>：对比不同时间的报告，区分事实变化、估值变化和措辞变化。</li>
+<li><code>/news-pulse</code>：股价异动时快速归因，先搞清楚发生了什么。</li>
+</ul>
+<h3 id="思维工具"><a class="markdownIt-Anchor" href="#思维工具"></a> 思维工具</h3>
+<ul>
+<li><code>/dyp-ask</code>：用段永平风格思考商业、投资和人生问题。</li>
+<li><code>/financial-data</code>：规范财务数据获取和交叉验证。</li>
+<li><code>/wechat-article</code>：把研究结果进一步加工成公众号文章。</li>
+</ul>
+<h2 id="我觉得最值得借鉴的地方"><a class="markdownIt-Anchor" href="#我觉得最值得借鉴的地方"></a> 我觉得最值得借鉴的地方</h2>
+<p>第一，是它把“研究入口”拆得很细。</p>
+<p>很多人做投资研究时，会把所有问题都混在一起：这家公司好不好？财报怎么样？管理层行不行？行业空间大不大？估值贵不贵？能不能买？结果就是问题太大，AI 容易糊成一锅粥。拆成不同 skill 之后，每次只解决一个层级的问题，反而更容易得到可用结果。</p>
+<p>第二，是它承认投资判断里天然存在冲突。</p>
+<p>好公司可能太贵，便宜公司可能有坑，短期确定性可能和长期确定性矛盾，财务漂亮可能管理层不值得信任。一个好的投研系统，不应该抹平这些冲突，而应该把冲突显性化。</p>
+<p>第三，是它把买入后的管理也纳入流程。</p>
+<p>很多 AI 投研工具只关注“买什么”，但真正难的是买入之后怎么办：什么时候 thesis 被证伪？什么时候只是市场波动？什么时候需要加仓、减仓或承认错误？<code>thesis-tracker</code> 和 <code>portfolio-review</code> 这类 skill，恰好补上了这一块。</p>
+<h2 id="使用时要注意什么"><a class="markdownIt-Anchor" href="#使用时要注意什么"></a> 使用时要注意什么</h2>
+<p>我不会把这类工具理解成“自动赚钱机器”。更合理的定位是：它可以提高研究覆盖面、降低遗漏重要问题的概率、逼迫自己用更严谨的格式思考。</p>
+<p>但最终仍然有几个限制：</p>
+<ul>
+<li>AI 可能引用错误信息，尤其是实时财务数据、公告细节和新闻源。</li>
+<li>多 Agent 不等于真理，只是多了几个独立视角。</li>
+<li>价值投资框架不一定适合所有资产，尤其是加密资产、周期品和强事件驱动标的。</li>
+<li>工具越复杂，越容易让人误以为“流程完整 = 结论正确”。</li>
+<li>真正的风险控制仍然来自仓位、时间、现金流和自己的心理承受能力。</li>
+</ul>
+<p>所以我觉得最好的用法是：把它当作投研 checklist 和 second brain，而不是交易信号生成器。</p>
+<h2 id="适合放进-markets-分类的原因"><a class="markdownIt-Anchor" href="#适合放进-markets-分类的原因"></a> 适合放进 Markets 分类的原因</h2>
+<p>这个项目很适合作为 <code>Markets</code> 分类的开篇材料之一，因为它连接了几个我之后可能会持续写的主题：</p>
+<ul>
+<li>如何用 AI 做股票研究</li>
+<li>如何读财报、拆商业模式和判断管理层</li>
+<li>如何建立自己的投资 checklist</li>
+<li>如何管理投资 thesis，而不是只看涨跌</li>
+<li>如何把加密、股票、宏观和行业研究放进同一套研究纪律里</li>
+</ul>
+<p>说到底，市场研究最难的地方不是信息不够，而是信息太多、噪音太大、情绪太容易介入。一个好的 AI 投研框架，真正有价值的地方不是替你预测未来，而是让你更系统地问问题。</p>
+<p>从这个角度看，<code>AI Berkshire</code> 值得收藏，也值得拆开学习。</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2026-07-07");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2026-07-07T07:30:00.000Z" itemprop="datePublished">2026-07-07</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Markets/'>Markets</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">#&nbsp;投资</a>
+
+<a class="post-tags-list-item" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">#&nbsp;股票</a>
+
+<a class="post-tags-list-item" href="/tags/AI/" rel="tag">#&nbsp;AI</a>
+
+<a class="post-tags-list-item" href="/tags/%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84/" rel="tag">#&nbsp;价值投资</a>
+
+<a class="post-tags-list-item" href="/tags/Claude-Code/" rel="tag">#&nbsp;Claude Code</a>
+
+<a class="post-tags-list-item" href="/tags/Codex/" rel="tag">#&nbsp;Codex</a>
+
+<a class="post-tags-list-item" href="/tags/%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" rel="tag">#&nbsp;项目介绍</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2026/06/20/2026-06-20-notes-on-the-industry-job-search/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">[转载/译]Industry Job Search 笔记</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2026/07/07/2026-07-07-ai-berkshire-investment-research-framework/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2026/07/07/2026-07-07-ai-berkshire-investment-research-framework/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- ### Footer ### -->
+                <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+            </div>
+
+            
+
+
+    <div id="blog-music-player" class="blog-music-player" data-playlist="%5B%7B%22title%22%3A%22Perfect%20Night%22%2C%22artist%22%3A%22LE%20SSERAFIM%22%2C%22src%22%3A%22%2Fmusic%2Fperfect-night.mp3%22%2C%22cover%22%3A%22%2Fmusic%2Fperfect-night-cover.jpeg%22%7D%5D">
+        <audio id="blog-music-audio" preload="metadata"></audio>
+        <button class="blog-music-cover-button" type="button" aria-label="Play music">
+            <img class="blog-music-cover" src="/music/perfect-night-cover.jpeg" alt="">
+            <span class="blog-music-state" aria-hidden="true">▶</span>
+        </button>
+        <div class="blog-music-main">
+            <div class="blog-music-meta">
+                <div class="blog-music-title">Perfect Night</div>
+                <div class="blog-music-artist">LE SSERAFIM</div>
+            </div>
+            <div class="blog-music-controls">
+                <button class="blog-music-toggle" type="button" aria-label="Play music">▶</button>
+                <div class="blog-music-progress" role="slider" aria-label="Music progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                    <div class="blog-music-progress-fill"></div>
+                </div>
+                <button class="blog-music-mute" type="button" aria-label="Mute music">♪</button>
+            </div>
+            <div class="blog-music-hint" hidden>点击播放音乐</div>
+        </div>
+    </div>
+
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+(function() {
+    'use strict';
+    
+    // 等待 DOM 加载完成
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTocCollapse);
+    } else {
+        initTocCollapse();
+    }
+    
+    function initTocCollapse() {
+        const tocContainer = document.getElementById('post-toc');
+        if (!tocContainer) {
+            return;
+        }
+        
+        // 找到所有有子目录的 level-1、level-2、level-3 项（支持多级嵌套展开）
+        const tocItems = tocContainer.querySelectorAll('.post-toc-item.post-toc-level-1, .post-toc-item.post-toc-level-2, .post-toc-item.post-toc-level-3');
+        
+        tocItems.forEach(function(item) {
+            // 检查是否有子目录（包含 post-toc-child 的 ol）
+            const hasChildren = item.querySelector('ol.post-toc-child') !== null;
+            
+            if (hasChildren) {
+                // 添加标记类，用于 CSS 显示图标
+                item.classList.add('toc-has-children');
+                
+                const link = item.querySelector('.post-toc-link');
+                if (link) {
+                    // 阻止默认的锚点跳转，改为展开/折叠
+                    link.addEventListener('click', function(e) {
+                        // 如果用户按住 Ctrl/Cmd 或中键点击，则跳转
+                        if (e.ctrlKey || e.metaKey || e.button === 1) {
+                            return; // 允许默认行为（跳转）
+                        }
+                        
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // 切换展开/折叠状态
+                        item.classList.toggle('toc-expanded');
+                    });
+                    
+                    // 允许通过双击链接文本跳转
+                    link.addEventListener('dblclick', function(e) {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            window.location.hash = href;
+                        }
+                    });
+                    
+                    // 允许通过右键菜单跳转
+                    link.addEventListener('contextmenu', function(e) {
+                        // 允许默认的右键菜单
+                        return true;
+                    });
+                }
+            }
+        });
+    }
+})();
+        
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+<script src="/js/blog-music.js"></script>
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>
