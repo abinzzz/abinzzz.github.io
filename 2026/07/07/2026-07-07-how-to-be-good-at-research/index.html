@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>[转载/译]如何做好研究 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="[转载&#x2F;译]如何做好研究 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2026/07/07/2026-07-07-how-to-be-good-at-research/"><meta property="og:locale" content="zh-CN"><meta name="description" content="如何做好研究  原文作者：vivek（@itsreallyvivek） 说明：本文为原文 how to be good at research 的中文翻译整理，保留部分 research &#x2F; ML 语境下更自然的英文词。不代表本人观点，仅作学习记录。  没有人真正教你怎么做 research。你得到一张桌子、一个别人选好的问题，以及一句模糊的指令：做出一些 novel 的东西。所以大多数人只能从自 - ab - blog"><meta name="keywords" content="转载, Research, 科研, 机器学习, 研究方法, blog"><meta property="article:published_time" content="2026-07-07T08:25:00.000Z"><meta property="article:modified_time" content="2026-07-07T08:26:45.047Z"><meta property="og:updated_time" content="2026-07-07T08:26:45.047Z"><meta property="article:author" content="ab"><meta property="article:tag" content="转载, Research, 科研, 机器学习, 研究方法, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2026/07/07/2026-07-07-how-to-be-good-at-research/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2026/07/07/2026-07-07-how-to-be-good-at-research/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2026/07/07/2026-07-07-how-to-be-good-at-research/"
+    },
+    "headline": "[转载/译]如何做好研究 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2026-07-07T08:25:00.000Z",
+    "dateModified": "2026-07-07T08:26:45.047Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "转载, Research, 科研, 机器学习, 研究方法, blog",
+    "description": "如何做好研究  原文作者：vivek（@itsreallyvivek） 说明：本文为原文 how to be good at research 的中文翻译整理，保留部分 research / ML 语境下更自然的英文词。不代表本人观点，仅作学习记录。  没有人真正教你怎么做 research。你得到一张桌子、一个别人选好的问题，以及一句模糊的指令：做出一些 novel 的东西。所以大多数人只能从自 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <div id="pjax-container">
+                <!-- ### Main content ### -->
+                <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+                
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">[转载/译]如何做好研究</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2026-07-07</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Research/">Research</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACPklEQVR42u2c0W7CQAwE8/8/3T5VqijZHVNQaTz3goBTMofOl/Xa4vj4B+MQUkghhXwDyCOMr+/vzf1xwZvPb+fce5/uK+RuyLub9htkAm4LOYNt9xVSyLOL00A5g0+LqXOEFLJs+BYoZw+DFIRCCvmbwEkigQiQ9LAQUkgqMIiAoAf2y1SQkJeDJInYK16fni0KeQlIZBydXPg3idzTXTUhLwNJBSwRscmkOpuXxImQOyHTgfvQZh8asFFUC7kSMonYFgzJvGpGAEnYhNwJ2cRBSp6S8GgBeG/uSPQKuQJycoNWPGoPhocDR8g1kASQFkBpYCRYIYWcGJ9TA7Ud+NXYF3IdZEvyifAgSVwzHGq2KOQayLPEqorSIHSnjSaj6Bby0pCT5pAkEJo5SsVzNKyEXAHZxAUVx2lRtdA5UUFCXh6SNrjTxD4l/KRIIKSQ0wJoKgZMhHH6cYTcDTkthCZjYJL4kweIkHshW0MIAW8BSEzY2igi5ArISYNcO5BTEf8YDCF3Q1IRkEQuNVHr4S2kkCDBmhY6J40kuAAq5DpImliRRdACAGpoEnItJDKPoJggzXg0gITcDUkbO4hpQIumtclZyJWQxGinjZrNuG+JGm6oE/LSkG0Tk00/NaroIS/kXkhaoKcB1BbX5gkpZDJTW2NmSqweCbyqgoQU8pj9+QYxTJtoEVLIRwvoaVGTYiluXhJyFWQ6hInh2oKjJWe1SivkKkiSiNWmDmAUTJpPhNwL+c5DSCGFFPIPxyeUuPVku5q8SwAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%E7%A0%94%E7%A9%B6"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 如何做好研究</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%80%89%E6%8B%A9%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E9%97%AE%E9%A2%98"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> 选择你自己的问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%87%E7%BA%A7%E4%BD%A0%E7%9A%84%E8%BE%93%E5%85%A5"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 升级你的输入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8A%8A%E4%B8%80%E5%88%87%E5%86%99%E4%B8%8B%E6%9D%A5"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> 把一切写下来</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%94%B6%E7%B4%A7-loop"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> 收紧 loop</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%9B%AF%E7%9D%80-outputs-%E7%9C%8B"><span class="post-toc-number">1.5.</span> <span class="post-toc-text"> 盯着 outputs 看</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9C%89%E7%9B%AE%E7%9A%84%E5%9C%B0%E6%B8%B8%E8%8D%A1"><span class="post-toc-number">1.6.</span> <span class="post-toc-text"> 有目的地游荡</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%89%BE%E5%88%B0%E4%BD%A0%E7%9A%84%E4%BA%BA"><span class="post-toc-number">1.7.</span> <span class="post-toc-text"> 找到你的人</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%95%BF%E6%9C%9F%E6%B8%B8%E6%88%8F"><span class="post-toc-number">1.8.</span> <span class="post-toc-text"> 长期游戏</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <h1 id="如何做好研究"><a class="markdownIt-Anchor" href="#如何做好研究"></a> 如何做好研究</h1>
+<blockquote>
+<p>原文作者：vivek（@itsreallyvivek）</p>
+<p>说明：本文为原文 <code>how to be good at research</code> 的中文翻译整理，保留部分 research / ML 语境下更自然的英文词。不代表本人观点，仅作学习记录。</p>
+</blockquote>
+<p>没有人真正教你怎么做 research。你得到一张桌子、一个别人选好的问题，以及一句模糊的指令：做出一些 novel 的东西。所以大多数人只能从自己看得见的东西里反向推断这份工作是什么：papers、threads、announcements。最后他们学会的是如何“看起来像一个 researcher”，而不是如何真正成为一个 researcher。真正的能力其实是一组更小技能的堆叠，而几乎每一项都可以被刻意训练。</p>
+<h2 id="选择你自己的问题"><a class="markdownIt-Anchor" href="#选择你自己的问题"></a> 选择你自己的问题</h2>
+<p>Richard Hamming 在 Bell Labs 有个习惯，这让他在午餐时不太受欢迎。他会问坐在旁边的人：你所在领域的重要问题是什么？然后再问：那你为什么没有在做这些问题？于是人们开始换桌。</p>
+<p>这个问题刺痛人，是因为我们大多数人都没有好答案。我们并不选择问题，而是吸收问题：从 advisor 那里，从某个大 lab 上个季度宣布的方向那里，从这周大家都在 quote-tweet 的论文那里。</p>
+<p>被吸收来的问题有个麻烦：你拥有的是结论，而不是推理。你知道某个 famous lab 关心一个方向，但你不知道为什么，不知道他们期待发现什么，也不知道什么情况会让他们放弃这个方向。等他们 pivot 的时候，你可能一年后才知道。而在一个已经 fashionable 的问题上，你是在和一千个更早起跑、compute 更多的人赛跑。</p>
+<p>John Schulman 的 ML research 指南把研究分成两种模式。一种是读 literature，然后寻找可以 improve 的地方。另一种是选择一个你真心希望它存在的 outcome，然后反过来推导需要做哪些 experiments。他支持第二种。背后安静但重要的原因是：这种方式会制造 originality。一个你真的在乎的目标，会把你拖进 survey paper 尚未覆盖的 territory。</p>
+<p>与此同时，taste 常常被说得像一种天赋。但它更像肌肉。每次 experiment 之前，先预测结果。把一篇 paper 的 result section 盖住，只根据 method 猜数字。标记这个月发布的工作里，哪些两年后仍然重要，然后以后检查自己的 hit rate。一次 forecast 加一次 correction，重复几百次，就是每个好模型被训练出来的方式，包括你脑子里的那个模型。</p>
+<h2 id="升级你的输入"><a class="markdownIt-Anchor" href="#升级你的输入"></a> 升级你的输入</h2>
+<p>共享的 reading list 会产出共享的 ideas。如果你的信息饮食只是 arXiv trending page，加上 group chat 过滤后剩下的东西，你会稳定地在同一时间得出和所有人一样的结论，而这种结论大约一文不值。</p>
+<p>旧材料被严重低估。这个领域总是在延迟重跑自己的过去：mixture of experts 可以追溯到 1991 年，LSTM 是 1997 年，backprop 在 1986 年进入主流。Rich Sutton 2019 年写 <code>The Bitter Lesson</code> 只用了大约一千词，却比十倍长度的 survey 更能预测这个领域的形状。Claude Shannon 1952 年做过一场关于 creative thinking 的演讲，他的开场动作是：把问题缩小到几乎 trivial，先解决小版本，再一块一块把困难重新加回来。这个单一技巧，能带你穿过的墙，比任何现代 productivity advice 都多。</p>
+<p>Range 和 depth 一样重要。Interpretability 毫不客气地向 neuroscience 借东西。Eval design 是穿着 lab coat 的 mechanism design。真正理解 GPU 如何搬运 memory，会让你在 benchmark 出来之前就看出哪些 architecture paper 注定不行。而 honest statistics 可能是 ML 里最稀缺的技能之一；这里很多发表出来的 rigor，本质上只是带 error bar 的 vibes。</p>
+<p>还有一件事：读 paper 本身，不要只读总结它的 thread。Appendix 是埋尸体的地方，limitations section 通常是整篇文档里最诚实的一段。</p>
+<h2 id="把一切写下来"><a class="markdownIt-Anchor" href="#把一切写下来"></a> 把一切写下来</h2>
+<p>Paul Graham 说过，一个 idea 在你尝试把它写成文字之前，可能一直感觉已经完整成形。页面会发现你脑子自动糊过去的 gap：那个你从没测试过的 assumption，那个其实并不能推出下一步的 step，那两个安静地互相矛盾的 claim。</p>
+<p>Feynman 的规则是：你必须避免欺骗的第一个人是你自己，因为你是最容易被骗的对象。Writing 是人类发明过的最便宜的防御。Darwin 走得更远，把这件事程序化了。任何和他的理论相冲突的事实，他都会立刻写下来，因为他发现自己的 memory 删除不方便证据的速度，比删除方便证据快得多。你的 memory 对 failed runs 也会做同样的事。保留 log：hypothesis、setup、expectation、result、updated belief。重读上个月的记录，会带来一种任何 reviewer 都比不上的谦卑。</p>
+<p>然后，把其中一部分公开出来。Olah 和 Carter 的 research debt essay 说明了一个观点：领域会被未消化的 ideas 噎住，而清晰解释本身就是一种真正的 contribution，不是 service job。今天很多做 interpretability 的人，是通过可读的 posts 进入这个领域的，而不是 conference papers。一组公开写作也会成为你能拥有的最强 credential，因为它是你如何思考的、无法伪造的样本。</p>
+<h2 id="收紧-loop"><a class="markdownIt-Anchor" href="#收紧-loop"></a> 收紧 loop</h2>
+<p>关于 Alec Radford 的故事，很少是某一次天才闪现。更多是 volume：每天更多 runs，每周丢掉更多错误 ideas，一个比别人更新更快的 reality model。这才是真正的游戏。Research speed 很大程度上就是你发现自己错了的速度。</p>
+<p>这也意味着 tooling 是一等 research activity。启动一次 run 应该是一条命令。画图应该再多一条命令。每个 experiment 都应该能从 config 复现，比较两次 runs 应该只需要几秒，而不是花一个下午考古。Karpathy 的 neural network training recipe 里有一步能回本一百次：在 scale training 前，先 overfit 一个 single batch。三十秒，半数 bug 消失。把一切缩小到足够便宜，先做对，再花 compute。</p>
+<p>也该放弃“engineering 是 research 的 junior partner”这个想法了。在 frontier 上，这两份工作已经融合。能构建 harness、eval 和 data pipeline 的 researcher，才是 hypothesis 真正会被测试的人。其他人都在排队等。</p>
+<h2 id="盯着-outputs-看"><a class="markdownIt-Anchor" href="#盯着-outputs-看"></a> 盯着 outputs 看</h2>
+<p>下降的 loss curve 不是 analysis，只是 reassurance。你的 experiments 会吐出远比你实际消费更多的信息：transcripts、failure cases、distribution 里奇怪的尾部。大多数信息都死在没人读的 logs folder 里。</p>
+<p>Karpathy 的 recipe 在写任何 training code 之前就开始了：手工花几个小时看 raw data。大多数 ML bugs 都活在 data 里，而且它们会静默失败。什么都不会 crash。你只是得到一个 mediocre model，然后对原因形成一个错误理论。</p>
+<p>Andrew Ng 十几年来一直在教同一个不光鲜但极有效的动作，因为没有什么能打败它：拉出一百个 failures，全部读完，分成几堆，然后攻击最大的一堆。它适用于 models，也适用于 evals。一个你从来没有读过 transcripts 的 benchmark，就是一个你其实并不理解的 benchmark。一个真正奇怪行为的 transcript，能教给你的东西，比 accuracy 的下一个小数位更多。</p>
+<h2 id="有目的地游荡"><a class="markdownIt-Anchor" href="#有目的地游荡"></a> 有目的地游荡</h2>
+<p>你的第一个 subfield 只是 timing 的偶然，所以要把它当作偶然。认真花时间待在 interpretability、evals、RL、systems 里，然后再决定你住在哪里。这个领域的某个角落，会让你身上某种具体的 weirdness 变成 unfair advantage。找到它的唯一方法，是在几个地方都交学费。没人会免掉这笔 tuition。</p>
+<p>每个 idea 都先跑 disposable version，并让大多数 idea 早死。把 baselines 调到疼为止，因为 ML 的坟场里满是那些一旦遇到 properly tuned baseline 就蒸发的 gains，而 reviewer 是最糟糕的老师。Ablate 到你知道到底哪个 component 承载了结果。通常只有一个，而且通常不是标题里的那个。</p>
+<p>Breadth 也是 insurance。Subfields 都会 saturate，所有都会，通常就在它们刚刚在 Twitter 上达到顶峰之后。那些能在转场中持续产出的人，是早就熟悉相邻 territory 的人。</p>
+<h2 id="找到你的人"><a class="markdownIt-Anchor" href="#找到你的人"></a> 找到你的人</h2>
+<p>Hamming 注意到一个模式：关着办公室门的同事，任何一年里完成的事情更多；开着门的同事，做出的工作更重要，因为那些 interruption 携带着关于世界真正需要什么的信息。你的 open door 可能就是 inbox。让它保持开放。</p>
+<p>Generosity 在 research 里会像没什么别的东西一样复利。Replicate 一个 result，然后发布你发现的东西。Release 你为自己构建的 tool。用简单语言解释困难的东西。回报会从侧面到来，几个月之后，变成一个 collaboration、一个 reference，或者一个你原本无法申请的 role。也把你半成形的 ideas 放到公开场域里，因为在 timeline 上错，比在 print 里错便宜得多。那个在你投入三个月之前就告诉你 idea 很差的 collaborator，比 compute 更值钱。这种关系买不到，只能赢得。</p>
+<h2 id="长期游戏"><a class="markdownIt-Anchor" href="#长期游戏"></a> 长期游戏</h2>
+<p>Pasteur 说，幸运偏爱有准备的头脑。Hamming 在这句话之上建立了一整套职业哲学：knowledge 和 productivity 会像 interest 一样复利。每天的 edge 单独看都微不足道：你读什么，你记录什么，你的 loop 跑得多快，你和谁争论。给它们几年时间，它们会产出从外部看起来像运气的 career。比你觉得有必要的时间更早开始复利。未来的你已经知道，现在这部分最便宜。</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2026-07-07");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2026-07-07T08:25:00.000Z" itemprop="datePublished">2026-07-07</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Research/'>Research</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">#&nbsp;转载</a>
+
+<a class="post-tags-list-item" href="/tags/Research/" rel="tag">#&nbsp;Research</a>
+
+<a class="post-tags-list-item" href="/tags/%E7%A7%91%E7%A0%94/" rel="tag">#&nbsp;科研</a>
+
+<a class="post-tags-list-item" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">#&nbsp;机器学习</a>
+
+<a class="post-tags-list-item" href="/tags/%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95/" rel="tag">#&nbsp;研究方法</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2026/07/07/2026-07-07-how-to-fix-your-entire-life-in-one-day/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">一天修好你整个人生</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2026/07/07/2026-07-07-codex-reconnecting-websocket-proxy/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Codex 每次启动都卡在 Reconnecting？可能是 WebSocket 没走代理</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2026/07/07/2026-07-07-how-to-be-good-at-research/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2026/07/07/2026-07-07-how-to-be-good-at-research/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- ### Footer ### -->
+                <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+            </div>
+
+            
+
+
+    <div id="blog-music-player" class="blog-music-player" data-playlist="%5B%7B%22title%22%3A%22Perfect%20Night%22%2C%22artist%22%3A%22LE%20SSERAFIM%22%2C%22src%22%3A%22%2Fmusic%2Fperfect-night.mp3%22%2C%22cover%22%3A%22%2Fmusic%2Fperfect-night-cover.jpeg%22%7D%5D">
+        <audio id="blog-music-audio" preload="metadata"></audio>
+        <button class="blog-music-cover-button" type="button" aria-label="Play music">
+            <img class="blog-music-cover" src="/music/perfect-night-cover.jpeg" alt="">
+            <span class="blog-music-state" aria-hidden="true">▶</span>
+        </button>
+        <div class="blog-music-main">
+            <div class="blog-music-meta">
+                <div class="blog-music-title">Perfect Night</div>
+                <div class="blog-music-artist">LE SSERAFIM</div>
+            </div>
+            <div class="blog-music-controls">
+                <button class="blog-music-toggle" type="button" aria-label="Play music">▶</button>
+                <div class="blog-music-progress" role="slider" aria-label="Music progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                    <div class="blog-music-progress-fill"></div>
+                </div>
+                <button class="blog-music-mute" type="button" aria-label="Mute music">♪</button>
+            </div>
+            <div class="blog-music-hint" hidden>点击播放音乐</div>
+        </div>
+    </div>
+
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+(function() {
+    'use strict';
+    
+    // 等待 DOM 加载完成
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTocCollapse);
+    } else {
+        initTocCollapse();
+    }
+    
+    function initTocCollapse() {
+        const tocContainer = document.getElementById('post-toc');
+        if (!tocContainer) {
+            return;
+        }
+        
+        // 找到所有有子目录的 level-1、level-2、level-3 项（支持多级嵌套展开）
+        const tocItems = tocContainer.querySelectorAll('.post-toc-item.post-toc-level-1, .post-toc-item.post-toc-level-2, .post-toc-item.post-toc-level-3');
+        
+        tocItems.forEach(function(item) {
+            // 检查是否有子目录（包含 post-toc-child 的 ol）
+            const hasChildren = item.querySelector('ol.post-toc-child') !== null;
+            
+            if (hasChildren) {
+                // 添加标记类，用于 CSS 显示图标
+                item.classList.add('toc-has-children');
+                
+                const link = item.querySelector('.post-toc-link');
+                if (link) {
+                    // 阻止默认的锚点跳转，改为展开/折叠
+                    link.addEventListener('click', function(e) {
+                        // 如果用户按住 Ctrl/Cmd 或中键点击，则跳转
+                        if (e.ctrlKey || e.metaKey || e.button === 1) {
+                            return; // 允许默认行为（跳转）
+                        }
+                        
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // 切换展开/折叠状态
+                        item.classList.toggle('toc-expanded');
+                    });
+                    
+                    // 允许通过双击链接文本跳转
+                    link.addEventListener('dblclick', function(e) {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            window.location.hash = href;
+                        }
+                    });
+                    
+                    // 允许通过右键菜单跳转
+                    link.addEventListener('contextmenu', function(e) {
+                        // 允许默认的右键菜单
+                        return true;
+                    });
+                }
+            }
+        });
+    }
+})();
+        
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+<script src="/js/blog-music.js"></script>
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>
