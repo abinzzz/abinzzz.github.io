@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//robin02.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>比特币矿工到底在“挖”什么？——从一场资深矿工访谈，看懂算力、成本、黑幕与信仰 | blog</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css@0.5.3"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: blue;
+    }
+
+    a:active, a:focus, a:hover {
+        color: blue;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: blue;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: red;
+    }
+
+    .avatar {
+        background: red;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: red;
+    }
+
+    .navbar-link:hover {
+        color: red;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: red;
+        border-color: red;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: red;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="比特币矿工到底在“挖”什么？——从一场资深矿工访谈，看懂算力、成本、黑幕与信仰 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2026/08/02/2026-08-02-bitcoin-mining-interview/"><meta property="og:locale" content="zh-CN"><meta name="description" content="比特币矿工到底在“挖”什么？——从一场资深矿工访谈，看懂算力、成本、黑幕与信仰 本文依据一段约半小时的比特币矿工访谈整理和分析。需要事先声明：受访者讲述的行业经历具有参考价值，但其中若干技术解释、经济学推论和资产数字存在明显疑点。俺会把【亲历经验】与【可验证的客观机制】分开讨论，免得把一个人的江湖经验，包装成宇宙真理。   ★引子：矿工不是拿着镐头，而是守着一排发热的计算器◇从“地下挖黄金”到“机 - ab - blog"><meta name="keywords" content="Bitcoin, 挖矿, 区块链, 加密货币, PoW, blog"><meta property="article:published_time" content="2026-08-02T04:00:00.000Z"><meta property="article:modified_time" content="2026-08-02T07:06:05.020Z"><meta property="og:updated_time" content="2026-08-02T07:06:05.020Z"><meta property="article:author" content="ab"><meta property="article:tag" content="Bitcoin, 挖矿, 区块链, 加密货币, PoW, blog"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://abinzzz.github.io/2026/08/02/2026-08-02-bitcoin-mining-interview/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://abinzzz.github.io/2026/08/02/2026-08-02-bitcoin-mining-interview/",
+    "@type": "BlogPosting",
+    "logo": "https://abinzzz.github.io/img/blog.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://abinzzz.github.io/2026/08/02/2026-08-02-bitcoin-mining-interview/"
+    },
+    "headline": "比特币矿工到底在“挖”什么？——从一场资深矿工访谈，看懂算力、成本、黑幕与信仰 | blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://abinzzz.github.io/img/blog.ico"
+    },
+    
+    "datePublished": "2026-08-02T04:00:00.000Z",
+    "dateModified": "2026-08-02T07:06:05.020Z",
+    "author": {
+        "@type": "Person",
+        "name": "ab",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/avatar.jpg"
+        },
+        "description": "Welcome to my blog!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://abinzzz.github.io/img/blog.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://abinzzz.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Bitcoin, 挖矿, 区块链, 加密货币, PoW, blog",
+    "description": "比特币矿工到底在“挖”什么？——从一场资深矿工访谈，看懂算力、成本、黑幕与信仰 本文依据一段约半小时的比特币矿工访谈整理和分析。需要事先声明：受访者讲述的行业经历具有参考价值，但其中若干技术解释、经济学推论和资产数字存在明显疑点。俺会把【亲历经验】与【可验证的客观机制】分开讨论，免得把一个人的江湖经验，包装成宇宙真理。   ★引子：矿工不是拿着镐头，而是守着一排发热的计算器◇从“地下挖黄金”到“机 - ab - blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <div id="pjax-container">
+                <!-- ### Main content ### -->
+                <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Welcome to my blog!
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+    <a href="/categories/" class="navbar-link">分类</a>
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+    
+</nav>
+</header>
+
+                
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">比特币矿工到底在“挖”什么？——从一场资深矿工访谈，看懂算力、成本、黑幕与信仰</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.jpg" src="/img/suka-lazyload.gif" alt="ab's Avatar">
+        <span>2026-08-02</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Bitcoin/">Bitcoin</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACOklEQVR42u2b0U7DQAwE+/8/DU9IgO5259IiIJ68QJukN4did702j7d/cDyEFFJIIf8A5CMcH+e/3Pjp/d3vu/dW53frCjkbcvnQbhZIi6OFN5tf8Qg5G7IBfA+G3aKr8wkyriukkCEp7+DSNeR+IYV8ReC0JL6DJJ8ppJDki54k9SZ4W9J/SgUJeTtIUoj9xM+XV4tC3gKymkZBNKxerxJ2CraXuGpC3goyGVDtXBIUp8bCcvNCjoQkD3UDbvekAi5dL+RsyHQTEbnJEEgwcaNCjoekH9gaUc2wagEl5GxI0shMBn0SFUmsELNWyJmQTQBcaYBSEyCJayHnQp4k5iRuaZJvDdRqDgh5e0gSOM0AIMMgp01+IWdDNjFxWnQ10ZKaoEIKSUzRK+Z9K8DaZoUUsjUj28NOTVM6rCzkXMgWPMRcisIVBMj2WiGFhMKVmFekcV8TvpBjIemwCBkwbsF41LQSciTk6aAIEbA0yTeTTMi5kG3YgzSgWvJPhus2GIUcCUkN+zbgQf8BgzRahRTytPhqwUEML7RxIcdD1qFLIGxbsUWLMCHnQpKHmYgNvDBYQ8jZkKQhn4KINvFJoAkp5IlZddJMbw17aoYJOROSDF4Sc5UIkSSSYyEm5DhIYubTQLkipLd/BCFHQ5JBd2JwkWB7ahheyPGQxIAizapk7ONkLqSQQLgSUdya9NsvFCFHQ54Y+XTAPUGgAVEhx0JeNehb4Xaa+J82B4S8BeRfPoQUUkghf/F4B4FdlcTIy2jRAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%AF%94%E7%89%B9%E5%B8%81%E7%9F%BF%E5%B7%A5%E5%88%B0%E5%BA%95%E5%9C%A8%E2%80%9C%E6%8C%96%E2%80%9D%E4%BB%80%E4%B9%88%EF%BC%9F%E2%80%94%E2%80%94%E4%BB%8E%E4%B8%80%E5%9C%BA%E8%B5%84%E6%B7%B1%E7%9F%BF%E5%B7%A5%E8%AE%BF%E8%B0%88%EF%BC%8C%E7%9C%8B%E6%87%82%E7%AE%97%E5%8A%9B%E3%80%81%E6%88%90%E6%9C%AC%E3%80%81%E9%BB%91%E5%B9%95%E4%B8%8E%E4%BF%A1%E4%BB%B0"><span class="post-toc-number">1.</span> <span class="post-toc-text">比特币矿工到底在“挖”什么？——从一场资深矿工访谈，看懂算力、成本、黑幕与信仰</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%98%85%E5%BC%95%E5%AD%90%EF%BC%9A%E7%9F%BF%E5%B7%A5%E4%B8%8D%E6%98%AF%E6%8B%BF%E7%9D%80%E9%95%90%E5%A4%B4%EF%BC%8C%E8%80%8C%E6%98%AF%E5%AE%88%E7%9D%80%E4%B8%80%E6%8E%92%E5%8F%91%E7%83%AD%E7%9A%84%E8%AE%A1%E7%AE%97%E5%99%A8"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">★引子：矿工不是拿着镐头，而是守着一排发热的计算器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E4%BB%8E%E2%80%9C%E5%9C%B0%E4%B8%8B%E6%8C%96%E9%BB%84%E9%87%91%E2%80%9D%E5%88%B0%E2%80%9C%E6%9C%BA%E6%88%BF%E7%83%A7%E7%94%B5%E2%80%9D"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">◇从“地下挖黄金”到“机房烧电”</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E4%B8%BA%E5%95%A5%E4%B8%80%E6%AE%B5%E7%9F%BF%E5%B7%A5%E8%AE%BF%E8%B0%88%E5%80%BC%E5%BE%97%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90%E6%8D%8F%EF%BC%9F"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">◇为啥一段矿工访谈值得深入分析捏？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E8%A7%86%E9%A2%91%E4%B8%AD%E6%9C%80%E5%80%BC%E5%BE%97%E8%AD%A6%E6%83%95%E7%9A%84%E4%B8%89%E7%A7%8D%E8%AF%B4%E6%B3%95"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">◇视频中最值得警惕的三种说法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E6%9C%AC%E6%96%87%E9%87%87%E7%94%A8%E7%9A%84%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">◇本文采用的分析框架</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%98%85%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%EF%BC%9A%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E7%A9%B6%E7%AB%9F%E5%9C%A8%E8%AE%A1%E7%AE%97%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">★基本概念：比特币挖矿究竟在计算什么？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E4%B8%8D%E6%98%AF%E8%A7%A3%E6%96%B9%E7%A8%8B%EF%BC%8C%E8%80%8C%E6%98%AF%E5%9C%A8%E5%8F%8D%E5%A4%8D%E4%B9%B0%E5%BD%A9%E7%A5%A8"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">◇不是解方程，而是在反复买彩票</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%88%B0%E5%BA%95%E6%9C%89%E5%95%A5%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">◇哈希函数到底有啥特点？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E5%8C%BA%E5%9D%97%E5%A5%96%E5%8A%B1%E5%88%B0%E5%BA%95%E5%8C%85%E6%8B%AC%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">◇区块奖励到底包括什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E9%9A%BE%E5%BA%A6%E8%B0%83%E6%95%B4%E6%98%AF%E6%80%8E%E6%A0%B7%E7%BB%B4%E6%8C%81%E5%8D%81%E5%88%86%E9%92%9F%E5%87%BA%E5%9D%97%E7%9A%84%EF%BC%9F"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">◇难度调整是怎样维持十分钟出块的？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E7%9F%BF%E6%B1%A0%E4%B8%BA%E4%BD%95%E4%BC%9A%E5%87%BA%E7%8E%B0%EF%BC%9F"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">◇矿池为何会出现？</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%98%85%E6%A0%B8%E5%BF%83%E5%89%96%E6%9E%90%E4%B9%8B%E4%B8%80%EF%BC%9A%E7%9F%BF%E6%9C%BA%E3%80%81%E8%83%BD%E8%80%97%E4%B8%8E%E5%85%B3%E6%9C%BA%E4%BB%B7"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">★核心剖析之一：矿机、能耗与关机价</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E4%BB%8E-CPU-%E5%88%B0-ASIC%EF%BC%9A%E4%B8%80%E5%9C%BA%E6%AE%8B%E9%85%B7%E7%9A%84%E5%86%9B%E5%A4%87%E7%AB%9E%E8%B5%9B"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">◇从 CPU 到 ASIC：一场残酷的军备竞赛</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E7%9F%BF%E6%9C%BA%E6%80%A7%E8%83%BD%E4%B8%8D%E8%83%BD%E5%8F%AA%E7%9C%8B%E7%AE%97%E5%8A%9B"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">◇矿机性能不能只看算力</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E5%85%B3%E6%9C%BA%E4%BB%B7%E6%80%8E%E6%A0%B7%E8%AE%A1%E7%AE%97%EF%BC%9F"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">◇关机价怎样计算？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E9%AB%98%E7%AB%AF%E7%9F%BF%E6%9C%BA%E4%B8%BA%E4%BD%95%E6%9B%B4%E6%8A%97%E8%B7%8C%EF%BC%9F"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">◇高端矿机为何更抗跌？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E2%80%9C%E5%8D%96%E9%93%B2%E5%AD%90%E7%9A%84%E4%BA%BA%E2%80%9D%E7%9C%9F%E7%9A%84%E6%B0%B8%E8%BF%9C%E6%9C%80%E8%B5%9A%E9%92%B1%E5%90%97%EF%BC%9F"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">◇“卖铲子的人”真的永远最赚钱吗？</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%98%85%E6%A0%B8%E5%BF%83%E5%89%96%E6%9E%90%E4%B9%8B%E4%BA%8C%EF%BC%9A%E7%94%B5%E5%8A%9B%E8%83%BD%E4%B8%8D%E8%83%BD%E2%80%9C%E9%94%9A%E5%AE%9A%E2%80%9D%E6%AF%94%E7%89%B9%E5%B8%81%E4%BB%B7%E6%A0%BC%EF%BC%9F"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">★核心剖析之二：电力能不能“锚定”比特币价格？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E6%88%90%E6%9C%AC%E5%86%B3%E5%AE%9A%E4%BB%B7%E6%A0%BC%EF%BC%8C%E8%BF%98%E6%98%AF%E4%BB%B7%E6%A0%BC%E5%86%B3%E5%AE%9A%E6%88%90%E6%9C%AC%EF%BC%9F"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">◇成本决定价格，还是价格决定成本？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E4%B8%80%E4%B8%AA%E5%8D%96%E7%83%A7%E9%A5%BC%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">◇一个卖烧饼的例子</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E7%94%9F%E4%BA%A7%E6%88%90%E6%9C%AC%E6%9C%89%E6%B2%A1%E6%9C%89%E4%BB%BB%E4%BD%95%E5%8F%82%E8%80%83%E6%84%8F%E4%B9%89%EF%BC%9F"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">◇生产成本有没有任何参考意义？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E8%B4%9F%E5%8F%8D%E9%A6%88%E6%9C%BA%E5%88%B6"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">◇复杂系统中的负反馈机制</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%98%85%E6%A0%B8%E5%BF%83%E5%89%96%E6%9E%90%E4%B9%8B%E4%B8%89%EF%BC%9A%E7%9F%BF%E6%B1%A0%E3%80%81%E6%89%98%E7%AE%A1%E4%B8%8E%E2%80%9C%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9A%84%E4%BF%A1%E4%BB%BB%E6%82%96%E8%AE%BA%E2%80%9D"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">★核心剖析之三：矿池、托管与“去中心化的信任悖论”</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E5%8D%8F%E8%AE%AE%E6%97%A0%E9%A1%BB%E4%BF%A1%E4%BB%BB%EF%BC%8C%E4%BA%A7%E4%B8%9A%E6%9E%81%E5%BA%A6%E4%BE%9D%E8%B5%96%E4%BF%A1%E4%BB%BB"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">◇协议无须信任，产业极度依赖信任</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E7%9F%BF%E6%B1%A0%E6%98%AF%E4%B8%8D%E6%98%AF%E6%96%B0%E7%9A%84%E4%B8%AD%E5%BF%83%E5%8C%96%E6%9D%83%E5%8A%9B%EF%BC%9F"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">◇矿池是不是新的中心化权力？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E5%81%B7%E7%94%B5%E8%B4%B9%E6%98%AF%E6%80%8E%E6%A0%B7%E5%8F%91%E7%94%9F%E7%9A%84%EF%BC%9F"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">◇偷电费是怎样发生的？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E6%8D%A2%E7%AE%97%E5%8A%9B%E6%9D%BF%E4%B8%BA%E4%BD%95%E9%9A%BE%E4%BB%A5%E5%8F%91%E7%8E%B0%EF%BC%9F"><span class="post-toc-number">1.5.4.</span> <span class="post-toc-text">◇换算力板为何难以发现？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E4%B8%BA%E4%BD%95%E6%96%B0%E4%BA%BA%E5%AE%B9%E6%98%93%E8%A2%AB%E2%80%9C%E5%90%83%E5%B9%B2%E6%8A%B9%E5%87%80%E2%80%9D%EF%BC%9F"><span class="post-toc-number">1.5.5.</span> <span class="post-toc-text">◇为何新人容易被“吃干抹净”？</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%98%85%E6%A0%B8%E5%BF%83%E5%89%96%E6%9E%90%E4%B9%8B%E5%9B%9B%EF%BC%9A%E7%9F%BF%E5%B7%A5%E4%B8%BA%E4%BD%95%E4%BC%9A%E5%9C%A8%E6%9A%B4%E8%B7%8C%E6%97%B6%E2%80%9C%E7%8B%82%E5%96%9C%E2%80%9D%EF%BC%9F"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">★核心剖析之四：矿工为何会在暴跌时“狂喜”？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E5%85%88%E5%88%AB%E9%AB%98%E5%85%B4%EF%BC%8C%E6%9A%B4%E8%B7%8C%E7%AC%AC%E4%B8%80%E6%AD%A5%E6%98%AF%E6%94%B6%E5%85%A5%E6%9A%B4%E8%B7%8C"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">◇先别高兴，暴跌第一步是收入暴跌</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E8%BF%99%E6%98%AF%E4%B8%80%E5%9C%BA%E7%9F%BF%E4%B8%9A%E7%89%88%E7%9A%84%E8%BE%BE%E5%B0%94%E6%96%87%E9%80%89%E6%8B%A9"><span class="post-toc-number">1.6.2.</span> <span class="post-toc-text">◇这是一场矿业版的达尔文选择</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E5%8F%AA%E6%9C%89%E4%BD%8E%E6%9D%A0%E6%9D%86%E7%9F%BF%E5%B7%A5%E6%89%8D%E6%9C%89%E8%B5%84%E6%A0%BC%E5%96%9C%E6%AC%A2%E6%9A%B4%E8%B7%8C"><span class="post-toc-number">1.6.3.</span> <span class="post-toc-text">◇只有低杠杆矿工才有资格喜欢暴跌</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E7%9F%BF%E5%B7%A5%E7%9A%84%E2%80%9C%E5%9B%A4%E5%B8%81%E2%80%9D%E5%BF%83%E7%90%86%E4%BB%8E%E4%BD%95%E8%80%8C%E6%9D%A5%EF%BC%9F"><span class="post-toc-number">1.6.4.</span> <span class="post-toc-text">◇矿工的“囤币”心理从何而来？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E4%BF%A1%E4%BB%B0%E6%98%AF%E4%BC%98%E5%8A%BF%EF%BC%8C%E4%B9%9F%E5%8F%AF%E8%83%BD%E6%98%AF%E9%A3%8E%E9%99%A9%E5%B1%8F%E8%94%BD%E5%99%A8"><span class="post-toc-number">1.6.5.</span> <span class="post-toc-text">◇信仰是优势，也可能是风险屏蔽器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%98%85%E6%A0%B8%E5%BF%83%E5%89%96%E6%9E%90%E4%B9%8B%E4%BA%94%EF%BC%9A%E6%AF%94%E7%89%B9%E5%B8%81%E6%98%AF%E5%90%A6%E5%A4%A9%E7%84%B6%E6%8A%97%E9%80%9A%E8%83%80%EF%BC%9F"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">★核心剖析之五：比特币是否天然抗通胀？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E6%9C%89%E9%99%90%E4%BE%9B%E5%BA%94%E4%B8%8D%E7%AD%89%E4%BA%8E%E7%A8%B3%E5%AE%9A%E8%B4%AD%E4%B9%B0%E5%8A%9B"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">◇有限供应不等于稳定购买力</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E2%80%9C%E6%8A%97%E9%80%9A%E8%83%80%E2%80%9D%E8%87%B3%E5%B0%91%E6%9C%89%E4%B8%89%E7%A7%8D%E5%90%AB%E4%B9%89"><span class="post-toc-number">1.7.2.</span> <span class="post-toc-text">◇“抗通胀”至少有三种含义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E6%B3%95%E5%B8%81%E5%A2%9E%E5%8F%91%E4%B8%8D%E7%AD%89%E4%BA%8E%E6%89%80%E6%9C%89%E8%B4%A2%E5%AF%8C%E9%83%BD%E8%A2%AB%E5%87%AD%E7%A9%BA%E5%88%9B%E9%80%A0"><span class="post-toc-number">1.7.3.</span> <span class="post-toc-text">◇法币增发不等于所有财富都被凭空创造</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E5%9B%BA%E5%AE%9A%E8%A7%84%E5%88%99%E4%B8%BA%E4%BD%95%E5%85%B7%E6%9C%89%E5%BC%BA%E5%A4%A7%E5%90%B8%E5%BC%95%E5%8A%9B%EF%BC%9F"><span class="post-toc-number">1.7.4.</span> <span class="post-toc-text">◇固定规则为何具有强大吸引力？</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%98%85%E4%BF%BA%E7%9A%84%E7%82%B9%E8%AF%84%EF%BC%9A%E7%9F%BF%E4%B8%9A%E7%9A%84%E7%9C%9F%E6%AD%A3%E9%97%A8%E6%A7%9B%E4%B8%8D%E6%98%AF%E7%9F%BF%E6%9C%BA%EF%BC%8C%E8%80%8C%E6%98%AF%E6%8E%A7%E5%88%B6%E9%A3%8E%E9%99%A9%E7%9A%84%E8%83%BD%E5%8A%9B"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">★俺的点评：矿业的真正门槛不是矿机，而是控制风险的能力</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E6%99%AE%E9%80%9A%E4%BA%BA%E6%9C%80%E5%AE%B9%E6%98%93%E6%8E%89%E8%BF%9B%E2%80%9C%E7%9C%8B%E5%BE%97%E8%A7%81%E7%9A%84%E6%94%B6%E7%9B%8A%E2%80%9D%E9%99%B7%E9%98%B1"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">◇普通人最容易掉进“看得见的收益”陷阱</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E9%AB%98%E6%94%B6%E7%9B%8A%E8%A1%8C%E4%B8%9A%E4%B8%BA%E4%BD%95%E6%80%BB%E4%BC%B4%E9%9A%8F%E7%81%B0%E8%89%B2%E7%A9%BA%E9%97%B4%EF%BC%9F"><span class="post-toc-number">1.8.2.</span> <span class="post-toc-text">◇高收益行业为何总伴随灰色空间？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E7%9C%9F%E6%AD%A3%E4%B8%93%E4%B8%9A%E7%9A%84%E7%9F%BF%E5%B7%A5%E5%BA%94%E8%AF%A5%E5%83%8F%E7%BB%8F%E8%90%A5%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83"><span class="post-toc-number">1.8.3.</span> <span class="post-toc-text">◇真正专业的矿工应该像经营数据中心</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E2%80%9C%E4%B8%80%E4%BA%BA%E7%95%99%E4%B8%80%E4%B8%AA%E6%AF%94%E7%89%B9%E5%B8%81%E4%B9%B0%E6%88%BF%E2%80%9D%E5%B1%9E%E4%BA%8E%E9%A2%84%E6%B5%8B%EF%BC%8C%E4%B8%8D%E5%B1%9E%E4%BA%8E%E8%AF%81%E6%98%8E"><span class="post-toc-number">1.8.4.</span> <span class="post-toc-text">◇“一人留一个比特币买房”属于预测，不属于证明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E2%80%9C%E5%9B%9B%E5%B9%B4%E5%90%8E%E8%BE%BE%E5%88%B0%E4%BA%8C%E5%8D%81%E4%BA%94%E4%B8%87%E8%87%B3%E4%B8%89%E5%8D%81%E4%B8%87%E7%BE%8E%E5%85%83%E2%80%9D%E9%9D%A0%E8%B0%B1%E5%90%97%EF%BC%9F"><span class="post-toc-number">1.8.5.</span> <span class="post-toc-text">◇“四年后达到二十五万至三十万美元”靠谱吗？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E4%BF%BA%E5%AF%B9%E7%9F%BF%E5%B7%A5%E7%BE%A4%E4%BD%93%E7%9A%84%E6%80%BB%E4%BD%93%E8%AF%84%E4%BB%B7"><span class="post-toc-number">1.8.6.</span> <span class="post-toc-text">◇俺对矿工群体的总体评价</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%98%85%E8%BF%9B%E4%B8%80%E6%AD%A5%E6%8E%A8%E6%BC%94%EF%BC%9A%E6%AF%94%E7%89%B9%E5%B8%81%E7%9F%BF%E4%B8%9A%E6%9C%AA%E6%9D%A5%E5%8F%AF%E8%83%BD%E8%B5%B0%E5%90%91%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">★进一步推演：比特币矿业未来可能走向哪里？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E4%BB%8E%E4%B8%AA%E4%BA%BA%E7%9F%BF%E5%B7%A5%E8%B5%B0%E5%90%91%E5%B7%A5%E4%B8%9A%E5%8C%96%E7%9F%BF%E5%9C%BA"><span class="post-toc-number">1.9.1.</span> <span class="post-toc-text">◇从个人矿工走向工业化矿场</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E7%9F%BF%E5%9C%BA%E5%8F%AF%E8%83%BD%E6%88%90%E4%B8%BA%E7%94%B5%E7%BD%91%E7%9A%84%E5%8F%AF%E8%B0%83%E8%B4%9F%E8%8D%B7"><span class="post-toc-number">1.9.2.</span> <span class="post-toc-text">◇矿场可能成为电网的可调负荷</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E6%95%A3%E7%83%AD%E5%BA%9F%E7%83%AD%E8%83%BD%E5%90%A6%E8%A2%AB%E5%88%A9%E7%94%A8%EF%BC%9F"><span class="post-toc-number">1.9.3.</span> <span class="post-toc-text">◇散热废热能否被利用？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E7%9F%BF%E6%B1%A0%E5%8D%8F%E8%AE%AE%E4%BC%9A%E4%B8%8D%E4%BC%9A%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%EF%BC%9F"><span class="post-toc-number">1.9.4.</span> <span class="post-toc-text">◇矿池协议会不会进一步去中心化？</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%98%85%E5%BC%95%E7%94%B3%E9%98%85%E8%AF%BB%EF%BC%9A%E4%BB%8E%E7%9F%BF%E4%B8%9A%E7%BB%A7%E7%BB%AD%E7%90%86%E8%A7%A3%E8%B4%A7%E5%B8%81%E3%80%81%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F%E5%92%8C%E4%BA%BA%E6%80%A7"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">★引申阅读：从矿业继续理解货币、复杂系统和人性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E5%85%B3%E4%BA%8E%E6%AF%94%E7%89%B9%E5%B8%81%E6%8A%80%E6%9C%AF"><span class="post-toc-number">1.10.1.</span> <span class="post-toc-text">◇关于比特币技术</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E5%85%B3%E4%BA%8E%E8%B4%A7%E5%B8%81%E5%92%8C%E9%80%9A%E8%83%80"><span class="post-toc-number">1.10.2.</span> <span class="post-toc-text">◇关于货币和通胀</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA%E5%92%8C%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F"><span class="post-toc-number">1.10.3.</span> <span class="post-toc-text">◇关于博弈论和复杂系统</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%97%87%E7%95%99%E7%BB%99%E8%AF%BB%E8%80%85%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="post-toc-number">1.10.4.</span> <span class="post-toc-text">◇留给读者的几个问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%98%85%E7%BB%93%E8%AF%AD%EF%BC%9A%E4%BB%A3%E7%A0%81%E4%B8%8D%E4%BC%9A%E6%B6%88%E7%81%AD%E4%BA%BA%E6%80%A7%EF%BC%8C%E5%8F%AA%E4%BC%9A%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E4%BA%BA%E6%80%A7%E7%9A%84%E6%B4%BB%E5%8A%A8%E8%8C%83%E5%9B%B4"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">★结语：代码不会消灭人性，只会重新安排人性的活动范围</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <h1 id="比特币矿工到底在“挖”什么？——从一场资深矿工访谈，看懂算力、成本、黑幕与信仰"><a href="#比特币矿工到底在“挖”什么？——从一场资深矿工访谈，看懂算力、成本、黑幕与信仰" class="headerlink" title="比特币矿工到底在“挖”什么？——从一场资深矿工访谈，看懂算力、成本、黑幕与信仰"></a>比特币矿工到底在“挖”什么？——从一场资深矿工访谈，看懂算力、成本、黑幕与信仰</h1><blockquote>
+<p>本文依据一段约半小时的比特币矿工访谈整理和分析。<br>需要事先声明：受访者讲述的行业经历具有参考价值，但其中若干技术解释、经济学推论和资产数字存在明显疑点。<br>俺会把【亲历经验】与【可验证的客观机制】分开讨论，免得把一个人的江湖经验，包装成宇宙真理。</p>
+</blockquote>
+<hr>
+<h2 id="★引子：矿工不是拿着镐头，而是守着一排发热的计算器"><a href="#★引子：矿工不是拿着镐头，而是守着一排发热的计算器" class="headerlink" title="★引子：矿工不是拿着镐头，而是守着一排发热的计算器"></a>★引子：矿工不是拿着镐头，而是守着一排发热的计算器</h2><h3 id="◇从“地下挖黄金”到“机房烧电”"><a href="#◇从“地下挖黄金”到“机房烧电”" class="headerlink" title="◇从“地下挖黄金”到“机房烧电”"></a>◇从“地下挖黄金”到“机房烧电”</h3><p>很多没接触过比特币的人，第一次听到“挖矿”这个词，脑海里浮现的往往是如下画面：</p>
+<p>一个人戴着安全帽，拿着铁镐，在黑漆漆的地下寻找黄金。</p>
+<p>但比特币矿工的真实工作场景，通常是另一番模样：</p>
+<ul>
+<li>一排排金属盒子；</li>
+<li>高速旋转、噪声惊人的风扇；</li>
+<li>密密麻麻的电源线和网线；</li>
+<li>持续吹出的滚烫气流；</li>
+<li>电表像吃了兴奋剂一样飞速转动；</li>
+<li>运维人员拿着测温枪，在机架之间来回检查。</li>
+</ul>
+<p>所谓比特币“挖矿”，并不是从某个地下数据库里把预先埋藏的比特币挖出来。</p>
+<p>它本质上是：</p>
+<p>【矿工通过消耗电力和计算资源，竞争获得记账权，并由比特币协议向胜出者发放新区块补贴和交易手续费。】</p>
+<p>这里面有三个关键词：</p>
+<ol>
+<li>【竞争】</li>
+<li>【记账权】</li>
+<li>【协议奖励】</li>
+</ol>
+<p>如果把比特币网络比作一个没有中央银行、没有总账管理员的全球账本，那么矿工就是一群互不信任、彼此竞争的临时记账员。</p>
+<p>谁能成为下一页账本的书写者，不靠学历，不靠行政级别，也不靠某位领导拍脑袋，而是靠一场公开的计算竞赛。</p>
+<p>这种竞赛叫作【工作量证明】，英文是 <code>Proof of Work</code>，通常缩写为 <code>PoW</code>。</p>
+<p>这套设计的巧妙之处在于：</p>
+<p>【你想参与记账，必须先付出真实世界的成本。】</p>
+<p>这个成本主要表现为：</p>
+<ul>
+<li>矿机采购成本；</li>
+<li>电力成本；</li>
+<li>场地成本；</li>
+<li>散热成本；</li>
+<li>运维成本；</li>
+<li>资金占用成本；</li>
+<li>政策和司法风险；</li>
+<li>设备折旧。</li>
+</ul>
+<p>因此，比特币网络虽然存在于虚拟空间，但它的安全性并不是凭空产生的，而是建立在现实世界的能源、芯片、资本和基础设施之上。</p>
+<h3 id="◇为啥一段矿工访谈值得深入分析捏？"><a href="#◇为啥一段矿工访谈值得深入分析捏？" class="headerlink" title="◇为啥一段矿工访谈值得深入分析捏？"></a>◇为啥一段矿工访谈值得深入分析捏？</h3><p>表面看，这段视频只是一个矿工讲述自己的经历：</p>
+<ul>
+<li>矿机多少钱；</li>
+<li>一个月交多少电费；</li>
+<li>什么机器容易亏；</li>
+<li>矿场里有哪些坑；</li>
+<li>为啥矿工喜欢囤币；</li>
+<li>为啥有人甚至期待币价暴跌。</li>
+</ul>
+<p>但如果继续向下挖，就会发现它实际上牵涉了多个非常有意思的问题：</p>
+<p>第一，比特币究竟是一个技术系统，还是一种金融资产？</p>
+<p>第二，矿工究竟是在“生产”比特币，还是在“购买”记账权？</p>
+<p>第三，电力成本究竟能不能决定比特币价格？</p>
+<p>第四，一个号称“去中心化、无须信任”的系统，为啥在现实经营中却极度依赖熟人、人脉和信用？</p>
+<p>第五，矿工所谓的“信仰”，究竟是长期主义，还是一种由沉没成本、杠杆和幸存者偏差共同制造的心理防御？</p>
+<p>第六，比特币减半之后，价格是不是必然上涨？</p>
+<p>这些问题远比“现在还能不能挖矿赚钱”更加重要。</p>
+<p>因为它们揭示了一个普遍规律：</p>
+<p>【协议层面的去中心化，并不会自动消灭现实世界中的权力集中、信息差和欺诈。】</p>
+<p>代码可以减少某些环节的信任，却无法让芯片、电表、合同、仓库、海关、税务和运维人员自动变得诚实。</p>
+<p>这也是本文真正想讨论的主题。</p>
+<h3 id="◇视频中最值得警惕的三种说法"><a href="#◇视频中最值得警惕的三种说法" class="headerlink" title="◇视频中最值得警惕的三种说法"></a>◇视频中最值得警惕的三种说法</h3><p>在正式进入技术部分之前，俺先列出视频中三个最容易误导普通观众的说法。</p>
+<p>第一种说法是：</p>
+<blockquote>
+<p>比特币价格由挖矿消耗的能源和电费锚定。</p>
+</blockquote>
+<p>这个说法听起来很有力量，但从经济学因果关系看，并不严谨。</p>
+<p>更接近事实的说法是：</p>
+<p>【币价决定矿工最多愿意承担多少成本，而不是矿工付出了多少成本，就能决定币价是多少。】</p>
+<p>假如你花一百万元制作了一把没人愿意买的椅子，这把椅子不会因为制造成本是一百万元，就自动价值一百万元。</p>
+<p>市场不会因为你很辛苦，就向你发放安慰奖。</p>
+<p>第二种说法是：</p>
+<blockquote>
+<p>每四年产量减半，所以挖出一枚比特币的成本会翻倍，币价也应该随之翻倍。</p>
+</blockquote>
+<p>这个推论忽略了多个可变因素：</p>
+<ul>
+<li>全网算力会变化；</li>
+<li>挖矿难度会调整；</li>
+<li>矿机会更新换代；</li>
+<li>单位算力能耗会下降；</li>
+<li>交易手续费会变化；</li>
+<li>电价会变化；</li>
+<li>高成本矿工会退出；</li>
+<li>新能源和弃电利用模式会变化。</li>
+</ul>
+<p>所以，【区块补贴减半】并不等于【单枚比特币生产成本机械翻倍】，更不等于【市场价格必然翻倍】。</p>
+<p>第三种说法更加离谱：</p>
+<blockquote>
+<p>嘉宾拥有超过一百五十万个比特币。</p>
+</blockquote>
+<p>比特币总量上限只有两千一百万枚。</p>
+<p>一百五十万枚约占最终总量的百分之七以上。假如一个普通受访矿工真持有如此规模的比特币，他不会只是“每天净赚几千元”，而会成为全球最受关注的巨鲸之一。</p>
+<p>结合上下文，这里很可能是：</p>
+<ul>
+<li>字幕错误；</li>
+<li>口误；</li>
+<li>“价值一百五十万元的比特币”；</li>
+<li>“一百五十多万个某种小单位”；</li>
+<li>或者资产规模被误述。</li>
+</ul>
+<p>为了避免有人抬杠，俺有必要说明一下：</p>
+<p>【俺无法仅凭这段文字摘要确认视频原话，因此不能断言受访者本人造假；但“持有一百五十万枚比特币”与其余叙述严重冲突，不能直接当作事实引用。】</p>
+<h3 id="◇本文采用的分析框架"><a href="#◇本文采用的分析框架" class="headerlink" title="◇本文采用的分析框架"></a>◇本文采用的分析框架</h3><p>为了避免写成那种“听了一个故事，立刻热血沸腾”的营销软文，本文按照 <code>WHAT-HOW-WHY</code> 三个层次展开。</p>
+<p>【WHAT】层面：</p>
+<ul>
+<li>比特币挖矿到底是什么；</li>
+<li>矿机、矿池、算力和难度分别是什么；</li>
+<li>矿工到底从哪里获得收入。</li>
+</ul>
+<p>【HOW】层面：</p>
+<ul>
+<li>矿机怎样尝试哈希；</li>
+<li>矿池怎样分配收益；</li>
+<li>关机价怎样计算；</li>
+<li>高端矿机为何更抗跌；</li>
+<li>矿场中的欺诈怎样发生。</li>
+</ul>
+<p>【WHY】层面：</p>
+<ul>
+<li>为什么矿业会形成严重的信息差；</li>
+<li>为什么“无须信任”的协议催生了“高度依赖信任”的产业；</li>
+<li>为什么矿工容易形成强烈信仰；</li>
+<li>为什么暴跌会同时摧毁一批矿工，又奖励另一批矿工；</li>
+<li>为什么减半叙事长期流行。</li>
+</ul>
+<p>下面开始拆解。</p>
+<hr>
+<h2 id="★基本概念：比特币挖矿究竟在计算什么？"><a href="#★基本概念：比特币挖矿究竟在计算什么？" class="headerlink" title="★基本概念：比特币挖矿究竟在计算什么？"></a>★基本概念：比特币挖矿究竟在计算什么？</h2><h3 id="◇不是解方程，而是在反复买彩票"><a href="#◇不是解方程，而是在反复买彩票" class="headerlink" title="◇不是解方程，而是在反复买彩票"></a>◇不是解方程，而是在反复买彩票</h3><p>视频中把挖矿描述为“计算一个极其复杂的哈希函数，第一个算出正确答案的人得到比特币”。</p>
+<p>这个表述便于入门，但仍然有些模糊。</p>
+<p>准确地说，比特币矿工不是在求解一道传统意义上的复杂数学题，也不是在破解某个加密密码。</p>
+<p>矿工主要做的是：</p>
+<ol>
+<li>收集尚未确认的交易；</li>
+<li>验证这些交易是否合法；</li>
+<li>构造一个候选区块；</li>
+<li>生成区块头；</li>
+<li>对区块头反复执行 <code>SHA-256</code> 哈希；</li>
+<li>检查哈希结果是否小于当前网络规定的目标值；</li>
+<li>如果不满足，就修改某些字段继续尝试；</li>
+<li>如果满足，就把新区块广播给整个网络。</li>
+</ol>
+<p>比特币使用的过程通常被称为双重 <code>SHA-256</code>：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hash = SHA256(SHA256(block_header))</span><br></pre></td></tr></table></figure>
+<p>矿工希望得到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hash &lt; target</span><br></pre></td></tr></table></figure>
+<p>由于哈希结果可以被视为近似均匀分布的随机数，所以没有某种聪明算法能直接推导出正确答案。</p>
+<p>矿工能做的主要事情就是：</p>
+<p>【不断改变输入，然后一次又一次尝试。】</p>
+<p>这很像购买彩票。</p>
+<p>假设有一个极大的抽奖箱，里面有无数号码。每执行一次哈希，就相当于抽一次号码。</p>
+<p>普通电脑每秒可能抽几百万、几千万次。</p>
+<p>专业矿机每秒可以抽数十万亿甚至数百万亿次。</p>
+<p>谁抽得次数更多，谁中奖的概率就更高。</p>
+<p>但需要注意：</p>
+<p>【算力更高只意味着概率更高，不意味着某台矿机一定能在某个时间点获胜。】</p>
+<p>一个拥有全网百分之一算力的矿工，从长期看大约能获得百分之一的区块收益；但在短期内，它可能连续很多天颗粒无收，也可能在短时间内意外挖出多个区块。</p>
+<p>这就是概率波动。</p>
+<h3 id="◇哈希函数到底有啥特点？"><a href="#◇哈希函数到底有啥特点？" class="headerlink" title="◇哈希函数到底有啥特点？"></a>◇哈希函数到底有啥特点？</h3><p>（注：技术菜鸟可以跳过这个小节）</p>
+<p>哈希函数可以理解为一个数字粉碎机。</p>
+<p>你把任意长度的数据输入进去，它会输出一个固定长度的结果。</p>
+<p><code>SHA-256</code> 的输出长度是二百五十六位，也就是三十二字节。</p>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：hello</span><br><span class="line">输出：某个固定的 256 位结果</span><br></pre></td></tr></table></figure>
+<p>如果把输入改成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello</span><br></pre></td></tr></table></figure>
+<p>哪怕只是把首字母从小写改成大写，输出结果也会发生巨大变化。</p>
+<p>这被称为【雪崩效应】。</p>
+<p>一个适合密码学用途的哈希函数，通常具有以下特点：</p>
+<p>第一，【确定性】。</p>
+<p>相同输入永远得到相同输出。</p>
+<p>第二，【难以反推】。</p>
+<p>知道输出，几乎无法计算出原始输入。</p>
+<p>第三，【难以碰撞】。</p>
+<p>想找到两个不同输入，使其产生完全相同输出，应该非常困难。</p>
+<p>第四，【输出近似均匀】。</p>
+<p>不能根据输入内容预测输出更可能落在哪个区域。</p>
+<p>挖矿主要利用第四个特点。</p>
+<p>如果系统要求哈希结果必须小于某个目标值，那么每次尝试都有一个固定但很低的成功概率。</p>
+<p>例如，为了便于理解，假设哈希只输出八位十进制数：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">00000000 到 99999999</span><br></pre></td></tr></table></figure>
+<p>系统规定只有小于：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">00000100</span><br></pre></td></tr></table></figure>
+<p>才算成功。</p>
+<p>那么平均每一百万次尝试中，大约只有一次成功机会。</p>
+<p>真实比特币网络的数字空间远比这个例子大得多。</p>
+<p>矿工不是在“理解”交易，也不是在“解开”一个越来越复杂的谜题；矿机芯片只是在高速执行极其单一的工作。</p>
+<p>从这个意义上说，一台 <code>ASIC</code> 矿机更像是一个偏执到极点的计算流水线：</p>
+<p>它不读小说，不训练人工智能，不渲染游戏画面，也不帮你写毕业论文。</p>
+<p>它一生只干一件事情：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SHA-256</span><br><span class="line">SHA-256</span><br><span class="line">SHA-256</span><br><span class="line">SHA-256</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+<p>是不是有点像某些只会重复文件、盖章和传话的机构捏？</p>
+<p>区别在于，矿机至少真的提供了可验证的计算结果。</p>
+<h3 id="◇区块奖励到底包括什么？"><a href="#◇区块奖励到底包括什么？" class="headerlink" title="◇区块奖励到底包括什么？"></a>◇区块奖励到底包括什么？</h3><p>矿工成功挖出一个新区块后，收入主要来自两个部分：</p>
+<ol>
+<li>【区块补贴】</li>
+<li>【交易手续费】</li>
+</ol>
+<p>区块补贴是比特币协议新发行的比特币。</p>
+<p>它不是永久固定的，而是每经过二十一万个区块减半一次。</p>
+<p>按平均每十分钟一个区块估算，大约每四年发生一次减半。</p>
+<p>早期每个区块的补贴是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">50 BTC</span><br></pre></td></tr></table></figure>
+<p>后来依次变为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">25 BTC</span><br><span class="line">12.5 BTC</span><br><span class="line">6.25 BTC</span><br><span class="line">3.125 BTC</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+<p>随着减半不断发生，新增比特币数量逐渐减少，最终发行总量趋近二千一百万枚。</p>
+<p>但矿工的收入不只有补贴。</p>
+<p>用户发起比特币交易时，可以附加交易手续费。矿工通常优先打包手续费率更高的交易，因为一个区块的空间有限。</p>
+<p>因此，一个矿工的区块收入可以写成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">区块收入 = 区块补贴 + 区块内交易手续费</span><br></pre></td></tr></table></figure>
+<p>当区块补贴越来越低，理论上比特币网络需要逐渐依赖交易手续费来维持矿工激励。</p>
+<p>这里存在一个长期问题：</p>
+<p>【当补贴不断降低后，手续费市场能否提供足够安全预算？】</p>
+<p>假如矿工总收入显著下降，全网算力可能下降，攻击网络所需要的成本也可能下降。</p>
+<p>当然，算力下降不等于网络必然不安全，因为安全性还取决于：</p>
+<ul>
+<li>攻击者获得芯片和能源的能力；</li>
+<li>攻击持续时间；</li>
+<li>交易确认要求；</li>
+<li>矿机的机会成本；</li>
+<li>市场对攻击的反应。</li>
+</ul>
+<p>但这确实是比特币长期经济模型中绕不开的问题。</p>
+<h3 id="◇难度调整是怎样维持十分钟出块的？"><a href="#◇难度调整是怎样维持十分钟出块的？" class="headerlink" title="◇难度调整是怎样维持十分钟出块的？"></a>◇难度调整是怎样维持十分钟出块的？</h3><p>视频提到：</p>
+<p>当币价下降，大量矿机关机，全网算力下降，挖矿难度也会下降，系统重新达到平衡。</p>
+<p>这个总体方向是对的，但要补充一个关键细节：</p>
+<p>【难度不会在矿机关机后立刻下降。】</p>
+<p>比特币协议大约每二千零一十六个区块调整一次难度。</p>
+<p>在理想情况下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2016 个区块 × 10 分钟</span><br><span class="line">≈ 14 天</span><br></pre></td></tr></table></figure>
+<p>系统会比较：</p>
+<ul>
+<li>这二千零一十六个区块实际用了多久；</li>
+<li>理论上应该用多久。</li>
+</ul>
+<p>假如全网算力增加，区块生成速度加快，下一周期难度会上调。</p>
+<p>假如全网算力下降，区块生成速度变慢，下一周期难度会下调。</p>
+<p>可以粗略理解为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">新难度 ≈ 旧难度 × 理论时间 / 实际时间</span><br></pre></td></tr></table></figure>
+<p>真实协议中还有边界限制，避免单次调整幅度过大。</p>
+<p>这意味着，在币价突然暴跌、大量矿机迅速关机时，剩余矿工并不会立即享受更低难度。</p>
+<p>在下一次难度调整之前：</p>
+<ul>
+<li>全网出块可能变慢；</li>
+<li>每台矿机的比特币产量未必马上增加；</li>
+<li>现金流压力仍然存在；</li>
+<li>高杠杆矿工可能熬不到难度下调。</li>
+</ul>
+<p>所以“暴跌之后高端矿工立刻挖得更多”这个说法，只说对了一半。</p>
+<p>更准确的逻辑是：</p>
+<p>【暴跌先降低矿工以法币计价的收入；如果高成本算力退出，并且剩余矿工能活到难度下调，那么它们之后才可能获得更高的单位算力产币量。】</p>
+<h3 id="◇矿池为何会出现？"><a href="#◇矿池为何会出现？" class="headerlink" title="◇矿池为何会出现？"></a>◇矿池为何会出现？</h3><p>假设一个矿工拥有全网万分之一的算力。</p>
+<p>从长期统计看，他应该获得万分之一左右的区块奖励。</p>
+<p>但新区块平均十分钟才出现一次，一天大约一百四十四个。</p>
+<p>全网一年大约产生：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">144 × 365 ≈ 52560 个区块</span><br></pre></td></tr></table></figure>
+<p>拥有万分之一算力的独立矿工，理论上平均一年只能挖到大约：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">52560 ÷ 10000 ≈ 5.26 个区块</span><br></pre></td></tr></table></figure>
+<p>这只是平均值。</p>
+<p>实际情况可能是：</p>
+<ul>
+<li>一年挖到八个；</li>
+<li>一年只挖到两个；</li>
+<li>几个月没有任何收入；</li>
+<li>某一天突然挖到一个。</li>
+</ul>
+<p>对于需要每月支付电费、租金和员工工资的经营者来说，这种收入波动非常危险。</p>
+<p>于是矿池出现了。</p>
+<p>矿池把大量矿工的算力汇聚起来，共同寻找新区块。</p>
+<p>矿工向矿池提交一种叫作 <code>share</code> 的证明。</p>
+<p><code>share</code> 可以理解为一个“难度比真实区块低很多的合格结果”。</p>
+<p>它不一定能成为真正的比特币区块，但可以证明：</p>
+<p>【这台矿机确实完成了相应数量的计算工作。】</p>
+<p>矿池根据矿工提交的 <code>share</code> 数量，估算其贡献的算力，然后按照某种规则分配收益。</p>
+<p>常见结算模式包括：</p>
+<ul>
+<li><code>PPS</code></li>
+<li><code>FPPS</code></li>
+<li><code>PPLNS</code></li>
+<li><code>SOLO</code></li>
+</ul>
+<p><code>PPS</code> 类似按工作量发固定工资。</p>
+<p>矿池无论短期内是否挖到区块，都会按照预期收益支付矿工，因此矿池承担运气波动风险。</p>
+<p><code>PPLNS</code> 更像项目分红。</p>
+<p>只有矿池真正挖到区块时，才根据一定窗口内的贡献进行分配。矿工承担更多波动，但费用通常更低。</p>
+<p><code>SOLO</code> 则接近联合基础设施下的独立挖矿。</p>
+<p>矿池帮助你连接网络和组织任务，但只有你的工作真正找到区块时，你才获得主要奖励。</p>
+<hr>
+<h2 id="★核心剖析之一：矿机、能耗与关机价"><a href="#★核心剖析之一：矿机、能耗与关机价" class="headerlink" title="★核心剖析之一：矿机、能耗与关机价"></a>★核心剖析之一：矿机、能耗与关机价</h2><h3 id="◇从-CPU-到-ASIC：一场残酷的军备竞赛"><a href="#◇从-CPU-到-ASIC：一场残酷的军备竞赛" class="headerlink" title="◇从 CPU 到 ASIC：一场残酷的军备竞赛"></a>◇从 <code>CPU</code> 到 <code>ASIC</code>：一场残酷的军备竞赛</h3><p>比特币早期可以使用普通电脑的 <code>CPU</code> 挖矿。</p>
+<p>后来矿工发现，显卡 <code>GPU</code> 更适合进行大量并行计算，于是 <code>GPU</code> 淘汰了 <code>CPU</code>。</p>
+<p>再后来出现了 <code>FPGA</code>。</p>
+<p>最终，专门为比特币双重 <code>SHA-256</code> 计算设计的 <code>ASIC</code> 成为主流。</p>
+<p><code>ASIC</code> 的全称是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Application-Specific Integrated Circuit</span><br></pre></td></tr></table></figure>
+<p>即【专用集成电路】。</p>
+<p>它的设计目标不是通用性，而是把某一种任务做到极致。</p>
+<p>通用处理器像一名综合型工程师：</p>
+<ul>
+<li>可以写代码；</li>
+<li>可以跑系统；</li>
+<li>可以处理表格；</li>
+<li>可以播放视频；</li>
+<li>可以执行各种程序。</li>
+</ul>
+<p><code>ASIC</code> 矿机则像流水线上的专用机械臂：</p>
+<ul>
+<li>不会聊天；</li>
+<li>不会打游戏；</li>
+<li>不会运行普通软件；</li>
+<li>只会高速计算特定哈希。</li>
+</ul>
+<p>这种专用化带来了极高效率，同时也意味着极低的残值弹性。</p>
+<p>显卡挖矿不赚钱后，显卡至少还可以：</p>
+<ul>
+<li>玩游戏；</li>
+<li>做三维渲染；</li>
+<li>训练模型；</li>
+<li>进行科学计算；</li>
+<li>卖给普通消费者。</li>
+</ul>
+<p>比特币 <code>ASIC</code> 一旦失去经济价值，大概率只能：</p>
+<ul>
+<li>继续挖比特币；</li>
+<li>拆零件；</li>
+<li>当废金属；</li>
+<li>摆在办公室当赛博朋克装饰品。</li>
+</ul>
+<p>这会显著放大设备周期风险。</p>
+<h3 id="◇矿机性能不能只看算力"><a href="#◇矿机性能不能只看算力" class="headerlink" title="◇矿机性能不能只看算力"></a>◇矿机性能不能只看算力</h3><p>很多新人购买矿机时，第一眼只看算力。</p>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">100 TH/s</span><br><span class="line">200 TH/s</span><br><span class="line">300 TH/s</span><br></pre></td></tr></table></figure>
+<p><code>TH/s</code> 表示每秒万亿次哈希。</p>
+<p>算力越高，在其他条件相同的情况下，预期产币量越高。</p>
+<p>但只看算力是不够的。</p>
+<p>更关键的指标是【能效比】，通常使用：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">J/TH</span><br></pre></td></tr></table></figure>
+<p>即每产生一万亿次哈希，需要消耗多少焦耳能量。</p>
+<p>假设有两台矿机：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">矿机 A：</span><br><span class="line">算力 100 TH/s</span><br><span class="line">功耗 3000 W</span><br><span class="line"></span><br><span class="line">矿机 B：</span><br><span class="line">算力 100 TH/s</span><br><span class="line">功耗 2000 W</span><br></pre></td></tr></table></figure>
+<p>两台机器算力相同，但矿机 B 的耗电量少三分之一。</p>
+<p>矿机 A 的能效为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3000 ÷ 100 = 30 J/TH</span><br></pre></td></tr></table></figure>
+<p>矿机 B 的能效为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2000 ÷ 100 = 20 J/TH</span><br></pre></td></tr></table></figure>
+<p>在币价高涨时，两台机器都可能赚钱。</p>
+<p>但币价下降后，电费成本会迅速吞噬收入，矿机 A 可能先到达关机价。</p>
+<p>因此，高端矿机真正的优势不只是“挖得多”，而是：</p>
+<p>【每获得一单位算力，消耗的电力更少。】</p>
+<h3 id="◇关机价怎样计算？"><a href="#◇关机价怎样计算？" class="headerlink" title="◇关机价怎样计算？"></a>◇关机价怎样计算？</h3><p>矿工所谓的“关机价”，通常是指：</p>
+<p>【当比特币价格下降到某个水平时，矿机每天挖到的币换算成法币后，已经不足以覆盖运行电费。】</p>
+<p>先构造一个简化模型。</p>
+<p>假设某台矿机参数如下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">算力：200 TH/s</span><br><span class="line">功耗：3.5 kW</span><br><span class="line">电价：0.40 元/kWh</span><br></pre></td></tr></table></figure>
+<p>一天耗电量是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.5 × 24 = 84 kWh</span><br></pre></td></tr></table></figure>
+<p>一天电费是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">84 × 0.40 = 33.6 元</span><br></pre></td></tr></table></figure>
+<p>假设这台矿机每天预期挖到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.00008 BTC</span><br></pre></td></tr></table></figure>
+<p>那么仅考虑电费，其理论关机价为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">33.6 ÷ 0.00008</span><br><span class="line">= 420000 元/BTC</span><br></pre></td></tr></table></figure>
+<p>当币价低于四十二万元人民币时，仅从即时现金流看，这台机器的挖矿收入可能已经低于电费。</p>
+<p>但真实关机价远比这个模型复杂，因为还要考虑：</p>
+<ul>
+<li>矿池费；</li>
+<li>托管服务费；</li>
+<li>运维费；</li>
+<li>场地费；</li>
+<li>网络费；</li>
+<li>税费；</li>
+<li>风扇和电源损耗；</li>
+<li>停机率；</li>
+<li>维修成本；</li>
+<li>汇率；</li>
+<li>资金成本；</li>
+<li>矿机折旧。</li>
+</ul>
+<p>更完整的每日利润公式可以写成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">每日利润</span><br><span class="line">= 每日产币量 × 币价</span><br><span class="line">- 每日电费</span><br><span class="line">- 托管费</span><br><span class="line">- 矿池费</span><br><span class="line">- 运维费</span><br><span class="line">- 税费</span><br><span class="line">- 折旧</span><br><span class="line">- 融资成本</span><br></pre></td></tr></table></figure>
+<p>而每日产币量又受到以下因素影响：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">每日产币量</span><br><span class="line">≈ 矿工算力 / 全网算力</span><br><span class="line">× 全网每日区块数</span><br><span class="line">× 每区块总奖励</span><br></pre></td></tr></table></figure>
+<p>所以挖矿不是简单的：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">买机器 → 插电 → 收钱</span><br></pre></td></tr></table></figure>
+<p>而是一个高度动态的现金流模型。</p>
+<h3 id="◇高端矿机为何更抗跌？"><a href="#◇高端矿机为何更抗跌？" class="headerlink" title="◇高端矿机为何更抗跌？"></a>◇高端矿机为何更抗跌？</h3><p>视频中的矿工提到：</p>
+<p>高端水冷矿机价格可能达到四五万元，低端二手机器可能只要两三千元。</p>
+<p>高端矿机前期投入大，但能效更好，关机价更低。</p>
+<p>这个判断在原则上成立。</p>
+<p>假设两台机器的每日产币量和电费如下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">高端矿机：</span><br><span class="line">每日收入 100 元</span><br><span class="line">每日电费 35 元</span><br><span class="line">毛现金流 65 元</span><br><span class="line"></span><br><span class="line">低端矿机：</span><br><span class="line">每日收入 70 元</span><br><span class="line">每日电费 55 元</span><br><span class="line">毛现金流 15 元</span><br></pre></td></tr></table></figure>
+<p>币价下跌百分之三十后：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">高端矿机：</span><br><span class="line">每日收入 70 元</span><br><span class="line">每日电费 35 元</span><br><span class="line">毛现金流 35 元</span><br><span class="line"></span><br><span class="line">低端矿机：</span><br><span class="line">每日收入 49 元</span><br><span class="line">每日电费 55 元</span><br><span class="line">毛现金流 -6 元</span><br></pre></td></tr></table></figure>
+<p>低端矿机被迫关机，高端矿机仍能运行。</p>
+<p>但不要因此得出“高端矿机风险更低”的绝对结论。</p>
+<p>高端矿机还有另一类风险：</p>
+<p>【资本开支风险。】</p>
+<p>例如：</p>
+<ul>
+<li>买入时矿机价格处于高位；</li>
+<li>新一代芯片提前发布；</li>
+<li>币价快速下跌；</li>
+<li>托管场地出问题；</li>
+<li>机器尚未上线就开始贬值；</li>
+<li>水冷系统发生故障；</li>
+<li>运维团队缺乏经验；</li>
+<li>机器融资需要偿还高额利息。</li>
+</ul>
+<p>一台低价旧机器，最多亏掉几千元。</p>
+<p>一台高价新机器，如果购买时机错误，可能在短时间内贬值数万元。</p>
+<p>所以，高端机器具有更低的【运营关机价】，但未必具有更低的【总投资风险】。</p>
+<h3 id="◇“卖铲子的人”真的永远最赚钱吗？"><a href="#◇“卖铲子的人”真的永远最赚钱吗？" class="headerlink" title="◇“卖铲子的人”真的永远最赚钱吗？"></a>◇“卖铲子的人”真的永远最赚钱吗？</h3><p>淘金热时代有一句著名的话：</p>
+<blockquote>
+<p>淘金者未必赚钱，卖铲子的人往往先赚钱。</p>
+</blockquote>
+<p>矿机厂商确实处于一个非常有利的位置。</p>
+<p>它们可以：</p>
+<ul>
+<li>设计芯片；</li>
+<li>控制首批产能；</li>
+<li>决定发售节奏；</li>
+<li>观察币价变化；</li>
+<li>在机器交付前自行测试甚至预挖；</li>
+<li>根据挖矿收益动态调整售价；</li>
+<li>将未来收益提前资本化。</li>
+</ul>
+<p>假设一台矿机按照当前参数，预计一年能产生价值五万元的毛收入。</p>
+<p>厂商和经销商不可能只按照芯片、金属和风扇的成本定价。</p>
+<p>他们会把预期收益反映进售价。</p>
+<p>因此，矿机售价往往与以下因素高度相关：</p>
+<ul>
+<li>比特币价格；</li>
+<li>全网难度；</li>
+<li>电价；</li>
+<li>交付时间；</li>
+<li>新一代设备发布时间；</li>
+<li>市场情绪；</li>
+<li>设备预期回本周期。</li>
+</ul>
+<p>币价暴涨时，矿机价格通常也会上涨。</p>
+<p>这意味着，新人经常在最乐观的时候，以最高价格购买设备。</p>
+<p>等机器到货后：</p>
+<ul>
+<li>币价可能已经下降；</li>
+<li>难度可能已经上升；</li>
+<li>新机器可能已经发布；</li>
+<li>原先估算的回本周期可能翻倍。</li>
+</ul>
+<p>是不是觉得有点像楼市高点时，售楼处拿着历史涨幅给你计算未来收益？</p>
+<p>表格很精美，模型很完整，唯一的问题是：</p>
+<p>【它默认未来会继续按照销售人员希望的方向发展。】</p>
+<hr>
+<h2 id="★核心剖析之二：电力能不能“锚定”比特币价格？"><a href="#★核心剖析之二：电力能不能“锚定”比特币价格？" class="headerlink" title="★核心剖析之二：电力能不能“锚定”比特币价格？"></a>★核心剖析之二：电力能不能“锚定”比特币价格？</h2><h3 id="◇成本决定价格，还是价格决定成本？"><a href="#◇成本决定价格，还是价格决定成本？" class="headerlink" title="◇成本决定价格，还是价格决定成本？"></a>◇成本决定价格，还是价格决定成本？</h3><p>受访者认为，比特币背后消耗了大量能源，因此能源成本为比特币价格提供了锚。</p>
+<p>这是一种在矿工群体中很常见的叙事。</p>
+<p>它的直觉是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">挖一枚比特币要花很多电</span><br><span class="line">→ 比特币不可能低于这些电费</span><br><span class="line">→ 电费构成比特币价值底部</span><br></pre></td></tr></table></figure>
+<p>问题在于，这个推理把因果关系反过来了。</p>
+<p>在竞争性市场中，通常不是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">成本高</span><br><span class="line">→ 市场必须给出高价</span><br></pre></td></tr></table></figure>
+<p>而是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">市场价格高</span><br><span class="line">→ 更多生产者愿意投入成本</span><br></pre></td></tr></table></figure>
+<p>假设比特币价格突然上涨一倍。</p>
+<p>会发生什么？</p>
+<ul>
+<li>原本亏损的矿机重新开机；</li>
+<li>矿工愿意支付更高电价；</li>
+<li>更多资本购买矿机；</li>
+<li>全网算力增加；</li>
+<li>挖矿难度上升；</li>
+<li>单位算力产币量下降；</li>
+<li>矿工利润逐渐被竞争压缩。</li>
+</ul>
+<p>反过来，假设币价下跌一半：</p>
+<ul>
+<li>高电价矿场先亏损；</li>
+<li>低效矿机先关机；</li>
+<li>二手机器价格下降；</li>
+<li>全网算力下降；</li>
+<li>难度之后下调；</li>
+<li>剩余矿工恢复部分利润。</li>
+</ul>
+<p>因此，更准确的说法是：</p>
+<p>【比特币价格决定挖矿行业能够承受的总成本，竞争又会推动矿工把利润投入更多算力，直到边际矿工接近盈亏平衡。】</p>
+<p>能源成本不是一个固定地基，而是一个会随着价格、难度和技术变化不断移动的结果。</p>
+<h3 id="◇一个卖烧饼的例子"><a href="#◇一个卖烧饼的例子" class="headerlink" title="◇一个卖烧饼的例子"></a>◇一个卖烧饼的例子</h3><p>为了把这个逻辑讲清楚，俺举一个极其朴素的例子。</p>
+<p>假设你开了一家烧饼店。</p>
+<p>每个烧饼的成本如下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">面粉：1 元</span><br><span class="line">人工：2 元</span><br><span class="line">燃气：1 元</span><br><span class="line">房租分摊：2 元</span><br><span class="line">总成本：6 元</span><br></pre></td></tr></table></figure>
+<p>你不能因此宣布：</p>
+<blockquote>
+<p>本烧饼耗费大量能源和劳动，所以市场价格必须至少为六元。</p>
+</blockquote>
+<p>假如消费者只愿意支付三元，你有几个选择：</p>
+<ul>
+<li>降低成本；</li>
+<li>改良产品；</li>
+<li>换地点；</li>
+<li>暂停生产；</li>
+<li>退出市场。</li>
+</ul>
+<p>消费者没有义务补偿你的低效率。</p>
+<p>同理，一名矿工用老旧矿机和昂贵电力挖出一枚比特币，花费了一百万元。</p>
+<p>另一名矿工用高效矿机和低价能源，成本只有三十万元。</p>
+<p>市场中的比特币没有“高成本矿工版”和“低成本矿工版”。</p>
+<p>它们是可互换的。</p>
+<p>市场不会因为第一名矿工比较辛苦，就给他的币贴上“工匠精神溢价”。</p>
+<p>因此：</p>
+<p>【高成本只能说明生产者效率低，不能自动证明资产价值高。】</p>
+<h3 id="◇生产成本有没有任何参考意义？"><a href="#◇生产成本有没有任何参考意义？" class="headerlink" title="◇生产成本有没有任何参考意义？"></a>◇生产成本有没有任何参考意义？</h3><p>为了避免有人抬杠，俺有必要说明一下：</p>
+<p>说“能源成本不能决定币价”，不等于说“挖矿成本毫无意义”。</p>
+<p>挖矿成本至少具有以下几种作用。</p>
+<p>第一，【影响矿工抛售压力】。</p>
+<p>矿工需要支付法币计价的电费、工资和场地费。</p>
+<p>当现金储备不足时，他们必须卖出部分比特币。</p>
+<p>第二，【影响算力供给】。</p>
+<p>价格低于部分矿工的边际成本后，这些矿工会关机。</p>
+<p>第三，【影响网络安全预算】。</p>
+<p>矿工总收入越高，理论上可以支持的算力投入越大。</p>
+<p>第四，【形成市场心理参考】。</p>
+<p>交易者会关注平均生产成本、关机价和矿工持仓变化。</p>
+<p>第五，【影响设备价格和行业扩张】。</p>
+<p>利润高时，矿机厂商扩大产能；利润低时，设备价格下跌。</p>
+<p>所以，生产成本是重要变量，却不是价值的最终来源。</p>
+<p>更准确的表达是：</p>
+<p>【成本会影响供给侧行为和安全预算，但资产价格最终取决于边际买卖双方的供需。】</p>
+<h3 id="◇复杂系统中的负反馈机制"><a href="#◇复杂系统中的负反馈机制" class="headerlink" title="◇复杂系统中的负反馈机制"></a>◇复杂系统中的负反馈机制</h3><p>比特币挖矿经济系统存在一个典型的【负反馈回路】。</p>
+<p>所谓负反馈，是指系统发生变化后，会出现一种反向力量，部分抵消最初的变化。</p>
+<p>当币价上涨时：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">币价上涨</span><br><span class="line">→ 挖矿利润提高</span><br><span class="line">→ 更多矿机上线</span><br><span class="line">→ 全网算力提高</span><br><span class="line">→ 难度上调</span><br><span class="line">→ 单位算力产币减少</span><br><span class="line">→ 利润率回落</span><br></pre></td></tr></table></figure>
+<p>当币价下跌时：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">币价下跌</span><br><span class="line">→ 挖矿利润下降</span><br><span class="line">→ 高成本矿机关机</span><br><span class="line">→ 全网算力下降</span><br><span class="line">→ 难度下调</span><br><span class="line">→ 剩余矿机单位算力产币增加</span><br><span class="line">→ 利润率部分恢复</span><br></pre></td></tr></table></figure>
+<p>难度调整就像一个自动控制器。</p>
+<p>它无法保证矿工赚钱，但能让新区块生成速度在长期内保持在十分钟左右。</p>
+<p>从软件架构角度看，这是一种非常精妙的【自适应控制机制】。</p>
+<p>比特币协议并不知道：</p>
+<ul>
+<li>哪家矿场倒闭了；</li>
+<li>哪个国家涨电价了；</li>
+<li>哪一批机器被查封了；</li>
+<li>哪个矿工欠了电费。</li>
+</ul>
+<p>协议只观察一个结果：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最近 2016 个区块生成得太快还是太慢？</span><br></pre></td></tr></table></figure>
+<p>然后调整难度。</p>
+<p>这有点像一个不知道房间里有多少人、也不知道窗户是否打开的恒温器。</p>
+<p>它不需要理解所有原因，只需要根据温度偏差进行反馈调节。</p>
+<p>这种设计的优点是【简单、鲁棒】。</p>
+<p>缺点是【存在调整延迟】。</p>
+<p>一旦算力发生剧烈变化，系统要等到调整周期结束后才能完全响应。</p>
+<hr>
+<h2 id="★核心剖析之三：矿池、托管与“去中心化的信任悖论”"><a href="#★核心剖析之三：矿池、托管与“去中心化的信任悖论”" class="headerlink" title="★核心剖析之三：矿池、托管与“去中心化的信任悖论”"></a>★核心剖析之三：矿池、托管与“去中心化的信任悖论”</h2><h3 id="◇协议无须信任，产业极度依赖信任"><a href="#◇协议无须信任，产业极度依赖信任" class="headerlink" title="◇协议无须信任，产业极度依赖信任"></a>◇协议无须信任，产业极度依赖信任</h3><p>比特币最著名的卖点之一，是所谓的 <code>trustless</code>。</p>
+<p>这个词更准确的意思不是“世界上再也不存在信任”，而是：</p>
+<p>【用户不需要无条件信任某一个中央机构，系统规则可以由密码学和分布式共识验证。】</p>
+<p>例如，任何节点都可以验证：</p>
+<ul>
+<li>区块格式是否正确；</li>
+<li>交易签名是否有效；</li>
+<li>是否发生双花；</li>
+<li>区块补贴是否超发；</li>
+<li>工作量证明是否满足难度要求。</li>
+</ul>
+<p>但矿工的现实经营包含大量链下环节：</p>
+<ul>
+<li>向厂商购买矿机；</li>
+<li>委托物流运输；</li>
+<li>通过海关；</li>
+<li>租用场地；</li>
+<li>签署电力合同；</li>
+<li>接入矿池；</li>
+<li>委托运维；</li>
+<li>维修算力板；</li>
+<li>结算电费；</li>
+<li>处理税务；</li>
+<li>兑换法币。</li>
+</ul>
+<p>这些环节不能只靠比特币协议解决。</p>
+<p>区块链可以验证一笔链上交易，却不能自动验证：</p>
+<ul>
+<li>运维人员有没有把你的电表接给别人；</li>
+<li>仓库里放的是新机器还是翻新机；</li>
+<li>算力板有没有被调包；</li>
+<li>场地方有没有虚报电价；</li>
+<li>对方有没有把矿机抵押两次；</li>
+<li>矿池统计是否完全诚实。</li>
+</ul>
+<p>于是出现一个很有意思的悖论：</p>
+<p>【比特币协议通过代码降低了记账环节的信任需求，但挖矿产业的物理环节仍然充满传统商业信任问题。】</p>
+<h3 id="◇矿池是不是新的中心化权力？"><a href="#◇矿池是不是新的中心化权力？" class="headerlink" title="◇矿池是不是新的中心化权力？"></a>◇矿池是不是新的中心化权力？</h3><p>矿池集合大量矿工算力，为矿工提供稳定收益。</p>
+<p>但矿池也拥有重要权力。</p>
+<p>例如，矿池服务器通常负责：</p>
+<ul>
+<li>构造候选区块；</li>
+<li>选择打包哪些交易；</li>
+<li>向矿机分配工作；</li>
+<li>统计 <code>share</code>；</li>
+<li>计算收益；</li>
+<li>执行结算。</li>
+</ul>
+<p>矿机可能分布在不同国家，但如果它们连接同一个矿池，那么区块模板可能由同一套服务器决定。</p>
+<p>这会带来几个风险。</p>
+<p>第一，【交易审查风险】。</p>
+<p>矿池可能拒绝打包某些地址或交易。</p>
+<p>第二，【单点故障风险】。</p>
+<p>矿池服务器被攻击或断网，大量矿机可能暂时失去工作。</p>
+<p>第三，【结算风险】。</p>
+<p>矿池可能延迟支付、修改规则或发生资金问题。</p>
+<p>第四，【算力集中风险】。</p>
+<p>少数矿池控制大量名义算力，会引发网络治理担忧。</p>
+<p>需要注意，矿池控制算力不等于拥有全部矿机。</p>
+<p>矿工可以切换矿池。</p>
+<p>如果矿池作恶，矿工理论上可以把算力迁移到其他矿池。</p>
+<p>但这种退出机制是否有效，取决于：</p>
+<ul>
+<li>矿工是否及时发现；</li>
+<li>切换成本；</li>
+<li>固件兼容性；</li>
+<li>合同限制；</li>
+<li>网络连接；</li>
+<li>其他矿池的可靠性；</li>
+<li>矿工自身技术能力。</li>
+</ul>
+<p>所以，算力的“所有权”和“调度权”需要区分。</p>
+<h3 id="◇偷电费是怎样发生的？"><a href="#◇偷电费是怎样发生的？" class="headerlink" title="◇偷电费是怎样发生的？"></a>◇偷电费是怎样发生的？</h3><p>视频提到一种常见骗局：</p>
+<p>运维人员把自己的矿机接到客户电表上，让客户替自己交电费。</p>
+<p>从技术上看，这并不神秘。</p>
+<p>假设客户托管了一百台矿机，每台功耗三千瓦。</p>
+<p>理论总功率为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100 × 3 kW = 300 kW</span><br></pre></td></tr></table></figure>
+<p>考虑电源损耗、风扇、网络设备和散热后，实际功率可能略高。</p>
+<p>假设运维人员偷偷接入十台自己的机器：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 × 3 kW = 30 kW</span><br></pre></td></tr></table></figure>
+<p>客户的总电量会增加约百分之十。</p>
+<p>如果客户只看矿池后台算力，却不核对：</p>
+<ul>
+<li>机器数量；</li>
+<li>实际功率；</li>
+<li>电表读数；</li>
+<li>机架配电；</li>
+<li>在线率；</li>
+<li>单机能耗；</li>
+<li>时间序列异常；</li>
+</ul>
+<p>就可能发现：</p>
+<p>“怎么这个月电费比预期高了，但我的产币量没增加？”</p>
+<p>问题在于，矿机功耗本身也会受到：</p>
+<ul>
+<li>温度；</li>
+<li>超频；</li>
+<li>电压；</li>
+<li>电源效率；</li>
+<li>故障；</li>
+<li>固件设置；</li>
+</ul>
+<p>等因素影响。</p>
+<p>因此，额外百分之几的电量很容易被解释成“正常波动”。</p>
+<p>一个更可靠的托管审计体系，至少应包括：</p>
+<ul>
+<li>独立分表；</li>
+<li>远程读表；</li>
+<li>单机序列号管理；</li>
+<li>机架摄像头；</li>
+<li>算力与功率交叉核验；</li>
+<li>异常功耗告警；</li>
+<li>定期现场盘点；</li>
+<li>运维操作日志；</li>
+<li>多方签字确认。</li>
+</ul>
+<p>如果一笔每月几十万元的电费，只靠微信群里一句：</p>
+<blockquote>
+<p>放心，都是兄弟。</p>
+</blockquote>
+<p>那就不是商业系统，而是大型真人版随机数生成器。</p>
+<h3 id="◇换算力板为何难以发现？"><a href="#◇换算力板为何难以发现？" class="headerlink" title="◇换算力板为何难以发现？"></a>◇换算力板为何难以发现？</h3><p>一台矿机通常包含：</p>
+<ul>
+<li>控制板；</li>
+<li>电源；</li>
+<li>风扇或水冷组件；</li>
+<li>多块算力板；</li>
+<li>大量专用芯片；</li>
+<li>温度传感器；</li>
+<li>连接线。</li>
+</ul>
+<p>假设某台机器有三块算力板。</p>
+<p>每块理论上贡献约三分之一算力。</p>
+<p>如果其中一块被替换成故障板，机器可能出现：</p>
+<ul>
+<li>总算力下降；</li>
+<li>频繁重启；</li>
+<li>芯片识别异常；</li>
+<li>温度异常；</li>
+<li>硬件错误率升高；</li>
+<li>在线率下降。</li>
+</ul>
+<p>但矿场环境本身就很恶劣：</p>
+<ul>
+<li>高温；</li>
+<li>灰尘；</li>
+<li>湿度；</li>
+<li>电压波动；</li>
+<li>风扇故障；</li>
+<li>网络抖动；</li>
+<li>长时间满负载。</li>
+</ul>
+<p>所以客户看到算力下降时，可能首先认为是自然故障，而不是监守自盗。</p>
+<p>特别是客户远程托管、无法定期现场检查时，信息严重不对称。</p>
+<p>运维人员掌握：</p>
+<ul>
+<li>机器实物；</li>
+<li>日志；</li>
+<li>维修过程；</li>
+<li>零件库存；</li>
+<li>故障解释权。</li>
+</ul>
+<p>客户只看到后台的一条曲线。</p>
+<p>这就形成了典型的【委托—代理问题】。</p>
+<p>委托人是客户。</p>
+<p>代理人是矿场运维。</p>
+<p>两者目标并不完全一致，而且代理人掌握更多信息。</p>
+<p>若缺乏审计、担保和惩罚机制，代理人就可能利用信息差谋取利益。</p>
+<h3 id="◇为何新人容易被“吃干抹净”？"><a href="#◇为何新人容易被“吃干抹净”？" class="headerlink" title="◇为何新人容易被“吃干抹净”？"></a>◇为何新人容易被“吃干抹净”？</h3><p>矿业的入门门槛不仅是资金，还有知识。</p>
+<p>新人可能不知道：</p>
+<ul>
+<li>机器真实市场价；</li>
+<li>不同批次的差异；</li>
+<li>是否为翻新机；</li>
+<li>固件是否被修改；</li>
+<li>实际能效是否达标；</li>
+<li>电价是否包含附加费用；</li>
+<li>托管费怎样计算；</li>
+<li>停机时间是否收费；</li>
+<li>维修配件怎样定价；</li>
+<li>政策风险由谁承担；</li>
+<li>矿池收益怎样核对；</li>
+<li>退出时机器如何运回。</li>
+</ul>
+<p>一名中间商只要控制其中几个信息节点，就可以反复收割。</p>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">设备采购加价一次</span><br><span class="line">运输加价一次</span><br><span class="line">托管押金收一次</span><br><span class="line">电价加价一次</span><br><span class="line">维修费再加一次</span><br><span class="line">退出时折价回收一次</span><br></pre></td></tr></table></figure>
+<p>矿工以为自己购买的是一台生产资料。</p>
+<p>中间商看到的却可能是一个可以多次收费的客户生命周期。</p>
+<p>从信息论角度看，这个行业的核心问题之一是【信息熵极高】。</p>
+<p>机器状态、费用结构和收益归属存在大量不确定性。</p>
+<p>掌握更多真实信息的人，可以利用这种不确定性套利。</p>
+<p>而新人经常用一种最危险的方式降低不确定性：</p>
+<p>【相信熟人。】</p>
+<p>熟人当然可能可靠，但“是朋友介绍的”并不是审计机制。</p>
+<p>很多骗局恰恰依靠熟人网络传播，因为陌生人骗一次，熟人链条可以骗一串。</p>
+<hr>
+<h2 id="★核心剖析之四：矿工为何会在暴跌时“狂喜”？"><a href="#★核心剖析之四：矿工为何会在暴跌时“狂喜”？" class="headerlink" title="★核心剖析之四：矿工为何会在暴跌时“狂喜”？"></a>★核心剖析之四：矿工为何会在暴跌时“狂喜”？</h2><h3 id="◇先别高兴，暴跌第一步是收入暴跌"><a href="#◇先别高兴，暴跌第一步是收入暴跌" class="headerlink" title="◇先别高兴，暴跌第一步是收入暴跌"></a>◇先别高兴，暴跌第一步是收入暴跌</h3><p>视频中的矿工说，币价暴跌会淘汰高成本矿工。</p>
+<p>当它们关机后，全网算力下降，自己用高端机器和低成本电力，反而能挖到更多比特币。</p>
+<p>这个逻辑存在一定合理性，但前提很多。</p>
+<p>假设一台矿机每天挖到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.0001 BTC</span><br></pre></td></tr></table></figure>
+<p>当比特币价格为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100000 美元</span><br></pre></td></tr></table></figure>
+<p>每日毛收入为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 美元</span><br></pre></td></tr></table></figure>
+<p>如果币价跌到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">50000 美元</span><br></pre></td></tr></table></figure>
+<p>在难度尚未调整前，每日产币量没有变化，每日毛收入立即下降为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 美元</span><br></pre></td></tr></table></figure>
+<p>也就是说，暴跌发生后，矿工首先承受的是：</p>
+<p>【法币收入瞬间缩水。】</p>
+<p>之后，如果大量矿机退出，并且难度下调，剩余矿工的每日比特币产量才会提高。</p>
+<p>假设难度下降百分之二十，每日产币量可能提高到大约：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.000125 BTC</span><br></pre></td></tr></table></figure>
+<p>在五万美元币价下，对应收入是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6.25 美元</span><br></pre></td></tr></table></figure>
+<p>比暴跌刚发生时的五美元好，但仍低于暴跌前的十美元。</p>
+<p>因此，所谓“暴跌狂喜”不是说暴跌能让矿工立即多赚钱，而是说：</p>
+<p>【对于现金流充足、负债低、电价低、机器效率高的矿工，暴跌可能淘汰竞争者，并提高其长期市场份额。】</p>
+<h3 id="◇这是一场矿业版的达尔文选择"><a href="#◇这是一场矿业版的达尔文选择" class="headerlink" title="◇这是一场矿业版的达尔文选择"></a>◇这是一场矿业版的达尔文选择</h3><p>矿业市场具有明显的自然选择机制。</p>
+<p>币价高涨时，很多参与者都能生存：</p>
+<ul>
+<li>高电价矿场；</li>
+<li>低效旧矿机；</li>
+<li>管理混乱的团队；</li>
+<li>高杠杆投资者；</li>
+<li>缺乏经验的新手。</li>
+</ul>
+<p>因为高利润掩盖了低效率。</p>
+<p>就像洪水上涨时，很多破船也能漂起来。</p>
+<p>一旦币价下跌，问题集中暴露：</p>
+<ul>
+<li>现金流断裂；</li>
+<li>贷款到期；</li>
+<li>电费拖欠；</li>
+<li>机器被扣；</li>
+<li>托管方跑路；</li>
+<li>二手设备价格崩溃；</li>
+<li>投资人要求退出；</li>
+<li>高成本矿机被迫关机。</li>
+</ul>
+<p>最终存活下来的往往是：</p>
+<ul>
+<li>电价更低者；</li>
+<li>机器更高效者；</li>
+<li>负债更低者；</li>
+<li>资金储备更多者；</li>
+<li>运维能力更强者；</li>
+<li>能进行风险对冲者；</li>
+<li>能获得政策和能源资源者。</li>
+</ul>
+<p>这就是【适者生存】。</p>
+<p>但需要警惕【幸存者偏差】。</p>
+<p>你在视频里看到的，通常是活下来的矿工。</p>
+<p>已经破产、负债、机器被扣或退出行业的人，不一定会接受访谈。</p>
+<p>于是观众容易形成错觉：</p>
+<blockquote>
+<p>资深矿工都很淡定，暴跌反而很开心。</p>
+</blockquote>
+<p>实际上，很多曾经也自称“信仰坚定”的矿工，只是已经没有机会出现在镜头里。</p>
+<h3 id="◇只有低杠杆矿工才有资格喜欢暴跌"><a href="#◇只有低杠杆矿工才有资格喜欢暴跌" class="headerlink" title="◇只有低杠杆矿工才有资格喜欢暴跌"></a>◇只有低杠杆矿工才有资格喜欢暴跌</h3><p>矿工能不能承受暴跌，关键不只是关机价，还包括资产负债表。</p>
+<p>假设两个矿工拥有完全相同的矿机和电价。</p>
+<p>矿工甲：</p>
+<ul>
+<li>全款购买设备；</li>
+<li>没有贷款；</li>
+<li>有十二个月现金储备；</li>
+<li>能承受长时间亏损；</li>
+<li>比特币不必立刻卖出。</li>
+</ul>
+<p>矿工乙：</p>
+<ul>
+<li>借款购买设备；</li>
+<li>每月偿还本息；</li>
+<li>托管费预付；</li>
+<li>现金储备只够一个月；</li>
+<li>每天必须卖币支付电费。</li>
+</ul>
+<p>两人的技术成本相同，但财务生存能力完全不同。</p>
+<p>币价下跌后，矿工甲可以：</p>
+<ul>
+<li>继续运行；</li>
+<li>等待难度下调；</li>
+<li>低价收购二手机器；</li>
+<li>等待下一轮周期。</li>
+</ul>
+<p>矿工乙可能在难度调整前就已经现金流断裂。</p>
+<p>所以，真正决定矿工能否“逆周期扩张”的，不只是矿机效率，而是：</p>
+<p>【低成本能源、低杠杆、充足流动性和稳定托管条件的组合。】</p>
+<p>少一个都可能翻车。</p>
+<h3 id="◇矿工的“囤币”心理从何而来？"><a href="#◇矿工的“囤币”心理从何而来？" class="headerlink" title="◇矿工的“囤币”心理从何而来？"></a>◇矿工的“囤币”心理从何而来？</h3><p>矿工往往比普通交易者更愿意囤币，这并不奇怪。</p>
+<p>原因之一是【收入单位】。</p>
+<p>矿工每天获得的是比特币，而不是先获得美元再购买比特币。</p>
+<p>这会形成一种心理账户：</p>
+<blockquote>
+<p>这些币是我挖出来的，不是我花钱买的。</p>
+</blockquote>
+<p>但从经济学角度看，这种区分并不成立。</p>
+<p>假设一名矿工花费一万元电费，挖到价值一万元的比特币。</p>
+<p>这和他直接花一万元购买比特币，在资产结果上非常接近。</p>
+<p>区别主要在于：</p>
+<ul>
+<li>挖矿有设备折旧；</li>
+<li>收益存在概率和运营风险；</li>
+<li>可能获得更低边际成本；</li>
+<li>可能利用特殊电力资源；</li>
+<li>可能有税务和监管差异。</li>
+</ul>
+<p>如果矿工挖到比特币后选择不卖，本质上相当于：</p>
+<p>【每天用挖矿收入继续做多比特币。】</p>
+<p>假设今天挖到价值一万元的币。</p>
+<p>矿工可以立即卖出，获得一万元现金。</p>
+<p>他选择不卖，等价于放弃一万元现金，并继续持有这一万元的比特币风险。</p>
+<p>因此，“不炒币，只囤币”并不意味着没有投机。</p>
+<p>长期持有本身就是一种价格判断。</p>
+<h3 id="◇信仰是优势，也可能是风险屏蔽器"><a href="#◇信仰是优势，也可能是风险屏蔽器" class="headerlink" title="◇信仰是优势，也可能是风险屏蔽器"></a>◇信仰是优势，也可能是风险屏蔽器</h3><p>一个高度波动、长期投入的行业，需要从业者具有很强的心理承受能力。</p>
+<p>如果矿工每天都怀疑：</p>
+<ul>
+<li>比特币会不会归零；</li>
+<li>政策会不会变化；</li>
+<li>机器会不会淘汰；</li>
+<li>电价会不会上涨；</li>
+<li>托管方会不会跑路；</li>
+</ul>
+<p>他很难坚持多年。</p>
+<p>因此，信仰能够提供：</p>
+<ul>
+<li>长期行动的一致性；</li>
+<li>对短期波动的耐受；</li>
+<li>逆周期投资勇气；</li>
+<li>社群认同；</li>
+<li>心理稳定。</li>
+</ul>
+<p>但信仰也可能成为屏蔽风险信息的过滤器。</p>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">币价上涨</span><br><span class="line">→ 比特币改变世界</span><br><span class="line"></span><br><span class="line">币价下跌</span><br><span class="line">→ 这是洗盘和机会</span><br><span class="line"></span><br><span class="line">监管放松</span><br><span class="line">→ 主流认可</span><br><span class="line"></span><br><span class="line">监管收紧</span><br><span class="line">→ 旧制度害怕新技术</span><br><span class="line"></span><br><span class="line">矿工盈利</span><br><span class="line">→ 信仰得到验证</span><br><span class="line"></span><br><span class="line">矿工亏损</span><br><span class="line">→ 黎明前的黑暗</span><br></pre></td></tr></table></figure>
+<p>不论发生什么，都能解释成利好，这就不是可证伪的投资逻辑，而是封闭叙事。</p>
+<p>真正理性的长期主义，应该允许以下问题存在：</p>
+<ul>
+<li>我的判断可能错在哪里？</li>
+<li>什么事实出现后，我会改变观点？</li>
+<li>哪些风险无法由减半叙事解释？</li>
+<li>如果需求不增长，稀缺性是否仍有价值？</li>
+<li>如果手续费无法维持安全预算，会怎样？</li>
+<li>如果托管、税务和政策成本持续提高，会怎样？</li>
+</ul>
+<p>【信念可以帮助人坚持，但不能代替风险模型。】</p>
+<hr>
+<h2 id="★核心剖析之五：比特币是否天然抗通胀？"><a href="#★核心剖析之五：比特币是否天然抗通胀？" class="headerlink" title="★核心剖析之五：比特币是否天然抗通胀？"></a>★核心剖析之五：比特币是否天然抗通胀？</h2><h3 id="◇有限供应不等于稳定购买力"><a href="#◇有限供应不等于稳定购买力" class="headerlink" title="◇有限供应不等于稳定购买力"></a>◇有限供应不等于稳定购买力</h3><p>比特币总量上限约为二千一百万枚，这是协议层面的供应约束。</p>
+<p>从这个角度看，比特币与可以不断增发的法定货币存在明显差异。</p>
+<p>但从：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">供应有限</span><br></pre></td></tr></table></figure>
+<p>直接推导出：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">必然抗通胀</span><br></pre></td></tr></table></figure>
+<p>仍然缺少几个逻辑环节。</p>
+<p>资产价格由供给和需求共同决定。</p>
+<p>即使某种东西总量极少，如果没有人需要，价格仍然可能很低。</p>
+<p>例如，一幅由俺随手画出的丑画，全世界只有一张。</p>
+<p>它具有绝对稀缺性。</p>
+<p>但稀缺并不自动产生购买力，因为需求可能接近零。</p>
+<p>因此，比特币的长期价值不仅依赖供应上限，还依赖：</p>
+<ul>
+<li>是否持续有人愿意持有；</li>
+<li>是否被视为储值资产；</li>
+<li>网络是否保持安全；</li>
+<li>交易和托管基础设施是否可靠；</li>
+<li>法律环境是否允许；</li>
+<li>是否出现更有竞争力的替代品；</li>
+<li>市场流动性是否充足；</li>
+<li>大型机构是否持续参与。</li>
+</ul>
+<p>【稀缺性是价值的重要条件之一，但不是充分条件。】</p>
+<h3 id="◇“抗通胀”至少有三种含义"><a href="#◇“抗通胀”至少有三种含义" class="headerlink" title="◇“抗通胀”至少有三种含义"></a>◇“抗通胀”至少有三种含义</h3><p>人们谈论抗通胀时，经常把不同概念混在一起。</p>
+<p>第一种是【供应抗稀释】。</p>
+<p>比特币持有者不会因为某个中央机构突然增发一倍比特币，而使自己持有比例减半。</p>
+<p>在这个意义上，比特币具有很强的规则确定性。</p>
+<p>第二种是【价格与消费物价长期正相关】。</p>
+<p>例如通胀上升时，某种资产价格也相应上涨。</p>
+<p>比特币是否稳定具备这种关系，需要经验数据检验，不能只靠供应公式推导。</p>
+<p>第三种是【购买力稳定】。</p>
+<p>也就是持有该资产后，未来能够较稳定地购买商品和服务。</p>
+<p>比特币价格波动极大。</p>
+<p>它可能在一段时期内大幅跑赢通胀，也可能在另一段时期内下跌百分之五十以上。</p>
+<p>因此，比特币可以是高潜在回报的稀缺资产，但很难把它描述成短期购买力稳定工具。</p>
+<p>为了避免有人抬杠，俺再强调一下：</p>
+<p>【说比特币价格波动大，不等于说它长期一定没有抗通胀作用；只是“供应有限”本身不足以证明其在任意时间尺度上都能保护购买力。】</p>
+<h3 id="◇法币增发不等于所有财富都被凭空创造"><a href="#◇法币增发不等于所有财富都被凭空创造" class="headerlink" title="◇法币增发不等于所有财富都被凭空创造"></a>◇法币增发不等于所有财富都被凭空创造</h3><p>视频中的受访者认为，在没有重大工业革命的前提下，全球经济通常通过通货膨胀积累财富。</p>
+<p>这个说法把几个不同概念混在了一起：</p>
+<ul>
+<li>货币供应增长；</li>
+<li>实际经济增长；</li>
+<li>名义资产上涨；</li>
+<li>财富重新分配；</li>
+<li>生产率提高；</li>
+<li>债务扩张。</li>
+</ul>
+<p>货币增发本身不会直接创造真实财富。</p>
+<p>真实财富包括：</p>
+<ul>
+<li>食物；</li>
+<li>住房；</li>
+<li>能源；</li>
+<li>医疗服务；</li>
+<li>工业设备；</li>
+<li>知识；</li>
+<li>技术；</li>
+<li>基础设施；</li>
+<li>有组织的生产能力。</li>
+</ul>
+<p>印更多货币，并不会让社会自动多出更多芯片、粮食和住房。</p>
+<p>如果货币供应增长快于商品和服务供给，通常会导致价格上涨和财富重新分配。</p>
+<p>离新增货币更近的人，可能更早以旧价格购买资产。</p>
+<p>离新增货币更远的人，则在物价上涨后才拿到更多收入。</p>
+<p>这类效应常被描述为 <code>Cantillon Effect</code>。</p>
+<p>但经济增长也可能来自：</p>
+<ul>
+<li>技术进步；</li>
+<li>分工深化；</li>
+<li>资本积累；</li>
+<li>教育提升；</li>
+<li>制度改进；</li>
+<li>能源利用效率提高；</li>
+<li>供应链优化。</li>
+</ul>
+<p>不能把所有名义财富增长都归因于通胀。</p>
+<h3 id="◇固定规则为何具有强大吸引力？"><a href="#◇固定规则为何具有强大吸引力？" class="headerlink" title="◇固定规则为何具有强大吸引力？"></a>◇固定规则为何具有强大吸引力？</h3><p>即便比特币并不自动保证购买力稳定，它的固定发行规则仍然具有巨大心理和制度吸引力。</p>
+<p>传统货币政策依赖：</p>
+<ul>
+<li>中央银行判断；</li>
+<li>政府财政；</li>
+<li>金融体系稳定；</li>
+<li>利率工具；</li>
+<li>政治决策；</li>
+<li>危机处理。</li>
+</ul>
+<p>这意味着规则具有一定弹性。</p>
+<p>弹性有好处。</p>
+<p>发生金融危机时，政策制定者可以提供流动性，避免支付系统和信用系统瞬间崩溃。</p>
+<p>弹性也有风险。</p>
+<p>政策可能被滥用：</p>
+<ul>
+<li>长期负利率；</li>
+<li>财政货币化；</li>
+<li>资产泡沫；</li>
+<li>利益集团优先获救；</li>
+<li>普通储户购买力被侵蚀。</li>
+</ul>
+<p>比特币提供的是另一种极端：</p>
+<p>【用难以随意修改的算法规则，替代高度依赖人的货币裁量。】</p>
+<p>这种设计降低了某类权力滥用风险，却牺牲了某些危机响应能力。</p>
+<p>它不是简单的“先进制度打败落后制度”，而是两种风险配置方式：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">法币系统：</span><br><span class="line">信任机构和政策弹性</span><br><span class="line">承担裁量权被滥用的风险</span><br><span class="line"></span><br><span class="line">比特币系统：</span><br><span class="line">信任公开规则和网络激励</span><br><span class="line">承担价格波动、技术、治理和市场风险</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="★俺的点评：矿业的真正门槛不是矿机，而是控制风险的能力"><a href="#★俺的点评：矿业的真正门槛不是矿机，而是控制风险的能力" class="headerlink" title="★俺的点评：矿业的真正门槛不是矿机，而是控制风险的能力"></a>★俺的点评：矿业的真正门槛不是矿机，而是控制风险的能力</h2><h3 id="◇普通人最容易掉进“看得见的收益”陷阱"><a href="#◇普通人最容易掉进“看得见的收益”陷阱" class="headerlink" title="◇普通人最容易掉进“看得见的收益”陷阱"></a>◇普通人最容易掉进“看得见的收益”陷阱</h3><p>矿机销售人员最喜欢向新人展示的，通常是：</p>
+<ul>
+<li>今日产币量；</li>
+<li>当前币价；</li>
+<li>预计每日收益；</li>
+<li>理论回本天数；</li>
+<li>下一轮牛市预测。</li>
+</ul>
+<p>但它们往往弱化以下内容：</p>
+<ul>
+<li>难度增长；</li>
+<li>机器折旧；</li>
+<li>维修停机；</li>
+<li>电价变化；</li>
+<li>币价回撤；</li>
+<li>交付延迟；</li>
+<li>托管违约；</li>
+<li>政策风险；</li>
+<li>汇率变化；</li>
+<li>退出流动性。</li>
+</ul>
+<p>这是一种典型的【界面欺骗】。</p>
+<p>界面上显示的是一个稳定增长的收益数字。</p>
+<p>底层却是一个由大量随机变量共同驱动的复杂系统。</p>
+<p>假设销售人员告诉你：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">机器价格：30000 元</span><br><span class="line">每日净收益：100 元</span><br><span class="line">预计回本：300 天</span><br></pre></td></tr></table></figure>
+<p>这个模型隐含假设：</p>
+<ul>
+<li>未来三百天币价不变；</li>
+<li>全网难度不变；</li>
+<li>电价不变；</li>
+<li>机器每天在线；</li>
+<li>没有维修；</li>
+<li>没有托管纠纷；</li>
+<li>没有新机器淘汰；</li>
+<li>矿池正常支付；</li>
+<li>政策环境不变。</li>
+</ul>
+<p>这不是预测。</p>
+<p>这是把现实世界关掉以后运行的演示程序。</p>
+<h3 id="◇高收益行业为何总伴随灰色空间？"><a href="#◇高收益行业为何总伴随灰色空间？" class="headerlink" title="◇高收益行业为何总伴随灰色空间？"></a>◇高收益行业为何总伴随灰色空间？</h3><p>矿业具备几个容易滋生灰产的条件。</p>
+<p>第一，【资产价值高】。</p>
+<p>一间矿场可能存放价值数百万元甚至数千万元的设备。</p>
+<p>第二，【设备外观高度相似】。</p>
+<p>同型号机器和算力板很难仅凭外观辨别状态。</p>
+<p>第三，【客户远程托管】。</p>
+<p>资产持有人无法持续现场监督。</p>
+<p>第四，【收入波动大】。</p>
+<p>算力和产币变化容易被归因于网络难度、温度或设备状态。</p>
+<p>第五，【跨境经营复杂】。</p>
+<p>涉及不同国家的电力、税务、海关和司法体系。</p>
+<p>第六，【参与者法律保护意识弱】。</p>
+<p>很多合作依赖口头承诺、熟人关系和简单合同。</p>
+<p>第七，【行业历史上长期处于政策灰区】。</p>
+<p>在天朝某些时期，矿业可能今天被称为技术创新，明天被称为高耗能项目，后天又在某个偏远地区悄悄恢复。</p>
+<p>这种环境会筛选出擅长寻找资源和灰色通道的人，却未必筛选出最重视透明治理的人。</p>
+<h3 id="◇真正专业的矿工应该像经营数据中心"><a href="#◇真正专业的矿工应该像经营数据中心" class="headerlink" title="◇真正专业的矿工应该像经营数据中心"></a>◇真正专业的矿工应该像经营数据中心</h3><p>如果把矿业当作严肃产业，而不是赌博，管理方式应该接近数据中心或能源企业。</p>
+<p>至少需要建立以下系统：</p>
+<p>【设备资产管理】</p>
+<ul>
+<li>每台机器有唯一编号；</li>
+<li>记录型号、批次和序列号；</li>
+<li>记录每块算力板；</li>
+<li>保存采购和维修历史；</li>
+<li>建立零件出入库记录。</li>
+</ul>
+<p>【能源管理】</p>
+<ul>
+<li>独立电表；</li>
+<li>分机架计量；</li>
+<li>实时功率监控；</li>
+<li>峰谷电价记录；</li>
+<li>异常能耗报警；</li>
+<li>电费账单交叉验证。</li>
+</ul>
+<p>【运行监控】</p>
+<ul>
+<li>单机算力；</li>
+<li>芯片温度；</li>
+<li>风扇转速；</li>
+<li>硬件错误率；</li>
+<li>在线率；</li>
+<li>重启次数；</li>
+<li>矿池拒绝率；</li>
+<li>网络延迟。</li>
+</ul>
+<p>【财务管理】</p>
+<ul>
+<li>币本位收入；</li>
+<li>法币收入；</li>
+<li>电费；</li>
+<li>托管费；</li>
+<li>折旧；</li>
+<li>利息；</li>
+<li>税费；</li>
+<li>已实现和未实现盈亏。</li>
+</ul>
+<p>【风险管理】</p>
+<ul>
+<li>币价情景分析；</li>
+<li>难度增长情景；</li>
+<li>电价上行情景；</li>
+<li>设备故障情景；</li>
+<li>政策中断情景；</li>
+<li>托管方违约情景；</li>
+<li>汇率波动情景。</li>
+</ul>
+<p>没有这些系统，只靠每天看看矿池 App 上的数字，那不叫经营矿场。</p>
+<p>那叫远程观看自己的资产如何被随机事件处置。</p>
+<h3 id="◇“一人留一个比特币买房”属于预测，不属于证明"><a href="#◇“一人留一个比特币买房”属于预测，不属于证明" class="headerlink" title="◇“一人留一个比特币买房”属于预测，不属于证明"></a>◇“一人留一个比特币买房”属于预测，不属于证明</h3><p>受访者计划给未来两个孩子一人留一个比特币，并认为足以在中国一线城市购买一套舒适住房。</p>
+<p>这种表达可以理解为个人信念，但不能当作可验证结论。</p>
+<p>未来一枚比特币能否购买一套房，取决于两个价格：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">比特币价格</span><br><span class="line">÷</span><br><span class="line">房屋价格</span><br></pre></td></tr></table></figure>
+<p>不仅比特币价格会变化，房价也会变化。</p>
+<p>可能出现：</p>
+<ul>
+<li>比特币上涨，房价也上涨；</li>
+<li>比特币上涨快于房价；</li>
+<li>比特币下跌，房价稳定；</li>
+<li>比特币上涨，但汇兑和监管受限；</li>
+<li>房价因人口和经济结构变化而下降。</li>
+</ul>
+<p>因此，“一枚币等于一套房”本质上是一个比值预测。</p>
+<p>它并不只是在预测比特币，还在预测：</p>
+<ul>
+<li>中国城市化；</li>
+<li>人口结构；</li>
+<li>住房供应；</li>
+<li>货币政策；</li>
+<li>资本流动；</li>
+<li>税收制度；</li>
+<li>加密资产监管。</li>
+</ul>
+<p>用一句充满信心的话覆盖几十个变量，听起来很有感染力，却不构成严谨分析。</p>
+<h3 id="◇“四年后达到二十五万至三十万美元”靠谱吗？"><a href="#◇“四年后达到二十五万至三十万美元”靠谱吗？" class="headerlink" title="◇“四年后达到二十五万至三十万美元”靠谱吗？"></a>◇“四年后达到二十五万至三十万美元”靠谱吗？</h3><p>受访者根据减半和能耗成本，预测四年后比特币价格达到二十五万至三十万美元。</p>
+<p>这种预测不是不可能发生。</p>
+<p>问题是，推导过程不充分。</p>
+<p>要支持价格预测，至少需要讨论：</p>
+<ul>
+<li>全球资金配置比例；</li>
+<li>现货和衍生品流动性；</li>
+<li>机构持仓；</li>
+<li>长期持有者抛售意愿；</li>
+<li>监管政策；</li>
+<li>宏观利率；</li>
+<li>美元流动性；</li>
+<li>网络安全；</li>
+<li>技术替代；</li>
+<li>市场周期；</li>
+<li>减半预期是否已被提前定价。</li>
+</ul>
+<p>单纯用：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">产量减半</span><br><span class="line">→ 成本翻倍</span><br><span class="line">→ 价格翻倍</span><br></pre></td></tr></table></figure>
+<p>存在严重问题。</p>
+<p>因为减半后可能发生：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">区块补贴下降</span><br><span class="line">→ 部分矿工退出</span><br><span class="line">→ 算力下降</span><br><span class="line">→ 难度下降</span><br><span class="line">→ 单位产币成本重新平衡</span><br></pre></td></tr></table></figure>
+<p>同时，新矿机能效可能持续提升。</p>
+<p>因此，减半的直接影响是【新增供应速度下降】，而不是保证市场价格按某个倍数上涨。</p>
+<p>价格上涨需要需求侧配合。</p>
+<p>若需求没有增长，供应减少也未必足以推动价格达到某个目标。</p>
+<h3 id="◇俺对矿工群体的总体评价"><a href="#◇俺对矿工群体的总体评价" class="headerlink" title="◇俺对矿工群体的总体评价"></a>◇俺对矿工群体的总体评价</h3><p>矿工不是一个统一群体。</p>
+<p>其中既有：</p>
+<ul>
+<li>精通硬件和能源的工程师；</li>
+<li>擅长全球资源配置的企业家；</li>
+<li>进行专业财务管理的机构；</li>
+<li>掌握特殊电力资源的地方关系户；</li>
+<li>高杠杆赌徒；</li>
+<li>卖机器和托管合同的中间商；</li>
+<li>依赖信仰叙事的新手；</li>
+<li>专门利用信息差割韭菜的人。</li>
+</ul>
+<p>不能把矿工简单浪漫化为“维护去中心化网络的理想主义者”。</p>
+<p>也不能把所有矿工都描述成浪费能源的投机者。</p>
+<p>从技术角度看，矿工提供了比特币网络所需的工作量证明。</p>
+<p>从经济角度看，矿工是一群进行能源套利、芯片投资和价格风险管理的经营者。</p>
+<p>从博弈论角度看，矿工在利润激励下维护网络，同时也可能形成集中、审查和利益冲突。</p>
+<p>从心理角度看，矿工往往比普通持币者承受更多沉没成本，因此也更容易形成坚定叙事。</p>
+<p>真正值得研究的，不是矿工口中的豪言壮语，而是：</p>
+<p>【当币价、电价、难度和政策同时向不利方向变化时，他是否还能活下来。】</p>
+<p>牛市里的信仰没有稀缺性。</p>
+<p>熊市里的现金流才有。</p>
+<hr>
+<h2 id="★进一步推演：比特币矿业未来可能走向哪里？"><a href="#★进一步推演：比特币矿业未来可能走向哪里？" class="headerlink" title="★进一步推演：比特币矿业未来可能走向哪里？"></a>★进一步推演：比特币矿业未来可能走向哪里？</h2><h3 id="◇从个人矿工走向工业化矿场"><a href="#◇从个人矿工走向工业化矿场" class="headerlink" title="◇从个人矿工走向工业化矿场"></a>◇从个人矿工走向工业化矿场</h3><p>早期比特币挖矿具有浓厚的个人电脑文化。</p>
+<p>任何人都可以下载软件，用自己的 <code>CPU</code> 参与。</p>
+<p>随着 <code>ASIC</code>、矿池和大型矿场出现，行业逐渐工业化。</p>
+<p>未来矿业竞争优势将更多来自：</p>
+<ul>
+<li>大规模电力采购；</li>
+<li>芯片供应关系；</li>
+<li>场地建设能力；</li>
+<li>散热工程；</li>
+<li>跨境合规；</li>
+<li>税务优化；</li>
+<li>金融对冲；</li>
+<li>负荷调度；</li>
+<li>自动化运维。</li>
+</ul>
+<p>这会导致明显的【马太效应】：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">规模越大</span><br><span class="line">→ 电价谈判能力越强</span><br><span class="line">→ 融资成本越低</span><br><span class="line">→ 运维效率越高</span><br><span class="line">→ 更能承受周期波动</span><br><span class="line">→ 更容易低价收购破产矿工设备</span><br><span class="line">→ 规模进一步扩大</span><br></pre></td></tr></table></figure>
+<p>协议允许任何人挖矿，不等于任何人在经济上都有竞争力。</p>
+<p>这就像互联网协议允许任何人建立网站，但并不意味着任何网站都能与大型平台竞争。</p>
+<p>【开放准入】和【经济去中心化】不是同一个概念。</p>
+<h3 id="◇矿场可能成为电网的可调负荷"><a href="#◇矿场可能成为电网的可调负荷" class="headerlink" title="◇矿场可能成为电网的可调负荷"></a>◇矿场可能成为电网的可调负荷</h3><p>矿机有一个特殊特点：</p>
+<p>【可以比较快速地开机和关机。】</p>
+<p>很多工业生产线不能随意停产。</p>
+<p>钢铁、化工、晶圆制造等系统，一旦中断，可能产生巨大损失。</p>
+<p>矿机则相对灵活。</p>
+<p>电网负荷过高时，矿场可以关机。</p>
+<p>电力过剩时，矿场可以开机消耗电力。</p>
+<p>因此，某些矿场尝试参与：</p>
+<ul>
+<li>电网需求响应；</li>
+<li>峰谷调节；</li>
+<li>弃风弃光利用；</li>
+<li>水电丰水期消纳；</li>
+<li>油田伴生气利用。</li>
+</ul>
+<p>这并不能自动证明挖矿“环保”，但说明能源问题不能只用：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">耗电多 = 一定无价值</span><br></pre></td></tr></table></figure>
+<p>来判断。</p>
+<p>更合理的问题是：</p>
+<ul>
+<li>使用的是什么电？</li>
+<li>这些电是否原本会被浪费？</li>
+<li>是否增加化石能源发电？</li>
+<li>是否挤占居民和工业用电？</li>
+<li>是否帮助电网调峰？</li>
+<li>是否能提供可验证的减排效果？</li>
+<li>是否只是把普通火电包装成“绿色能源”？</li>
+</ul>
+<p>在环保宣传领域，最不缺的就是换个名词继续烧。</p>
+<p>因此，能源来源和边际影响必须具体分析。</p>
+<h3 id="◇散热废热能否被利用？"><a href="#◇散热废热能否被利用？" class="headerlink" title="◇散热废热能否被利用？"></a>◇散热废热能否被利用？</h3><p>矿机把绝大多数电能最终转化为热能。</p>
+<p>理论上，这些热可以用于：</p>
+<ul>
+<li>建筑供暖；</li>
+<li>温室农业；</li>
+<li>热水供应；</li>
+<li>木材干燥；</li>
+<li>工业预热；</li>
+<li>游泳池加热。</li>
+</ul>
+<p>水冷和浸没式冷却能提高废热回收的可行性。</p>
+<p>但经济性取决于：</p>
+<ul>
+<li>热源温度；</li>
+<li>热需求是否稳定；</li>
+<li>矿场与用热地点距离；</li>
+<li>管道和换热设备成本；</li>
+<li>季节变化；</li>
+<li>维护要求；</li>
+<li>矿机关机频率。</li>
+</ul>
+<p>不能因为矿机发热，就宣布所有热量都被有效利用。</p>
+<p>夏天在热带地区开着矿机，再用空调把热排出去，然后写报告说“数字能源创新”，这种创新与把冰箱门打开给房间降温差不多。</p>
+<h3 id="◇矿池协议会不会进一步去中心化？"><a href="#◇矿池协议会不会进一步去中心化？" class="headerlink" title="◇矿池协议会不会进一步去中心化？"></a>◇矿池协议会不会进一步去中心化？</h3><p>传统矿池通常负责构造区块模板。</p>
+<p>未来的技术改进方向之一，是让矿工对区块内容拥有更多选择权。</p>
+<p>例如，更先进的矿池协议可能允许：</p>
+<ul>
+<li>矿工自行选择交易；</li>
+<li>降低矿池对区块模板的控制；</li>
+<li>改善通信效率；</li>
+<li>减少数据传输；</li>
+<li>加强抗审查能力；</li>
+<li>降低某些攻击风险。</li>
+</ul>
+<p>这类改进的目标是把：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">收益聚合</span><br></pre></td></tr></table></figure>
+<p>与：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">交易选择权</span><br></pre></td></tr></table></figure>
+<p>部分分离。</p>
+<p>矿工仍可通过矿池降低收益方差，但不必完全把区块构造权交给中心服务器。</p>
+<p>这体现了软件架构中的一个重要原则：</p>
+<p>【拆分职责，减少单点权力。】</p>
+<p>当一个组件同时掌握：</p>
+<ul>
+<li>工作分配；</li>
+<li>交易选择；</li>
+<li>收益统计；</li>
+<li>资金结算；</li>
+</ul>
+<p>它就具有过大的控制面。</p>
+<p>分离这些职责，可以提高系统鲁棒性。</p>
+<hr>
+<h2 id="★引申阅读：从矿业继续理解货币、复杂系统和人性"><a href="#★引申阅读：从矿业继续理解货币、复杂系统和人性" class="headerlink" title="★引申阅读：从矿业继续理解货币、复杂系统和人性"></a>★引申阅读：从矿业继续理解货币、复杂系统和人性</h2><h3 id="◇关于比特币技术"><a href="#◇关于比特币技术" class="headerlink" title="◇关于比特币技术"></a>◇关于比特币技术</h3><p>第一本可以阅读比特币白皮书：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bitcoin: A Peer-to-Peer Electronic Cash System</span><br></pre></td></tr></table></figure>
+<p>阅读时重点关注：</p>
+<ul>
+<li>双重支付问题；</li>
+<li>时间戳服务器；</li>
+<li>工作量证明；</li>
+<li>最长链规则；</li>
+<li>激励机制；</li>
+<li>攻击概率。</li>
+</ul>
+<p>白皮书篇幅不长，但不要把“读完”误认为“读懂”。</p>
+<p>真正理解还需要补充：</p>
+<ul>
+<li>区块结构；</li>
+<li>交易模型；</li>
+<li><code>UTXO</code>；</li>
+<li>脚本；</li>
+<li>难度调整；</li>
+<li>节点验证；</li>
+<li>网络传播；</li>
+<li>矿池协议。</li>
+</ul>
+<p>第二本可以阅读：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mastering Bitcoin</span><br></pre></td></tr></table></figure>
+<p>它更适合系统理解比特币的技术组成。</p>
+<h3 id="◇关于货币和通胀"><a href="#◇关于货币和通胀" class="headerlink" title="◇关于货币和通胀"></a>◇关于货币和通胀</h3><p>可以阅读关于货币史、中央银行和金融危机的著作。</p>
+<p>阅读时不要急着站队。</p>
+<p>不要一看到法币问题，就认定所有中央银行都是阴谋。</p>
+<p>也不要一看到加密资产波动，就认定固定供应毫无意义。</p>
+<p>应该分别分析：</p>
+<ul>
+<li>弹性货币的优势和风险；</li>
+<li>固定供应的优势和风险；</li>
+<li>危机中的流动性需求；</li>
+<li>通胀对不同群体的分配效应；</li>
+<li>债务和信用在经济中的作用；</li>
+<li>货币规则与政治权力的关系。</li>
+</ul>
+<p>任何只告诉你“一种制度包治百病”的作者，都值得额外警惕。</p>
+<p>复杂系统很少存在无代价解法。</p>
+<p>通常只有：</p>
+<p>【把某类风险换成另一类风险。】</p>
+<h3 id="◇关于博弈论和复杂系统"><a href="#◇关于博弈论和复杂系统" class="headerlink" title="◇关于博弈论和复杂系统"></a>◇关于博弈论和复杂系统</h3><p>比特币真正有意思的地方，不只是密码学，而是它把多个参与者放进一个激励系统：</p>
+<ul>
+<li>矿工想赚钱；</li>
+<li>用户想低成本交易；</li>
+<li>节点想验证规则；</li>
+<li>开发者提出软件改进；</li>
+<li>交易所提供流动性；</li>
+<li>监管者关注资本和能源；</li>
+<li>攻击者寻找套利机会。</li>
+</ul>
+<p>这些人不需要彼此喜欢，也不需要拥有相同价值观。</p>
+<p>系统试图让它们在追求自身利益时，产生某种可预测的整体秩序。</p>
+<p>这正是博弈论和复杂系统值得研究的地方。</p>
+<p>可进一步思考：</p>
+<ul>
+<li>什么情况下诚实挖矿比攻击更有利？</li>
+<li>当矿池集中时，激励结构会怎样变化？</li>
+<li>当区块补贴降低时，安全预算是否足够？</li>
+<li>当监管要求矿池审查交易时，矿工会怎样选择？</li>
+<li>当大型机构持有大量比特币时，去中心化叙事会发生什么变化？</li>
+</ul>
+<h3 id="◇留给读者的几个问题"><a href="#◇留给读者的几个问题" class="headerlink" title="◇留给读者的几个问题"></a>◇留给读者的几个问题</h3><p>第一，假如挖矿成本能够决定比特币价格，那么为什么低效矿工的高成本不能让币价无限上涨？</p>
+<p>第二，假如减半必然带来价格上涨，为什么这种公开、确定的事件不会被市场提前定价？</p>
+<p>第三，假如比特币无须信任，为何矿工仍然高度依赖矿场、矿池、厂商和运维人员？</p>
+<p>第四，假如矿工喜欢暴跌，为何暴跌周期中仍有大量矿工破产？</p>
+<p>第五，假如固定供应天然等于抗通胀，那么所有供应有限的物品是否都应该持续升值？</p>
+<p>第六，假如一项投资无论上涨还是下跌都能被解释成“信仰得到验证”，那么什么事实能够证明这个判断是错误的？</p>
+<p>第七，一个系统在协议层去中心化，但在芯片制造、矿池和能源供应层高度集中，它究竟算不算真正去中心化？</p>
+<p>第八，矿工提供的网络安全价值，应该怎样与其能源消耗进行比较？</p>
+<p>这些问题没有一句话答案。</p>
+<p>但能认真思考这些问题，至少可以避免被“日收益”“回本周期”“四年减半”和“一币一套房”之类的口号牵着走。</p>
+<hr>
+<h2 id="★结语：代码不会消灭人性，只会重新安排人性的活动范围"><a href="#★结语：代码不会消灭人性，只会重新安排人性的活动范围" class="headerlink" title="★结语：代码不会消灭人性，只会重新安排人性的活动范围"></a>★结语：代码不会消灭人性，只会重新安排人性的活动范围</h2><p>比特币挖矿是一种非常特殊的产业。</p>
+<p>它把以下要素压缩到同一个系统中：</p>
+<ul>
+<li>密码学；</li>
+<li>分布式网络；</li>
+<li>芯片制造；</li>
+<li>能源市场；</li>
+<li>概率统计；</li>
+<li>资本周期；</li>
+<li>跨境监管；</li>
+<li>群体心理；</li>
+<li>宗教式信念；</li>
+<li>传统商业欺诈。</li>
+</ul>
+<p>从协议层看，它非常简洁：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">验证交易</span><br><span class="line">构造区块</span><br><span class="line">计算哈希</span><br><span class="line">满足目标</span><br><span class="line">广播区块</span><br><span class="line">获得奖励</span><br></pre></td></tr></table></figure>
+<p>从产业层看，它却异常复杂：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">买矿机</span><br><span class="line">找电</span><br><span class="line">找场地</span><br><span class="line">过海关</span><br><span class="line">接矿池</span><br><span class="line">做运维</span><br><span class="line">防偷电</span><br><span class="line">防换件</span><br><span class="line">防跑路</span><br><span class="line">防政策</span><br><span class="line">算现金流</span><br><span class="line">扛周期</span><br></pre></td></tr></table></figure>
+<p>比特币通过工作量证明解决了一个重要问题：</p>
+<p>【一群互不信任的参与者，如何在没有中央记账人的情况下，对交易顺序形成共识。】</p>
+<p>但它没有解决所有问题。</p>
+<p>它没有解决：</p>
+<ul>
+<li>人会不会撒谎；</li>
+<li>中间商会不会加价；</li>
+<li>运维会不会偷零件；</li>
+<li>政府会不会改变规则；</li>
+<li>市场会不会形成泡沫；</li>
+<li>投资者会不会高杠杆；</li>
+<li>信仰会不会变成自我欺骗。</li>
+</ul>
+<p>技术从来不是消灭人性的魔法。</p>
+<p>技术更像是在地面上重新画线：</p>
+<ul>
+<li>某些作恶方式变难了；</li>
+<li>某些权力被削弱了；</li>
+<li>某些中介被替代了；</li>
+<li>另一些中介又诞生了；</li>
+<li>某些单点故障被消除；</li>
+<li>另一些单点故障转移到了芯片、矿池和能源层。</li>
+</ul>
+<p>所以，看完这场矿工访谈之后，真正应该记住的不是：</p>
+<blockquote>
+<p>挖矿很赚钱。</p>
+</blockquote>
+<p>也不是：</p>
+<blockquote>
+<p>比特币一定会涨到三十万美元。</p>
+</blockquote>
+<p>而是：</p>
+<p>【任何声称能够稳定赚钱的系统，都应该先把它的成本、风险、信息差、激励结构和失败案例拆开来看。】</p>
+<p>尤其当一个人不断强调自己有“信仰”时，更应该问一句：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">他的利润究竟来自技术效率，</span><br><span class="line">来自承担风险，</span><br><span class="line">来自特殊资源，</span><br><span class="line">还是来自把风险卖给了不懂行的新人？</span><br></pre></td></tr></table></figure>
+<p>这个问题，比预测下一轮币价更有价值滴。</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2026-08-02");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2026-08-02T04:00:00.000Z" itemprop="datePublished">2026-08-02</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Bitcoin/'>Bitcoin</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Bitcoin/" rel="tag">#&nbsp;Bitcoin</a>
+
+<a class="post-tags-list-item" href="/tags/%E6%8C%96%E7%9F%BF/" rel="tag">#&nbsp;挖矿</a>
+
+<a class="post-tags-list-item" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">#&nbsp;区块链</a>
+
+<a class="post-tags-list-item" href="/tags/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/" rel="tag">#&nbsp;加密货币</a>
+
+<a class="post-tags-list-item" href="/tags/PoW/" rel="tag">#&nbsp;PoW</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2026/07/07/2026-07-07-how-to-fix-your-entire-life-in-one-day/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">How to fix your entire life in 1 day</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://abinzzz.github.io/2026/08/02/2026-08-02-bitcoin-mining-interview/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://abinzzz.github.io/2026/08/02/2026-08-02-bitcoin-mining-interview/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//robin02.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- ### Footer ### -->
+                <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://abinzzz.github.io">blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+            </div>
+
+            
+
+
+    <div id="blog-music-player" class="blog-music-player" data-playlist="%5B%7B%22title%22%3A%22Perfect%20Night%22%2C%22artist%22%3A%22LE%20SSERAFIM%22%2C%22src%22%3A%22%2Fmusic%2Fperfect-night.mp3%22%2C%22cover%22%3A%22%2Fmusic%2Fperfect-night-cover.jpeg%22%7D%5D">
+        <audio id="blog-music-audio" preload="metadata"></audio>
+        <button class="blog-music-cover-button" type="button" aria-label="Play music">
+            <img class="blog-music-cover" src="/music/perfect-night-cover.jpeg" alt="">
+            <span class="blog-music-state" aria-hidden="true">▶</span>
+        </button>
+        <div class="blog-music-main">
+            <div class="blog-music-meta">
+                <div class="blog-music-title">Perfect Night</div>
+                <div class="blog-music-artist">LE SSERAFIM</div>
+            </div>
+            <div class="blog-music-controls">
+                <button class="blog-music-toggle" type="button" aria-label="Play music">▶</button>
+                <div class="blog-music-progress" role="slider" aria-label="Music progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                    <div class="blog-music-progress-fill"></div>
+                </div>
+                <button class="blog-music-mute" type="button" aria-label="Mute music">♪</button>
+            </div>
+            <div class="blog-music-hint" hidden>点击播放音乐</div>
+        </div>
+    </div>
+
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2023;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+(function() {
+    'use strict';
+    
+    // 等待 DOM 加载完成
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTocCollapse);
+    } else {
+        initTocCollapse();
+    }
+    
+    function initTocCollapse() {
+        const tocContainer = document.getElementById('post-toc');
+        if (!tocContainer) {
+            return;
+        }
+        
+        // 找到所有有子目录的 level-1、level-2、level-3 项（支持多级嵌套展开）
+        const tocItems = tocContainer.querySelectorAll('.post-toc-item.post-toc-level-1, .post-toc-item.post-toc-level-2, .post-toc-item.post-toc-level-3');
+        
+        tocItems.forEach(function(item) {
+            // 检查是否有子目录（包含 post-toc-child 的 ol）
+            const hasChildren = item.querySelector('ol.post-toc-child') !== null;
+            
+            if (hasChildren) {
+                // 添加标记类，用于 CSS 显示图标
+                item.classList.add('toc-has-children');
+                
+                const link = item.querySelector('.post-toc-link');
+                if (link) {
+                    // 阻止默认的锚点跳转，改为展开/折叠
+                    link.addEventListener('click', function(e) {
+                        // 如果用户按住 Ctrl/Cmd 或中键点击，则跳转
+                        if (e.ctrlKey || e.metaKey || e.button === 1) {
+                            return; // 允许默认行为（跳转）
+                        }
+                        
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // 切换展开/折叠状态
+                        item.classList.toggle('toc-expanded');
+                    });
+                    
+                    // 允许通过双击链接文本跳转
+                    link.addEventListener('dblclick', function(e) {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            window.location.hash = href;
+                        }
+                    });
+                    
+                    // 允许通过右键菜单跳转
+                    link.addEventListener('contextmenu', function(e) {
+                        // 允许默认的右键菜单
+                        return true;
+                    });
+                }
+            }
+        });
+    }
+})();
+        
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+<script src="/js/blog-music.js"></script>
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://robin02.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>
