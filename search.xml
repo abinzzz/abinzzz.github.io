@@ -21093,6 +21093,19 @@ PP10043好像暂时也没啥办法……</p>
 <li>要么把代理环境变量配好，让 WebSocket 也能走代理</li>
 </ul>
 <p>能用 <code>openai_http</code> 解决的，就先别把问题想复杂。网络问题有时候就是这么朴素，但它折磨人的方式一点也不朴素。</p>
+<h2 id="后续踩坑代理端口失效后codex-连登录都过不去"><a class="markdownIt-Anchor" href="#后续踩坑代理端口失效后codex-连登录都过不去"></a> 后续踩坑：代理端口失效后，Codex 连登录都过不去</h2>
+<p>这篇文章写完后，我从大陆地区离开，又碰到过一次更直接的问题：Codex 的登录页报了 <code>token_exchange_failed</code>，提示无法请求 <code>https://auth.openai.com/oauth/token</code>。</p>
+<p><img src="/images/codex-token-exchange-failed.png" alt="Codex 登录时的 token_exchange_failed 报错" /></p>
+<p>一开始我还以为是账号或 OpenAI 登录服务出了问题。后来才想起，前面为了处理重连问题，我在 <code>~/.codex/.env</code> 里给 Codex 固定写过代理：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HTTP_PROXY=http://127.0.0.1:7897</span><br><span class="line">HTTPS_PROXY=http://127.0.0.1:7897</span><br><span class="line">NO_PROXY=localhost,127.0.0.1,::1</span><br></pre></td></tr></table></figure>
+<p>问题是代理软件后来换过端口，<code>7897</code> 已经没人监听了。Codex 启动时仍然读取这个文件，于是登录时的令牌交换请求也被发往一个失效的本地代理，最后就报错了。</p>
+<p>先确认端口有没有在运行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof -nP -iTCP:7897 -sTCP:LISTEN</span><br></pre></td></tr></table></figure>
+<p>如果没有输出，最简单的处理是先把 <code>.env</code> 改名备份：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mv</span> ~/.codex/.env ~/.codex/.env.disabled</span><br></pre></td></tr></table></figure>
+<p>然后用 <code>Command + Q</code> 完全退出 Codex，再重新打开并登录。如果恢复正常，基本就能确定是旧代理配置的问题。</p>
+<p>如果仍然要让 Codex 走代理，也不用删除 <code>.env</code>，把里面的端口改成代理软件当前显示的 HTTP 或 Mixed Port 即可。改完后同样需要完全重启 Codex。</p>
+<p>这算是本文的一个补充：<code>Reconnecting</code> 多半和 WebSocket 代理有关；而 <code>token_exchange_failed</code> 更值得先检查 <code>~/.codex/.env</code> 里的代理地址是否仍然有效。配置一旦过期，连登录都会被一起拦住。</p>
 ]]></content>
       <categories>
         <category>Bug</category>
