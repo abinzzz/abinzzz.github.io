@@ -55,7 +55,7 @@
     <meta name="renderer" content="webkit">
 
     <!-- Title -->
-    <title>把 GPU 榨到最后一滴：AI 大模型时代，真正的战争为何发生在 AI Infra？ | blog</title>
+    <title>AI Infra：榨干每一块 GPU | blog</title>
 
     <!-- Favicons -->
     <link rel="icon" type="image&#x2F;ico" href="/img/blog.ico">
@@ -156,7 +156,7 @@
     <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="把 GPU 榨到最后一滴：AI 大模型时代，真正的战争为何发生在 AI Infra？ | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2026/08/07/2026-08-07-ai-infra-gpu/"><meta property="og:locale" content="zh-CN"><meta name="description" content="把 GPU 榨到最后一滴：AI 大模型时代，真正的战争为何发生在 AI Infra？  本文缘起于“硅谷101”关于 AI Infra 的一期视频。 视频链接：https:&#x2F;&#x2F;youtu.be&#x2F;cB_X6AImPjQ?si&#x3D;vMerY1unkFzPdKcE 如果你只把今天的 AI 竞争理解成“谁家的模型参数更多”“谁买的 GPU 更多”，那很可能只看到了冰山露出水面的那一小截。 水面以下，还有一场 - ab - blog"><meta name="keywords" content="GPU, AI Infra, KV Cache, 大模型推理, vLLM, SGLang, blog"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/inference-request-lifecycle.png"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/prefill-decode-disaggregation.png"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/ai-infra-stack.png"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/inference-engines.png"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/radix-tree-prefix-cache.png"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/cache-aware-scheduling.png"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/inference-tradeoffs.png"><meta property="article:published_time" content="2026-08-07T12:00:00.000Z"><meta property="article:modified_time" content="2026-08-07T06:47:50.419Z"><meta property="og:updated_time" content="2026-08-07T06:47:50.419Z"><meta property="article:author" content="ab"><meta property="article:tag" content="GPU, AI Infra, KV Cache, 大模型推理, vLLM, SGLang, blog"><meta name="twitter:card" content="summary">
+    <meta property="og:title" content="AI Infra：榨干每一块 GPU | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2026/08/07/2026-08-07-ai-infra-gpu/"><meta property="og:locale" content="zh-CN"><meta name="description" content="把 GPU 榨到最后一滴：AI 大模型时代，真正的战争为何发生在 AI Infra？  本文缘起于“硅谷101”关于 AI Infra 的一期视频。 视频链接：https:&#x2F;&#x2F;youtu.be&#x2F;cB_X6AImPjQ?si&#x3D;vMerY1unkFzPdKcE 如果你只把今天的 AI 竞争理解成“谁家的模型参数更多”“谁买的 GPU 更多”，那很可能只看到了冰山露出水面的那一小截。 水面以下，还有一场 - ab - blog"><meta name="keywords" content="GPU, AI Infra, KV Cache, 大模型推理, vLLM, SGLang, blog"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/inference-request-lifecycle.png"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/prefill-decode-disaggregation.png"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/ai-infra-stack.png"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/inference-engines.png"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/radix-tree-prefix-cache.png"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/cache-aware-scheduling.png"><meta property="og:image" content="https://abinzzz.github.io/images/ai-infra-gpu/inference-tradeoffs.png"><meta property="article:published_time" content="2026-08-07T12:00:00.000Z"><meta property="article:modified_time" content="2026-08-07T06:49:44.567Z"><meta property="og:updated_time" content="2026-08-07T06:49:44.567Z"><meta property="article:author" content="ab"><meta property="article:tag" content="GPU, AI Infra, KV Cache, 大模型推理, vLLM, SGLang, blog"><meta name="twitter:card" content="summary">
 
     
 
@@ -189,7 +189,7 @@
         "@type": "WebPage",
         "@id": "https://abinzzz.github.io/2026/08/07/2026-08-07-ai-infra-gpu/"
     },
-    "headline": "把 GPU 榨到最后一滴：AI 大模型时代，真正的战争为何发生在 AI Infra？ | blog",
+    "headline": "AI Infra：榨干每一块 GPU | blog",
     
     "image": {
         "@type": "ImageObject",
@@ -197,7 +197,7 @@
     },
     
     "datePublished": "2026-08-07T12:00:00.000Z",
-    "dateModified": "2026-08-07T06:47:50.419Z",
+    "dateModified": "2026-08-07T06:49:44.567Z",
     "author": {
         "@type": "Person",
         "name": "ab",
@@ -278,7 +278,7 @@
                 <!-- # Post Header Info # -->
                 <div class="card-header">
                     
-    <h1 class="card-title h3 mb-2">把 GPU 榨到最后一滴：AI 大模型时代，真正的战争为何发生在 AI Infra？</h1>
+    <h1 class="card-title h3 mb-2">AI Infra：榨干每一块 GPU</h1>
 
 
 
@@ -289,7 +289,7 @@
         <span>2026-08-07</span>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/AI/">AI</a><span class="suka-devide-dot"></span><a class="category-link" href="/categories/AI/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">计算机系统</a>
+            <a class="category-link" href="/categories/AI/">AI</a>
         
         
         
@@ -1735,8 +1735,6 @@
 <span class="post-categories-list mt-2">
 
 <a class="post-categories-list-item" href='/categories/AI/'>AI</a>
-
-<a class="post-categories-list-item" href='/categories/AI/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/'>计算机系统</a>
 
 </span>
 

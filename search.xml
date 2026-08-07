@@ -24348,7 +24348,7 @@ PP10043好像暂时也没啥办法……</p>
       </tags>
   </entry>
   <entry>
-    <title>把 GPU 榨到最后一滴：AI 大模型时代，真正的战争为何发生在 AI Infra？</title>
+    <title>AI Infra：榨干每一块 GPU</title>
     <url>/2026/08/07/2026-08-07-ai-infra-gpu/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="把-gpu-榨到最后一滴ai-大模型时代真正的战争为何发生在-ai-infra"><a class="markdownIt-Anchor" href="#把-gpu-榨到最后一滴ai-大模型时代真正的战争为何发生在-ai-infra"></a> 把 GPU 榨到最后一滴：AI 大模型时代，真正的战争为何发生在 AI Infra？</h1>
 <blockquote>
@@ -25717,7 +25717,6 @@ PP10043好像暂时也没啥办法……</p>
 ]]></content>
       <categories>
         <category>AI</category>
-        <category>计算机系统</category>
       </categories>
       <tags>
         <tag>GPU</tag>
