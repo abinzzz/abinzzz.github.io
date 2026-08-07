@@ -156,7 +156,7 @@
     <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Tmux使用教程 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/03/26/Tmux%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });    目录  1.Tmux 是什么  1.1 会话与进程 1.2 Tmux 的作用   2.基本用法  2.1 Tmux 安装 2.2 Tmux 启动与退出 2.3 前缀键   3.会话管理  3.1 新建会话 3.2 分离会话 3. - ab - blog"><meta name="keywords" content="tool, tmux, blog"><meta property="og:image" content="https://pic.imgdb.cn/item/6652c66ed9c307b7e9d5de08.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652c708d9c307b7e9d682b1.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d6bad9c307b7e9e8ce4d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d71fd9c307b7e9e94344.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d798d9c307b7e9e9cab2.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d7fad9c307b7e9ea320d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d8d7d9c307b7e9eb1a1d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d98fd9c307b7e9ebded8.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652da25d9c307b7e9ec72db.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dafdd9c307b7e9ed5991.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652db73d9c307b7e9edd2e4.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652db8fd9c307b7e9edf1a1.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dc5dd9c307b7e9eec7e4.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dcd2d9c307b7e9ef35ab.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dd49d9c307b7e9efb16b.png"><meta property="article:published_time" content="2024-03-26T12:05:28.000Z"><meta property="article:modified_time" content="2026-01-19T10:44:43.325Z"><meta property="og:updated_time" content="2026-01-19T10:44:43.325Z"><meta property="article:author" content="ab"><meta property="article:tag" content="tool, tmux, blog"><meta name="twitter:card" content="summary">
+    <meta property="og:title" content="Tmux使用教程 | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2024/03/26/Tmux%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });    目录 1.Tmux 是什么 1.1 会话与进程 1.2 Tmux 的作用   2.基本用法 2.1 Tmux 安装 2.2 Tmux 启动与退出 2.3 前缀键   3.会话管理 3.1 新建会话 3.2 分离会话 3.3 接入 - ab - blog"><meta name="keywords" content="tool, tmux, blog"><meta property="og:image" content="https://pic.imgdb.cn/item/6652c66ed9c307b7e9d5de08.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652c708d9c307b7e9d682b1.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d6bad9c307b7e9e8ce4d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d71fd9c307b7e9e94344.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d798d9c307b7e9e9cab2.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d7fad9c307b7e9ea320d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d8d7d9c307b7e9eb1a1d.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652d98fd9c307b7e9ebded8.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652da25d9c307b7e9ec72db.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dafdd9c307b7e9ed5991.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652db73d9c307b7e9edd2e4.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652db8fd9c307b7e9edf1a1.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dc5dd9c307b7e9eec7e4.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dcd2d9c307b7e9ef35ab.png"><meta property="og:image" content="https://pic.imgdb.cn/item/6652dd49d9c307b7e9efb16b.png"><meta property="article:published_time" content="2024-03-26T12:05:28.000Z"><meta property="article:modified_time" content="2026-08-07T07:00:25.782Z"><meta property="og:updated_time" content="2026-08-07T07:00:25.782Z"><meta property="article:author" content="ab"><meta property="article:tag" content="tool, tmux, blog"><meta name="twitter:card" content="summary">
 
     
 
@@ -197,7 +197,7 @@
     },
     
     "datePublished": "2024-03-26T12:05:28.000Z",
-    "dateModified": "2026-01-19T10:44:43.325Z",
+    "dateModified": "2026-08-07T07:00:25.782Z",
     "author": {
         "@type": "Person",
         "name": "ab",
@@ -223,7 +223,7 @@
     },
     
     "keywords": "tool, tmux, blog",
-    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });    目录  1.Tmux 是什么  1.1 会话与进程 1.2 Tmux 的作用   2.基本用法  2.1 Tmux 安装 2.2 Tmux 启动与退出 2.3 前缀键   3.会话管理  3.1 新建会话 3.2 分离会话 3. - ab - blog"
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });    目录 1.Tmux 是什么 1.1 会话与进程 1.2 Tmux 的作用   2.基本用法 2.1 Tmux 安装 2.2 Tmux 启动与退出 2.3 前缀键   3.会话管理 3.1 新建会话 3.2 分离会话 3.3 接入 - ab - blog"
 }
 </script>
 
@@ -337,7 +337,7 @@
                     
                         
                         
-                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 目录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1tmux-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 1.Tmux 是什么</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-%E4%BC%9A%E8%AF%9D%E4%B8%8E%E8%BF%9B%E7%A8%8B"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"> 1.1 会话与进程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-tmux-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"> 1.2 Tmux 的作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 2.基本用法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#21-tmux-%E5%AE%89%E8%A3%85"><span class="post-toc-number">3.1.</span> <span class="post-toc-text"> 2.1 Tmux 安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#22-tmux-%E5%90%AF%E5%8A%A8%E4%B8%8E%E9%80%80%E5%87%BA"><span class="post-toc-number">3.2.</span> <span class="post-toc-text"> 2.2 Tmux 启动与退出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#23-%E5%89%8D%E7%BC%80%E9%94%AE"><span class="post-toc-number">3.3.</span> <span class="post-toc-text"> 2.3 前缀键</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86"><span class="post-toc-number">4.</span> <span class="post-toc-text"> 3.会话管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#31-%E6%96%B0%E5%BB%BA%E4%BC%9A%E8%AF%9D"><span class="post-toc-number">4.1.</span> <span class="post-toc-text"> 3.1 新建会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#32-%E5%88%86%E7%A6%BB%E4%BC%9A%E8%AF%9D"><span class="post-toc-number">4.2.</span> <span class="post-toc-text"> 3.2 分离会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#33-%E6%8E%A5%E5%85%A5%E4%BC%9A%E8%AF%9D"><span class="post-toc-number">4.3.</span> <span class="post-toc-text"> 3.3 接入会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#34-%E6%9D%80%E6%AD%BB%E4%BC%9A%E8%AF%9D"><span class="post-toc-number">4.4.</span> <span class="post-toc-text"> 3.4 杀死会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#35-%E5%88%87%E6%8D%A2%E4%BC%9A%E8%AF%9D"><span class="post-toc-number">4.5.</span> <span class="post-toc-text"> 3.5 切换会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#36-%E9%87%8D%E5%91%BD%E5%90%8D%E4%BC%9A%E8%AF%9D"><span class="post-toc-number">4.6.</span> <span class="post-toc-text"> 3.6 重命名会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#37-%E4%BC%9A%E8%AF%9D%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="post-toc-number">4.7.</span> <span class="post-toc-text"> 3.7 会话快捷键</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4%E6%9C%80%E7%AE%80%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="post-toc-number">5.</span> <span class="post-toc-text"> 4.最简操作流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5%E7%AA%97%E6%A0%BC%E6%93%8D%E4%BD%9C"><span class="post-toc-number">6.</span> <span class="post-toc-text"> 5.窗格操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#51-%E5%88%92%E5%88%86%E7%AA%97%E6%A0%BC"><span class="post-toc-number">6.1.</span> <span class="post-toc-text"> 5.1 划分窗格</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#52-%E7%A7%BB%E5%8A%A8%E5%85%89%E6%A0%87"><span class="post-toc-number">6.2.</span> <span class="post-toc-text"> 5.2 移动光标</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#53-%E4%BA%A4%E6%8D%A2%E7%AA%97%E6%A0%BC%E4%BD%8D%E7%BD%AE"><span class="post-toc-number">6.3.</span> <span class="post-toc-text"> 5.3 交换窗格位置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#54-%E7%AA%97%E6%A0%BC%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="post-toc-number">6.4.</span> <span class="post-toc-text"> 5.4 窗格快捷键</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86"><span class="post-toc-number">7.</span> <span class="post-toc-text"> 6.窗口管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#61-%E6%96%B0%E5%BB%BA%E7%AA%97%E5%8F%A3"><span class="post-toc-number">7.1.</span> <span class="post-toc-text"> 6.1 新建窗口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#62-%E5%88%87%E6%8D%A2%E7%AA%97%E5%8F%A3"><span class="post-toc-number">7.2.</span> <span class="post-toc-text"> 6.2 切换窗口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#63-%E9%87%8D%E5%91%BD%E5%90%8D%E7%AA%97%E5%8F%A3"><span class="post-toc-number">7.3.</span> <span class="post-toc-text"> 6.3 重命名窗口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#64-%E7%AA%97%E5%8F%A3%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="post-toc-number">7.4.</span> <span class="post-toc-text"> 6.4 窗口快捷键</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="post-toc-number">8.</span> <span class="post-toc-text"> 7.其他命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8%E6%BC%94%E7%A4%BA%E8%BF%87%E7%A8%8B"><span class="post-toc-number">9.</span> <span class="post-toc-text"> 8.演示过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%99%84%E5%BD%95"><span class="post-toc-number">10.</span> <span class="post-toc-text"> 附录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%A8%E4%B8%80%E7%B3%BB%E7%BB%9F%E6%8C%87%E4%BB%A4"><span class="post-toc-number">10.1.</span> <span class="post-toc-text"> 表一：系统指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%A8%E4%BA%8C%E7%AA%97%E5%8F%A3window%E6%8C%87%E4%BB%A4"><span class="post-toc-number">10.2.</span> <span class="post-toc-text"> 表二：窗口（Window）指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%A8%E4%B8%89%E9%9D%A2%E6%9D%BFpane%E6%8C%87%E4%BB%A4"><span class="post-toc-number">10.3.</span> <span class="post-toc-text"> 表三：面板（Pane）指令</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="post-toc-number">11.</span> <span class="post-toc-text"> 参考链接</span></a></li></ol></div>
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="post-toc-text">目录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tmux-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-text">Tmux 是什么</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BC%9A%E8%AF%9D%E4%B8%8E%E8%BF%9B%E7%A8%8B"><span class="post-toc-text">会话与进程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tmux-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="post-toc-text">Tmux 的作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="post-toc-text">基本用法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tmux-%E5%AE%89%E8%A3%85"><span class="post-toc-text">Tmux 安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tmux-%E5%90%AF%E5%8A%A8%E4%B8%8E%E9%80%80%E5%87%BA"><span class="post-toc-text">Tmux 启动与退出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%89%8D%E7%BC%80%E9%94%AE"><span class="post-toc-text">前缀键</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86"><span class="post-toc-text">会话管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%96%B0%E5%BB%BA%E4%BC%9A%E8%AF%9D"><span class="post-toc-text">新建会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%86%E7%A6%BB%E4%BC%9A%E8%AF%9D"><span class="post-toc-text">分离会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8E%A5%E5%85%A5%E4%BC%9A%E8%AF%9D"><span class="post-toc-text">接入会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9D%80%E6%AD%BB%E4%BC%9A%E8%AF%9D"><span class="post-toc-text">杀死会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%87%E6%8D%A2%E4%BC%9A%E8%AF%9D"><span class="post-toc-text">切换会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%87%8D%E5%91%BD%E5%90%8D%E4%BC%9A%E8%AF%9D"><span class="post-toc-text">重命名会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BC%9A%E8%AF%9D%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="post-toc-text">会话快捷键</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9C%80%E7%AE%80%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="post-toc-text">最简操作流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AA%97%E6%A0%BC%E6%93%8D%E4%BD%9C"><span class="post-toc-text">窗格操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%92%E5%88%86%E7%AA%97%E6%A0%BC"><span class="post-toc-text">划分窗格</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%85%89%E6%A0%87"><span class="post-toc-text">移动光标</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%A4%E6%8D%A2%E7%AA%97%E6%A0%BC%E4%BD%8D%E7%BD%AE"><span class="post-toc-text">交换窗格位置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AA%97%E6%A0%BC%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="post-toc-text">窗格快捷键</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86"><span class="post-toc-text">窗口管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%96%B0%E5%BB%BA%E7%AA%97%E5%8F%A3"><span class="post-toc-text">新建窗口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%87%E6%8D%A2%E7%AA%97%E5%8F%A3"><span class="post-toc-text">切换窗口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%87%8D%E5%91%BD%E5%90%8D%E7%AA%97%E5%8F%A3"><span class="post-toc-text">重命名窗口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AA%97%E5%8F%A3%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="post-toc-text">窗口快捷键</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="post-toc-text">其他命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%BC%94%E7%A4%BA%E8%BF%87%E7%A8%8B"><span class="post-toc-text">演示过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%99%84%E5%BD%95"><span class="post-toc-text">附录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%A8%E4%B8%80%EF%BC%9A%E7%B3%BB%E7%BB%9F%E6%8C%87%E4%BB%A4"><span class="post-toc-text">表一：系统指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%A8%E4%BA%8C%EF%BC%9A%E7%AA%97%E5%8F%A3%EF%BC%88Window%EF%BC%89%E6%8C%87%E4%BB%A4"><span class="post-toc-text">表二：窗口（Window）指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%A8%E4%B8%89%EF%BC%9A%E9%9D%A2%E6%9D%BF%EF%BC%88Pane%EF%BC%89%E6%8C%87%E4%BB%A4"><span class="post-toc-text">表三：面板（Pane）指令</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="post-toc-text">参考链接</span></a></li></ol></div>
                         
                     
                     <article id="post-content">
@@ -345,181 +345,143 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
+
 <!-- omit in toc -->
-<h2 id="目录"><a class="markdownIt-Anchor" href="#目录"></a> 目录</h2>
-<ul>
-<li><a href="#1tmux-%E6%98%AF%E4%BB%80%E4%B9%88">1.Tmux 是什么</a>
-<ul>
-<li><a href="#11-%E4%BC%9A%E8%AF%9D%E4%B8%8E%E8%BF%9B%E7%A8%8B">1.1 会话与进程</a></li>
-<li><a href="#12-tmux-%E7%9A%84%E4%BD%9C%E7%94%A8">1.2 Tmux 的作用</a></li>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#1tmux-是什么">1.Tmux 是什么</a><ul>
+<li><a href="#11-会话与进程">1.1 会话与进程</a></li>
+<li><a href="#12-tmux-的作用">1.2 Tmux 的作用</a></li>
 </ul>
 </li>
-<li><a href="#2%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95">2.基本用法</a>
-<ul>
-<li><a href="#21-tmux-%E5%AE%89%E8%A3%85">2.1 Tmux 安装</a></li>
-<li><a href="#22-tmux-%E5%90%AF%E5%8A%A8%E4%B8%8E%E9%80%80%E5%87%BA">2.2 Tmux 启动与退出</a></li>
-<li><a href="#23-%E5%89%8D%E7%BC%80%E9%94%AE">2.3 前缀键</a></li>
+<li><a href="#2基本用法">2.基本用法</a><ul>
+<li><a href="#21-tmux-安装">2.1 Tmux 安装</a></li>
+<li><a href="#22-tmux-启动与退出">2.2 Tmux 启动与退出</a></li>
+<li><a href="#23-前缀键">2.3 前缀键</a></li>
 </ul>
 </li>
-<li><a href="#3%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86">3.会话管理</a>
-<ul>
-<li><a href="#31-%E6%96%B0%E5%BB%BA%E4%BC%9A%E8%AF%9D">3.1 新建会话</a></li>
-<li><a href="#32-%E5%88%86%E7%A6%BB%E4%BC%9A%E8%AF%9D">3.2 分离会话</a></li>
-<li><a href="#33-%E6%8E%A5%E5%85%A5%E4%BC%9A%E8%AF%9D">3.3 接入会话</a></li>
-<li><a href="#34-%E6%9D%80%E6%AD%BB%E4%BC%9A%E8%AF%9D">3.4 杀死会话</a></li>
-<li><a href="#35-%E5%88%87%E6%8D%A2%E4%BC%9A%E8%AF%9D">3.5 切换会话</a></li>
-<li><a href="#36-%E9%87%8D%E5%91%BD%E5%90%8D%E4%BC%9A%E8%AF%9D">3.6 重命名会话</a></li>
-<li><a href="#37-%E4%BC%9A%E8%AF%9D%E5%BF%AB%E6%8D%B7%E9%94%AE">3.7 会话快捷键</a></li>
+<li><a href="#3会话管理">3.会话管理</a><ul>
+<li><a href="#31-新建会话">3.1 新建会话</a></li>
+<li><a href="#32-分离会话">3.2 分离会话</a></li>
+<li><a href="#33-接入会话">3.3 接入会话</a></li>
+<li><a href="#34-杀死会话">3.4 杀死会话</a></li>
+<li><a href="#35-切换会话">3.5 切换会话</a></li>
+<li><a href="#36-重命名会话">3.6 重命名会话</a></li>
+<li><a href="#37-会话快捷键">3.7 会话快捷键</a></li>
 </ul>
 </li>
-<li><a href="#4%E6%9C%80%E7%AE%80%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B">4.最简操作流程</a></li>
-<li><a href="#5%E7%AA%97%E6%A0%BC%E6%93%8D%E4%BD%9C">5.窗格操作</a>
-<ul>
-<li><a href="#51-%E5%88%92%E5%88%86%E7%AA%97%E6%A0%BC">5.1 划分窗格</a></li>
-<li><a href="#52-%E7%A7%BB%E5%8A%A8%E5%85%89%E6%A0%87">5.2 移动光标</a></li>
-<li><a href="#53-%E4%BA%A4%E6%8D%A2%E7%AA%97%E6%A0%BC%E4%BD%8D%E7%BD%AE">5.3 交换窗格位置</a></li>
-<li><a href="#54-%E7%AA%97%E6%A0%BC%E5%BF%AB%E6%8D%B7%E9%94%AE">5.4 窗格快捷键</a></li>
+<li><a href="#4最简操作流程">4.最简操作流程</a></li>
+<li><a href="#5窗格操作">5.窗格操作</a><ul>
+<li><a href="#51-划分窗格">5.1 划分窗格</a></li>
+<li><a href="#52-移动光标">5.2 移动光标</a></li>
+<li><a href="#53-交换窗格位置">5.3 交换窗格位置</a></li>
+<li><a href="#54-窗格快捷键">5.4 窗格快捷键</a></li>
 </ul>
 </li>
-<li><a href="#6%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86">6.窗口管理</a>
-<ul>
-<li><a href="#61-%E6%96%B0%E5%BB%BA%E7%AA%97%E5%8F%A3">6.1 新建窗口</a></li>
-<li><a href="#62-%E5%88%87%E6%8D%A2%E7%AA%97%E5%8F%A3">6.2 切换窗口</a></li>
-<li><a href="#63-%E9%87%8D%E5%91%BD%E5%90%8D%E7%AA%97%E5%8F%A3">6.3 重命名窗口</a></li>
-<li><a href="#64-%E7%AA%97%E5%8F%A3%E5%BF%AB%E6%8D%B7%E9%94%AE">6.4 窗口快捷键</a></li>
+<li><a href="#6窗口管理">6.窗口管理</a><ul>
+<li><a href="#61-新建窗口">6.1 新建窗口</a></li>
+<li><a href="#62-切换窗口">6.2 切换窗口</a></li>
+<li><a href="#63-重命名窗口">6.3 重命名窗口</a></li>
+<li><a href="#64-窗口快捷键">6.4 窗口快捷键</a></li>
 </ul>
 </li>
-<li><a href="#7%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4">7.其他命令</a></li>
-<li><a href="#8%E6%BC%94%E7%A4%BA%E8%BF%87%E7%A8%8B">8.演示过程</a></li>
-<li><a href="#%E9%99%84%E5%BD%95">附录</a>
-<ul>
-<li><a href="#%E8%A1%A8%E4%B8%80%E7%B3%BB%E7%BB%9F%E6%8C%87%E4%BB%A4">表一：系统指令</a></li>
-<li><a href="#%E8%A1%A8%E4%BA%8C%E7%AA%97%E5%8F%A3window%E6%8C%87%E4%BB%A4">表二：窗口（Window）指令</a></li>
-<li><a href="#%E8%A1%A8%E4%B8%89%E9%9D%A2%E6%9D%BFpane%E6%8C%87%E4%BB%A4">表三：面板（Pane）指令</a></li>
+<li><a href="#7其他命令">7.其他命令</a></li>
+<li><a href="#8演示过程">8.演示过程</a></li>
+<li><a href="#附录">附录</a><ul>
+<li><a href="#表一系统指令">表一：系统指令</a></li>
+<li><a href="#表二窗口window指令">表二：窗口（Window）指令</a></li>
+<li><a href="#表三面板pane指令">表三：面板（Pane）指令</a></li>
 </ul>
 </li>
-<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
+<li><a href="#参考链接">参考链接</a></li>
 </ul>
-<br>
-<h2 id="1tmux-是什么"><a class="markdownIt-Anchor" href="#1tmux-是什么"></a> 1.Tmux 是什么</h2>
-<h3 id="11-会话与进程"><a class="markdownIt-Anchor" href="#11-会话与进程"></a> 1.1 会话与进程</h3>
-<p><strong>会话（session）</strong>：用户与计算机之间的一种临时交互。</p>
-<p>会话的核心特征在于<strong>窗口与其内启动的进程紧密相连</strong>。开启窗口意味着会话的开始；关闭窗口则标志着会话的结束，随之，会话中的进程不论是否执行完毕都将被终止。<br />
-以<strong>SSH 远程登录计算机</strong>为例，若在执行命令时网络突然中断，重新登录后将无法找回先前的命令。这是因为之前的SSH会话已终止，其进程也随之消失。<br />
-为了克服这一挑战，可以实现<strong>会话与窗口的解绑</strong>：即使窗口关闭，会话也不会结束，而是继续运行，待需要时可重新绑定至其他窗口。</p>
-<h3 id="12-tmux-的作用"><a class="markdownIt-Anchor" href="#12-tmux-的作用"></a> 1.2 Tmux 的作用</h3>
-<p><strong>Tmux</strong>：一个实现会话与窗口解绑的工具。</p>
+<p><br></p>
+<h2 id="Tmux-是什么"><a href="#Tmux-是什么" class="headerlink" title="Tmux 是什么"></a>Tmux 是什么</h2><h3 id="会话与进程"><a href="#会话与进程" class="headerlink" title="会话与进程"></a>会话与进程</h3><p><strong>会话（session）</strong>：用户与计算机之间的一种临时交互。</p>
+<p>会话的核心特征在于<strong>窗口与其内启动的进程紧密相连</strong>。开启窗口意味着会话的开始；关闭窗口则标志着会话的结束，随之，会话中的进程不论是否执行完毕都将被终止。<br>以<strong>SSH 远程登录计算机</strong>为例，若在执行命令时网络突然中断，重新登录后将无法找回先前的命令。这是因为之前的SSH会话已终止，其进程也随之消失。<br>为了克服这一挑战，可以实现<strong>会话与窗口的解绑</strong>：即使窗口关闭，会话也不会结束，而是继续运行，待需要时可重新绑定至其他窗口。</p>
+<h3 id="Tmux-的作用"><a href="#Tmux-的作用" class="headerlink" title="Tmux 的作用"></a>Tmux 的作用</h3><p><strong>Tmux</strong>：一个实现会话与窗口解绑的工具。</p>
 <ul>
 <li>（1）支持在单一窗口内<strong>同时访问多个会话</strong>，适用于并行运行多个命令行程序。</li>
 <li>（2）允许<strong>新窗口接入已存在会话</strong>。</li>
 <li>（3）支持每个会话拥有<strong>多个连接窗口</strong>，便于多人实时共享会话。</li>
 <li>（4）提供<strong>灵活的窗口垂直和水平拆分</strong>功能。</li>
 </ul>
-<br>
-<h2 id="2基本用法"><a class="markdownIt-Anchor" href="#2基本用法"></a> 2.基本用法</h2>
-<h3 id="21-tmux-安装"><a class="markdownIt-Anchor" href="#21-tmux-安装"></a> 2.1 Tmux 安装</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对于 Ubuntu 或 Debian</span></span><br><span class="line">sudo apt-get install tmux</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对于 CentOS 或 Fedora</span></span><br><span class="line">sudo yum install tmux</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对于 Mac</span></span><br><span class="line">brew install tmux</span><br></pre></td></tr></table></figure>
-<h3 id="22-tmux-启动与退出"><a class="markdownIt-Anchor" href="#22-tmux-启动与退出"></a> 2.2 Tmux 启动与退出</h3>
-<p>安装完成后，通过输入 <code>tmux</code> 命令即可进入 Tmux 窗口。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux</span><br></pre></td></tr></table></figure>
-<p>此命令将打开 Tmux 窗口，并在底部展示一个状态栏。状态栏左侧显示窗口信息（编号和名称），右侧显示系统信息。</p>
-<p>按下 <code>Ctrl+d</code> 或输入 <code>exit</code> 命令即可退出 Tmux 窗口。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-<h3 id="23-前缀键"><a class="markdownIt-Anchor" href="#23-前缀键"></a> 2.3 前缀键</h3>
-<p>Tmux 窗口支持众多快捷键，所有快捷键均需通过前缀键激活。默认前缀键为 <code>Ctrl+b</code>，即首先按下 <code>Ctrl+b</code>，随后输入的快捷键才有效。</p>
+<p><br></p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="Tmux-安装"><a href="#Tmux-安装" class="headerlink" title="Tmux 安装"></a>Tmux 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对于 Ubuntu 或 Debian</span></span><br><span class="line">sudo apt-get install tmux</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对于 CentOS 或 Fedora</span></span><br><span class="line">sudo yum install tmux</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对于 Mac</span></span><br><span class="line">brew install tmux</span><br></pre></td></tr></table></figure>
+<h3 id="Tmux-启动与退出"><a href="#Tmux-启动与退出" class="headerlink" title="Tmux 启动与退出"></a>Tmux 启动与退出</h3><p>安装完成后，通过输入 <code>tmux</code> 命令即可进入 Tmux 窗口。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux</span><br></pre></td></tr></table></figure><br>此命令将打开 Tmux 窗口，并在底部展示一个状态栏。状态栏左侧显示窗口信息（编号和名称），右侧显示系统信息。</p>
+<p>按下 <code>Ctrl+d</code> 或输入 <code>exit</code> 命令即可退出 Tmux 窗口。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="前缀键"><a href="#前缀键" class="headerlink" title="前缀键"></a>前缀键</h3><p>Tmux 窗口支持众多快捷键，所有快捷键均需通过前缀键激活。默认前缀键为 <code>Ctrl+b</code>，即首先按下 <code>Ctrl+b</code>，随后输入的快捷键才有效。</p>
 <p>例如，显示帮助信息的快捷键是 <code>Ctrl+b ?</code>。在 Tmux 窗口中，先按 <code>Ctrl+b</code>，再按 <code>?</code> 即可展示帮助信息。</p>
 <p>按 <code>ESC</code> 键或 <code>q</code> 键退出帮助界面。</p>
-<br>
-<h2 id="3会话管理"><a class="markdownIt-Anchor" href="#3会话管理"></a> 3.会话管理</h2>
-<h3 id="31-新建会话"><a class="markdownIt-Anchor" href="#31-新建会话"></a> 3.1 新建会话</h3>
-<p>当首个 Tmux 窗口启动时，其编号为 0，随后启动的窗口编号依次增加。相应的会话也被称作 0 号会话、1 号会话等。</p>
+<p><br></p>
+<h2 id="会话管理"><a href="#会话管理" class="headerlink" title="会话管理"></a>会话管理</h2><h3 id="新建会话"><a href="#新建会话" class="headerlink" title="新建会话"></a>新建会话</h3><p>当首个 Tmux 窗口启动时，其编号为 0，随后启动的窗口编号依次增加。相应的会话也被称作 0 号会话、1 号会话等。</p>
 <p>为了便于识别，推荐为会话命名：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
 <p>以上命令新建一个带有指定名称的会话。</p>
-<h3 id="32-分离会话"><a class="markdownIt-Anchor" href="#32-分离会话"></a> 3.2 分离会话</h3>
-<p>在 Tmux 窗口中，通过按下 <code>Ctrl+b d</code> 或输入 <code>tmux detach</code> 命令可以实现当前会话与窗口的分离。</p>
+<h3 id="分离会话"><a href="#分离会话" class="headerlink" title="分离会话"></a>分离会话</h3><p>在 Tmux 窗口中，通过按下 <code>Ctrl+b d</code> 或输入 <code>tmux detach</code> 命令可以实现当前会话与窗口的分离。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux detach</span><br></pre></td></tr></table></figure>
 <p>执行以上命令后，将退出当前 Tmux 窗口，但会话及其进程仍在后台运行。</p>
 <p>使用 <code>tmux ls</code> 命令查看当前所有 Tmux 会话：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tmux <span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">tmux list-session</span><br></pre></td></tr></table></figure>
-<h3 id="33-接入会话"><a class="markdownIt-Anchor" href="#33-接入会话"></a> 3.3 接入会话</h3>
-<p><code>tmux attach</code> 命令允许重新接入某个已存在的会话。</p>
+<h3 id="接入会话"><a href="#接入会话" class="headerlink" title="接入会话"></a>接入会话</h3><p><code>tmux attach</code> 命令允许重新接入某个已存在的会话。</p>
 <ul>
-<li>
-<p>使用会话编号接入：</p>
+<li><p>使用会话编号接入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach -t 0</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>使用会话名称接入：</p>
+<li><p>使用会话名称接入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="34-杀死会话"><a class="markdownIt-Anchor" href="#34-杀死会话"></a> 3.4 杀死会话</h3>
-<p><code>tmux kill-session</code> 命令用于终止指定会话。</p>
+<h3 id="杀死会话"><a href="#杀死会话" class="headerlink" title="杀死会话"></a>杀死会话</h3><p><code>tmux kill-session</code> 命令用于终止指定会话。</p>
 <ul>
-<li>
-<p>使用会话编号杀死：</p>
+<li><p>使用会话编号杀死：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux kill-session -t 0</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>使用会话名称杀死：</p>
+<li><p>使用会话名称杀死：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux kill-session -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="35-切换会话"><a class="markdownIt-Anchor" href="#35-切换会话"></a> 3.5 切换会话</h3>
-<p><code>tmux switch</code> 命令用于切换到另一个会话。</p>
+<h3 id="切换会话"><a href="#切换会话" class="headerlink" title="切换会话"></a>切换会话</h3><p><code>tmux switch</code> 命令用于切换到另一个会话。</p>
 <ul>
-<li>
-<p>使用会话编号切换：</p>
+<li><p>使用会话编号切换：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux switch -t 0</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>使用会话名称切换：</p>
+<li><p>使用会话名称切换：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux switch -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="36-重命名会话"><a class="markdownIt-Anchor" href="#36-重命名会话"></a> 3.6 重命名会话</h3>
-<p><code>tmux rename-session</code> 命令允许为会话设置新名称。</p>
+<h3 id="重命名会话"><a href="#重命名会话" class="headerlink" title="重命名会话"></a>重命名会话</h3><p><code>tmux rename-session</code> 命令允许为会话设置新名称。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux rename-session -t 0 &lt;new-name&gt;</span><br></pre></td></tr></table></figure>
 <p>以上命令将 0 号会话重命名。</p>
-<h3 id="37-会话快捷键"><a class="markdownIt-Anchor" href="#37-会话快捷键"></a> 3.7 会话快捷键</h3>
-<p>以下是一些与会话管理相关的快捷键操作：</p>
+<h3 id="会话快捷键"><a href="#会话快捷键" class="headerlink" title="会话快捷键"></a>会话快捷键</h3><p>以下是一些与会话管理相关的快捷键操作：</p>
 <ul>
 <li><code>Ctrl+b d</code>：分离当前会话。</li>
 <li><code>Ctrl+b s</code>：列出所有会话。</li>
 <li><code>Ctrl+b $</code>：重命名当前会话。</li>
 </ul>
-<br>
-<h2 id="4最简操作流程"><a class="markdownIt-Anchor" href="#4最简操作流程"></a> 4.最简操作流程</h2>
-<p>综上所述，以下是 Tmux 的最简操作流程：</p>
+<p><br></p>
+<h2 id="最简操作流程"><a href="#最简操作流程" class="headerlink" title="最简操作流程"></a>最简操作流程</h2><p>综上所述，以下是 Tmux 的最简操作流程：</p>
 <ol>
 <li>新建会话：<code>tmux new -s my_session</code>。</li>
 <li>在 Tmux 窗口运行所需的程序。</li>
 <li>按下快捷键 <code>Ctrl+b d</code> 将会话分离。</li>
 <li>下次使用时，重新连接到会话：<code>tmux attach-session -t my_session</code>。</li>
 </ol>
-<br>
-<h2 id="5窗格操作"><a class="markdownIt-Anchor" href="#5窗格操作"></a> 5.窗格操作</h2>
-<p>Tmux 可以将窗口分成多个窗格（pane），每个窗格运行不同的命令。以下命令都是在 Tmux 窗口中执行。</p>
-<h3 id="51-划分窗格"><a class="markdownIt-Anchor" href="#51-划分窗格"></a> 5.1 划分窗格</h3>
-<ul>
+<p><br></p>
+<h2 id="窗格操作"><a href="#窗格操作" class="headerlink" title="窗格操作"></a>窗格操作</h2><p>Tmux 可以将窗口分成多个窗格（pane），每个窗格运行不同的命令。以下命令都是在 Tmux 窗口中执行。</p>
+<h3 id="划分窗格"><a href="#划分窗格" class="headerlink" title="划分窗格"></a>划分窗格</h3><ul>
 <li>划分上下两个窗格：<code>tmux split-window</code></li>
 <li>划分左右两个窗格：<code>tmux split-window -h</code></li>
 </ul>
-<h3 id="52-移动光标"><a class="markdownIt-Anchor" href="#52-移动光标"></a> 5.2 移动光标</h3>
-<ul>
+<h3 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h3><ul>
 <li>光标切换到上方窗格：<code>tmux select-pane -U</code></li>
 <li>光标切换到下方窗格：<code>tmux select-pane -D</code></li>
 <li>光标切换到左边窗格：<code>tmux select-pane -L</code></li>
 <li>光标切换到右边窗格：<code>tmux select-pane -R</code></li>
 </ul>
-<h3 id="53-交换窗格位置"><a class="markdownIt-Anchor" href="#53-交换窗格位置"></a> 5.3 交换窗格位置</h3>
-<ul>
+<h3 id="交换窗格位置"><a href="#交换窗格位置" class="headerlink" title="交换窗格位置"></a>交换窗格位置</h3><ul>
 <li>当前窗格上移：<code>tmux swap-pane -U</code></li>
 <li>当前窗格下移：<code>tmux swap-pane -D</code></li>
 </ul>
-<h3 id="54-窗格快捷键"><a class="markdownIt-Anchor" href="#54-窗格快捷键"></a> 5.4 窗格快捷键</h3>
-<ul>
+<h3 id="窗格快捷键"><a href="#窗格快捷键" class="headerlink" title="窗格快捷键"></a>窗格快捷键</h3><ul>
 <li><code>Ctrl+b %</code>：划分左右两个窗格。</li>
 <li><code>Ctrl+b &quot;</code>：划分上下两个窗格。</li>
 <li><code>Ctrl+b &lt;arrow key&gt;</code>：光标切换到其他窗格。<code>&lt;arrow key&gt;</code> 指向要切换到的窗格方向键。</li>
@@ -534,84 +496,63 @@
 <li><code>Ctrl+b q</code>：显示窗格编号。</li>
 </ul>
 <Br>
-<h2 id="6窗口管理"><a class="markdownIt-Anchor" href="#6窗口管理"></a> 6.窗口管理</h2>
-<p>除了划分窗格，Tmux 也允许新建多个窗口。</p>
-<h3 id="61-新建窗口"><a class="markdownIt-Anchor" href="#61-新建窗口"></a> 6.1 新建窗口</h3>
-<ul>
+
+<h2 id="窗口管理"><a href="#窗口管理" class="headerlink" title="窗口管理"></a>窗口管理</h2><p>除了划分窗格，Tmux 也允许新建多个窗口。</p>
+<h3 id="新建窗口"><a href="#新建窗口" class="headerlink" title="新建窗口"></a>新建窗口</h3><ul>
 <li>新建窗口：<code>tmux new-window</code></li>
 <li>新建指定名称的窗口：<code>tmux new-window -n &lt;window-name&gt;</code></li>
 </ul>
-<h3 id="62-切换窗口"><a class="markdownIt-Anchor" href="#62-切换窗口"></a> 6.2 切换窗口</h3>
-<ul>
+<h3 id="切换窗口"><a href="#切换窗口" class="headerlink" title="切换窗口"></a>切换窗口</h3><ul>
 <li>切换到指定编号的窗口：<code>tmux select-window -t &lt;window-number&gt;</code></li>
 <li>切换到指定名称的窗口：<code>tmux select-window -t &lt;window-name&gt;</code></li>
 </ul>
-<h3 id="63-重命名窗口"><a class="markdownIt-Anchor" href="#63-重命名窗口"></a> 6.3 重命名窗口</h3>
-<ul>
+<h3 id="重命名窗口"><a href="#重命名窗口" class="headerlink" title="重命名窗口"></a>重命名窗口</h3><ul>
 <li>为当前窗口起名或重命名：<code>tmux rename-window &lt;new-name&gt;</code></li>
 </ul>
-<h3 id="64-窗口快捷键"><a class="markdownIt-Anchor" href="#64-窗口快捷键"></a> 6.4 窗口快捷键</h3>
-<ul>
+<h3 id="窗口快捷键"><a href="#窗口快捷键" class="headerlink" title="窗口快捷键"></a>窗口快捷键</h3><ul>
 <li><code>Ctrl+b c</code>：创建新窗口。</li>
 <li><code>Ctrl+b p</code> 和 <code>Ctrl+b n</code>：切换窗口。</li>
 <li><code>Ctrl+b &lt;number&gt;</code>：切换到指定编号的窗口。</li>
 <li><code>Ctrl+b w</code>：从列表中选择窗口。</li>
 <li><code>Ctrl+b ,</code>：窗口重命名。</li>
 </ul>
-<br>
-<h2 id="7其他命令"><a class="markdownIt-Anchor" href="#7其他命令"></a> 7.其他命令</h2>
-<p>以下是一些额外的 Tmux 命令：</p>
+<p><br></p>
+<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><p>以下是一些额外的 Tmux 命令：</p>
 <ul>
 <li>列出所有快捷键：<code>tmux list-keys</code></li>
 <li>列出所有 Tmux 命令及参数：<code>tmux list-commands</code></li>
 <li>列出当前所有 Tmux 会话信息：<code>tmux info</code></li>
 <li>重新加载 Tmux 配置：<code>tmux source-file ~/.tmux.conf</code></li>
 </ul>
-<br>
-<h2 id="8演示过程"><a class="markdownIt-Anchor" href="#8演示过程"></a> 8.演示过程</h2>
-<p>我们输入 <code>tmux new -s work</code> 创建一个 session：<br />
-<img src="https://pic.imgdb.cn/item/6652c66ed9c307b7e9d5de08.png" alt="" /></p>
-<p>可以看到后台已经启动了 tmux 的 server 进程，因此即使关闭你的 terminal，session 仍然在运行：<br />
-<img src="https://pic.imgdb.cn/item/6652c708d9c307b7e9d682b1.png" alt="" /></p>
-<p>输入 <code>prefix + d</code> 可以分离 session（注意：一定要松开 <code>prefix</code> 再按 <code>d</code>）：<br />
-<img src="https://pic.imgdb.cn/item/6652d6bad9c307b7e9e8ce4d.png" alt="" /></p>
-<p>如果想要重新连接已分离的 session，可以输入 <code>tmux attach -t [session-name]</code>。在上例中，session 名为 <code>work</code>，因此指令为 <code>tmux attach -t work</code>：<br />
-<img src="https://pic.imgdb.cn/item/6652d71fd9c307b7e9e94344.png" alt="" /></p>
-<p>若需重新命名 session，可以按下 <code>prefix + $</code>：<br />
-<img src="https://pic.imgdb.cn/item/6652d798d9c307b7e9e9cab2.png" alt="" /></p>
-<p>要查看所有 session，可以按下 <code>prefix + s</code>：<br />
-<img src="https://pic.imgdb.cn/item/6652d7fad9c307b7e9ea320d.png" alt="" /></p>
-<p>或者使用 <code>tmux ls</code> 查看所有 session：<br />
-<img src="https://pic.imgdb.cn/item/6652d8d7d9c307b7e9eb1a1d.png" alt="" /></p>
-<p>一个 session 可以包含多个窗口。创建 session 时会默认生成一个窗口，使用 <code>prefix + c</code> 可以创建新窗口（每个窗口前面有编号，当前窗口标记为 <code>*</code>，上一个窗口标记为 <code>-</code>）：<br />
-<img src="https://pic.imgdb.cn/item/6652d98fd9c307b7e9ebded8.png" alt="" /></p>
+<p><br></p>
+<h2 id="演示过程"><a href="#演示过程" class="headerlink" title="演示过程"></a>演示过程</h2><p>我们输入 <code>tmux new -s work</code> 创建一个 session：<br><img src="https://pic.imgdb.cn/item/6652c66ed9c307b7e9d5de08.png" alt=""></p>
+<p>可以看到后台已经启动了 tmux 的 server 进程，因此即使关闭你的 terminal，session 仍然在运行：<br><img src="https://pic.imgdb.cn/item/6652c708d9c307b7e9d682b1.png" alt=""></p>
+<p>输入 <code>prefix + d</code> 可以分离 session（注意：一定要松开 <code>prefix</code> 再按 <code>d</code>）：<br><img src="https://pic.imgdb.cn/item/6652d6bad9c307b7e9e8ce4d.png" alt=""></p>
+<p>如果想要重新连接已分离的 session，可以输入 <code>tmux attach -t [session-name]</code>。在上例中，session 名为 <code>work</code>，因此指令为 <code>tmux attach -t work</code>：<br><img src="https://pic.imgdb.cn/item/6652d71fd9c307b7e9e94344.png" alt=""></p>
+<p>若需重新命名 session，可以按下 <code>prefix + $</code>：<br><img src="https://pic.imgdb.cn/item/6652d798d9c307b7e9e9cab2.png" alt=""></p>
+<p>要查看所有 session，可以按下 <code>prefix + s</code>：<br><img src="https://pic.imgdb.cn/item/6652d7fad9c307b7e9ea320d.png" alt=""></p>
+<p>或者使用 <code>tmux ls</code> 查看所有 session：<br><img src="https://pic.imgdb.cn/item/6652d8d7d9c307b7e9eb1a1d.png" alt=""></p>
+<p>一个 session 可以包含多个窗口。创建 session 时会默认生成一个窗口，使用 <code>prefix + c</code> 可以创建新窗口（每个窗口前面有编号，当前窗口标记为 <code>*</code>，上一个窗口标记为 <code>-</code>）：<br><img src="https://pic.imgdb.cn/item/6652d98fd9c307b7e9ebded8.png" alt=""></p>
 <p>调整窗口：</p>
 <ul>
 <li><code>prefix + p</code>：切换到上一个窗口</li>
 <li><code>prefix + n</code>：切换到下一个窗口</li>
 <li><code>prefix + &lt;number&gt;</code>：跳转到指定编号的窗口</li>
 </ul>
-<p>按下 <code>prefix + w</code> 可以显示所有窗口列表：<br />
-<img src="https://pic.imgdb.cn/item/6652da25d9c307b7e9ec72db.png" alt="" /></p>
-<p>按下 <code>prefix + ,</code> 可以为窗口命名，左下角会显示更改后的名字：<br />
-<img src="https://pic.imgdb.cn/item/6652dafdd9c307b7e9ed5991.png" alt="" /></p>
-<p>在窗口中可以进行分割，按下 <code>prefix + &quot;</code> 可以水平分割，按下 <code>prefix + %</code> 可以垂直分割：<br />
-<img src="https://pic.imgdb.cn/item/6652db73d9c307b7e9edd2e4.png" alt="" /></p>
-<p><img src="https://pic.imgdb.cn/item/6652db8fd9c307b7e9edf1a1.png" alt="" /></p>
+<p>按下 <code>prefix + w</code> 可以显示所有窗口列表：<br><img src="https://pic.imgdb.cn/item/6652da25d9c307b7e9ec72db.png" alt=""></p>
+<p>按下 <code>prefix + ,</code> 可以为窗口命名，左下角会显示更改后的名字：<br><img src="https://pic.imgdb.cn/item/6652dafdd9c307b7e9ed5991.png" alt=""></p>
+<p>在窗口中可以进行分割，按下 <code>prefix + &quot;</code> 可以水平分割，按下 <code>prefix + %</code> 可以垂直分割：<br><img src="https://pic.imgdb.cn/item/6652db73d9c307b7e9edd2e4.png" alt=""></p>
+<p><img src="https://pic.imgdb.cn/item/6652db8fd9c307b7e9edf1a1.png" alt=""></p>
 <p>移动窗格：</p>
 <ul>
 <li><code>prefix + &lt;方向键&gt;</code>：按方向键移动</li>
 <li><code>prefix + ;</code>：切换到上一个窗格</li>
 <li><code>prefix + o</code>：切换到下一个窗格</li>
 </ul>
-<p>要关闭当前窗格，可以按下 <code>prefix + x</code>：<br />
-<img src="https://pic.imgdb.cn/item/6652dc5dd9c307b7e9eec7e4.png" alt="" /></p>
-<p>将窗格转换为窗口（pane -&gt; window）：按下 <code>prefix + !</code>，可以看到窗口数量增加：<br />
-<img src="https://pic.imgdb.cn/item/6652dcd2d9c307b7e9ef35ab.png" alt="" /></p>
-<p>要最大化窗格，可以按下 <code>prefix + z</code>，左下角会提示已最大化，再按一次可以恢复：<br />
-<img src="https://pic.imgdb.cn/item/6652dd49d9c307b7e9efb16b.png" alt="" /></p>
-<h2 id="附录"><a class="markdownIt-Anchor" href="#附录"></a> 附录</h2>
-<h3 id="表一系统指令"><a class="markdownIt-Anchor" href="#表一系统指令"></a> 表一：系统指令</h3>
+<p>要关闭当前窗格，可以按下 <code>prefix + x</code>：<br><img src="https://pic.imgdb.cn/item/6652dc5dd9c307b7e9eec7e4.png" alt=""></p>
+<p>将窗格转换为窗口（pane -&gt; window）：按下 <code>prefix + !</code>，可以看到窗口数量增加：<br><img src="https://pic.imgdb.cn/item/6652dcd2d9c307b7e9ef35ab.png" alt=""></p>
+<p>要最大化窗格，可以按下 <code>prefix + z</code>，左下角会提示已最大化，再按一次可以恢复：<br><img src="https://pic.imgdb.cn/item/6652dd49d9c307b7e9efb16b.png" alt=""></p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="表一：系统指令"><a href="#表一：系统指令" class="headerlink" title="表一：系统指令"></a>表一：系统指令</h3><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -673,7 +614,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="表二窗口window指令"><a class="markdownIt-Anchor" href="#表二窗口window指令"></a> 表二：窗口（Window）指令</h3>
+</div>
+<h3 id="表二：窗口（Window）指令"><a href="#表二：窗口（Window）指令" class="headerlink" title="表二：窗口（Window）指令"></a>表二：窗口（Window）指令</h3><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -730,7 +672,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="表三面板pane指令"><a class="markdownIt-Anchor" href="#表三面板pane指令"></a> 表三：面板（Pane）指令</h3>
+</div>
+<h3 id="表三：面板（Pane）指令"><a href="#表三：面板（Pane）指令" class="headerlink" title="表三：面板（Pane）指令"></a>表三：面板（Pane）指令</h3><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -744,6 +687,8 @@
 <td><code>Ctrl+b</code></td>
 <td><code>&quot;</code></td>
 <td>当前面板上下一分为二，下`</td>
+<td><code>Alt+方向键</code></td>
+<td>以5个单元格为单位调整当前面板边缘</td>
 </tr>
 <tr>
 <td><code>Ctrl+b</code></td>
@@ -757,8 +702,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
-<ul>
+</div>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux 使用教程 // 作者： 阮一峰 // 日期： 2019年10月21日</a></li>
 <li><a target="_blank" rel="noopener" href="https://louiszhai.github.io/2017/09/30/tmux/">Tmux使用手册</a></li>
 </ul>
@@ -770,7 +715,7 @@
     <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
     (function() {
-        var dateUpdate = Date.parse("2026-01-19");
+        var dateUpdate = Date.parse("2026-08-07");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -786,7 +731,7 @@
 
 <p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2024-03-26T12:05:28.000Z" itemprop="datePublished">2024-03-26</time>
 
-    , 最后修改于&nbsp;<time datetime="2026-01-19T10:44:43.325Z" itemprop="dateModified">2026-01-19</time>
+    , 最后修改于&nbsp;<time datetime="2026-08-07T07:00:25.782Z" itemprop="dateModified">2026-08-07</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">

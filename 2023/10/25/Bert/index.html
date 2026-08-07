@@ -156,7 +156,7 @@
     <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="blog"><meta name="msapplication-starturl" content="https://abinzzz.github.io"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="blog">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="ML:Bert | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2023/10/25/Bert/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   参考链接： 🔗：李宏毅-ELMO, BERT, GPT讲解   一.Review  1.1 1-of-N Encoding 最早采用的方法，显然一个词用一个向量表示不合理 apple&#x3D;[1 0 0 0 0] bag&#x3D;[0 1 0 - ab - blog"><meta name="keywords" content="专业知识, ML, bert, 李宏毅, blog"><meta property="og:image" content="https://pbs.twimg.com/media/F9QBk3BbAAAbtmX?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/F9QB7xQbAAAizwg?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/F9QX_OoacAA0dP4?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QYYFvaYAAoswZ?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QYaCJbQAACqFg?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QYcYXagAAKXeD?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QaYRAacAA5Z6k?format=jpg&amp;name=medium"><meta property="og:image" content="https://img-blog.csdnimg.cn/2021031611423652.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODk3ODAw,size_16,color_FFFFFF,t_70#pic_center"><meta property="og:image" content="https://pbs.twimg.com/media/F9QaciNbQAAbgkM?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QammOasAA9R7V?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QapUPakAElWOT?format=jpg&amp;name=medium"><meta property="og:image" content="https://img-blog.csdnimg.cn/20210316115419587.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODk3ODAw,size_16,color_FFFFFF,t_70#pic_center"><meta property="og:image" content="https://pbs.twimg.com/media/F9Qa8g6bQAEVlm5?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QbE1DacAA83hV?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QbCZ2akAAr9Q-?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QbJk2aIAAflVu?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QbOHcagAAcOuk?format=jpg&amp;name=medium"><meta property="article:published_time" content="2023-10-25T01:58:26.000Z"><meta property="article:modified_time" content="2025-12-17T09:38:55.768Z"><meta property="og:updated_time" content="2025-12-17T09:38:55.768Z"><meta property="article:author" content="ab"><meta property="article:tag" content="专业知识, ML, bert, 李宏毅, blog"><meta name="twitter:card" content="summary">
+    <meta property="og:title" content="ML:Bert | blog"><meta property="og:site_name" content="blog"><meta property="og:type" content="article"><meta property="og:url" content="https://abinzzz.github.io/2023/10/25/Bert/"><meta property="og:locale" content="zh-CN"><meta name="description" content="MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &quot;none&quot; });   参考链接：🔗：李宏毅-ELMO, BERT, GPT讲解  一.Review1-of-N Encoding最早采用的方法，显然一个词用一个向量表示不合理apple&#x3D;[1 0 0 0 0]   bag&#x3D;[0 1 0 0 0] ca - ab - blog"><meta name="keywords" content="专业知识, ML, bert, 李宏毅, blog"><meta property="og:image" content="https://pbs.twimg.com/media/F9QBk3BbAAAbtmX?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/F9QB7xQbAAAizwg?format=png&amp;name=small"><meta property="og:image" content="https://pbs.twimg.com/media/F9QX_OoacAA0dP4?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QYYFvaYAAoswZ?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QYaCJbQAACqFg?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QYcYXagAAKXeD?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QaYRAacAA5Z6k?format=jpg&amp;name=medium"><meta property="og:image" content="https://img-blog.csdnimg.cn/2021031611423652.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODk3ODAw,size_16,color_FFFFFF,t_70#pic_center"><meta property="og:image" content="https://pbs.twimg.com/media/F9QaciNbQAAbgkM?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QammOasAA9R7V?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QapUPakAElWOT?format=jpg&amp;name=medium"><meta property="og:image" content="https://img-blog.csdnimg.cn/20210316115419587.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODk3ODAw,size_16,color_FFFFFF,t_70#pic_center"><meta property="og:image" content="https://pbs.twimg.com/media/F9Qa8g6bQAEVlm5?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QbE1DacAA83hV?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QbCZ2akAAr9Q-?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QbJk2aIAAflVu?format=jpg&amp;name=medium"><meta property="og:image" content="https://pbs.twimg.com/media/F9QbOHcagAAcOuk?format=jpg&amp;name=medium"><meta property="article:published_time" content="2023-10-25T01:58:26.000Z"><meta property="article:modified_time" content="2026-08-07T07:00:25.619Z"><meta property="og:updated_time" content="2026-08-07T07:00:25.619Z"><meta property="article:author" content="ab"><meta property="article:tag" content="专业知识, ML, bert, 李宏毅, blog"><meta name="twitter:card" content="summary">
 
     
 
@@ -197,7 +197,7 @@
     },
     
     "datePublished": "2023-10-25T01:58:26.000Z",
-    "dateModified": "2025-12-17T09:38:55.768Z",
+    "dateModified": "2026-08-07T07:00:25.619Z",
     "author": {
         "@type": "Person",
         "name": "ab",
@@ -223,7 +223,7 @@
     },
     
     "keywords": "专业知识, ML, bert, 李宏毅, blog",
-    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   参考链接： 🔗：李宏毅-ELMO, BERT, GPT讲解   一.Review  1.1 1-of-N Encoding 最早采用的方法，显然一个词用一个向量表示不合理 apple=[1 0 0 0 0] bag=[0 1 0 - ab - blog"
+    "description": "MathJax.Hub.Config({ tex2jax: {inlineMath: [[&amp;apos;$&amp;apos;, &amp;apos;$&amp;apos;]]}, messageStyle: &amp;quot;none&amp;quot; });   参考链接：🔗：李宏毅-ELMO, BERT, GPT讲解  一.Review1-of-N Encoding最早采用的方法，显然一个词用一个向量表示不合理apple=[1 0 0 0 0]   bag=[0 1 0 0 0] ca - ab - blog"
 }
 </script>
 
@@ -337,7 +337,7 @@
                     
                         
                         
-                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 参考链接：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80review"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 一.Review</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-1-of-n-encoding"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 1.1 1-of-N Encoding</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#12-word-class"><span class="post-toc-number">4.</span> <span class="post-toc-text"> 1.2 Word Class</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#13-word-embedding"><span class="post-toc-number">5.</span> <span class="post-toc-text"> 1.3 Word Embedding</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#14-contextualized-word-embedding"><span class="post-toc-number">6.</span> <span class="post-toc-text"> 1.4 Contextualized Word Embedding</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8Celmoembeddings-from-language-model"><span class="post-toc-number">7.</span> <span class="post-toc-text"> 二.ELMO&#x3D;Embeddings from Language Model</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89bertbidirectional-encoder-representations-from-transformers"><span class="post-toc-number">8.</span> <span class="post-toc-text"> 三.BERT&#x3D;Bidirectional Encoder Representations from Transformers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#31-train-approach"><span class="post-toc-number">9.</span> <span class="post-toc-text"> 3.1 train approach</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#311-train-approachmasked-lm"><span class="post-toc-number">10.</span> <span class="post-toc-text"> 3.1.1 train approach：Masked LM</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#312-train-approachnext-sentence-prediction"><span class="post-toc-number">11.</span> <span class="post-toc-text"> 3.1.2 train approach：Next Sentence Prediction</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#32-pre-train%E4%B8%8Efine-tune"><span class="post-toc-number">12.</span> <span class="post-toc-text"> 3.2 Pre-Train与fine-tune</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#33-how-to-use-bert"><span class="post-toc-number">13.</span> <span class="post-toc-text"> 3.3 How to use BERT</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#331-case-1"><span class="post-toc-number">14.</span> <span class="post-toc-text"> 3.3.1 Case 1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#332-case-2"><span class="post-toc-number">15.</span> <span class="post-toc-text"> 3.3.2 Case 2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#333-case-3"><span class="post-toc-number">16.</span> <span class="post-toc-text"> 3.3.3 Case 3</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#334-case-4"><span class="post-toc-number">17.</span> <span class="post-toc-text"> 3.3.4 Case 4</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#34-ernieenhanced-representation-through-knowledge-integration"><span class="post-toc-number">18.</span> <span class="post-toc-text"> 3.4 ERNIE&#x3D;Enhanced Representation through Knowledge Integration</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#35-multilingual-bert"><span class="post-toc-number">19.</span> <span class="post-toc-text"> 3.5 Multilingual BERT</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4gptgenerative-pre-traininggpt"><span class="post-toc-number">20.</span> <span class="post-toc-text"> 4.GPT&#x3D;Generative Pre-Training(GPT)</span></a></li></ol></div>
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5%EF%BC%9A"><span class="post-toc-text">参考链接：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80-Review"><span class="post-toc-text">一.Review</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-of-N-Encoding"><span class="post-toc-text">1-of-N Encoding</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Word-Class"><span class="post-toc-text">Word Class</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Word-Embedding"><span class="post-toc-text">Word Embedding</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Contextualized-Word-Embedding"><span class="post-toc-text">Contextualized Word Embedding</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C-ELMO-Embeddings-from-Language-Model"><span class="post-toc-text">二.ELMO&#x3D;Embeddings from Language Model</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89-BERT-Bidirectional-Encoder-Representations-from-Transformers"><span class="post-toc-text">三.BERT&#x3D;Bidirectional Encoder Representations from Transformers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#train-approach"><span class="post-toc-text">train approach</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#train-approach%EF%BC%9AMasked-LM"><span class="post-toc-text">train approach：Masked LM</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#train-approach%EF%BC%9ANext-Sentence-Prediction"><span class="post-toc-text">train approach：Next Sentence Prediction</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pre-Train%E4%B8%8Efine-tune"><span class="post-toc-text">Pre-Train与fine-tune</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#How-to-use-BERT"><span class="post-toc-text">How to use BERT</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Case-1"><span class="post-toc-text">Case 1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Case-2"><span class="post-toc-text">Case 2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Case-3"><span class="post-toc-text">Case 3</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Case-4"><span class="post-toc-text">Case 4</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ERNIE-Enhanced-Representation-through-Knowledge-Integration"><span class="post-toc-text">ERNIE&#x3D;Enhanced Representation through Knowledge Integration</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Multilingual-BERT"><span class="post-toc-text">Multilingual BERT</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GPT-Generative-Pre-Training-GPT"><span class="post-toc-text">GPT&#x3D;Generative Pre-Training(GPT)</span></a></li></ol></div>
                         
                     
                     <article id="post-content">
@@ -345,123 +345,110 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
 </script>
-<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接：</h2>
-<p>🔗：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17441137fa/?share_source=copy_web&amp;vd_source=d8d8cd49f932177e1995e230d7816d44">李宏毅-ELMO, BERT, GPT讲解</a></p>
-<br>
-<h2 id="一review"><a class="markdownIt-Anchor" href="#一review"></a> 一.Review</h2>
-<h2 id="11-1-of-n-encoding"><a class="markdownIt-Anchor" href="#11-1-of-n-encoding"></a> 1.1 <code>1-of-N Encoding</code></h2>
-<p>最早采用的方法，显然一个词用一个向量表示不合理<br />
-apple=[1 0 0 0 0]</p>
+
+<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p>🔗：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17441137fa/?share_source=copy_web&amp;vd_source=d8d8cd49f932177e1995e230d7816d44">李宏毅-ELMO, BERT, GPT讲解</a></p>
+<p><br></p>
+<h2 id="一-Review"><a href="#一-Review" class="headerlink" title="一.Review"></a>一.Review</h2><h2 id="1-of-N-Encoding"><a href="#1-of-N-Encoding" class="headerlink" title="1-of-N Encoding"></a><code>1-of-N Encoding</code></h2><p>最早采用的方法，显然一个词用一个向量表示不合理<br>apple=[1 0 0 0 0]  </p>
 <p>bag=[0 1 0 0 0]</p>
 <p>cat=[0 0 1 0 0]</p>
 <p>dog=[0 0  0 1 0]</p>
 <p>elephant=[0 0 0 0 1]</p>
-<br>
-<h2 id="12-word-class"><a class="markdownIt-Anchor" href="#12-word-class"></a> 1.2 <code>Word Class</code></h2>
-<p>之后才用WOrd CLass，但是这种分类还是太粗糙了</p>
-<p><img src="https://pbs.twimg.com/media/F9QBk3BbAAAbtmX?format=png&amp;name=small" alt="" /></p>
+<p><br></p>
+<h2 id="Word-Class"><a href="#Word-Class" class="headerlink" title="Word Class"></a><code>Word Class</code></h2><p>之后才用WOrd CLass，但是这种分类还是太粗糙了</p>
+<p><img src="https://pbs.twimg.com/media/F9QBk3BbAAAbtmX?format=png&amp;name=small" alt=""></p>
 <Br>
-<h2 id="13-word-embedding"><a class="markdownIt-Anchor" href="#13-word-embedding"></a> 1.3 <code>Word Embedding</code></h2>
-<p>每一个词映射到一个连续的向量空间，语义相似的词语在向量空间中距离较近</p>
-<p><img src="https://pbs.twimg.com/media/F9QB7xQbAAAizwg?format=png&amp;name=small" alt="" /></p>
-<br>
-<h2 id="14-contextualized-word-embedding"><a class="markdownIt-Anchor" href="#14-contextualized-word-embedding"></a> 1.4 <code>Contextualized Word Embedding</code></h2>
-<p>但是同一个词汇可能有不同的意思，比如：</p>
+
+<h2 id="Word-Embedding"><a href="#Word-Embedding" class="headerlink" title="Word Embedding"></a><code>Word Embedding</code></h2><p>每一个词映射到一个连续的向量空间，语义相似的词语在向量空间中距离较近</p>
+<p><img src="https://pbs.twimg.com/media/F9QB7xQbAAAizwg?format=png&amp;name=small" alt=""></p>
+<p><br></p>
+<h2 id="Contextualized-Word-Embedding"><a href="#Contextualized-Word-Embedding" class="headerlink" title="Contextualized Word Embedding"></a><code>Contextualized Word Embedding</code></h2><p>但是同一个词汇可能有不同的意思，比如：</p>
 <ul>
 <li>Have you paid that money to the bank yet ?(银行)</li>
 <li>It is safest to deposit your money in the bank.(银行)</li>
 <li>The victim was found lying dead on the river bank.(河堤)</li>
 <li>They stood on the river bank to fish.(河堤)</li>
 </ul>
-<br>
+<p><br></p>
 <p>期待：</p>
 <ul>
 <li>过去，word type对应一种embedding；现在，word tokens对应一种的embdding</li>
 <li>但同时word tokens也取决于其语境</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/F9QX_OoacAA0dP4?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<h2 id="二elmoembeddings-from-language-model"><a class="markdownIt-Anchor" href="#二elmoembeddings-from-language-model"></a> 二.ELMO=Embeddings from Language Model</h2>
-<ul>
+<p><img src="https://pbs.twimg.com/media/F9QX_OoacAA0dP4?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h2 id="二-ELMO-Embeddings-from-Language-Model"><a href="#二-ELMO-Embeddings-from-Language-Model" class="headerlink" title="二.ELMO=Embeddings from Language Model"></a>二.ELMO=Embeddings from Language Model</h2><ul>
 <li>RNN-based language models</li>
 </ul>
 <p>给很多句子去预测下一个句子的token是什么,不仅仅有正向的还有反向的</p>
-<p><img src="https://pbs.twimg.com/media/F9QYYFvaYAAoswZ?format=jpg&amp;name=medium" alt="" /></p>
-<br>
+<p><img src="https://pbs.twimg.com/media/F9QYYFvaYAAoswZ?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
 <p>但是深层LSTM的每一层都可以生成一个潜伏的表示，我们该用哪个呢？</p>
-<p><img src="https://pbs.twimg.com/media/F9QYaCJbQAACqFg?format=jpg&amp;name=medium" alt="" /></p>
-<br>
+<p><img src="https://pbs.twimg.com/media/F9QYaCJbQAACqFg?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
 <p>ELMO的思想那个就是我全部都要，不同的Task抽不同层的权重不一样：</p>
-<p><img src="https://pbs.twimg.com/media/F9QYcYXagAAKXeD?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<h2 id="三bertbidirectional-encoder-representations-from-transformers"><a class="markdownIt-Anchor" href="#三bertbidirectional-encoder-representations-from-transformers"></a> 三.BERT=Bidirectional Encoder Representations from Transformers</h2>
-<p><img src="https://pbs.twimg.com/media/F9QaYRAacAA5Z6k?format=jpg&amp;name=medium" alt="" /></p>
-<h2 id="31-train-approach"><a class="markdownIt-Anchor" href="#31-train-approach"></a> 3.1 train approach</h2>
-<p>两种方法要同时使用</p>
-<h2 id="311-train-approachmasked-lm"><a class="markdownIt-Anchor" href="#311-train-approachmasked-lm"></a> 3.1.1 train approach：Masked LM</h2>
-<p>BERT模型本身就是Transformer的Encoder，输入输出长度一样，BERT会对输入随机mask一些token，然后让机器来填空。Mask有两种处理方法，一是将其标记为一个特殊的符号，二是随机填上一个文字。在下图的例子中，第二个output vector经过Linear transform和softmax之后，得到所有文字在第二个位置出现的概率，选择概率最大的文字为答案。训练目标就是最小化 预测结果与已知的ground truth之间的交叉熵</p>
-<p><img src="https://img-blog.csdnimg.cn/2021031611423652.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODk3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="" /></p>
-<br>
-<h2 id="312-train-approachnext-sentence-prediction"><a class="markdownIt-Anchor" href="#312-train-approachnext-sentence-prediction"></a> 3.1.2 train approach：Next Sentence Prediction</h2>
-<p>BERT在做填空的同时，同时也在做NSP任务。对于输入的句子得做两个处理，首先在开始位置加上一个特殊的classification token(CLS)，在两个句子之间加上一个分隔符(SEP)。然后将处理好的向量表示丢给BERT，只取出(CLS)token对应的输出向量，进行线性变换和softmax，来判断Sentence1的下一句是否为Sentence2，但是NSP任务对BERT的下游任务没有什么帮助</p>
+<p><img src="https://pbs.twimg.com/media/F9QYcYXagAAKXeD?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h2 id="三-BERT-Bidirectional-Encoder-Representations-from-Transformers"><a href="#三-BERT-Bidirectional-Encoder-Representations-from-Transformers" class="headerlink" title="三.BERT=Bidirectional Encoder Representations from Transformers"></a>三.BERT=Bidirectional Encoder Representations from Transformers</h2><p><img src="https://pbs.twimg.com/media/F9QaYRAacAA5Z6k?format=jpg&amp;name=medium" alt=""></p>
+<h2 id="train-approach"><a href="#train-approach" class="headerlink" title="train approach"></a>train approach</h2><p>两种方法要同时使用</p>
+<h2 id="train-approach：Masked-LM"><a href="#train-approach：Masked-LM" class="headerlink" title="train approach：Masked LM"></a>train approach：Masked LM</h2><p>BERT模型本身就是Transformer的Encoder，输入输出长度一样，BERT会对输入随机mask一些token，然后让机器来填空。Mask有两种处理方法，一是将其标记为一个特殊的符号，二是随机填上一个文字。在下图的例子中，第二个output vector经过Linear transform和softmax之后，得到所有文字在第二个位置出现的概率，选择概率最大的文字为答案。训练目标就是最小化 预测结果与已知的ground truth之间的交叉熵</p>
+<p><img src="https://img-blog.csdnimg.cn/2021031611423652.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODk3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt=""></p>
+<p><br></p>
+<h2 id="train-approach：Next-Sentence-Prediction"><a href="#train-approach：Next-Sentence-Prediction" class="headerlink" title="train approach：Next Sentence Prediction"></a>train approach：Next Sentence Prediction</h2><p>BERT在做填空的同时，同时也在做NSP任务。对于输入的句子得做两个处理，首先在开始位置加上一个特殊的classification token(CLS)，在两个句子之间加上一个分隔符(SEP)。然后将处理好的向量表示丢给BERT，只取出(CLS)token对应的输出向量，进行线性变换和softmax，来判断Sentence1的下一句是否为Sentence2，但是NSP任务对BERT的下游任务没有什么帮助</p>
 <ul>
 <li>(CLS):输出分类结果的位置</li>
 <li>(SEP):两个句子的边界</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/F9QaciNbQAAbgkM?format=jpg&amp;name=medium" alt="" /></p>
+<p><img src="https://pbs.twimg.com/media/F9QaciNbQAAbgkM?format=jpg&amp;name=medium" alt=""></p>
 <Br>
-<h2 id="32-pre-train与fine-tune"><a class="markdownIt-Anchor" href="#32-pre-train与fine-tune"></a> 3.2 Pre-Train与fine-tune</h2>
-<p>BERT做填空题和NSP对于我们很关心的其他任务来说非常有用，并且这些任务只有少量带标签的数据，我们称训练BERT的过程称为预训练（pre-train），称我们关心的其他任务为下游任务(downstream tasks)。</p>
+
+
+<h2 id="Pre-Train与fine-tune"><a href="#Pre-Train与fine-tune" class="headerlink" title="Pre-Train与fine-tune"></a>Pre-Train与fine-tune</h2><p>BERT做填空题和NSP对于我们很关心的其他任务来说非常有用，并且这些任务只有少量带标签的数据，我们称训练BERT的过程称为预训练（pre-train），称我们关心的其他任务为下游任务(downstream tasks)。</p>
 <p>BERT模型预训练之后，经过微调(fine-tune)之后，可以应用于各式各样的下游任务中。</p>
 <Br>
-<h2 id="33-how-to-use-bert"><a class="markdownIt-Anchor" href="#33-how-to-use-bert"></a> 3.3 How to use BERT</h2>
-<h2 id="331-case-1"><a class="markdownIt-Anchor" href="#331-case-1"></a> 3.3.1 Case 1</h2>
-<ul>
+
+
+<h2 id="How-to-use-BERT"><a href="#How-to-use-BERT" class="headerlink" title="How to use BERT"></a>How to use BERT</h2><h2 id="Case-1"><a href="#Case-1" class="headerlink" title="Case 1"></a>Case 1</h2><ul>
 <li>输入：stence</li>
 <li>输出：class</li>
 <li>例如：情感分析，文件分类…</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/F9QammOasAA9R7V?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<h2 id="332-case-2"><a class="markdownIt-Anchor" href="#332-case-2"></a> 3.3.2 Case 2</h2>
-<ul>
+<p><img src="https://pbs.twimg.com/media/F9QammOasAA9R7V?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h2 id="Case-2"><a href="#Case-2" class="headerlink" title="Case 2"></a>Case 2</h2><ul>
 <li>输入：sentence</li>
 <li>输出：每个词的class</li>
 <li>例如：槽位填充</li>
 </ul>
-<p><img src="https://pbs.twimg.com/media/F9QapUPakAElWOT?format=jpg&amp;name=medium" alt="" /></p>
+<p><img src="https://pbs.twimg.com/media/F9QapUPakAElWOT?format=jpg&amp;name=medium" alt=""></p>
 <Br>
-<h2 id="333-case-3"><a class="markdownIt-Anchor" href="#333-case-3"></a> 3.3.3 Case 3</h2>
-<ul>
+
+
+<h2 id="Case-3"><a href="#Case-3" class="headerlink" title="Case 3"></a>Case 3</h2><ul>
 <li>输入：两个sentence</li>
 <li>输出：class</li>
 <li>例如：给定一个假设，判断推理是否正确</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/20210316115419587.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODk3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="" /></p>
-<br>
-<h2 id="334-case-4"><a class="markdownIt-Anchor" href="#334-case-4"></a> 3.3.4 Case 4</h2>
-<ul>
+<p><img src="https://img-blog.csdnimg.cn/20210316115419587.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODk3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt=""></p>
+<p><br></p>
+<h2 id="Case-4"><a href="#Case-4" class="headerlink" title="Case 4"></a>Case 4</h2><ul>
 <li>输入：Document和Query</li>
 <li>输出：两个正数s，e(s决定开始，e决定结束)</li>
 </ul>
-<p>基于抽取的问答的限制是答案必须来自于文章。如下图，输入的document中有N个单词，输入的query或question中有M个单词，最后输出两个整数(s, e)，分别表示答案在document中的起始(start)位置和结束(end)位置。例如第三题&quot;within a cloud&quot;是document的第77到79个单词，所以输出为(77, 79)。</p>
-<p><img src="https://pbs.twimg.com/media/F9Qa8g6bQAEVlm5?format=jpg&amp;name=medium" alt="" /></p>
-<br>
+<p>基于抽取的问答的限制是答案必须来自于文章。如下图，输入的document中有N个单词，输入的query或question中有M个单词，最后输出两个整数(s, e)，分别表示答案在document中的起始(start)位置和结束(end)位置。例如第三题”within a cloud”是document的第77到79个单词，所以输出为(77, 79)。</p>
+<p><img src="https://pbs.twimg.com/media/F9Qa8g6bQAEVlm5?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
 <p>具体如何训练，就是有两组随机初始化的向量，第一组与document对应的输出向量表示(output vector representation)做内积(inner product)，其结果进行线性变换和softmax，选择最大概率0.5所在的位置为起始位置s=2；第二组做同样的操作，选择最大概率0.7所在的位置为结束位置e=3，所以 outpu=(2,3),answer=(d2,d3)</p>
-<p><img src="https://pbs.twimg.com/media/F9QbE1DacAA83hV?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<h2 id="34-ernieenhanced-representation-through-knowledge-integration"><a class="markdownIt-Anchor" href="#34-ernieenhanced-representation-through-knowledge-integration"></a> 3.4 ERNIE=Enhanced Representation through Knowledge Integration</h2>
-<p>专门为中文设计的BERT</p>
-<p>将Mask LM盖住的character改为盖住word</p>
-<p><img src="https://pbs.twimg.com/media/F9QbCZ2akAAr9Q-?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<h2 id="35-multilingual-bert"><a class="markdownIt-Anchor" href="#35-multilingual-bert"></a> 3.5 Multilingual BERT</h2>
-<p>Multi-BERT就是使用多种语言对BERT进行预训练，Multi-BERT使用了104种语言做预训练，实验发现Multi-BERT在一种语言上做微调，在另一种语言上做测试</p>
-<p><img src="https://pbs.twimg.com/media/F9QbJk2aIAAflVu?format=jpg&amp;name=medium" alt="" /></p>
-<br>
-<h2 id="4gptgenerative-pre-traininggpt"><a class="markdownIt-Anchor" href="#4gptgenerative-pre-traininggpt"></a> 4.GPT=Generative Pre-Training(GPT)</h2>
-<p>GPT是Generative Pre-trained Transformer的缩写。GPT做的事其实是Predict Next Token，顾名思义就是预测下一个token，模型示意如下:</p>
-<p><img src="https://pbs.twimg.com/media/F9QbOHcagAAcOuk?format=jpg&amp;name=medium" alt="" /></p>
+<p><img src="https://pbs.twimg.com/media/F9QbE1DacAA83hV?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h2 id="ERNIE-Enhanced-Representation-through-Knowledge-Integration"><a href="#ERNIE-Enhanced-Representation-through-Knowledge-Integration" class="headerlink" title="ERNIE=Enhanced Representation through Knowledge Integration"></a>ERNIE=Enhanced Representation through Knowledge Integration</h2><p>专门为中文设计的BERT</p>
+<p>将Mask LM盖住的character改为盖住word </p>
+<p><img src="https://pbs.twimg.com/media/F9QbCZ2akAAr9Q-?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h2 id="Multilingual-BERT"><a href="#Multilingual-BERT" class="headerlink" title="Multilingual BERT"></a>Multilingual BERT</h2><p>Multi-BERT就是使用多种语言对BERT进行预训练，Multi-BERT使用了104种语言做预训练，实验发现Multi-BERT在一种语言上做微调，在另一种语言上做测试</p>
+<p><img src="https://pbs.twimg.com/media/F9QbJk2aIAAflVu?format=jpg&amp;name=medium" alt=""></p>
+<p><br></p>
+<h2 id="GPT-Generative-Pre-Training-GPT"><a href="#GPT-Generative-Pre-Training-GPT" class="headerlink" title="GPT=Generative Pre-Training(GPT)"></a>GPT=Generative Pre-Training(GPT)</h2><p>GPT是Generative Pre-trained Transformer的缩写。GPT做的事其实是Predict Next Token，顾名思义就是预测下一个token，模型示意如下:</p>
+<p><img src="https://pbs.twimg.com/media/F9QbOHcagAAcOuk?format=jpg&amp;name=medium" alt=""></p>
 
                     </article>
                     
@@ -470,7 +457,7 @@ apple=[1 0 0 0 0]</p>
     <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
     (function() {
-        var dateUpdate = Date.parse("2025-12-17");
+        var dateUpdate = Date.parse("2026-08-07");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -486,7 +473,7 @@ apple=[1 0 0 0 0]</p>
 
 <p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2023-10-25T01:58:26.000Z" itemprop="datePublished">2023-10-25</time>
 
-    , 最后修改于&nbsp;<time datetime="2025-12-17T09:38:55.768Z" itemprop="dateModified">2025-12-17</time>
+    , 最后修改于&nbsp;<time datetime="2026-08-07T07:00:25.619Z" itemprop="dateModified">2026-08-07</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">
