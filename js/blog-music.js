@@ -183,8 +183,7 @@
         var tocItems = tocContainer.querySelectorAll('.post-toc-item.post-toc-level-1, .post-toc-item.post-toc-level-2, .post-toc-item.post-toc-level-3');
         tocItems.forEach(function (item) {
             if (item.dataset.tocBound === 'true') return;
-            if (item.classList.contains('toc-has-children')) return;
-            if (item.querySelector('ol.post-toc-child')) {
+            if (item.querySelector(':scope > ol.post-toc-child')) {
                 item.classList.add('toc-has-children');
                 item.dataset.tocBound = 'true';
                 var link = item.querySelector(':scope > .post-toc-link');
@@ -192,8 +191,9 @@
                     var toggle = document.createElement('button');
                     toggle.type = 'button';
                     toggle.className = 'post-toc-toggle';
-                    toggle.setAttribute('aria-label', '展开子目录');
-                    toggle.setAttribute('aria-expanded', 'false');
+                    var initiallyExpanded = item.classList.contains('toc-expanded');
+                    toggle.setAttribute('aria-label', initiallyExpanded ? '收起子目录' : '展开子目录');
+                    toggle.setAttribute('aria-expanded', String(initiallyExpanded));
                     toggle.addEventListener('click', function (event) {
                         event.preventDefault();
                         event.stopPropagation();
