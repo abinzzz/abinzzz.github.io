@@ -8,6 +8,7 @@
         muted: 'blogMusicMuted'
     };
     var pjaxSelector = '#pjax-container';
+    var currentDocumentUrl = getDocumentUrl(window.location.href);
     var player = document.getElementById('blog-music-player');
     var audio = document.getElementById('blog-music-audio');
     var playlist = [];
@@ -181,29 +182,6 @@
         var tocContainer = document.getElementById('post-toc');
         if (!tocContainer) return;
 
-        tocContainer.querySelectorAll('.post-toc-link[href^="#"]').forEach(function (link) {
-            if (link.dataset.tocLinkBound === 'true') return;
-            link.dataset.tocLinkBound = 'true';
-            link.addEventListener('click', function (event) {
-                var hash = link.getAttribute('href');
-                var targetId;
-                try {
-                    targetId = decodeURIComponent(hash.slice(1));
-                } catch (error) {
-                    targetId = hash.slice(1);
-                }
-                var target = document.getElementById(targetId);
-                if (!target) return;
-                event.preventDefault();
-                if (window.history && window.history.pushState) {
-                    window.history.pushState(null, '', hash);
-                } else {
-                    window.location.hash = hash;
-                }
-                target.scrollIntoView({ block: 'start' });
-            });
-        });
-
         var tocItems = tocContainer.querySelectorAll('.post-toc-item.post-toc-level-1, .post-toc-item.post-toc-level-2, .post-toc-item.post-toc-level-3');
         tocItems.forEach(function (item) {
             if (item.dataset.tocBound === 'true') return;
@@ -249,6 +227,11 @@
         return true;
     }
 
+    function getDocumentUrl(url) {
+        var parsedUrl = new URL(url, window.location.href);
+        return parsedUrl.origin + parsedUrl.pathname + parsedUrl.search;
+    }
+
     function updateHead(nextDocument) {
         document.title = nextDocument.title;
         var currentCanonical = document.querySelector('link[rel="canonical"]');
@@ -290,6 +273,7 @@
                 container.innerHTML = nextContainer.innerHTML;
                 runInlineScripts(container);
                 if (pushState) history.pushState({ url: url }, nextDocument.title, url);
+                currentDocumentUrl = getDocumentUrl(url);
                 window.scrollTo(0, 0);
                 reinitPageBehaviors();
             })
@@ -309,6 +293,8 @@
             loadPage(anchor.href, true);
         });
         window.addEventListener('popstate', function () {
+            var nextDocumentUrl = getDocumentUrl(window.location.href);
+            if (nextDocumentUrl === currentDocumentUrl) return;
             loadPage(window.location.href, false);
         });
     }
