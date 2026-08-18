@@ -180,6 +180,30 @@
     function initTocCollapse() {
         var tocContainer = document.getElementById('post-toc');
         if (!tocContainer) return;
+
+        tocContainer.querySelectorAll('.post-toc-link[href^="#"]').forEach(function (link) {
+            if (link.dataset.tocLinkBound === 'true') return;
+            link.dataset.tocLinkBound = 'true';
+            link.addEventListener('click', function (event) {
+                var hash = link.getAttribute('href');
+                var targetId;
+                try {
+                    targetId = decodeURIComponent(hash.slice(1));
+                } catch (error) {
+                    targetId = hash.slice(1);
+                }
+                var target = document.getElementById(targetId);
+                if (!target) return;
+                event.preventDefault();
+                if (window.history && window.history.pushState) {
+                    window.history.pushState(null, '', hash);
+                } else {
+                    window.location.hash = hash;
+                }
+                target.scrollIntoView({ block: 'start' });
+            });
+        });
+
         var tocItems = tocContainer.querySelectorAll('.post-toc-item.post-toc-level-1, .post-toc-item.post-toc-level-2, .post-toc-item.post-toc-level-3');
         tocItems.forEach(function (item) {
             if (item.dataset.tocBound === 'true') return;
