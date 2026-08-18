@@ -187,18 +187,21 @@
             if (item.querySelector('ol.post-toc-child')) {
                 item.classList.add('toc-has-children');
                 item.dataset.tocBound = 'true';
-                var link = item.querySelector('.post-toc-link');
+                var link = item.querySelector(':scope > .post-toc-link');
                 if (link) {
-                    link.addEventListener('click', function (event) {
-                        if (event.ctrlKey || event.metaKey || event.button === 1) return;
+                    var toggle = document.createElement('button');
+                    toggle.type = 'button';
+                    toggle.className = 'post-toc-toggle';
+                    toggle.setAttribute('aria-label', '展开子目录');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    toggle.addEventListener('click', function (event) {
                         event.preventDefault();
                         event.stopPropagation();
-                        item.classList.toggle('toc-expanded');
+                        var expanded = item.classList.toggle('toc-expanded');
+                        toggle.setAttribute('aria-expanded', String(expanded));
+                        toggle.setAttribute('aria-label', expanded ? '收起子目录' : '展开子目录');
                     });
-                    link.addEventListener('dblclick', function () {
-                        var href = link.getAttribute('href');
-                        if (href) window.location.hash = href;
-                    });
+                    link.insertAdjacentElement('afterend', toggle);
                 }
             }
         });

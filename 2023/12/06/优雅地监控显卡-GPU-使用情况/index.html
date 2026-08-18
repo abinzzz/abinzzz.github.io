@@ -575,35 +575,21 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
                 // 添加标记类，用于 CSS 显示图标
                 item.classList.add('toc-has-children');
                 
-                const link = item.querySelector('.post-toc-link');
+                const link = item.querySelector(':scope > .post-toc-link');
                 if (link) {
-                    // 阻止默认的锚点跳转，改为展开/折叠
-                    link.addEventListener('click', function(e) {
-                        // 如果用户按住 Ctrl/Cmd 或中键点击，则跳转
-                        if (e.ctrlKey || e.metaKey || e.button === 1) {
-                            return; // 允许默认行为（跳转）
-                        }
-                        
+                    const toggle = document.createElement('button');
+                    toggle.type = 'button';
+                    toggle.className = 'post-toc-toggle';
+                    toggle.setAttribute('aria-label', '展开子目录');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    toggle.addEventListener('click', function(e) {
                         e.preventDefault();
                         e.stopPropagation();
-                        
-                        // 切换展开/折叠状态
-                        item.classList.toggle('toc-expanded');
+                        const expanded = item.classList.toggle('toc-expanded');
+                        toggle.setAttribute('aria-expanded', String(expanded));
+                        toggle.setAttribute('aria-label', expanded ? '收起子目录' : '展开子目录');
                     });
-                    
-                    // 允许通过双击链接文本跳转
-                    link.addEventListener('dblclick', function(e) {
-                        const href = link.getAttribute('href');
-                        if (href) {
-                            window.location.hash = href;
-                        }
-                    });
-                    
-                    // 允许通过右键菜单跳转
-                    link.addEventListener('contextmenu', function(e) {
-                        // 允许默认的右键菜单
-                        return true;
-                    });
+                    link.insertAdjacentElement('afterend', toggle);
                 }
             }
         });
